@@ -370,6 +370,30 @@ module.exports = function(application){
 		
 	});
 
+	application.get('/centraladmanexo', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.home.centraladmanexo(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+	application.get('/centraladmhmu', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.home.centraladmhmu(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
 
 	application.post('/editarleitocim', function(req, res){
 		if(req.session.loggedin){

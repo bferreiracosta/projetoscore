@@ -407,6 +407,29 @@ module.exports.centralhmu= function(application, req, res){
 		});
 	});	
 }
+module.exports.centraladmhmu= function(application, req, res){
+	
+	var pacienteDAO = new application.app.model.pacienteDAO(application);
+	var id = req.query;
+
+	pacienteDAO.buscarusuario(id, function(error, result){
+		pacienteDAO.buscarleito(function(error, resultado){
+			res.render("paciente/centralhmu", {leito : resultado, id : result});
+		});
+	});	
+}
+
+module.exports.centraladmanexo= function(application, req, res){
+	
+	var pacienteDAO = new application.app.model.pacienteDAO(application);
+	var id = req.query;
+
+	pacienteDAO.buscarusuario(id, function(error, result){
+		pacienteDAO.buscarleito(function(error, resultado){
+			res.render("paciente/centralhmu", {leito : resultado, id : result});
+		});
+	});	
+}
 
 module.exports.centraluai= function(application, req, res){
 	
