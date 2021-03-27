@@ -43,7 +43,7 @@ pacienteDAO.prototype.autenticar = function(usuario, senha, unidade, funcao, req
 						if(results[0].regulacao == 1){
 						req.session.loggedin = true;
 						req.session.usuario = results[0].usuario;
-
+							console.log(results[0].usuario);
 						res.render('home/homeregulacao', {id : results});
 					} else {
 						res.render("home/index", {

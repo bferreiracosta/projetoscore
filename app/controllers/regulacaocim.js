@@ -185,6 +185,7 @@ module.exports.updateresp= function(application, req, res){
 	var glasgow = req.body.glasgow;
 	var nora = req.body.nora;
 	var adre = req.body.adre;
+	var bica = req.body.bica;
 	var dormonid = req.body.Dormonid3;
 	var fentanil = req.body.Fentanil3;
 	var rocuronio = req.body.Rocuronio3;
@@ -196,7 +197,7 @@ module.exports.updateresp= function(application, req, res){
 	
 	var pacienteDAOcim = new application.app.model.pacienteDAOcim(application);
 	pacienteDAOcim.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOcim.updateresp(idpaciente,dispositivo,fluxoo2, droga, fio2, peep, sedacao, glasgow,leito,nora, adre,dormonid,fentanil,rocuronio,propofol,bic,  function(error, result){
+		pacienteDAOcim.updateresp(idpaciente,dispositivo,fluxoo2, droga, fio2, peep, sedacao, glasgow,leito,nora, adre,bica,dormonid,fentanil,rocuronio,propofol,bic,  function(error, result){
 			pacienteDAOcim.buscarpaciente(unidade,function(error, resultado){
 				res.render("paciente/respiracaocim", {paciente : resultado, id : resultados});
 			});

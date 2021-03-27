@@ -818,12 +818,17 @@
 						<div class="form-check">
 							<input  type="checkbox" name="DVA" id="Noradrenalina"  class="form-check-input" onClick="check()" value="Noradrenalina">
 							<label class="form-check-label"  id="Noradrenalina2" for="Noradrenalina">Noradrenalina</label>
-							<input  id="nora"  type="hidden" name="nora">
+							<input  id="nora"  type="text" name="nora">
 						</div>
 						<div class="form-check">
-							<input type="checkbox" name="DVA" id="Adrenalina"  class="form-check-input" onClick="check()" value="adrenalina">
+							<input type="checkbox" name="DVA" id="Adrenalina"  class="form-check-input" onClick="check()" value="Adrenalina">
 							<label class="form-check-label"  id="Adrenalina2" for="Adrenalina">Adrenalina</label>
-							<input  id="adre"  type="hidden" name="adre">
+							<input  id="adre"  type="text" name="adre">
+						</div>
+						<div class="form-check">
+							<input type="checkbox" name="DVA" id="Bicarbonato"  class="form-check-input" onClick="check()" value="Bicarbonato">
+							<label class="form-check-label"  id="Bicarbonato2" for="Bicarbonato">Bicarbonato</label>
+							<input  id="bic"  type="text" name="bica">
 						</div>
                     </div>
 					<div class="form-group">
@@ -999,18 +1004,24 @@ function verificadroga(value){
 	var input2 = document.getElementById("Adrenalina");
 	var label = document.getElementById("Noradrenalina2");
 	var label2 = document.getElementById("Adrenalina2");
+	var input3 = document.getElementById("Bicarbonato");
+	var label3 = document.getElementById("Bicarbonato2");
 	
 
   if(value == 'nao'){
     input.style.display = "none";
 	input2.style.display = "none";
+	input3.style.display = "none";
 	label.style.display = "none";
 	label2.style.display = "none";
+	label3.style.display = "none";
   }else if(value == 'sim'){
     input.style.display = "inline";
 	input2.style.display = "inline";
+	input3.style.display = "inline";
 	label.style.display = "inline";
 	label2.style.display = "inline";
+	label3.style.display = "inline";
   }
 };
 window.onload = function() {
@@ -1021,6 +1032,8 @@ window.onload = function() {
   document.getElementById('Adrenalina').style.display = 'none';
   document.getElementById('Noradrenalina2').style.display = 'none';
   document.getElementById('Adrenalina2').style.display = 'none';
+  document.getElementById('Bicarbonato').style.display = 'none';
+  document.getElementById('Bicarbonato2').style.display = 'none';
   document.getElementById('Dormonid').style.display = 'none';
   document.getElementById('Dormonid2').style.display = 'none';
   document.getElementById('Fentanil').style.display = 'none';
@@ -1041,11 +1054,15 @@ var pacote = document.getElementsByName('DVA');
   for (var i = 0; i < pacote.length; i++){
 	  if ( pacote[i].checked ) {
 		  if(pacote[i].value == "Noradrenalina"){
-			  var Pacote_i = "NoraAdrenalina";
+			  var Pacote_i = "Noradrenalina";
 			  document.getElementById('nora').value = Pacote_i;
-		  }else if (pacote[i].value == "adrenalina") {
-			  var Pacote_ii = "adrenalina";
+		  }else if (pacote[i].value == "Adrenalina") {
+			  var Pacote_ii = "Adrenalina";
 			  document.getElementById('adre').value = Pacote_ii;
+		  }
+		  else if (pacote[i].value == "Bicarbonato") {
+			  var Pacote_iii = "Bicarbonato";
+			  document.getElementById('bic').value = Pacote_iii;
 		  }
 		}
   	}
