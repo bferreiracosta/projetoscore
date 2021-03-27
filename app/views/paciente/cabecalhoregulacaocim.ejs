@@ -742,6 +742,26 @@
 								<% } %>
 									<% } %>	
 										<% } %>
+										<% if(id.length > 0) { %>
+											<% for(var i = 0; i < id.length; i++) {%>
+												<% if(id[i].usuario=='admhmu'){%>
+													<li><a href="relatoriouti?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio.png" /><br><br><button class="btn btn-sm btn-primary">Sala Emergência</button></a></li>
+													<li><a href="relatorioenfermaria?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Enfermaria</button></a></li>
+														<li><a href="centraladmhmu?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+														<li><a href="/sair"><img id="sair" src="images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<% } %>
+											<% } %>	
+												<% } %>
+												<% if(id.length > 0) { %>
+													<% for(var i = 0; i < id.length; i++) {%>
+														<% if(id[i].usuario=='admanexo'){%>
+															<li><a href="relatoriouti?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio.png" /><br><br><button class="btn btn-sm btn-primary">Sala Emergência</button></a></li>
+															<li><a href="relatorioenfermaria?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Enfermaria</button></a></li>
+																<li><a href="centraladmanexo?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+																<li><a href="/sair"><img id="sair" src="images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+												<% } %>
+													<% } %>	
+														<% } %>
 					</ul>
 				</div>
 			</div>

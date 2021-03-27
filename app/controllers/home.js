@@ -414,7 +414,7 @@ module.exports.centraladmhmu= function(application, req, res){
 
 	pacienteDAO.buscarusuario(id, function(error, result){
 		pacienteDAO.buscarleito(function(error, resultado){
-			res.render("paciente/centralhmu", {leito : resultado, id : result});
+			res.render("paciente/centraladmhmu", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -426,7 +426,7 @@ module.exports.centraladmanexo= function(application, req, res){
 
 	pacienteDAO.buscarusuario(id, function(error, result){
 		pacienteDAO.buscarleito(function(error, resultado){
-			res.render("paciente/centralhmu", {leito : resultado, id : result});
+			res.render("paciente/centraladmanexo", {leito : resultado, id : result});
 		});
 	});	
 }
