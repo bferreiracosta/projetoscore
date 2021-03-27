@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Portal de Pacientes</title>
+		
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+		<!-- JQuery -->
+		<script src="js/jquery-2.2.1.js"></script>
+
+		<!-- incluindo css -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico" />
+	</head>
+
+	<body onload="myFunction()">
+
+		<nav class="navbar navbar-default navbar-static-top">
+			<% if(id.length > 0) { %>
+				<% for(var i = 0; i < id.length; i++) {%>
+					<% if(id[i].id_usuario==1){%>
+	    	<div class="navbar-header">
+				<select name="uai" onchange="myFunction()" class="selectpicker" id="uai">
+					<option value="Planalto">Planalto</option>
+					<option value="Luizote">Luizote</option>
+					<option value="Roosevelt">Roosevelt</option>
+					<option value="Martins">Martins</option>
+					<option value="Morumbi">Morumbi</option>
+					<option value="Tibery">Tibery</option>
+				</select>
+			</div>
+			<% } %>
+			<% } %>
+			<% } %>
+			<% if(id.length > 0) { %>
+				<% for(var i = 0; i < id.length; i++) {%>
+					<% if(id[i].unidade==1){%>
+	    	<div class="navbar-header">
+				<select name="uai" selected onchange="myFunction()" class="selectpicker" id="uai">
+					<option value="Planalto">Planalto</option>
+				</select>
+			</div>
+			<% } %>
+			<% } %>
+			<% } %>
+			<% if(id.length > 0) { %>
+				<% for(var i = 0; i < id.length; i++) {%>
+					<% if(id[i].unidade==2){%>
+	    	<div class="navbar-header">
+				<select name="uai" selected onchange="myFunction()" class="selectpicker" id="uai">
+					<option value="Luizote">Luizote</option>
+				</select>
+			</div>
+			<% } %>
+			<% } %>
+			<% } %>
+			<% if(id.length > 0) { %>
+				<% for(var i = 0; i < id.length; i++) {%>
+					<% if(id[i].unidade==3){%>
+	    	<div class="navbar-header">
+				<select name="uai" selected onchange="myFunction()" class="selectpicker" id="uai">
+					<option value="Martins">Martins</option>
+				</select>
+			</div>
+			<% } %>
+			<% } %>
+			<% } %>
+			<% if(id.length > 0) { %>
+				<% for(var i = 0; i < id.length; i++) {%>
+					<% if(id[i].unidade==4){%>
+	    	<div class="navbar-header">
+				<select name="uai" selected onchange="myFunction()" class="selectpicker" id="uai">
+					<option value="Roosevelt">Roosevelt</option>
+				</select>
+			</div>
+			<% } %>
+			<% } %>
+			<% } %>
+			<% if(id.length > 0) { %>
+				<% for(var i = 0; i < id.length; i++) {%>
+					<% if(id[i].unidade==5){%>
+	    	<div class="navbar-header">
+				<select name="uai" selected onchange="myFunction()" class="selectpicker" id="uai">
+					<option value="Morumbi">Morumbi</option>
+				</select>
+			</div>
+			<% } %>
+			<% } %>
+			<% } %>
+			<% if(id.length > 0) { %>
+				<% for(var i = 0; i < id.length; i++) {%>
+					<% if(id[i].unidade==6){%>
+	    	<div class="navbar-header">
+				<select name="uai" selected onchange="myFunction()" class="selectpicker" id="uai">
+					<option value="Tibery">Tibery</option>
+				</select>
+			</div>
+			<% } %>
+			<% } %>
+			<% } %>
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					
+					<img id="img" src="images/logo.png" />
+					<img id="portal" src="images/portal.png" />
+				</div>
+
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<% if(id.length > 0) { %>
+							<% for(var i = 0; i < id.length; i++) {%>
+								<% if(id[i].autorizacao==1){%>
+							<li><a href="home?id=<%=id[i].id_usuario %>"><img id="sair" src="images/tabela.png" /></a></li>
+							<li><a href="paciente?id=<%=id[i].id_usuario %>"><img id="sair" src="images/cadastrar.png" /></a></li>
+							<li><a href="pacienteid?id=<%=id[i].id_usuario %>"><img id="sair" src="images/paciente.png" /></a></li>
+                            <li><a href="status?id=<%=id[i].id_usuario %>"><img id="sair" src="images/acesso.jpg" /></a></li>
+							<li id="lista"><a id="botao" href="#"><img id="sair" src="images/site.png" /></a>
+								<ul>
+									 <li><a href="checkup?id=<%=id[i].id_usuario %>"><img id="sair" src="images/checkup.jpg" /></a></li>
+									 <li><a href="fast?id=<%=id[i].id_usuario %>"><img id="sair" src="images/fast.png" /></a></li>
+									 <li><a href="notifica?id=<%=id[i].id_usuario %>"><img id="sair" src="images/notifica.jfif" /></a></li>
+									 <li><a href="epidemiologico?id=<%=id[i].id_usuario %>"><img id="sair" src="images/epidemiologico.jpg" /></a></li>
+								  </ul>
+						   </li>
+							<li><a href="/sair"><img id="sair" src="images/sair.png" /></a></li>
+						<% } %>
+							<% } %>	
+								<% } %>
+								<% if(id.length > 0) { %>
+									<% for(var i = 0; i < id.length; i++) {%>
+										<% if(id[i].autorizacao==5){%>
+									<li><a href="home?id=<%=id[i].id_usuario %>"><img id="sair" src="images/tabela.png" /></a></li>
+									<li><a href="paciente?id=<%=id[i].id_usuario %>"><img id="sair" src="images/cadastrar.png" /></a></li>
+									<li><a href="pacienteid?id=<%=id[i].id_usuario %>"><img id="sair" src="images/paciente.png" /></a></li>
+									<li><a href="status?id=<%=id[i].id_usuario %>"><img id="sair" src="images/acesso.jpg" /></a></li>
+									<li id="lista"><a id="botao" href="#"><img id="sair" src="images/site.png" /></a>
+										<ul>
+											 <li><a href="checkup?id=<%=id[i].id_usuario %>"><img id="sair" src="images/checkup.jpg" /></a></li>
+											 <li><a href="fast?id=<%=id[i].id_usuario %>"><img id="sair" src="images/fast.png" /></a></li>
+											 <li><a href="notifica?id=<%=id[i].id_usuario %>"><img id="sair" src="images/notifica.jfif" /></a></li>
+											 <li><a href="epidemiologico?id=<%=id[i].id_usuario %>"><img id="sair" src="images/epidemiologico.jpg" /></a></li>
+										  </ul>
+								   </li>
+								   <li id="lista"><a id="botao" href="#"><img id="sair" src="images/site.png" /></a>
+									<ul>
+										 <li><a href="obito?id=<%=id[i].id_usuario %>"><img id="sair" src="images/obito.png" /></a></li>
+										 <li><a href="rouparia?id=<%=id[i].id_usuario %>"><img id="sair" src="images/rouparia.jpg" /></a></li>
+										 <li><a href="isolamento?id=<%=id[i].id_usuario %>"><img id="sair" src="images/isolamento.png" /></a></li>
+										 <li><a href="sepse?id=<%=id[i].id_usuario %>"><img id="sair" src="images/sepse.png" /></a></li>
+										 <li><a href="indicador?id=<%=id[i].id_usuario %>"><img id="sair" src="images/indicador.jpg" /></a></li>
+										 <li><a href="lixo?id=<%=id[i].id_usuario %>"><img id="sair" src="images/lixo.png" /></a></li>
+									  </ul>
+							   </li>
+									<li><a href="/sair"><img id="sair" src="images/sair.png" /></a></li>
+								<% } %>
+									<% } %>	
+										<% } %>
+										<% if(id.length > 0) { %>
+											<% for(var i = 0; i < id.length; i++) {%>
+												<% if(id[i].autorizacao==6){%>
+											<li><a href="home?id=<%=id[i].id_usuario %>"><img id="sair" src="images/tabela.png" /></a></li>
+											<li id="lista"><a id="botao" href="#"><img id="sair" src="images/site.png" /></a>
+												<ul>
+													 <li><a href="checkup?id=<%=id[i].id_usuario %>"><img id="sair" src="images/checkup.jpg" /></a></li>
+													 <li><a href="fast?id=<%=id[i].id_usuario %>"><img id="sair" src="images/fast.png" /></a></li>
+													 <li><a href="notifica?id=<%=id[i].id_usuario %>"><img id="sair" src="images/notifica.jfif" /></a></li>
+													 <li><a href="epidemiologico?id=<%=id[i].id_usuario %>"><img id="sair" src="images/epidemiologico.jpg" /></a></li>
+												  </ul>
+										   </li>
+										   <li id="lista"><a id="botao" href="#"><img id="sair" src="images/site.png" /></a>
+											<ul>
+												 <li><a href="obito?id=<%=id[i].id_usuario %>"><img id="sair" src="images/obito.png" /></a></li>
+												 <li><a href="rouparia?id=<%=id[i].id_usuario %>"><img id="sair" src="images/rouparia.jpg" /></a></li>
+												 <li><a href="isolamento?id=<%=id[i].id_usuario %>"><img id="sair" src="images/isolamento.png" /></a></li>
+												 <li><a href="sepse?id=<%=id[i].id_usuario %>"><img id="sair" src="images/sepse.png" /></a></li>
+												 <li><a href="indicador?id=<%=id[i].id_usuario %>"><img id="sair" src="images/indicador.jpg" /></a></li>
+												 <li><a href="lixo?id=<%=id[i].id_usuario %>"><img id="sair" src="images/lixo.png" /></a></li>
+											  </ul>
+									   </li>
+											<li><a href="/sair"><img id="sair" src="images/sair.png" /></a></li>
+										<% } %>
+											<% } %>	
+												<% } %>
+							<% if(id.length > 0) { %>
+								<% for(var i = 0; i < id.length; i++) {%>
+									<% if(id[i].autorizacao==2){%>
+								<li><a href="home?id=<%=id[i].id_usuario %>"><img id="sair" src="images/tabela.png" /></a></li>
+                                <li><a href="monitoramento?id=<%=id[i].id_usuario %>"><img id="sair" src="images/logo2.png" /></a></li>
+								<li id="lista"><a id="botao" href="#"><img id="sair" src="images/site.png" /></a>
+									<ul>
+										 <li><a href="checkup?id=<%=id[i].id_usuario %>"><img id="sair" src="images/checkup.jpg" /></a></li>
+										 <li><a href="fast?id=<%=id[i].id_usuario %>"><img id="sair" src="images/fast.png" /></a></li>
+										 <li><a href="notifica?id=<%=id[i].id_usuario %>"><img id="sair" src="images/notifica.jfif" /></a></li>
+										 <li><a href="epidemiologico?id=<%=id[i].id_usuario %>"><img id="sair" src="images/epidemiologico.jpg" /></a></li>
+									  </ul>
+							   </li>
+								<li><a href="/sair"><img id="sair" src="images/sair.png" /></a></li>
+							<% } %>
+								<% } %>	
+								    <% } %>
+								<% if(id.length > 0) { %>
+									<% for(var i = 0; i < id.length; i++) {%>
+										<% if(id[i].autorizacao==3){%>
+									<li><a href="home?id=<%=id[i].id_usuario %>"><img id="sair" src="images/tabela.png" /></a></li>
+									<li><a href="paciente?id=<%=id[i].id_usuario %>"><img id="sair" src="images/cadastrar.png" /></a></li>
+									<li><a href="status?id=<%=id[i].id_usuario %>"><img id="sair" src="images/acesso.jpg" /></a></li>
+									<li id="lista"><a id="botao" href="#"><img id="sair" src="images/site.png" /></a>
+										<ul>
+											 <li><a href="checkup?id=<%=id[i].id_usuario %>"><img id="sair" src="images/checkup.jpg" /></a></li>
+											 <li><a href="fast?id=<%=id[i].id_usuario %>"><img id="sair" src="images/fast.png" /></a></li>
+											 <li><a href="notifica?id=<%=id[i].id_usuario %>"><img id="sair" src="images/notifica.jfif" /></a></li>
+											 <li><a href="epidemiologico?id=<%=id[i].id_usuario %>"><img id="sair" src="images/epidemiologico.jpg" /></a></li>
+										  </ul>
+								   </li>
+									<li><a href="/sair"><img id="sair" src="images/sair.png" /></a></li>
+								<% } %>
+									<% } %>	
+								    	<% } %>
+								<% if(id.length > 0) { %>
+						        	<% for(var i = 0; i < id.length; i++) {%>
+							        	<% if(id[i].autorizacao==4){%>
+						        	<li><a href="home?id=<%=id[i].id_usuario %>"><img id="sair" src="images/tabela.png" /></a></li>
+						        	<li><a href="monitoramento?id=<%=id[i].id_usuario %>"><img id="sair" src="images/logo2.png" /></a></li>
+						        	<li><a href="paciente?id=<%=id[i].id_usuario %>"><img id="sair" src="images/cadastrar.png" /></a></li>
+						        	<li><a href="pacienteid?id=<%=id[i].id_usuario %>"><img id="sair" src="images/paciente.png" /></a></li>
+                                    <li><a href="status?id=<%=id[i].id_usuario %>"><img id="sair" src="images/acesso.jpg" /></a></li>
+									<li id="lista"><a id="botao" href="#"><img id="sair" src="images/site.png" /></a>
+										<ul>
+											 <li><a href="checkup?id=<%=id[i].id_usuario %>"><img id="sair" src="images/checkup.jpg" /></a></li>
+											 <li><a href="fast?id=<%=id[i].id_usuario %>"><img id="sair" src="images/fast.png" /></a></li>
+											 <li><a href="notifica?id=<%=id[i].id_usuario %>"><img id="sair" src="images/notifica.jfif" /></a></li>
+											 <li><a href="epidemiologico?id=<%=id[i].id_usuario %>"><img id="sair" src="images/epidemiologico.jpg" /></a></li>
+										  </ul>
+								   </li>
+							        <li><a href="/sair"><img id="sair" src="images/sair.png" /></a></li>
+					            <% } %>
+						        	<% } %>	
+							            <% } %>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+	</body>
+</html>

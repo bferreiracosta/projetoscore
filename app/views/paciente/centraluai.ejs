@@ -1,0 +1,117 @@
+<%- include('./cabecalhoregulacaoluizote'); %>
+    <h2>Central leito UAI</h2>
+    
+        <% if(id.length > 0) { %>
+            <% for(var i = 0; i < id.length; i++) {%>
+        <table class="table table-striped" id="mytable">
+            <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
+            <thead>
+            <tr>
+                <th hidden>id</th>
+                <th>Quantidade vagas SE Planalto </th>
+                <th>Quantidade vagas feminina Planalto</th>
+                <th>Quantidade vagas masculina Planalto</th>
+                <th>Quantidade vagas SE Luizote </th>
+                <th>Quantidade vagas feminina Luizote</th>
+                <th>Quantidade vagas masculina Luizote</th>
+                <th>Quantidade vagas SE Martins </th>
+                <th>Quantidade vagas feminina Martins</th>
+                <th>Quantidade vagas masculina Martins</th>
+                <th>Quantidade vagas SE Roosevelt </th>
+                <th>Quantidade vagas feminina Roosevelt</th>
+                <th>Quantidade vagas masculina Roosevelt</th>
+                <th>Quantidade vagas SE Tibery </th>
+                <th>Quantidade vagas feminina Tibery</th>
+                <th>Quantidade vagas masculina Tibery</th>
+                <th>Quantidade vagas SE Morumbi </th>
+                <th>Quantidade vagas feminina Morumbi</th>
+                <th>Quantidade vagas masculina Morumbi</th>
+                <th>Quantidade vagas SE São jorge</th>
+                <th>Quantidade vagas feminina São jorge</th>
+                <th>Quantidade vagas masculina São jorge</th>
+                <th>Quantidade vagas SE Pampulha </th>
+                <th>Quantidade vagas feminina Pampulha</th>
+                <th>Quantidade vagas masculina Pampulha</th>
+            </tr>
+            </thead>
+            <tbody>   
+                <% if(leito.length > 0) { %>
+                    <% for(var j = 0; j < leito.length; j++) {%> 
+                <tr>
+                    <td hidden><%=leito[j].idleitos %></td>
+                    <td><%=leito[j].sepla %></td>
+                    <td ><%=leito[j].enfplafem %></td>
+                    <td><%=leito[j].enfplamasc %></td>
+                    <td><%=leito[j].selui %></td>
+                    <td ><%=leito[j].enfluifem %></td>
+                    <td><%=leito[j].enfluimasc %></td>
+                    <td><%=leito[j].semar %></td>
+                    <td ><%=leito[j].enfmarfem %></td>
+                    <td><%=leito[j].enfmarmasc %></td>
+                    <td><%=leito[j].seroo %></td>
+                    <td ><%=leito[j].enfroofem %></td>
+                    <td><%=leito[j].enfroomasc %></td>
+                    <td><%=leito[j].setibe %></td>
+                    <td ><%=leito[j].enftibefem %></td>
+                    <td><%=leito[j].enftibemasc %></td>
+                    <td><%=leito[j].semorum %></td>
+                    <td ><%=leito[j].enfmorumfem %></td>
+                    <td><%=leito[j].enfmorummasc %></td>
+                    <td><%=leito[j].sesaojo %></td>
+                    <td ><%=leito[j].enfsaojofem %></td>
+                    <td><%=leito[j].enfsaojomasc %></td>
+                    <td><%=leito[j].sepampu %></td>
+                    <td ><%=leito[j].enfpampufem %></td>
+                    <td><%=leito[j].enfpampumasc %></td>
+                    
+                </tr>
+                <% } %>	
+                <% } %>
+    
+            </tbody>
+        </table>
+        <% } %>	
+        <% } %>
+    
+
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+$('#mytable').DataTable( {
+dom: 'Bfrtip',
+pageLength: 50,
+buttons: [{
+    extend:'copyHtml5',
+    header: false
+    },
+    {
+     extend:'excelHtml5',
+     header: false
+    },
+    {
+    extend:'pdfHtml5',
+    header: false
+    },
+    {
+     extend:'print',
+     header: false
+    }
+],
+select: true
+} );
+} );
+</script>
+</body>
+</html>

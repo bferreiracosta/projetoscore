@@ -1,0 +1,26 @@
+{
+  "name": "portal_noticias",
+  "version": "1.0.0",
+  "description": "Site de noticias",
+  "main": "noticias.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Jorge",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "consign": "^0.1.2",
+    "ejs": "^2.5.1",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.1",
+    "express-validator": "^2.21.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.11.1"
+  },
+  "devDependencies": {
+    "pnotify": "^5.2.0"
+  }
+}

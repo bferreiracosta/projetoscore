@@ -1,0 +1,945 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Portal de Pacientes</title>
+		
+		<!-- JQuery -->
+		<script src="/js/jquery-2.2.1.js"></script>
+
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+		<!-- incluindo css -->
+		<link href="/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.buttons.css"/>
+		<!-- favicon -->
+		<link rel="shortcut icon" href="/images/favicon.ico" />
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default navbar-static-top">
+			
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					
+					<img id="img" src="/images/logo.png" />
+					<img id="portal" src="/images/portal.png" />
+				</div>
+
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<% if(id.length > 0) { %>
+							<% for(var i = 0; i < id.length; i++) {%>
+								
+									<% if(id[i].usuario== 'cida'){%>
+										<div class="btn-group">
+											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											  Uai Planalto
+											</button>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsplanalto?id=<%=id[i].id_usuario %>">News</a></button>
+												<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacienteplanalto?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+												<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaoplanalto?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+												<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicoplanalto?id=<%=id[i].id_usuario %>">Historico</a></button>
+												<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluaiplanalto?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+												<br>
+											</div>
+										</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Uai Luizote
+											</button>
+											<div class="dropdown-menu" >
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsluizote?id=<%=id[i].id_usuario %>">News</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacienteluizote?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaoluizote?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicoluizote?id=<%=id[i].id_usuario %>">Historico</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluailuizote?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+													<br>
+												</div>
+										  </div>	
+										  <div class="btn-group">
+											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Uai Martins
+											</button>
+											<div class="dropdown-menu" >
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsmartins?id=<%=id[i].id_usuario %>">News</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacientemartins?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+												<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaomartins?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicomartins?id=<%=id[i].id_usuario %>">Historico</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluaimartins?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+													<br>
+												</div>
+										  </div>	
+										  <div class="btn-group">
+											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Uai Roosevelt
+											</button>
+											<div class="dropdown-menu" >
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsroosevelt?id=<%=id[i].id_usuario %>">News</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacienteroosevelt?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaoroosevelt?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicoroosevelt?id=<%=id[i].id_usuario %>">Historico</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluairoosevelt?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+													<br>
+												</div>
+										  </div>	
+										  <div class="btn-group">
+											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Uai Tibery
+											</button>
+											<div class="dropdown-menu" >
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success"href="/newstibery?id=<%=id[i].id_usuario %>">News</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacientetibery?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaotibery?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicotibery?id=<%=id[i].id_usuario %>">Historico</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluaitibery?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+													<br>
+												</div>
+										  </div>	
+										  <div class="btn-group">
+											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Uai Morumbi
+											</button>
+											<div class="dropdown-menu" >
+												<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsmorumbi?id=<%=id[i].id_usuario %>">News</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacientemorumbi?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaomorumbi?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicomorumbi?id=<%=id[i].id_usuario %>">Historico</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+													<br>
+											</div>
+										  </div>
+											<div class="btn-group">
+												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												Regulação
+												</button>
+												<div class="dropdown-menu" >
+													<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+														<br>
+												</div>
+											</div>
+											<div class="btn-group">
+												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												Administrativo
+												</button>
+												<div class="dropdown-menu" >
+													<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+													<br>
+												</div>
+											</div>
+											<div class="btn-group">
+												<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												Sair
+												</button>
+												<div class="dropdown-menu" >
+													<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+												</div>
+											</div>
+										<% } %>
+										<% if(id[i].usuario== 'admin'){%>
+											<div class="btn-group">
+												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												  Uai Planalto
+												</button>
+												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsplanalto?id=<%=id[i].id_usuario %>">News</a></button>
+													<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacienteplanalto?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+													<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaoplanalto?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+													<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicoplanalto?id=<%=id[i].id_usuario %>">Historico</a></button>
+													<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluaiplanalto?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+													<br>
+												</div>
+											</div>
+											<div class="btn-group">
+												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												Uai Luizote
+												</button>
+												<div class="dropdown-menu" >
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsluizote?id=<%=id[i].id_usuario %>">News</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacienteluizote?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaoluizote?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicoluizote?id=<%=id[i].id_usuario %>">Historico</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluailuizote?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+														<br>
+													</div>
+											  </div>	
+											  <div class="btn-group">
+												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												Uai Martins
+												</button>
+												<div class="dropdown-menu" >
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsmartins?id=<%=id[i].id_usuario %>">News</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacientemartins?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+													<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaomartins?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicomartins?id=<%=id[i].id_usuario %>">Historico</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluaimartins?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+														<br>
+													</div>
+											  </div>	
+											  <div class="btn-group">
+												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												Uai Roosevelt
+												</button>
+												<div class="dropdown-menu" >
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsroosevelt?id=<%=id[i].id_usuario %>">News</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacienteroosevelt?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaoroosevelt?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicoroosevelt?id=<%=id[i].id_usuario %>">Historico</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluairoosevelt?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+														<br>
+													</div>
+											  </div>	
+											  <div class="btn-group">
+												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												Uai Tibery
+												</button>
+												<div class="dropdown-menu" >
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success"href="/newstibery?id=<%=id[i].id_usuario %>">News</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacientetibery?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaotibery?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicotibery?id=<%=id[i].id_usuario %>">Historico</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluaitibery?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+														<br>
+													</div>
+											  </div>	
+											  <div class="btn-group">
+												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												Uai Morumbi
+												</button>
+												<div class="dropdown-menu" >
+													<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsmorumbi?id=<%=id[i].id_usuario %>">News</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacientemorumbi?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaomorumbi?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicomorumbi?id=<%=id[i].id_usuario %>">Historico</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+														<br>
+												</div>
+											</div>
+												<div class="btn-group">
+													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													Regulação
+													</button>
+													<div class="dropdown-menu" >
+														<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+															<br>
+													</div>
+												</div>
+												<div class="btn-group">
+													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													Administrativo
+													</button>
+													<div class="dropdown-menu" >
+														<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+														<br>
+													</div>
+												</div>
+												<div class="btn-group">
+													<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													Sair
+													</button>
+													<div class="dropdown-menu" >
+														<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+													</div>
+												</div>
+											<% } %>
+											<% if(id[i].usuario== 'sheyla'){%>
+												<div class="btn-group">
+													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													  Uai Planalto
+													</button>
+													<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsplanalto?id=<%=id[i].id_usuario %>">News</a></button>
+														<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacienteplanalto?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+														<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaoplanalto?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+														<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicoplanalto?id=<%=id[i].id_usuario %>">Historico</a></button>
+														<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluaiplanalto?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+														<br>
+													</div>
+												</div>
+												<div class="btn-group">
+													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													Uai Luizote
+													</button>
+													<div class="dropdown-menu" >
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsluizote?id=<%=id[i].id_usuario %>">News</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacienteluizote?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaoluizote?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicoluizote?id=<%=id[i].id_usuario %>">Historico</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluailuizote?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+															<br>
+														</div>
+												  </div>	
+												  <div class="btn-group">
+													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													Uai Martins
+													</button>
+													<div class="dropdown-menu" >
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsmartins?id=<%=id[i].id_usuario %>">News</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacientemartins?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+														<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaomartins?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicomartins?id=<%=id[i].id_usuario %>">Historico</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluaimartins?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+															<br>
+														</div>
+												  </div>	
+												  <div class="btn-group">
+													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													Uai Roosevelt
+													</button>
+													<div class="dropdown-menu" >
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsroosevelt?id=<%=id[i].id_usuario %>">News</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacienteroosevelt?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaoroosevelt?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicoroosevelt?id=<%=id[i].id_usuario %>">Historico</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluairoosevelt?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+															<br>
+														</div>
+												  </div>	
+												  <div class="btn-group">
+													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													Uai Tibery
+													</button>
+													<div class="dropdown-menu" >
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newstibery?id=<%=id[i].id_usuario %>">News </a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacientetibery?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaotibery?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicotibery?id=<%=id[i].id_usuario %>">Historico</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluaitibery?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+															<br>
+														</div>
+												  </div>	
+												  <div class="btn-group">
+													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													Uai Morumbi
+													</button>
+													<div class="dropdown-menu" >
+														<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/newsmorumbi?id=<%=id[i].id_usuario %>">News</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/cadastrarpacientemorumbi?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/respiracaomorumbi?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/historicomorumbi?id=<%=id[i].id_usuario %>">Historico</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+															<br>
+													</div>
+												</div>
+													<div class="btn-group">
+														<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+														Regulação
+														</button>
+														<div class="dropdown-menu" >
+															<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+																<br>
+														</div>
+													</div>
+													<div class="btn-group">
+														<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+														Administrativo
+														</button>
+														<div class="dropdown-menu"  >
+															<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="/relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+															<br>
+														</div>
+													</div>
+													<div class="btn-group">
+														<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+														Sair
+														</button>
+														<div class="dropdown-menu" >
+															<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+														</div>
+													</div>
+												<% } %>
+												<% if(id[i].enfermeiro==1){%>
+									<% if(id[i].unidade==1){%>
+										<li><a href="/newsplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/cadastrarpacienteplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrarpaciente.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
+										<li><a href="/respiracaoplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/historicoplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
+										<li><a href="/centraluaiplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/central.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==2){%>
+										<li><a href="/newsluizote?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/cadastrarpacienteluizote?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrarpaciente.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
+										<li><a href="/respiracaoluizote?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/historicoluizote?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
+										<li><a href="/centraluailuizote?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/central.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==3){%>
+										<li><a href="/newsmartins?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/cadastrarpacientemartins?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrarpaciente.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
+										<li><a href="/respiracaomartins?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/historicomartins?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
+										<li><a href="/centraluaimartins?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/central.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==4){%>
+										<li><a href="/newsroosevelt?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/cadastrarpacienteroosevelt?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrarpaciente.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
+										<li><a href="/respiracaoroosevelt?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/historicoroosevelt?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
+										<li><a href="/centraluairoosevelt?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/central.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==5){%>
+										<li><a href="/newsmorumbi?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/cadastrarpacientemorumbi?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrarpaciente.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
+										<li><a href="/respiracaomorumbi?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/historicomorumbi?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
+										<li><a href="/centraluaimorumbi?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/central.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==6){%>
+										<li><a href="/newstibery?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/cadastrarpacientetibery?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrarpaciente.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
+										<li><a href="/respiracaotibery?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/historicotibery?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
+										<li><a href="/centraluaitibery?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/central.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==7){%>
+										<li><a href="/newssaojorge?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/cadastrarpacientesaojorge?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrarpaciente.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
+										<li><a href="/respiracaosaojorge?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/historicosaojorge?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
+										<li><a href="/centraluaisaojorge?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/central.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==8){%>
+										<li><a href="/newspampulha?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/cadastrarpacientepampulha?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrarpaciente.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
+										<li><a href="/respiracaopampulha?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/historicopampulha?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
+										<li><a href="/centraluaipampulha?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/central.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==9){%>
+										<li><a href="/newscim?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/cadastrarpacientecim?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrarpaciente.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
+										<li><a href="/respiracaocim?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/historicocim?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+						<% } %>
+							<% } %>	
+								<% } %>
+						<% if(id.length > 0) { %>
+							<% for(var i = 0; i < id.length; i++) {%>
+								<% if(id[i].tecenfermagem==1){%>
+									<% if(id[i].unidade==1){%>
+										<li><a href="/newsplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==2){%>
+										<li><a href="/newsluizote?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==3){%>
+										<li><a href="/newsmartins?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==4){%>
+										<li><a href="/newsroosevelt?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==5){%>
+										<li><a href="/newsmorumbi?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==6){%>
+										<li><a href="/newstibery?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==7){%>
+										<li><a href="/newssaojorge?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==8){%>
+										<li><a href="/newspampulha?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==9){%>
+										<li><a href="/newscim?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+						<% } %>
+							<% } %>	
+								<% } %>
+						<% if(id.length > 0) { %>
+							<% for(var i = 0; i < id.length; i++) {%>
+								<% if(id[i].fisioterapeuta==1){%>
+									<% if(id[i].unidade==1){%>
+										<li><a href="/respiracaoplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==2){%>
+										<li><a href="/respiracaoluizote?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==3){%>
+										<li><a href="/respiracaomartins?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==4){%>
+										<li><a href="/respiracaoroosevelt?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==5){%>
+										<li><a href="/respiracaomorumbi?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==6){%>
+										<li><a href="/respiracaotibery?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==7){%>
+										<li><a href="/respiracaosaojorge?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==8){%>
+										<li><a href="/respiracaopampulha?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+									<% if(id[i].unidade==9){%>
+										<li><a href="/respiracaocim?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Dispositivo</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+									<% } %>
+						<% } %>
+							<% } %>	
+								<% } %>
+						<% if(id.length > 0) { %>
+							<% for(var i = 0; i < id.length; i++) {%>
+								<% if(id[i].operador==1){%>
+										<li><a href="/relatoriouti?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/relatorio.png" /><br><br><button class="btn btn-sm btn-primary">Sala Emergência</button></a></li>
+										<li><a href="/relatorioenfermaria?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Enfermaria</button></a></li>
+										<li><a href="/centralenfermaria?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos Enfermaria</button></a></li>
+										<li><a href="/centraluti?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos UTI</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+						<% } %>
+							<% } %>	
+								<% } %>
+								<% if(id.length > 0) { %>
+									<% for(var i = 0; i < id.length; i++) {%>
+										<% if(id[i].administrativo ==1){%>
+											<% if(id[i].unidade==1){%>
+												<li><a href="/relatorioadmplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Relatorio Administrativo</button></a></li>
+												<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+											<% } %>
+											<% if(id[i].unidade==2){%>
+												<li><a href="/relatorioadmluizote?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Relatorio Administrativo</button></a></li>
+												<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+											<% } %>
+											<% if(id[i].unidade==3){%>
+												<li><a href="/relatorioadmmartins?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Relatorio Administrativo</button></a></li>
+												<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+											<% } %>
+											<% if(id[i].unidade==4){%>
+												<li><a href="/relatorioadmroosevelt?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Relatorio Administrativo</button></a></li>
+												<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+											<% } %>
+											<% if(id[i].unidade==5){%>
+												<li><a href="/relatorioadmmorumbi?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Relatorio Administrativo</button></a></li>
+												<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+											<% } %>
+											<% if(id[i].unidade==6){%>
+												<li><a href="/relatorioadmtibery?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Relatorio Administrativo</button></a></li>
+												<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+											<% } %>
+											<% if(id[i].unidade==7){%>
+												<li><a href="/relatorioadmsaojorge?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Relatorio Administrativo</button></a></li>
+												<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+											<% } %>
+											<% if(id[i].unidade==8){%>
+												<li><a href="/relatorioadmpampulha?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Relatorio Administrativo</button></a></li>
+												<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+											<% } %>
+											<% if(id[i].unidade==9){%>
+												<li><a href="/relatorioadmcim?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/dispositivo.png" /><br><br><button class="btn btn-sm btn-primary">Relatorio Administrativo</button></a></li>
+												<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+											<% } %>
+								<% } %>
+									<% } %>	
+										<% } %>
+						
+						<% if(id.length > 0) { %>
+							<% for(var i = 0; i < id.length; i++) {%>
+								<% if(id[i].hmu==1){%>
+									<li><a href="/relatoriouti?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/relatorio.png" /><br><br><button class="btn btn-sm btn-primary">Sala Emergência</button></a></li>
+										<li><a href="/relatorioenfermaria?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Enfermaria</button></a></li>
+										<li><a href="/centralhmu?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+						<% } %>
+							<% } %>	
+								<% } %>
+						<% if(id.length > 0) { %>
+							<% for(var i = 0; i < id.length; i++) {%>
+								<% if(id[i].cim==1){%>
+									<li><a href="/relatoriouti?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/relatorio.png" /><br><br><button class="btn btn-sm btn-primary">Sala Emergência</button></a></li>
+										<li><a href="/relatorioenfermaria?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Enfermaria</button></a></li>
+										<li><a href="/centralcim?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+						<% } %>
+							<% } %>	
+								<% } %>
+						<% if(id.length > 0) { %>
+							<% for(var i = 0; i < id.length; i++) {%>
+								<% if(id[i].anexo==1){%>
+									<li><a href="/relatoriouti?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/relatorio.png" /><br><br><button class="btn btn-sm btn-primary">Sala Emergência</button></a></li>
+										<li><a href="/relatorioenfermaria?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Enfermaria</button></a></li>
+										<li><a href="/centralanexo?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+						<% } %>
+							<% } %>	
+								<% } %>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+<div class="container">
+<% if(id.length > 0) { %>
+    <% for(var i = 0; i < id.length; i++) {%>
+	<% if(paciente.length > 0) { %>
+        <% for(var j = 0; j < paciente.length; j++) {%>
+            <div >
+                <div >
+                    <h2>Sinais Vitais </h2>
+                    <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">  
+                </div>
+                <div >
+					<div class="form-group">
+						<label for="">Paciente</label>
+                        <input disabled type="text" name="paciente" class="form-control" value="<%=paciente[j].paciente %>" >
+                    </div>
+                    <div class="form-group">
+						<label for="">Frequencia Respiratorio</label>
+						<input disabled type="text" id="fr" name="fr" class="form-control" value="<%=paciente[j].fr %>">
+					</div>
+					<div class="form-group">
+						<label for="">Saturação</label>
+						<input disabled type="text" name="sat"  id="sat" class="form-control" value="<%=paciente[j].sat %>">
+					</div>
+					<div class="form-group">
+						<label for="">Uso de O2</label>
+						<input disabled type="text" name="o2"  id="uso02" class="form-control" value="<%=paciente[j].o2 %>">
+					</div>
+					<div class="form-group">
+						<label for="">Temperatura</label>
+						<input disabled type="text" name="temp"  id="temp" class="form-control" value="<%=paciente[j].temp %>">
+					</div>
+					<div class="form-group">
+						<label for="">Pa sistolica</label>
+						<input disabled type="text" name="pa" id="pa" class="form-control" value="<%=paciente[j].sistolica %>">
+					</div>
+					<div class="form-group">
+						<label for="">Frequencia Cardiaca</label>
+						<input disabled type="text" name="fc"  id="fc" class="form-control" value="<%=paciente[j].fc %>">
+					</div>
+					<div class="form-group">
+						<label for="">Nivel Consciencia</label>
+						<input disabled type="text" name="alerta"  id="alerta" class="form-control" value="<%=paciente[j].alerta %>">
+					</div>
+					<div  class="form-group">
+						<a href="/newstibery?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+					</div>
+				</div>
+		</div>
+</div>
+<% } %>
+<% } %>
+<% } %>
+<% } %>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+<script type="text/javascript">
+
+$("#leito").on('change', function(e){
+     var leito = document.getElementById('leito').value;
+     document.getElementById('leito2').value = leito;
+});
+
+$("#dispositivo").on('change', function(f){
+     var dispositivo = document.getElementById('dispositivo').value;
+     document.getElementById('dispositivo2').value = dispositivo;
+});
+
+function verifica(value){
+	var input = document.getElementById("fio2");
+	var input2 = document.getElementById("peep");
+	var input3 = document.getElementById("o2");
+
+  if(value != 'Ventilacao Mecanica'){
+    input.style.display = "none";
+	input2.style.display = "none";
+	input3.style.display = "inline";
+  }else if(value == 'Ventilacao Mecanica'){
+    input.style.display = "inline";
+	input2.style.display = "inline";
+	input3.style.display = "none";
+  }
+};
+
+function verificasedacao(value){
+	var input = document.getElementById("Dormonid");
+	var input2 = document.getElementById("Fentanil");
+	var input3 = document.getElementById("Rocuronio");
+	var input4 = document.getElementById("Propofol");
+	var label = document.getElementById("Dormonid2");
+	var label2 = document.getElementById("Fentanil2");
+	var label3 = document.getElementById("Rocuronio2");
+	var label4 = document.getElementById("Propofol2");
+	
+
+  if(value == 'nao'){
+    input.style.display = "none";
+	input2.style.display = "none";
+	input3.style.display = "none";
+	input4.style.display = "none";
+	label.style.display = "none";
+	label2.style.display = "none";
+	label3.style.display = "none";
+	label4.style.display = "none";
+  }else if(value == 'sim'){
+    input.style.display = "inline";
+	input2.style.display = "inline";
+	input3.style.display = "inline";
+	input4.style.display = "inline";
+	label.style.display = "inline";
+	label2.style.display = "inline";
+	label3.style.display = "inline";
+	label4.style.display = "inline";
+  }
+};
+
+
+function verificadroga(value){
+	var input = document.getElementById("Noradrenalina");
+	var input2 = document.getElementById("Adrenalina");
+	var label = document.getElementById("Noradrenalina2");
+	var label2 = document.getElementById("Adrenalina2");
+	
+
+  if(value == 'nao'){
+    input.style.display = "none";
+	input2.style.display = "none";
+	label.style.display = "none";
+	label2.style.display = "none";
+  }else if(value == 'sim'){
+    input.style.display = "inline";
+	input2.style.display = "inline";
+	label.style.display = "inline";
+	label2.style.display = "inline";
+  }
+};
+window.onload = function() {
+  document.getElementById('fio2').style.display = 'none';
+  document.getElementById('peep').style.display = 'none';
+  document.getElementById('o2').style.display = 'none';
+  document.getElementById('Noradrenalina').style.display = 'none';
+  document.getElementById('Adrenalina').style.display = 'none';
+  document.getElementById('Noradrenalina2').style.display = 'none';
+  document.getElementById('Adrenalina2').style.display = 'none';
+  document.getElementById('Dormonid').style.display = 'none';
+  document.getElementById('Dormonid2').style.display = 'none';
+  document.getElementById('Fentanil').style.display = 'none';
+  document.getElementById('Fentanil2').style.display = 'none';
+  document.getElementById('Rocuronio').style.display = 'none';
+  document.getElementById('Rocuronio2').style.display = 'none';
+  document.getElementById('Propofol').style.display = 'none';
+  document.getElementById('Propofol2').style.display = 'none';
+
+
+};
+function check(){
+
+var pacote = document.getElementsByName('DVA');
+  for (var i = 0; i < pacote.length; i++){
+	  if ( pacote[i].checked ) {
+		  if(pacote[i].value == "Noradrenalina"){
+			  var Pacote_i = "NoraAdrenalina";
+			  document.getElementById('nora').value = Pacote_i;
+		  }else if (pacote[i].value == "adrenalina") {
+			  var Pacote_ii = "adrenalina";
+			  document.getElementById('adre').value = Pacote_ii;
+		  }
+		}
+  	}
+}
+
+function check1(){
+
+var pacote = document.getElementsByName('sedacao2');
+  for (var i = 0; i < pacote.length; i++){
+	  if ( pacote[i].checked ) {
+		  if(pacote[i].value == "Dormonid"){
+			  var Pacote_i = "Dormonid";
+			  document.getElementById('Dormonid3').value = Pacote_i;
+		  }else if (pacote[i].value == "Fentanil") {
+			  var Pacote_ii = "Fentanil";
+			  document.getElementById('Fentanil3').value = Pacote_ii;
+		  }else if (pacote[i].value == "Rocuronio") {
+			  var Pacote_iii = "Rocuronio";
+			  document.getElementById('Rocuronio3').value = Pacote_iii;
+		  }else if (pacote[i].value == "Propofol") {
+			  var Pacote_iiii = "Propofol";
+			  document.getElementById('Propofol3').value = Pacote_iiii;
+		  }
+		}
+  	}
+}
+</script>

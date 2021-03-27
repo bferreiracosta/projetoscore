@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Portal de Pacientes</title>
+		
+		<!-- JQuery
+		<script src="js/jquery-2.2.1.js"></script> -->
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+		<!-- incluindo css -->
+		<link href="css/style.css" rel="stylesheet">
+		<!-- favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico" />
+
+		
+	</head>
+
+	<body class="body-index">
+
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+
+				
+
+				<form class="form-inline form-entrar" action="auth" method="post">
+					<div class="form-group">				
+						<input type="text" name="usuario" id="usuario" placeholder="Usuário" class="form-control" autocomplete="off" required />
+						<input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" required />
+						<input  type="hidden" name="local" id="local">
+						<select onChange="update()" id="funcao" class="form-control form-control-lg" required>
+							<option></option>
+							<option value="SCIH">SCIH</option>
+							<option value="Regulacao">Regulação</option>
+						</select>
+						<input  type="hidden" name="cargo" id="cargo">
+						<button type="submit" class="btn btn-success">Entrar</button>
+					</div>
+				</form>
+				<a hidden href="/updatepassword">Alterar Senha</a>
+			</div>
+			
+		</nav>
+		  
+		
+	  </div>
+	    <div class="container">
+	    	<div id="img" class="row">
+	    		<div class="col-md-2"></div>
+
+	    		<div class="col-md-8">
+					<img src="images/saude.jpg" />
+				</div>
+
+	    		<div class="col-md-2"></div>
+		    	</div>
+	    	</div>
+	    </div>	
+		
+	</body>
+</html>
+<script type="text/javascript">
+	function update() {
+		var select = document.getElementById('funcao');
+		var option = select.options[select.selectedIndex];
+
+		var opcao = option.value;
+		document.getElementById('cargo').value = opcao;
+	
+	}
+
+	update();
+
+	
+</script>
