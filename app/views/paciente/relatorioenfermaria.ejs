@@ -6,10 +6,8 @@
     <div>
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
+                <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
         <table  class="table table-striped" id="mytable">
-            <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
-            
-            
             <thead>
                 <tr>
                     <th hidden>id</th>
@@ -26,26 +24,26 @@
                     <th>Paliativo</th>
                     <th>Resultado de Exame</th>
                 </tr>
-                </thead>
-                <tbody>   
+            </thead>
+            <tbody>   
                     <% if(paciente.length > 0) { %>
                         <% for(var j = 0; j < paciente.length; j++) {%> 
                     <tr>
-                        <td hidden><label hidden>ID: </label><%=paciente[j].id_paciente %></td>
-                        <td><label hidden>Unidade: </label><%=paciente[j].unidade %></td>
-                        <td><label hidden>Nome: </label><%=paciente[j].paciente %></td>
-                        <td><label hidden>SusFacil: </label><%=paciente[j].susfacil %></td>
-                        <td><label hidden>Idade: </label><%=paciente[j].idade %></td>
-                        <td><label hidden>Dispositivo: </label><%=paciente[j].dispositivo %></td>
-                        <td><label hidden>Fluxo de O2: </label><%=paciente[j].fluxo_de_o2 %></td>
-                        <td><label hidden>Glasgow: </label><%=paciente[j].glasgow %></td>
+                        <td hidden><label hidden>/ID: </label><%=paciente[j].id_paciente %></td>
+                        <td><label hidden>/Unidade: </label><%=paciente[j].unidade %></td>
+                        <td><label hidden>/Nome: </label><%=paciente[j].paciente %></td>
+                        <td><label hidden>/SusFacil: </label><%=paciente[j].susfacil %></td>
+                        <td><label hidden>/Idade: </label><%=paciente[j].idade %></td>
+                        <td><label hidden>/Dispositivo: </label><%=paciente[j].dispositivo %></td>
+                        <td><label hidden>/Fluxo de O2: </label><%=paciente[j].fluxo_de_o2 %></td>
+                        <td><label hidden>/Glasgow: </label><%=paciente[j].glasgow %></td>
                         <td>
-                            <a href="sinaisvitais/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %>" class="btn btn-sm btn-danger" ><label hidden>News: </label><%=paciente[j].news %></a>
+                            <a href="sinaisvitais/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %>" class="btn btn-sm btn-danger" ><label hidden>/News: </label><%=paciente[j].news %></a>
                         </td>
-                        <td><label hidden>ECF: </label><%=paciente[j].ecf %></td>
-                        <td><label hidden>Spict: </label><%=paciente[j].spict %></td>
-                        <td><label hidden>Paliativo: </label><%=paciente[j].paliativo %></td>
-                        <td><label hidden>Exame: </label><%=paciente[j].exame %></td>
+                        <td><label hidden>/ECF: </label><%=paciente[j].ecf %></td>
+                        <td><label hidden>/Spict: </label><%=paciente[j].spict %></td>
+                        <td><label hidden>/Paliativo: </label><%=paciente[j].paliativo %></td>
+                        <td><label hidden>/Exame: </label><%=paciente[j].exame %></td>
                     </tr>
                 <% } %>	
                 <% } %>
@@ -79,7 +77,7 @@
 $(document).ready(function() {
     $('#mytable').DataTable( {
         dom: 'Bfrtip',
-        order: ([[ 15, 'asc'],[ 13, 'asc' ] , [ 12, 'desc' ]]),
+        order: ([[ 11, 'asc'],[ 09, 'asc' ] , [ 08, 'desc' ]]),
         pageLength: 50,
         buttons: [{
         extend:'copyHtml5',

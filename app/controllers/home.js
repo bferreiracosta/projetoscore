@@ -422,17 +422,17 @@ module.exports.centraluai= function(application, req, res){
 
 module.exports.editarleitoanexo= function(application, req, res){
 	var enfermariamasculina = req.body.enfmasc;
-	var enfermariafeminina = req.body.enfem;
+	var enfermariafeminina = req.body.enffem;
 	var utimasculina = req.body.utifem;
 	var utifeminina = req.body.utimasc;
+	var utigeral = req.body.utigeral;
 	var leitosenfbloqueado = req.body.bloq2;
 	var leitosutibloqueado = req.body.bloq;
 	var id = req.body.idusuario;
 	var idleitos = '1';
-	
 	var pacienteDAO = new application.app.model.pacienteDAO(application);
 	pacienteDAO.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAO.updateleitosanexo(idleitos, enfermariamasculina,enfermariafeminina,utimasculina, utifeminina,leitosenfbloqueado,leitosutibloqueado, function(error, result){
+		pacienteDAO.updateleitosanexo(idleitos, enfermariamasculina,enfermariafeminina,utimasculina,utigeral, utifeminina,leitosenfbloqueado,leitosutibloqueado, function(error, result){
 			res.render("home/homeregulacao", {leito : result, id : resultados});
 		});
 	});	

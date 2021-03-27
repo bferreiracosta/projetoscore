@@ -4,33 +4,32 @@
     
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
-        <table class="table table-striped" id="mytable">
-            <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
-            <thead>
-            <tr>
-                <th hidden>id</th>
-                <th>Nome</th>
-                <th>SusFacil</th>
-                <th>Idade</th>
-                <th>Destino</th>
-            </tr>
-            </thead>
-            <tbody>   
-                <% if(paciente.length > 0) { %>
-                    <% for(var j = 0; j < paciente.length; j++) {%> 
+                <table class="table table-striped" id="mytable">
+                    <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
+                    <thead>
+                    <tr>
+                        <th hidden>id</th>
+                        <th>Nome</th>
+                        <th>SusFacil</th>
+                        <th>Idade</th>
+                        <th>Destino</th>
+                    </tr>
+                    </thead>
+                    <tbody>   
+                        <% if(paciente.length > 0) { %>
+                            <% for(var j = 0; j < paciente.length; j++) {%> 
                         <tr>
-                            
-                            <td hidden><label hidden for="">ID: </label><%=paciente[j].id_paciente %></td>
-                            <td><label hidden for="">Paciente: </label><%=paciente[j].paciente %></td>
-                            <td><label hidden for="">Susfacil: </label><%=paciente[j].susfacil %></td>
-                            <td><label hidden for="">Idade: </label><%=paciente[j].idade %></td>
-                            <td><label hidden for="">Baixa: </label><%=paciente[j].baixa %></td>
+                            <td hidden><label hidden for="">/ID: </label><%=paciente[j].id_paciente %></td>
+                            <td><label hidden for="">/Paciente: </label><%=paciente[j].paciente %></td>
+                            <td><label hidden for="">/Susfacil: </label><%=paciente[j].susfacil %></td>
+                            <td><label hidden for="">/Idade: </label><%=paciente[j].idade %></td>
+                            <td><label hidden for="">/Baixa: </label><%=paciente[j].baixa %></td>
                         </tr>
-                <% } %>	
-                <% } %>
-    
-            </tbody>
-        </table>
+                        <% } %>	
+                        <% } %>
+            
+                    </tbody>
+                </table>
         <% } %>	
         <% } %>
     </div>
