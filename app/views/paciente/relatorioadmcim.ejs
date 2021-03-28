@@ -23,7 +23,8 @@
                 <th>AVP</th>
                 <th>CVC</th>
                 <th>Fluxo O2</th>
-                <th>Ultima Atualização</th>
+                <th>Data Atualização</th>
+                <th>Hora Atualização</th>
                 <th>News</th>
             </tr>
             </thead>
@@ -47,7 +48,8 @@
                     <td><label hidden for="">/AVP: </label><%=paciente[j].avp %></td>
                     <td><label hidden for="">/CVC: </label><%=paciente[j].cvc %></td>
                     <td><label hidden for="">/Fluxo de O2: </label><%=paciente[j].fluxo_de_o2 %></td>
-                    <td><label hidden for="">/Ultima Atualização: </label><%=paciente[j].tempo%></td>
+                    <td><label hidden for="">/Data Atualização: </label><%=paciente[j].data%></td>
+                    <td><label hidden for="">/Hora Atualização: </label><%=paciente[j].tempo%></td>
                     <td>
                         <a href="sinaisvitais/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %>" class="btn btn-sm btn-danger" ><label hidden for="">NEws: </label><%=paciente[j].news %></a>
                     </td>
