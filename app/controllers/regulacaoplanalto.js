@@ -164,9 +164,9 @@ module.exports.updatenews= function(application, req, res){
 	var alerta = req.body.covid;
 	var unidade = 'Planalto';
 	
-	var pacienteDAOcim = new application.app.model.pacienteDAOcim(application);
-	pacienteDAOcim.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOcim.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
+	var pacienteDAOplanalto = new application.app.model.pacienteDAOcim(application);
+	pacienteDAOplanalto.buscarusuarioporid(id, function(error, resultados){	
+		pacienteDAOplanalto.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOplanalto.buscarpaciente(unidade,function(error, resultado){
 				res.render("paciente/cadastrarpacienteplanalto", {paciente : resultado, id : resultados});
 			});

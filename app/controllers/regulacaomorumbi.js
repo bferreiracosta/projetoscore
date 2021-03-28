@@ -164,9 +164,9 @@ module.exports.updatenews= function(application, req, res){
 	var alerta = req.body.covid;
 	var unidade = 'Morumbi';
 	
-	var pacienteDAOcim = new application.app.model.pacienteDAOcim(application);
-	pacienteDAOcim.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOcim.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
+	var pacienteDAOmorumbi = new application.app.model.pacienteDAOcim(application);
+	pacienteDAOmorumbi.buscarusuarioporid(id, function(error, resultados){	
+		pacienteDAOmorumbi.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOmorumbi.buscarpaciente(unidade,function(error, resultado){
 				res.render("paciente/cadastrarpacientemorumbi", {paciente : resultado, id : resultados});
 			});
