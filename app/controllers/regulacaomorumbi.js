@@ -153,6 +153,7 @@ module.exports.updatenews= function(application, req, res){
 	var idpaciente = req.body.id;
 	var news = req.body.news;
 	var tempo = req.body.horas;
+	var data = req.body.data;
 	var id = req.body.idusuario;
 	var fc = req.body.fc;
 	var sat = req.body.sat;
@@ -161,12 +162,11 @@ module.exports.updatenews= function(application, req, res){
 	var fr = req.body.fr;
 	var sistolica = req.body.sistolica;
 	var alerta = req.body.covid;
-	console.log(alerta);
 	var unidade = 'Morumbi';
 	
-	var pacienteDAOmorumbi = new application.app.model.pacienteDAOmorumbi(application);
-	pacienteDAOmorumbi.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOmorumbi.updatenews(idpaciente,news,tempo, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
+	var pacienteDAOcim = new application.app.model.pacienteDAOcim(application);
+	pacienteDAOcim.buscarusuarioporid(id, function(error, resultados){	
+		pacienteDAOcim.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOmorumbi.buscarpaciente(unidade,function(error, resultado){
 				res.render("paciente/cadastrarpacientemorumbi", {paciente : resultado, id : resultados});
 			});

@@ -152,6 +152,7 @@ module.exports.updatenews= function(application, req, res){
 	var idpaciente = req.body.id;
 	var news = req.body.news;
 	var tempo = req.body.horas;
+	var data = req.body.data;
 	var id = req.body.idusuario;
 	var fc = req.body.fc;
 	var sat = req.body.sat;
@@ -160,12 +161,11 @@ module.exports.updatenews= function(application, req, res){
 	var fr = req.body.fr;
 	var sistolica = req.body.sistolica;
 	var alerta = req.body.covid;
-	console.log(alerta);
 	var unidade = 'CIM';
 	
 	var pacienteDAOcim = new application.app.model.pacienteDAOcim(application);
 	pacienteDAOcim.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOcim.updatenews(idpaciente,news,tempo, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
+		pacienteDAOcim.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOcim.buscarpaciente(unidade,function(error, resultado){
 				res.render("paciente/cadastrarpacientecim", {paciente : resultado, id : resultados});
 			});

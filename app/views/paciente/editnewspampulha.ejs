@@ -835,6 +835,7 @@
 							</div>
 							<div id="hora" class="form-group">
 								<input  type="hidden" id="horas" name="horas"  class="form-control">
+								<input  type="hidden" id="data" name="data"  class="form-control">
 							</div>
 							</div>
 						<div >
@@ -868,10 +869,12 @@ $(document).ready(function(){
      var exame = document.getElementById('opcao').value;
      document.getElementById('ment').value = exame;
 });
+
 $("#opcao2").on('change', function(e){
      var o2 = document.getElementById('opcao2').value;
      document.getElementById('uso02').value = o2;
 });
+
 function pad(s){
 		return (s<10) ? '0' + s :s;
 	}
@@ -879,6 +882,7 @@ function novaHora(){
 	
 	var date = new Date();
 	document.getElementById('horas').value= [date.getHours(), date.getMinutes()].map(pad).join(':');
+	document.getElementById('data').value = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
 }
 novaHora();
 

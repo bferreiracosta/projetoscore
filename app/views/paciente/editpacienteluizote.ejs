@@ -806,22 +806,22 @@
 					</div>
 					<div class="form-group">
 						<div class="form-check">
-							<input  type="checkbox" name="dispositivo" id="svd"  class="form-check-input" onClick="check1()" value="svd">
+							<input  type="checkbox" name="dispositivo" id="svd"  class="form-check-input" onClick="check1()" value="svd" <%=(paciente[j].svd == 'SVD')?'checked':''%>>
 							<label class="form-check-label"  id="svd2" for="Dormonid">SVD</label>
 							<input  id="svd3"  type="hidden" name="svd3">
 						</div>
 						<div class="form-check">
-							<input type="checkbox" name="dispositivo" id="sne"  class="form-check-input" onClick="check1()" value="sne">
+							<input type="checkbox" name="dispositivo" id="sne"  class="form-check-input" onClick="check1()" value="sne" <%=(paciente[j].sne == 'SNE')?'checked':''%>>
 							<label class="form-check-label"  id="sne2" for="sne2">SNE</label>
 							<input  id="sne3"  type="hidden" name="sne3">
 						</div>
 						<div class="form-check">
-							<input type="checkbox" name="dispositivo" id="avp"  class="form-check-input" onClick="check1()" value="avp">
+							<input type="checkbox" name="dispositivo" id="avp"  class="form-check-input" onClick="check1()" value="avp" <%=(paciente[j].avp == 'AVP')?'checked':''%>>
 							<label class="form-check-label"  id="avp2" for="avp2">AVP</label>
 							<input  id="avp3"  type="hidden" name="avp3">
 						</div>
 						<div class="form-check">
-							<input type="checkbox" name="dispositivo" id="cvc"  class="form-check-input" onClick="check1()" value="cvc">
+							<input type="checkbox" name="dispositivo" id="cvc"  class="form-check-input" onClick="check1()" value="cvc" <%=(paciente[j].cvc == 'CVC')?'checked':''%>>
 							<label class="form-check-label"  id="cvc2" for="Propofol2">CVC</label>
 							<input  id="cvc3"  type="hidden" name="cvc3">
 						</div>
@@ -829,28 +829,25 @@
 					<div class="form-group">
 						<label for="paliativos" id="paliativo2">Paliativos</label>
                         <select class="form-control" id="paliativos" name="paliativos" placeholder="">
-							<option id="pali" value="<%=paciente[j].paliativo %>"><%=paciente[j].paliativo %></option>
-							<option value="sim">Sim</option>
-							<option value="nao">Não</option>
+							<option value="sim" <%=(paciente[j].paliativo == 'sim')?'selected':''%> >Sim</option>
+							<option value="nao" <%=(paciente[j].paliativo == 'nao')?'selected':''%>>Não</option>
                         </select>
                         <input type="hidden" name="paliativo" id="paliativo">
 					</div>
 					<div class="form-group">
 						<label for="susfacil">Tipos de leito</label>
                         <select class="form-control" id="leitos" name="leitos" placeholder="">
-							<option id="lei" value="<%=paciente[j].leito %>"><%=paciente[j].leito %></option>
-							<option value="Enfermaria">Enfermaria</option>
-							<option value="Sala de Emergência">Sala de Emergência</option>
+							<option value="Enfermaria" <%=(paciente[j].leito == 'Enfermaria')?'selected':''%>>Enfermaria</option>
+							<option value="Sala de Emergência" <%=(paciente[j].leito == 'Sala de Emergência')?'selected':''%>>Sala de Emergência</option>
                         </select>
                         <input type="hidden" name="leito" id="leito">
 					</div>
 					<div class="form-group">
 						<label for="susfacil">Exame</label>
 						<select class="form-control" id="exame" name="exame">
-							<option id="exames" value="<%=paciente[j].exame %>"><%=paciente[j].exame %></option>
-							<option value="aguardando">Aguardando</option>
-							<option value="positivo">Positivo</option>
-							<option value="negativo">Negativo</option>
+							<option value="aguardando" <%=(paciente[j].exame == 'aguardando')?'selected':''%> >Aguardando</option>
+							<option value="positivo" <%=(paciente[j].exame == 'positivo')?'selected':''%>>Positivo</option>
+							<option value="negativo" <%=(paciente[j].exame == 'negativo')?'selected':''%>>Negativo</option>
 						</select>
 						<input type="hidden" name="covid" id="covid">
 					  </div>
@@ -884,26 +881,7 @@ $("#paliativos").on('change', function(e){
      var paliativo = $(this).val();
      document.getElementById('paliativo').value = paliativo;
 });
-$("#dispositivo2").on('change', function(e){
-     var dispositivo = $(this).val();
-     document.getElementById('dispositivo').value = dispositivo;
-});
 
-$("#exames").ready(function(){
-	var exames = document.getElementById("exames").value;
-     document.getElementById('covid').value = exames;
-})
-
-$("#lei").ready(function(){
-	var lei = document.getElementById("lei").value;
-     document.getElementById('leito').value = lei;
-})
-
-
-$("#pali").ready(function(){
-	var pali = document.getElementById("pali").value;
-     document.getElementById('paliativo').value = pali;
-})
 
 function verificadispositivo(value){
 	var input = document.getElementById("svd");
@@ -952,7 +930,6 @@ function verificaecf(value){
 	  var paliativo = 'sim';
 	  document.getElementById('paliativos').style.display = 'none'
 	  document.getElementById('paliativo2').style.display = 'none'
-	  
 	  document.getElementById('paliativo').value = paliativo;
   }
 };
@@ -960,6 +937,30 @@ window.onload = function() {
 
   document.getElementById('spict').style.display = 'none';
   document.getElementById('spict2').style.display = 'none';
+  var paliativo = document.getElementById('paliativos').value;
+  var exame = document.getElementById('exame').value;
+  var leito = document.getElementById('leitos').value;
+  document.getElementById('paliativo').value = paliativo;
+  document.getElementById('covid').value = exame;
+  document.getElementById('leito').value = leito;
+  var pacote = document.getElementsByName('dispositivo');
+  for (var i = 0; i < pacote.length; i++){
+	if ( pacote[i].checked == true) {
+		if(pacote[i].value == "svd"){
+			  var Pacote_i = "SVD";
+			  document.getElementById('svd3').value = Pacote_i;
+		  }else if (pacote[i].value == "sne") {
+			  var Pacote_ii = "SNE";
+			  document.getElementById('sne3').value = Pacote_ii;
+		  }else if (pacote[i].value == "avp") {
+			  var Pacote_iii = "AVP";
+			  document.getElementById('avp3').value = Pacote_iii;
+		  }else if (pacote[i].value == "cvc") {
+			  var Pacote_iiii = "CVC";
+			  document.getElementById('cvc3').value = Pacote_iiii;
+		  }
+		} 
+ 	 }
 };
 
 function check1(){
@@ -981,8 +982,29 @@ var pacote = document.getElementsByName('dispositivo');
 			  document.getElementById('cvc3').value = Pacote_iiii;
 		  }
 		}
-  	}
+	}
+	var estado = false;
+	for (var i = 0; i < pacote.length; i++) {
+		if ( pacote[i].checked == estado ) {
+		  if(pacote[i].value == "svd"){
+			  var Pacote_i = "";
+			  document.getElementById('svd3').value = Pacote_i;
+		  }else if (pacote[i].value == "sne") {
+			  var Pacote_ii = "";
+			  document.getElementById('sne3').value = Pacote_ii;
+		  }else if (pacote[i].value == "avp") {
+			  var Pacote_iii = "";
+			  document.getElementById('avp3').value = Pacote_iii;
+		  }else if (pacote[i].value == "cvc") {
+			  var Pacote_iiii = "";
+			  document.getElementById('cvc3').value = Pacote_iiii;
+		  }
+		}
+    }
+    
 }
+
+
 </script>
 </body>
 </html>

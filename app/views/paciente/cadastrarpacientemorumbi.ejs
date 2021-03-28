@@ -22,6 +22,7 @@
 						<th>News</th>
                         <th>Paliativo</th>
                         <th>ECF</th>
+                        <th>Data Atualização</th>
 						<th>Ultima Atualização</th>
                         <th></th>
                         <th></th>
@@ -42,6 +43,7 @@
 							<td><%=paciente[j].news %></td>
                             <td><%=paciente[j].paliativo %></td>
                             <td><%=paciente[j].ecf %></td>
+                            <td id=""><%=paciente[j].data %></td>
 							<td id="time"><%=paciente[j].tempo %></td>
                             <td><a href="editpacientemorumbi/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
                             </td>
@@ -112,32 +114,34 @@
 </body>
 </html>
 <script>
-	$(document).ready(function() {
-$('#mytable').DataTable( {
-dom: 'Bfrtip',
-pageLength: 50,
-buttons: [
-    'copyHtml5',
-    'excelHtml5',
-    'pdfHtml5',
-    'print'
-],
-select: true
+$(document).ready(function() {
+    $('#mytable').DataTable( {
+        dom: 'Bfrtip',
+        order: ([ 3, 'asc']),
+        pageLength: 50,
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'pdfHtml5',
+            'print'
+        ],
+        select: true
+    } );
 } );
-} );
-	function setaDadosModal(valor) {
-		document.getElementById('campo').value = valor;
-	}
 
-	function setaDadosModal2(valor) {
-		document.getElementById('campo2').value = valor;
-	}
-    $("#baixaselect").on('change', function(e){
-     var baixa = $(this).val();
-     document.getElementById('baixa').value = baixa;
-    });
+function setaDadosModal(valor) {
+    document.getElementById('campo').value = valor;
+}
 
-    setInterval(function(){
+function setaDadosModal2(valor) {
+    document.getElementById('campo2').value = valor;
+}
+$("#baixaselect").on('change', function(e){
+    var baixa = $(this).val();
+    document.getElementById('baixa').value = baixa;
+});
+
+setInterval(function(){
     init_PNotify()
 },10000)
 
@@ -147,33 +151,36 @@ function init_PNotify() {
     var hora = data.getHours();  
     var min = data.getMinutes();
     var now = hora + ':' + min;
+    var hoje = data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear();
     $('#mytable tbody tr').each(function(i){
         tr=$(this);
         tr.children('td').removeClass('fundoIdade');
-        valor=tr.children('td:eq(9)').html();
-
+        valor=tr.children('td:eq(10)').html();
+        date = tr.children('td:eq(9)').html();
         news =tr.children('td:eq(6)').html();
         
         if(news <= 4){
-            console.log(news);
-            console.log(valor);
             var tempocerto = somartempos('6:00', valor); 
-            if(now == tempocerto || now > tempocerto){
+            console.log(now, tempocerto);
+            if(hoje > date || now == tempocerto || now > tempocerto){
                 tr.children('td:eq(9)').addClass('fundoIdade');
             }
         }if(news > 4 && news <=6){
-            var tempocerto = somartempos('4:00', valor); 
+            var tempocerto = somartempos('4:00', valor);
+            console.log(now, tempocerto); 
             if(now == tempocerto || now > tempocerto){
                 tr.children('td:eq(9)').addClass('fundoIdade1');
             }
         }if(news >= 7){
             var tempocerto = somartempos('1:00', valor); 
+            console.log(now, tempocerto);
             if(now == tempocerto || now > tempocerto){
                 tr.children('td:eq(9)').addClass('fundoIdade2');
             }
         }
         if(news = 0){
             var tempocerto = somartempos('1:00', valor); 
+            console.log(now, tempocerto);
             if(now == tempocerto || now > tempocerto){
             }
         }
@@ -183,6 +190,7 @@ function init_PNotify() {
 };
 
 function somartempos(tempo1, tempo2) {
+    
     var array1 = tempo1.split(':');
     var tempo_seg1 = (parseInt(array1[0]) * 3600) + (parseInt(array1[1]) * 60);
     var array2 = tempo2.split(':');
