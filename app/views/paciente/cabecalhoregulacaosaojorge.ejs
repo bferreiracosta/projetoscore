@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="pt-br">
+<html>
 	<head>
 		<meta charset="UTF-8">
 
@@ -12,17 +12,13 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	
 		<!-- incluindo css -->
-		<link href="/css/style.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
-		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.css"/>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.buttons.css"/>
+		<link href="css/style.css" rel="stylesheet">
 
 		<!-- favicon -->
 		<link rel="shortcut icon" href="images/favicon.ico" />
 	</head>
 
-	<body>
+	<body onload="myFunction()">
 
 		<nav class="navbar navbar-default navbar-static-top">
 			
@@ -43,8 +39,158 @@
 					<ul class="nav navbar-nav navbar-right">
 						<% if(id.length > 0) { %>
 							<% for(var i = 0; i < id.length; i++) {%>
-								
-									<% if(id[i].usuario== 'cida'){%>
+								<% if(id[i].usuario== 'cida'){%>
+									<div class="btn-group">
+										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+										  Uai Planalto
+										</button>
+										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsplanalto?id=<%=id[i].id_usuario %>">News</a></button>
+											<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacienteplanalto?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+											<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaoplanalto?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+											<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicoplanalto?id=<%=id[i].id_usuario %>">Historico</a></button>
+											<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaiplanalto?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+											<br>
+										</div>
+									</div>
+									<div class="btn-group">
+										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+										Uai Luizote
+										</button>
+										<div class="dropdown-menu" >
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsluizote?id=<%=id[i].id_usuario %>">News</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacienteluizote?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaoluizote?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicoluizote?id=<%=id[i].id_usuario %>">Historico</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluailuizote?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+												<br>
+											</div>
+									  </div>	
+									  <div class="btn-group">
+										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+										Uai Martins
+										</button>
+										<div class="dropdown-menu" >
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsmartins?id=<%=id[i].id_usuario %>">News</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientemartins?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+											<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaomartins?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicomartins?id=<%=id[i].id_usuario %>">Historico</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaimartins?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+												<br>
+											</div>
+									  </div>	
+									  <div class="btn-group">
+										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+										Uai Roosevelt
+										</button>
+										<div class="dropdown-menu" >
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsroosevelt?id=<%=id[i].id_usuario %>">News</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacienteroosevelt?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaoroosevelt?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicoroosevelt?id=<%=id[i].id_usuario %>">Historico</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluairoosevelt?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+												<br>
+											</div>
+									  </div>	
+									  <div class="btn-group">
+										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+										Uai Tibery
+										</button>
+										<div class="dropdown-menu" >
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newstibery?id=<%=id[i].id_usuario %>">News</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientetibery?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaotibery?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicotibery?id=<%=id[i].id_usuario %>">Historico</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaitibery?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+												<br>
+											</div>
+									  </div>	
+									  <div class="btn-group">
+										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+										Uai Morumbi
+										</button>
+										<div class="dropdown-menu" >
+											<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsmorumbi?id=<%=id[i].id_usuario %>">News</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientemorumbi?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaomorumbi?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicomorumbi?id=<%=id[i].id_usuario %>">Historico</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+												<br>
+										</div>
+									  </div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Regulação
+											</button>
+											<div class="dropdown-menu" >
+												<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+													<br>
+											</div>
+										</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Administrativo
+											</button>
+											<div class="dropdown-menu" >
+												<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+												<br>
+											</div>
+										</div>
+										<div class="btn-group">
+											<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Sair
+											</button>
+											<div class="dropdown-menu" >
+												<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+											</div>
+										</div>
+									<% } %>
+									<% if(id[i].usuario== 'admin'){%>
 										<div class="btn-group">
 											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
 											  Uai Planalto
@@ -147,7 +293,43 @@
 												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
 													<br>
 											</div>
-										  </div>
+										</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Uai São Jorge
+											</button>
+											<div class="dropdown-menu" >
+												<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsaojorge?id=<%=id[i].id_usuario %>">News</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientesaojorge?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaosaojorge?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicosaojorge?id=<%=id[i].id_usuario %>">Historico</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaisaojorge?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+													<br>
+											</div>
+										</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Uai Pampulha
+											</button>
+											<div class="dropdown-menu" >
+												<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newspampulha?id=<%=id[i].id_usuario %>">News</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientepampulha?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaopampulha?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicopampulha?id=<%=id[i].id_usuario %>">Historico</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaipampulha?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+													<br>
+											</div>
+										</div>
 											<div class="btn-group">
 												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
 												Regulação
@@ -195,7 +377,7 @@
 												</div>
 											</div>
 										<% } %>
-										<% if(id[i].usuario== 'admin'){%>
+										<% if(id[i].usuario== 'sheyla'){%>
 											<div class="btn-group">
 												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
 												  Uai Planalto
@@ -269,7 +451,7 @@
 												Uai Tibery
 												</button>
 												<div class="dropdown-menu" >
-													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newstibery?id=<%=id[i].id_usuario %>">News</a></button>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newstibery?id=<%=id[i].id_usuario %>">News </a></button>
 														<br>
 													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientetibery?id=<%=id[i].id_usuario %>">Pacientes</a></button>
 														<br>
@@ -321,7 +503,7 @@
 													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
 													Administrativo
 													</button>
-													<div class="dropdown-menu" >
+													<div class="dropdown-menu"  >
 														<br>
 														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
 															<br>
@@ -346,7 +528,7 @@
 													</div>
 												</div>
 											<% } %>
-											<% if(id[i].usuario== 'sheyla'){%>
+											<% if(id[i].usuario== 'coordplanalto'){%>
 												<div class="btn-group">
 													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
 													  Uai Planalto
@@ -362,92 +544,6 @@
 														<br>
 														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaiplanalto?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
 														<br>
-													</div>
-												</div>
-												<div class="btn-group">
-													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-													Uai Luizote
-													</button>
-													<div class="dropdown-menu" >
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsluizote?id=<%=id[i].id_usuario %>">News</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacienteluizote?id=<%=id[i].id_usuario %>">Pacientes</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaoluizote?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicoluizote?id=<%=id[i].id_usuario %>">Historico</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluailuizote?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
-															<br>
-														</div>
-												  </div>	
-												  <div class="btn-group">
-													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-													Uai Martins
-													</button>
-													<div class="dropdown-menu" >
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsmartins?id=<%=id[i].id_usuario %>">News</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientemartins?id=<%=id[i].id_usuario %>">Pacientes</a></button>
-														<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaomartins?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicomartins?id=<%=id[i].id_usuario %>">Historico</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaimartins?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
-															<br>
-														</div>
-												  </div>	
-												  <div class="btn-group">
-													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-													Uai Roosevelt
-													</button>
-													<div class="dropdown-menu" >
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsroosevelt?id=<%=id[i].id_usuario %>">News</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacienteroosevelt?id=<%=id[i].id_usuario %>">Pacientes</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaoroosevelt?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicoroosevelt?id=<%=id[i].id_usuario %>">Historico</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluairoosevelt?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
-															<br>
-														</div>
-												  </div>	
-												  <div class="btn-group">
-													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-													Uai Tibery
-													</button>
-													<div class="dropdown-menu" >
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newstibery?id=<%=id[i].id_usuario %>">News </a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientetibery?id=<%=id[i].id_usuario %>">Pacientes</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaotibery?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicotibery?id=<%=id[i].id_usuario %>">Historico</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaitibery?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
-															<br>
-														</div>
-												  </div>	
-												  <div class="btn-group">
-													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-													Uai Morumbi
-													</button>
-													<div class="dropdown-menu" >
-														<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsmorumbi?id=<%=id[i].id_usuario %>">News</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientemorumbi?id=<%=id[i].id_usuario %>">Pacientes</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaomorumbi?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicomorumbi?id=<%=id[i].id_usuario %>">Historico</a></button>
-															<br>
-														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
-															<br>
 													</div>
 												</div>
 													<div class="btn-group">
@@ -497,7 +593,746 @@
 														</div>
 													</div>
 												<% } %>
-												<% if(id[i].enfermeiro==1){%>
+								<% if(id[i].usuario== 'coordluizote'){%>
+									<div class="btn-group">
+										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+										Uai Luizote
+										</button>
+										<div class="dropdown-menu" >
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsluizote?id=<%=id[i].id_usuario %>">News</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacienteluizote?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaoluizote?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicoluizote?id=<%=id[i].id_usuario %>">Historico</a></button>
+												<br>
+											<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluailuizote?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+												<br>
+											</div>
+										</div>	
+										<div class="btn-group">
+											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Regulação
+											</button>
+											<div class="dropdown-menu" >
+												<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+													<br>
+											</div>
+										</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Administrativo
+											</button>
+											<div class="dropdown-menu"  >
+												<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+												<br>
+											</div>
+										</div>
+										<div class="btn-group">
+											<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Sair
+											</button>
+											<div class="dropdown-menu" >
+												<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+											</div>
+										</div>
+									<% } %>
+									<% if(id[i].usuario== 'coordmartins'){%>	
+											<div class="btn-group">
+											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											Uai Martins
+											</button>
+											<div class="dropdown-menu" >
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsmartins?id=<%=id[i].id_usuario %>">News</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientemartins?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+												<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaomartins?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicomartins?id=<%=id[i].id_usuario %>">Historico</a></button>
+													<br>
+												<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaimartins?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+													<br>
+												</div>
+											</div>	
+											<div class="btn-group">
+												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												Regulação
+												</button>
+												<div class="dropdown-menu" >
+													<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+														<br>
+												</div>
+											</div>
+											<div class="btn-group">
+												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												Administrativo
+												</button>
+												<div class="dropdown-menu"  >
+													<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+													<br>
+												</div>
+											</div>
+											<div class="btn-group">
+												<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												Sair
+												</button>
+												<div class="dropdown-menu" >
+													<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+												</div>
+											</div>
+										<% } %>
+										<% if(id[i].usuario== 'coordroosevelt'){%>	
+												<div class="btn-group">
+												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												Uai Roosevelt
+												</button>
+												<div class="dropdown-menu" >
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsroosevelt?id=<%=id[i].id_usuario %>">News</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacienteroosevelt?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaoroosevelt?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicoroosevelt?id=<%=id[i].id_usuario %>">Historico</a></button>
+														<br>
+													<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluairoosevelt?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+														<br>
+													</div>
+												</div>	
+												<div class="btn-group">
+													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													Regulação
+													</button>
+													<div class="dropdown-menu" >
+														<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+															<br>
+													</div>
+												</div>
+												<div class="btn-group">
+													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													Administrativo
+													</button>
+													<div class="dropdown-menu"  >
+														<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+														<br>
+													</div>
+												</div>
+												<div class="btn-group">
+													<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													Sair
+													</button>
+													<div class="dropdown-menu" >
+														<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+													</div>
+												</div>
+											<% } %>
+											<% if(id[i].usuario== 'coordtibery'){%>	
+													<div class="btn-group">
+													<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													Uai Tibery
+													</button>
+													<div class="dropdown-menu" >
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newstibery?id=<%=id[i].id_usuario %>">News </a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientetibery?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaotibery?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicotibery?id=<%=id[i].id_usuario %>">Historico</a></button>
+															<br>
+														<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaitibery?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+															<br>
+														</div>
+													</div>	
+													<div class="btn-group">
+														<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+														Regulação
+														</button>
+														<div class="dropdown-menu" >
+															<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+																<br>
+														</div>
+													</div>
+													<div class="btn-group">
+														<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+														Administrativo
+														</button>
+														<div class="dropdown-menu"  >
+															<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+															<br>
+														</div>
+													</div>
+													<div class="btn-group">
+														<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+														Sair
+														</button>
+														<div class="dropdown-menu" >
+															<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+														</div>
+													</div>
+												<% } %>
+												<% if(id[i].usuario== 'coordmorumbi'){%>	
+														<div class="btn-group">
+														<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+														Uai Morumbi
+														</button>
+														<div class="dropdown-menu" >
+															<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsmorumbi?id=<%=id[i].id_usuario %>">News</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientemorumbi?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaomorumbi?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicomorumbi?id=<%=id[i].id_usuario %>">Historico</a></button>
+																<br>
+															<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+																<br>
+														</div>
+													</div>
+														<div class="btn-group">
+															<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+															Regulação
+															</button>
+															<div class="dropdown-menu" >
+																<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+																	<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+																	<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+																	<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+																	<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+																	<br>
+															</div>
+														</div>
+														<div class="btn-group">
+															<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+															Administrativo
+															</button>
+															<div class="dropdown-menu"  >
+																<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+																	<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+																	<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+																	<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+																	<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+																	<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+																<br>
+															</div>
+														</div>
+														<div class="btn-group">
+															<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+															Sair
+															</button>
+															<div class="dropdown-menu" >
+																<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+															</div>
+														</div>
+													<% } %><% if(id[i].usuario== 'supervplalui'){%>
+														<div class="btn-group">
+															<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+															  Uai Planalto
+															</button>
+															<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsplanalto?id=<%=id[i].id_usuario %>">News</a></button>
+																<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacienteplanalto?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+																<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaoplanalto?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+																<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicoplanalto?id=<%=id[i].id_usuario %>">Historico</a></button>
+																<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaiplanalto?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+																<br>
+															</div>
+														</div>
+														<div class="btn-group">
+															<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+															Uai Luizote
+															</button>
+															<div class="dropdown-menu" >
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsluizote?id=<%=id[i].id_usuario %>">News</a></button>
+																	<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacienteluizote?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+																	<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaoluizote?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+																	<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicoluizote?id=<%=id[i].id_usuario %>">Historico</a></button>
+																	<br>
+																<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluailuizote?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+																	<br>
+																</div>
+														  </div>	
+															<div class="btn-group">
+																<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																Regulação
+																</button>
+																<div class="dropdown-menu" >
+																	<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+																		<br>
+																</div>
+															</div>
+															<div class="btn-group">
+																<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																Administrativo
+																</button>
+																<div class="dropdown-menu"  >
+																	<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+																	<br>
+																</div>
+															</div>
+															<div class="btn-group">
+																<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																Sair
+																</button>
+																<div class="dropdown-menu" >
+																	<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+																</div>
+															</div>
+														<% } %><% if(id[i].usuario== 'supervmarroose'){%>	
+															  <div class="btn-group">
+																<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																Uai Martins
+																</button>
+																<div class="dropdown-menu" >
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsmartins?id=<%=id[i].id_usuario %>">News</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientemartins?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+																	<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaomartins?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicomartins?id=<%=id[i].id_usuario %>">Historico</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaimartins?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+																		<br>
+																	</div>
+															  </div>	
+															  <div class="btn-group">
+																<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																Uai Roosevelt
+																</button>
+																<div class="dropdown-menu" >
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsroosevelt?id=<%=id[i].id_usuario %>">News</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacienteroosevelt?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaoroosevelt?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicoroosevelt?id=<%=id[i].id_usuario %>">Historico</a></button>
+																		<br>
+																	<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluairoosevelt?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+																		<br>
+																	</div>
+															  </div>	
+																<div class="btn-group">
+																	<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																	Regulação
+																	</button>
+																	<div class="dropdown-menu" >
+																		<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+																			<br>
+																	</div>
+																</div>
+																<div class="btn-group">
+																	<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																	Administrativo
+																	</button>
+																	<div class="dropdown-menu"  >
+																		<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+																		<br>
+																	</div>
+																</div>
+																<div class="btn-group">
+																	<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																	Sair
+																	</button>
+																	<div class="dropdown-menu" >
+																		<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+																	</div>
+																</div>
+															<% } %>
+															<% if(id[i].usuario== 'supervtibmorum'){%>	
+																  <div class="btn-group">
+																	<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																	Uai Tibery
+																	</button>
+																	<div class="dropdown-menu" >
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newstibery?id=<%=id[i].id_usuario %>">News </a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientetibery?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaotibery?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicotibery?id=<%=id[i].id_usuario %>">Historico</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaitibery?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+																			<br>
+																		</div>
+																  </div>	
+																  <div class="btn-group">
+																	<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																	Uai Morumbi
+																	</button>
+																	<div class="dropdown-menu" >
+																		<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsmorumbi?id=<%=id[i].id_usuario %>">News</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientemorumbi?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaomorumbi?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicomorumbi?id=<%=id[i].id_usuario %>">Historico</a></button>
+																			<br>
+																		<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+																			<br>
+																	</div>
+																</div>
+																	<div class="btn-group">
+																		<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																		Regulação
+																		</button>
+																		<div class="dropdown-menu" >
+																			<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+																				<br>
+																		</div>
+																	</div>
+																	<div class="btn-group">
+																		<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																		Administrativo
+																		</button>
+																		<div class="dropdown-menu"  >
+																			<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+																			<br>
+																		</div>
+																	</div>
+																	<div class="btn-group">
+																		<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																		Sair
+																		</button>
+																		<div class="dropdown-menu" >
+																			<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+																		</div>
+																	</div>
+																<% } %>
+																<% if(id[i].usuario== 'coordsaopampu'){%>
+																	<div class="btn-group">
+																		<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																		Uai São Jorge
+																		</button>
+																		<div class="dropdown-menu" >
+																			<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsaojorge?id=<%=id[i].id_usuario %>">News</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientesaojorge?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaosaojorge?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicosaojorge?id=<%=id[i].id_usuario %>">Historico</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaisaojorge?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+																				<br>
+																		</div>
+																	</div>
+																	<div class="btn-group">
+																		<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																		Uai Pampulha
+																		</button>
+																		<div class="dropdown-menu" >
+																			<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newspampulha?id=<%=id[i].id_usuario %>">News</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientepampulha?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaopampulha?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicopampulha?id=<%=id[i].id_usuario %>">Historico</a></button>
+																				<br>
+																			<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaipampulha?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+																				<br>
+																		</div>
+																	</div>
+																		<div class="btn-group">
+																			<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																			Regulação
+																			</button>
+																			<div class="dropdown-menu" >
+																				<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+																					<br>
+																			</div>
+																		</div>
+																		<div class="btn-group">
+																			<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																			Administrativo
+																			</button>
+																			<div class="dropdown-menu" >
+																				<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+																				<br>
+																			</div>
+																		</div>
+																		<div class="btn-group">
+																			<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																			Sair
+																			</button>
+																			<div class="dropdown-menu" >
+																				<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+																			</div>
+																		</div>
+																	<% } %>
+																	<% if(id[i].usuario== 'supersaopampu'){%>
+																		<div class="btn-group">
+																			<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																			Uai São Jorge
+																			</button>
+																			<div class="dropdown-menu" >
+																				<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newsaojorge?id=<%=id[i].id_usuario %>">News</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientesaojorge?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaosaojorge?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicosaojorge?id=<%=id[i].id_usuario %>">Historico</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaisaojorge?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+																					<br>
+																			</div>
+																		</div>
+																		<div class="btn-group">
+																			<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																			Uai Pampulha
+																			</button>
+																			<div class="dropdown-menu" >
+																				<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="newspampulha?id=<%=id[i].id_usuario %>">News</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="cadastrarpacientepampulha?id=<%=id[i].id_usuario %>">Pacientes</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="respiracaopampulha?id=<%=id[i].id_usuario %>">Dispositivo</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="historicopampulha?id=<%=id[i].id_usuario %>">Historico</a></button>
+																					<br>
+																				<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluaipampulha?id=<%=id[i].id_usuario %>">Central de Leitos</a></button>
+																					<br>
+																			</div>
+																		</div>
+																			<div class="btn-group">
+																				<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																				Regulação
+																				</button>
+																				<div class="dropdown-menu" >
+																					<br>
+																					<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatoriouti?id=<%=id[i].id_usuario %>">Relatorio UTI</a></button>
+																						<br>
+																					<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria</a></button>
+																						<br>
+																					<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></button>
+																						<br>
+																					<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></button>
+																						<br>
+																					<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></button>
+																						<br>
+																				</div>
+																			</div>
+																			<div class="btn-group">
+																				<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																				Administrativo
+																				</button>
+																				<div class="dropdown-menu" >
+																					<br>
+																					<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></button>
+																						<br>
+																					<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></button>
+																						<br>
+																					<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></button>
+																						<br>
+																					<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></button>
+																						<br>
+																					<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></button>
+																						<br>
+																					<button class="btn btn-success dropdown-item" ><a class="btn btn-success" href="relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></button>
+																					<br>
+																				</div>
+																			</div>
+																			<div class="btn-group">
+																				<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+																				Sair
+																				</button>
+																				<div class="dropdown-menu" >
+																					<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
+																				</div>
+																			</div>
+																		<% } %>
+								<% if(id[i].enfermeiro==1){%>
 									<% if(id[i].unidade==1){%>
 										<li><a href="newsplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="images/news.png" /><br><br><button class="btn btn-sm btn-primary">NEWs</button></a></li>
 										<li><a href="cadastrarpacienteplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="images/cadastrarpaciente.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
@@ -655,6 +1490,7 @@
 									<% } %>
 						<% } %>
 							<% } %>	
+							
 								<% } %>
 						<% if(id.length > 0) { %>
 							<% for(var i = 0; i < id.length; i++) {%>
@@ -663,7 +1499,7 @@
 										<li><a href="relatorioenfermaria?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Enfermaria</button></a></li>
 										<li><a href="centralenfermaria?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos Enfermaria</button></a></li>
 										<li><a href="centraluti?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos UTI</button></a></li>
-										<li><a href="centraluai?id=<%=id[i].id_usuario %>"><img id="sair" src="images/central.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+										<li><a href="centraluai?id=<%=id[i].id_usuario %>"><img id="sair" src="images/uai.jfif" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
 										<li><a href="/sair"><img id="sair" src="images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
 						<% } %>
 							<% } %>	
@@ -721,26 +1557,6 @@
 								<% } %>
 									<% } %>	
 										<% } %>
-								<% if(id.length > 0) { %>
-									<% for(var i = 0; i < id.length; i++) {%>
-										<% if(id[i].cim==1){%>
-											<li><a href="relatoriouti?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio.png" /><br><br><button class="btn btn-sm btn-primary">Sala Emergência</button></a></li>
-											<li><a href="relatorioenfermaria?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Enfermaria</button></a></li>
-												<li><a href="centralcim?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
-												<li><a href="/sair"><img id="sair" src="images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
-								<% } %>
-									<% } %>	
-										<% } %>
-								<% if(id.length > 0) { %>
-									<% for(var i = 0; i < id.length; i++) {%>
-										<% if(id[i].anexo==1){%>
-											<li><a href="relatoriouti?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio.png" /><br><br><button class="btn btn-sm btn-primary">Sala Emergência</button></a></li>
-										<li><a href="relatorioenfermaria?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Enfermaria</button></a></li>
-												<li><a href="centralanexo?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
-												<li><a href="/sair"><img id="sair" src="images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
-								<% } %>
-									<% } %>	
-										<% } %>
 										<% if(id.length > 0) { %>
 											<% for(var i = 0; i < id.length; i++) {%>
 												<% if(id[i].usuario=='admhmu'){%>
@@ -761,11 +1577,28 @@
 												<% } %>
 													<% } %>	
 														<% } %>
+								<% if(id.length > 0) { %>
+									<% for(var i = 0; i < id.length; i++) {%>
+										<% if(id[i].cim==1){%>
+											<li><a href="relatoriouti?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio.png" /><br><br><button class="btn btn-sm btn-primary">Sala Emergência</button></a></li>
+											<li><a href="relatorioenfermaria?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Enfermaria</button></a></li>
+												<li><a href="centralcim?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+												<li><a href="/sair"><img id="sair" src="images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+								<% } %>
+									<% } %>	
+										<% } %>
+								<% if(id.length > 0) { %>
+									<% for(var i = 0; i < id.length; i++) {%>
+										<% if(id[i].anexo==1){%>
+											<li><a href="relatoriouti?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio.png" /><br><br><button class="btn btn-sm btn-primary">Sala Emergência</button></a></li>
+										<li><a href="relatorioenfermaria?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Enfermaria</button></a></li>
+												<li><a href="centralanexo?id=<%=id[i].id_usuario %>"><img id="sair" src="images/relatorio2.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
+												<li><a href="/sair"><img id="sair" src="images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+								<% } %>
+									<% } %>	
+										<% } %>
+										
 					</ul>
 				</div>
 			</div>
 		</nav>
-
-
-		
-	
