@@ -152,7 +152,7 @@ function init_PNotify() {
     var hora = data.getHours();  
     var min = data.getMinutes();
     var now = hora + ':' + min;
-    var hoje = data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear();
+    var hoje = data.getDate() + "/" + (data.getMonth()+1) + "/" + data.getFullYear();
     $('#mytable tbody tr').each(function(i){
         tr=$(this);
         tr.children('td').removeClass('fundoIdade');
@@ -169,20 +169,20 @@ function init_PNotify() {
         }if(news > 4 && news <=6){
             var tempocerto = somartempos('4:00', valor);
             console.log(now, tempocerto); 
-            if(now == tempocerto || now > tempocerto){
+            if(hoje > date || now == tempocerto || now > tempocerto){
                 tr.children('td:eq(9)').addClass('fundoIdade1');
             }
         }if(news >= 7){
             var tempocerto = somartempos('1:00', valor); 
             console.log(now, tempocerto);
-            if(now == tempocerto || now > tempocerto){
+            if( hoje > date || now == tempocerto || now > tempocerto){
                 tr.children('td:eq(9)').addClass('fundoIdade2');
             }
         }
         if(news = 0){
             var tempocerto = somartempos('1:00', valor); 
             console.log(now, tempocerto);
-            if(now == tempocerto || now > tempocerto){
+            if(hoje > date || now == tempocerto || now > tempocerto){
             }
         }
         
