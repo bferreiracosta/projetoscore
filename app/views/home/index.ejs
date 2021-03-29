@@ -41,6 +41,11 @@
 						<button type="submit" class="btn btn-success">Entrar</button>
 					</div>
 				</form>
+				<div>
+					<% if ( msg.length > 0 ) { %>
+						<p style="color: red;"><%= msg %> </p>
+					  <% } %>
+				</div>
 				<a hidden href="/updatepassword">Alterar Senha</a>
 			</div>
 			
