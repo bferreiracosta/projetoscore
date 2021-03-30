@@ -7,18 +7,19 @@
         <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
         
         <thead>
-        <tr>
-            <th hidden>id</th>
-            <th>Nome</th>
-            <th>Dispositivo Ventilatorio</th>
-            <th>Fluxo de O2</th>
-            <th>Droga Vaso Ativa</th>
-            <th>FIO2</th>
-            <th>PEEP</th>
-            <th>Sedação</th>
-            <th>Glasgow</th>
-            <th></th>
-        </tr>
+            <tr>
+                <th hidden>id</th>
+                <th>Nome</th>
+                <th>Dispositivo Ventilatorio</th>
+                <th>Fluxo de O2</th>
+                <th>Droga Vaso Ativa</th>
+                <th>FIO2</th>
+                <th>PEEP</th>
+                <th>Sedação</th>
+                <th>Glasgow</th>
+                <th>Profissional</th>
+                <th></th>
+            </tr>
         </thead>
         <tbody>   
             <% if(paciente.length > 0) { %>
@@ -33,6 +34,7 @@
                 <td><label hidden for="">PEEP: </label><%=paciente[j].peep %></td>
                 <td><label hidden for="">Sedação: </label><%=paciente[j].sedacao %></td>
                 <td><label hidden for="">Glasgow: </label><%=paciente[j].glasgow %></td>
+                <td><label hidden for="">Profissional: </label><%=paciente[j].profissional %></td>
                 
                 <td>
                     <a href="editrespplanalto/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>

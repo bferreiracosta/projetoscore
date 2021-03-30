@@ -192,13 +192,14 @@ module.exports.updateresp= function(application, req, res){
 	var rocuronio = req.body.Rocuronio3;
 	var propofol = req.body.Propofol3;
 	var bic = req.body.bics;
+	var profissional = req.body.profissional;
 	var id = req.body.idusuario;
 	var unidade = 'Morumbi';
 	
 	
 	var pacienteDAOmorumbi = new application.app.model.pacienteDAOmorumbi(application);
 	pacienteDAOmorumbi.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOmorumbi.updateresp(idpaciente,dispositivo,fluxoo2, droga, fio2, peep, sedacao, glasgow,leito,nora, adre,bica,dormonid,fentanil,rocuronio,propofol,bic,  function(error, result){
+		pacienteDAOmorumbi.updateresp(idpaciente,profissional,dispositivo,fluxoo2, droga, fio2, peep, sedacao, glasgow,leito,nora, adre,bica,dormonid,fentanil,rocuronio,propofol,bic,  function(error, result){
 			pacienteDAOmorumbi.buscarpaciente(unidade,function(error, resultado){
 				res.render("paciente/respiracaomorumbi", {paciente : resultado, id : resultados});
 			});

@@ -192,13 +192,14 @@ module.exports.updateresp= function(application, req, res){
 	var rocuronio = req.body.Rocuronio3;
 	var propofol = req.body.Propofol3;
 	var bic = req.body.bics;
+	var profissional = req.body.profissional;
 	var id = req.body.idusuario;
 	var unidade = 'Planalto';
 	
 	
 	var pacienteDAOplanalto = new application.app.model.pacienteDAOplanalto(application);
 	pacienteDAOplanalto.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOplanalto.updateresp(idpaciente,dispositivo,fluxoo2, droga, fio2, peep, sedacao, glasgow,leito,nora, adre,bica,dormonid,fentanil,rocuronio,propofol,bic,  function(error, result){
+		pacienteDAOplanalto.updateresp(idpaciente,profissional,dispositivo,fluxoo2, droga, fio2, peep, sedacao, glasgow,leito,nora, adre,bica,dormonid,fentanil,rocuronio,propofol,bic,  function(error, result){
 			pacienteDAOplanalto.buscarpaciente(unidade,function(error, resultado){
 				res.render("paciente/respiracaoplanalto", {paciente : resultado, id : resultados});
 			});
