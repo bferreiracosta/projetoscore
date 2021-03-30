@@ -1832,10 +1832,14 @@ window.onload = function() {
 
   var dispositivo = document.getElementById("dispositivo").value;
   verifica(dispositivo);
+  document.getElementById('dispositivo2').value = dispositivo;
   var sedacao = document.getElementById("sedacao").value;
   verificasedacao(sedacao);
 	var droga = document.getElementById("droga").value;
 	verificadroga(droga);
+	document.getElementById('drogas').value = droga;
+var leito = document.getElementById("leito").value;
+	document.getElementById('leito2').value = leito;
 var pacote = document.getElementsByName('DVA');
   for (var i = 0; i < pacote.length; i++){
 	  if ( pacote[i].checked == true) {
