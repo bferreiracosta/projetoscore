@@ -168,7 +168,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOpampulha.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOpampulha.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOpampulha.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/cadastrarpacientepampulha", {paciente : resultado, id : resultados});
+				res.render("paciente/editnewspampulha", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

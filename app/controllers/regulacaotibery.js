@@ -168,7 +168,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOtibery.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOtibery.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOtibery.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/cadastrarpacientetibery", {paciente : resultado, id : resultados});
+				res.render("paciente/editnewstibery", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

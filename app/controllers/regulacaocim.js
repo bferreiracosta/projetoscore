@@ -167,7 +167,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOcim.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOcim.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOcim.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/cadastrarpacientecim", {paciente : resultado, id : resultados});
+				res.render("paciente/editnewscim", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

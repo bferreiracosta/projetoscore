@@ -168,7 +168,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOmorumbi.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOmorumbi.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOmorumbi.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/cadastrarpacientemorumbi", {paciente : resultado, id : resultados});
+				res.render("paciente/editnewsmorumbi", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

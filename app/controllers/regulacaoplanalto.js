@@ -168,7 +168,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOplanalto.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOplanalto.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOplanalto.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/cadastrarpacienteplanalto", {paciente : resultado, id : resultados});
+				res.render("paciente/editnewsplanalto", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

@@ -168,7 +168,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOsaojorge.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOsaojorge.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOsaojorge.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/cadastrarpacientesaojorge", {paciente : resultado, id : resultados});
+				res.render("paciente/editnewssaojorge", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

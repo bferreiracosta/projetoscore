@@ -168,7 +168,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOmartins.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOmartins.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOmartins.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/cadastrarpacientemartins", {paciente : resultado, id : resultados});
+				res.render("paciente/editnewsmartins", {paciente : resultado, id : resultados});
 			});
 		});
 	});	
