@@ -281,7 +281,6 @@ module.exports.editnews = function(application, req, res){
 	var unidade = 'CIM';
 	var id = req.params.idusuario;
 	var idpaciente = req.query;
-console.log(idpaciente);
 	pacienteDAOcim.buscarusuarioeditavel(id, function(error,result){
 		pacienteDAOcim.buscarpacienteid(idpaciente, unidade, function(error, resultado){
 			res.render("paciente/editnewscim", {paciente: resultado, id : result});
