@@ -439,6 +439,18 @@ module.exports = function(application){
 		}
 		
 	});
+	
+	application.post('/editarleitotibery', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.home.editarleitotibery(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 	application.post('/editarleitopampulha', function(req, res){
 		if(req.session.loggedin){
 			
