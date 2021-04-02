@@ -102,18 +102,7 @@ module.exports.status = function(application, req, res){
 		res.render("paciente/status", {id : result});
 	});
 }
-module.exports.monitoramento = function(application, req, res){
-	
-	var pacienteDAO = new application.app.model.pacienteDAO(application);
 
-	var id = req.query;
-	
-	pacienteDAO.buscarusuario(id, function(error,result){
-		
-		
-		res.render("paciente/monitoramento", {id : result});
-	});
-}
 
 module.exports.notifica = function(application, req, res){
 	

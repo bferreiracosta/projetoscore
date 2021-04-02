@@ -84,18 +84,6 @@ module.exports = function(application){
 		}
 		
 	});
-
-	application.get('/monitoramento', function(req, res){
-		if(req.session.loggedin){
-			
-			application.app.controllers.home.monitoramento(application, req, res);
-		}
-		else{
-			res.send("Faça login!!");
-			res.redirect('/')
-		}
-		
-	});
 	
 	application.get('/notifica', function(req, res){
 		if(req.session.loggedin){
