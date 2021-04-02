@@ -46,7 +46,7 @@
 						<p style="color: red;"><%= msg %> </p>
 					  <% } %>
 				</div>
-				<a hidden href="/updatepassword">Alterar Senha</a>
+				<a href="/updatepassword">Alterar Senha</a>
 			</div>
 			
 		</nav>
@@ -66,8 +66,10 @@
 	    	</div>
 	    </div>	
 		
+	
+		<%- include('../paciente/footer'); %>
 	</body>
-</html>
+	</html>
 <script type="text/javascript">
 	function update() {
 		var select = document.getElementById('funcao');
