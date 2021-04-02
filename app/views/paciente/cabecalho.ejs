@@ -23,7 +23,7 @@
 		<nav class="navbar navbar-default navbar-static-top">
 			<% if(id.length > 0) { %>
 				<% for(var i = 0; i < id.length; i++) {%>
-					<% if(id[i].id_usuario==1){%>
+					<% if(id[i].id_usuario==1 || id[i].id_usuario==8){%>
 	    	<div class="navbar-header">
 				<select name="uai" onchange="myFunction()" class="selectpicker" id="uai">
 					<option value="Planalto">Planalto</option>
