@@ -72,17 +72,6 @@ module.exports = function(application){
 		
 		
 	});
-	application.get('/pacienteid', function(req, res){
-		if(req.session.loggedin){
-			
-			application.app.controllers.home.pacienteid(application, req, res);
-		}
-		else{
-			res.send("Faça login!!");
-			res.redirect('/')
-		}
-		
-	});
 	
 	application.get('/status', function(req, res){
 		if(req.session.loggedin){

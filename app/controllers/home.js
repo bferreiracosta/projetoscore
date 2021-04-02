@@ -48,7 +48,7 @@ module.exports.paciente= function(application, req, res){
 	var id = req.query;
 
 	pacienteDAO.buscarusuario(id, function(error, result){
-		res.render("paciente/pacientes", {id : result});
+		res.render("paciente/paciente", {id : result});
 	});	
 }
 
@@ -65,17 +65,6 @@ module.exports.pacientes= function(application, req, res){
 }
 
 
-module.exports.pacienteid = function(application, req, res){
-	
-	var pacienteDAO = new application.app.model.pacienteDAO(application);
-
-	var id = req.query;
-	
-	pacienteDAO.buscarusuario(id, function(error,result){
-		
-		res.render("paciente/paciente", {id : result});
-	});
-}
 module.exports.home = function(application, req, res){
 	
 	var pacienteDAO = new application.app.model.pacienteDAO(application);
