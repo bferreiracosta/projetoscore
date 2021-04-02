@@ -31,7 +31,7 @@ module.exports.mudarsenha = function(application, req, res){
 		var pacienteDAO = new application.app.model.pacienteDAO(application);
 		pacienteDAO.updatepassword(usuario, senha, function(error, result){
 			pacienteDAO.mudarsenha(result,senhaatual, function(error, result){
-				res.render("home/index");
+				res.render("home/index", {msg : {}});
 			});
 	});
 	}else{
