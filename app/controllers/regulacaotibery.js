@@ -15,7 +15,7 @@ module.exports.cadastrar= function(application, req, res){
 module.exports.news= function(application, req, res){
 	
 	var pacienteDAOtibery = new application.app.model.pacienteDAOtibery(application);
-	var unidade = 'tibery';
+	var unidade = 'Tibery';
 	var id = req.query;
 
 	pacienteDAOtibery.buscarusuario(id, function(error, result){
@@ -28,7 +28,7 @@ module.exports.news= function(application, req, res){
 module.exports.respiracao= function(application, req, res){
 	
 	var pacienteDAOtibery = new application.app.model.pacienteDAOtibery(application);
-	var unidade = 'tibery';
+	var unidade = 'Tibery';
 	var id = req.query;
 
 	pacienteDAOtibery.buscarusuario(id, function(error, result){
@@ -57,7 +57,7 @@ module.exports.relatorioadmtibery= function(application, req, res){
 	var pacienteDAOtibery = new application.app.model.pacienteDAOtibery(application);
 
 	var id = req.query;
-	var unidade = 'tibery';
+	var unidade = 'Tibery';
 	
 	pacienteDAOtibery.buscarusuario(id, function(error, result){
 		pacienteDAOtibery.buscarpaciente(unidade, function(error, resultado){
@@ -85,7 +85,7 @@ module.exports.historico= function(application, req, res){
 	var pacienteDAOtibery = new application.app.model.pacienteDAOtibery(application);
 
 	var id = req.query;
-	var unidade = 'tibery';
+	var unidade = 'Tibery';
 	
 	pacienteDAOtibery.buscarusuario(id, function(error, result){
 		pacienteDAOtibery.historico(unidade, function(error, resultado){
@@ -108,7 +108,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var id = req.body.idusuario;
-	var unidade = 'tibery';
+	var unidade = 'Tibery';
 	console.log(id);
 	
 	var pacienteDAOtibery = new application.app.model.pacienteDAOtibery(application);
@@ -137,7 +137,7 @@ module.exports.update= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var id = req.body.idusuario;
-	var unidade = 'tibery';
+	var unidade = 'Tibery';
 	
 	var pacienteDAOtibery = new application.app.model.pacienteDAOtibery(application);
 	pacienteDAOtibery.buscarusuarioporid(id, function(error, resultados){	
@@ -194,7 +194,7 @@ module.exports.updateresp= function(application, req, res){
 	var bic = req.body.bics;
 	var profissional = req.body.profissional;
 	var id = req.body.idusuario;
-	var unidade = 'tibery';
+	var unidade = 'Tibery';
 	
 	
 	var pacienteDAOtibery = new application.app.model.pacienteDAOtibery(application);
@@ -211,7 +211,7 @@ module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;
 	var id = req.body.campo2;
 	var baixa = req.body.baixa;
-	var unidade = 'tibery';
+	var unidade = 'Tibery';
 	
 	var pacienteDAOtibery = new application.app.model.pacienteDAOtibery(application);
 
@@ -227,7 +227,7 @@ module.exports.baixa= function(application, req, res){
 module.exports.sinaisvitais= function(application, req, res){
 	var id = req.params.idusuario;
 	var idpaciente = req.query;
-	var unidade = 'tibery';
+	var unidade = 'Tibery';
 	
 	var pacienteDAOtibery = new application.app.model.pacienteDAOtibery(application);
 	pacienteDAOtibery.buscarusuarioeditavel(id, function(error,result){
@@ -254,7 +254,7 @@ module.exports.editpaciente = function(application, req, res){
 
 	var id = req.params.idusuario;
 	var idpaciente = req.query;
-	var unidade = 'tibery';
+	var unidade = 'Tibery';
 	pacienteDAOtibery.buscarusuarioeditavel(id, function(error,result){
 		pacienteDAOtibery.buscarpacienteid(idpaciente, unidade, function(error, resultado){
 			res.render("paciente/editpacientetibery", {paciente: resultado, id : result});
@@ -265,7 +265,7 @@ module.exports.editpaciente = function(application, req, res){
 module.exports.editnews = function(application, req, res){
 	
 	var pacienteDAOtibery = new application.app.model.pacienteDAOtibery(application);
-	var unidade = 'tibery';
+	var unidade = 'Tibery';
 	var id = req.params.idusuario;
 	var idpaciente = req.query;
 console.log(idpaciente);
@@ -279,7 +279,7 @@ console.log(idpaciente);
 module.exports.editresp = function(application, req, res){
 	
 	var pacienteDAOtibery = new application.app.model.pacienteDAOtibery(application);
-	var unidade = 'tibery';
+	var unidade = 'Tibery';
 	var id = req.params.idusuario;
 	var idpaciente = req.query;
 
@@ -295,7 +295,7 @@ module.exports.homeregulacao = function(application, req, res){
 	var pacienteDAOtibery = new application.app.model.pacienteDAOtibery(application);
 
 	var id = req.query;
-	var unidade = 'tibery';
+	var unidade = 'Tibery';
 	pacienteDAOtibery.buscarusuario(id, function(error,result){
 		pacienteDAOtibery.buscarpaciente(unidade, function(error, resultado){
 			res.render("home/homeregulacaotibery", {paciente: resultado, id : result});
