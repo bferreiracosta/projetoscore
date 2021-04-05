@@ -21,11 +21,20 @@
        						while (objeto.hasChildNodes()) {
             					objeto.removeChild(objeto.lastChild);
 						}
-						var y = document.createElement("IFRAME");
-						y.setAttribute("src", "https://docs.google.com/spreadsheets/d/1Ty0iT39DpueRecWWUmVFjarZ2PbfmrPkU22ahnPkgHI/edit?usp=sharing");
-						objeto.appendChild(y);
-						y.style.width = "1550px";
-						y.style.height = "850px"			
+				if(x=="Planalto"){
+				var y = document.createElement("IFRAME");
+				y.setAttribute("src", "https://docs.google.com/spreadsheets/d/1Ty0iT39DpueRecWWUmVFjarZ2PbfmrPkU22ahnPkgHI/edit?usp=sharing");
+				objeto.appendChild(y);
+				y.style.width = "1550px";
+				y.style.height = "850px"
+				} 
+				if(x=="Tibery"){
+				var y = document.createElement("IFRAME");
+				y.setAttribute("src", "https://docs.google.com/spreadsheets/d/1Pz5CzzywMQU2RKUp6of54rH1MYEzJ6pxTwFsDeZqUSs/edit?usp=sharing");
+				objeto.appendChild(y);
+				y.style.width = "1550px";
+				y.style.height = "850px";
+				}				
 			}
 		</script>
 	<%- include('./footer'); %>
