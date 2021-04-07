@@ -11,40 +11,42 @@
 					<input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
 					
                     <thead>
-                    <tr>
-						<th hidden>id</th>
-                        <th>SusFacil</th>
-                        <th>Prontuario</th>
-                        <th>Nome</th>
-                        <th>Idade</th>
-                        <th>Leito</th>
-                        <th>Exame</th>
-						<th>News</th>
-                        <th>Paliativo</th>
-                        <th>ECF</th>
-                        <th>Data Atualização</th>
-						<th>Ultima Atualização</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-					</thead>
-                    <tbody>    
-						<% if(paciente.length > 0) { %>
-							<% for(var j = 0; j < paciente.length; j++) {%>
-								
                         <tr>
-							<td hidden><%=paciente[j].id_paciente %></td>
-                            <td><%=paciente[j].susfacil %></td>
-                            <th><%=paciente[j].prt %></th>
-                            <td><%=paciente[j].paciente %></td>
-                            <td><%=paciente[j].idade %></td>
-                            <td><%=paciente[j].leito %></td>
-                            <td><%=paciente[j].exame %></td>
-							<td><%=paciente[j].news %></td>
-                            <td><%=paciente[j].paliativo %></td>
-                            <td><%=paciente[j].ecf %></td>
-                            <td id=""><%=paciente[j].data %></td>
-							<td id="time"><%=paciente[j].tempo %></td>
+                            <th hidden>id</th>
+                            <th>SusFacil</th>
+                            <th>Prontuario</th>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>Leito</th>
+                            <th>Data de Exame</th>
+                            <th>Exame</th>
+                            <th>News</th>
+                            <th>Paliativo</th>
+                            <th>ECF</th>
+                            <th>Data Atualização</th>
+                            <th>Ultima Atualização</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>    
+                            <% if(paciente.length > 0) { %>
+                                <% for(var j = 0; j < paciente.length; j++) {%>
+                                    
+                            <tr>
+                                <td hidden><%=paciente[j].id_paciente %></td>
+                                <td><%=paciente[j].susfacil %></td>
+                                <th><%=paciente[j].prt %></th>
+                                <td><%=paciente[j].paciente %></td>
+                                <td><%=paciente[j].idade %></td>
+                                <td><%=paciente[j].leito %></td>
+                                <td><%=paciente[j].dataexame %></td>
+                                <td><%=paciente[j].exame %></td>
+                                <td><%=paciente[j].news %></td>
+                                <td><%=paciente[j].paliativo %></td>
+                                <td><%=paciente[j].ecf %></td>
+                                <td id=""><%=paciente[j].data %></td>
+                                <td id="time"><%=paciente[j].tempo %></td>
                             <td><a href="editpacientesaojorge/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
                             </td>
                             <td>

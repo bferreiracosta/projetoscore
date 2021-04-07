@@ -107,12 +107,13 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'Luizote';
 	console.log(id);
 	
 	var pacienteDAOluizote = new application.app.model.pacienteDAOluizote(application);
 	pacienteDAOluizote.buscarusuarioporid(id, function(error, resultados){
-		pacienteDAOluizote.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict, function(error, result){
+		pacienteDAOluizote.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict,data, function(error, result){
 			pacienteDAOluizote.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacienteluizote", {paciente : resultado, id : resultados});
 			});
@@ -135,12 +136,13 @@ module.exports.update= function(application, req, res){
 	var sne = req.body.sne3;
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
+	var data = req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'Luizote';
 	
 	var pacienteDAOluizote = new application.app.model.pacienteDAOluizote(application);
 	pacienteDAOluizote.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOluizote.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+		pacienteDAOluizote.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,data,  function(error, result){
 			pacienteDAOluizote.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacienteluizote", {paciente : resultado, id : resultados});
 			});
@@ -167,7 +169,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOluizote.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOluizote.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOluizote.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/editnewsluizote", {paciente : resultado, id : resultados});
+				res.render("paciente/newsluizote", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

@@ -108,12 +108,13 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'SaoJorge';
 	console.log(id);
 	
 	var pacienteDAOsaojorge = new application.app.model.pacienteDAOsaojorge(application);
 	pacienteDAOsaojorge.buscarusuarioporid(id, function(error, resultados){
-		pacienteDAOsaojorge.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict, function(error, result){
+		pacienteDAOsaojorge.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict,data, function(error, result){
 			pacienteDAOsaojorge.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacientesaojorge", {paciente : resultado, id : resultados});
 			});
@@ -136,12 +137,13 @@ module.exports.update= function(application, req, res){
 	var sne = req.body.sne3;
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
+	var data = req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'SaoJorge';
 	
 	var pacienteDAOsaojorge = new application.app.model.pacienteDAOsaojorge(application);
 	pacienteDAOsaojorge.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOsaojorge.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+		pacienteDAOsaojorge.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict, data, function(error, result){
 			pacienteDAOsaojorge.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacientesaojorge", {paciente : resultado, id : resultados});
 			});
@@ -168,7 +170,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOsaojorge.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOsaojorge.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOsaojorge.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/editnewssaojorge", {paciente : resultado, id : resultados});
+				res.render("paciente/newssaojorge", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

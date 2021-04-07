@@ -108,12 +108,13 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'Planalto';
 	console.log(id);
 	
 	var pacienteDAOplanalto = new application.app.model.pacienteDAOplanalto(application);
 	pacienteDAOplanalto.buscarusuarioporid(id, function(error, resultados){
-		pacienteDAOplanalto.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict, function(error, result){
+		pacienteDAOplanalto.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict,data, function(error, result){
 			pacienteDAOplanalto.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacienteplanalto", {paciente : resultado, id : resultados});
 			});
@@ -136,12 +137,13 @@ module.exports.update= function(application, req, res){
 	var sne = req.body.sne3;
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
+	var data = req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'Planalto';
 	
 	var pacienteDAOplanalto = new application.app.model.pacienteDAOplanalto(application);
 	pacienteDAOplanalto.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOplanalto.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc, spict, function(error, result){
+		pacienteDAOplanalto.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc, spict,data, function(error, result){
 			pacienteDAOplanalto.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacienteplanalto", {paciente : resultado, id : resultados});
 			});
@@ -168,7 +170,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOplanalto.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOplanalto.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOplanalto.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/editnewsplanalto", {paciente : resultado, id : resultados});
+				res.render("paciente/newsplanalto", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

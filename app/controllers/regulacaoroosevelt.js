@@ -108,12 +108,13 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'Roosevelt';
 	console.log(id);
 	
 	var pacienteDAOroosevelt = new application.app.model.pacienteDAOroosevelt(application);
 	pacienteDAOroosevelt.buscarusuarioporid(id, function(error, resultados){
-		pacienteDAOroosevelt.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict, function(error, result){
+		pacienteDAOroosevelt.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict,data, function(error, result){
 			pacienteDAOroosevelt.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacienteroosevelt", {paciente : resultado, id : resultados});
 			});
@@ -136,12 +137,13 @@ module.exports.update= function(application, req, res){
 	var sne = req.body.sne3;
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
+	var data = req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'Roosevelt';
 	
 	var pacienteDAOroosevelt = new application.app.model.pacienteDAOroosevelt(application);
 	pacienteDAOroosevelt.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOroosevelt.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+		pacienteDAOroosevelt.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict, data, function(error, result){
 			pacienteDAOroosevelt.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacienteroosevelt", {paciente : resultado, id : resultados});
 			});
@@ -168,7 +170,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOroosevelt.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOroosevelt.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOroosevelt.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/editnewsroosevelt", {paciente : resultado, id : resultados});
+				res.render("paciente/newsroosevelt", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

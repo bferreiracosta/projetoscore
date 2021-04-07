@@ -26,6 +26,14 @@
                 <th>Data Atualização</th>
                 <th>Hora Atualização</th>
                 <th>News</th>
+                <th>Temperatura</th>
+                <th>PA Sistolica</th>
+                <th>Frequência Cardiaca</th>
+                <th>Frequência Respiratoria</th>
+                <th>Saturação de O2</th>
+                <th>Nivel de Alerta</th>
+                <th>Data Exame</th>
+                <th>Resultado de Exame</th>
             </tr>
             </thead>
             <tbody>   
@@ -50,9 +58,16 @@
                     <td><label hidden for="">/Fluxo de O2: </label><%=paciente[j].fluxo_de_o2 %></td>
                     <td><label hidden for="">/Data Atualização: </label><%=paciente[j].data%></td>
                     <td><label hidden for="">/Hora Atualização: </label><%=paciente[j].tempo%></td>
-                    <td>
-                        <a href="sinaisvitais/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %>" class="btn btn-sm btn-danger" ><label hidden for="">NEws: </label><%=paciente[j].news %></a>
-                    </td>
+                    <td><label hidden for="">NEws: </label><%=paciente[j].news %></td>
+                    <td><label hidden for="">/Temperatura: </label><%=paciente[j].temp %></td>
+                    <td><label hidden for="">/PA Sistolica: </label><%=paciente[j].sistolica %></td>
+                    <td><label hidden for="">/Frequência Cardiaca: </label><%=paciente[j].fc %></td>
+                    <td><label hidden for="">/Frequência Respiratoria: </label><%=paciente[j].fr %></td>
+                    <td><label hidden for="">/Saturação de O2: </label><%=paciente[j].sat %></td>
+                    <td><label hidden for="">/Nivel de Alerta: </label><%=paciente[j].alerta %></td>
+                    <td><label hidden>/Data Exame: </label><%=paciente[j].dataexame %></td>
+                    <td><label hidden>/Exame: </label><%=paciente[j].exame %></td>
+                    
                 </tr>
                 <% } %>	
                 <% } %>

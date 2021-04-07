@@ -107,12 +107,13 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'CIM';
 	console.log(id);
 	
 	var pacienteDAOcim = new application.app.model.pacienteDAOcim(application);
 	pacienteDAOcim.buscarusuarioporid(id, function(error, resultados){
-		pacienteDAOcim.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict, function(error, result){
+		pacienteDAOcim.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict,data, function(error, result){
 			pacienteDAOcim.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacientecim", {paciente : resultado, id : resultados});
 			});
@@ -135,12 +136,13 @@ module.exports.update= function(application, req, res){
 	var sne = req.body.sne3;
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
+	var data = req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'CIM';
 	
 	var pacienteDAOcim = new application.app.model.pacienteDAOcim(application);
 	pacienteDAOcim.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOcim.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+		pacienteDAOcim.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,data,  function(error, result){
 			pacienteDAOcim.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacientecim", {paciente : resultado, id : resultados});
 			});
@@ -167,7 +169,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOcim.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOcim.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOcim.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/editnewscim", {paciente : resultado, id : resultados});
+				res.render("paciente/newscim", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

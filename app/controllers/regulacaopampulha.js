@@ -108,12 +108,13 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'Pampulha';
 	console.log(id);
 	
 	var pacienteDAOpampulha = new application.app.model.pacienteDAOpampulha(application);
 	pacienteDAOpampulha.buscarusuarioporid(id, function(error, resultados){
-		pacienteDAOpampulha.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict, function(error, result){
+		pacienteDAOpampulha.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict,data, function(error, result){
 			pacienteDAOpampulha.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacientepampulha", {paciente : resultado, id : resultados});
 			});
@@ -136,12 +137,13 @@ module.exports.update= function(application, req, res){
 	var sne = req.body.sne3;
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
+	var data = req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'Pampulha';
 	
 	var pacienteDAOpampulha = new application.app.model.pacienteDAOpampulha(application);
 	pacienteDAOpampulha.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOpampulha.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+		pacienteDAOpampulha.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,data,  function(error, result){
 			pacienteDAOpampulha.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacientepampulha", {paciente : resultado, id : resultados});
 			});
@@ -168,7 +170,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOpampulha.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOpampulha.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOpampulha.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/editnewspampulha", {paciente : resultado, id : resultados});
+				res.render("paciente/newspampulha", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

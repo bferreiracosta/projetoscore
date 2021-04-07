@@ -108,12 +108,13 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'Martins';
 	console.log(id);
 	
 	var pacienteDAOmartins = new application.app.model.pacienteDAOmartins(application);
 	pacienteDAOmartins.buscarusuarioporid(id, function(error, resultados){
-		pacienteDAOmartins.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict, function(error, result){
+		pacienteDAOmartins.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict,data, function(error, result){
 			pacienteDAOmartins.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacientemartins", {paciente : resultado, id : resultados});
 			});
@@ -136,12 +137,13 @@ module.exports.update= function(application, req, res){
 	var sne = req.body.sne3;
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
+	var data = req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'Martins';
 	
 	var pacienteDAOmartins = new application.app.model.pacienteDAOmartins(application);
 	pacienteDAOmartins.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOmartins.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+		pacienteDAOmartins.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,data,  function(error, result){
 			pacienteDAOmartins.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacientemartins", {paciente : resultado, id : resultados});
 			});
@@ -168,7 +170,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOmartins.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOmartins.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOmartins.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/editnewsmartins", {paciente : resultado, id : resultados});
+				res.render("paciente/newsmartins", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

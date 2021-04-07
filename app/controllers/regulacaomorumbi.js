@@ -108,12 +108,13 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'Morumbi';
 	console.log(id);
 	
 	var pacienteDAOmorumbi = new application.app.model.pacienteDAOmorumbi(application);
 	pacienteDAOmorumbi.buscarusuarioporid(id, function(error, resultados){
-		pacienteDAOmorumbi.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict, function(error, result){
+		pacienteDAOmorumbi.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict,data, function(error, result){
 			pacienteDAOmorumbi.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacientemorumbi", {paciente : resultado, id : resultados});
 			});
@@ -136,12 +137,13 @@ module.exports.update= function(application, req, res){
 	var sne = req.body.sne3;
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
+	var data = req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'Morumbi';
 	
 	var pacienteDAOmorumbi = new application.app.model.pacienteDAOmorumbi(application);
 	pacienteDAOmorumbi.buscarusuarioporid(id, function(error, resultados){	
-		pacienteDAOmorumbi.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+		pacienteDAOmorumbi.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,data,  function(error, result){
 			pacienteDAOmorumbi.buscarpaciente(unidade, function(error, resultado){
 				res.render("paciente/cadastrarpacientemorumbi", {paciente : resultado, id : resultados});
 			});
@@ -168,7 +170,7 @@ module.exports.updatenews= function(application, req, res){
 	pacienteDAOmorumbi.buscarusuarioporid(id, function(error, resultados){	
 		pacienteDAOmorumbi.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			pacienteDAOmorumbi.buscarpaciente(unidade,function(error, resultado){
-				res.render("paciente/editnewsmorumbi", {paciente : resultado, id : resultados});
+				res.render("paciente/newsmorumbi", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

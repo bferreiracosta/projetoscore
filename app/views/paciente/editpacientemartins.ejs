@@ -31,7 +31,7 @@
 
 				<div class="form-group">
 					<label for="susfacil">Idade</label>
-					<input type="text" name="idade" class="form-control"  placeholder="Digite idade" value="<%=paciente[j].idade %>" required>
+					<input type="text" name="idade" onchange="verificaidade(this.value)" class="form-control"  placeholder="Digite idade" value="<%=paciente[j].idade %>" required>
 				</div>
 				<div class="form-group">
 					<label for="ECF">ECF</label>
@@ -80,6 +80,10 @@
 					<input type="hidden" name="leito" id="leito">
 				</div>
 				<div class="form-group">
+					<label for="data">Data Exame</label>
+					<input type="text" name="data" id="data" class="form-control" value="<%=paciente[j].dataexame %>" required>
+				</div>
+				<div class="form-group">
 					<label for="susfacil">Exame</label>
 					<select class="form-control" id="exame" name="exame">
 						<option value="aguardando" <%=(paciente[j].exame == 'aguardando')?'selected':''%> >Aguardando</option>
@@ -105,7 +109,7 @@
             </div>
 <!-- Importando o jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -121,7 +125,9 @@ $("#paliativos").on('change', function(e){
      var paliativo = $(this).val();
      document.getElementById('paliativo').value = paliativo;
 });
-
+$(document).ready(function(){
+      $('#data').mask('00/00/0000');
+      });
 
 function verificadispositivo(value){
 	var input = document.getElementById("svd");
@@ -173,6 +179,19 @@ function verificaecf(value){
 	  document.getElementById('paliativo').value = paliativo;
   }
 };
+function verificaidade(value){
+	var input = document.getElementById("ecf2");
+	var input2 = document.getElementById("ecf3");
+
+  if(value < 60 ){
+    input.style.display = "none";
+	input2.style.display = "none";
+	document.getElementById('ecf').value = 0;
+  }else{
+    input.style.display = "block";
+	input2.style.display = "block";
+  }
+};
 window.onload = function() {
 
   document.getElementById('spict').style.display = 'none';
@@ -201,6 +220,17 @@ window.onload = function() {
 		  }
 		} 
  	 }
+	  var input = document.getElementById("ecf2");
+	var input2 = document.getElementById("ecf3");
+
+  if(value < 60 ){
+    input.style.display = "none";
+	input2.style.display = "none";
+	document.getElementById('ecf').value = 0;
+  }else{
+    input.style.display = "block";
+	input2.style.display = "block";
+  }
 };
 
 function check1(){
