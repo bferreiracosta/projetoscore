@@ -22,12 +22,12 @@
                         <input type="text" name="paciente" class="form-control" placeholder="Nome Paciente" required>
                     </div>
 
-                    <div class="form-group">
+					<div class="form-group">
 						<label for="Idade">Idade</label>
-                        <input type="text" name="idade" class="form-control" placeholder="Idade" required>
+						<input type="text" onchange="verificaidade(this.value)" name="idade" class="form-control" placeholder="Idade" required>
 					</div>
-                    <div class="form-group">
-						<label for="ECF">ECF</label>
+					<div class="form-group">
+						<label for="ECF" id="ecf3">ECF</label>
 						<select  onchange="verificaecf(this.value)"  class="form-control" id="ecf2" name="ecf2">
 							<option value="" disabled selected hidden>ECF</option>
 							<option value="0">Não aplicado</option>
@@ -42,7 +42,7 @@
 							<option value="9">9</option>
 							<option value="10">10</option>
 						</select>
-                        <input type="hidden" id="ecf"  name="ecf" class="form-control" placeholder="ECF">
+						<input type="hidden" id="ecf"  name="ecf" class="form-control" placeholder="ECF">
 					</div>
 					<div class="form-group">
 						<label for="spcit" id="spict2">Spict</label>
@@ -50,7 +50,7 @@
 					</div>
                     <div class="form-group">
 						<label for="Dispositivo">Dispositivo</label>
-						<select class="form-control" onchange="verificadispositivo(this.value)" id="dispositivo2" name="dispositivo2">
+						<select class="form-control" onchange="verificadispositivo(this.value)" id="dispositivo2" name="dispositivo2" required>
 							<option value="" disabled selected hidden>Dispositivo</option>
 							<option value="sim">Sim</option>
 							<option value="nao">Não</option>
@@ -79,7 +79,7 @@
 					</div>
 					<div class="form-group">
 						<label for="leitos">Tipo de leito</label>
-                        <select class="form-control" id="leitos" name="leitos">
+                        <select class="form-control" id="leitos" name="leitos" required>
                             <option value="" disabled selected hidden>Leito</option>
 							<option value="Enfermaria">Enfermaria</option>
 							<option value="Sala de Emergência">Sala de Emergência</option>
@@ -88,7 +88,7 @@
 					</div>
                     <div class="form-group">
 						<label for="paliativos" id="paliativo2">Paliativos</label>
-                        <select class="form-control" id="paliativos" name="paliativos">
+                        <select class="form-control" id="paliativos" name="paliativos" required>
                             <option value="" disabled selected hidden>Paliativo</option>
 							<option value="sim">Sim</option>
 							<option value="nao">Não</option>
@@ -97,7 +97,7 @@
 					</div>
 					<div class="form-group">
 						<label for="exame">Exame</label>
-						<select  class="form-control" id="exame" name="exame">
+						<select  class="form-control" id="exame" name="exame" required>
 							<option value="" disabled selected hidden>Exame</option>
 							<option value="aguardando">Aguardando</option>
 							<option value="positivo">Positivo</option>
@@ -198,6 +198,20 @@ function verificaecf(value){
 	  document.getElementById('paliativo2').style.display = 'none'
 	  
 	  document.getElementById('paliativo').value = paliativo;
+  }
+};
+
+function verificaidade(value){
+	var input = document.getElementById("ecf2");
+	var input2 = document.getElementById("ecf3");
+
+  if(value < 60 ){
+    input.style.display = "none";
+	input2.style.display = "none";
+	document.getElementById('ecf').value = 0;
+  }else{
+    input.style.display = "block";
+	input2.style.display = "block";
   }
 };
 window.onload = function() {
