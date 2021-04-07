@@ -15,15 +15,15 @@
                 </div>
                 <div >
 					<div class="form-group">
-                        <input type="hidden" name="idpaciente" class="form-control" placeholder="" value="<%=paciente[j].id_paciente%>" >
+                        <input type="hidden" name="idpaciente" class="form-control" placeholder="" value="<%=paciente[j].id_paciente%>" required >
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"
 						<label for="paciente">Paciente</label>
-                        <input disabled type="text" name="paciente" class="form-control" value="<%=paciente[j].paciente %>" >
+                        <input disabled type="text" name="paciente" class="form-control" value="<%=paciente[j].paciente %>" required >
                     </div>
                     <div class="form-group">
 						<label for="paciente">Tipo de leito</label>
-						<select class="form-control" id="leito" name="leito">
+						<select class="form-control" id="leito" name="leito" required>
 							<option value="maca" <%=(paciente[j].acomodacao == 'maca')?'selected':''%>>Maca</option>
 							<option value="leito" <%=(paciente[j].acomodacao == 'leito')?'selected':''%>>Leito</option>
 						</select>
@@ -31,7 +31,7 @@
 					<input  id="leito2"  type="hidden" name="leito2">
 					<div class="form-group">
 						<label for="paciente">Dispositivo</label>
-						<select class="form-control" onchange="verifica(this.value)" id="dispositivo" name="dispositivo">
+						<select class="form-control" onchange="verifica(this.value)" id="dispositivo" name="dispositivo" required>
 							<option value="Ar Ambiente" <%=(paciente[j].dispositivo == 'Ar Ambiente')?'selected':''%>>Ar Ambiente</option>
 							<option value="Cateter O2" <%=(paciente[j].dispositivo == 'Cateter O2')?'selected':''%>>Cateter O2</option>
                             <option value="Mascara Reservatorio" <%=(paciente[j].dispositivo == 'Mascara Reservatorio')?'selected':''%>>Mascara Reservatório</option>
@@ -41,11 +41,11 @@
 					<input  id="dispositivo2"  type="hidden" name="dispositivo2">
 					<div class="form-group">
 						<label for="o2label" id="o2label">Fluxo de O2</label>
-                        <input type="text" name="o2" id="o2" class="form-control" value="<%=paciente[j].fluxo_de_o2 %>" >
+                        <input type="text" name="o2" id="o2" class="form-control" value="<%=paciente[j].fluxo_de_o2 %>"  required>
                     </div>
                     <div class="form-group">
 						<label for="paciente">Drogas Vasoativas</label>
-						<select class="form-control" onchange="verificadroga(this.value)" id="droga" name="droga">
+						<select class="form-control" onchange="verificadroga(this.value)" id="droga" name="droga" required>
 							<option value="sim" <%=(paciente[j].droga == 'sim')?'selected':''%> >Sim</option>
 							<option value="nao" <%=(paciente[j].droga == 'nao')?'selected':''%>>Não</option>
 						</select>
@@ -76,7 +76,7 @@
                     </div>
 					<div class="form-group">
 						<label for="paciente">Sedação</label>
-						<select class="form-control" onchange="verificasedacao(this.value)" id="sedacao" name="sedacao">
+						<select class="form-control" onchange="verificasedacao(this.value)" id="sedacao" name="sedacao" required>
 							<option value="sim" <%=(paciente[j].sedacao == 'sim')?'selected':''%> >Sim</option>
 							<option value="nao" <%=(paciente[j].sedacao == 'nao')?'selected':''%>>Não</option>
 						</select>
@@ -103,11 +103,11 @@
 					</div>
 					<div class="form-group">
 						<label for="paciente" id="glasgow2">Glasgow</label>
-                        <input type="text" id="glasgow" name="glasgow" class="form-control" value="<%=paciente[j].glasgow %>" >
+                        <input type="text" id="glasgow" name="glasgow" class="form-control" value="<%=paciente[j].glasgow %>">
                     </div>
 					<div class="form-group">
 						<label for="paciente">Quantidades de Bics</label>
-                        <input type="text" name="bics" class="form-control" value="<%=paciente[j].bic %>">
+                        <input type="text" name="bics" class="form-control" value="<%=paciente[j].bic %>" required>
                     </div>
                 </div>
                 <div >
