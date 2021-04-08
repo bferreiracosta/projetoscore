@@ -11,8 +11,8 @@ app.set('views', './app/views');
 
 app.use(session({
 	secret: 'secret',
-	resave: false,
-	saveUninitialized: false
+	resave: true,
+	saveUninitialized: trues
 }));
 
 
