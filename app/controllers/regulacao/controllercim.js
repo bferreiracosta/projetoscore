@@ -91,6 +91,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var data = req.body.data;
+	var dataexame = req.body.dataexame;
 	var id = req.body.idusuario;
 	var unidade = 'CIM';
 	console.log(id);
@@ -99,7 +100,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var modelcim = new application.app.model.regulacao.modelcim(application);
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelcim.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict, data, function(error, result){
+		modelcim.cadastrarpaciente(dataexame, susfacil, prt, paciente,leito, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,data, function(error, result){
 			modelcim.buscarpaciente(unidade, function(error, resultado){
 				res.render("regulacao/cadastrarpacientecim", {paciente : resultado, id : resultados});
 			});

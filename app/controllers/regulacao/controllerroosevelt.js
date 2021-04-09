@@ -121,6 +121,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var data = req.body.data;
+	var dataexame = req.body.dataexame;
 	var id = req.body.idusuario;
 	var unidade = 'Roosevelt';
 	console.log(id);
@@ -129,7 +130,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var modelroosevelt = new application.app.model.regulacao.modelroosevelt(application);
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelroosevelt.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict,data, function(error, result){
+		modelroosevelt.cadastrarpaciente(dataexame, susfacil, prt, paciente,leito, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,data, function(error, result){
 			modelroosevelt.buscarpaciente(unidade, function(error, resultado){
 				res.render("regulacao/cadastrarpacienteroosevelt", {paciente : resultado, id : resultados});
 			});

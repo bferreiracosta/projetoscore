@@ -121,6 +121,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var data = req.body.data;
+	var dataexame = req.body.dataexame;
 	var id = req.body.idusuario;
 	var unidade = 'Pampulha';
 	console.log(id);
@@ -129,7 +130,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var modelpampulha = new application.app.model.regulacao.modelpampulha(application);
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelpampulha.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict,data, function(error, result){
+		modelpampulha.cadastrarpaciente(dataexame, susfacil, prt, paciente,leito, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,data, function(error, result){
 			modelpampulha.buscarpaciente(unidade, function(error, resultado){
 				res.render("regulacao/cadastrarpacientepampulha", {paciente : resultado, id : resultados});
 			});

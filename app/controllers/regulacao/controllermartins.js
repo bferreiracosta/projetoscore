@@ -121,6 +121,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
 	var data = req.body.data;
+	var dataexame = req.body.dataexame;
 	var id = req.body.idusuario;
 	var unidade = 'Martins';
 	console.log(id);
@@ -129,7 +130,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var modelmartins = new application.app.model.regulacao.modelmartins(application);
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelmartins.cadastrarpaciente(paciente, susfacil,prt, idade, leito,exame,unidade,paliativo, ecf,svd, sne, avp,cvc,spict,data, function(error, result){
+		modelmartins.cadastrarpaciente(dataexame, susfacil, prt, paciente,leito, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,data, function(error, result){
 			modelmartins.buscarpaciente(unidade, function(error, resultado){
 				res.render("regulacao/cadastrarpacientemartins", {paciente : resultado, id : resultados});
 			});

@@ -97,7 +97,7 @@
 					</div>
 					<div class="form-group">
 						<label for="data">Data Exame</label>
-						<input type="text" name="data"  id="data" class="form-control" placeholder="Data Exame" required>
+						<input type="text" name="dataexame"  id="dataexame" class="form-control" placeholder="Data Exame" required>
 					</div>
 					<div class="form-group">
 						<label for="exame">Exame</label>
@@ -152,20 +152,21 @@ $("#dispositivo2").on('change', function(e){
      document.getElementById('dispositivo').value = dispositivo;
 });
 
+$(document).ready(function(){
+      $('#dataexame').mask('00/00/0000');
+	 	 
+      });
+
 function pad(s){
 		return (s<10) ? '0' + s :s;
 	}
 function novaHora(){
-	
 	var date = new Date();
-	document.getElementById('data').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+		var data = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+		document.getElementById('data').value = data;
+	
 }
 novaHora();
-
-
-$(document).ready(function(){
-      $('#data').mask('00/00/0000');
-      });
 function verificadispositivo(value){
 	var input = document.getElementById("svd");
 	var input2 = document.getElementById("sne");
