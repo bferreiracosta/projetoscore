@@ -1,0 +1,74 @@
+module.exports.index = function(application, req, res){
+		res.render("home/index", {msg : {}});		
+	
+}
+
+module.exports.autenticacao = function(application, req, res){
+	
+	var usuario = req.body.usuario;
+	var senha = req.body.senha;
+	var funcao = req.body.cargo;
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	modeladmin.autenticar(usuario, senha ,funcao,  req, res);
+	
+}
+
+module.exports.updatepassword = function(application, req, res){
+	res.render("home/updatepassword");
+}
+
+module.exports.mudarsenha = function(application, req, res){
+	
+	var usuario = req.body.usuario;
+	var senha = req.body.senha_antiga;
+	var senhaatual = req.body.senha_nova;
+	var confirmasenha = req.body.confirme_senha;
+	if(senhaatual === confirmasenha){
+		var modeladmin = new application.app.model.admin.modeladmin(application);
+		modeladmin.updatepassword(usuario, senha, function(error, result){
+			modeladmin.mudarsenha(result,senhaatual, function(error, result){
+				res.render("home/index", {msg : {}});
+			});
+	});
+	}else{
+		res.send('Senhas não confere');
+	}
+	
+	
+}
+
+module.exports.home = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+
+	var id = req.query;
+	
+	modeladmin.buscarusuario(id, function(error,result){
+	
+		res.render("home/home", {id : result});
+	});
+}
+module.exports.homeregulacao = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+
+	var id = req.query;
+	
+	modeladmin.buscarusuario(id, function(error,result){
+	
+		res.render("home/homeregulacao", {id : result});
+	});
+}
+
+module.exports.homemental = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+
+	var id = req.query;
+	
+	modeladmin.buscarusuario(id, function(error,result){
+	
+		res.render("home/homemental", {id : result});
+	});
+}

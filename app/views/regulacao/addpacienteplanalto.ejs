@@ -1,0 +1,298 @@
+<%- include('./cabecalhoregulacao'); %>
+
+<div class="container">
+
+<form action="/savepacienteplanalto" method="post">
+                <h2>Adicionar novo paciente</h2> 
+                <% if(id.length > 0) { %>
+                    <% for(var i = 0; i < id.length; i++) {%>
+                    <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
+                    <p hidden id="idunidade">  <%=id[i].unidade %>  
+						<div>
+							<div class="form-group">
+								<label for="susfacil">SusFacil</label>
+								<input type="text" name="susfacil" class="form-control" placeholder="SusFacil" required>
+							</div>
+							<div class="form-group">
+								<label for="prontuario">Prontuario</label>
+								<input type="text" name="prontuario" class="form-control" placeholder="prontuario" required>
+							</div>
+							<div class="form-group">
+								<label for="paciente">Nome Paciente</label>
+								<input type="text" name="paciente" class="form-control" placeholder="Nome Paciente" required>
+							</div>
+		
+							<div class="form-group">
+								<label for="Idade">Idade</label>
+								<input type="text" onchange="verificaidade(this.value)" name="idade" class="form-control" placeholder="Idade" required>
+							</div>
+							<div class="form-group">
+								<label for="ECF" id="ecf3">ECF</label>
+								<select  onchange="verificaecf(this.value)"  class="form-control" id="ecf2" name="ecf2">
+									<option value="" disabled selected hidden>ECF</option>
+									<option value="0">Não aplicado</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+								</select>
+								<input type="hidden" id="ecf"  name="ecf" class="form-control" placeholder="ECF">
+							</div>
+							<div class="form-group">
+								<label for="spcit" id="spict2">Spict</label>
+								<input type="text" id="spict" name="spcit" class="form-control" placeholder="Spict">
+							</div>
+							<div class="form-group">
+								<label for="Dispositivo">Dispositivo</label>
+						<select class="form-control" onchange="verificadispositivo(this.value)" required id="dispositivo2" name="dispositivo2">
+							<option value="" disabled selected hidden>Dispositivo</option>
+							<option value="sim">Sim</option>
+							<option value="nao">Não</option>
+                        </select>
+                        <input type="hidden" name="dispositivo"   id="dispositivo" class="form-control" placeholder="Dispositivo" >
+								<div class="form-check">
+									<input  type="checkbox" name="dispositivo" id="svd"  class="form-check-input" onClick="check1()" value="svd">
+									<label class="form-check-label"  id="svd2" for="Dormonid">SVD</label>
+									<input  id="svd3"  type="hidden" name="svd3">
+								</div>
+								<div class="form-check">
+									<input type="checkbox" name="dispositivo" id="sne"  class="form-check-input" onClick="check1()" value="sne">
+									<label class="form-check-label"  id="sne2" for="sne2">SNE</label>
+									<input  id="sne3"  type="hidden" name="sne3">
+								</div>
+								<div class="form-check">
+									<input type="checkbox" name="dispositivo" id="avp"  class="form-check-input" onClick="check1()" value="avp">
+									<label class="form-check-label"  id="avp2" for="avp2">AVP</label>
+									<input  id="avp3"  type="hidden" name="avp3">
+								</div>
+								<div class="form-check">
+									<input type="checkbox" name="dispositivo" id="cvc"  class="form-check-input" onClick="check1()" value="cvc">
+									<label class="form-check-label"  id="cvc2" for="Propofol2">CVC</label>
+									<input  id="cvc3"  type="hidden" name="cvc3">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="leitos">Tipo de leito</label>
+								<select class="form-control" id="leitos" name="leitos" required>
+									<option value="" disabled selected hidden>Leito</option>
+									<option value="Enfermaria">Enfermaria</option>
+									<option value="Sala de Emergência">Sala de Emergência</option>
+								</select>
+								<input type="hidden" name="leito" id="leito">
+							</div>
+							<div class="form-group">
+								<label for="paliativos" id="paliativo2">Paliativos</label>
+								<select class="form-control" id="paliativos" name="paliativos" required>
+									<option value="" disabled selected hidden>Paliativo</option>
+									<option value="sim">Sim</option>
+									<option value="nao">Não</option>
+								</select>
+								<input type="hidden" name="paliativo" id="paliativo">
+							</div>
+							<div class="form-group">
+								<label for="data">Data Exame</label>
+								<input type="text" name="data"  id="data" class="form-control" placeholder="Data Exame" required>
+							</div>
+							<div class="form-group">
+								<label for="exame">Exame</label>
+								<select  class="form-control" id="exame" name="exame" required>
+									<option value="" disabled selected hidden>Exame</option>
+									<option value="aguardando">Aguardando</option>
+									<option value="positivo">Positivo</option>
+									<option value="negativo">Negativo</option>
+								</select>
+							  </div>
+							  <input  type="hidden" name="covid" id="covid">
+							  <div id="hora" class="form-group">
+								<input  type="hidden" id="data" name="data"  class="form-control">
+							</div>
+						</div>
+                <div>
+                    <a href="cadastrarpacienteplanalto?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+                    <button type="submit" class="btn btn-success">Salvar</button>
+					<br>
+					<br>
+					<br>
+                </div>
+                <% } %>	
+                <% } %> 
+</form>
+</div>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $("#exame").on('change', function(e){
+     var exame = $(this).val();
+     document.getElementById('covid').value = exame;
+});
+
+$("#leitos").on('change', function(e){
+     var leito = $(this).val();
+     document.getElementById('leito').value = leito;
+});
+$("#paliativos").on('change', function(e){
+     var paliativo = $(this).val();
+     document.getElementById('paliativo').value = paliativo;
+});
+$("#ecf2").on('change', function(e){
+     var ecf = $(this).val();
+     document.getElementById('ecf').value = ecf;
+});
+$("#dispositivo2").on('change', function(e){
+     var dispositivo = $(this).val();
+     document.getElementById('dispositivo').value = dispositivo;
+});
+
+function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
+function novaHora(){
+	
+	var date = new Date();
+	document.getElementById('data').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+}
+novaHora();
+
+
+$(document).ready(function(){
+      $('#data').mask('00/00/0000');
+      });
+function verificadispositivo(value){
+	var input = document.getElementById("svd");
+	var input2 = document.getElementById("sne");
+	var input3 = document.getElementById("avp");
+	var input4 = document.getElementById("cvc");
+	var input5 = document.getElementById("svd3");
+	var input6 = document.getElementById("sne3");
+	var input7 = document.getElementById("avp3");
+	var input8 = document.getElementById("cvc3");
+	var label = document.getElementById("svd2");
+	var label2 = document.getElementById("sne2");
+	var label3 = document.getElementById("avp2");
+	var label4 = document.getElementById("cvc2");
+	
+
+  if(value == 'nao'){
+    input.style.display = "none";
+	input2.style.display = "none";
+	input3.style.display = "none";
+	input4.style.display = "none";
+	label.style.display = "none";
+	label2.style.display = "none";
+	label3.style.display = "none";
+	label4.style.display = "none";
+	input5.value = "Não Aplicado"
+	input6.value = "Não Aplicado"
+	input7.value = "Não Aplicado"
+	input8.value = "Não Aplicado"
+  }else if(value == 'sim'){
+    input.style.display = "inline";
+	input2.style.display = "inline";
+	input3.style.display = "inline";
+	input4.style.display = "inline";
+	label.style.display = "inline";
+	label2.style.display = "inline";
+	label3.style.display = "inline";
+	label4.style.display = "inline";
+  }
+};
+function verificaecf(value){
+	var input = document.getElementById("spict");
+	var label = document.getElementById("spict");
+	console.log(value);
+
+  if(value == 6 || value == 7 || value == 8){
+    input.style.display = "inline";
+	label.style.display = "inline";
+  }else{
+    input.style.display = "none";
+	label.style.display = "none";
+  }
+  if(value == 9 || value == 10){
+	  var paliativo = 'sim';
+	  document.getElementById('paliativos').style.display = 'none'
+	  document.getElementById('paliativo2').style.display = 'none'
+	  
+	  document.getElementById('paliativo').value = paliativo;
+  }
+};
+function verificaidade(value){
+	var input = document.getElementById("ecf2");
+	var input2 = document.getElementById("ecf3");
+
+  if(value < 60 ){
+    input.style.display = "none";
+	input2.style.display = "none";
+	document.getElementById('ecf').value = 0;
+  }else{
+    input.style.display = "block";
+	input2.style.display = "block";
+  }
+};
+
+window.onload = function() {
+  document.getElementById('svd').style.display = 'none';
+  document.getElementById('svd2').style.display = 'none';
+  document.getElementById('sne').style.display = 'none';
+  document.getElementById('sne2').style.display = 'none';
+  document.getElementById('avp').style.display = 'none';
+  document.getElementById('avp2').style.display = 'none';
+  document.getElementById('cvc').style.display = 'none';
+  document.getElementById('cvc2').style.display = 'none';
+  document.getElementById('spict').style.display = 'none';
+  document.getElementById('spict2').style.display = 'none';
+  
+};
+
+function check1(){
+
+var pacote = document.getElementsByName('dispositivo');
+  for (var i = 0; i < pacote.length; i++){
+	  if ( pacote[i].checked ) {
+		  if(pacote[i].value == "svd"){
+			  var Pacote_i = "SVD";
+			  document.getElementById('svd3').value = Pacote_i;
+		  }else if (pacote[i].value == "sne") {
+			  var Pacote_ii = "SNE";
+			  document.getElementById('sne3').value = Pacote_ii;
+		  }else if (pacote[i].value == "avp") {
+			  var Pacote_iii = "AVP";
+			  document.getElementById('avp3').value = Pacote_iii;
+		  }else if (pacote[i].value == "cvc") {
+			  var Pacote_iiii = "CVC";
+			  document.getElementById('cvc3').value = Pacote_iiii;
+		  }
+		}
+  	}
+	 var estado = false;
+	for (var i = 0; i < pacote.length; i++) {
+		if ( pacote[i].checked == estado ) {
+		  if(pacote[i].value == "svd"){
+			  var Pacote_i = "Não Aplicado";
+			  document.getElementById('svd3').value = Pacote_i;
+		  }else if (pacote[i].value == "sne") {
+			  var Pacote_ii = "Não Aplicado";
+			  document.getElementById('sne3').value = Pacote_ii;
+		  }else if (pacote[i].value == "avp") {
+			  var Pacote_iii = "Não Aplicado";
+			  document.getElementById('avp3').value = Pacote_iii;
+		  }else if (pacote[i].value == "cvc") {
+			  var Pacote_iiii = "Não Aplicado";
+			  document.getElementById('cvc3').value = Pacote_iiii;
+		  }
+		}
+	}
+}
+</script>
+<%- include('../home/footer'); %>
+</body>
+</html>

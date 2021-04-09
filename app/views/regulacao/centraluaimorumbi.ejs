@@ -1,0 +1,72 @@
+<%- include('./cabecalhoregulacao'); %>
+<div class="container">
+
+<form action="/editarleitomorumbi" method="post">
+                <h2>Quantidades de leitos UAI Morumbi</h2> 
+                <% if(id.length > 0) { %>
+                    <% for(var i = 0; i < id.length; i++) {%>
+                    <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
+                    <p hidden id="idunidade">  <%=id[i].unidade %>  
+                        <% if(leito.length > 0) { %>
+                            <% for(var j = 0; j < leito.length; j++) {%>
+                        <div>
+                            <div class="form-group">
+                                <label for="posto">Quantidade leitos</label>
+                                <input type="number" disabled name="leitos" class="form-control" value="<%=leito[j].camasmorum %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="posto">Quantidade Macas</label>
+                                <input type="number"disabled  name="macas" class="form-control" value="<%=leito[j].macasmorum %>">
+                            </div>                    
+                        </div>
+                <div>
+                    <div class="form-group">
+                        <label for="posto">Quantidade Camas disponivel</label>
+                        <input type="number" name="leitosdispo" class="form-control" value="<%=leito[j].leitosmorum %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="posto">Quantidade Macas disponivel</label>
+                        <input type="number" name="macasdispo" class="form-control" value="<%=leito[j].macasmorumdisponivel %>" >
+                    </div>                    
+                </div>
+				<h2>Oferta de leitos</h2> 
+				<div>
+					<div class="form-group">
+                        <label for="posto">Quantidade vagas feminina</label>
+                        <input type="number" name="enffem" class="form-control" value="<%=leito[j].enfmorumfem %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="posto">Quantidade vagas masculina</label>
+                        <input type="number" name="enfmasc" class="form-control" value="<%=leito[j].enfmorummasc %>" >
+                    </div>                    
+                </div>
+
+                <div>
+					<div class="form-group">
+                        <label for="posto">Quantidade vagas SE</label>
+                        <input type="number" name="se" class="form-control" value="<%=leito[j].semorum %>">
+                    </div>                  
+                </div>
+                <div>
+                    <a href="homeregulacao?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+                <% } %>	
+                <% } %> 
+                
+                <% } %>	
+                <% } %> 
+                <br>
+					<br>
+					<br>
+</form>
+</div>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<%- include('../home/footer'); %>
+</body>
+</html>

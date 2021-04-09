@@ -1,0 +1,66 @@
+<%- include('../cabecalhomental'); %>
+
+<div class="container">
+
+<form action="/savepacientead" method="post">
+                <h2>Adicionar novo paciente</h2> 
+                <% if(id.length > 0) { %>
+                    <% for(var i = 0; i < id.length; i++) {%>
+                    <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
+                    <p hidden id="idunidade">  <%=id[i].unidade %>  
+						<div>
+							<div class="form-group">
+								<label for="prontuario">Prontuario</label>
+								<input type="text" name="prontuario" class="form-control" placeholder="prontuario" required>
+							</div>
+							<div class="form-group">
+								<label for="paciente">Nome Paciente</label>
+								<input type="text" name="paciente" class="form-control" placeholder="Nome Paciente" required>
+							</div>
+		
+							<div class="form-group">
+								<label for="Idade">Idade</label>
+								<input type="text" name="idade" class="form-control" placeholder="Idade" required>
+							</div>
+							<div class="form-group">
+								<label for="diagonostico">Diagnóstico</label>
+								<input type="text" name="diagnostico" class="form-control" placeholder="Diagnóstico" required>
+							</div>
+							<div class="form-group">
+								<label for="exame">Unidade de Referência</label>
+								<select  class="form-control" id="exame" name="exame">
+									<option value="" disabled selected hidden>Unidade de Referência</option>
+									<option value="Caps Oeste">Caps Oeste</option>
+									<option value="Caps Leste">Caps Leste</option>
+									<option value="Caps Norte">Caps Norte</option>
+									<option value="Caps Infantil">Caps Infantil</option>
+									<option value="Caps AD">Caps AD</option>
+								</select>
+							  </div>
+							  <input type="hidden" id="referencia"  name="referencia" class="form-control">
+						</div>							
+                <div>
+                    <a href="cadastrarpacientead?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+                    <button type="submit" class="btn btn-success">Salvar</button>
+					<br>
+					<br>
+					<br>
+                </div>
+                <% } %>	
+                <% } %> 
+</form>
+</div>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+<%- include('../../home/footer'); %>
+</html>
+<script>
+	$("#exame").on('change', function(e){
+     var exame = $(this).val();
+     document.getElementById('referencia').value = exame;
+});
+</script>

@@ -35,7 +35,9 @@
 						<select onChange="update()" id="funcao" class="form-control form-control-lg" required>
 							<option></option>
 							<option value="SCIH">SCIH</option>
-							<option value="Regulacao">Regulação</option>
+							<option value="Regulacao Covid">Regulação Covid</option>
+							<option value="SM Hospitalidade">SM Hospitalidade</option>
+							<option value="SM Urgência">SM Urgência</option>
 						</select>
 						<input  type="hidden" name="cargo" id="cargo">
 						<button type="submit" class="btn btn-success">Entrar</button>
@@ -67,7 +69,7 @@
 	    </div>	
 		
 	
-		<%- include('../paciente/footer'); %>
+		<%- include('./footer'); %>
 	</body>
 	</html>
 <script type="text/javascript">

@@ -1,10 +1,14 @@
 .container {
-    width: 1264px;
+    width: 1351px;;
 }
 .navbar-right {
     float: right!important;
     margin-right: -15px;
     margin-top: 27px;
+}
+
+#iframe {
+    width: 2025px;
 }
 
 .btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group {
