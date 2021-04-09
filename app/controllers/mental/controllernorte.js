@@ -1,4 +1,58 @@
 const { createPool } = require("mysql");
+module.exports.justificarpacientenorte= function(application, req, res){
+	
+	var modelnorte = new application.app.model.mental.modelnorte(application);
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+
+	var unidade = 'Norte';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelnorte.buscarpaciente(unidade, function(error, resultado){
+			res.render("mental/CapsNorte/justificarpacientenorte", {mental : resultado, id : result});
+		});
+	});	
+}
+
+module.exports.updatecapsnorte= function(application, req, res){
+	var idpaciente = req.body.id;
+	var paciente = req.body.paciente;
+	var prt = req.body.prontuario;
+	var vinculo = req.body.vinculo2;
+	var motivo = req.body.motivo;
+	var articulacoes = req.body.articulacoes2;
+	var matriciado = req.body.matriciado2;
+	var id = req.body.idusuario;
+	var unidade = 'Norte';
+		
+	var modelnorte = new application.app.model.mental.modelnorte(application);
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+
+	modeladmin.buscarusuarioporid(id, function(error, resultados){	
+		modelnorte.updatecaps(idpaciente,prt,paciente, vinculo,motivo,articulacoes,matriciado, unidade,  function(error, result){
+			modelnorte.buscarpaciente(unidade, function(error, resultado){
+				res.render("mental/CapsNorte/justificarpacientenorte", {mental : resultado, id : resultados});
+			});
+		});
+	});	
+}
+
+module.exports.editnorte = function(application, req, res){
+	
+	var modelnorte = new application.app.model.mental.modelnorte(application);
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+
+	var id = req.params.idusuario;
+	var idpaciente = req.query;
+	var unidade = 'Norte';
+
+	modeladmin.buscarusuarioeditavel(id, function(error,result){
+		modelnorte.buscarpacienteid(idpaciente, unidade, function(error, resultado){
+			res.render("mental/CapsNorte/editnorte", {mental: resultado, id : result});
+		});
+	});
+}
 
 module.exports.cadastrar= function(application, req, res){
 	

@@ -1,6 +1,39 @@
 module.exports = function(application) {
 	
+	application.post('/updatecapsleste', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.mental.controllerleste.updatecapsleste(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 	
+	application.get('/justificarpacienteleste', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.mental.controllerleste.justificarpacienteleste(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+	application.get('/editleste/:idusuario/', function(req, res){
+		if(req.session.loggedin){
+		
+			application.app.controllers.mental.controllerleste.editleste(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 	application.get('/cadastrarpacienteleste', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.mental.controllerleste.cadastrar(application, req, res);

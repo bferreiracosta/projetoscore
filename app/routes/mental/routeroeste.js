@@ -1,6 +1,39 @@
 module.exports = function(application) {
 	
+	application.post('/updatecapsoeste', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.mental.controlleroeste.updatecapsoeste(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 	
+	application.get('/justificarpacienteoeste', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.mental.controlleroeste.justificarpacienteoeste(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+	application.get('/editoeste/:idusuario/', function(req, res){
+		if(req.session.loggedin){
+		
+			application.app.controllers.mental.controlleroeste.editoeste(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 	application.get('/cadastrarpacienteoeste', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.mental.controlleroeste.cadastrar(application, req, res);

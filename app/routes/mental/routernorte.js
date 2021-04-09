@@ -1,5 +1,38 @@
 module.exports = function(application) {
+	application.post('/updatecapsnorte', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.mental.controllernorte.updatecapsnorte(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 	
+	application.get('/justificarpacientenorte', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.mental.controllernorte.justificarpacientenorte(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+	application.get('/editnorte/:idusuario/', function(req, res){
+		if(req.session.loggedin){
+		
+			application.app.controllers.mental.controllernorte.editnorte(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 	
 	application.get('/cadastrarpacientenorte', function(req, res){
 		if(req.session.loggedin){
