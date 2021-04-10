@@ -153,6 +153,7 @@ module.exports.update= function(application, req, res){
 	var sne = req.body.sne3;
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
+	var dataexame = req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'Morumbi';
 	
@@ -161,7 +162,7 @@ module.exports.update= function(application, req, res){
 	
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modelmorumbi.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+		modelmorumbi.update(idpaciente,dataexame, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
 			modelmorumbi.buscarpaciente(unidade, function(error, resultado){
 				res.render("regulacao/cadastrarpacientemorumbi", {paciente : resultado, id : resultados});
 			});

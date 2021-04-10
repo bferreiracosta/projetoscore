@@ -152,6 +152,7 @@ module.exports.update= function(application, req, res){
 	var sne = req.body.sne3;
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
+	var dataexame = req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'Planalto';
 	
@@ -160,7 +161,7 @@ module.exports.update= function(application, req, res){
 	
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modelplanalto.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+		modelplanalto.update(idpaciente,dataexame, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
 			modelplanalto.buscarpaciente(unidade, function(error, resultado){
 				res.render("regulacao/cadastrarpacienteplanalto", {paciente : resultado, id : resultados});
 			});

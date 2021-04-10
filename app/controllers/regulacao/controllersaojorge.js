@@ -153,6 +153,7 @@ module.exports.update= function(application, req, res){
 	var sne = req.body.sne3;
 	var avp = req.body.avp3;
 	var cvc = req.body.cvc3;
+	var dataexame = req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'SaoJorge';
 	
@@ -161,7 +162,7 @@ module.exports.update= function(application, req, res){
 	
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modelsaojorge.update(idpaciente, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+		modelsaojorge.update(idpaciente,dataexame, susfacil,prt,paciente, leito, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
 			modelsaojorge.buscarpaciente(unidade, function(error, resultado){
 				res.render("regulacao/cadastrarpacientesaojorge", {paciente : resultado, id : resultados});
 			});
