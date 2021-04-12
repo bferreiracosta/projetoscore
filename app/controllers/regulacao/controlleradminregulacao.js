@@ -9,7 +9,22 @@ module.exports.relatorioenfermaria= function(application, req, res){
 	
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarpacienteenfermaria(leito, function(error, resultado){
-			res.render("regulacao/relatorioenfermaria", {paciente : resultado, id : result});
+				res.render("regulacao/relatorioenfermaria", {paciente : resultado, id : result});
+		});
+	});		
+}
+
+module.exports.relatorionull= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeladminregulacao = new application.app.model.regulacao.modeladminregulacao(application);
+	
+
+	var id = req.query;
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modeladminregulacao.buscarpacientenull( function(error, resultado){
+				res.render("regulacao/relatorionull", {id : result, paciente: resultado});
 		});
 	});		
 }

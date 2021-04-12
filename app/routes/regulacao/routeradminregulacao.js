@@ -27,6 +27,18 @@ module.exports = function(application){
 		}
 		
 	});
+
+	application.get('/relatorionull', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.regulacao.controlleradminregulacao.relatorionull(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 	application.get('/centraluti', function(req, res){
 		if(req.session.loggedin){
 			

@@ -38,13 +38,18 @@ modeladminregulacao.prototype.buscarleitoenfermaria = function(callback){
 
 modeladminregulacao.prototype.buscarpacienteenfermaria = function(leito, callback){
 	
-	this._conection.query('select * from pacientes where leito = "'+leito+'" and baixa is null', callback);
+	this._conection.query('select * from pacientes where leito = "'+leito+'" and baixa is null and paliativo is not null and  news is not null and ecf is not null and fr is not null and fc is not null and sistolica is not null and sat is not null and o2 is not null and temp is not null;', callback);
+}
+
+modeladminregulacao.prototype.buscarpacientenull = function(callback){
+	
+	this._conection.query('select * from pacientes where baixa is null and paliativo is null or  news is null or ecf is null or fr is null or fc is null or sistolica is null or sat is null or o2 is null or temp is null', callback);
 }
 
 
 modeladminregulacao.prototype.buscarpacientesaladeemergencia = function(leito, callback){
 	
-	this._conection.query('select * from pacientes where leito = "'+leito+'" and baixa is null', callback);
+	this._conection.query('select * from pacientes where leito = "'+leito+'" and baixa is null and paliativo is not null and  news is not null and ecf is not null and fr is not null and fc is not null and sistolica is not null and sat is not null and o2 is not null and temp is not null', callback);
 }
 
 module.exports = function(){
