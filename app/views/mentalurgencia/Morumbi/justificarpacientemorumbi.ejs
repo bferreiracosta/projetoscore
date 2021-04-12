@@ -11,37 +11,37 @@
 					<input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
 					
                     <thead>
-                    <tr>
-						<th hidden>id</th>
-                        <th>Prontuario</th>
-                        <th>Nome</th>
-                        <th>Idade</th>
-                        <th>Diagnóstico</th>
-                        <th>Vinculado</th>
-                        <th>Motivo</th>
-                        <th>Caso Articulado</th>
-                        <th>Caso Matriciado</th>
-                        <th>Referência</th>
-                        <th></th>
-                    </tr>
-					</thead>
-                    <tbody>    
-						<% if(mental.length > 0) { %>
-							<% for(var j = 0; j < mental.length; j++) {%>
-								
                         <tr>
-							<td hidden><%=mental[j].id_paciente %></td>
-                            <th><%=mental[j].prt %></th>
-                            <td><%=mental[j].paciente %></td>
-                            <td><%=mental[j].idade %></td>
-                            <td><%=mental[j].diagnostico %></td>
-                            <td><%=mental[j].vinculo %></td>
-                            <td><%=mental[j].motivocaps %></td>
-                            <td><%=mental[j].articulacoes %></td>
-                            <td><%=mental[j].matriciado %></td>
-                            <td><%=mental[j].referencia %></td>
-                            <td>
-                                <a href="editleste/<%=id[i].id_usuario %>/?id=<%=mental[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
+                            <th hidden>id</th>
+                            <th>Prontuario</th>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>Diagnóstico</th>
+                            <th>Vinculado</th>
+                            <th>Motivo</th>
+                            <th>Caso Articulado</th>
+                            <th>Caso Matriciado</th>
+                            <th>Referência</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>    
+                            <% if(mental.length > 0) { %>
+                                <% for(var j = 0; j < mental.length; j++) {%>
+                                    
+                            <tr>
+                                <td hidden><%=mental[j].id_paciente %></td>
+                                <th><%=mental[j].prt %></th>
+                                <td><%=mental[j].paciente %></td>
+                                <td><%=mental[j].idade %></td>
+                                <td><%=mental[j].diagnostico %></td>
+                                <td><%=mental[j].vinculo %></td>
+                                <td><%=mental[j].motivocaps %></td>
+                                <td><%=mental[j].articulacoes %></td>
+                                <td><%=mental[j].matriciado %></td>
+                                <td><%=mental[j].referencia %></td>
+                                <td>
+                                <a href="editmorumbi/<%=id[i].id_usuario %>/?id=<%=mental[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
                             </td>
 						</tr>
 						<% } %>	

@@ -14,11 +14,6 @@ modelleste.prototype.update = function(idpaciente, prt,paciente, idade,diagnosti
 	this._conection.query('update mental set prt = "'+prt+'", paciente = "'+paciente+'", diagnostico = "'+diagnostico+'", idade = "'+idade+'" , referencia = "'+referencia+'", unidade = "'+unidade+'" where id_paciente = ' + idpaciente, callback);
 }
 
-modelleste.prototype.updatecaps = function(idpaciente,prt,paciente, vinculo,motivo,articulacoes,matriciado, unidade, callback){
-
-	this._conection.query('update mental set prt = "'+prt+'", paciente = "'+paciente+'", vinculo = "'+vinculo+'", motivocaps = "'+motivo+'" , articulacoes = "'+articulacoes+'", matriciado = "'+matriciado+'", unidade = "'+unidade+'" where id_paciente = ' + idpaciente, callback);
-}
-
 modelleste.prototype.baixa = function(idpaciente,baixa,motivo, callback){
 
 	this._conection.query('update mental set   baixa = "'+baixa+'", motivo="'+motivo+'" where id_paciente = ' + idpaciente, callback);

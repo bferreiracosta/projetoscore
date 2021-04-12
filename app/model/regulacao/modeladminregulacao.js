@@ -43,7 +43,7 @@ modeladminregulacao.prototype.buscarpacienteenfermaria = function(leito, callbac
 
 modeladminregulacao.prototype.buscarpacientenull = function(callback){
 	
-	this._conection.query('select * from pacientes where baixa is null and news = "" or ecf = "" or paliativo = ""', callback);
+	this._conection.query('select * from pacientes where baixa is null and (news = "" or ecf = "" or paliativo = "")', callback);
 }
 
 

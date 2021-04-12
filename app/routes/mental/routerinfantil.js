@@ -1,39 +1,5 @@
 module.exports = function(application) {
 	
-	application.post('/updatecapsinfantil', function(req, res){
-		if(req.session.loggedin){
-			
-			application.app.controllers.mental.controllerinfantil.updatecapsinfantil(application, req, res);
-		}
-		else{
-			res.send("Faça login!!");
-			res.redirect('/')
-		}
-		
-	});
-	
-	application.get('/justificarpacienteinfantil', function(req, res){
-		if(req.session.loggedin){
-			application.app.controllers.mental.controllerinfantil.justificarpacienteinfantil(application, req, res);
-		}
-		else{
-			res.send("Faça login!!");
-			res.redirect('/')
-		}
-		
-	});
-
-	application.get('/editinfantil/:idusuario/', function(req, res){
-		if(req.session.loggedin){
-		
-			application.app.controllers.mental.controllerinfantil.editinfantil(application, req, res);
-		}
-		else{
-			res.send("Faça login!!");
-			res.redirect('/')
-		}
-		
-	});
 	application.get('/cadastrarpacienteinfantil', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.mental.controllerinfantil.cadastrar(application, req, res);

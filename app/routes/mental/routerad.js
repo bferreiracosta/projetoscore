@@ -1,40 +1,5 @@
 module.exports = function(application) {
-	application.post('/updatecapsad', function(req, res){
-		if(req.session.loggedin){
-			
-			application.app.controllers.mental.controllerad.updatecapsad(application, req, res);
-		}
-		else{
-			res.send("Faça login!!");
-			res.redirect('/')
-		}
-		
-	});
-	
-	application.get('/justificarpacientead', function(req, res){
-		if(req.session.loggedin){
-			application.app.controllers.mental.controllerad.justificarpacientead(application, req, res);
-		}
-		else{
-			res.send("Faça login!!");
-			res.redirect('/')
-		}
-		
-	});
-
-	application.get('/editad/:idusuario/', function(req, res){
-		if(req.session.loggedin){
-		
-			application.app.controllers.mental.controllerad.editad(application, req, res);
-		}
-		else{
-			res.send("Faça login!!");
-			res.redirect('/')
-		}
-		
-	});
-
-	application.get('/cadastrarpacientead', function(req, res){
+		application.get('/cadastrarpacientead', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.mental.controllerad.cadastrar(application, req, res);
 		}

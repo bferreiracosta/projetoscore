@@ -46,8 +46,8 @@
         
                 
 
-            <!-- Delete Product Modal-->
-            <form id="add-row-form" action="/baixamentalplanalto" method="POST">
+             <!-- Delete Product Modal-->
+             <form id="add-row-form" action="/baixamentalluizote" method="POST">
                 <div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -60,22 +60,19 @@
                             <div class="modal-body">
                                 <select  class="form-control"  onchange="verifica(this.value)" id="baixaselect" name="baixaselect">
                                     <option value=""></option>
-                                    <option value="Caps AD">Caps AD</option>
-                                    <option value="Caps Oeste">Caps Oeste</option>
-                                    <option value="Urgencia">Urgencia</option>
-                                    <option value="Negado">Negado</option>
+                                    <option value="Urgência anexo">Urgência anexo</option>
+                                    <option value="Urgência UFU">Urgência UFU</option>
+                                    <option value="Evasão">Evasão</option>
+                                    <option value="CAPS ad">CAPS ad</option>
+                                    <option value="CAPS i">CAPS i</option>
+                                    <option value="CAPS Norte">CAPS Norte</option>
+                                    <option value="CAPS Leste">CAPS Leste</option>
+                                    <option value="CAPS infanto juvenil">CAPS infanto juvenil</option>
                                 </select>
                                 <br>
-                                <label for="motivo" id="label">Motivo da negação</label>
-                                <select  class="form-control" id="negativoselect" name="negativoselect">
-                                    <option value=""></option>
-                                    <option value="Insuficiência de Critérios">Insuficiência de Critérios</option>
-                                    <option value="Diagnostico Diferencial">Diagnostico Diferencial</option>
-                                </select>
                                 <input type="hidden" name="campo" id="campo">
 								<input type="hidden" name="campo2" id="campo2">
                                 <input type="hidden" name="baixa" id="baixa">
-                                <input type="hidden" name="negativo" id="negativo">
                               </div>
                               <input  type="hidden" name="covid" id="covid">
                             <div class="modal-footer">
@@ -134,28 +131,4 @@ $("#baixaselect").on('change', function(e){
     var baixa = $(this).val();
     document.getElementById('baixa').value = baixa;
 });
-
-$("#negativoselect").on('change', function(e){
-    var negativo = $(this).val();
-    document.getElementById('negativo').value = negativo;
-});
-
-function verifica(value){
-	var negativoselect = document.getElementById("negativoselect");
-    var label = document.getElementById("label");
-	
-
-  if(value == 'Negado'){
-    negativoselect.style.display = "block";
-    label.style.display = "inline";
-  }else{
-    negativoselect.style.display = "none";
-    label.style.display="none"
-  } 
-};
-
-window.onload = function() {
-  document.getElementById('negativoselect').style.display = 'none';
-  document.getElementById('label').style.display = 'none';
-};
 </script>

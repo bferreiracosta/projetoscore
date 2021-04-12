@@ -3,7 +3,7 @@
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
        
-<form action="/updatecapsnorte" method="post">
+<form action="/updatecapsroosevetl" method="post">
 	<h2>Editar  paciente</h2> 
 		<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
 		<% if(mental.length > 0) { %>
@@ -26,7 +26,7 @@
 					<select  class="form-control" id="vinculo1" name="vinculo1">
 						<option value="" disabled selected hidden>Vinculado</option>
 						<option value="Sim" <%=(mental[j].vinculo == 'Sim')?'selected':''%>>Sim</option>
-						<option value="Não" <%=(mental[j].vinculo == 'Não')?'selected':''%>>Não</option>
+						<option value="Nao" <%=(mental[j].vinculo == 'Nao')?'selected':''%>>Não</option>
 					</select>
 					<input type="hidden" name="vinculo2" id="vinculo2" class="form-control">
 				</div>
@@ -38,8 +38,8 @@
 					<label for="articulacoes">Caso Articulado</label>
 					<select  class="form-control" id="articulacoes1" name="articulacoes1">
 						<option value="" disabled selected hidden>Articulado</option>
-						<option value="Sim" <%=(mental[j].matriciado == 'Sim')?'selected':''%>>Sim</option>
-						<option value="Nao" <%=(mental[j].matriciado == 'Não')?'selected':''%>>Não</option>
+						<option value="Sim" <%=(mental[j].articulacoes == 'Sim')?'selected':''%>>Sim</option>
+						<option value="Nao" <%=(mental[j].articulacoes == 'Nao')?'selected':''%>>Não</option>
 					</select>
 					<input type="hidden" name="articulacoes2" id="articulacoes2" class="form-control" >
 				</div>
@@ -47,8 +47,8 @@
 					<label for="articulacoes">Caso Matriciado</label>
 					<select  class="form-control" id="matriciado1" name="articulacoes1">
 						<option value="" disabled selected hidden>Matriciado</option>
-						<option value="Sim" <%=(mental[j].articulacoes == 'Sim')?'selected':''%>>Sim</option>
-						<option value="Nao" <%=(mental[j].articulacoes == 'Não')?'selected':''%>>Não</option>
+						<option value="Sim" <%=(mental[j].matriciado == 'Sim')?'selected':''%>>Sim</option>
+						<option value="Nao" <%=(mental[j].matriciado == 'Nao')?'selected':''%>>Não</option>
 					</select>
 					<input type="hidden" name="matriciado2" id="matriciado2" class="form-control" >
 				</div>			
@@ -56,7 +56,7 @@
 			<% } %>	
 			<% } %> 
 	<div>
-		<a href="/justificarpacientenorte?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+		<a href="/justificarpacienteroosevetl?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
 		<button type="submit" class="btn btn-success">Salvar</button>
 		<br>
 		<br>

@@ -3,7 +3,7 @@
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
        
-<form action="/updatecapsad" method="post">
+<form action="/updatecapssaojorge" method="post">
 	<h2>Editar  paciente</h2> 
 		<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
 		<% if(mental.length > 0) { %>
@@ -56,7 +56,7 @@
 			<% } %>	
 			<% } %> 
 	<div>
-		<a href="/justificarpacientead?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+		<a href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
 		<button type="submit" class="btn btn-success">Salvar</button>
 		<br>
 		<br>
