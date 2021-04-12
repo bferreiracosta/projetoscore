@@ -37,7 +37,7 @@
 							</div>
 							<div class="form-group">
 								<label for="temp">Temperatura</label>
-								<input type="text" name="temp"  id="temp" class="form-control" placeholder="Temperatura" required>
+								<input type="text" name="temp"  id="temp" data-mask="00.0" data-mask-selectonfocus="true" class="form-control" placeholder="Temperatura" required>
 							</div>
 							<div class="form-group">
 								<label for="sistolica">PA Sistolica</label>
@@ -98,9 +98,7 @@
 </body>
 </html>
 <script type="text/javascript">
-$(document).ready(function(){
-      $('#temp').mask('00.0');
-      });
+
 
    $("#opcao").on('change', function(e){
      var exame = document.getElementById('opcao').value;
