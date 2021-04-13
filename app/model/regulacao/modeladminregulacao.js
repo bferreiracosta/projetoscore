@@ -38,18 +38,18 @@ modeladminregulacao.prototype.buscarleitoenfermaria = function(callback){
 
 modeladminregulacao.prototype.buscarpacienteenfermaria = function(leito, callback){
 	
-	this._conection.query('select * from pacientes where leito = "'+leito+'" and baixa is null and paliativo != "" and  news != "" and ecf != "" and fr != "" and fc != "" and sistolica!= "" and sat != "" and o2 != "" and temp != ""', callback);
+	this._conection.query('select * from pacientes where leito = "'+leito+'" and baixa is null and paliativo != "" and  news != "" and ecf != "" and fr != "" and fc != "" and sistolica!= "" and sat != "" and o2 != "" and temp != "" and dispositivo != ""', callback);
 }
 
 modeladminregulacao.prototype.buscarpacientenull = function(callback){
 	
-	this._conection.query('select * from pacientes where baixa is null and (news = "" or ecf = "" or paliativo = "")', callback);
+	this._conection.query('select * from pacientes where baixa is null and (news = "" or ecf = "" or paliativo = "" or dispositivo = "")', callback);
 }
 
 
 modeladminregulacao.prototype.buscarpacientesaladeemergencia = function(leito, callback){
 	
-	this._conection.query('select * from pacientes where leito = "'+leito+'" and baixa is null and paliativo != "" and  news != "" and ecf != "" and fr != "" and fc != "" and sistolica != "" and sat != "" and o2 != "" and temp != ""', callback);
+	this._conection.query('select * from pacientes where leito = "'+leito+'" and baixa is null and paliativo != "" and  news != "" and ecf != "" and fr != "" and fc != "" and sistolica != "" and sat != "" and o2 != "" and temp != "" and dispositivo != ""', callback);
 }
 
 module.exports = function(){
