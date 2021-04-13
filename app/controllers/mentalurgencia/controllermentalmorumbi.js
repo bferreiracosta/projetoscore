@@ -56,14 +56,14 @@ module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;
 	var id = req.body.campo2;
 	var baixa = req.body.baixa;
-	var data = req.body.datas;
+	var datas = req.body.data;
 
 	var modelmentalmorumbi = new application.app.model.mentalurgencia.modelmentalmorumbi(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var unidade = 'Morumbi';
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelmentalmorumbi.baixa(idpaciente,baixa, data, function(error, result){
-			modelmentalmorumbi.buscarpacientecaps(unidade, function(error, resultado){
+		modelmentalmorumbi.baixa(idpaciente,baixa, datas, function(error, result){
+			modelmentalmorumbi.buscarpaciente(unidade, function(error, resultado){
 				res.render("mentalurgencia/Morumbi/destinomentalmorumbi", {mental : resultado, id : resultados});
 			});
 		});

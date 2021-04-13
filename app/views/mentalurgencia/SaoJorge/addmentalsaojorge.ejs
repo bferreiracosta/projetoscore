@@ -38,7 +38,7 @@
 								</select>
 							  </div>
 							  <input type="hidden" id="referencia"  name="referencia" class="form-control">
-							  <input  type="hidden" id="data" name="data"  class="form-control">
+							  <input  type="hidden" id="dataa" name="dataa"  class="form-control">
 						</div>
                 <div>
                     <a href="cadastrarmentalsaojorge?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
@@ -67,7 +67,7 @@
 function novaHora(){
 	var date = new Date();
 		var data = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
-		document.getElementById('data').value = data;
+		document.getElementById('dataa').value = data;
 	
 }
 novaHora();

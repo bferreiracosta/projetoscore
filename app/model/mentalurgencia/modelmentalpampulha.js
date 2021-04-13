@@ -7,9 +7,9 @@ modelmentalpampulha.prototype.buscarpacientecaps = function(unidade, callback){
 	this._conection.query('select * from mentalurgencia where unidade = "'+unidade+'" and baixa is null', callback);
 }
 
-modelmentalpampulha.prototype.baixa = function(idpaciente,baixa, data, callback){
+modelmentalpampulha.prototype.baixa = function(idpaciente,baixa, datas, callback){
 
-	this._conection.query('update mentalurgencia set datas = "'+data+'",  baixa = "'+baixa+'" where id_paciente = ' + idpaciente, callback);
+	this._conection.query('update mentalurgencia set datas = "'+datas+'",  baixa = "'+baixa+'" where id_paciente = ' + idpaciente, callback);
 }
 
 modelmentalpampulha.prototype.cadastrarpaciente = function(prt,paciente, idade,diagnostico,referencia,unidade,data, callback){

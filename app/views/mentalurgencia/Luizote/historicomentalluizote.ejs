@@ -14,7 +14,6 @@
                 <th>Prontuario</th>
                 <th>Idade</th>
                 <th>Saida</th>
-                <th>Motivo</th>
                 <th>Data Saida</th>
             </tr>
             </thead>
@@ -23,13 +22,12 @@
                     <% for(var j = 0; j < mental.length; j++) {%> 
                 <tr>
                     <td hidden><label hidden for="">/ID: </label><%=mental[j].id_paciente %></td>
-                    <td<label hidden for="">/Data Admissão: </label><%=mental[j].dataa %></td>
+                    <td><label hidden for="">/Data Admissão: </label><%=mental[j].dataa %></td>
                     <td><label hidden for="">/Paciente: </label><%=mental[j].paciente %></td>
                     <td><label hidden for="">/Prontuario: </label><%=mental[j].prt %></td>
                     <td><label hidden for="">/Idade: </label><%=mental[j].idade %></td>
                     <td><label hidden for="">/Baixa: </label><%=mental[j].baixa %></td>
-                    <td><label hidden for="">/Motivo: </label><%=mental[j].motivo %></td>
-                    <td<label hidden for="">/Data Saida: </label><%=mental[j].datas %></td>
+                    <td><label hidden for="">/Data Saida: </label><%=mental[j].datas %></td>
                 </tr>
                 <% } %>	
                 <% } %>

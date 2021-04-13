@@ -129,7 +129,7 @@ modeladmin.prototype.buscarusuario = function(id, callback){
 }
 
 modeladmin.prototype.buscarusuarioporid = function(id, callback){
-	
+	console.log(id);
 	this._conection.query('select * from usuarios where id_usuario = ' + id, callback);
 }
 

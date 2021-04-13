@@ -56,14 +56,14 @@ module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;
 	var id = req.body.campo2;
 	var baixa = req.body.baixa;
-	var data = req.body.datas;
+	var datas = req.body.data;
 	var unidade = 'Tibery';
 	var modelmentaltibery = new application.app.model.mentalurgencia.modelmentaltibery(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelmentaltibery.baixa(idpaciente,baixa, data, function(error, result){
-			modelmentaltibery.buscarpacientecaps(unidade, function(error, resultado){
+		modelmentaltibery.baixa(idpaciente,baixa, datas, function(error, result){
+			modelmentaltibery.buscarpaciente(unidade, function(error, resultado){
 				res.render("mentalurgencia/Tibery/destinomentaltibery", {mental : resultado, id : resultados});
 			});
 		});
