@@ -28,12 +28,6 @@ modelmentalmartins.prototype.updatecaps = function(idpaciente,vinculo,motivo, ar
 	this._conection.query('update mentalurgencia set vinculo = "'+vinculo+'", motivocaps = "'+motivo+'", articulacao = "'+articulacao+'", matriciado = "'+matriciado+'", unidade = "'+unidade+'" where id_paciente = ' + idpaciente, callback);
 }
 
-modelmentalmartins.prototype.baixa = function(idpaciente,baixa,motivo, callback){
-
-	this._conection.query('update mentalurgencia set   baixa = "'+baixa+'", motivo="'+motivo+'" where id_paciente = ' + idpaciente, callback);
-}
-
-
 modelmentalmartins.prototype.buscarpaciente = function(unidade, callback){
 	
 	this._conection.query('select * from mentalurgencia where unidade = "'+unidade+'" and baixa is null', callback);

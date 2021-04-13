@@ -28,11 +28,6 @@ modelmentalluizote.prototype.updatecaps = function(idpaciente,vinculo,motivo, ar
 	this._conection.query('update mentalurgencia set vinculo = "'+vinculo+'", motivocaps = "'+motivo+'", articulacao = "'+articulacao+'", matriciado = "'+matriciado+'", unidade = "'+unidade+'" where id_paciente = ' + idpaciente, callback);
 }
 
-modelmentalluizote.prototype.baixa = function(idpaciente,baixa,motivo, callback){
-
-	this._conection.query('update mentalurgencia set   baixa = "'+baixa+'", motivo="'+motivo+'" where id_paciente = ' + idpaciente, callback);
-}
-
 
 modelmentalluizote.prototype.buscarpaciente = function(unidade, callback){
 	

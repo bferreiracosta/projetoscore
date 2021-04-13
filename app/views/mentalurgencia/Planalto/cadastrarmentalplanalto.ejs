@@ -93,23 +93,4 @@ $("#baixaselect").on('change', function(e){
     document.getElementById('baixa').value = baixa;
 });
 
-$("#negativoselect").on('change', function(e){
-    var negativo = $(this).val();
-    document.getElementById('negativo').value = negativo;
-});
-
-function verifica(value){
-	var negativoselect = document.getElementById("negativoselect");
-	
-
-  if(value == 'Negado'){
-    negativoselect.style.display = "block";
-  }else{
-    negativoselect.style.display = "none";
-  } 
-};
-
-window.onload = function() {
-  document.getElementById('negativoselect').style.display = 'none';
-};
 </script>
