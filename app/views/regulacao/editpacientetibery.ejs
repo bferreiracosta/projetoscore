@@ -32,7 +32,7 @@
 
 				<div class="form-group">
 					<label for="susfacil">Idade</label>
-					<input type="text" name="idade" onchange="verificaidade(this.value)" class="form-control"  placeholder="Digite idade" value="<%=paciente[j].idade %>" required>
+					<input type="text" name="idade" id="idade" onchange="verificaidade(this.value)" class="form-control"  placeholder="Digite idade" value="<%=paciente[j].idade %>" required>
 				</div>
 				<div class="form-group">
 					<label for="ECF" id="ecf3">ECF</label>
@@ -215,59 +215,55 @@
 	  }
 	};
 	window.onload = function() {
-	
-	  document.getElementById('spict').style.display = 'none';
-	  document.getElementById('spict2').style.display = 'none';
-	  var paliativo = document.getElementById('paliativos').value;
-	  var exame = document.getElementById('exame').value;
-	  var leito = document.getElementById('leitos').value;
-	  document.getElementById('paliativo').value = paliativo;
-	  document.getElementById('covid').value = exame;
-	  document.getElementById('leito').value = leito;
-	  var pacote = document.getElementsByName('dispositivo');
-	  for (var i = 0; i < pacote.length; i++){
-		if ( pacote[i].checked == true) {
-			if(pacote[i].value == "svd"){
-				  var Pacote_i = "SVD";
-				  document.getElementById('svd3').value = Pacote_i;
-			  }else if (pacote[i].value == "sne") {
-				  var Pacote_ii = "SNE";
-				  document.getElementById('sne3').value = Pacote_ii;
-			  }else if (pacote[i].value == "avp") {
-				  var Pacote_iii = "AVP";
-				  document.getElementById('avp3').value = Pacote_iii;
-			  }else if (pacote[i].value == "cvc") {
-				  var Pacote_iiii = "CVC";
-				  document.getElementById('cvc3').value = Pacote_iiii;
-			  }
-			} else if ( pacote[i].checked == false) {
-			if(pacote[i].value == "svd"){
-				  var Pacote_i = "Não Aplicado";
-				  document.getElementById('svd3').value = Pacote_i;
-			  }else if (pacote[i].value == "sne") {
-				  var Pacote_ii = "Não Aplicado";
-				  document.getElementById('sne3').value = Pacote_ii;
-			  }else if (pacote[i].value == "avp") {
-				  var Pacote_iii = "Não Aplicado";
-				  document.getElementById('avp3').value = Pacote_iii;
-			  }else if (pacote[i].value == "cvc") {
-				  var Pacote_iiii = "Não Aplicado";
-				  document.getElementById('cvc3').value = Pacote_iiii;
-			  }
-			}
-		  }
-		  var input = document.getElementById("ecf2");
-		var input2 = document.getElementById("ecf3");
-	
-	  if(value < 60 ){
-		input.style.display = "none";
-		input2.style.display = "none";
-		document.getElementById('ecf').value = 0;
-	  }else{
-		input.style.display = "block";
-		input2.style.display = "block";
+
+document.getElementById('spict').style.display = 'none';
+document.getElementById('spict2').style.display = 'none';
+var paliativo = document.getElementById('paliativos').value;
+var exame = document.getElementById('exame').value;
+var leito = document.getElementById('leitos').value;
+document.getElementById('paliativo').value = paliativo;
+document.getElementById('covid').value = exame;
+document.getElementById('leito').value = leito;
+var pacote = document.getElementsByName('dispositivo');
+for (var i = 0; i < pacote.length; i++){
+  if ( pacote[i].checked == true) {
+	  if(pacote[i].value == "svd"){
+			var Pacote_i = "SVD";
+			document.getElementById('svd3').value = Pacote_i;
+		}else if (pacote[i].value == "sne") {
+			var Pacote_ii = "SNE";
+			document.getElementById('sne3').value = Pacote_ii;
+		}else if (pacote[i].value == "avp") {
+			var Pacote_iii = "AVP";
+			document.getElementById('avp3').value = Pacote_iii;
+		}else if (pacote[i].value == "cvc") {
+			var Pacote_iiii = "CVC";
+			document.getElementById('cvc3').value = Pacote_iiii;
+		}
+	  } else if ( pacote[i].checked == false) {
+	  if(pacote[i].value == "svd"){
+			var Pacote_i = "Não Aplicado";
+			document.getElementById('svd3').value = Pacote_i;
+		}else if (pacote[i].value == "sne") {
+			var Pacote_ii = "Não Aplicado";
+			document.getElementById('sne3').value = Pacote_ii;
+		}else if (pacote[i].value == "avp") {
+			var Pacote_iii = "Não Aplicado";
+			document.getElementById('avp3').value = Pacote_iii;
+		}else if (pacote[i].value == "cvc") {
+			var Pacote_iiii = "Não Aplicado";
+			document.getElementById('cvc3').value = Pacote_iiii;
+		}
 	  }
-	};
+	}
+	var input = document.getElementById("ecf2");
+  var input2 = document.getElementById("idade");
+  document.getElementById('ecf').value = input.value;
+
+	verificaidade(idade.value);
+   verificaecf(input.value);
+
+};
 	
 	function check1(){
 	
