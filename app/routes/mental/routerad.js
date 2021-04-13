@@ -21,7 +21,7 @@ module.exports = function(application) {
 		
 	});
 
-	application.post('/editarleitoad/:idusuario/', function(req, res){
+	application.post('/editarleitoad', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.mental.controllerad.editarleito(application, req, res);
 		}

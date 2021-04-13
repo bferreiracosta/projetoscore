@@ -21,11 +21,13 @@ module.exports.editarleito= function(application, req, res){
 	var leitofemad = req.body.leitofem;
 	var leitomascad = req.body.leitomasc;
 	var id = req.body.idusuario;
-	console.log(idu)
+	var unidade = 'AD';
 	
-	modeladmin.buscarusuario(id, function(error, result){
+	modeladmin.buscarusuarioeditavel(id, function(error, result){
 		modelad.updateleito(leitofemad,leitomascad, function(error, resultado){
-			res.render("mental/CapsAd/cadastrarpacientead", {leito : resultado, id : result});
+			modelad.buscarpaciente(unidade, function(error, resultado){
+				res.render("mental/CapsAd/cadastrarpacientead", {mental : resultado, id : result});
+			});
 		});
 	});	
 }

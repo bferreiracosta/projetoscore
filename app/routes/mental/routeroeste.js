@@ -1,7 +1,7 @@
 module.exports = function(application) {
 	application.get('/centraloeste', function(req, res){
 		if(req.session.loggedin){
-			application.app.controllers.mental.controllerad.central(application, req, res);
+			application.app.controllers.mental.controlleroeste.central(application, req, res);
 		}
 		else{
 			res.send("Faça login!!");
@@ -10,9 +10,9 @@ module.exports = function(application) {
 		
 	});
 
-	application.post('/editarleitooeste/:idusuario/', function(req, res){
+	application.post('/editarleitooeste', function(req, res){
 		if(req.session.loggedin){
-			application.app.controllers.mental.controllerad.editarleito(application, req, res);
+			application.app.controllers.mental.controlleroeste.editarleito(application, req, res);
 		}
 		else{
 			res.send("Faça login!!");

@@ -23,11 +23,13 @@ module.exports.editarleito= function(application, req, res){
 	var leitomascmodeloeste = req.body.leitomasc;
 	
 	var id = req.body.idusuario;
+	var unidade = 'Oeste';
 	
-	
-	modeladmin.buscarusuario(id, function(error, result){
+	modeladmin.buscarusuarioeditavel(id, function(error, result){
 		modeloeste.updateleito(leitofemmodeloeste,leitomascmodeloeste, function(error, resultado){
-			res.render("mental/CapsOeste/cadastrarpacienteoeste", {leito : resultado, id : result});
+			modeloeste.buscarpaciente(unidade, function(error, resultado){
+				res.render("mental/CapsOeste/cadastrarpacienteoeste", {mental : resultado, id : result});
+			});
 		});
 	});	
 }
