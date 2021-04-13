@@ -1,5 +1,41 @@
 module.exports = function(application) {
-	
+	application.post('/updatecapstibery', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.mentalurgencia.controllermentaltibery.updatecaps(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+
+	application.get('/justificarpacientetibery', function(req, res){
+		if(req.session.loggedin){
+		
+			application.app.controllers.mentalurgencia.controllermentaltibery.justificarpaciente(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+	application.get('/edittibery/:idusuario/', function(req, res){
+		if(req.session.loggedin){
+		
+			application.app.controllers.mentalurgencia.controllermentaltibery.editpacientecaps(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
 	application.get('/destinomentaltibery', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.mentalurgencia.controllermentaltibery.destino(application, req, res);

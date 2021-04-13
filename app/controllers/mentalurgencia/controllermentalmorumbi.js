@@ -1,5 +1,57 @@
 const { createPool } = require("mysql");
+module.exports.justificarpaciente= function(application, req, res){
+	
+	var modelmorumbi = new application.app.model.mentalurgencia.modelmentalmorumbi(application);
+	var modeladmin = new application.app.model.admin.modeladmin(application);
 
+	var unidade = 'Morumbi';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+			res.render("mentalurgencia/Morumbi/justificarpacientemorumbi", {mental : resultado, id : result});
+		});
+	});	
+}
+
+module.exports.updatecaps= function(application, req, res){
+	var idpaciente = req.body.id;
+	var vinculo = req.body.vinculo2;
+	var motivo = req.body.motivo;
+	var articulacao = req.body.articulacoes2;
+	var matriciado = req.body.matriciado2;
+	var id = req.body.idusuario;
+	var unidade = 'Morumbi';
+		
+	var modelmentalmorumbi = new application.app.model.mentalurgencia.modelmentalmorumbi(application);
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+
+	modeladmin.buscarusuarioporid(id, function(error, resultados){	
+		modelmentalmorumbi.updatecaps(idpaciente,vinculo,motivo, articulacao, matriciado, unidade,  function(error, result){
+			modelmentalmorumbi.buscarpaciente(unidade, function(error, resultado){
+				res.render("mentalurgencia/Morumbi/justificarpacientemorumbi", {mental : resultado, id : resultados});
+			});
+		});
+	});	
+}
+
+
+module.exports.editpacientecaps = function(application, req, res){
+	
+	var modelmorumbi = new application.app.model.mentalurgencia.modelmentalmorumbi(application);
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+
+	var id = req.params.idusuario;
+	var idpaciente = req.query;
+	var unidade = 'Morumbi';
+
+	modeladmin.buscarusuarioeditavel(id, function(error,result){
+		modelmorumbi.buscarpacienteid(idpaciente, unidade, function(error, resultado){
+			res.render("mentalurgencia/Morumbi/editmorumbi", {mental: resultado, id : result});
+		});
+	});
+}
 module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;
 	var id = req.body.campo2;

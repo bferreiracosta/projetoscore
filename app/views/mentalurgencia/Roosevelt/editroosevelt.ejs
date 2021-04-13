@@ -1,4 +1,4 @@
-<%- include('../cabecalhomental'); %>
+<%- include('../cabecalhomentalurgencia'); %>
 <div class="container">
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
@@ -38,8 +38,8 @@
 					<label for="articulacoes">Caso Articulado</label>
 					<select  class="form-control" id="articulacoes1" name="articulacoes1">
 						<option value="" disabled selected hidden>Articulado</option>
-						<option value="Sim" <%=(mental[j].articulacoes == 'Sim')?'selected':''%>>Sim</option>
-						<option value="Nao" <%=(mental[j].articulacoes == 'Nao')?'selected':''%>>Não</option>
+						<option value="Sim" <%=(mental[j].articulacao == 'Sim')?'selected':''%>>Sim</option>
+						<option value="Nao" <%=(mental[j].articulacao == 'Nao')?'selected':''%>>Não</option>
 					</select>
 					<input type="hidden" name="articulacoes2" id="articulacoes2" class="form-control" >
 				</div>

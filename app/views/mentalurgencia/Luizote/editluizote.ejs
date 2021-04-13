@@ -1,4 +1,4 @@
-<%- include('../cabecalhomental'); %>
+<%- include('../cabecalhomentalurgencia'); %>
 <div class="container">
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
@@ -14,11 +14,11 @@
 				</div>
 				<div class="form-group">
 					<label for="prontuario">Prontuario</label>
-					<input type="text" name="prontuario" class="form-control" value="<%=mental[j].prt %>" required>
+					<input type="text" disabled name="prontuario" class="form-control" value="<%=mental[j].prt %>" required>
 				</div>
 				<div class="form-group">
 					<label for="paciente">Nome Paciente</label>
-					<input type="text" name="paciente" class="form-control" value="<%=mental[j].paciente %>" required>
+					<input type="text" disabled name="paciente" class="form-control" value="<%=mental[j].paciente %>" required>
 				</div>
 
 				<div class="form-group">
@@ -38,8 +38,8 @@
 					<label for="articulacoes">Caso Articulado</label>
 					<select  class="form-control" id="articulacoes1" name="articulacoes1">
 						<option value="" disabled selected hidden>Articulado</option>
-						<option value="Sim" <%=(mental[j].articulacoes == 'Sim')?'selected':''%>>Sim</option>
-						<option value="Nao" <%=(mental[j].articulacoes == 'Nao')?'selected':''%>>Não</option>
+						<option value="Sim" <%=(mental[j].articulacao == 'Sim')?'selected':''%>>Sim</option>
+						<option value="Nao" <%=(mental[j].articulacao == 'Nao')?'selected':''%>>Não</option>
 					</select>
 					<input type="hidden" name="articulacoes2" id="articulacoes2" class="form-control" >
 				</div>

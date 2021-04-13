@@ -1,5 +1,41 @@
 module.exports = function(application) {
-	
+	application.post('/updatecapssaojorge', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.mentalurgencia.controllermentalsaojorge.updatecaps(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+
+	application.get('/justificarpacientesaojorge', function(req, res){
+		if(req.session.loggedin){
+		
+			application.app.controllers.mentalurgencia.controllermentalsaojorge.justificarpaciente(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+	application.get('/editsaojorge/:idusuario/', function(req, res){
+		if(req.session.loggedin){
+		
+			application.app.controllers.mentalurgencia.controllermentalsaojorge.editpacientecaps(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
 	application.get('/destinomentalsaojorge', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.mentalurgencia.controllermentalsaojorge.destino(application, req, res);

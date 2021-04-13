@@ -34,8 +34,22 @@
 					<input type="text" name="idade" onchange="verificaidade(this.value)" class="form-control"  placeholder="Digite idade" value="<%=paciente[j].idade %>" required>
 				</div>
 				<div class="form-group">
-					<label for="ECF">ECF</label>
-					<input type="number" onchange="verificaecf(this.value)" name="ecf" class="form-control" placeholder="ECF" value="<%=paciente[j].ecf %>">
+					<label for="ECF" id="ecf3">ECF</label>
+					<select  onchange="verificaecf(this.value)"  class="form-control" id="ecf2" name="ecf2">
+						<option value="" disabled selected hidden>ECF</option>
+						<option value="0">Não aplicado</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+					<input type="hidden" id="ecf"  name="ecf" class="form-control" placeholder="ECF">
 				</div>
 				<div class="form-group">
 					<label for="spcit" id="spict2">Spict</label>
@@ -125,7 +139,10 @@
 		 var paliativo = $(this).val();
 		 document.getElementById('paliativo').value = paliativo;
 	});
-	
+	$("#ecf2").on('change', function(e){
+     var ecf = $(this).val();
+     document.getElementById('ecf').value = ecf;
+});
 	$(document).ready(function(){
 		  $('#data').mask('00/00/0000');
 		  });

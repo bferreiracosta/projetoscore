@@ -1,5 +1,41 @@
 module.exports = function(application) {
-	
+	application.post('/updatecapsmorumbi', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.mentalurgencia.controllermentalmorumbi.updatecaps(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+
+	application.get('/justificarpacientemorumbi', function(req, res){
+		if(req.session.loggedin){
+		
+			application.app.controllers.mentalurgencia.controllermentalmorumbi.justificarpaciente(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+	application.get('/editmorumbi/:idusuario/', function(req, res){
+		if(req.session.loggedin){
+		
+			application.app.controllers.mentalurgencia.controllermentalmorumbi.editpacientecaps(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
 	application.get('/destinomentalmorumbi', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.mentalurgencia.controllermentalmorumbi.destino(application, req, res);

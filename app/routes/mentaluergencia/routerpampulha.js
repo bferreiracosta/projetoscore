@@ -1,5 +1,41 @@
 module.exports = function(application) {
-	
+	application.post('/updatecapspampulha', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.mentalurgencia.controllermentalpampulha.updatecaps(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+
+	application.get('/justificarpacientepampulha', function(req, res){
+		if(req.session.loggedin){
+		
+			application.app.controllers.mentalurgencia.controllermentalpampulha.justificarpaciente(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+	application.get('/editpampulha/:idusuario/', function(req, res){
+		if(req.session.loggedin){
+		
+			application.app.controllers.mentalurgencia.controllermentalpampulha.editpacientecaps(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
 	application.get('/destinomentalpampulha', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.mentalurgencia.controllermentalpampulha.destino(application, req, res);
