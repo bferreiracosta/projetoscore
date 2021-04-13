@@ -7,14 +7,14 @@ modelmentalmartins.prototype.buscarpacientecaps = function(unidade, callback){
 	this._conection.query('select * from mentalurgencia where unidade = "'+unidade+'" and baixa is null', callback);
 }
 
-modelmentalmartins.prototype.baixa = function(idpaciente,baixa,motivo, data, callback){
+modelmentalmartins.prototype.baixa = function(idpaciente,baixa, data, callback){
 
-	this._conection.query('update mentalurgencia set datas = "'+data+'",   baixa = "'+baixa+'", motivo="'+motivo+'" where id_paciente = ' + idpaciente, callback);
+	this._conection.query('update mentalurgencia set datas = "'+data+'",  baixa = "'+baixa+'" where id_paciente = ' + idpaciente, callback);
 }
 
 modelmentalmartins.prototype.cadastrarpaciente = function(prt,paciente, idade,diagnostico,referencia,unidade,data, callback){
 
-	this._conection.query('insert into mentalurgencia set datas = "'+data+'", prt = "'+prt+'", paciente = "'+paciente+'", diagnostico = "'+diagnostico+'", idade = "'+idade+'", referencia = "'+referencia+'", unidade = "'+unidade+'"', callback);
+	this._conection.query('insert into mentalurgencia set dataa = "'+data+'", prt = "'+prt+'", paciente = "'+paciente+'", diagnostico = "'+diagnostico+'", idade = "'+idade+'", referencia = "'+referencia+'", unidade = "'+unidade+'"', callback);
 }
 
 
