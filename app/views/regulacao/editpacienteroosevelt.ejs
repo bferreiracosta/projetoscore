@@ -33,25 +33,24 @@
 				<div class="form-group">
 					<label for="susfacil">Idade</label>
 					<input type="text" name="idade" onchange="verificaidade(this.value)" class="form-control"  placeholder="Digite idade" value="<%=paciente[j].idade %>" required>
-				</div>
-				<div class="form-group">
-					<label for="ECF" id="ecf3">ECF</label>
-					<select  onchange="verificaecf(this.value)"  class="form-control" id="ecf2" name="ecf2">
-						<option value="" disabled selected hidden>ECF</option>
-						<option value="0">Não aplicado</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-					</select>
-					<input type="hidden" id="ecf"  name="ecf" class="form-control" placeholder="ECF">
-				</div>
+					<div class="form-group">
+						<label for="ECF" id="ecf3">ECF</label>
+						<select  onchange="verificaecf(this.value)" class="form-control" id="ecf2" name="ecf2">
+							<option value="" disabled selected hidden>ECF</option>
+							<option value="0" <%=(paciente[j].ecf == '0')?'selected':''%>>Não aplicado</option>
+							<option value="1" <%=(paciente[j].ecf == '1')?'selected':''%>>1</option>
+							<option value="2" <%=(paciente[j].ecf == '2')?'selected':''%>>2</option>
+							<option value="3" <%=(paciente[j].ecf == '3')?'selected':''%>>3</option>
+							<option value="4" <%=(paciente[j].ecf == '4')?'selected':''%>>4</option>
+							<option value="5" <%=(paciente[j].ecf == '5')?'selected':''%>>5</option>
+							<option value="6" <%=(paciente[j].ecf == '6')?'selected':''%>>6</option>
+							<option value="7" <%=(paciente[j].ecf == '7')?'selected':''%>>7</option>
+							<option value="8" <%=(paciente[j].ecf == '8')?'selected':''%>>8</option>
+							<option value="9" <%=(paciente[j].ecf == '9')?'selected':''%>>9</option>
+							<option value="10"<%=(paciente[j].ecf == '10')?'selected':''%>>10</option>
+						</select>
+						<input type="hidden" id="ecf"  name="ecf" class="form-control" placeholder="ECF">
+					</div>
 				<div class="form-group">
 					<label for="spcit" id="spict2">Spict</label>
 					<input type="text" id="spict" name="spcit" class="form-control" placeholder="Spict" value="<%=paciente[j].spict %>">

@@ -217,12 +217,13 @@ function verificaecf(value){
   }else{
     input.style.display = "none";
 	label.style.display = "none";
+	input.value= "Não aplicado"
   }
   if(value == 9 || value == 10){
 	  var paliativo = 'sim';
 	  document.getElementById('paliativos').style.display = 'none'
 	  document.getElementById('paliativo2').style.display = 'none'
-	  
+	  input.value= "Não aplicado"
 	  document.getElementById('paliativo').value = paliativo;
   }
 };
