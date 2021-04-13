@@ -43,13 +43,13 @@ modeladminregulacao.prototype.buscarpacienteenfermaria = function(leito, callbac
 
 modeladminregulacao.prototype.buscarpacientenull = function(callback){
 	
-	this._conection.query('select * from pacientes where baixa is null and (news = "" or ecf = "" or paliativo = "" or dispositivo = "")', callback);
+	this._conection.query('select * from pacientes where baixa is null and (paliativo = "" or  news = "" or ecf = "" or fr = "" or fc = "" or sistolica = "" or sat = "" or o2 = "" or temp = "" or dispositivo = "")', callback);
 }
 
 
 modeladminregulacao.prototype.buscarpacientesaladeemergencia = function(leito, callback){
 	
-	this._conection.query('select * from pacientes where leito = "'+leito+'" and baixa is null and paliativo != "" and  news != "" and ecf != "" and fr != "" and fc != "" and sistolica != "" and sat != "" and o2 != "" and temp != "" and dispositivo != ""', callback);
+	this._conection.query('select * from pacientes where leito = "Sala de Emergência" and baixa is null and paliativo != "" and  news != "" and ecf != "" and fr != "" and fc != "" and sistolica != "" and sat != "" and o2 != "" and temp != "" and dispositivo != ""', callback);
 }
 
 module.exports = function(){
