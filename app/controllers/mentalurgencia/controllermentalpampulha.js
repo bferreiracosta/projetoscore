@@ -56,13 +56,14 @@ module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;
 	var id = req.body.campo2;
 	var baixa = req.body.baixa;
+	var data = req.body.datas;
 	var motivo = req.body.negativo;
 	var unidade = 'Pampulha';
 	var modelmentalpampulha = new application.app.model.mentalurgencia.modelmentalpampulha(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelmentalpampulha.baixa(idpaciente,baixa,motivo, function(error, result){
+		modelmentalpampulha.baixa(idpaciente,baixa,motivo,data, function(error, result){
 			modelmentalpampulha.buscarpacientecaps(unidade, function(error, resultado){
 				res.render("mentalurgencia/Pampulha/destinomentalpampulha", {mental : resultado, id : resultados});
 			});
@@ -123,6 +124,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var paciente = req.body.paciente;
 	var prt = req.body.prontuario;
 	var idade = req.body.idade;
+	var data = req.body.dataa;
 	var diagnostico = req.body.diagnostico;
 	var referencia = req.body.referencia;
 	var id = req.body.idusuario;
@@ -133,7 +135,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelmentalpampulha.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade, function(error, result){
+		modelmentalpampulha.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,data, function(error, result){
 			modelmentalpampulha.buscarpaciente(unidade, function(error, resultado){
 				res.render("mentalurgencia/Pampulha/cadastrarmentalpampulha", {mental : resultado, id : resultados});
 			});

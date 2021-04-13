@@ -78,6 +78,7 @@
                                 <input type="hidden" name="negativo" id="negativo">
                               </div>
                               <input  type="hidden" name="covid" id="covid">
+                              <input  type="hidden" id="data" name="data"  class="form-control">
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                                 <button type="submit" class="btn btn-success">Destino</button>
@@ -158,4 +159,12 @@ window.onload = function() {
   document.getElementById('negativoselect').style.display = 'none';
   document.getElementById('label').style.display = 'none';
 };
+
+function novaHora(){
+	var date = new Date();
+		var data = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+		document.getElementById('data').value = data;
+	
+}
+novaHora();
 </script>

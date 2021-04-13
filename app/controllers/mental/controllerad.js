@@ -1,4 +1,34 @@
 const { createPool } = require("mysql");
+module.exports.central= function(application, req, res){
+	
+	var modelad = new application.app.model.mental.modelad(application);
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelad.buscarleito(function(error, resultado){
+			res.render("mental/CapsAd/centralad", {leito : resultado, id : result});
+		});
+	});	
+}
+
+module.exports.editarleito= function(application, req, res){
+	
+	var modelad = new application.app.model.mental.modelad(application);
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var leitofemad = req.body.leitofem;
+	var leitomascad = req.body.leitomasc;
+	var id = req.body.idusuario;
+	console.log(idu)
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelad.updateleito(leitofemad,leitomascad, function(error, resultado){
+			res.render("mental/CapsAd/cadastrarpacientead", {leito : resultado, id : result});
+		});
+	});	
+}
 
 module.exports.cadastrar= function(application, req, res){
 	
@@ -37,6 +67,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var idade = req.body.idade;
 	var diagnostico = req.body.diagnostico;
 	var referencia = req.body.referencia;
+	var data =  req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'AD';
 
@@ -45,7 +76,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelad.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade, function(error, result){
+		modelad.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,data, function(error, result){
 			modelad.buscarpaciente(unidade, function(error, resultado){
 				res.render("mental/CapsAd/cadastrarpacientead", {mental : resultado, id : resultados});
 			});

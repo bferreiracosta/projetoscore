@@ -56,13 +56,14 @@ module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;
 	var id = req.body.campo2;
 	var baixa = req.body.baixa;
+	var data = req.body.datas;
 	var motivo = req.body.negativo;
 
 	var modelmentalmorumbi = new application.app.model.mentalurgencia.modelmentalmorumbi(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var unidade = 'Morumbi';
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelmentalmorumbi.baixa(idpaciente,baixa,motivo, function(error, result){
+		modelmentalmorumbi.baixa(idpaciente,baixa,motivo,data, function(error, result){
 			modelmentalmorumbi.buscarpacientecaps(unidade, function(error, resultado){
 				res.render("mentalurgencia/Morumbi/destinomentalmorumbi", {mental : resultado, id : resultados});
 			});
@@ -123,6 +124,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var paciente = req.body.paciente;
 	var prt = req.body.prontuario;
 	var idade = req.body.idade;
+	var data = req.body.dataa;
 	var diagnostico = req.body.diagnostico;
 	var referencia = req.body.referencia;
 	var id = req.body.idusuario;
@@ -133,7 +135,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelmentalmorumbi.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade, function(error, result){
+		modelmentalmorumbi.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade, data,function(error, result){
 			modelmentalmorumbi.buscarpaciente(unidade, function(error, resultado){
 				res.render("mentalurgencia/Morumbi/cadastrarmentalmorumbi", {mental : resultado, id : resultados});
 			});

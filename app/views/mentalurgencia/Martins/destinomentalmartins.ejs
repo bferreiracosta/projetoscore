@@ -75,6 +75,7 @@
                                         <input type="hidden" name="baixa" id="baixa">
                                       </div>
                                       <input  type="hidden" name="covid" id="covid">
+                                      <input  type="hidden" id="data" name="data"  class="form-control">
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                                         <button type="submit" class="btn btn-success">Destino</button>
@@ -131,4 +132,11 @@
             var baixa = $(this).val();
             document.getElementById('baixa').value = baixa;
         });
+        function novaHora(){
+	var date = new Date();
+		var data = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+		document.getElementById('data').value = data;
+	
+}
+novaHora();
         </script>

@@ -37,6 +37,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var idade = req.body.idade;
 	var diagnostico = req.body.diagnostico;
 	var referencia = req.body.referencia;
+	var data =  req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'Infantil';
 
@@ -45,7 +46,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelinfantil.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade, function(error, result){
+		modelinfantil.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,data, function(error, result){
 			modelinfantil.buscarpaciente(unidade, function(error, resultado){
 				res.render("mental/CapsInfantil/cadastrarpacienteinfantil", {mental : resultado, id : resultados});
 			});

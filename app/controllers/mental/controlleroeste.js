@@ -1,5 +1,36 @@
 const { createPool } = require("mysql");
+module.exports.central= function(application, req, res){
+	
+	var modeloeste = new application.app.model.mental.modeloeste(application);
+	var modeladmin = new application.app.model.admin.modeladmin(application);
 
+	
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modeloeste.buscarleito(function(error, resultado){
+			res.render("mental/CapsOeste/centraloeste", {leito : resultado, id : result});
+		});
+	});	
+}
+
+module.exports.editarleito= function(application, req, res){
+	
+	var modeloeste = new application.app.model.mental.modeloeste(application);
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var leitofemmodeloeste = req.body.leitofem;
+	var leitomascmodeloeste = req.body.leitomasc;
+	
+	var id = req.body.idusuario;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modeloeste.updateleito(leitofemmodeloeste,leitomascmodeloeste, function(error, resultado){
+			res.render("mental/CapsOeste/cadastrarpacienteoeste", {leito : resultado, id : result});
+		});
+	});	
+}
 module.exports.cadastrar= function(application, req, res){
 	
 	var modeloeste = new application.app.model.mental.modeloeste(application);
@@ -37,6 +68,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var idade = req.body.idade;
 	var diagnostico = req.body.diagnostico;
 	var referencia = req.body.referencia;
+	var data =  req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'Oeste';
 
@@ -45,7 +77,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modeloeste.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade, function(error, result){
+		modeloeste.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade, data, function(error, result){
 			modeloeste.buscarpaciente(unidade, function(error, resultado){
 				res.render("mental/CapsOeste/cadastrarpacienteoeste", {mental : resultado, id : resultados});
 			});

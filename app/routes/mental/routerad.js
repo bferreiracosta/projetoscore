@@ -10,6 +10,28 @@ module.exports = function(application) {
 		
 	});
 
+	application.get('/centralad', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.mental.controllerad.central(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+	application.post('/editarleitoad/:idusuario/', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.mental.controllerad.editarleito(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
 
 	application.get('/historicoad', function(req, res){
 		if(req.session.loggedin){

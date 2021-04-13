@@ -2,10 +2,19 @@ function modelad(application){
 	var conection = require('../../../config/dbConnection');
 	this._conection = conection();
 }
+modelad.prototype.buscarleito = function(callback){
+	
+	this._conection.query('select * from mentalleito where id_leito = 1;', callback);
+}
 
-modelad.prototype.cadastrarpaciente = function(prt,paciente, idade,diagnostico,referencia,unidade, callback){
+modelad.prototype.updateleito = function(leitofemad,leitomascad, callback){
 
-	this._conection.query('insert into mental set prt = "'+prt+'", paciente = "'+paciente+'", diagnostico = "'+diagnostico+'", idade = "'+idade+'", referencia = "'+referencia+'", unidade = "'+unidade+'"', callback);
+	this._conection.query('update mentalleito set leitofemad = "'+leitofemad+'", leitomascad = "'+leitomascad+'"  where id_leito = 1 ', callback);
+}
+
+modelad.prototype.cadastrarpaciente = function(prt,paciente, idade,diagnostico,referencia,unidade,data, callback){
+
+	this._conection.query('insert into mental set dataa = "'+data+'", prt = "'+prt+'", paciente = "'+paciente+'", diagnostico = "'+diagnostico+'", idade = "'+idade+'", referencia = "'+referencia+'", unidade = "'+unidade+'"', callback);
 }
 
 

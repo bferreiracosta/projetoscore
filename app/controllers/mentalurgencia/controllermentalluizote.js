@@ -57,12 +57,13 @@ module.exports.baixa= function(application, req, res){
 	var id = req.body.campo2;
 	var baixa = req.body.baixa;
 	var motivo = req.body.negativo;
+	var data = req.body.datas;
 	var unidade = 'Luizote';
 	var modelmentalluizote = new application.app.model.mentalurgencia.modelmentalluizote(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelmentalluizote.baixa(idpaciente,baixa,motivo, function(error, result){
+		modelmentalluizote.baixa(idpaciente,baixa,motivo, data, function(error, result){
 			modelmentalluizote.buscarpacientecaps(unidade, function(error, resultado){
 				res.render("mentalurgencia/Luizote/destinomentalluizote", {mental : resultado, id : resultados});
 			});
@@ -125,6 +126,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var idade = req.body.idade;
 	var diagnostico = req.body.diagnostico;
 	var referencia = req.body.referencia;
+	var data = req.body.dataa;
 	var id = req.body.idusuario;
 	var unidade = 'Luizote';
 
@@ -133,7 +135,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelmentalluizote.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade, function(error, result){
+		modelmentalluizote.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,data, function(error, result){
 			modelmentalluizote.buscarpaciente(unidade, function(error, resultado){
 				res.render("mentalurgencia/Luizote/cadastrarmentalluizote", {mental : resultado, id : resultados});
 			});

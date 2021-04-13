@@ -3,9 +3,9 @@ function modelleste(application){
 	this._conection = conection();
 }
 
-modelleste.prototype.cadastrarpaciente = function(prt,paciente, idade,diagnostico,referencia,unidade, callback){
+modelleste.prototype.cadastrarpaciente = function(prt,paciente, idade,diagnostico,referencia,unidade,data, callback){
 
-	this._conection.query('insert into mental set prt = "'+prt+'", paciente = "'+paciente+'", diagnostico = "'+diagnostico+'", idade = "'+idade+'", referencia = "'+referencia+'", unidade = "'+unidade+'"', callback);
+	this._conection.query('insert into mental set dataa = "'+data+'", prt = "'+prt+'", paciente = "'+paciente+'", diagnostico = "'+diagnostico+'", idade = "'+idade+'", referencia = "'+referencia+'", unidade = "'+unidade+'"', callback);
 }
 
 
