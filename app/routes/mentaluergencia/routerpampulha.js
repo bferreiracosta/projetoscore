@@ -121,7 +121,7 @@ module.exports = function(application) {
 	application.get('/editmentalpampulha/:idusuario/', function(req, res){
 		if(req.session.loggedin){
 		
-			application.app.controllers.mentalurgencia.controllermentalpampulha.editmental(application, req, res);
+			application.app.controllers.mentalurgencia.controllermentalpampulha.editpaciente(application, req, res);
 		}
 		else{
 			res.send("Faça login!!");

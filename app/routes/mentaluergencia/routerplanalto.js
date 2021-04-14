@@ -123,7 +123,7 @@ module.exports = function(application) {
 	application.get('/editmentalplanalto/:idusuario/', function(req, res){
 		if(req.session.loggedin){
 		
-			application.app.controllers.mentalurgencia.controllermentalplanalto.editmental(application, req, res);
+			application.app.controllers.mentalurgencia.controllermentalplanalto.editpaciente(application, req, res);
 		}
 		else{
 			res.send("Faça login!!");

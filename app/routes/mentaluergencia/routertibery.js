@@ -121,7 +121,7 @@ module.exports = function(application) {
 	application.get('/editmentaltibery/:idusuario/', function(req, res){
 		if(req.session.loggedin){
 		
-			application.app.controllers.mentalurgencia.controllermentaltibery.editmental(application, req, res);
+			application.app.controllers.mentalurgencia.controllermentaltibery.editpaciente(application, req, res);
 		}
 		else{
 			res.send("Faça login!!");
