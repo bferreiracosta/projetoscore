@@ -20,8 +20,11 @@
                     <th>Frequência Respiratoria</th>
                     <th>Saturação de O2</th>
                     <th>Nivel de Alerta</th>
+                    <th></th>
                     <th>News</th>
+                    <th></th>
                     <th>Data Atualização</th>
+                    <th></th>
                     <th>Hora Atualização</th>
                     <th></th>
                 </tr>
@@ -42,9 +45,12 @@
                         <td><label hidden for="">/Frequência Respiratoria: </label><%=paciente[j].fr %></td>
                         <td><label hidden for="">/Saturação de O2: </label><%=paciente[j].sat %></td>
                         <td><label hidden for="">/Nivel de Alerta: </label><%=paciente[j].alerta %></td>
-                        <td><label hidden for="">/News: </label><%=paciente[j].news %></td>
-                        <td><label hidden for="">/Data Atualização: </label><%=paciente[j].data %></td>
-                        <td><label hidden for="">/Hora Atualização: </label><%=paciente[j].tempo %></td>
+                        <td><label hidden for="">/News: </label></td>
+                        <td><%=paciente[j].news %></td>
+                        <td><label hidden for="">/Data da atualização: </label></td>
+                        <td><%=paciente[j].data %></td>
+                        <td><label hidden for="">/Hora da Atualização: </label></td>
+                        <td><%=paciente[j].tempo %></td>
                         <td>
                             <a href="editnewstibery/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %>" class="btn btn-sm btn-info edit">Edit</a>
                         </td>
