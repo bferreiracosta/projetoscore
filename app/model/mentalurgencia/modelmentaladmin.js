@@ -5,7 +5,7 @@ function modelmentaladmin(application){
 
 modelmentaladmin.prototype.historico = function(callback){
 	
-	this._conection.query('select * from mentalurgencia', callback);
+	this._conection.query('select * from mentalurgencia where baixa is not null', callback);
 }
 
 module.exports = function(){
