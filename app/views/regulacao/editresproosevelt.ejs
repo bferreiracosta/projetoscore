@@ -8,7 +8,7 @@
 <form action="/updateresproosevelt" method="post">
 	<% if(paciente.length > 0) { %>
         <% for(var j = 0; j < paciente.length; j++) {%>
-			<div >
+            <div >
                 <div >
                     <h2>Editar Dispositivo </h2>
                     <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">  
@@ -16,15 +16,15 @@
                 </div>
                 <div >
 					<div class="form-group">
-                        <input type="hidden" name="idpaciente" class="form-control" placeholder="" value="<%=paciente[j].id_paciente%>" >
+                        <input type="hidden" name="idpaciente" class="form-control" placeholder="" value="<%=paciente[j].id_paciente%>" required >
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"
 						<label for="paciente">Paciente</label>
-                        <input disabled type="text" name="paciente" class="form-control" value="<%=paciente[j].paciente %>" >
+                        <input disabled type="text" name="paciente" class="form-control" value="<%=paciente[j].paciente %>" required >
                     </div>
                     <div class="form-group">
 						<label for="paciente">Tipo de leito</label>
-						<select class="form-control" id="leito" name="leito">
+						<select class="form-control" id="leito" name="leito" required>
 							<option value="maca" <%=(paciente[j].acomodacao == 'maca')?'selected':''%>>Maca</option>
 							<option value="leito" <%=(paciente[j].acomodacao == 'leito')?'selected':''%>>Leito</option>
 						</select>
@@ -44,11 +44,11 @@
 					<input  id="dispositivo2"  type="hidden" name="dispositivo2">
 					<div class="form-group">
 						<label for="o2label" id="o2label">Fluxo de O2</label>
-                        <input type="text" name="o2" id="o2" class="form-control" value="<%=paciente[j].fluxo_de_o2 %>" >
+                        <input type="text" name="o2" id="o2" class="form-control" value="<%=paciente[j].fluxo_de_o2 %>">
                     </div>
                     <div class="form-group">
 						<label for="paciente">Drogas Vasoativas</label>
-						<select class="form-control" onchange="verificadroga(this.value)" id="droga" name="droga">
+						<select class="form-control" onchange="verificadroga(this.value)" id="droga" name="droga" required>
 							<option value="sim" <%=(paciente[j].droga == 'sim')?'selected':''%> >Sim</option>
 							<option value="nao" <%=(paciente[j].droga == 'nao')?'selected':''%>>Não</option>
 						</select>
@@ -57,16 +57,25 @@
 							<input  type="checkbox" name="DVA" id="Noradrenalina"  class="form-check-input" onClick="check()" value="Noradrenalina" <%=(paciente[j].nora == 'Noradrenalina')?'checked':''%>>
 							<label class="form-check-label"  id="Noradrenalina2" for="Noradrenalina">Noradrenalina</label>
 							<input  id="nora"  type="hidden" name="nora">
+					
+							<label class="form-check-label"  id="Noradrenalina3" for="Noradrenalina"> ---  Vazão Noradrenalina</label>
+							<input  id="vazaonora"  type="text" name="vazaonora"  value="<%=paciente[j].vazaonora %>">
 						</div>
 						<div class="form-check">
 							<input type="checkbox" name="DVA" id="Adrenalina"  class="form-check-input" onClick="check()" value="Adrenalina" <%=(paciente[j].adrenalina == 'Adrenalina')?'checked':''%>>
 							<label class="form-check-label"  id="Adrenalina2" for="Adrenalina">Adrenalina</label>
-							<input  id="adre"  type="hidden" name="adre">
+							<input  id="adre"  type="hidden" name="adre" >
+						
+							<label class="form-check-label"  id="Adrenalin3" for="Adrenalina"> ---  Vazão Adrenalina</label>
+							<input  id="vazaoadre"  type="text" name="vazaoadre"  value="<%=paciente[j].vazaoadre %>">
 						</div>
 						<div class="form-check">
 							<input type="checkbox" name="DVA" id="Bicarbonato"  class="form-check-input" onClick="check()" value="Bicarbonato" <%=(paciente[j].bicarbonato == 'Bicarbonato')?'checked':''%>>
 							<label class="form-check-label"  id="Bicarbonato2" for="Bicarbonato">Bicarbonato</label>
 							<input  id="bic"  type="hidden" name="bica">
+				
+							<label class="form-check-label"  id="Bicarbonato3" for="Bicarbonato"> ---  Vazão Bicarbonato</label>
+							<input  id="vazaobica"  type="text" name="vazaobica"  value="<%=paciente[j].vazaobica %>">
 						</div>
                     </div>
 					<div class="form-group">
@@ -79,7 +88,7 @@
                     </div>
 					<div class="form-group">
 						<label for="paciente">Sedação</label>
-						<select class="form-control" onchange="verificasedacao(this.value)" id="sedacao" name="sedacao">
+						<select class="form-control" onchange="verificasedacao(this.value)" id="sedacao" name="sedacao" required>
 							<option value="sim" <%=(paciente[j].sedacao == 'sim')?'selected':''%> >Sim</option>
 							<option value="nao" <%=(paciente[j].sedacao == 'nao')?'selected':''%>>Não</option>
 						</select>
@@ -87,30 +96,38 @@
 							<input  type="checkbox" name="sedacao2" id="Dormonid"  class="form-check-input" onClick="check1()" value="Dormonid" <%=(paciente[j].dormonid == 'Dormonid')?'checked':''%>>
 							<label class="form-check-label"  id="Dormonid2" for="Dormonid">Dormonid</label>
 							<input  id="Dormonid3"  type="hidden" name="Dormonid3">
+							<label class="form-check-label"  id="Dormonid4" for="Dormonid"> ---  Vazão Dormonid</label>
+							<input  id="vazaoDormonid"  type="text" name="vazaoDormonid"  value="<%=paciente[j].vazaoDormonid %>">
 						</div>
 						<div class="form-check">
 							<input type="checkbox" name="sedacao2" id="Fentanil"  class="form-check-input" onClick="check1()" value="Fentanil" <%=(paciente[j].fentanil == 'Fentanil')?'checked':''%>>
 							<label class="form-check-label"  id="Fentanil2" for="Fentanil2">Fentanil</label>
 							<input  id="Fentanil3"  type="hidden" name="Fentanil3">
+							<label class="form-check-label"  id="Fentanil4" for="Fentanil"> ---  Vazão Fentanil</label>
+							<input  id="vazaoFentanil"  type="text" name="vazaoFentanil"  value="<%=paciente[j].vazaoFentanil %>">
 						</div>
 						<div class="form-check">
 							<input type="checkbox" name="sedacao2" id="Rocuronio"  class="form-check-input" onClick="check1()" value="Rocuronio" <%=(paciente[j].rocuronio == 'Rocuronio')?'checked':''%>>
 							<label class="form-check-label"  id="Rocuronio2" for="Rocuronio2">Rocuronio</label>
 							<input  id="Rocuronio3"  type="hidden" name="Rocuronio3">
+							<label class="form-check-label"  id="Rocuronio4" for="Rocuronio"> ---  Vazão Rocuronio</label>
+							<input  id="vazaoRocuronio"  type="text" name="vazaoRocuronio"  value="<%=paciente[j].vazaoRocuronio %>">
 						</div>
 						<div class="form-check">
 							<input type="checkbox" name="sedacao2" id="Propofol"  class="form-check-input" onClick="check1()" value="Propofol" <%=(paciente[j].propofol == 'Propofol')?'checked':''%>>
 							<label class="form-check-label"  id="Propofol2" for="Propofol2">Propofol</label>
 							<input  id="Propofol3"  type="hidden" name="Propofol3">
+							<label class="form-check-label"  id="Propofol4" for="Propofol"> ---  Vazão Propofol</label>
+							<input  id="vazaoPropofol"  type="text" name="vazaoPropofol"  value="<%=paciente[j].vazaoPropofol %>">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="paciente" id="glasgow2">Glasgow</label>
-                        <input type="text" id="glasgow" name="glasgow" class="form-control" value="<%=paciente[j].glasgow %>" >
+                        <input type="text" id="glasgow" name="glasgow" class="form-control" value="<%=paciente[j].glasgow %>">
                     </div>
 					<div class="form-group">
 						<label for="paciente">Quantidades de Bics</label>
-                        <input type="text" name="bics" class="form-control" value="<%=paciente[j].bic %>">
+                        <input type="text" name="bics" class="form-control" value="<%=paciente[j].bic %>" required>
                     </div>
                 </div>
                 <div >
@@ -232,7 +249,14 @@
 		var label2 = document.getElementById("Fentanil2");
 		var label3 = document.getElementById("Rocuronio2");
 		var label4 = document.getElementById("Propofol2");
-	
+		var input5 = document.getElementById("vazaoDormonid");
+		var input6 = document.getElementById("vazaoFentanil");
+		var input7 = document.getElementById("vazaoRocuronio");
+		var input8 = document.getElementById("vazaoPropofol");
+		var label5 = document.getElementById("Dormonid4");
+		var label6 = document.getElementById("Fentanil4");
+		var label7 = document.getElementById("Rocuronio4");
+		var label8 = document.getElementById("Propofol4");
 	
 	  if(value == 'nao'){
 		input.style.display = "none";
@@ -243,6 +267,14 @@
 		label2.style.display = "none";
 		label3.style.display = "none";
 		label4.style.display = "none";
+		input5.style.display = "none";
+		input6.style.display = "none";
+		input7.style.display = "none";
+		input8.style.display = "none";
+		label5.style.display = "none";
+		label6.style.display = "none";
+		label7.style.display = "none";
+		label8.style.display = "none";
 		var pacote = document.getElementsByName('sedacao2');
 		var estado = false;
 		  for (var i = 0; i < pacote.length; i++){
@@ -250,15 +282,19 @@
 			  if(pacote[i].value == "Dormonid"){
 				  var Pacote_i = "Não Usado";
 				  document.getElementById('Dormonid3').value = Pacote_i;
+				  input5.value="Não Usado";
 			  }else if (pacote[i].value == "Fentanil") {
 				  var Pacote_ii = "Não Usado";
 				  document.getElementById('Fentanil3').value = Pacote_ii;
+				  input6.value="Não Usado";
 			  }else if (pacote[i].value == "Rocuronio") {
 				  var Pacote_iii = "Não Usado";
 				  document.getElementById('Rocuronio3').value = Pacote_iii;
+				  input7.value="Não Usado";
 			  }else if (pacote[i].value == "Propofol") {
 				  var Pacote_iiii = "Não Usado";
 				  document.getElementById('Propofol3').value = Pacote_iiii;
+				  input8.value="Não Usado";
 			  }
 		  }
 	  }else if(value == 'sim'){
@@ -270,6 +306,7 @@
 		label2.style.display = "inline";
 		label3.style.display = "inline";
 		label4.style.display = "inline";
+		
 	  }
 	};
 	
@@ -281,6 +318,12 @@
 		var label2 = document.getElementById("Adrenalina2");
 		var input3 = document.getElementById("Bicarbonato");
 		var label3 = document.getElementById("Bicarbonato2");
+		var input4 = document.getElementById("vazaonora");
+		var input5 = document.getElementById("vazaoadre");
+		var label4 = document.getElementById("Noradrenalina3");
+		var label5 = document.getElementById("Adrenalin3");
+		var input6 = document.getElementById("vazaobica");
+		var label6 = document.getElementById("Bicarbonato3");
 		
 	
 	  if(value == 'nao'){
@@ -290,22 +333,30 @@
 		label.style.display = "none";
 		label2.style.display = "none";
 		label3.style.display = "none";
+		input4.style.display = "none";
+		input5.style.display = "none";
+		input6.style.display = "none";
+		label4.style.display = "none";
+		label5.style.display = "none";
+		label6.style.display = "none";
 		var pacote = document.getElementsByName('DVA');
 		var estado = false;
 		for (var i = 0; i < pacote.length; i++){
-		if(pacote[i].checked == estado){
+			pacote[i].checked == estado;
 			  if(pacote[i].value == "Noradrenalina"){
 				  var Pacote_i = "Não Usado";
 				  document.getElementById('nora').value = Pacote_i;
+				  input4.value="Não Usado";
 			  }else if (pacote[i].value == "Adrenalina") {
 				  var Pacote_ii = "Não Usado";
 				  document.getElementById('adre').value = Pacote_ii;
+				  input5.value="Não Usado";
 			  }
 			  else if (pacote[i].value == "Bicarbonato") {
 				  var Pacote_iii = "Não Usado";
 				  document.getElementById('bic').value = Pacote_iii;
+				  input6.value="Não Usado";
 			  }
-			}
 		  }
 	  }else if(value == 'sim'){
 		input.style.display = "inline";
@@ -314,6 +365,7 @@
 		label.style.display = "inline";
 		label2.style.display = "inline";
 		label3.style.display = "inline";
+		
 	  }
 	};
 	window.onload = function() {
@@ -350,82 +402,39 @@
 		document.getElementById('drogas').value = droga;
 	var leito = document.getElementById("leito").value;
 		document.getElementById('leito2').value = leito;
-	var pacote = document.getElementsByName('DVA');
-	  for (var i = 0; i < pacote.length; i++){
-		  if ( pacote[i].checked == true) {
-			  if(pacote[i].value == "Noradrenalina"){
-				  var Pacote_i = "Noradrenalina";
-				  document.getElementById('nora').value = Pacote_i;
-			  }else if (pacote[i].value == "Adrenalina") {
-				  var Pacote_ii = "Adrenalina";
-				  document.getElementById('adre').value = Pacote_ii;
-			  }
-			  else if (pacote[i].value == "Bicarbonato") {
-				  var Pacote_iii = "Bicarbonato";
-				  document.getElementById('bic').value = Pacote_iii;
-			  }
-			}else if ( pacote[i].checked == false) {
-				if(pacote[i].value == "Noradrenalina"){
-				  var Pacote_i = "Não Usado";
-				  document.getElementById('nora').value = Pacote_i;
-			  }else if (pacote[i].value == "Adrenalina") {
-				  var Pacote_ii = "Não Usado";
-				  document.getElementById('adre').value = Pacote_ii;
-			  }
-			  else if (pacote[i].value == "Bicarbonato") {
-				  var Pacote_iii = "Não Usado";
-				  document.getElementById('bic').value = Pacote_iii;
-			  }
-			}
-		  }
-		  var pacote = document.getElementsByName('sedacao2');
-	  for (var i = 0; i < pacote.length; i++){
-		  if ( pacote[i].checked  == true) {
-			  if(pacote[i].value == "Dormonid"){
-				  var Pacote_i = "Dormonid";
-				  document.getElementById('Dormonid3').value = Pacote_i;
-			  }else if (pacote[i].value == "Fentanil") {
-				  var Pacote_ii = "Fentanil";
-				  document.getElementById('Fentanil3').value = Pacote_ii;
-			  }else if (pacote[i].value == "Rocuronio") {
-				  var Pacote_iii = "Rocuronio";
-				  document.getElementById('Rocuronio3').value = Pacote_iii;
-			  }else if (pacote[i].value == "Propofol") {
-				  var Pacote_iiii = "Propofol";
-				  document.getElementById('Propofol3').value = Pacote_iiii;
-			  }
-			} else if ( pacote[i].checked  == false) {
-				if(pacote[i].value == "Dormonid"){
-				  var Pacote_i = "Não Usado";
-				  document.getElementById('Dormonid3').value = Pacote_i;
-			  }else if (pacote[i].value == "Fentanil") {
-				  var Pacote_ii = "Não Usado";
-				  document.getElementById('Fentanil3').value = Pacote_ii;
-			  }else if (pacote[i].value == "Rocuronio") {
-				  var Pacote_iii = "Não Usado";
-				  document.getElementById('Rocuronio3').value = Pacote_iii;
-			  }else if (pacote[i].value == "Propofol") {
-				  var Pacote_iiii = "Não Usado";
-				  document.getElementById('Propofol3').value = Pacote_iiii;
-			  }
-			  }
-		}
+		check();
+		check1();
 	};
 	function check(){
-	
+	var input4 = document.getElementById("vazaonora");
+	var input5 = document.getElementById("vazaoadre");
+	var label4 = document.getElementById("Noradrenalina3");
+	var label5 = document.getElementById("Adrenalin3");
+	var input6 = document.getElementById("vazaobica");
+	var label6 = document.getElementById("Bicarbonato3");
+		
 	var pacote = document.getElementsByName('DVA');
 	  for (var i = 0; i < pacote.length; i++){
 		  if ( pacote[i].checked ) {
 			  if(pacote[i].value == "Noradrenalina"){
+				label4.style.display = "inline";
+				input4.style.display = "inline";
 				  var Pacote_i = "Noradrenalina";
 				  document.getElementById('nora').value = Pacote_i;
+				
 			  }else if (pacote[i].value == "Adrenalina") {
+				input5.style.display = "inline";
+				label5.style.display = "inline";
 				  var Pacote_ii = "Adrenalina";
 				  document.getElementById('adre').value = Pacote_ii;
+				
 			  }
 			  else if (pacote[i].value == "Bicarbonato") {
+				input6.style.display = "inline";
+				label6.style.display = "inline";
 				  var Pacote_iii = "Bicarbonato";
 				  document.getElementById('bic').value = Pacote_iii;
+				
 			  }
 			}
 		  }
@@ -433,58 +442,114 @@
 		for (var i = 0; i < pacote.length; i++){
 		  if ( pacote[i].checked == estado ) {
 			  if(pacote[i].value == "Noradrenalina"){
+				label4.style.display = "none";
+				input4.style.display = "none";
 				  var Pacote_i = "Não Aplicado";
 				  document.getElementById('nora').value = Pacote_i;
+				 
 			  }else if (pacote[i].value == "Adrenalina") {
+				input5.style.display = "none";
+				label5.style.display = "none";
 				  var Pacote_ii = "Não Aplicado";
 				  document.getElementById('adre').value = Pacote_ii;
+				
 			  }
 			  else if (pacote[i].value == "Bicarbonato") {
+				input6.style.display = "none";
+				label6.style.display = "none";
 				  var Pacote_iii = "Não Aplicado";
 				  document.getElementById('bic').value = Pacote_iii;
+				 
 			  }
 			}
 		  }
 	}
 	
 	function check1(){
-	
+		var input5 = document.getElementById("vazaoDormonid");
+		var input6 = document.getElementById("vazaoFentanil");
+		var input7 = document.getElementById("vazaoRocuronio");
+		var input8 = document.getElementById("vazaoPropofol");
+		var label5 = document.getElementById("Dormonid4");
+		var label6 = document.getElementById("Fentanil4");
+		var label7 = document.getElementById("Rocuronio4");
+		var label8 = document.getElementById("Propofol4");
+		
 	var pacote = document.getElementsByName('sedacao2');
-	  for (var i = 0; i < pacote.length; i++){
-		  if ( pacote[i].checked ) {
-			  if(pacote[i].value == "Dormonid"){
-				  var Pacote_i = "Dormonid";
-				  document.getElementById('Dormonid3').value = Pacote_i;
-			  }else if (pacote[i].value == "Fentanil") {
-				  var Pacote_ii = "Fentanil";
-				  document.getElementById('Fentanil3').value = Pacote_ii;
-			  }else if (pacote[i].value == "Rocuronio") {
-				  var Pacote_iii = "Rocuronio";
-				  document.getElementById('Rocuronio3').value = Pacote_iii;
-			  }else if (pacote[i].value == "Propofol") {
-				  var Pacote_iiii = "Propofol";
-				  document.getElementById('Propofol3').value = Pacote_iiii;
-			  }
+	for (var i = 0; i < pacote.length; i++){
+			if ( pacote[i].checked  == true) {
+				if(pacote[i].value == "Dormonid"){
+					input5.style.display = "inline";
+					label5.style.display = "inline";
+					var Pacote_i = "Dormonid";
+					document.getElementById('Dormonid3').value = Pacote_i;
+					
+				}
 			}
-		  }
-		  var estado = false;
-		  for (var i = 0; i < pacote.length; i++){
-		  if ( pacote[i].checked == estado ) {
-			  if(pacote[i].value == "Dormonid"){
+			if ( pacote[i].checked  == true) { 
+				if (pacote[i].value == "Fentanil") {
+				input6.style.display = "inline";
+				label6.style.display = "inline";
+					var Pacote_ii = "Fentanil";
+					document.getElementById('Fentanil3').value = Pacote_ii;
+					
+				}
+			}
+			if ( pacote[i].checked  == true) {  
+				if (pacote[i].value == "Rocuronio") {
+				input7.style.display = "inline";
+				label7.style.display = "inline";
+					var Pacote_iii = "Rocuronio";
+					document.getElementById('Rocuronio3').value = Pacote_iii;
+					
+				}
+			}
+			if ( pacote[i].checked  == true) { 
+				if (pacote[i].value == "Propofol") {
+				label8.style.display = "inline";
+				input8.style.display = "inline";
+					var Pacote_iiii = "Propofol";
+					document.getElementById('Propofol3').value = Pacote_iiii;
+					
+				}
+			} 
+			if ( pacote[i].checked  == false) {
+				if(pacote[i].value == "Dormonid"){
+				input5.style.display = "none";
+				label5.style.display = "none";
 				  var Pacote_i = "Não Aplicado";
 				  document.getElementById('Dormonid3').value = Pacote_i;
-			  }else if (pacote[i].value == "Fentanil") {
+				 
+				}
+			}
+			if ( pacote[i].checked  == false) { 
+				  if (pacote[i].value == "Fentanil") {
+				input6.style.display = "none";
+				label6.style.display = "none";
 				  var Pacote_ii = "Não Aplicado";
 				  document.getElementById('Fentanil3').value = Pacote_ii;
-			  }else if (pacote[i].value == "Rocuronio") {
+				 
+				 }
+			}
+			if ( pacote[i].checked  == false) { 
+				 if (pacote[i].value == "Rocuronio") {
+				input7.style.display = "none";
+				label7.style.display = "none";
 				  var Pacote_iii = "Não Aplicado";
 				  document.getElementById('Rocuronio3').value = Pacote_iii;
-			  }else if (pacote[i].value == "Propofol") {
+				 
+				 }
+			  }
+			if ( pacote[i].checked  == false) { 
+				 if (pacote[i].value == "Propofol") {
+				label8.style.display = "none";
+				input8.style.display = "none";
 				  var Pacote_iiii = "Não Aplicado";
 				  document.getElementById('Propofol3').value = Pacote_iiii;
+				 
+				 }
 			  }
-			}
-		  }
+		}
 	}
 	
 	</script>

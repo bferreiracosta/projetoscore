@@ -217,15 +217,21 @@ module.exports.updateresp= function(application, req, res){
 	var propofol = req.body.Propofol3;
 	var bic = req.body.bics;
 	var profissional = req.body.profissional;
+	var vazaonora = req.body.vazaonora;
+	var vazaoadre = req.body.vazaoadre;
+	var vazaobica = req.body.vazaobica;
+	var vazaoDormonid = req.body.vazaoDormonid;
+	var vazaoFentanil = req.body.vazaoFentanil;
+	var vazaoRocuronio = req.body.vazaoRocuronio;
+	var vazaoPropofol = req.body.vazaoPropofol;
 	var id = req.body.idusuario;
 	var unidade = 'Morumbi';
-	
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelmorumbi = new application.app.model.regulacao.modelmorumbi(application);
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modelmorumbi.updateresp(idpaciente,profissional, dispositivo,fluxoo2, droga, fio2, peep, sedacao, glasgow,leito,nora, adre,bica,dormonid,fentanil,rocuronio,propofol,bic,  function(error, result){
+		modelmorumbi.updateresp(idpaciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivo,fluxoo2, droga, fio2, peep, sedacao, glasgow,leito,nora, adre,bica,dormonid,fentanil,rocuronio,propofol,bic,  function(error, result){
 			modelmorumbi.buscarpaciente(unidade,function(error, resultado){
 				res.render("regulacao/respiracaomorumbi", {paciente : resultado, id : resultados});
 			});

@@ -217,15 +217,21 @@ module.exports.updateresp= function(application, req, res){
 	var propofol = req.body.Propofol3;
 	var bic = req.body.bics;
 	var profissional = req.body.profissional;
+	var vazaonora = req.body.vazaonora;
+	var vazaoadre = req.body.vazaoadre;
+	var vazaobica = req.body.vazaobica;
+	var vazaoDormonid = req.body.vazaoDormonid;
+	var vazaoFentanil = req.body.vazaoFentanil;
+	var vazaoRocuronio = req.body.vazaoRocuronio;
+	var vazaoPropofol = req.body.vazaoPropofol;
 	var id = req.body.idusuario;
 	var unidade = 'Martins';
-	
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelmartins = new application.app.model.regulacao.modelmartins(application);
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modelmartins.updateresp(idpaciente,profissional, dispositivo,fluxoo2, droga, fio2, peep, sedacao, glasgow,leito,nora, adre,bica,dormonid,fentanil,rocuronio,propofol,bic,  function(error, result){
+		modelmartins.updateresp(idpaciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivo,fluxoo2, droga, fio2, peep, sedacao, glasgow,leito,nora, adre,bica,dormonid,fentanil,rocuronio,propofol,bic,  function(error, result){
 			modelmartins.buscarpaciente(unidade,function(error, resultado){
 				res.render("regulacao/respiracaomartins", {paciente : resultado, id : resultados});
 			});
