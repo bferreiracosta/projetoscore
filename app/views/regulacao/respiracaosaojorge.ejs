@@ -92,21 +92,52 @@
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.24/i18n/Portuguese-Brasil.json"></script>
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
-   $(document).ready(function() {
+  $(document).ready(function() {
     $('#mytable').DataTable( {
         dom: 'Bfrtip',
-        order: ([2, 'asc']),
-        pageLength: 50,
+        order: ([ 2, 'asc']),
         "scrollX": true,
-        buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'pdfHtml5',
-            'print'
-        ],
+        pageLength: 50,
+        buttons: [       
+            {
+                "extend": "copyHtml5",
+                "text": "COPIAR",
+                header: false
+            },          
+            {
+                "extend": "pdf",
+                "text": "PDF",
+                header: false
+            },
+            {
+                "extend": "excelHtml5",
+                "text": "EXCEL",
+                header: false
+            },
+            {
+                "extend": "print",
+                "text": "IMPRIMIR",
+                header: false
+            }
+        ],language: {
+            buttons: {
+                copyTitle: 'Copiado para área de transferência',
+                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+                copySuccess: {
+                    _: '%d linhas copiadas',
+                    1: '1 linha copiada'
+                }
+            },
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Próximo"
+            },
+            "search": "Pesquisar:"
+        },
         select: true
     } );
 } );
