@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th hidden>id</th>
+                <th><i class="fas fa-edit"></i></th>
                 <th>Nome</th>
                 <th>Dispositivo Ventilatorio</th>
                 <th>Fluxo de O2</th>
@@ -30,7 +31,7 @@
                 <th>Vazão Propofol</th>
                 <th>Glasgow</th>
                 <th>Profissional</th>
-                <th></th>
+                
             </tr>
         </thead>
         <tbody>   
@@ -38,6 +39,9 @@
                 <% for(var j = 0; j < paciente.length; j++) {%> 
             <tr>
                 <td hidden><label for="">ID: </label><%=paciente[j].id_paciente %></td>
+                <td>
+                    <a href="editrespplanalto/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %> %>"><i style="color: black" class="fas fa-edit fa-2x"></i></a>
+                </td>
                 <td><label hidden for="">Nome: </label><%=paciente[j].paciente %></td>
                 <td><label hidden for="">Dispositivo: </label><%=paciente[j].dispositivo %></td>
                 <td><label hidden for="">fluxo_de_o2: </label><%=paciente[j].fluxo_de_o2 %></td>
@@ -60,9 +64,7 @@
                 <td><label hidden for="">Glasgow: </label><%=paciente[j].glasgow %></td>
                 <td><label hidden for="">Profissional: </label><%=paciente[j].profissional %></td>
                 
-                <td>
-                    <a href="editrespplanalto/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
-                </td>
+                
             </tr>
             <% } %>	
             <% } %>
@@ -98,6 +100,7 @@
         dom: 'Bfrtip',
         order: ([2, 'asc']),
         pageLength: 50,
+        "scrollX": true,
         buttons: [
             'copyHtml5',
             'excelHtml5',

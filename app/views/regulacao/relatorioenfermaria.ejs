@@ -94,6 +94,7 @@
 $(document).ready(function() {
     $('#mytable').DataTable( {
         dom: 'Bfrtip',
+        "scrollX": true,
         order: ([[ 18, 'asc'],[ 16, 'asc' ] , [ 15, 'desc' ]]),
         pageLength: 50,
         buttons: [{

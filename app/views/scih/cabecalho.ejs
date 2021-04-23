@@ -21,168 +21,157 @@
 	<body onload="myFunction()">
 
 		<nav class="navbar navbar-default navbar-static-top">
-			<% if(id.length > 0) { %>
-				<% for(var i = 0; i < id.length; i++) {%>
-					<% if(id[i].id_usuario==1 || id[i].id_usuario==8){%>
-	    	<div class="navbar-header">
-				<select name="uai"  class="selectpicker" id="uai">
-					<option value="Planalto">Planalto</option>
-					<option value="Luizote">Luizote</option>
-					<option value="Roosevelt">Roosevelt</option>
-					<option value="Martins">Martins</option>
-					<option value="Morumbi">Morumbi</option>
-					<option value="Tibery">Tibery</option>
-				</select>
-			</div>
-			<% } %>
-			<% } %>
-			<% } %>
-			<% if(id.length > 0) { %>
-				<% for(var i = 0; i < id.length; i++) {%>
-					<% if(id[i].unidade==1){%>
-	    	<div class="navbar-header">
-				<select name="uai" selected  class="selectpicker" id="uai">
-					<option value="Planalto">Planalto</option>
-				</select>
-			</div>
-			<% } %>
-			<% } %>
-			<% } %>
-			<% if(id.length > 0) { %>
-				<% for(var i = 0; i < id.length; i++) {%>
-					<% if(id[i].unidade==2){%>
-	    	<div class="navbar-header">
-				<select name="uai" selected  class="selectpicker" id="uai">
-					<option value="Luizote">Luizote</option>
-				</select>
-			</div>
-			<% } %>
-			<% } %>
-			<% } %>
-			<% if(id.length > 0) { %>
-				<% for(var i = 0; i < id.length; i++) {%>
-					<% if(id[i].unidade==3){%>
-	    	<div class="navbar-header">
-				<select name="uai" selected  class="selectpicker" id="uai">
-					<option value="Martins">Martins</option>
-				</select>
-			</div>
-			<% } %>
-			<% } %>
-			<% } %>
-			<% if(id.length > 0) { %>
-				<% for(var i = 0; i < id.length; i++) {%>
-					<% if(id[i].unidade==4){%>
-	    	<div class="navbar-header">
-				<select name="uai" selected  class="selectpicker" id="uai">
-					<option value="Roosevelt">Roosevelt</option>
-				</select>
-			</div>
-			<% } %>
-			<% } %>
-			<% } %>
-			<% if(id.length > 0) { %>
-				<% for(var i = 0; i < id.length; i++) {%>
-					<% if(id[i].unidade==5){%>
-	    	<div class="navbar-header">
-				<select name="uai" selected  class="selectpicker" id="uai">
-					<option value="Morumbi">Morumbi</option>
-				</select>
-			</div>
-			<% } %>
-			<% } %>
-			<% } %>
-			<% if(id.length > 0) { %>
-				<% for(var i = 0; i < id.length; i++) {%>
-					<% if(id[i].unidade==6){%>
-	    	<div class="navbar-header">
-				<select name="uai" selected  class="selectpicker" id="uai">
-					<option value="Tibery">Tibery</option>
-				</select>
-			</div>
-			<% } %>
-			<% } %>
-			<% } %>
-			<div class="container">
+			<a class="navbar-brand navbar-left" href="#">
+				<img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+				ScoreSystem
+				<% if(id.length > 0) { %>
+					<% for(var i = 0; i < id.length; i++) {%>
+						<% if(id[i].id_usuario==1 || id[i].id_usuario==8){%>
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					
-					<img id="img" src="images/logo.png" />
-					
+					<select name="uai"  class="selectpicker" id="uai">
+						<option value="Planalto">Planalto</option>
+						<option value="Luizote">Luizote</option>
+						<option value="Roosevelt">Roosevelt</option>
+						<option value="Martins">Martins</option>
+						<option value="Morumbi">Morumbi</option>
+						<option value="Tibery">Tibery</option>
+					</select>
 				</div>
-
-				<div id="navbar" class="navbar-collapse collapse">
+				<% } %>
+				<% } %>
+				<% } %>
+				<% if(id.length > 0) { %>
+					<% for(var i = 0; i < id.length; i++) {%>
+						<% if(id[i].unidade==1){%>
+				<div class="navbar-header">
+					<select name="uai" selected  class="selectpicker" id="uai">
+						<option value="Planalto">Planalto</option>
+					</select>
+				</div>
+				<% } %>
+				<% } %>
+				<% } %>
+				<% if(id.length > 0) { %>
+					<% for(var i = 0; i < id.length; i++) {%>
+						<% if(id[i].unidade==2){%>
+				<div class="navbar-header">
+					<select name="uai" selected  class="selectpicker" id="uai">
+						<option value="Luizote">Luizote</option>
+					</select>
+				</div>
+				<% } %>
+				<% } %>
+				<% } %>
+				<% if(id.length > 0) { %>
+					<% for(var i = 0; i < id.length; i++) {%>
+						<% if(id[i].unidade==3){%>
+				<div class="navbar-header">
+					<select name="uai" selected  class="selectpicker" id="uai">
+						<option value="Martins">Martins</option>
+					</select>
+				</div>
+				<% } %>
+				<% } %>
+				<% } %>
+				<% if(id.length > 0) { %>
+					<% for(var i = 0; i < id.length; i++) {%>
+						<% if(id[i].unidade==4){%>
+				<div class="navbar-header">
+					<select name="uai" selected  class="selectpicker" id="uai">
+						<option value="Roosevelt">Roosevelt</option>
+					</select>
+				</div>
+				<% } %>
+				<% } %>
+				<% } %>
+				<% if(id.length > 0) { %>
+					<% for(var i = 0; i < id.length; i++) {%>
+						<% if(id[i].unidade==5){%>
+				<div class="navbar-header">
+					<select name="uai" selected  class="selectpicker" id="uai">
+						<option value="Morumbi">Morumbi</option>
+					</select>
+				</div>
+				<% } %>
+				<% } %>
+				<% } %>
+				<% if(id.length > 0) { %>
+					<% for(var i = 0; i < id.length; i++) {%>
+						<% if(id[i].unidade==6){%>
+				<div class="navbar-header">
+					<select name="uai" selected  class="selectpicker" id="uai">
+						<option value="Tibery">Tibery</option>
+					</select>
+				</div>
+				<% } %>
+				<% } %>
+				<% } %>
+			</a>
+			
+	
+				<div id="navbar" class="collapse navbar-collapse navbar-right">
 					<ul class="nav navbar-nav navbar-right">
 						<% if(id.length > 0) { %>
 							<% for(var i = 0; i < id.length; i++) {%>
 								<% if(id[i].autorizacao==1){%>
-							<li><a href="home?id=<%=id[i].id_usuario %>"><img id="sair" src="images/tabela.png" /></a></li>
-							<li><a href="paciente?id=<%=id[i].id_usuario %>"><img id="sair" src="images/cadastrar.png" /></a></li>
-							<li><a href="pacientes?id=<%=id[i].id_usuario %>"><img id="sair" src="images/paciente.png" /></a></li>
-                            <li><a href="status?id=<%=id[i].id_usuario %>"><img id="sair" src="images/acesso.jpg" /></a></li>
-							<li><a href="/sair"><img id="sair" src="images/sair.png" /></a></li>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="/sair">Sair</a></button>
 						<% } %>
 							<% } %>	
 								<% } %>
 								<% if(id.length > 0) { %>
 									<% for(var i = 0; i < id.length; i++) {%>
 										<% if(id[i].autorizacao==5){%>
-									<li><a href="home?id=<%=id[i].id_usuario %>"><img id="sair" src="images/tabela.png" /></a></li>
-									<li><a href="paciente?id=<%=id[i].id_usuario %>"><img id="sair" src="images/cadastrar.png" /></a></li>
-									<li><a href="pacientes?id=<%=id[i].id_usuario %>"><img id="sair" src="images/paciente.png" /></a></li>
-									<li><a href="status?id=<%=id[i].id_usuario %>"><img id="sair" src="images/acesso.jpg" /></a></li>
-									<li><a href="obito?id=<%=id[i].id_usuario %>"><img id="sair" src="images/obito.png" /></a></li>
-									<li><a href="rouparia?id=<%=id[i].id_usuario %>"><img id="sair" src="images/rouparia.jpg" /></a></li>
-									<li><a href="isolamento?id=<%=id[i].id_usuario %>"><img id="sair" src="images/isolamento.png" /></a></li>
-									<li><a href="sepse?id=<%=id[i].id_usuario %>"><img id="sair" src="images/sepse.png" /></a></li>
-									<li><a href="indicador?id=<%=id[i].id_usuario %>"><img id="sair" src="images/indicador.jpg" /></a></li>
-									<li><a href="lixo?id=<%=id[i].id_usuario %>"><img id="sair" src="images/lixo.png" /></a></li>
-									<li><a href="/sair"><img id="sair" src="images/sair.png" /></a></li>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="obito?id=<%=id[i].id_usuario %>">Obito</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="rouparia?id=<%=id[i].id_usuario %>">Rouparia</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="isolamento?id=<%=id[i].id_usuario %>">Isolamento</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="sepse?id=<%=id[i].id_usuario %>">Sepse</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="indicador?id=<%=id[i].id_usuario %>">Indicador</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="lixo?id=<%=id[i].id_usuario %>">Lixo Hospitalar</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="/sair">Sair</a></button>
 								<% } %>
 									<% } %>	
 										<% } %>
 										<% if(id.length > 0) { %>
 											<% for(var i = 0; i < id.length; i++) {%>
 												<% if(id[i].autorizacao==3){%>
-											<li><a href="home?id=<%=id[i].id_usuario %>"><img id="sair" src="images/tabela.png" /></a></li>
-											<li><a href="obito?id=<%=id[i].id_usuario %>"><img id="sair" src="images/obito.png" /></a></li>
-											<li><a href="isolamento?id=<%=id[i].id_usuario %>"><img id="sair" src="images/isolamento.png" /></a></li>
-											<li><a href="sepse?id=<%=id[i].id_usuario %>"><img id="sair" src="images/sepse.png" /></a></li>
-											<li><a href="/sair"><img id="sair" src="images/sair.png" /></a></li>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="obito?id=<%=id[i].id_usuario %>">Obito</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="isolamento?id=<%=id[i].id_usuario %>">Isolamento</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="sepse?id=<%=id[i].id_usuario %>"></a>Sepse</button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="/sair">Sair</a></button>
 										<% } %>
 											<% } %>	
 												<% } %>
 							<% if(id.length > 0) { %>
 								<% for(var i = 0; i < id.length; i++) {%>
 									<% if(id[i].autorizacao==2){%>
-								<li><a href="home?id=<%=id[i].id_usuario %>"><img id="sair" src="images/tabela.png" /></a></li>
-                                <li><a href="pacientes?id=<%=id[i].id_usuario %>"><img id="sair" src="images/logo2.png" /></a></li>
-								<li><a href="/sair"><img id="sair" src="images/sair.png" /></a></li>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a></button>
+									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="/sair">Sair</a></button>
 							<% } %>
 								<% } %>	
 								<% } %>	
 								<% if(id.length > 0) { %>
 						        	<% for(var i = 0; i < id.length; i++) {%>
 							        	<% if(id[i].autorizacao==4){%>
-						        	<li><a href="home?id=<%=id[i].id_usuario %>"><img id="sair" src="images/tabela.png" /></a></li>
-						        	<li><a href="paciente?id=<%=id[i].id_usuario %>"><img id="sair" src="images/cadastrar.png" /></a></li>
-						        	<li><a href="pacientes?id=<%=id[i].id_usuario %>"><img id="sair" src="images/paciente.png" /></a></li>
-                                    <li><a href="status?id=<%=id[i].id_usuario %>"><img id="sair" src="images/acesso.jpg" /></a></li>
-
-							        <li><a href="/sair"><img id="sair" src="images/sair.png" /></a></li>
+						        	<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a></button>
+						        	<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a></button>
+                                    <button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a></button>
+							        <button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="/sair">Sair</a></button>
 					            <% } %>
 						        	<% } %>	
 							            <% } %>
 										
 					</ul>
 				</div>
-			</div>
-		</nav>
-
-	</body>
-</html>
+			</nav>
+			<script>
+				$("#uai").on('change', function(e){
+				myFunction();
+		   });
+			</script>
+			

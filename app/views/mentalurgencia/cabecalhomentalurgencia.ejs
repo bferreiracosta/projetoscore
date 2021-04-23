@@ -27,20 +27,11 @@
 
 		<nav class="navbar navbar-default navbar-static-top">
 			
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					
-					<img id="img" src="/images/logo.png" />
-					
-				</div>
-
-				<div id="navbar" class="navbar-collapse collapse">
+			<a class="navbar-brand navbar-left" href="#">
+				<img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+				ScoreSystem
+			  </a>
+				<div id="navbar" class="navbar-collapse collapse navbar-right">
 					<ul class="nav navbar-nav navbar-right">
 					<% if(id.length > 0) { %>
 						<% for(var i = 0; i < id.length; i++) {%>
@@ -722,60 +713,60 @@
 						<% } %>
 							<%  if(id[i].smu == 1){%>
 									<% if(id[i].unidade==1){%>
-										<li><a href="/cadastrarmentalplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
-										<li><a href="/addmentalplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrar.png" /><br><br><button class="btn btn-sm btn-primary">Adicionar Paciente</button></a></li>
-										<li><a href="/destinomentalplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/destino.jpg" /><br><br><button class="btn btn-sm btn-primary">Destino</button></a></li>
-										<li><a href="/historicomentalplanalto?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalplanalto?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalplanalto?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalplanalto?id=<%=id[i].id_usuario %>">Destino</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalplanalto?id=<%=id[i].id_usuario %>">Historico</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
 									<% } %>
 									<% if(id[i].unidade==2){%>
-										<li><a href="/cadastrarmentalluizote?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
-										<li><a href="/addmentalluizote?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrar.png" /><br><br><button class="btn btn-sm btn-primary">Adicionar Paciente</button></a></li>
-										<li><a href="/destinomentalluizote?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/destino.jpg" /><br><br><button class="btn btn-sm btn-primary">Destino</button></a></li>
-										<li><a href="/historicomentalluizote?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalluizote?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalluizote?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalluizote?id=<%=id[i].id_usuario %>">Destino</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
 									<% } %>
 									<% if(id[i].unidade==3){%>
-										<li><a href="/cadastrarmentalmartins?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
-										<li><a href="/addmentalmartins?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrar.png" /><br><br><button class="btn btn-sm btn-primary">Adicionar Paciente</button></a></li>
-										<li><a href="/destinomentalmartins?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/destino.jpg" /><br><br><button class="btn btn-sm btn-primary">Destino</button></a></li>
-										<li><a href="/historicomentalmartins?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalmartins?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalmartins?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalmartins?id=<%=id[i].id_usuario %>">Destino</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalmartins?id=<%=id[i].id_usuario %>">Historico</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
 									<% } %>
 									<% if(id[i].unidade==4){%>
-										<li><a href="/cadastrarmentalroosevelt?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
-										<li><a href="/addmentalroosevelt?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrar.png" /><br><br><button class="btn btn-sm btn-primary">Adicionar Paciente</button></a></li>
-										<li><a href="/destinomentalroosevelt?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/destino.jpg" /><br><br><button class="btn btn-sm btn-primary">Destino</button></a></li>
-										<li><a href="/historicomentalroosevelt?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalroosevelt?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalroosevelt?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalroosevelt?id=<%=id[i].id_usuario %>">Destino</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalroosevelt?id=<%=id[i].id_usuario %>">Historico</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
 									<% } %>
 									<% if(id[i].unidade==6){%>
-										<li><a href="/cadastrarmentaltibery?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
-										<li><a href="/addmentaltibery?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrar.png" /><br><br><button class="btn btn-sm btn-primary">Adicionar Paciente</button></a></li>
-										<li><a href="/destinomentaltibery?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/destino.jpg" /><br><br><button class="btn btn-sm btn-primary">Destino</button></a></li>
-										<li><a href="/historicomentaltibery?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentaltibery?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentaltibery?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentaltibery?id=<%=id[i].id_usuario %>">Destino</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentaltibery?id=<%=id[i].id_usuario %>">Historico</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
 									<% } %>
 									<% if(id[i].unidade==5){%>
-										<li><a href="/cadastrarmentalmorumbi?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
-										<li><a href="/addmentalmorumbi?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrar.png" /><br><br><button class="btn btn-sm btn-primary">Adicionar Paciente</button></a></li>
-										<li><a href="/destinomentalmorumbi?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/destino.jpg" /><br><br><button class="btn btn-sm btn-primary">Destino</button></a></li>
-										<li><a href="/historicomentalmorumbi?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalmorumbi?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalmorumbi?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalmorumbi?id=<%=id[i].id_usuario %>">Destino</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalmorumbi?id=<%=id[i].id_usuario %>">Historico</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
 									<% } %>
 									<% if(id[i].unidade==7){%>
-										<li><a href="/cadastrarmentalsaojorge?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
-										<li><a href="/addmentalsaojorge?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrar.png" /><br><br><button class="btn btn-sm btn-primary">Adicionar Paciente</button></a></li>
-										<li><a href="/destinomentalsaojorge?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/destino.jpg" /><br><br><button class="btn btn-sm btn-primary">Destino</button></a></li>
-										<li><a href="/historicomentalsaojorge?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalsaojorge?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalsaojorge?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalsaojorge?id=<%=id[i].id_usuario %>">Destino</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalsaojorge?id=<%=id[i].id_usuario %>">Historico</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
 									<% } %>
 									<% if(id[i].unidade==8){%>
-										<li><a href="/cadastrarmentalpampulha?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
-										<li><a href="/addmentalpampulha?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrar.png" /><br><br><button class="btn btn-sm btn-primary">Adicionar Paciente</button></a></li>
-										<li><a href="/destinomentalpampulha?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/destino.jpg" /><br><br><button class="btn btn-sm btn-primary">Destino</button></a></li>
-										<li><a href="/historicomentalmentalpampulha?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>			
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalpampulha?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalpampulha?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalpampulha?id=<%=id[i].id_usuario %>">Destino</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalmentalpampulha?id=<%=id[i].id_usuario %>">Historico</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>			
 									<% } %>
 							<% } %>
 						<% } %>

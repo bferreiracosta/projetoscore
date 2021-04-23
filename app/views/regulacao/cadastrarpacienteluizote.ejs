@@ -1,106 +1,108 @@
 <%- include('./cabecalhoregulacao'); %>
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
-       
-                <h2>Pacientes</h2>
-				<a href="addpacienteluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
-				<br>
-                <br>
-                <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
-                <table class="table table-striped" id="mytable">
-					<input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
-					
-                    <thead>
-                        <tr>
-                            <th hidden>id</th>
-                            <th>SusFacil</th>
-                            <th>Prontuario</th>
-                            <th>Nome</th>
-                            <th>Idade</th>
-                            <th>Leito</th>
-                            <th>Data de Exame</th>
-                            <th>Exame</th>
-                            <th>News</th>
-                            <th>Paliativo</th>
-                            <th>ECF</th>
-                            <th>Data Atualização</th>
-                            <th>Ultima Atualização</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>    
-                            <% if(paciente.length > 0) { %>
-                                <% for(var j = 0; j < paciente.length; j++) {%>
-                                    
-                            <tr>
-                                <td hidden><%=paciente[j].id_paciente %></td>
-                                <td><%=paciente[j].susfacil %></td>
-                                <th><%=paciente[j].prt %></th>
-                                <td><%=paciente[j].paciente %></td>
-                                <td><%=paciente[j].idade %></td>
-                                <td><%=paciente[j].leito %></td>
-                                <td><%=paciente[j].dataexame %></td>
-                                <td><%=paciente[j].exame %></td>
-                                <td><%=paciente[j].news %></td>
-                                <td><%=paciente[j].paliativo %></td>
-                                <td><%=paciente[j].ecf %></td>
-                                <td id=""><%=paciente[j].data %></td>
-                                <td id="time"><%=paciente[j].tempo %></td>
-                            <td>
-                                <a href="editpacienteluizote/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
-                            </td>
-                            <td>
-                                <a href="javascript:void(0);" onclick="setaDadosModal('<%=paciente[j].id_paciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Saida</a>
-                            </td>
-						</tr>
-						<% } %>	
-						<% } %>
-                    </tbody>
-				</table>
-                <br>
-                <br>
-                <br>
-        
-                
+       <div class="container">
+        <h2>Pacientes</h2>
+        <a href="addpacienteluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
+        <br>
+        <br>
+        <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
+        <table class="table table-striped" id="mytable">
+            <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
+            
+            <thead>
+                <tr>
+                    <th hidden>id</th>
+                    <th>SusFacil</th>
+                    <th>Prontuario</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Leito</th>
+                    <th>Data de Exame</th>
+                    <th>Exame</th>
+                    <th>News</th>
+                    <th>Paliativo</th>
+                    <th>ECF</th>
+                    <th>Data Atualização</th>
+                    <th>Ultima Atualização</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>    
+                    <% if(paciente.length > 0) { %>
+                        <% for(var j = 0; j < paciente.length; j++) {%>
+                            
+                    <tr>
+                        <td hidden><%=paciente[j].id_paciente %></td>
+                        <td><%=paciente[j].susfacil %></td>
+                        <th><%=paciente[j].prt %></th>
+                        <td><%=paciente[j].paciente %></td>
+                        <td><%=paciente[j].idade %></td>
+                        <td><%=paciente[j].leito %></td>
+                        <td><%=paciente[j].dataexame %></td>
+                        <td><%=paciente[j].exame %></td>
+                        <td><%=paciente[j].news %></td>
+                        <td><%=paciente[j].paliativo %></td>
+                        <td><%=paciente[j].ecf %></td>
+                        <td id=""><%=paciente[j].data %></td>
+                        <td id="time"><%=paciente[j].tempo %></td>
+                    <td>
+                        <a href="editpacienteluizote/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
+                    </td>
+                    <td>
+                        <a href="javascript:void(0);" onclick="setaDadosModal('<%=paciente[j].id_paciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Saida</a>
+                    </td>
+                </tr>
+                <% } %>	
+                <% } %>
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <br>
 
-            <!-- Delete Product Modal-->
-            <form id="add-row-form" action="/baixaluizote" method="POST">
-                <div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="myModalLabel">Baixa Paciente</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                        aria-hidden="true">&times;</span></button>
-                            </div>
-                            <div class="modal-body">
-                                <select  class="form-control" id="baixaselect" name="baixaselect">
-                                    <option value="" disabled selected hidden>Exame</option>
-                                    <option value="transferência">Transferência</option>
-                                    <option value="alta">Alta</option>
-                                    <option value="obito">Obito</option>
-                                    <option value="evasao">evasao</option>
-                                </select>
-                                <input type="hidden" name="campo" id="campo">
-								<input type="hidden" name="campo2" id="campo2">
-                                <input type="hidden" name="baixa" id="baixa">
-                              </div>
-                              <input  type="hidden" name="covid" id="covid">
-                              <div id="hora" class="form-group">
-								<input  type="hidden" id="data" name="data"  class="form-control">
-							</div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                <button type="submit" class="btn btn-success">Atualizar</button>
-                            </div>
-                        </div>
+        
+
+    <!-- Delete Product Modal-->
+    <form id="add-row-form" action="/baixaluizote" method="POST">
+        <div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">Baixa Paciente</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <select  class="form-control" id="baixaselect" name="baixaselect">
+                            <option value="" disabled selected hidden>Exame</option>
+                            <option value="transferência">Transferência</option>
+                            <option value="alta">Alta</option>
+                            <option value="obito">Obito</option>
+                            <option value="evasao">evasao</option>
+                        </select>
+                        <input type="hidden" name="campo" id="campo">
+                        <input type="hidden" name="campo2" id="campo2">
+                        <input type="hidden" name="baixa" id="baixa">
+                      </div>
+                      <input  type="hidden" name="covid" id="covid">
+                      <div id="hora" class="form-group">
+                        <input  type="hidden" id="data" name="data"  class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-success">Atualizar</button>
                     </div>
                 </div>
-            </form>
-        <% } %>	
-            <% } %>
+            </div>
+        </div>
+    </form>
+<% } %>	
+    <% } %>
+       </div>
+                
 <!-- Importando o jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.js"></script>

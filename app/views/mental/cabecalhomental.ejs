@@ -27,20 +27,12 @@
 
 		<nav class="navbar navbar-default navbar-static-top">
 			
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					
-					<img id="img" src="/images/logo.png" />
-					<img id="portal" src="/images/portal.png" />
-				</div>
+			<a class="navbar-brand navbar-left" href="#">
+				<img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+				ScoreSystem
+			  </a>
 
-				<div id="navbar" class="navbar-collapse collapse">
+				<div id="navbar" class="navbar-collapse collapse navbar-right">
 					<ul class="nav navbar-nav navbar-right">
 					<% if(id.length > 0) { %>
 						<% for(var i = 0; i < id.length; i++) {%>
@@ -486,41 +478,41 @@
 						</div>
 				<% } %>
 									<% if(id[i].unidade==10){%>
-										<li><a href="/cadastrarpacientead?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
-										<li><a href="/addpacientead?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrar.png" /><br><br><button class="btn btn-sm btn-primary">Adicionar Paciente</button></a></li>
-										<li><a href="/historicoad?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
-										<li><a href="/centralad?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/central.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarpacientead?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addpacientead?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicoad?id=<%=id[i].id_usuario %>">Historico</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/centralad?id=<%=id[i].id_usuario %>">Central de Leitos</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
 									<% } %>
 									<% if(id[i].unidade==11){%>
-										<li><a href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
-										<li><a href="/addpacienteoeste?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrar.png" /><br><br><button class="btn btn-sm btn-primary">Adicionar Paciente</button></a></li>
-										<li><a href="/historicooeste?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
-										<li><a href="/centraloeste?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/central.png" /><br><br><button class="btn btn-sm btn-primary">Central de Leitos</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addpacienteoeste?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicooeste?id=<%=id[i].id_usuario %>">Historico</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/centraloeste?id=<%=id[i].id_usuario %>">Central de Leitos</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
 									<% } %>
 									<% if(id[i].unidade==12){%>
-										<li><a href="/cadastrarpacientenorte?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
-										<li><a href="/addpacientenorte?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrar.png" /><br><br><button class="btn btn-sm btn-primary">Adicionar Paciente</button></a></li>
-										<li><a href="/historiconorte?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarpacientenorte?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addpacientenorte?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historiconorte?id=<%=id[i].id_usuario %>">Historico</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
 									<% } %>
 									<% if(id[i].unidade==13){%>
-										<li><a href="/cadastrarpacienteleste?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
-										<li><a href="/addpacienteleste?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrar.png" /><br><br><button class="btn btn-sm btn-primary">Adicionar Paciente</button></a></li>
-										<li><a href="/historicoleste?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarpacienteleste?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addpacienteleste?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicoleste?id=<%=id[i].id_usuario %>">Historico</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
 									<% } %>
 									<% if(id[i].unidade==14){%>
-										<li><a href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/news.png" /><br><br><button class="btn btn-sm btn-primary">Pacientes</button></a></li>
-										<li><a href="/addpacienteinfantil?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/cadastrar.png" /><br><br><button class="btn btn-sm btn-primary">Adicionar Paciente</button></a></li>
-										<li><a href="/historicoinfantil?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/historico.png" /><br><br><button class="btn btn-sm btn-primary">Historico</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addpacienteinfantil?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicoinfantil?id=<%=id[i].id_usuario %>">Historico</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
 									<% } %>
 							<% } %>
 								<%  if(id[i].operadorsmh == 1){%>
-										<li><a href="/destinopaciente?id=<%=id[i].id_usuario %>"><img id="sair" src="/images/destino.jpg" /><br><br><button class="btn btn-sm btn-primary">Destino</button></a></li>
-										<li><a href="/sair"><img id="sair" src="/images/sair.png" /><br><br><button class="btn btn-sm btn-primary">Sair</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinopaciente?id=<%=id[i].id_usuario %>">Destino</button></a></li>
+										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
 								<% } %>
 						<% } %>
 					<% } %>
