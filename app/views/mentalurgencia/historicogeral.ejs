@@ -1,10 +1,10 @@
 <%- include('./cabecalhomentalurgencia'); %>
-<div class="container">
+
     <h2>Historico Paciente</h2>
     
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
-                <table class="table table-striped" id="mytable">
+                <table class="table table-striped"  style="width: 100%;" id="mytable">
                     <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
                     <thead>
                     <tr>

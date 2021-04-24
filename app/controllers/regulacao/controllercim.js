@@ -162,7 +162,7 @@ module.exports.updatenews= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		modelcim.updatenews(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, function(error, result){
 			modelcim.buscarpaciente(unidade,function(error, resultado){
-				res.render("regulacao/newsnewscim", {paciente : resultado, id : resultados});
+				res.render("regulacao/newscim", {paciente : resultado, id : resultados});
 			});
 		});
 	});	

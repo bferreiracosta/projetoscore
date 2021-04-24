@@ -1,13 +1,13 @@
 <%- include('./cabecalhoregulacao'); %>
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
-                <div class="container">
+                
                     <h2>Pacientes</h2>
                     <a href="addpacientesaojorge?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
                     <br>
                     <br>
                     
-                    <table class="table table-striped" id="mytable">
+                     <table class="table table-striped"  style="width: 100%;" id="mytable">
                         <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
                         
                         <thead>
@@ -126,6 +126,7 @@
     $(document).ready(function() {
         $('#mytable').DataTable( {
             dom: 'Bfrtip',
+            "scrollX": true,
             order: ([ 3, 'asc']),
             
         pageLength: 50,

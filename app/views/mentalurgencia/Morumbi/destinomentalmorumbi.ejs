@@ -1,5 +1,5 @@
 <%- include('../cabecalhomentalurgencia'); %>
-<div class="container">
+
 
 
         <% if(id.length > 0) { %>
@@ -7,7 +7,7 @@
        
                 <h2>Pacientes</h2>
 				<input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
-                <table class="table table-striped" id="mytable">
+                <table class="table table-striped"  style="width: 100%;" id="mytable">
 					<input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
 					
                     <thead>
@@ -110,7 +110,7 @@ $(document).ready(function() {
 $('#mytable').DataTable( {
     dom: 'Bfrtip',
     order: ([ 2, 'asc']),
-    
+    "scrollX": true,
         pageLength: 50,
         buttons: [       
             {
