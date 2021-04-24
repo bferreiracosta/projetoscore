@@ -1,8 +1,8 @@
 {
-  "name": "portal_noticias",
+  "name": "scoresystem",
   "version": "1.0.0",
-  "description": "Site de noticias",
-  "main": "noticias.js",
+  "description": "ScoreSystem",
+  "main": "app.js",
   "scripts": {
     "start": "node app"
   },

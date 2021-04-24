@@ -5,26 +5,31 @@
 
 		<title>ScoreSystem</title>
 		
-		<!-- bootstrap - link cdn -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	
-		<!-- JQuery -->
-		<script src="js/jquery-2.2.1.js"></script>
-
+		
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<!-- incluindo css -->
 		<link href="css/style.css" rel="stylesheet">
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 		<!-- favicon -->
 		<link rel="shortcut icon" href="images/favicon.ico" />
 	</head>
 
 	<body onload="myFunction()">
-
-		<nav class="navbar navbar-default navbar-static-top">
-			<a class="navbar-brand navbar-left" href="#">
-				<img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-				ScoreSystem
-				<% if(id.length > 0) { %>
+		<nav class="navbar navbar-default">
+			<div id="nav">
+			  <!-- Brand and toggle get grouped for better mobile display -->
+			  <div class="navbar-header">
+				 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				 <span class="sr-only">Toggle navigation</span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 </button>
+				 <img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+				 ScoreSystem
+				 <% if(id.length > 0) { %>
 					<% for(var i = 0; i < id.length; i++) {%>
 						<% if(id[i].id_usuario==1 || id[i].id_usuario==8){%>
 				<div class="navbar-header">
@@ -106,69 +111,75 @@
 				<% } %>
 				<% } %>
 				<% } %>
-			</a>
-			
-	
-				<div id="navbar" class="collapse navbar-collapse navbar-right">
+			  </div>
+
+				 <!-- Collect the nav links, forms, and other content for toggling -->
+				 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<% if(id.length > 0) { %>
 							<% for(var i = 0; i < id.length; i++) {%>
 								<% if(id[i].autorizacao==1){%>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="/sair">Sair</a></button>
+									 <li class="btn-success"><a class="btn  btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a> </li>
 						<% } %>
 							<% } %>	
 								<% } %>
 								<% if(id.length > 0) { %>
 									<% for(var i = 0; i < id.length; i++) {%>
 										<% if(id[i].autorizacao==5){%>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="obito?id=<%=id[i].id_usuario %>">Obito</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="rouparia?id=<%=id[i].id_usuario %>">Rouparia</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="isolamento?id=<%=id[i].id_usuario %>">Isolamento</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="sepse?id=<%=id[i].id_usuario %>">Sepse</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="indicador?id=<%=id[i].id_usuario %>">Indicador</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="lixo?id=<%=id[i].id_usuario %>">Lixo Hospitalar</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="/sair">Sair</a></button>
+									 <li class="btn-success"><a class="btn  btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="obito?id=<%=id[i].id_usuario %>">Obito</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="rouparia?id=<%=id[i].id_usuario %>">Rouparia</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="isolamento?id=<%=id[i].id_usuario %>">Isolamento</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="sepse?id=<%=id[i].id_usuario %>">Sepse</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="indicador?id=<%=id[i].id_usuario %>">Indicador</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="lixo?id=<%=id[i].id_usuario %>">Lixo Hospitalar</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a> </li>
 								<% } %>
 									<% } %>	
 										<% } %>
 										<% if(id.length > 0) { %>
 											<% for(var i = 0; i < id.length; i++) {%>
 												<% if(id[i].autorizacao==3){%>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="obito?id=<%=id[i].id_usuario %>">Obito</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="isolamento?id=<%=id[i].id_usuario %>">Isolamento</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="sepse?id=<%=id[i].id_usuario %>"></a>Sepse</button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="/sair">Sair</a></button>
+									 <li class="btn-success"><a class="btn  btn-sm" href="obito?id=<%=id[i].id_usuario %>">Obito</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="isolamento?id=<%=id[i].id_usuario %>">Isolamento</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="sepse?id=<%=id[i].id_usuario %>"></a>Sepse </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a> </li>
 										<% } %>
 											<% } %>	
 												<% } %>
 							<% if(id.length > 0) { %>
 								<% for(var i = 0; i < id.length; i++) {%>
 									<% if(id[i].autorizacao==2){%>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a></button>
-									<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="/sair">Sair</a></button>
+									 <li class="btn-success"><a class="btn  btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a> </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a> </li>
 							<% } %>
 								<% } %>	
 								<% } %>	
 								<% if(id.length > 0) { %>
 						        	<% for(var i = 0; i < id.length; i++) {%>
 							        	<% if(id[i].autorizacao==4){%>
-						        	<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a></button>
-						        	<button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a></button>
-                                    <button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a></button>
-							        <button class="btn btn-success btn-sm dropdown-item" ><a class="btn btn-success btn-sm" href="/sair">Sair</a></button>
+						        	 <li class="btn-success"><a class="btn  btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a> </li>
+						        	 <li class="btn-success"><a class="btn  btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a> </li>
+                                     <li class="btn-success"><a class="btn  btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a> </li>
+							         <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a> </li>
 					            <% } %>
 						        	<% } %>	
 							            <% } %>
-										
-					</ul>
-				</div>
-			</nav>
+									</ul>
+								</ul>
+								<ul class="nav navbar-nav navbar-right">
+								</ul>
+							 </div>
+							 <!-- /.navbar-collapse -->
+						   </div>
+						   <!-- /.container-fluid -->
+						   </nav>
+	
 			<script>
 				$("#uai").on('change', function(e){
 				myFunction();

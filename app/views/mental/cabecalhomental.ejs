@@ -6,14 +6,13 @@
 		
 		<title>ScoreSystem</title>
 		
-		<!-- JQuery -->
-		<script  src="/js/jquery-2.2.1.js"></script>
-
-		<!-- bootstrap - link cdn -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<!-- incluindo css -->
-		<link href="/css/style.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.css"/>
@@ -25,501 +24,330 @@
 
 	<body>
 
-		<nav class="navbar navbar-default navbar-static-top">
-			
-			<a class="navbar-brand navbar-left" href="#">
-				<img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-				ScoreSystem
+		<nav class="navbar navbar-default">
+			<div id="nav">
+			  <!-- Brand and toggle get grouped for better mobile display -->
+			  <div class="navbar-header">
+				 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				 <span class="sr-only">Toggle navigation</span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 </button>
+				 <img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+				 ScoreSystem
 			  </a>
-
-				<div id="navbar" class="navbar-collapse collapse navbar-right">
+			  </div>
+				 <!-- Collect the nav links, forms, and other content for toggling -->
+				 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 					<% if(id.length > 0) { %>
 						<% for(var i = 0; i < id.length; i++) {%>
 							<%  if(id[i].operadorsmh == 2){%>
 								<% if(id[i].usuario== 'cida'){%>
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Caps AD
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacientead?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-											<br>
-											<button class="btn btn-success dropdown-item" ><a href="/addpacientead?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-											<br>
-											<button class="btn btn-success dropdown-item" ><a href="/centralad?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Central de Leitos</button></a>
-											<br>
-											<button class="btn btn-success dropdown-item" ><a href="/historicoad?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-											<br>
-										</div>
-									</div>
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Caps Oeste
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-											<br>
-											<button class="btn btn-success dropdown-item" ><a href="/centraloeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Central de Leitos</button></a>
-											<br>
-											<button class="btn btn-success dropdown-item" ><a href="/addpacienteoeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-											<br>
-											<button class="btn btn-success dropdown-item" ><a href="/historicooeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-											<br>
-										</div>
-									</div>	
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Caps Leste
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacienteleste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-											<br>
-											
-											<button class="btn btn-success dropdown-item" ><a href="/addpacienteleste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-											<br>
-											<button class="btn btn-success dropdown-item" ><a href="/historicoleste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-											<br>
-										</div>
-									</div>	
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Caps Norte
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacientenorte?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-											<br>
-											
-											<button class="btn btn-success dropdown-item" ><a href="/addpacientenorte?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-											<br>
-											<button class="btn btn-success dropdown-item" ><a href="/historiconorte?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-											<br>
-										</div>
-									</div>
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Caps Infantil
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-											<br>
-											
-											<button class="btn btn-success dropdown-item" ><a href="/addpacienteinfantil?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-											<br>
-											<button class="btn btn-success dropdown-item" ><a href="/historicoinfantil?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-											<br>
-										</div>
-									</div>
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Regulação
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/destinopaciente?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Regulação</button></a>
-											<br>
-										</div>
-									</div>
-									<div class="btn-group">
-										<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Sair
-										</button>
-										<div class="dropdown-menu" >
-											<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-										</div>
-									</div>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps AD </a>
+										<ul class="dropdown-menu">
+											<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacientead?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/addpacientead?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/centralad?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/historicoad?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									 </li>
+									 <li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Oeste </a>
+										<ul class="dropdown-menu">
+											<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteoeste?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/centraloeste?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/historicooeste?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									 </li>
+									 <li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Leste </a>
+										<ul class="dropdown-menu">
+											<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacienteLeste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteLeste?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/centralLeste?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/historicoLeste?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									 </li>
+									 <li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Norte </a>
+										<ul class="dropdown-menu">
+											<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteNorte?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteNorte?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/centralNorte?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/historicoNorte?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									 </li>
+									 <li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Infantil</a>
+										<ul class="dropdown-menu">
+											<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteinfantil?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/centralinfantil?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/historicoinfantil?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									 </li>
+									 <li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Regulação </a>
+										<ul class="dropdown-menu">
+											<li class="btn-success"><a class="btn  btn-sm" href="/destinopaciente?id=<%=id[i].id_usuario %>">Regulação</a></li>
+										</ul>
+									 </li>
+									 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 							<% } %>
 							<% if(id[i].usuario== 'sheylla'){%>
-								<div class="btn-group">
-									<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Caps AD
-									</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-										<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacientead?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/addpacientead?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/centralad?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Central de Leitos</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/historicoad?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-										<br>
-									</div>
-								</div>
-								<div class="btn-group">
-									<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Caps Oeste
-									</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-										<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/centraloeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Central de Leitos</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/addpacienteoeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/historicooeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-										<br>
-									</div>
-								</div>	
-								<div class="btn-group">
-									<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Caps Leste
-									</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-										<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacienteleste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-										<br>
-										
-										<button class="btn btn-success dropdown-item" ><a href="/addpacienteleste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/historicoleste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-										<br>
-									</div>
-								</div>	
-								<div class="btn-group">
-									<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Caps Norte
-									</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-										<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacientenorte?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-										<br>
-										
-										<button class="btn btn-success dropdown-item" ><a href="/addpacientenorte?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/historiconorte?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-										<br>
-									</div>
-								</div>
-								<div class="btn-group">
-									<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Caps Infantil
-									</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-										<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-										<br>
-										
-										<button class="btn btn-success dropdown-item" ><a href="/addpacienteinfantil?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/historicoinfantil?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-										<br>
-									</div>
-								</div>
-								<div class="btn-group">
-									<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Regulação
-									</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-										<button class="btn btn-success dropdown-item" ><a href="/destinopaciente?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Regulação</button></a>
-										<br>
-									</div>
-								</div>
-								<div class="btn-group">
-									<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Sair
-									</button>
-									<div class="dropdown-menu" >
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-									</div>
-								</div>
+								<li class="btn-success">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps AD </a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacientead?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacientead?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/centralad?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicoad?id=<%=id[i].id_usuario %>">Historico</a></li>
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Oeste </a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteoeste?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/centraloeste?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicooeste?id=<%=id[i].id_usuario %>">Historico</a></li>
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Leste </a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteLeste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteLeste?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/centralLeste?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicoLeste?id=<%=id[i].id_usuario %>">Historico</a></li>
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Norte </a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteNorte?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteNorte?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/centralNorte?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicoNorte?id=<%=id[i].id_usuario %>">Historico</a></li>
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Infantil</a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteinfantil?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/centralinfantil?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicoinfantil?id=<%=id[i].id_usuario %>">Historico</a></li>
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Regulação </a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn  btn-sm" href="/destinopaciente?id=<%=id[i].id_usuario %>">Regulação</a></li>
+									</ul>
+								 </li>
+								 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 						<% } %>
 							<% if(id[i].usuario== 'admin'){%>
-								<div class="btn-group">
-									<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Caps AD
-									</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-										<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacientead?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/addpacientead?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/centralad?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Central de Leitos</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/historicoad?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-										<br>
-									</div>
-								</div>
-								<div class="btn-group">
-									<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Caps Oeste
-									</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-										<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/centraloeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Central de Leitos</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/addpacienteoeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/historicooeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-										<br>
-									</div>
-								</div>	
-								<div class="btn-group">
-									<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Caps Leste
-									</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-										<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacienteleste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-										<br>
-										
-										<button class="btn btn-success dropdown-item" ><a href="/addpacienteleste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/historicoleste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-										<br>
-									</div>
-								</div>	
-								<div class="btn-group">
-									<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Caps Norte
-									</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-										<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacientenorte?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-										<br>
-										
-										<button class="btn btn-success dropdown-item" ><a href="/addpacientenorte?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/historiconorte?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-										<br>
-									</div>
-								</div>
-								<div class="btn-group">
-									<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Caps Infantil
-									</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-										<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-										<br>
-										
-										<button class="btn btn-success dropdown-item" ><a href="/addpacienteinfantil?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-										<br>
-										<button class="btn btn-success dropdown-item" ><a href="/historicoinfantil?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-										<br>
-									</div>
-								</div>
-								<div class="btn-group">
-									<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Regulação
-									</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-										<button class="btn btn-success dropdown-item" ><a href="/destinopaciente?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Regulação</button></a>
-										<br>
-									</div>
-								</div>
-								<div class="btn-group">
-									<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-									Sair
-									</button>
-									<div class="dropdown-menu" >
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-									</div>
-								</div>
+								<li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps AD </a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacientead?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacientead?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/centralad?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicoad?id=<%=id[i].id_usuario %>">Historico</a></li>
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Oeste </a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteoeste?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/centraloeste?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicooeste?id=<%=id[i].id_usuario %>">Historico</a></li>
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Leste </a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteLeste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteLeste?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/centralLeste?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicoLeste?id=<%=id[i].id_usuario %>">Historico</a></li>
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Norte </a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteNorte?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteNorte?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/centralNorte?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicoNorte?id=<%=id[i].id_usuario %>">Historico</a></li>
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Infantil</a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteinfantil?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/centralinfantil?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicoinfantil?id=<%=id[i].id_usuario %>">Historico</a></li>
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Regulação </a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn btn-sm" href="/destinopaciente?id=<%=id[i].id_usuario %>">Regulação</a></li>
+									</ul>
+								 </li>
+								 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 						<% } %>
 						<% if(id[i].usuario== 'coordad' || id[i].usuario== 'supervad'){%>
-							<div class="btn-group">
-								<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-								Caps AD
-								</button>
-								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-									<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacientead?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-									<br>
-									<button class="btn btn-success dropdown-item" ><a href="/addpacientead?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-									<br>
-									<button class="btn btn-success dropdown-item" ><a href="/centralad?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Central de Leitos</button></a>
-									<br>
-									<button class="btn btn-success dropdown-item" ><a href="/historicoad?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-									<br>
-								</div>
-							</div>	
-							<div class="btn-group">
-								<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-								Regulação
-								</button>
-								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-									<button class="btn btn-success dropdown-item" ><a href="/destinopaciente?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Regulação</button></a>
-									<br>
-								</div>
-							</div>
-							<div class="btn-group">
-								<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-								Sair
-								</button>
-								<div class="dropdown-menu" >
-									<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-								</div>
-							</div>
+							<li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps AD </a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacientead?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+									<li class="btn-success"><a class="btn  btn-sm" href="/addpacientead?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+									<li class="btn-success"><a class="btn  btn-sm" href="/centralad?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+									<li class="btn-success"><a class="btn  btn-sm" href="/historicoad?id=<%=id[i].id_usuario %>">Historico</a></li>
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Regulação </a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn  btn-sm" href="/destinopaciente?id=<%=id[i].id_usuario %>">Regulação</a></li>
+								</ul>
+							 </li>
+							 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 					<% } %>
 						<% if(id[i].usuario== 'coordinfantil' || id[i].usuario== 'supervinfantil'){%>
-							<div class="btn-group">
-								<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-								Caps Infantil
-								</button>
-								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-									<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-									<br>
-									
-									<button class="btn btn-success dropdown-item" ><a href="/addpacienteinfantil?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-									<br>
-									<button class="btn btn-success dropdown-item" ><a href="/historicoinfantil?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-									<br>
-								</div>
-							</div>
-							<div class="btn-group">
-								<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-								Regulação
-								</button>
-								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-									<button class="btn btn-success dropdown-item" ><a href="/destinopaciente?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Regulação</button></a>
-									<br>
-								</div>
-							</div>
-							<div class="btn-group">
-								<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-								Sair
-								</button>
-								<div class="dropdown-menu" >
-									<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-								</div>
-							</div>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Infantil</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+									<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteinfantil?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+									<li class="btn-success"><a class="btn  btn-sm" href="/centralinfantil?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+									<li class="btn-success"><a class="btn  btn-sm" href="/historicoinfantil?id=<%=id[i].id_usuario %>">Historico</a></li>
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Regulação </a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn  btn-sm" href="/destinopaciente?id=<%=id[i].id_usuario %>">Regulação</a></li>
+								</ul>
+							 </li>
+							 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 					<% } %>
 					<% if(id[i].usuario== 'coordnorte' || id[i].usuario== 'supervnorte'){%>
-						<div class="btn-group">
-							<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-							Caps Norte
-							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-								<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacientenorte?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-								<br>
-								
-								<button class="btn btn-success dropdown-item" ><a href="/addpacientenorte?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-								<br>
-								<button class="btn btn-success dropdown-item" ><a href="/historiconorte?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-								<br>
-							</div>
-						</div>
-						<div class="btn-group">
-							<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-							Regulação
-							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-								<button class="btn btn-success dropdown-item" ><a href="/destinopaciente?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Regulação</button></a>
-								<br>
-							</div>
-						</div>
-						<div class="btn-group">
-							<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-							Sair
-							</button>
-							<div class="dropdown-menu" >
-								<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-							</div>
-						</div>
+						 <li class="btn-success">
+							<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Norte </a>
+							<ul class="dropdown-menu">
+								<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteNorte?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteNorte?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/centralNorte?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/historicoNorte?id=<%=id[i].id_usuario %>">Historico</a></li>
+							</ul>
+						 </li>
+						 <li class="btn-success">
+							<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Regulação </a>
+							<ul class="dropdown-menu">
+								<li class="btn-success"><a class="btn  btn-sm" href="/destinopaciente?id=<%=id[i].id_usuario %>">Regulação</a></li>
+							</ul>
+						 </li>
+						 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 				<% } %>
 					<% if(id[i].usuario== 'coordleste' || id[i].usuario== 'supervleste'){%>
-						<div class="btn-group">
-							<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-							Caps Leste
-							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-								<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacienteleste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-								<br>
-								
-								<button class="btn btn-success dropdown-item" ><a href="/addpacienteleste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-								<br>
-								<button class="btn btn-success dropdown-item" ><a href="/historicoleste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-								<br>
-							</div>
-						</div>	
-						<div class="btn-group">
-							<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-							Regulação
-							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-								<button class="btn btn-success dropdown-item" ><a href="/destinopaciente?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Regulação</button></a>
-								<br>
-							</div>
-						</div>
-						<div class="btn-group">
-							<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-							Sair
-							</button>
-							<div class="dropdown-menu" >
-								<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-							</div>
-						</div>
+						 <li class="btn-success">
+							<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Leste </a>
+							<ul class="dropdown-menu">
+								<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteLeste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteLeste?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/centralLeste?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/historicoLeste?id=<%=id[i].id_usuario %>">Historico</a></li>
+							</ul>
+						 </li>
+						 <li class="btn-success">
+							<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Regulação </a>
+							<ul class="dropdown-menu">
+								<li class="btn-success"><a class="btn  btn-sm" href="/destinopaciente?id=<%=id[i].id_usuario %>">Regulação</a></li>
+							</ul>
+						 </li>
+						 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 				<% } %>
 					<% if(id[i].usuario== 'coordoeste' || id[i].usuario== 'supervoeste'){%>
-						<div class="btn-group">
-							<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-							Caps Oeste
-							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-								<button class="btn btn-success dropdown-item" ><a href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-								<br>
-								<button class="btn btn-success dropdown-item" ><a href="/centraloeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Central de Leitos</button></a>
-								<br>
-								<button class="btn btn-success dropdown-item" ><a href="/addpacienteoeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-								<br>
-								<button class="btn btn-success dropdown-item" ><a href="/historicooeste?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-								<br>
-							</div>
-						</div>	
-						<div class="btn-group">
-							<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-							Regulação
-							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-								<button class="btn btn-success dropdown-item" ><a href="/destinopaciente?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Regulação</button></a>
-								<br>
-							</div>
-						</div>
-						<div class="btn-group">
-							<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-							Sair
-							</button>
-							<div class="dropdown-menu" >
-								<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-							</div>
-						</div>
+						 <li class="btn-success">
+							<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Oeste </a>
+							<ul class="dropdown-menu">
+								<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteoeste?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/centraloeste?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/historicooeste?id=<%=id[i].id_usuario %>">Historico</a></li>
+							</ul>
+						 </li>
+						 <li class="btn-success">
+							<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Regulação </a>
+							<ul class="dropdown-menu">
+								<li class="btn-success"><a class="btn  btn-sm" href="/destinopaciente?id=<%=id[i].id_usuario %>">Regulação</a></li>
+							</ul>
+						 </li>
+						 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 				<% } %>
 									<% if(id[i].unidade==10){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarpacientead?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addpacientead?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicoad?id=<%=id[i].id_usuario %>">Historico</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/centralad?id=<%=id[i].id_usuario %>">Central de Leitos</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacientead?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacientead?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicoad?id=<%=id[i].id_usuario %>">Historico</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/centralad?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 									<% } %>
 									<% if(id[i].unidade==11){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addpacienteoeste?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicooeste?id=<%=id[i].id_usuario %>">Historico</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/centraloeste?id=<%=id[i].id_usuario %>">Central de Leitos</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteoeste?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicooeste?id=<%=id[i].id_usuario %>">Historico</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/centraloeste?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 									<% } %>
 									<% if(id[i].unidade==12){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarpacientenorte?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addpacientenorte?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historiconorte?id=<%=id[i].id_usuario %>">Historico</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacientenorte?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacientenorte?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historiconorte?id=<%=id[i].id_usuario %>">Historico</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 									<% } %>
 									<% if(id[i].unidade==13){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarpacienteleste?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addpacienteleste?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicoleste?id=<%=id[i].id_usuario %>">Historico</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteleste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteleste?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicoleste?id=<%=id[i].id_usuario %>">Historico</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 									<% } %>
 									<% if(id[i].unidade==14){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addpacienteinfantil?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicoinfantil?id=<%=id[i].id_usuario %>">Historico</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteinfantil?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicoinfantil?id=<%=id[i].id_usuario %>">Historico</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 									<% } %>
 							<% } %>
 								<%  if(id[i].operadorsmh == 1){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinopaciente?id=<%=id[i].id_usuario %>">Destino</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/destinopaciente?id=<%=id[i].id_usuario %>">Destino</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 								<% } %>
 						<% } %>
 					<% } %>
-					</ul>
-				</div>
-			</div>
-		</nav>
+				</ul>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			</ul>
+		 </div>
+		 <!-- /.navbar-collapse -->
+	   </div>
+	   <!-- /.container-fluid -->
+	   </nav>
 
-
+<script>
+	$(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+});
+</script>
 

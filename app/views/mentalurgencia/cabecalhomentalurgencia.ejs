@@ -1,780 +1,272 @@
 <!DOCTYPE HTML>
-<html lang="pt-br">
+<html>
 	<head>
 		<meta charset="UTF-8">
 
 		
 		<title>ScoreSystem</title>
-		
-		<!-- JQuery -->
-		<script  src="/js/jquery-2.2.1.js"></script>
-
-		<!-- bootstrap - link cdn -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<!-- incluindo css -->
-		<link href="/css/style.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.css"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.buttons.css"/>
+	
 
+		<!--Fontawesome CDN-->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 		<!-- favicon -->
 		<link rel="shortcut icon" href="/images/favicon.ico" />
 	</head>
 
-	<body>
+		<body>
 
-		<nav class="navbar navbar-default navbar-static-top">
-			
-			<a class="navbar-brand navbar-left" href="#">
-				<img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-				ScoreSystem
-			  </a>
-				<div id="navbar" class="navbar-collapse collapse navbar-right">
-					<ul class="nav navbar-nav navbar-right">
-					<% if(id.length > 0) { %>
-						<% for(var i = 0; i < id.length; i++) {%>
-										<% if(id[i].usuario== 'cida'){%>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Relatorio Geral
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/historicogeral?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Planalto
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Luizote
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Martins
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientemartins?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Roosevelt
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Tibery
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientetibery?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Morumbi
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Sao Jorge
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Pampulha
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Sair
-												</button>
-												<div class="dropdown-menu" >
-													<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-												</div>
-											</div>
-									<% } %>
-									<% if(id[i].usuario== 'sheylla'){%>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Relatorio Geral
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/historicogeral?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Planalto
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Luizote
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Martins
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/justificarpacientemartins?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Roosevelt
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Tibery
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/justificarpacientetibery?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Morumbi
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Sao Jorge
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Pampulha
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Sair
-											</button>
-											<div class="dropdown-menu" >
-												<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-											</div>
-										</div>
-								<% } %>
-									<% if(id[i].usuario== 'admin'){%>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Planalto
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/cadastrarmentalplanalto?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/addmentalplanalto?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/destinomentalplanalto?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Destino Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/historicomentalplanalto?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Luizote
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/cadastrarmentalluizote?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/addmentalluizote?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/destinomentalluizote?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Destino Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/historicomentalluizote?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Martins
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/cadastrarmentalmartins?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/addmentalmartins?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/destinomentalmartins?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Destino Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/historicomentalmartins?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Roosevelt
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/cadastrarmentalroosevelt?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/addmentalroosevelt?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/destinomentalroosevelt?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Destino Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/historicomentalroosevelt?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Tibery 
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/cadastrarmentaltibery?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/addmentaltibery?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/destinomentaltibery?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Destino Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/historicomentaltibery?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Morumbi
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/cadastrarmentalmorumbi?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/addmentalmorumbi?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/destinomentalmorumbi?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Destino Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/historicomentalmorumbi?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai São Jorge
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/cadastrarmentalsaojorge?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/addmentalsaojorge?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/destinomentalsaojorge?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Destino Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/historicomentalsaojorge?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Uai Pampulha
-											</button>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-												<button class="btn btn-success dropdown-item" ><a href="/cadastrarmentalpampulha?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Pacientes</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/addmentalpampulha?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Adicionar Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/destinomentalpampulha?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Destino Paciente</button></a>
-												<br>
-												<button class="btn btn-success dropdown-item" ><a href="/historicomentalpampulha?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-												<br>
-											</div>
-										</div>
-										<div class="btn-group">
-											<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-											Sair
-											</button>
-											<div class="dropdown-menu" >
-												<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-											</div>
-										</div>
-								<% } %>
-								<% if(id[i].usuario== 'coordad' || id[i].usuario== 'supervad'){%>
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Relatorio Geral
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/historicogeral?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-											<br>
-										</div>
-									</div>
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Uai Planalto
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-											<br>
-										</div>
-									</div>
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Uai Luizote
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-											<br>
-										</div>
-									</div>
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Uai Martins
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/justificarpacientemartins?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-											<br>
-										</div>
-									</div>
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Uai Roosevelt
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-											<br>
-										</div>
-									</div>
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Uai Tibery
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/justificarpacientetibery?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-											<br>
-										</div>
-									</div>
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Uai Morumbi
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-											<br>
-										</div>
-									</div>
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Uai Sao Jorge
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-											<br>
-										</div>
-									</div>
-									<div class="btn-group">
-										<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Uai Pampulha
-										</button>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-											<button class="btn btn-success dropdown-item" ><a href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-											<br>
-										</div>
-									</div>
-									<div class="btn-group">
-										<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-										Sair
-										</button>
-										<div class="dropdown-menu" >
-											<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-										</div>
-									</div>
-							<% } %>
-								<% if(id[i].usuario== 'coordinfantil' || id[i].usuario== 'supervinfantil'){%>
-									<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Relatorio Geral
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/historicogeral?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Planalto
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Luizote
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Martins
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientemartins?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Roosevelt
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Tibery
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientetibery?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Morumbi
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Sao Jorge
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Pampulha
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Sair
-												</button>
-												<div class="dropdown-menu" >
-													<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-												</div>
-											</div>
-							<% } %>
-							<% if(id[i].usuario== 'coordnorte' || id[i].usuario== 'supervnorte'){%>
-								<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Relatorio Geral
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/historicogeral?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Planalto
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Luizote
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Martins
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientemartins?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Roosevelt
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Tibery
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientetibery?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Morumbi
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Sao Jorge
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Pampulha
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Sair
-												</button>
-												<div class="dropdown-menu" >
-													<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-												</div>
-											</div>
-						<% } %>
-							<% if(id[i].usuario== 'coordoeste' || id[i].usuario== 'supervoeste'){%>
-								<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Relatorio Geral
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/historicogeral?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Historico</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Planalto
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Luizote
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Martins
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientemartins?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Roosevelt
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Tibery
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientetibery?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Morumbi
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Sao Jorge
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Uai Pampulha
-												</button>
-												<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-													<button class="btn btn-success dropdown-item" ><a href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>"><br><br><button class="btn btn-sm btn-success">Justificativa</button></a>
-													<br>
-												</div>
-											</div>
-											<div class="btn-group">
-												<button type="button" href="/sair" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-												Sair
-												</button>
-												<div class="dropdown-menu" >
-													<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair"">SAIR</a></button>
-												</div>
-											</div>
-						<% } %>
-							<%  if(id[i].smu == 1){%>
-									<% if(id[i].unidade==1){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalplanalto?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalplanalto?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalplanalto?id=<%=id[i].id_usuario %>">Destino</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalplanalto?id=<%=id[i].id_usuario %>">Historico</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
-									<% } %>
-									<% if(id[i].unidade==2){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalluizote?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalluizote?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalluizote?id=<%=id[i].id_usuario %>">Destino</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
-									<% } %>
-									<% if(id[i].unidade==3){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalmartins?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalmartins?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalmartins?id=<%=id[i].id_usuario %>">Destino</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalmartins?id=<%=id[i].id_usuario %>">Historico</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
-									<% } %>
-									<% if(id[i].unidade==4){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalroosevelt?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalroosevelt?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalroosevelt?id=<%=id[i].id_usuario %>">Destino</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalroosevelt?id=<%=id[i].id_usuario %>">Historico</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
-									<% } %>
-									<% if(id[i].unidade==6){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentaltibery?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentaltibery?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentaltibery?id=<%=id[i].id_usuario %>">Destino</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentaltibery?id=<%=id[i].id_usuario %>">Historico</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
-									<% } %>
-									<% if(id[i].unidade==5){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalmorumbi?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalmorumbi?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalmorumbi?id=<%=id[i].id_usuario %>">Destino</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalmorumbi?id=<%=id[i].id_usuario %>">Historico</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
-									<% } %>
-									<% if(id[i].unidade==7){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalsaojorge?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalsaojorge?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalsaojorge?id=<%=id[i].id_usuario %>">Destino</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalsaojorge?id=<%=id[i].id_usuario %>">Historico</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>
-									<% } %>
-									<% if(id[i].unidade==8){%>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/cadastrarmentalpampulha?id=<%=id[i].id_usuario %>">Pacientes</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/addmentalpampulha?id=<%=id[i].id_usuario %>">Adicionar Paciente</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/destinomentalpampulha?id=<%=id[i].id_usuario %>">Destino</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/historicomentalmentalpampulha?id=<%=id[i].id_usuario %>">Historico</button></a></li>
-										<button class="btn btn-success dropdown-item"><a class="btn btn-success" href="/sair">Sair</button></a></li>			
-									<% } %>
-							<% } %>
-						<% } %>
-					<% } %>
-					</ul>
+			<nav class="navbar navbar-default">
+				<div id="nav">
+				  <!-- Brand and toggle get grouped for better mobile display -->
+				  <div class="navbar-header">
+					 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					 <span class="sr-only">Toggle navigation</span>
+					 <span class="icon-bar"></span>
+					 <span class="icon-bar"></span>
+					 <span class="icon-bar"></span>
+					</button>
+					 <img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+					 ScoreSystem
+				  </a>
 				</div>
-			</div>
-		</nav>
-
-
-
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+						<% if(id.length > 0) { %>
+							<% for(var i = 0; i < id.length; i++) {%>
+											<% if(id[i].usuario== 'cida'){%>
+												
+											<li class="btn-success"><a class="btn  btn-sm" href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
+									
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Justificativa Uai Planalto</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Justificativa Uai Luizote</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Justificativa Uai Martins</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Justificativa Uai Roosevelt</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Justificativa Uai Tibery</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Justificativa Uai Morumbi</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Justificativa Uai São Jorge</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Justificativa Uai Pampulha</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
+													
+										<% } %>
+										<% if(id[i].usuario== 'sheylla'){%>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
+												
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Justificativa Uai Planalto</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Justificativa Uai Luizote</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Justificativa Uai Martins</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Justificativa Uai Roosevelt</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Justificativa Uai Tibery</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Justificativa Uai Morumbi</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Justificativa Uai São Jorge</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Justificativa Uai Pampulha</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
+									<% } %>
+										<% if(id[i].usuario== 'admin'){%>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
+									
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Justificativa Uai Planalto</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Justificativa Uai Luizote</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Justificativa Uai Martins</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Justificativa Uai Roosevelt</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Justificativa Uai Tibery</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Justificativa Uai Morumbi</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Justificativa Uai São Jorge</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Justificativa Uai Pampulha</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
+									<% } %>
+									<% if(id[i].usuario== 'coordad' || id[i].usuario== 'supervad'){%>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
+									
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Justificativa Uai Planalto</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Justificativa Uai Luizote</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Justificativa Uai Martins</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Justificativa Uai Roosevelt</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Justificativa Uai Tibery</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Justificativa Uai Morumbi</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Justificativa Uai São Jorge</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Justificativa Uai Pampulha</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
+								<% } %>
+									<% if(id[i].usuario== 'coordinfantil' || id[i].usuario== 'supervinfantil'){%>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
+												
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Justificativa Uai Planalto</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Justificativa Uai Luizote</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Justificativa Uai Martins</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Justificativa Uai Roosevelt</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Justificativa Uai Tibery</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Justificativa Uai Morumbi</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Justificativa Uai São Jorge</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Justificativa Uai Pampulha</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
+								<% } %>
+								<% if(id[i].usuario== 'coordnorte' || id[i].usuario== 'supervnorte'){%>
+										<li class="btn-success"><a class="btn  btn-sm"  href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
+												
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Justificativa Uai Planalto</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Justificativa Uai Luizote</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Justificativa Uai Martins</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Justificativa Uai Roosevelt</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Justificativa Uai Tibery</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Justificativa Uai Morumbi</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Justificativa Uai São Jorge</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Justificativa Uai Pampulha</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
+							<% } %>
+								<% if(id[i].usuario== 'coordoeste' || id[i].usuario== 'supervoeste'){%>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
+												
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Justificativa Uai Planalto</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Justificativa Uai Luizote</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Justificativa Uai Martins</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Justificativa Uai Roosevelt</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Justificativa Uai Tibery</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Justificativa Uai Morumbi</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Justificativa Uai São Jorge</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Justificativa Uai Pampulha</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair">SAIR</a></li>
+							<% } %>
+								<%  if(id[i].smu == 1){%>
+										<% if(id[i].unidade==1){%>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/cadastrarmentalplanalto?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/addmentalplanalto?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/destinomentalplanalto?id=<%=id[i].id_usuario %>">Destino</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalplanalto?id=<%=id[i].id_usuario %>">Historico</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair">Sair</a></li>
+										<% } %>
+										<% if(id[i].unidade==2){%>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/cadastrarmentalluizote?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/addmentalluizote?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/destinomentalluizote?id=<%=id[i].id_usuario %>">Destino</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair">Sair</a></li>
+										<% } %>
+										<% if(id[i].unidade==3){%>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/cadastrarmentalmartins?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/addmentalmartins?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/destinomentalmartins?id=<%=id[i].id_usuario %>">Destino</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmartins?id=<%=id[i].id_usuario %>">Historico</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair">Sair</a></li>
+										<% } %>
+										<% if(id[i].unidade==4){%>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/cadastrarmentalroosevelt?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/addmentalroosevelt?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/destinomentalroosevelt?id=<%=id[i].id_usuario %>">Destino</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalroosevelt?id=<%=id[i].id_usuario %>">Historico</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair">Sair</a></li>
+										<% } %>
+										<% if(id[i].unidade==6){%>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/cadastrarmentaltibery?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/addmentaltibery?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/destinomentaltibery?id=<%=id[i].id_usuario %>">Destino</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentaltibery?id=<%=id[i].id_usuario %>">Historico</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair">Sair</a></li>
+										<% } %>
+										<% if(id[i].unidade==5){%>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/cadastrarmentalmorumbi?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/addmentalmorumbi?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/destinomentalmorumbi?id=<%=id[i].id_usuario %>">Destino</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmorumbi?id=<%=id[i].id_usuario %>">Historico</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair">Sair</a></li>
+										<% } %>
+										<% if(id[i].unidade==7){%>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/cadastrarmentalsaojorge?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/addmentalsaojorge?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/destinomentalsaojorge?id=<%=id[i].id_usuario %>">Destino</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalsaojorge?id=<%=id[i].id_usuario %>">Historico</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair">Sair</a></li>
+										<% } %>
+										<% if(id[i].unidade==8){%>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/cadastrarmentalpampulha?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/addmentalpampulha?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/destinomentalpampulha?id=<%=id[i].id_usuario %>">Destino</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmentalpampulha?id=<%=id[i].id_usuario %>">Historico</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair">Sair</a></li>			
+										<% } %>
+								<% } %>
+							<% } %>
+						<% } %>
+					</ul>
+				
+					<ul class="nav navbar-nav navbar-right">
+					</ul>
+			 </div>
+			 <!-- /.navbar-collapse -->
+		   </div>
+		<!-- /.container-fluid -->
+	</nav>
+	
+	<script>
+		$(document).ready(function() {
+		$(".dropdown-toggle").dropdown();
+	});
+	</script>
+	
+	
