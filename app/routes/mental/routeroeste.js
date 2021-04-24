@@ -1,4 +1,14 @@
 module.exports = function(application) {
+	application.post('/baixahospitalidade', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.mental.controlleroeste.baixahospitalidade(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 	application.get('/centraloeste', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.mental.controlleroeste.central(application, req, res);

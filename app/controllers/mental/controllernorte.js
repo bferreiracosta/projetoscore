@@ -1,5 +1,22 @@
 const { createPool } = require("mysql");
+module.exports.baixahospitalidade= function(application, req, res){
+	var idpaciente = req.body.campo;
+	var id = req.body.campo2;
+	var data = req.body.data;
+	var motivo = req.body.negativo;
+	var unidade = 'Norte';
+	
+	var modelnorte = new application.app.model.mental.modelnorte(application);
+	var modeladmin = new application.app.model.admin.modeladmin(application);
 
+	modeladmin.buscarusuarioporid(id, function(error, resultados){
+		modelnorte.baixahospitalidade(idpaciente,motivo,data, function(error, result){
+			modelnorte.buscarpaciente(unidade, function(error, resultado){
+				res.render("mental/CapsNorte/cadastrarpacientenorte", {mental : resultado, id : resultados});
+			});
+		});
+	});	
+}
 module.exports.cadastrar= function(application, req, res){
 	
 	var modelnorte = new application.app.model.mental.modelnorte(application);

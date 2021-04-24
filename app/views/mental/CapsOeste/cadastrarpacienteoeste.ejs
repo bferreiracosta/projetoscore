@@ -19,6 +19,7 @@
                         <th>Diagnóstico</th>
                         <th>Unidade de Referência</th>
                         <th></th>
+                        <th></th>
                     </tr>
 					</thead>
                     <tbody>    
@@ -35,6 +36,9 @@
                             <td>
                                 <a href="editpacienteoeste/<%=id[i].id_usuario %>/?id=<%=mental[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
                             </td>
+                            <td>
+                                <a href="" onclick="setaDadosModal('<%=mental[j].id_paciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Saida</a>
+                            </td>
 						</tr>
 						<% } %>	
 						<% } %>
@@ -43,7 +47,40 @@
                 <br>
                 <br>
                 <br>
-        
+         <!-- Delete Product Modal-->
+         <form id="add-row-form" action="/baixahospitalidade" method="POST">
+            <div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myModalLabel">Baixa Paciente</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <label for="motivo" id="label">Motivo da Saida</label>
+                            <select  class="form-control" id="negativoselect" name="negativoselect">
+                                <option value=""></option>
+                                <option value="Encaminhado Urgência">Encaminhado Urgência</option>
+                                <option value="Mudança Projeto Terapêutico">Mudança Projeto Terapêutico</option>
+                                <option value="Recusa Tratamento">Recusa Tratamento</option>
+                            </select>
+                            <input type="hidden" name="campo" id="campo">
+                            <input type="hidden" name="campo2" id="campo2">
+                            
+                            <input type="hidden" name="negativo" id="negativo">
+                          </div>
+                          <input  type="hidden" name="covid" id="covid">
+                          <input  type="hidden" id="data" name="data"  class="form-control">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-success">Destino</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
            <% } %>	
             <% } %>
         </div>
@@ -119,28 +156,16 @@ function setaDadosModal(valor) {
 function setaDadosModal2(valor) {
     document.getElementById('campo2').value = valor;
 }
-$("#baixaselect").on('change', function(e){
-    var baixa = $(this).val();
-    document.getElementById('baixa').value = baixa;
-});
 
 $("#negativoselect").on('change', function(e){
     var negativo = $(this).val();
     document.getElementById('negativo').value = negativo;
 });
-
-function verifica(value){
-	var negativoselect = document.getElementById("negativoselect");
+function novaHora(){
+	var date = new Date();
+		var data = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+		document.getElementById('data').value = data;
 	
-
-  if(value == 'Negado'){
-    negativoselect.style.display = "block";
-  }else{
-    negativoselect.style.display = "none";
-  } 
-};
-
-window.onload = function() {
-  document.getElementById('negativoselect').style.display = 'none';
-};
+}
+novaHora();
 </script>

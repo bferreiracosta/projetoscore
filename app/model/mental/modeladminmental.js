@@ -5,7 +5,7 @@ function modeladminmental(application){
 
 modeladminmental.prototype.buscarpacientecaps = function(callback){
 	
-	this._conection.query('select * from mental where baixa is null', callback);
+	this._conection.query('select * from mental where baixa is null and motivoh is null', callback);
 }
 
 modeladminmental.prototype.baixa = function(idpaciente,baixa,motivo,data, callback){

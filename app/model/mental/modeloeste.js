@@ -23,9 +23,9 @@ modeloeste.prototype.update = function(idpaciente, prt,paciente, idade,diagnosti
 	this._conection.query('update mental set prt = "'+prt+'", paciente = "'+paciente+'", diagnostico = "'+diagnostico+'", idade = "'+idade+'" , referencia = "'+referencia+'", unidade = "'+unidade+'" where id_paciente = ' + idpaciente, callback);
 }
 
-modeloeste.prototype.baixa = function(idpaciente,baixa,motivo, callback){
+modeloeste.prototype.baixahospitalidade = function(idpaciente,motivo,data, callback){
 
-	this._conection.query('update mental set   baixa = "'+baixa+'", motivo="'+motivo+'" where id_paciente = ' + idpaciente, callback);
+	this._conection.query('update mental set datah="'+data+'",  motivoh="'+motivo+'" where id_paciente = ' + idpaciente, callback);
 }
 
 modeloeste.prototype.buscarusuarioeditavel = function(id, callback){
@@ -45,7 +45,7 @@ modeloeste.prototype.buscarusuarioporid = function(id, callback){
 
 modeloeste.prototype.buscarpaciente = function(unidade, callback){
 	
-	this._conection.query('select * from mental where unidade = "'+unidade+'" and baixa is null', callback);
+	this._conection.query('select * from mental where unidade = "'+unidade+'" and baixa is null and motivoh is null', callback);
 }
 
 

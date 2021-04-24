@@ -1,6 +1,15 @@
 module.exports = function(application) {
 	
-
+	application.post('/baixahospitalidade', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.mental.controllerleste.baixahospitalidade(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 	application.get('/cadastrarpacienteleste', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.mental.controllerleste.cadastrar(application, req, res);

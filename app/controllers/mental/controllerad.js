@@ -1,4 +1,24 @@
 const { createPool } = require("mysql");
+module.exports.baixahospitalidade= function(application, req, res){
+	var idpaciente = req.body.campo;
+	var id = req.body.campo2;
+	var data = req.body.data;
+	var motivo = req.body.negativo;
+	var unidade = 'AD';
+	
+	var modelad = new application.app.model.mental.modelad(application);
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	
+	modeladmin.buscarusuarioporid(id, function(error, resultados){
+		modelad.baixahospitalidade(idpaciente,motivo,data, function(error, result){
+			modelad.buscarpaciente(unidade, function(error, resultado){
+				console.log(resultados);
+				res.render("mental/CapsAd/cadastrarpacientead", {mental : resultado, id : result});
+			});
+		});
+	});	
+}
+
 module.exports.central= function(application, req, res){
 	
 	var modelad = new application.app.model.mental.modelad(application);
