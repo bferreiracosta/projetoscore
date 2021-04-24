@@ -282,19 +282,19 @@
 			  if(pacote[i].value == "Dormonid"){
 				  var Pacote_i = "Não Usado";
 				  document.getElementById('Dormonid3').value = Pacote_i;
-				  input5.value="Não Usado";
+				  input5.value="-";
 			  }else if (pacote[i].value == "Fentanil") {
 				  var Pacote_ii = "Não Usado";
 				  document.getElementById('Fentanil3').value = Pacote_ii;
-				  input6.value="Não Usado";
+				  input6.value="-";
 			  }else if (pacote[i].value == "Rocuronio") {
 				  var Pacote_iii = "Não Usado";
 				  document.getElementById('Rocuronio3').value = Pacote_iii;
-				  input7.value="Não Usado";
+				  input7.value="-";
 			  }else if (pacote[i].value == "Propofol") {
 				  var Pacote_iiii = "Não Usado";
 				  document.getElementById('Propofol3').value = Pacote_iiii;
-				  input8.value="Não Usado";
+				  input8.value="-";
 			  }
 		  }
 	  }else if(value == 'sim'){
@@ -346,16 +346,16 @@
 			  if(pacote[i].value == "Noradrenalina"){
 				  var Pacote_i = "Não Usado";
 				  document.getElementById('nora').value = Pacote_i;
-				  input4.value="Não Usado";
+				  input4.value="-";
 			  }else if (pacote[i].value == "Adrenalina") {
 				  var Pacote_ii = "Não Usado";
 				  document.getElementById('adre').value = Pacote_ii;
-				  input5.value="Não Usado";
+				  input5.value="-";
 			  }
 			  else if (pacote[i].value == "Bicarbonato") {
 				  var Pacote_iii = "Não Usado";
 				  document.getElementById('bic').value = Pacote_iii;
-				  input6.value="Não Usado";
+				  input6.value="-";
 			  }
 		  }
 	  }else if(value == 'sim'){
@@ -444,12 +444,14 @@
 			  if(pacote[i].value == "Noradrenalina"){
 				label4.style.display = "none";
 				input4.style.display = "none";
+				input4.value="-";
 				  var Pacote_i = "Não Aplicado";
 				  document.getElementById('nora').value = Pacote_i;
 				 
 			  }else if (pacote[i].value == "Adrenalina") {
 				input5.style.display = "none";
 				label5.style.display = "none";
+				input5.value="-";
 				  var Pacote_ii = "Não Aplicado";
 				  document.getElementById('adre').value = Pacote_ii;
 				
@@ -457,6 +459,7 @@
 			  else if (pacote[i].value == "Bicarbonato") {
 				input6.style.display = "none";
 				label6.style.display = "none";
+				input6.value="-";
 				  var Pacote_iii = "Não Aplicado";
 				  document.getElementById('bic').value = Pacote_iii;
 				 
@@ -517,6 +520,7 @@
 				if(pacote[i].value == "Dormonid"){
 				input5.style.display = "none";
 				label5.style.display = "none";
+				input5.value="-";
 				  var Pacote_i = "Não Aplicado";
 				  document.getElementById('Dormonid3').value = Pacote_i;
 				 
@@ -526,6 +530,7 @@
 				  if (pacote[i].value == "Fentanil") {
 				input6.style.display = "none";
 				label6.style.display = "none";
+				input6.value="-";
 				  var Pacote_ii = "Não Aplicado";
 				  document.getElementById('Fentanil3').value = Pacote_ii;
 				 
@@ -535,6 +540,7 @@
 				 if (pacote[i].value == "Rocuronio") {
 				input7.style.display = "none";
 				label7.style.display = "none";
+				input7.value="-";
 				  var Pacote_iii = "Não Aplicado";
 				  document.getElementById('Rocuronio3').value = Pacote_iii;
 				 
@@ -544,6 +550,7 @@
 				 if (pacote[i].value == "Propofol") {
 				label8.style.display = "none";
 				input8.style.display = "none";
+				input8.value="-";
 				  var Pacote_iiii = "Não Aplicado";
 				  document.getElementById('Propofol3').value = Pacote_iiii;
 				 
