@@ -45,7 +45,7 @@
 					<ul class="nav navbar-nav navbar-right">
 				<% if(id.length > 0) { %>
 					<% for(var i = 0; i < id.length; i++) {%>
-						<% if(id[i].usuario== 'cida'){%>
+						<% if(id[i].usuario== 'admin'){%>
 							<li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Planalto</a>
 								<ul class="dropdown-menu">
@@ -58,6 +58,10 @@
 									<li class="btn-success"><a class="btn   btn-sm" href="/historicoplanalto?id=<%=id[i].id_usuario %>">Historico</a></li>
 
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanalto?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+									
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltomateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
 
 								</ul>
 							 </li>
@@ -73,7 +77,11 @@
 									<li class="btn-success"><a class="btn   btn-sm" href="/historicoluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
 	
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizote?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
-	
+									
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizotemateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+
 								</ul>
 							 </li>
 							 <li class="btn-success">
@@ -89,6 +97,10 @@
 	
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartins?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsmateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+
 								</ul>
 							 </li>
 							 <li class="btn-success">
@@ -104,6 +116,10 @@
 	
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluairoosevelt?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltmateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+
 								</ul>
 							 </li>
 							 <li class="btn-success">
@@ -119,6 +135,10 @@
 	
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitibery?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberymateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+
 								</ul>
 							 </li>
 							 <li class="btn-success">
@@ -134,6 +154,52 @@
 	
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbimateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> São Jorge</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/newssaojorge?id=<%=id[i].id_usuario %>">News</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacientesaojorge?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/respiracaosaojorge?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicosaojorge?id=<%=id[i].id_usuario %>">Historico</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorge?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+	
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Pampulha</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/newspampulha?id=<%=id[i].id_usuario %>">News</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacientepampulha?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/respiracaopampulha?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicopampulha?id=<%=id[i].id_usuario %>">Historico</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulha?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+	
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Cim</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/newscim?id=<%=id[i].id_usuario %>">NEWs</a></li>
+							
+									<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacientecim?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+							
+									<li class="btn-success"><a class="btn   btn-sm" href="/respiracaocim?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
+							
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicocim?id=<%=id[i].id_usuario %>">Historico</a></li>
 								</ul>
 							 </li>
 							 <li class="btn-success">
@@ -151,6 +217,188 @@
 		
 										<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
 		
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+												
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+									
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Administrativo</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></li>
+	
+								</ul>
+							 </li>
+							 
+							 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+							 <% } %>
+						<% if(id[i].usuario== 'cida'){%>
+							<li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Planalto</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm"  href="/newsplanalto?id=<%=id[i].id_usuario %>">News</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacienteplanalto?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/respiracaoplanalto?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicoplanalto?id=<%=id[i].id_usuario %>">Historico</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanalto?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+									
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltomateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Luizote</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/newsluizote?id=<%=id[i].id_usuario %>">News</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacienteluizote?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/respiracaoluizote?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicoluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizote?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+									
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizotemateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Martins</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/newsmartins?id=<%=id[i].id_usuario %>">News</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacientemartins?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/respiracaomartins?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicomartins?id=<%=id[i].id_usuario %>">Historico</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartins?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsmateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Roosevelt</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/newsroosevelt?id=<%=id[i].id_usuario %>">News</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacienteroosevelt?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/respiracaoroosevelt?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicoroosevelt?id=<%=id[i].id_usuario %>">Historico</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluairoosevelt?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltmateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Tibery</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/newstibery?id=<%=id[i].id_usuario %>">News</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacientetibery?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/respiracaotibery?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicotibery?id=<%=id[i].id_usuario %>">Historico</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitibery?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberymateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Morumbi</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/newsmorumbi?id=<%=id[i].id_usuario %>">News</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacientemorumbi?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/respiracaomorumbi?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicomorumbi?id=<%=id[i].id_usuario %>">Historico</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+	
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbimateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Regulação</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio Sala de Emergência Covid</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria Covid</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+												
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+									
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 								</ul>
 							 </li>
 							 <li class="btn-success">
@@ -185,6 +433,10 @@
 											<li class="btn-success"><a class="btn   btn-sm" href="/historicoplanalto?id=<%=id[i].id_usuario %>">Historico</a></li>
 		
 											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanalto?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+											
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltomateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+		
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
 		
 										</ul>
 									 </li>
@@ -200,7 +452,11 @@
 											<li class="btn-success"><a class="btn   btn-sm" href="/historicoluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
 			
 											<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizote?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
-			
+											
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizotemateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+		
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+		
 										</ul>
 									 </li>
 									 <li class="btn-success">
@@ -216,6 +472,10 @@
 			
 											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartins?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 			
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsmateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+		
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+		
 										</ul>
 									 </li>
 									 <li class="btn-success">
@@ -231,6 +491,10 @@
 			
 											<li class="btn-success"><a class="btn   btn-sm" href="/centraluairoosevelt?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 			
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltmateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+		
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+		
 										</ul>
 									 </li>
 									 <li class="btn-success">
@@ -246,6 +510,10 @@
 			
 											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitibery?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 			
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberymateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+		
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+		
 										</ul>
 									 </li>
 									 <li class="btn-success">
@@ -261,6 +529,10 @@
 			
 											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 			
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbimateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+		
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+		
 										</ul>
 									 </li>
 									 <li class="btn-success">
@@ -278,6 +550,21 @@
 				
 												<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
 				
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+														
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+											
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 										</ul>
 									 </li>
 									 <li class="btn-success">
@@ -298,177 +585,6 @@
 										</ul>
 									 </li>
 									 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
-									<% } %>
-							<% if(id[i].usuario== 'admin'){%>
-								<li class="btn-success">
-									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Planalto</a>
-									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm"  href="/newsplanalto?id=<%=id[i].id_usuario %>">News</a></li>
-	
-										<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacienteplanalto?id=<%=id[i].id_usuario %>">Pacientes</a></li>
-	
-										<li class="btn-success"><a class="btn   btn-sm" href="/respiracaoplanalto?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
-	
-										<li class="btn-success"><a class="btn   btn-sm" href="/historicoplanalto?id=<%=id[i].id_usuario %>">Historico</a></li>
-	
-										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanalto?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
-	
-									</ul>
-								 </li>
-								 <li class="btn-success">
-									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Luizote</a>
-									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/newsluizote?id=<%=id[i].id_usuario %>">News</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacienteluizote?id=<%=id[i].id_usuario %>">Pacientes</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/respiracaoluizote?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/historicoluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizote?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
-		
-									</ul>
-								 </li>
-								 <li class="btn-success">
-									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Martins</a>
-									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/newsmartins?id=<%=id[i].id_usuario %>">News</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacientemartins?id=<%=id[i].id_usuario %>">Pacientes</a></li>
-	
-										<li class="btn-success"><a class="btn   btn-sm" href="/respiracaomartins?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/historicomartins?id=<%=id[i].id_usuario %>">Historico</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartins?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
-		
-									</ul>
-								 </li>
-								 <li class="btn-success">
-									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Roosevelt</a>
-									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/newsroosevelt?id=<%=id[i].id_usuario %>">News</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacienteroosevelt?id=<%=id[i].id_usuario %>">Pacientes</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/respiracaoroosevelt?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/historicoroosevelt?id=<%=id[i].id_usuario %>">Historico</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/centraluairoosevelt?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
-		
-									</ul>
-								 </li>
-								 <li class="btn-success">
-									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Tibery</a>
-									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/newstibery?id=<%=id[i].id_usuario %>">News</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacientetibery?id=<%=id[i].id_usuario %>">Pacientes</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/respiracaotibery?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/historicotibery?id=<%=id[i].id_usuario %>">Historico</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitibery?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
-		
-									</ul>
-								 </li>
-								 <li class="btn-success">
-									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Morumbi</a>
-									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/newsmorumbi?id=<%=id[i].id_usuario %>">News</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacientemorumbi?id=<%=id[i].id_usuario %>">Pacientes</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/respiracaomorumbi?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/historicomorumbi?id=<%=id[i].id_usuario %>">Historico</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
-		
-									</ul>
-								 </li>
-								 <li class="btn-success">
-									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> São Jorge</a>
-									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/newssaojorge?id=<%=id[i].id_usuario %>">News</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacientesaojorge?id=<%=id[i].id_usuario %>">Pacientes</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/respiracaosaojorge?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/historicosaojorge?id=<%=id[i].id_usuario %>">Historico</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorge?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
-		
-									</ul>
-								 </li>
-								 <li class="btn-success">
-									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Pampulha</a>
-									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/newspampulha?id=<%=id[i].id_usuario %>">News</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacientepampulha?id=<%=id[i].id_usuario %>">Pacientes</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/respiracaopampulha?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/historicopampulha?id=<%=id[i].id_usuario %>">Historico</a></li>
-		
-										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulha?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
-		
-									</ul>
-								 </li>
-								 <li class="btn-success">
-									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Cim</a>
-									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/newscim?id=<%=id[i].id_usuario %>">NEWs</a></li>
-								
-										<li class="btn-success"><a class="btn   btn-sm" href="/cadastrarpacientecim?id=<%=id[i].id_usuario %>">Pacientes</a></li>
-								
-										<li class="btn-success"><a class="btn   btn-sm" href="/respiracaocim?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
-								
-										<li class="btn-success"><a class="btn   btn-sm" href="/historicocim?id=<%=id[i].id_usuario %>">Historico</a></li>
-									</ul>
-								 </li>
-								 <li class="btn-success">
-									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Regulação</a>
-									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio Sala de Emergência Covid</a></li>
-			
-											<li class="btn-success"><a class="btn   btn-sm" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria Covid</a></li>
-			
-											<li class="btn-success"><a class="btn   btn-sm" href="/centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></li>
-			
-											<li class="btn-success"><a class="btn   btn-sm" href="/centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></li>
-			
-											<li class="btn-success"><a class="btn   btn-sm" href="/centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></li>
-			
-											<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
-			
-									</ul>
-								 </li>
-								 <li class="btn-success">
-									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Administrativo</a>
-									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></li>
-			
-											<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></li>
-			
-											<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></li>
-			
-											<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></li>
-			
-											<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></li>
-			
-											<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></li>
-		
-									</ul>
-								 </li>
-								 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
-								
-								
 								<% } %>
 								<% if(id[i].usuario== 'sheylla'){%>
 									<li class="btn-success">
@@ -483,6 +599,10 @@
 											<li class="btn-success"><a class="btn   btn-sm" href="/historicoplanalto?id=<%=id[i].id_usuario %>">Historico</a></li>
 		
 											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanalto?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+											
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltomateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+		
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
 		
 										</ul>
 									 </li>
@@ -498,7 +618,11 @@
 											<li class="btn-success"><a class="btn   btn-sm" href="/historicoluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
 			
 											<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizote?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
-			
+											
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizotemateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+		
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+		
 										</ul>
 									 </li>
 									 <li class="btn-success">
@@ -514,6 +638,10 @@
 			
 											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartins?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 			
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsmateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+		
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+		
 										</ul>
 									 </li>
 									 <li class="btn-success">
@@ -529,6 +657,10 @@
 			
 											<li class="btn-success"><a class="btn   btn-sm" href="/centraluairoosevelt?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 			
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltmateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+		
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+		
 										</ul>
 									 </li>
 									 <li class="btn-success">
@@ -544,6 +676,10 @@
 			
 											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitibery?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 			
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberymateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+		
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+		
 										</ul>
 									 </li>
 									 <li class="btn-success">
@@ -559,6 +695,10 @@
 			
 											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 			
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbimateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+		
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
+		
 										</ul>
 									 </li>
 									 <li class="btn-success">
@@ -576,6 +716,21 @@
 				
 												<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
 				
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+														
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+											
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 										</ul>
 									 </li>
 									 <li class="btn-success">
@@ -613,7 +768,6 @@
 			
 											</ul>
 										 </li>
-										
 										 <li class="btn-success">
 											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Regulação</a>
 											<ul class="dropdown-menu">
@@ -629,6 +783,21 @@
 					
 													<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
 					
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+															
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+													
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+													
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+													
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+													
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+												
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+													
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 											</ul>
 										 </li>
 										 <li class="btn-success">
@@ -681,6 +850,21 @@
 		
 										<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
 		
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+												
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+									
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 								</ul>
 							 </li>
 							 <li class="btn-success">
@@ -733,6 +917,21 @@
 			
 											<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
 			
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+													
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+											
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+											
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+											
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+											
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+										
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+											
+											<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 									</ul>
 								 </li>
 								 <li class="btn-success">
@@ -785,6 +984,21 @@
 				
 												<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
 				
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+														
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+											
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+												
+												<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 										</ul>
 									 </li>
 									 <li class="btn-success">
@@ -837,6 +1051,21 @@
 					
 													<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
 					
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+															
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+													
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+													
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+													
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+													
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+												
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+													
+													<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 											</ul>
 										 </li>
 										 <li class="btn-success">
@@ -889,6 +1118,21 @@
 						
 														<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
 						
+														<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+																
+														<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+														
+														<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+														
+														<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+														
+														<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+														
+														<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+													
+														<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+														
+														<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 												</ul>
 											 </li>
 											 <li class="btn-success">
@@ -955,6 +1199,21 @@
 							
 															<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
 							
+															<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+																	
+															<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+															
+															<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+															
+															<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+															
+															<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+															
+															<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+														
+															<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+															
+															<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 													</ul>
 												 </li>
 												 <li class="btn-success">
@@ -1022,6 +1281,21 @@
 								
 																<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
 								
+																<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+																		
+																<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+																
+																<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+																
+																<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+																
+																<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+																
+																<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+															
+																<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+																
+																<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 														</ul>
 													 </li>
 													 <li class="btn-success">
@@ -1092,20 +1366,35 @@
 															</ul>
 														 </li>
 														 <li class="btn-success">
-															<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Administrativo</a>
+															<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Regulação</a>
 															<ul class="dropdown-menu">
-																<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></li>
+																<li class="btn-success"><a class="btn   btn-sm" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio Sala de Emergência Covid</a></li>
 									
-																	<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></li>
+																	<li class="btn-success"><a class="btn   btn-sm" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria Covid</a></li>
 									
-																	<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></li>
+																	<li class="btn-success"><a class="btn   btn-sm" href="/centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></li>
 									
-																	<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></li>
+																	<li class="btn-success"><a class="btn   btn-sm" href="/centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></li>
 									
-																	<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></li>
+																	<li class="btn-success"><a class="btn   btn-sm" href="/centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></li>
 									
-																	<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></li>
-								
+																	<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
+									
+																	<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+																			
+																	<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+																	
+																	<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+																	
+																	<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+																	
+																	<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+																	
+																	<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+																
+																	<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+																	
+																	<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 															</ul>
 														 </li>
 														 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
@@ -1168,6 +1457,21 @@
 										
 																		<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
 										
+																		<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+																				
+																		<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+																		
+																		<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+																		
+																		<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+																		
+																		<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+																		
+																		<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+																	
+																		<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+																		
+																		<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 																</ul>
 															 </li>
 															 <li class="btn-success">
@@ -1249,6 +1553,21 @@
 											
 																			<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
 											
+																			<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+																					
+																			<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+																			
+																			<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+																			
+																			<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+																			
+																			<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+																			
+																			<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+																		
+																			<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+																			
+																			<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
 																	</ul>
 																 </li>
 																 <li class="btn-success">
@@ -1279,6 +1598,8 @@
 								<li class="btn-success"><a class="btn   btn-sm" href="/respiracaoplanalto?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/historicoplanalto?id=<%=id[i].id_usuario %>">Historico</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanalto?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltomateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
 							<% if(id[i].unidade==2){%>
@@ -1287,6 +1608,8 @@
 								<li class="btn-success"><a class="btn   btn-sm" href="/respiracaoluizote?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/historicoluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizote?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizotemateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
 							<% if(id[i].unidade==3){%>
@@ -1295,6 +1618,8 @@
 								<li class="btn-success"><a class="btn   btn-sm" href="/respiracaomartins?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/historicomartins?id=<%=id[i].id_usuario %>">Historico</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartins?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsmateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
 							<% if(id[i].unidade==4){%>
@@ -1303,6 +1628,8 @@
 								<li class="btn-success"><a class="btn   btn-sm" href="/respiracaoroosevelt?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/historicoroosevelt?id=<%=id[i].id_usuario %>">Historico</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/centraluairoosevelt?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltmateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
 							<% if(id[i].unidade==5){%>
@@ -1311,6 +1638,8 @@
 								<li class="btn-success"><a class="btn   btn-sm" href="/respiracaomorumbi?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/historicomorumbi?id=<%=id[i].id_usuario %>">Historico</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbi?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbimateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
 							<% if(id[i].unidade==6){%>
@@ -1319,6 +1648,8 @@
 								<li class="btn-success"><a class="btn   btn-sm" href="/respiracaotibery?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/historicotibery?id=<%=id[i].id_usuario %>">Historico</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitibery?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberymateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
 							<% if(id[i].unidade==7){%>
@@ -1327,6 +1658,8 @@
 								<li class="btn-success"><a class="btn   btn-sm" href="/respiracaosaojorge?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/historicosaojorge?id=<%=id[i].id_usuario %>">Historico</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorge?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgemateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
 							<% if(id[i].unidade==8){%>
@@ -1335,6 +1668,8 @@
 								<li class="btn-success"><a class="btn   btn-sm" href="/respiracaopampulha?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/historicopampulha?id=<%=id[i].id_usuario %>">Historico</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulha?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulhamateriais?id=<%=id[i].id_usuario %>">Central de Materiais</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais</a></li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
 							<% if(id[i].unidade==9){%>
@@ -1435,11 +1770,38 @@
 				<% if(id.length > 0) { %>
 					<% for(var i = 0; i < id.length; i++) {%>
 						<% if(id[i].operador==1){%>
-								<li class="btn-success"><a class="btn   btn-sm" href="/relatoriouti?id=<%=id[i].id_usuario %>">Sala Emergência Covid</a></li>
-								<li class="btn-success"><a class="btn   btn-sm" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Enfermaria Covid</a></li>
-								<li class="btn-success"><a class="btn   btn-sm" href="/centralenfermaria?id=<%=id[i].id_usuario %>">Central de Leitos Enfermaria</a></li>
-								<li class="btn-success"><a class="btn   btn-sm" href="/centraluti?id=<%=id[i].id_usuario %>">Central de Leitos UTI</a></li>
-								<li class="btn-success"><a class="btn   btn-sm" href="/centraluai?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+							<li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Regulação</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio Sala de Emergência Covid</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria Covid</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/centralenfermaria?id=<%=id[i].id_usuario %>">Central de leitos Enfermaria</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluti?id=<%=id[i].id_usuario %>">Central de leitos UTI</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluai?id=<%=id[i].id_usuario %>">Central de Leitos UAI</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorionull?id=<%=id[i].id_usuario %>">Relatorio aguardando atualização de dados</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+												
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+									
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>			
+								</ul>
+							 </li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 				<% } %>
 					<% } %>	

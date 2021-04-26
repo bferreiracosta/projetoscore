@@ -220,4 +220,15 @@ module.exports = function(application) {
 		}
 		
 	});
+	application.post('/updatedispositivoroosevelt', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.regulacao.controllerroosevelt.updatedispositivo(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 };

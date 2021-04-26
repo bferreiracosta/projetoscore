@@ -51,10 +51,10 @@ module.exports = function(application){
 		
 	});
 
-	application.get('/centraluai', function(req, res){
+	application.get('/centraluaiplanalto', function(req, res){
 		if(req.session.loggedin){
 			
-			application.app.controllers.regulacao.controlleradminregulacao.centraluai(application, req, res);
+			application.app.controllers.regulacao.controlleradminregulacao.centraluaiplanalto(application, req, res);
 		}
 		else{
 			res.send("Faça login!!");
@@ -63,10 +63,10 @@ module.exports = function(application){
 		
 	});
 
-	application.get('/centraluaiplanalto', function(req, res){
+	application.get('/centraluaiplanaltorelatorio', function(req, res){
 		if(req.session.loggedin){
 			
-			application.app.controllers.regulacao.controlleradminregulacao.centraluaiplanalto(application, req, res);
+			application.app.controllers.regulacao.controlleradminregulacao.centraluaiplanaltorelatorio(application, req, res);
 		}
 		else{
 			res.send("Faça login!!");
@@ -85,10 +85,33 @@ module.exports = function(application){
 		}
 		
 	});
+
+	application.get('/centraluailuizoterelatorio', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.regulacao.controlleradminregulacao.centraluailuizoterelatorio(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 	application.get('/centraluaimartins', function(req, res){
 		if(req.session.loggedin){
 			
 			application.app.controllers.regulacao.controlleradminregulacao.centraluaimartins(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+	application.get('/centraluaimartinsrelatorio', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.regulacao.controlleradminregulacao.centraluaimartinsrelatorio(application, req, res);
 		}
 		else{
 			res.send("Faça login!!");
@@ -107,6 +130,19 @@ module.exports = function(application){
 		}
 		
 	});
+
+	application.get('/centraluairooseveltrelatorio', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.regulacao.controlleradminregulacao.centraluairooseveltrelatorio(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
 	application.get('/centraluaitibery', function(req, res){
 		if(req.session.loggedin){
 			
@@ -118,6 +154,19 @@ module.exports = function(application){
 		}
 		
 	});
+
+	application.get('/centraluaitiberyrelatorio', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.regulacao.controlleradminregulacao.centraluaitiberyrelatorio(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
 	application.get('/centraluaimorumbi', function(req, res){
 		if(req.session.loggedin){
 			
@@ -129,6 +178,19 @@ module.exports = function(application){
 		}
 		
 	});
+
+	application.get('/centraluaimorumbirelatorio', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.regulacao.controlleradminregulacao.centraluaimorumbirelatorio(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
 	application.get('/centraluaisaojorge', function(req, res){
 		if(req.session.loggedin){
 			
@@ -140,10 +202,35 @@ module.exports = function(application){
 		}
 		
 	});
+
+	application.get('/centraluaisaojorgerelatorio', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.regulacao.controlleradminregulacao.centraluaisaojorgerelatorio(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
 	application.get('/centraluaipampulha', function(req, res){
 		if(req.session.loggedin){
 			
 			application.app.controllers.regulacao.controlleradminregulacao.centraluaipampulha(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
+	application.get('/centraluaipampulharelatorio', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.regulacao.controlleradminregulacao.centraluaipampulharelatorio(application, req, res);
 		}
 		else{
 			res.send("Faça login!!");
@@ -325,6 +412,7 @@ module.exports = function(application){
 		
 	});
 
+
 	application.get('/centralcim', function(req, res){
 		if(req.session.loggedin){
 			
@@ -353,6 +441,194 @@ module.exports = function(application){
 			if(req.session.loggedin){
 				
 				application.app.controllers.regulacao.controlleradminregulacao.centralhmu(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+
+		application.get('/centraluaiplanaltomateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluaiplanaltomateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+	
+		application.get('/centraluaiplanaltorelatoriomateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluaiplanaltorelatoriomateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+		application.get('/centraluailuizotemateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluailuizotemateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+	
+		application.get('/centraluailuizoterelatoriomateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluailuizoterelatoriomateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+		application.get('/centraluaimartinsmateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluaimartinsmateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+		application.get('/centraluaimartinsrelatoriomateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluaimartinsrelatoriomateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+		application.get('/centraluairooseveltmateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluairooseveltmateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+	
+		application.get('/centraluairooseveltrelatoriomateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluairooseveltrelatoriomateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+	
+		application.get('/centraluaitiberymateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluaitiberymateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+	
+		application.get('/centraluaitiberyrelatoriomateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluaitiberyrelatoriomateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+	
+		application.get('/centraluaimorumbimateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluaimorumbimateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+	
+		application.get('/centraluaimorumbirelatoriomateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluaimorumbirelatoriomateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+	
+		application.get('/centraluaisaojorgemateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluaisaojorgemateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+	
+		application.get('/centraluaisaojorgerelatoriomateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluaisaojorgerelatoriomateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+	
+		application.get('/centraluaipampulhamateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluaipampulhamateriais(application, req, res);
+			}
+			else{
+				res.send("Faça login!!");
+				res.redirect('/')
+			}
+			
+		});
+	
+		application.get('/centraluaipampulharelatoriomateriais', function(req, res){
+			if(req.session.loggedin){
+				
+				application.app.controllers.regulacao.controlleradminregulacao.centraluaipampulharelatoriomateriais(application, req, res);
 			}
 			else{
 				res.send("Faça login!!");

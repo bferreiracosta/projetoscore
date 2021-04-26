@@ -17,7 +17,9 @@
                         <th>Nome</th>
                         <th>Idade</th>
                         <th>Diagnóstico</th>
+                        <th>Unidade</th>
                         <th>Unidade de Referência</th>
+                        <th>Prioridade</th>
                         <th></th>
                     </tr>
 					</thead>
@@ -31,7 +33,9 @@
                             <td><%=mental[j].paciente %></td>
                             <td><%=mental[j].idade %></td>
                             <td><%=mental[j].diagnostico %></td>
+                            <td><%=mental[j].unidade %></td>
                             <td><%=mental[j].referencia %></td>
+                            <td><%=mental[j].soma %></td>
                             <td>
                                 <a href="" onclick="setaDadosModal('<%=mental[j].id_paciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Saida</a>
                             </td>
@@ -74,6 +78,7 @@
                                 </select>
                                 <input type="hidden" name="campo" id="campo">
 								<input type="hidden" name="campo2" id="campo2">
+                                <input type="hidden" name="profissional" id="profissional" value="<%=id[i].profissional%>">
                                 <input type="hidden" name="baixa" id="baixa">
                                 <input type="hidden" name="negativo" id="negativo">
                               </div>
@@ -112,9 +117,10 @@
 $(document).ready(function() {
     $('#mytable').DataTable( {
         dom: 'Bfrtip',
-header: false,
-responsive: true,
-"scrollX": true,
+        order: ([ 7, 'desc']),
+        header: false,
+        responsive: true,
+        "scrollX": true,
         pageLength: 50,
         buttons: [       
             {

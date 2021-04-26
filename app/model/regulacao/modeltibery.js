@@ -26,6 +26,14 @@ modeltibery.prototype.updateresp = function(idpaciente,vazaoDormonid,vazaoFentan
 	this._conection.query('update pacientes set vazaoDormonid="'+vazaoDormonid+'",vazaoFentanil="'+vazaoFentanil+'",vazaoRocuronio="'+vazaoRocuronio+'",vazaoPropofol="'+vazaoPropofol+'",vazaonora="'+vazaonora+'",vazaoadre="'+vazaoadre+'",vazaobica="'+vazaobica+'", profissional = "'+profissional+'",  dispositivo = "'+dispositivo+'", fluxo_de_o2 = "'+fluxoo2+'", droga = "'+droga+'", fio2 = "'+fio2+'", peep = "'+peep+'", sedacao = "'+sedacao+'", glasgow = "'+glasgow+'", acomodacao = "'+leito+'", nora = "'+nora+'", adrenalina = "'+adre+'",bicarbonato = "'+bica+'", dormonid = "'+dormonid+'", fentanil = "'+fentanil+'", rocuronio = "'+rocuronio+'", propofol = "'+propofol+'", bic = "'+bic+'" where id_paciente = ' + idpaciente, callback);
 }
 
+modeltibery.prototype.updateleitostibery = function(idleitos,macaparada, senccv,sencmv,ca9ccv,ca9cmv,ca10ccv,ca10cmv,ca18ccv,ca18cmv,ca19ccv,ca19cmv,ca20ccv,ca20cmv,cfccv,cfcmv,e1ccv,e1cmv,e2ccv,e2cmv,e3ccv,e3cmv,e4ccv,e4cmv,aeccv,aecmv,isccv,iscmv, slcccv, slccmv,ec1ccv,ec1cmv,ec2ccv,ec2cmv,occcv,occmv,dataatualizacao,horaatualizacao, callback){
+	
+}
+modeltibery.prototype.updatedispositivo = function(vmu,vmd,mu,md,bicu,bicd,data, hora, callback){
+	
+	this._conection.query('update dispositivotibery set dataatualizacao = "'+data+'", horaatualizacao="'+hora+'", vmu = "'+vmu+'", vmd = "'+vmd+'",mu = "'+mu+'",md = "'+md+'",bicu = "'+bicu+'",bicd = "'+bicd+'" where id = 1', callback);
+}
+
 modeltibery.prototype.baixa = function(idpaciente,baixa,data, callback){
 
 	this._conection.query('update pacientes set   baixa = "'+baixa+'", databaixa = "'+data+'" where id_paciente = ' + idpaciente, callback);
@@ -45,10 +53,6 @@ modeltibery.prototype.buscarpacienteid = function(idpaciente, unidade, callback)
 	this._conection.query('select * from pacientes where unidade = "'+unidade+'" and id_paciente = ' + idpaciente.id, callback);
 }
 
-modeltibery.prototype.updateleitostibery = function(idleitos,enffem,enfmasc,leitosdispo,macasdispo,se, callback){
-	
-	this._conection.query('update leitosdisponivel set macastibedisponivel = "'+macasdispo+'", leitostibe = "'+leitosdispo+'",enftibefem = "'+enffem+'",enftibemasc = "'+enfmasc+'",setibe = "'+se+'" where idleitos = ' + idleitos, callback);
-}
 
 module.exports = function(){
 	return modeltibery;

@@ -26,6 +26,15 @@ modelplanalto.prototype.updateresp = function(idpaciente,vazaoDormonid,vazaoFent
 	this._conection.query('update pacientes set vazaoDormonid="'+vazaoDormonid+'",vazaoFentanil="'+vazaoFentanil+'",vazaoRocuronio="'+vazaoRocuronio+'",vazaoPropofol="'+vazaoPropofol+'",vazaonora="'+vazaonora+'",vazaoadre="'+vazaoadre+'",vazaobica="'+vazaobica+'", profissional = "'+profissional+'",  dispositivo = "'+dispositivo+'", fluxo_de_o2 = "'+fluxoo2+'", droga = "'+droga+'", fio2 = "'+fio2+'", peep = "'+peep+'", sedacao = "'+sedacao+'", glasgow = "'+glasgow+'", acomodacao = "'+leito+'", nora = "'+nora+'", adrenalina = "'+adre+'",bicarbonato = "'+bica+'", dormonid = "'+dormonid+'", fentanil = "'+fentanil+'", rocuronio = "'+rocuronio+'", propofol = "'+propofol+'", bic = "'+bic+'" where id_paciente = ' + idpaciente, callback);
 }
 
+modelplanalto.prototype.updateleitosplanalto = function(idleitos,senccv,sencmv,e1ccv,e1cmv,seccv, secmv,e3ccv,e3cmv,e4ccv,e4cmv,pediatriabcv,isccv,iscmv,emccv,emcmv,eaccv,eacmv,saccv,sacmv,macasccv,macascmv,macaparada,dataatualizacao,horaatualizacao, callback){
+	
+	this._conection.query('update centralleitosplanalto set  senccv ="'+senccv+'",sencmv="'+sencmv+'",e1ccv="'+e1ccv+'",e1cmv="'+e1cmv+'",seccv="'+seccv+'",secmv="'+secmv+'",e3ccv="'+e3ccv+'",e3cmv="'+e3cmv+'",e4ccv="'+e4ccv+'",e4cmv="'+e4cmv+'",isccv="'+isccv+'",iscmv="'+iscmv+'",pediatriabcv="'+pediatriabcv+'",emccv="'+emccv+'",emcmv="'+emcmv+'",eaccv="'+eaccv+'",eacmv="'+eacmv+'",saccv="'+saccv+'",sacmv="'+sacmv+'",macasccv="'+macasccv+'",macascmv="'+macascmv+'",macaparada="'+macaparada+'",dataatualizacao="'+dataatualizacao+'",horaatualizacao="'+horaatualizacao+'" where id = ' + idleitos, callback);
+}
+modelplanalto.prototype.updatedispositivo = function(vmu,vmd,mu,md,bicu,bicd,data, hora, callback){
+	
+	this._conection.query('update dispositivoplanalto set dataatualizacao = "'+data+'", horaatualizacao="'+hora+'", vmu = "'+vmu+'", vmd = "'+vmd+'",mu = "'+mu+'",md = "'+md+'",bicu = "'+bicu+'",bicd = "'+bicd+'" where id = 1', callback);
+}
+
 modelplanalto.prototype.baixa = function(idpaciente,baixa,data, callback){
 
 	this._conection.query('update pacientes set   baixa = "'+baixa+'", databaixa = "'+data+'" where id_paciente = ' + idpaciente, callback);
@@ -44,11 +53,7 @@ modelplanalto.prototype.historico = function(unidade, callback){
 modelplanalto.prototype.buscarpacienteid = function(idpaciente, unidade, callback){
 	this._conection.query('select * from pacientes where unidade = "'+unidade+'" and id_paciente = ' + idpaciente.id, callback);
 }
-modelplanalto.prototype.updateleitosplanalto = function(idleitos,enffem,enfmasc,leitosdispo,macasdispo,se, callback){
-	
-	this._conection.query('update leitosdisponivel set macaspladisponivel = "'+macasdispo+'", leitospla = "'+leitosdispo+'",enfplafem = "'+enffem+'",enfplamasc = "'+enfmasc+'",sepla = "'+se+'" where idleitos = ' + idleitos, callback);
 
-}
 
 
 module.exports = function(){

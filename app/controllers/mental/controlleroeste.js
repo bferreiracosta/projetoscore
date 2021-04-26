@@ -5,12 +5,12 @@ module.exports.baixahospitalidade= function(application, req, res){
 	var data = req.body.data;
 	var motivo = req.body.negativo;
 	var unidade = 'Oeste';
-	
+	var profissional = req.body.profissional;
 	var modeloeste = new application.app.model.mental.modeloeste(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modeloeste.baixahospitalidade(idpaciente,motivo,data, function(error, result){
+		modeloeste.baixahospitalidade(idpaciente,motivo,data,profissional, function(error, result){
 			modeloeste.buscarpaciente(unidade, function(error, resultado){
 				res.render("mental/CapsOeste/cadastrarpacienteoeste", {mental : resultado, id : resultados});
 			});
@@ -91,13 +91,22 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var data =  req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'Oeste';
-
-	
+	var tratamento = req.body.tratamento
+	var risco= req.body.risco
+	var comportamento= req.body.comportamento
+	var exposicao= req.body.exposicao
+	var autonegligencia= req.body.autonegligencia
+	var dependencia= req.body.dependencia
+	var terapeutico= req.body.terapeutico
+	var social= req.body.social
+	var soma = req.body.soma;
+	var dataatu = req.body.dataatu;
+	var horas = req.body.horas;
 	var modeloeste = new application.app.model.mental.modeloeste(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modeloeste.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade, data, function(error, result){
+		modeloeste.cadastrarpaciente(dataatu, horas,prt,paciente, idade,diagnostico,referencia,unidade,data,tratamento,risco,comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma, function(error, result){
 			modeloeste.buscarpaciente(unidade, function(error, resultado){
 				res.render("mental/CapsOeste/cadastrarpacienteoeste", {mental : resultado, id : resultados});
 			});
@@ -114,12 +123,21 @@ module.exports.update= function(application, req, res){
 	var referencia = req.body.referencia;
 	var id = req.body.idusuario;
 	var unidade = 'Oeste';
-		
+	var tratamento = req.body.tratamento
+	var risco= req.body.risco
+	var comportamento= req.body.comportamento
+	var exposicao= req.body.exposicao
+	var autonegligencia= req.body.autonegligencia
+	var dependencia= req.body.dependencia
+	var terapeutico= req.body.terapeutico
+	var social= req.body.social
+	var soma = req.body.soma;
 	var modeloeste = new application.app.model.mental.modeloeste(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
-
+	var dataatu = req.body.dataatu;
+	var horas = req.body.horas;
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modeloeste.update(idpaciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
+		modeloeste.update(idpaciente,dataatu, horas,prt,paciente, idade,diagnostico,referencia,unidade,tratamento,risco,comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma,  function(error, result){
 			modeloeste.buscarpaciente(unidade, function(error, resultado){
 				res.render("mental/CapsOeste/cadastrarpacienteoeste", {mental : resultado, id : resultados});
 			});

@@ -244,4 +244,15 @@ module.exports = function(application) {
 		}
 		
 	});
+	application.post('/updatedispositivoluizote', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.regulacao.controllerluizote.updatedispositivo(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 };
