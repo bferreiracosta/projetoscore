@@ -3,7 +3,7 @@
     
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
-        <table class="table table-striped" id="mytable">
+        <table class="table table-striped" style="width: 100%;" id="mytable">
             <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
             <thead>
             <tr>
@@ -323,30 +323,51 @@
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
-$(document).ready(function() {
-$('#mytable').DataTable( {
-dom: 'Bfrtip',
-order: false,
-pageLength: 50,
-buttons: [{
-    extend:'copyHtml5',
-    header: false
-    },
-    {
-     extend:'excelHtml5',
-     header: false
-    },
-    {
-    extend:'pdfHtml5',
-    header: false
-    },
-    {
-     extend:'print',
-     header: false
-    }
-],
-select: true
-} );
+ $(document).ready(function() {
+        $('#mytable').DataTable( {
+            dom: 'Bfrtip',
+            "scrollX": true,
+            order: ([ 3, 'asc']),
+            
+        pageLength: 50,
+        buttons: [       
+            {
+                "extend": "copyHtml5",
+                "text": "COPIAR",
+                header: false
+            },          
+            {
+                "extend": "pdf",
+                "text": "PDF",
+                header: false
+            },
+            {
+                "extend": "excelHtml5",
+                "text": "EXCEL",
+                header: false
+            },
+            {
+                "extend": "print",
+                "text": "IMPRIMIR",
+                header: false
+            }
+        ],language: {
+            buttons: {
+                copyTitle: 'Copiado para área de transferência',
+                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+                copySuccess: {
+                    _: '%d linhas copiadas',
+                    1: '1 linha copiada'
+                }
+            },
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Próximo"
+            },
+            "search": "Pesquisar:"
+        },
+        select: true
+    } );
 } );
 
 $('#mytable tbody tr').each(function(i){
