@@ -12,6 +12,17 @@ module.exports = function(application) {
 		
 	});
 	
+	application.get('/relatoriopacientemartins', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.regulacao.controllermartins.relatoriounidade(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+
 	application.get('/newsmartins', function(req, res){
 		if(req.session.loggedin){
 			

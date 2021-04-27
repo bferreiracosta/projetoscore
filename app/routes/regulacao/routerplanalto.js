@@ -12,6 +12,17 @@ module.exports = function(application) {
 		
 	});
 	
+	application.get('/relatoriopacienteplanalto', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.regulacao.controllerplanalto.relatoriounidade(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+	
 	application.get('/newsplanalto', function(req, res){
 		if(req.session.loggedin){
 			

@@ -12,6 +12,17 @@ module.exports = function(application) {
 		
 	});
 	
+	application.get('/relatoriopacientetibery', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.regulacao.controllertibery.relatoriounidade(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+	
 	application.get('/newstibery', function(req, res){
 		if(req.session.loggedin){
 			

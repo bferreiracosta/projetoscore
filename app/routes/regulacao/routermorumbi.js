@@ -12,6 +12,17 @@ module.exports = function(application) {
 		
 	});
 	
+	application.get('/relatoriopacientemorumbi', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.regulacao.controllermorumbi.relatoriounidade(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+	
 	application.get('/newsmorumbi', function(req, res){
 		if(req.session.loggedin){
 			

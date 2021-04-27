@@ -12,6 +12,17 @@ module.exports = function(application) {
 		
 	});
 	
+	application.get('/relatoriopacientepampulha', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.regulacao.controllerpampulha.relatoriounidade(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+	
 	application.get('/newspampulha', function(req, res){
 		if(req.session.loggedin){
 			

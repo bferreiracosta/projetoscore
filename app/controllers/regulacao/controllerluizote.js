@@ -13,6 +13,23 @@ module.exports.cadastrar= function(application, req, res){
 		});
 	});	
 }
+
+module.exports.relatoriounidade= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.regulacao.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscarpaciente(unidade, function(error, resultado){
+			res.render("regulacao/relatoriopacienteluizote", {paciente : resultado, id : result});
+		});
+	});	
+}
+
 module.exports.news= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);

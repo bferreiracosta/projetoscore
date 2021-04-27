@@ -12,6 +12,17 @@ module.exports = function(application) {
 		
 	});
 	
+	application.get('/relatoriopacientesaojorge', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.regulacao.controllersaojorge.relatoriounidade(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
+	
 	application.get('/newssaojorge', function(req, res){
 		if(req.session.loggedin){
 			

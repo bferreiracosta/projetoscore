@@ -13,6 +13,22 @@ module.exports.cadastrar= function(application, req, res){
 		});
 	});	
 }
+
+module.exports.relatoriounidade= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.regulacao.modeltibery(application);
+
+	var unidade = 'Tibery';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modeltibery.buscarpaciente(unidade, function(error, resultado){
+			res.render("regulacao/relatoriopacientetibery", {paciente : resultado, id : result});
+		});
+	});	
+}
 module.exports.news= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);

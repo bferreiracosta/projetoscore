@@ -11,6 +11,17 @@ module.exports = function(application) {
 		}
 		
 	});
+
+	application.get('/relatoriopacienteluizote', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.regulacao.controllerluizote.relatoriounidade(application, req, res);
+		}
+		else{
+			res.send("Faça login!!");
+			res.redirect('/')
+		}
+		
+	});
 	
 	application.get('/newsluizote', function(req, res){
 		if(req.session.loggedin){

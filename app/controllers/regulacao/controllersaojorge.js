@@ -13,6 +13,22 @@ module.exports.cadastrar= function(application, req, res){
 		});
 	});	
 }
+
+module.exports.relatoriounidade= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelsaojorge = new application.app.model.regulacao.modelsaojorge(application);
+
+	var unidade = 'SaoJorge';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelsaojorge.buscarpaciente(unidade, function(error, resultado){
+			res.render("regulacao/relatoriopacientesaojorge", {paciente : resultado, id : result});
+		});
+	});	
+}
 module.exports.news= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);

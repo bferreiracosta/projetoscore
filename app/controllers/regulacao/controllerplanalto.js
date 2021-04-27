@@ -13,6 +13,22 @@ module.exports.cadastrar= function(application, req, res){
 		});
 	});	
 }
+module.exports.relatoriounidade= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelplanalto = new application.app.model.regulacao.modelplanalto(application);
+
+	var unidade = 'Planalto';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelplanalto.buscarpaciente(unidade, function(error, resultado){
+			res.render("regulacao/relatoriopacienteplanalto", {paciente : resultado, id : result});
+		});
+	});	
+}
+
 module.exports.news= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
