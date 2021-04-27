@@ -1,9 +1,9 @@
 <%- include('./cabecalhoregulacao'); %>
 
-<div class="container">
+<div id="mobile" class="container">
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
-		<form action="/updatenewsplanalto" method="post">
+		<form action="/updatenewsplanalto" style="padding-left: 1%; padding-right: 1%;" method="post">
 			<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>"> 
 		<% if(paciente.length > 0) { %>
 			<% for(var j = 0; j < paciente.length; j++) {%>
@@ -101,7 +101,16 @@
 </html>
 <script type="text/javascript">
 
-
+$(function(){
+	$(window).on('resize load', function() {
+  if ($(window).width() <= 768) { 
+    $("#mobile").removeClass("container");
+  }
+  else {
+    $("#mobile").addClass("container");
+  }
+});
+});
    $("#opcao").on('change', function(e){
      var exame = document.getElementById('opcao').value;
      document.getElementById('ment').value = exame;

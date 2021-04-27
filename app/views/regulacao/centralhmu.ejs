@@ -1,7 +1,7 @@
 <%- include('./cabecalhoregulacao'); %>
-<div class="container">
+<div id="mobile" class="container">
 
-<form action="/editarleitohmu" method="post">
+<form action="/editarleitohmu" style="padding-left: 1%; padding-right: 1%;" method="post">
                 <h2>Quantidades de leitos HMMDOLC</h2> 
                 <% if(id.length > 0) { %>
                     <% for(var i = 0; i < id.length; i++) {%>
@@ -50,3 +50,15 @@
 <%- include('../home/footer'); %>
 </body>
 </html>
+<script>
+    $(function(){
+	$(window).on('resize load', function() {
+  if ($(window).width() <= 768) { 
+    $("#mobile").removeClass("container");
+  }
+  else {
+    $("#mobile").addClass("container");
+  }
+});
+});
+</script>

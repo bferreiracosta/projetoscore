@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <%- include('./cabecalhoregulacao'); %>
 
-<div class="container">
+<div id="mobile" class="container">
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
 		<!-- Edit Product Modal-->
-<form action="/updaterespmorumbi" method="post">
+<form action="/updaterespmorumbi" style="padding-left: 1%; padding-right: 1%;" method="post">
 	<% if(paciente.length > 0) { %>
         <% for(var j = 0; j < paciente.length; j++) {%>
             <div >
@@ -155,7 +155,16 @@
 </body>
 </html>
 <script type="text/javascript">
-
+$(function(){
+	$(window).on('resize load', function() {
+  if ($(window).width() <= 768) { 
+    $("#mobile").removeClass("container");
+  }
+  else {
+    $("#mobile").addClass("container");
+  }
+});
+});
 	$("#leito").on('change', function(e){
 		 var leito = document.getElementById('leito').value;
 		 document.getElementById('leito2').value = leito;

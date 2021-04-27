@@ -1,8 +1,8 @@
 <%- include('../cabecalhomental'); %>
 
-<div class="container">
+<div id="mobile" class="container">
 
-<form action="/savepacienteleste" method="post">
+<form action="/savepacienteleste" style="padding-left: 1%; padding-right: 1%;" method="post">
 	<h2>Adicionar novo paciente</h2> 
 	<% if(id.length > 0) { %>
 		<% for(var i = 0; i < id.length; i++) {%>
@@ -180,6 +180,16 @@
 <%- include('../../home/footer'); %>
 </html>
 <script>
+	$(function(){
+	$(window).on('resize load', function() {
+  if ($(window).width() <= 768) { 
+    $("#mobile").removeClass("container");
+  }
+  else {
+    $("#mobile").addClass("container");
+  }
+});
+});
 	$("#exame").on('change', function(e){
      var exame = $(this).val();
      document.getElementById('referencia').value = exame;

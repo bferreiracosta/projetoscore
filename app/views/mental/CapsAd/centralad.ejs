@@ -1,7 +1,7 @@
 <%- include('../cabecalhomental'); %>
-<div class="container">
+<div id="mobile" class="container">
 
-<form action="/editarleitoad" method="post">
+<form action="/editarleitoad" style="padding-left: 1%; padding-right: 1%;" method="post">
                 <h2>Quantidades de leitos AD</h2> 
                 <% if(id.length > 0) { %>
                     <% for(var i = 0; i < id.length; i++) {%>
@@ -48,3 +48,15 @@
 <%- include('../../home/footer'); %>
 </body>
 </html>
+<script>
+    $(function(){
+	$(window).on('resize load', function() {
+  if ($(window).width() <= 768) { 
+    $("#mobile").removeClass("container");
+  }
+  else {
+    $("#mobile").addClass("container");
+  }
+});
+});
+</script>

@@ -1,9 +1,9 @@
 <%- include('../cabecalhomentalurgencia'); %>
-<div class="container">
+<div id="mobile" class="container">
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
        
-<form action="/updatementalsaojorge" method="post">
+<form action="/updatementalsaojorge" style="padding-left: 1%; padding-right: 1%;" method="post">
 	<h2>Editar  paciente</h2> 
 		<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
 		<% if(mental.length > 0) { %>
@@ -64,6 +64,16 @@
 <%- include('../../home/footer'); %>
 </html>
 <script>
+	$(function(){
+	$(window).on('resize load', function() {
+  if ($(window).width() <= 768) { 
+    $("#mobile").removeClass("container");
+  }
+  else {
+    $("#mobile").addClass("container");
+  }
+});
+});
     $("#exame").on('change', function(e){
      var exame = $(this).val();
      document.getElementById('referencia').value = exame;
