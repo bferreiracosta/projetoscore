@@ -20,6 +20,14 @@
                         <th>Unidade</th>
                         <th>Unidade de Referência</th>
                         <th>Prioridade</th>
+                        <th>Tratamento</th>
+                        <th>Risco</th>
+                        <th>Comportamento</th>
+                        <th>Exposicao</th>
+                        <th>Autonegligencia</th>
+                        <th>Dependencia</th>
+                        <th>Terapeutico</th>
+                        <th>Social</th>                        
                         <th></th>
                     </tr>
 					</thead>
@@ -36,6 +44,15 @@
                             <td><%=mental[j].unidade %></td>
                             <td><%=mental[j].referencia %></td>
                             <td><%=mental[j].soma %></td>
+                            <td><%=mental[j].tratamento %></td>
+                            <td><%=mental[j].risco %></td>
+                            <td><%=mental[j].comportamento %></td>
+                            <td><%=mental[j].exposicao %></td>
+                            <td><%=mental[j].autonegligencia %></td>
+                            <td><%=mental[j].dependencia %></td>
+                            <td><%=mental[j].terapeutico %></td>
+                            <td><%=mental[j].social %></td>
+
                             <td>
                                 <a href="" onclick="setaDadosModal('<%=mental[j].id_paciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Saida</a>
                             </td>

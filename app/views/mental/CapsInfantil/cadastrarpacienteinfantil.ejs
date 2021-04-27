@@ -11,33 +11,49 @@
 					<input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
 					
                     <thead>
-                    <tr>
-						<th hidden>id</th>
-                        <th>Prontuario</th>
-                        <th>Nome</th>
-                        <th>Idade</th>
-                        <th>Diagnóstico</th>
-                        <th>Unidade de Referência</th>
-                        <th hidden>Prioridade</th>
-                        <th>Data Atualização</th>
-                        <th>Hora Atualização</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-					</thead>
-                    <tbody>    
-						<% if(mental.length > 0) { %>
-							<% for(var j = 0; j < mental.length; j++) {%>		
                         <tr>
-							<td hidden><%=mental[j].id_paciente %></td>
-                            <th><%=mental[j].prt %></th>
-                            <td><%=mental[j].paciente %></td>
-                            <td><%=mental[j].idade %></td>
-                            <td><%=mental[j].diagnostico %></td>
-                            <td><%=mental[j].referencia %></td>
-                            <td hidden><%=mental[j].soma %></td>
-                            <td ><%=mental[j].dataatu %></td>
-                            <td ><%=mental[j].hora %></td>
+                            <th hidden>id</th>
+                            <th>Prontuario</th>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>Diagnóstico</th>
+                            <th>Unidade de Referência</th>
+                            <th hidden>Prioridade</th>
+                            <th>Tratamento</th>
+                            <th>Risco</th>
+                            <th>Comportamento</th>
+                            <th>Exposicao</th>
+                            <th>Autonegligencia</th>
+                            <th>Dependencia</th>
+                            <th>Terapeutico</th>
+                            <th>Social</th>     
+                            <th>Data Atualização</th>
+                            <th>Hora Atualização</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>    
+                            <% if(mental.length > 0) { %>
+                                <% for(var j = 0; j < mental.length; j++) {%>		
+                            <tr>
+                                <td hidden><%=mental[j].id_paciente %></td>
+                                <th><%=mental[j].prt %></th>
+                                <td><%=mental[j].paciente %></td>
+                                <td><%=mental[j].idade %></td>
+                                <td><%=mental[j].diagnostico %></td>
+                                <td><%=mental[j].referencia %></td>
+                                <td hidden><%=mental[j].soma %></td>
+                                <td><%=mental[j].tratamento %></td>
+                                <td><%=mental[j].risco %></td>
+                                <td><%=mental[j].comportamento %></td>
+                                <td><%=mental[j].exposicao %></td>
+                                <td><%=mental[j].autonegligencia %></td>
+                                <td><%=mental[j].dependencia %></td>
+                                <td><%=mental[j].terapeutico %></td>
+                                <td><%=mental[j].social %></td>
+                                <td ><%=mental[j].dataatu %></td>
+                                <td ><%=mental[j].hora %></td>
                             <td>
                                 <a href="editpacienteinfantil/<%=id[i].id_usuario %>/?id=<%=mental[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
                             </td>
