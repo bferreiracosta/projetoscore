@@ -30,6 +30,10 @@ modeladminregulacao.prototype.buscarleitoplanalto = function(callback){
 	
 	this._conection.query('select * from centralleitosplanalto where id = 1 ', callback);
 }
+modeladminregulacao.prototype.buscarleito= function(callback){
+	
+	this._conection.query('select * from leitosdisponivel where idleitos = 1 ', callback);
+}
 
 modeladminregulacao.prototype.buscarleitoluizote = function(callback){
 	
