@@ -6,219 +6,389 @@
         <table class="table table-striped" style="width: 100%;" id="mytable">
             <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
             <thead>
-            <tr>
-                <th>Setor</th>
-                <th>Capacidade</th>
-                <th>Quantidade de Camas</th>
-                <th>Quantidade de Camas Ocupadas</th>
-                <th>Quantidade de Camas Vagas</th>
-                <th>Quantidade de Macas</th>
-                <th>Quantidade de Macas Ocupadas</th>
-                <th>Quantidade de Macas Vagas</th>
-                <th>Quantidade de Macas Parada</th>
-            </tr>
+                <tr>
+                    <th>Setor</th>
+                    <th></th>
+                    <th>Capacidade</th>
+                    <th></th>
+                    <th>Quantidade de Camas</th>
+                    <th></th>
+                    <th>Quantidade de Camas Ocupadas</th>
+                    <th></th>
+                    <th>Quantidade de Camas Vagas</th>
+                    <th></th>
+                    <th>Quantidade de Macas</th>
+                    <th></th>
+                    <th>Quantidade de Macas Ocupadas</th>
+                    <th></th>
+                    <th>Quantidade de Macas Vagas</th>
+                    <th></th>
+                    <th>Quantidade de Macas Parada</th>
+                </tr>
             </thead>
             <tbody>   
                 <% if(leito.length > 0) { %>
                     <% for(var j = 0; j < leito.length; j++) {%> 
                 <tr>
                     <td>Sala de Emergência Geral</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].senc %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].sencc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].senccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].sencm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].sencmv %></td>
-                    <td class="subtotalmacasvagas"></td>  
-                    <td class="subtotalmacasparada"><%=leito[j].macaparada %></td>      
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada"><%=leito[j].macaparada %></td>
+                       
                 </tr>
                 <tr>
                     <td>Consultorio Ambulatório 09</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].ca9c %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].ca9cc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].ca9ccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].ca9cm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].ca9cmv %></td>
-                    <td class="subtotalmacasvagas"></td>  
-                    <td class="subtotalmacasparada">0</td>     
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                      
                 </tr>
                 <tr>
                     <td>Consultorio Ambulatório 10</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].ca10 %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].ca10cc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].ca10ccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].ca10cm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].ca10cmv %></td>
-                    <td class="subtotalmacasvagas"></td>   
-                    <td class="subtotalmacasparada">0</td>    
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                     
                 </tr>
                 <tr>
                     <td>Consultorio Ambulatório 18</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].ca18 %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].ca18cc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].ca18ccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].ca18cm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].ca18cmv %></td>
-                    <td class="subtotalmacasvagas"></td>  
-                    <td class="subtotalmacasparada">0</td>     
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                      
                 </tr>
                 <tr>
                     <td>Consultorio Ambulatório 19</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].ca19 %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].ca19cc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].ca19ccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].ca19cm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].ca19cmv %></td>
-                    <td class="subtotalmacasvagas"></td> 
-                    <td class="subtotalmacasparada">0</td>      
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                       
                 </tr>
                 <tr>
                     <td>Consultorio Ambulatório 20</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].ca20 %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].ca20cc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].ca20ccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].ca20cm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].ca20cmv %></td>
-                    <td class="subtotalmacasvagas"></td> 
-                    <td class="subtotalmacasparada">0</td>      
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                       
                 </tr>
                 <tr>
                     <td>Consultorio Faturamento</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].cf %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].cfcc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].cfccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].cfcm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].cfcmv %></td>
-                    <td class="subtotalmacasvagas"></td>  
-                    <td class="subtotalmacasparada">0</td>     
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                      
                 </tr>
                 <tr>
                     <td>Enfermaria 1</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].e1 %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].e1cc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].e1ccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].e1cm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].e1cmv %></td>
-                    <td class="subtotalmacasvagas"></td> 
-                    <td class="subtotalmacasparada">0</td>      
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                       
                 </tr>
                 <tr>
                     <td>Enfermaria 2</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].e2 %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].e2cc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].e2ccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].e2cm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].e2cmv %></td>
-                    <td class="subtotalmacasvagas"></td> 
-                    <td class="subtotalmacasparada">0</td>     
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                      
                 </tr>
                 <tr>
                     <td>Enfermaria 3</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].e3 %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].e3cc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].e3ccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].e3cm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].e3cmv %></td>
-                    <td class="subtotalmacasvagas"></td> 
-                    <td class="subtotalmacasparada">0</td>     
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                      
                 </tr>
                 <tr>
                     <td>Enfermaria 4</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].e4 %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].e4cc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].e4ccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].e4cm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].e4cmv %></td>
-                    <td class="subtotalmacasvagas"></td> 
-                    <td class="subtotalmacasparada">0</td>      
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                       
                 </tr>
                 <tr>
                     <td>Anexo Enfermaria 1</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].ae %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].aecc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].aeccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].aecm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].aecmv %></td>
-                    <td class="subtotalmacasvagas"></td>   
-                    <td class="subtotalmacasparada">0</td>    
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                     
                 </tr>
                 <tr>
                     <td>Isolamento</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].iss %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].iscc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].isccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].iscm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].iscmv %></td>
-                    <td class="subtotalmacasvagas"></td>  
-                    <td class="subtotalmacasparada">0</td>     
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                      
                 </tr>
                 <tr>
                     <td>Sala Laranja Contigência</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].slc %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].slccc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].slcccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].slccm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].slccmv %></td>
-                    <td class="subtotalmacasvagas"></td>  
-                    <td class="subtotalmacasparada">0</td>     
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                      
                 </tr>
                 <tr>
                     <td>Enfermaria Contigência 1</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].ec1 %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].ec1cc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].ec1ccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].ec1cm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].ec1cmv %></td>
-                    <td class="subtotalmacasvagas"></td> 
-                    <td class="subtotalmacasparada">0</td>      
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                       
                 </tr>
                 <tr>
                     <td>Enfermaria Contigência 1</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].ec2 %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].ec2cc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].ec2ccv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].ec2cm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].ec2cmv %></td>
-                    <td class="subtotalmacasvagas"></td> 
-                    <td class="subtotalmacasparada">0</td>      
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                       
                 </tr>
                 <tr>
                     <td>Observação Contigência</td>
+                   <td><label hidden>/Capacidade: </label></td>
                     <td class="subtotalcapacidade" ><%=leito[j].oc %></td>
+                   <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].occc %></td>
+                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
                     <td class="subtotalqtdcamasocupado"><%=leito[j].occcv %></td>
+                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
                     <td class="subtotalqtdcamasvago"></td>
+                   <td><label hidden>/Quantidade de Macas: </label></td>
                     <td class="subtotalmacas"><%=leito[j].occm %></td>
+                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
                     <td class="subtotalmacasocupadas"><%=leito[j].occmv %></td>
-                    <td class="subtotalmacasvagas"></td>  
-                    <td class="subtotalmacasparada">0</td>     
+                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                    <td class="subtotalmacasvagas"></td>
+                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    <td class="subtotalmacasparada">0</td>
+                      
                 </tr>
                
                 <tr>
                     <td>Total</td>
+                   <td><label hidden>/Resultado Capacidade: </label></td>
                     <td id="resultadocapacidade"></td>
+                   <td><label hidden>/Resultado Quantidade de Camas: </label></td>
                     <td id="resultadocamas"></td>
+                   <td><label hidden>/Resultado Quantidade de Camas Ocupadas: </label></td>
                     <td id="resultadocamasocupados"></td>
+                   <td><label hidden>/Resultado Quantidade de Camas Vagas: </label></td>
                     <td id="resultadocamasvagas"></td>
+                   <td><label hidden>/Resultado Quantidade de Macas: </label></td>
                     <td id="resultadomacas"></td>
+                   <td><label hidden>/Resultado Quantidade de Macas Ocupadas: </label></td>
                     <td id="resultadomacasocupados"></td>
-                    <td id="resultadomacasvagas"></td> 
-                    <td id="resultadomacasparada"></td>              
+                   <td><label hidden>/Resultado Quantidade de Macas Vagas: </label></td>
+                    <td id="resultadomacasvagas"></td>
+                    <td><label hidden>/Resultado Quantidade de Macas Parada: </label></td>
+                    <td id="resultadomacasparada"></td>
+                               
                 </tr>
                 <p>Data Ultima Atualização: <%=leito[j].dataatualizacao %></p>
                 <p>Hora Ultima Atualização: <%=leito[j].horaatualizacao %></p>
@@ -295,22 +465,21 @@
 } );
 
 $('#mytable tbody tr').each(function(i){
-            tr=$(this);
-            qtdcamas=tr.children('td:eq(2)').html();
-            qtdcamasocupadas = tr.children('td:eq(3)').html();
-            qtdmacas=tr.children('td:eq(5)').html();
-            qtdmacasocupadas = tr.children('td:eq(6)').html();
-            qtdbercos = tr.children('td:eq(8)').html();
-            qtdbercoscupadas = tr.children('td:eq(9)').html();
+    tr=$(this);
+            qtdcamas=tr.children('td:eq(4)').html();
+            qtdcamasocupadas = tr.children('td:eq(6)').html();
+            qtdmacas=tr.children('td:eq(10)').html();
+            qtdmacasocupadas = tr.children('td:eq(12)').html();
+            
             var valorcamasvazias = 0;
             var valormacasvazias = 0;
-            var valorbercosvazios = 0
+            
             valorcamasvazias = qtdcamas - qtdcamasocupadas;
             valormacasvazias = qtdmacas - qtdmacasocupadas;
-            valorbercosvazios = qtdbercos - qtdbercoscupadas;
-            tr.children('td:eq(4)').html(valorcamasvazias);
-            tr.children('td:eq(7)').html(valormacasvazias);
-            tr.children('td:eq(10)').html(valorbercosvazios);
+           
+            tr.children('td:eq(8)').html(valorcamasvazias);
+            tr.children('td:eq(14)').html(valormacasvazias);
+            
 
 });
 

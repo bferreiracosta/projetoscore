@@ -5,7 +5,7 @@
                     <h2>Pacientes Roosevelt</h2>
                     <br>
         <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
-         <table class="table table-striped"  style="width: 100%;" id="mytable">
+        <table class="table table-striped"  style="width: 100%;" id="mytable">
             <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
             
             <thead>
@@ -27,19 +27,19 @@
                     <% if(paciente.length > 0) { %>
                         <% for(var j = 0; j < paciente.length; j++) {%>
                             
-                    <tr>
-                        <td hidden><%=paciente[j].id_paciente %></td>
-                        <td><%=paciente[j].susfacil %></td>
-                        <th><%=paciente[j].prt %></th>
-                        <td><%=paciente[j].paciente %></td>
-                        <td><%=paciente[j].idade %></td>
-                        <td><%=paciente[j].leito %></td>
-                        <td><%=paciente[j].dataexame %></td>
-                        <td><%=paciente[j].exame %></td>
-                        <td><%=paciente[j].news %></td>
-                        <td><%=paciente[j].paliativo %></td>
-                        <td><%=paciente[j].ecf %></td>
-                </tr>
+                            <tr>
+                                <td hidden><label hidden for="">/ID: </label><%=paciente[j].id_paciente %></td>
+                                <td><label hidden for="">/SusFacil: </label><%=paciente[j].susfacil %></td>
+                                <th><label hidden for="">/Prontuario: </label><%=paciente[j].prt %></th>
+                                <td><label hidden for="">/Nome: </label><%=paciente[j].paciente %></td>
+                                <td><label hidden for="">/Idade: </label><%=paciente[j].idade %></td>
+                                <td><label hidden for="">/Leito: </label><%=paciente[j].leito %></td>
+                                <td><label hidden for="">/Data de Exame: </label><%=paciente[j].dataexame %></td>
+                                <td><label hidden for="">/Exame: </label><%=paciente[j].exame %></td>
+                                <td><label hidden for="">/News: </label><%=paciente[j].news %></td>
+                                <td><label hidden for="">/Paliativo: </label><%=paciente[j].paliativo %></td>
+                                <td><label hidden for="">/ECF: </label><%=paciente[j].ecf %></td>
+                        </tr>
                 <% } %>	
                 <% } %>
             </tbody>
