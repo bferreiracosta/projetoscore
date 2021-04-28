@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 app.use(session({
 	secret: 'secret',
 	resave: false,
-	maxAge:  600000,
+	maxAge:  300000,
 	saveUninitialized: false
 }));
 
