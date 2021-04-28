@@ -1,13 +1,13 @@
 module.exports = function(application){
 	application.get('/', function(req, res){
 		application.app.controllers.admin.controlleradmin.index(application, req, res);
-		res.setHeader('Content-Type', 'text/html');
-	
+			
 	});
 	application.get('/sair', function(req, res){
 		if(req.session.loggedin){
 			req.session = null;
-		res.redirect('/') 
+			var mensage = "Você saiu!!!";
+			res.render("home/index", {msg : mensage});
 		}
 	});
 	
@@ -33,19 +33,19 @@ module.exports = function(application){
 			application.app.controllers.admin.controlleradmin.admin.controlleradmin(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
 	application.get('/admin.controlleradminregulacao', function(req, res){
 		if(req.session.loggedin){
-			console.log('Estou em routes');
+			
 			application.app.controllers.admin.controlleradmin.admin.controlleradminregulacao(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});	

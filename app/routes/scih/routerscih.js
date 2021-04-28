@@ -5,8 +5,8 @@ module.exports = function(application){
 			application.app.controllers.scih.controllerscih.pacientes(application, req, res);
 		}	
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 	});
 
@@ -16,8 +16,8 @@ module.exports = function(application){
 			application.app.controllers.scih.controllerscih.paciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 		
@@ -29,8 +29,8 @@ module.exports = function(application){
 			application.app.controllers.scih.controllerscih.status(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -41,8 +41,8 @@ module.exports = function(application){
 			application.app.controllers.scih.controllerscih.obito(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -52,8 +52,8 @@ module.exports = function(application){
 			application.app.controllers.scih.controllerscih.isolamento(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -63,8 +63,8 @@ module.exports = function(application){
 			application.app.controllers.scih.controllerscih.sepse(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -74,8 +74,8 @@ module.exports = function(application){
 			application.app.controllers.scih.controllerscih.indicador(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -85,8 +85,8 @@ module.exports = function(application){
 			application.app.controllers.scih.controllerscih.lixo(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -96,8 +96,8 @@ module.exports = function(application){
 			application.app.controllers.scih.controllerscih.rouparia(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});

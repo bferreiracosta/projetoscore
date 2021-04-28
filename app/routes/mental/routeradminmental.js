@@ -4,8 +4,8 @@ module.exports = function(application){
 				application.app.controllers.mental.controlleradminmental.destino(application, req, res);
 			}
 			else{
-				res.send("Faça login!!");
-				res.redirect('/')
+				var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 			}
 			
 		});
@@ -14,8 +14,8 @@ module.exports = function(application){
 				application.app.controllers.mental.controlleradminmental.destinourgencia(application, req, res);
 			}
 			else{
-				res.send("Faça login!!");
-				res.redirect('/')
+				var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 			}
 			
 		});
@@ -25,8 +25,8 @@ module.exports = function(application){
 				application.app.controllers.mental.controlleradminmental.baixa(application, req, res);
 			}
 			else{
-				res.send("Faça login!!");
-				res.redirect('/')
+				var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 			}
 			
 		});

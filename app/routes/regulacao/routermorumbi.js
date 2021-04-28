@@ -6,8 +6,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.cadastrar(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -17,8 +17,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.relatoriounidade(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -29,8 +29,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.news(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -41,8 +41,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.sinaisvitais(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -53,8 +53,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.sinaisvitais(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -66,8 +66,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.respiracao(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -77,8 +77,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.relatorioadmmorumbi(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -89,8 +89,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.relatorio(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -101,8 +101,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.historico(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -112,8 +112,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.relatorioenfermaria(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -124,8 +124,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.cadastrarpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -136,8 +136,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.update(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -148,8 +148,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.updatenews(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -160,8 +160,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.updateresp(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -171,8 +171,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.baixa(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -183,8 +183,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.homeregulacao(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -194,8 +194,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.addpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -206,8 +206,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.editpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -217,8 +217,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.editnews(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -228,8 +228,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.editresp(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -239,8 +239,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllermorumbi.updatedispositivo(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});

@@ -4,8 +4,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controllerinfantil.baixahospitalidade(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -14,8 +14,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controllerinfantil.cadastrar(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -26,8 +26,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controllerinfantil.historico(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -37,8 +37,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controllerinfantil.cadastrarpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -51,8 +51,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controllerinfantil.update(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -64,8 +64,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controllerinfantil.addpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -76,8 +76,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controllerinfantil.editpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});

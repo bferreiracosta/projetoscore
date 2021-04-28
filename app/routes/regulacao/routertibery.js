@@ -6,8 +6,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.cadastrar(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -17,8 +17,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.relatoriounidade(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -29,8 +29,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.news(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -41,8 +41,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.sinaisvitais(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -52,8 +52,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.sinaisvitais(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -64,8 +64,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.respiracao(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -75,8 +75,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.relatorioadmtibery(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -87,8 +87,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.relatorio(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -99,8 +99,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.historico(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -110,8 +110,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.relatorioenfermaria(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -122,8 +122,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.cadastrarpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -134,8 +134,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.update(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -146,8 +146,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.updatenews(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -158,8 +158,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.updateresp(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -169,8 +169,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.baixa(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -181,8 +181,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.homeregulacao(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -192,8 +192,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.addpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -204,8 +204,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.editpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -215,8 +215,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.editnews(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -226,8 +226,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.editresp(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -237,8 +237,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllertibery.updatedispositivo(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});

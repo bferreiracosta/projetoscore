@@ -6,8 +6,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.cadastrar(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -17,8 +17,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.relatoriounidade(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -29,8 +29,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.news(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -41,8 +41,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.sinaisvitais(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -52,8 +52,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.sinaisvitais(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -63,8 +63,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.sinaisvitaisid(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -75,8 +75,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.sinaisvitaisregulacao(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -86,8 +86,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.respiracao(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -97,8 +97,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.relatorioadmluizote(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -109,8 +109,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.relatorio(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -121,8 +121,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.historico(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -132,8 +132,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.relatorioenfermaria(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -144,8 +144,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.cadastrarpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -158,8 +158,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.update(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -170,8 +170,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.updatenews(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -182,8 +182,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.updateresp(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -193,8 +193,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.baixa(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -205,8 +205,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.homeregulacao(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -216,8 +216,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.addpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -228,8 +228,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.editpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -239,8 +239,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.editnews(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -250,8 +250,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.editresp(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -261,8 +261,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllerluizote.updatedispositivo(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});

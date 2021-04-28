@@ -6,8 +6,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.cadastrar(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -17,8 +17,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.news(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -30,8 +30,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.sinaisvitais(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -41,8 +41,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.sinaisvitais(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -52,8 +52,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.sinaisvitaisid(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -64,8 +64,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.sinaisvitaisregulacao(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -75,8 +75,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.respiracao(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -86,8 +86,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.relatorioadmcim(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -99,8 +99,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.historico(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -112,8 +112,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.cadastrarpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -126,8 +126,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.update(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -138,8 +138,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.updatenews(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -150,8 +150,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.updateresp(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -161,8 +161,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.baixa(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -173,8 +173,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.homeregulacao(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -184,8 +184,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.addpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -196,8 +196,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.editpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -207,8 +207,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.editnews(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -218,8 +218,8 @@ module.exports = function(application) {
 			application.app.controllers.regulacao.controllercim.editresp(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});

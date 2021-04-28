@@ -4,8 +4,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controlleroeste.baixahospitalidade(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -14,8 +14,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controlleroeste.central(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -25,8 +25,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controlleroeste.editarleito(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -36,8 +36,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controlleroeste.cadastrar(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -48,8 +48,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controlleroeste.historico(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -59,8 +59,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controlleroeste.cadastrarpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -73,8 +73,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controlleroeste.update(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -85,8 +85,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controlleroeste.addpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
@@ -97,8 +97,8 @@ module.exports = function(application) {
 			application.app.controllers.mental.controlleroeste.editpaciente(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});
