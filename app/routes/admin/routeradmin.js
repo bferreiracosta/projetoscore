@@ -1,11 +1,12 @@
 module.exports = function(application){
 	application.get('/', function(req, res){
 		application.app.controllers.admin.controlleradmin.index(application, req, res);
+		res.setHeader('Content-Type', 'text/html');
 	
 	});
 	application.get('/sair', function(req, res){
 		if(req.session.loggedin){
-		req.session.destroy();
+			req.session = null;
 		res.redirect('/') 
 		}
 	});
