@@ -38,7 +38,7 @@
                 <tr>
                     <td>Sala de Emergência Não Covid</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].senc %></td>
+                    <td  ><%=leito[j].senc %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].sencc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -64,7 +64,7 @@
                 <tr>
                     <td>Sala de Emergência</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade"><%=leito[j].sec %></td>
+                    <td ><%=leito[j].sec %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].secc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -90,7 +90,7 @@
                 <tr>
                     <td>Enfermaria Masculina</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].em %></td>
+                    <td  ><%=leito[j].em %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].emcc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -116,7 +116,7 @@
                 <tr>
                     <td>Enfermaria Feminina</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade"><%=leito[j].ef %></td>
+                    <td ><%=leito[j].ef %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].efcc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -142,7 +142,7 @@
                 <tr>
                     <td>Corredor</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].corredor %></td>
+                    <td  ><%=leito[j].corredor %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].corredorcc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -168,7 +168,7 @@
                 <tr>
                     <td>Pediatria</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade"><%=leito[j].pediatria %></td>
+                    <td ><%=leito[j].pediatria %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].pediatriacc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -194,7 +194,7 @@
                 <tr>
                     <td>Ginecologia/Obstetricia</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].go %></td>
+                    <td  ><%=leito[j].go %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].gocc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -220,7 +220,7 @@
                 <tr>
                     <td>Enfermaria Ambulatorio(Covid)</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade"><%=leito[j].ea %></td>
+                    <td ><%=leito[j].ea %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].eacc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -243,42 +243,43 @@
                     <td class="subtotalmacasparada">0</td>
                            
                 </tr>
-                <tr>
-                    <td>Total</td>
-                   <td><label hidden>/Resultado Capacidade: </label></td>
-                    <td id="resultadocapacidade"></td>
-                   <td><label hidden>/Resultado Quantidade de Camas: </label></td>
-                    <td id="resultadocamas"></td>
-                   <td><label hidden>/Resultado Quantidade de Camas Ocupadas: </label></td>
-                    <td id="resultadocamasocupados"></td>
-                   <td><label hidden>/Resultado Quantidade de Camas Vagas: </label></td>
-                    <td id="resultadocamasvagas"></td>
-                    <td><label hidden>/Resultado Quantidade de Berços:</label></td> 
-                    <td id="resultadocberco"></td>
-                   <td><label hidden>/Resultado Quantidade de Berços Ocupados:</label></td>   
-                    <td id="resultadobercoocupados"></td>
-                   <td><label hidden>/Resultado Quantidade de Berços Vagos:</label></td> 
-                    <td id="resultadobercovagos"></td>
-                   <td><label hidden>/Resultado Quantidade de Macas: </label></td>
-                    <td id="resultadomacas"></td>
-                   <td><label hidden>/Resultado Quantidade de Macas Ocupadas: </label></td>
-                    <td id="resultadomacasocupados"></td>
-                   <td><label hidden>/Resultado Quantidade de Macas Vagas: </label></td>
-                    <td id="resultadomacasvagas"></td>
-                    <td><label hidden>/Resultado Quantidade de Macas Parada: </label></td>
-                    <td id="resultadomacasparada"></td>
-                               
-                </tr>
-                
                 <p>Data Ultima Atualização: <%=leito[j].dataatualizacao %></p>
                 <p>Hora Ultima Atualização: <%=leito[j].horaatualizacao %></p>
                 <% } %>	
                 <% } %>
-    
+                <% } %>	
+                <% } %>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td>Total</td>
+                   <td><label hidden>/Resultado Capacidade: </label></td>
+                    <td class="resultadocapacidade"></td>
+                   <td><label hidden>/Resultado Quantidade de Camas: </label></td>
+                    <td class="resultadocamas"></td>
+                   <td><label hidden>/Resultado Quantidade de Camas Ocupadas: </label></td>
+                    <td class="resultadocamasocupados"></td>
+                   <td><label hidden>/Resultado Quantidade de Camas Vagas: </label></td>
+                    <td class="resultadocamasvagas"></td>
+                    <td><label hidden>/Resultado Quantidade de Berços:</label></td> 
+                    <td class="resultadocberco"></td>
+                   <td><label hidden>/Resultado Quantidade de Berços Ocupados:</label></td>   
+                    <td class="resultadobercoocupados"></td>
+                   <td><label hidden>/Resultado Quantidade de Berços Vagos:</label></td> 
+                    <td class="resultadobercovagos"></td>
+                   <td><label hidden>/Resultado Quantidade de Macas: </label></td>
+                    <td class="resultadomacas"></td>
+                   <td><label hidden>/Resultado Quantidade de Macas Ocupadas: </label></td>
+                    <td class="resultadomacasocupados"></td>
+                   <td><label hidden>/Resultado Quantidade de Macas Vagas: </label></td>
+                    <td class="resultadomacasvagas"></td>
+                    <td><label hidden>/Resultado Quantidade de Macas Parada: </label></td>
+                    <td class="resultadomacasparada"></td>
+                               
+                </tr>
+            </tfoot>
         </table>
-        <% } %>	
-        <% } %>
+       
         <br>
         <br>
         <br>
@@ -300,28 +301,34 @@
  $(document).ready(function() {
         $('#mytable').DataTable( {
             dom: 'Bfrtip',
-            "scrollX": true,            
+            order:false,
+            "scrollX": true,  
+   
         pageLength: 50,
         buttons: [       
             {
                 "extend": "copyHtml5",
                 "text": "COPIAR",
-                header: false
+                header: false,
+                footer:true
             },          
             {
                 "extend": "pdf",
                 "text": "PDF",
-                header: false
+                header: false,
+                footer:true
             },
             {
                 "extend": "excelHtml5",
                 "text": "EXCEL",
-                header: false
+                header: false,
+                footer:true
             },
             {
                 "extend": "print",
                 "text": "IMPRIMIR",
-                header: false
+                header: false,
+                footer:true
             }
         ],language: {
             buttons: {
@@ -338,7 +345,240 @@
             },
             "search": "Pesquisar:"
         },
-        select: true
+        select: true,
+        "footerCallback": function ( row, data, start, end, display ) {
+                var api = this.api(), data;
+ 
+                // Remove the formatting to get integer data for summation
+                var intVal = function ( i ) {
+                    return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '')*1 :
+                        typeof i === 'number' ?
+                            i : 0;
+                };
+ 
+                // Total over all pages
+                total = api
+                    .column( 2 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 2, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 2 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+            
+            // Total over all pages
+            total = api
+                    .column( 4 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 4, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 4 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 6 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 6, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 6 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 8 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 8, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 8 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 10 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 10, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 10 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 12 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 12, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 12 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 14 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 14, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 14 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 16 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 16, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 16 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 18 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 18, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 18 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 20 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 20, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 20 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 22 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 22, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 22 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+            }
     } );
 } );
 $('#mytable tbody tr').each(function(i){
@@ -361,74 +601,8 @@ $('#mytable tbody tr').each(function(i){
 
 });
 
-$(function() {
-    var soma = 0;
-    $( ".subtotalcapacidade" ).each( function() {
-        soma += Number( $( this ).html() );
-    } );
-    $( "#resultadocapacidade" ).text( soma );
 
-    var soma1 = 0;
-    $( ".subtotalqtdcamas" ).each( function() {
-        soma1 += Number( $( this ).html() );
-    } );
-    $( "#resultadocamas" ).text( soma1 );
-
-    var soma2 = 0;
-    $( ".subtotalqtdcamasocupado" ).each( function() {
-        soma2 += Number( $( this ).html() );
-    } );
-    $( "#resultadocamasocupados" ).text( soma2 );
-
-    var soma3 = 0;
-    $( ".subtotalqtdcamasvago" ).each( function() {
-        soma3 += Number( $( this ).html() );
-    } );
-    $( "#resultadocamasvagas" ).text( soma3 );
-
-    var soma4 = 0;
-    $( ".subtotalmacas" ).each( function() {
-        soma4 += Number( $( this ).html() );
-    } );
-    $( "#resultadomacas" ).text( soma4 );
-
-    var soma5 = 0;
-    $( ".subtotalmacasocupadas" ).each( function() {
-        soma5 += Number( $( this ).html() );
-    } );
-    $( "#resultadomacasocupados" ).text( soma5 );
-
-    var soma6 = 0;
-    $( ".subtotalmacasvagas" ).each( function() {
-        soma6 += Number( $( this ).html() );
-    } );
-    $( "#resultadomacasvagas" ).text( soma6 );
-
-    var soma7 = 0;
-    $( ".subtotalberco" ).each( function() {
-        soma7 += Number( $( this ).html() );
-    } );
-    $( "#resultadocberco" ).text( soma7 );
-
-    var soma8 = 0;
-    $( ".subtotalbercoocupado" ).each( function() {
-        soma8 += Number( $( this ).html() );
-    } );
-    $( "#resultadobercoocupados" ).text( soma8 );
-
-    var soma9 = 0;
-    $( ".subtotalbercovago" ).each( function() {
-        soma9 += Number( $( this ).html() );
-    } );
-    $( "#resultadobercovagos" ).text( soma9 );
-
-    var soma10 = 0;
-    $( ".subtotalmacasparada" ).each( function() {
-        soma10 += Number( $( this ).html() );
-    } );
-    $( "#resultadomacasparada" ).text( soma10 );
-} );
-</script>
+ </script>
 <%- include('../home/footer'); %>
 </body>
 </html>

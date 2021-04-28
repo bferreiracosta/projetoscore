@@ -3,8 +3,9 @@
     
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
+                <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
         <table class="table table-striped" style="width: 100%;" id="mytable">
-            <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
+            
             <thead>
             <tr>
                 <th>Setor</th>
@@ -32,7 +33,7 @@
                 <tr>
                     <td>Sala de Emergência 1</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].se1 %></td>
+                    <td  ><%=leito[j].se1 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].se1cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -52,7 +53,7 @@
                 <tr>
                     <td>Sala de Emergência 2</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].se2c %></td>
+                    <td  ><%=leito[j].se2c %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].se2cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -72,7 +73,7 @@
                 <tr>
                     <td>Sala de Emergência 3</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].se3c %></td>
+                    <td  ><%=leito[j].se3c %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].se3cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -92,7 +93,7 @@
                 <tr>
                     <td>Sala de Emergência 4</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].se4c %></td>
+                    <td  ><%=leito[j].se4c %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].se4cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -112,7 +113,7 @@
                 <tr>
                     <td>Sala de Emergência Alta Suspeição</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].seas %></td>
+                    <td  ><%=leito[j].seas %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].seascc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -132,7 +133,7 @@
                 <tr>
                     <td>Enfermaria 1</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].enf1 %></td>
+                    <td  ><%=leito[j].enf1 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].enf1cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -152,7 +153,7 @@
                 <tr>
                     <td>Enfermaria 2</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].enf2 %></td>
+                    <td  ><%=leito[j].enf2 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].enf2cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -172,7 +173,7 @@
                 <tr>
                     <td>Enfermaria 3</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].enf3 %></td>
+                    <td  ><%=leito[j].enf3 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].enf3cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -192,7 +193,7 @@
                 <tr>
                     <td>Enfermaria 4 </td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].enf4 %></td>
+                    <td  ><%=leito[j].enf4 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].enf4cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -212,7 +213,7 @@
                 <tr>
                     <td>Enfermaria 5 Ar Ambiente</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].enf5 %></td>
+                    <td  ><%=leito[j].enf5 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].enf5cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -232,7 +233,7 @@
                 <tr>
                     <td>Enfermaria 6</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].enf6 %></td>
+                    <td  ><%=leito[j].enf6 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].enf6cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -252,7 +253,7 @@
                 <tr>
                     <td>Enfermaria 7</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].enf7 %></td>
+                    <td  ><%=leito[j].enf7 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].enf7cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -272,7 +273,7 @@
                 <tr>
                     <td>Sala de Emergência 8</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].se8 %></td>
+                    <td  ><%=leito[j].se8 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].se8cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -292,7 +293,7 @@
                 <tr>
                     <td>Sala de Emergência 9</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].se9 %></td>
+                    <td  ><%=leito[j].se9 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].se9cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -312,7 +313,7 @@
                 <tr>
                     <td>Enfermaria 10 Alta Suspeição</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].enf10 %></td>
+                    <td  ><%=leito[j].enf10 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].enf10cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -332,7 +333,7 @@
                 <tr>
                     <td>Enfermaria 11 Alta Suspeição</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].enf11 %></td>
+                    <td  ><%=leito[j].enf11 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].enf11cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -352,7 +353,7 @@
                 <tr>
                     <td>Enfermaria 12 Alta Suspeição</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].enf12 %></td>
+                    <td  ><%=leito[j].enf12 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].en12cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -372,7 +373,7 @@
                 <tr>
                     <td>Enfermaria 13 Covid</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].enf13 %></td>
+                    <td  ><%=leito[j].enf13 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].enf13cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -392,7 +393,7 @@
                 <tr>
                     <td>Enfermaria 14 Covid</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].enf14 %></td>
+                    <td  ><%=leito[j].enf14 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].enf14cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -412,7 +413,7 @@
                 <tr>
                     <td>Ambulatório 1 Alta Suspeição</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].amb1 %></td>
+                    <td  ><%=leito[j].amb1 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].amb1cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -432,7 +433,7 @@
                 <tr>
                     <td>Ambulatório 2 Covid</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].amb2 %></td>
+                    <td  ><%=leito[j].amb2 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].amb2cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -452,7 +453,7 @@
                 <tr>
                     <td>Ambulatório 3 Alta Suspeição</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].amb3 %></td>
+                    <td  ><%=leito[j].amb3 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].amb3cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -472,7 +473,7 @@
                 <tr>
                     <td>Ambulatório 4 Alta Suspeição</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].amb4 %></td>
+                    <td  ><%=leito[j].amb4 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].amb4cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -492,7 +493,7 @@
                 <tr>
                     <td>Ambulatório 5 Baixa Suspeição</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].amb5 %></td>
+                    <td  ><%=leito[j].amb5 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].amb5cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -512,7 +513,7 @@
                 <tr>
                     <td>Ambulatório 6 Baixa Suspeição</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].amb6 %></td>
+                    <td  ><%=leito[j].amb6 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].amb6cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -532,7 +533,7 @@
                 <tr>
                     <td>Ambulatório 7 Baixa Suspeição</td>
                    <td><label hidden>/Capacidade: </label></td>
-                    <td class="subtotalcapacidade" ><%=leito[j].amb7 %></td>
+                    <td  ><%=leito[j].amb7 %></td>
                    <td><label hidden>/Quantidade de Camas: </label></td>
                     <td class="subtotalqtdcamas"><%=leito[j].amb7cc %></td>
                    <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
@@ -549,171 +550,299 @@
                     <td class="subtotalmacasparada">0</td>
                               
                 </tr>
-                <tr>
-                    <td>Total</td>
-                   <td><label hidden>/Resultado Capacidade: </label></td>
-                    <td id="resultadocapacidade"></td>
-                   <td><label hidden>/Resultado Quantidade de Camas: </label></td>
-                    <td id="resultadocamas"></td>
-                   <td><label hidden>/Resultado Quantidade de Camas Ocupadas: </label></td>
-                    <td id="resultadocamasocupados"></td>
-                   <td><label hidden>/Resultado Quantidade de Camas Vagas: </label></td>
-                    <td id="resultadocamasvagas"></td>
-                   <td><label hidden>/Resultado Quantidade de Macas: </label></td>
-                    <td id="resultadomacas"></td>
-                   <td><label hidden>/Resultado Quantidade de Macas Ocupadas: </label></td>
-                    <td id="resultadomacasocupados"></td>
-                   <td><label hidden>/Resultado Quantidade de Macas Vagas: </label></td>
-                    <td id="resultadomacasvagas"></td>
-                    <td><label hidden>/Resultado Quantidade de Macas Parada: </label></td>
-                    <td id="resultadomacasparada"></td>
-                               
-                </tr>
                 <p>Data Ultima Atualização: <%=leito[j].dataatualizacao %></p>
                 <p>Hora Ultima Atualização: <%=leito[j].horaatualizacao %></p>
                 <% } %>	
                 <% } %>
-    
+                <% } %>	
+                <% } %>
             </tbody>
-        </table>
-        <% } %>	
-        <% } %>
-        <br>
-        <br>
-        <br>
-
-<!-- Importando o jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
-<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
-<!-- Importando o js do bootstrap -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script>
- $(document).ready(function() {
-        $('#mytable').DataTable( {
-            dom: 'Bfrtip',
-            "scrollX": true,
-           
-            
-        pageLength: 50,
-        buttons: [       
-            {
-                "extend": "copyHtml5",
-                "text": "COPIAR",
-                header: false
-            },          
-            {
-                "extend": "pdf",
-                "text": "PDF",
-                header: false
-            },
-            {
-                "extend": "excelHtml5",
-                "text": "EXCEL",
-                header: false
-            },
-            {
-                "extend": "print",
-                "text": "IMPRIMIR",
-                header: false
-            }
-        ],language: {
-            buttons: {
-                copyTitle: 'Copiado para área de transferência',
-                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
-                copySuccess: {
-                    _: '%d linhas copiadas',
-                    1: '1 linha copiada'
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                       <td><label hidden>/Resultado Capacidade: </label></td>
+                        <td class="resultadocapacidade"></td>
+                       <td><label hidden>/Resultado Quantidade de Camas: </label></td>
+                        <td class="resultadocamas"></td>
+                       <td><label hidden>/Resultado Quantidade de Camas Ocupadas: </label></td>
+                        <td class="resultadocamasocupados"></td>
+                       <td><label hidden>/Resultado Quantidade de Camas Vagas: </label></td>
+                        <td class="resultadocamasvagas"></td>
+                       <td><label hidden>/Resultado Quantidade de Macas: </label></td>
+                        <td class="resultadomacas"></td>
+                       <td><label hidden>/Resultado Quantidade de Macas Ocupadas: </label></td>
+                        <td class="resultadomacasocupados"></td>
+                       <td><label hidden>/Resultado Quantidade de Macas Vagas: </label></td>
+                        <td class="resultadomacasvagas"></td>
+                        <td><label hidden>/Resultado Quantidade de Macas Parada: </label></td>
+                        <td class="resultadomacasparada"></td>          
+                    </tr>
+                </tfoot>
+            </table>
+          
+            <br>
+            <br>
+            <br>
+    
+    <!-- Importando o jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+    <!-- Importando o js do bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+     $(document).ready(function() {
+            $('#mytable').DataTable( {
+                dom: 'Bfrtip',
+                order:false,
+                "scrollX": true,  
+        
+            pageLength: 50,
+            buttons: [       
+                {
+                    "extend": "copyHtml5",
+                    "text": "COPIAR",
+                    header: false,
+                    footer:true
+                },          
+                {
+                    "extend": "pdf",
+                    "text": "PDF",
+                    header: false,
+                    footer:true
+                },
+                {
+                    "extend": "excelHtml5",
+                    "text": "EXCEL",
+                    header: false,
+                    footer:true
+                },
+                {
+                    "extend": "print",
+                    "text": "IMPRIMIR",
+                    header: false,
+                    footer:true
                 }
+            ],language: {
+                buttons: {
+                    copyTitle: 'Copiado para área de transferência',
+                    copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+                    copySuccess: {
+                        _: '%d linhas copiadas',
+                        1: '1 linha copiada'
+                    }
+                },
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Próximo"
+                },
+                "search": "Pesquisar:"
             },
-            "paginate": {
-                "previous": "Anterior",
-                "next": "Próximo"
-            },
-            "search": "Pesquisar:"
-        },
-        select: true
-    } );
-} );
-
-$('#mytable tbody tr').each(function(i){
-            tr=$(this);
-            qtdcamas=tr.children('td:eq(4)').html();
-            qtdcamasocupadas = tr.children('td:eq(6)').html();
-            qtdmacas=tr.children('td:eq(10)').html();
-            qtdmacasocupadas = tr.children('td:eq(12)').html();
+            select: true,
+            "footerCallback": function ( row, data, start, end, display ) {
+                var api = this.api(), data;
+ 
+                // Remove the formatting to get integer data for summation
+                var intVal = function ( i ) {
+                    return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '')*1 :
+                        typeof i === 'number' ?
+                            i : 0;
+                };
+ 
+                // Total over all pages
+                total = api
+                    .column( 2 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 2, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 2 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
             
-            var valorcamasvazias = 0;
-            var valormacasvazias = 0;
-           
-            valorcamasvazias = qtdcamas - qtdcamasocupadas;
-            valormacasvazias = qtdmacas - qtdmacasocupadas;
-           
-            tr.children('td:eq(8)').html(valorcamasvazias);
-            tr.children('td:eq(14)').html(valormacasvazias);
-           
-
-});
-
-$(function() {
-    var soma = 0;
-    $( ".subtotalcapacidade" ).each( function() {
-        soma += Number( $( this ).html() );
+            // Total over all pages
+            total = api
+                    .column( 4 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 4, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 4 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 6 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 6, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 6 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 8 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 8, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 8 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 10 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 10, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 10 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 12 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 12, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 12 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 14 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 14, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 14 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 16 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 16, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 16 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+            }
     } );
-    $( "#resultadocapacidade" ).text( soma );
-
-    var soma1 = 0;
-    $( ".subtotalqtdcamas" ).each( function() {
-        soma1 += Number( $( this ).html() );
-    } );
-    $( "#resultadocamas" ).text( soma1 );
-
-    var soma2 = 0;
-    $( ".subtotalqtdcamasocupado" ).each( function() {
-        soma2 += Number( $( this ).html() );
-    } );
-    $( "#resultadocamasocupados" ).text( soma2 );
-
-    var soma3 = 0;
-    $( ".subtotalqtdcamasvago" ).each( function() {
-        soma3 += Number( $( this ).html() );
-    } );
-    $( "#resultadocamasvagas" ).text( soma3 );
-
-    var soma4 = 0;
-    $( ".subtotalmacas" ).each( function() {
-        soma4 += Number( $( this ).html() );
-    } );
-    $( "#resultadomacas" ).text( soma4 );
-
-    var soma5 = 0;
-    $( ".subtotalmacasocupadas" ).each( function() {
-        soma5 += Number( $( this ).html() );
-    } );
-    $( "#resultadomacasocupados" ).text( soma5 );
-
-    var soma6 = 0;
-    $( ".subtotalmacasvagas" ).each( function() {
-        soma6 += Number( $( this ).html() );
-    } );
-    $( "#resultadomacasvagas" ).text( soma6 );
-
-   
-
-    var soma10 = 0;
-    $( ".subtotalmacasparada" ).each( function() {
-        soma10 += Number( $( this ).html() );
-    } );
-    $( "#resultadomacasparada" ).text( soma10 );
 } );
-</script>
-<%- include('../home/footer'); %>
-</body>
-</html>
+    $('#mytable tbody tr').each(function(i){
+                 tr=$(this);
+                qtdcamas=tr.children('td:eq(4)').html();
+                qtdcamasocupadas = tr.children('td:eq(6)').html();
+                qtdmacas=tr.children('td:eq(10)').html();
+                qtdmacasocupadas = tr.children('td:eq(12)').html();
+               
+                var valorcamasvazias = 0;
+                var valormacasvazias = 0;
+                var valorbercosvazios = 0
+                valorcamasvazias = qtdcamas - qtdcamasocupadas;
+                valormacasvazias = qtdmacas - qtdmacasocupadas;
+       
+                tr.children('td:eq(8)').html(valorcamasvazias);
+                tr.children('td:eq(14)').html(valormacasvazias);
+               
+    
+    });
+    
+    
+    </script>
+    <%- include('../home/footer'); %>
+    </body>
+    </html>
+    
