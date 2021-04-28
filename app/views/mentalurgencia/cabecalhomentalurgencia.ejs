@@ -45,176 +45,501 @@
 						<% if(id.length > 0) { %>
 							<% for(var i = 0; i < id.length; i++) {%>
 											<% if(id[i].usuario== 'cida'){%>
-												
-											<li class="btn-success"><a class="btn  btn-sm" href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
-									
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
+												<li class="btn-success">
+													<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planalto</a>
+													<ul class="dropdown-menu">
+														<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
+														<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+													</ul>
+												</li>
+												<li class="btn-success">
+													<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Luizote</a>
+													<ul class="dropdown-menu">
+														<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
+														<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+													</ul>
+												</li>
+												<li class="btn-success">
+													<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Martins</a>
+													<ul class="dropdown-menu">
+														<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
+														<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmartins?id=<%=id[i].id_usuario %>">Historico</a></li>
+													</ul>
+												</li>
+												<li class="btn-success">
+													<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Roosevelt</a>
+													<ul class="dropdown-menu">
+														<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
+														<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalroosevelt?id=<%=id[i].id_usuario %>">Historico</a></li>
+													</ul>
+												</li>
+												<li class="btn-success">
+													<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tibery</a>
+													<ul class="dropdown-menu">
+														<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
+														<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentaltibery?id=<%=id[i].id_usuario %>">Historico</a></li>
+													</ul>
+												</li>
+												<li class="btn-success">
+													<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Morumbi</a>
+													<ul class="dropdown-menu">
+														<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
+														<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmorumbi?id=<%=id[i].id_usuario %>">Historico</a></li>
+													</ul>
+												</li>
+												<li class="btn-success">
+													<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">São Jorge</a>
+													<ul class="dropdown-menu">
+														<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
+														<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalsaojorge?id=<%=id[i].id_usuario %>">Historico</a></li>
+													</ul>
+												</li>
+												<li class="btn-success">
+													<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pampulha</a>
+													<ul class="dropdown-menu">
+														<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
+														<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmentalpampulha?id=<%=id[i].id_usuario %>">Historico</a></li>
+													</ul>
+												</li>
+												<li class="btn-success"><a class="btn  btn-sm" href="/historicogeral?id=<%=id[i].id_usuario %>">Lista Geral</a></li>
+													<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+													
 													
 										<% } %>
 										<% if(id[i].usuario== 'supervplalui' || id[i].usuario== 'supervmarroose' || id[i].usuario== 'supervtibmorum'){%>
 												
-											<li class="btn-success"><a class="btn  btn-sm" href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
-									
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
-													
-										<% } %>
-										<% if(id[i].usuario== 'sheylla'){%>
-											<li class="btn-success"><a class="btn  btn-sm"  href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planalto</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Luizote</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Martins</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmartins?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Roosevelt</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalroosevelt?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tibery</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentaltibery?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Morumbi</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmorumbi?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">São Jorge</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalsaojorge?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pampulha</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmentalpampulha?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/historicogeral?id=<%=id[i].id_usuario %>">Lista Geral</a></li>
+												<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 												
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
+												
+									<% } %>
+										<% if(id[i].usuario== 'sheylla'){%>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planalto</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Luizote</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Martins</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmartins?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Roosevelt</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalroosevelt?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tibery</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentaltibery?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Morumbi</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmorumbi?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">São Jorge</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalsaojorge?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pampulha</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmentalpampulha?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/historicogeral?id=<%=id[i].id_usuario %>">Lista Geral</a></li>
+												<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+												
+												
 									<% } %>
 										<% if(id[i].usuario== 'admin'){%>
-											<li class="btn-success"><a class="btn  btn-sm"  href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
-									
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planalto</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Luizote</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Martins</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmartins?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Roosevelt</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalroosevelt?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tibery</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentaltibery?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Morumbi</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmorumbi?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">São Jorge</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalsaojorge?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success">
+												<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pampulha</a>
+												<ul class="dropdown-menu">
+													<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
+													<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmentalpampulha?id=<%=id[i].id_usuario %>">Historico</a></li>
+												</ul>
+											</li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/historicogeral?id=<%=id[i].id_usuario %>">Lista Geral</a></li>
+												<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+												
+												
 									<% } %>
 									<% if(id[i].usuario== 'coordad' || id[i].usuario== 'supervad'){%>
-											<li class="btn-success"><a class="btn  btn-sm"  href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
-									
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planalto</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Luizote</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Martins</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmartins?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Roosevelt</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalroosevelt?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tibery</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentaltibery?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Morumbi</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmorumbi?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">São Jorge</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalsaojorge?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pampulha</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmentalpampulha?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicogeral?id=<%=id[i].id_usuario %>">Lista Geral</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
 											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
 								<% } %>
 									<% if(id[i].usuario== 'coordinfantil' || id[i].usuario== 'supervinfantil'){%>
-											<li class="btn-success"><a class="btn  btn-sm"  href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
-												
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planalto</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Luizote</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Martins</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmartins?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Roosevelt</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalroosevelt?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tibery</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentaltibery?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Morumbi</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmorumbi?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">São Jorge</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalsaojorge?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success">
+											<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pampulha</a>
+											<ul class="dropdown-menu">
+												<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
+												<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmentalpampulha?id=<%=id[i].id_usuario %>">Historico</a></li>
+											</ul>
+										</li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/historicogeral?id=<%=id[i].id_usuario %>">Lista Geral</a></li>
+											<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
 											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
 								<% } %>
 								<% if(id[i].usuario== 'coordnorte' || id[i].usuario== 'supervnorte'){%>
-										<li class="btn-success"><a class="btn  btn-sm"  href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
-												
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planalto</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Luizote</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Martins</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmartins?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Roosevelt</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalroosevelt?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tibery</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentaltibery?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Morumbi</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmorumbi?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">São Jorge</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalsaojorge?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pampulha</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmentalpampulha?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success"><a class="btn  btn-sm" href="/historicogeral?id=<%=id[i].id_usuario %>">Lista Geral</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+										
+										
 							<% } %>
 								<% if(id[i].usuario== 'coordoeste' || id[i].usuario== 'supervoeste'){%>
-											<li class="btn-success"><a class="btn  btn-sm"  href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
-												
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planalto</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Luizote</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalluizote?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Martins</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmartins?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Roosevelt</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalroosevelt?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tibery</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentaltibery?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Morumbi</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmorumbi?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">São Jorge</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
-											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalsaojorge?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pampulha</a>
+										<ul class="dropdown-menu">
 											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
-											
-											<li class="btn-success"><a class="btn  btn-sm"  href="/sair">SAIR</a></li>
+											<li class="btn-success"><a class="btn  btn-sm"  href="/historicomentalmentalpampulha?id=<%=id[i].id_usuario %>">Historico</a></li>
+										</ul>
+									</li>
+									<li class="btn-success"><a class="btn  btn-sm" href="/historicogeral?id=<%=id[i].id_usuario %>">Lista Geral</a></li>
+										<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+										
+										
 							<% } %>
 								<%  if(id[i].smu == 1){%>
 										<% if(id[i].unidade==1){%>
