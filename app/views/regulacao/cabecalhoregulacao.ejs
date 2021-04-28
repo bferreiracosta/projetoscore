@@ -237,6 +237,28 @@
 							 
 							 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 							 <% } %>
+							 <% if(id[i].usuario== 'marcella'){%>
+						
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Administrativo</a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmplanalto?id=<%=id[i].id_usuario %>">Relatorio Administrativo Planalto</a></li>
+			
+											<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatorio Administrativo Luizote</a></li>
+			
+											<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmmartins?id=<%=id[i].id_usuario %>">Relatorio Administrativo Martins</a></li>
+			
+											<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmroosevelt?id=<%=id[i].id_usuario %>">Relatorio Administrativo Roosevelt</a></li>
+			
+											<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmtibery?id=<%=id[i].id_usuario %>">Relatorio Administrativo Tibery</a></li>
+			
+											<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmmorumbi?id=<%=id[i].id_usuario %>">Relatorio Administrativo Morumbi</a></li>
+		
+									</ul>
+								 </li>
+								 
+								 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+								 <% } %>
 						<% if(id[i].usuario== 'cida'){%>
 							<li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Planalto</a>
@@ -1500,12 +1522,8 @@
 								<li class="btn-success">
 									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Relatorio de Pacientes</a>
 									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteplanalto?id=<%=id[i].id_usuario %>">Relatorio de pacientes Planalto</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteluizote?id=<%=id[i].id_usuario %>">Relatorio de pacientes Luizote</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemartins?id=<%=id[i].id_usuario %>">Relatorio de pacientes Martins</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteroosevelt?id=<%=id[i].id_usuario %>">Relatorio de pacientes Roosevelt</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientetibery?id=<%=id[i].id_usuario %>">Relatorio de pacientes Tibery</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemorumbi?id=<%=id[i].id_usuario %>">Relatorio de pacientes Morumbi</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio Sala de Emergência Covid</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria Covid</a></li>
 									</ul>
 								</li>
 								
@@ -1527,12 +1545,8 @@
 								<li class="btn-success">
 									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Relatorio de Pacientes</a>
 									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteplanalto?id=<%=id[i].id_usuario %>">Relatorio de pacientes Planalto</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteluizote?id=<%=id[i].id_usuario %>">Relatorio de pacientes Luizote</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemartins?id=<%=id[i].id_usuario %>">Relatorio de pacientes Martins</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteroosevelt?id=<%=id[i].id_usuario %>">Relatorio de pacientes Roosevelt</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientetibery?id=<%=id[i].id_usuario %>">Relatorio de pacientes Tibery</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemorumbi?id=<%=id[i].id_usuario %>">Relatorio de pacientes Morumbi</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio Sala de Emergência Covid</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria Covid</a></li>
 									</ul>
 								</li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
@@ -1553,12 +1567,8 @@
 								<li class="btn-success">
 									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Relatorio de Pacientes</a>
 									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteplanalto?id=<%=id[i].id_usuario %>">Relatorio de pacientes Planalto</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteluizote?id=<%=id[i].id_usuario %>">Relatorio de pacientes Luizote</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemartins?id=<%=id[i].id_usuario %>">Relatorio de pacientes Martins</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteroosevelt?id=<%=id[i].id_usuario %>">Relatorio de pacientes Roosevelt</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientetibery?id=<%=id[i].id_usuario %>">Relatorio de pacientes Tibery</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemorumbi?id=<%=id[i].id_usuario %>">Relatorio de pacientes Morumbi</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio Sala de Emergência Covid</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria Covid</a></li>
 									</ul>
 								</li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
@@ -1579,12 +1589,8 @@
 								<li class="btn-success">
 									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Relatorio de Pacientes</a>
 									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteplanalto?id=<%=id[i].id_usuario %>">Relatorio de pacientes Planalto</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteluizote?id=<%=id[i].id_usuario %>">Relatorio de pacientes Luizote</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemartins?id=<%=id[i].id_usuario %>">Relatorio de pacientes Martins</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteroosevelt?id=<%=id[i].id_usuario %>">Relatorio de pacientes Roosevelt</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientetibery?id=<%=id[i].id_usuario %>">Relatorio de pacientes Tibery</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemorumbi?id=<%=id[i].id_usuario %>">Relatorio de pacientes Morumbi</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio Sala de Emergência Covid</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria Covid</a></li>
 									</ul>
 								</li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
@@ -1605,12 +1611,8 @@
 								<li class="btn-success">
 									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Relatorio de Pacientes</a>
 									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteplanalto?id=<%=id[i].id_usuario %>">Relatorio de pacientes Planalto</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteluizote?id=<%=id[i].id_usuario %>">Relatorio de pacientes Luizote</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemartins?id=<%=id[i].id_usuario %>">Relatorio de pacientes Martins</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteroosevelt?id=<%=id[i].id_usuario %>">Relatorio de pacientes Roosevelt</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientetibery?id=<%=id[i].id_usuario %>">Relatorio de pacientes Tibery</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemorumbi?id=<%=id[i].id_usuario %>">Relatorio de pacientes Morumbi</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio Sala de Emergência Covid</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria Covid</a></li>
 									</ul>
 								</li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
@@ -1631,12 +1633,8 @@
 								<li class="btn-success">
 									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Relatorio de Pacientes</a>
 									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteplanalto?id=<%=id[i].id_usuario %>">Relatorio de pacientes Planalto</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteluizote?id=<%=id[i].id_usuario %>">Relatorio de pacientes Luizote</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemartins?id=<%=id[i].id_usuario %>">Relatorio de pacientes Martins</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteroosevelt?id=<%=id[i].id_usuario %>">Relatorio de pacientes Roosevelt</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientetibery?id=<%=id[i].id_usuario %>">Relatorio de pacientes Tibery</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemorumbi?id=<%=id[i].id_usuario %>">Relatorio de pacientes Morumbi</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio Sala de Emergência Covid</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria Covid</a></li>
 									</ul>
 								</li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
@@ -1657,12 +1655,8 @@
 								<li class="btn-success">
 									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Relatorio de Pacientes</a>
 									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteplanalto?id=<%=id[i].id_usuario %>">Relatorio de pacientes Planalto</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteluizote?id=<%=id[i].id_usuario %>">Relatorio de pacientes Luizote</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemartins?id=<%=id[i].id_usuario %>">Relatorio de pacientes Martins</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteroosevelt?id=<%=id[i].id_usuario %>">Relatorio de pacientes Roosevelt</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientetibery?id=<%=id[i].id_usuario %>">Relatorio de pacientes Tibery</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemorumbi?id=<%=id[i].id_usuario %>">Relatorio de pacientes Morumbi</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio Sala de Emergência Covid</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria Covid</a></li>
 									</ul>
 								</li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
@@ -1683,12 +1677,8 @@
 								<li class="btn-success">
 									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Relatorio de Pacientes</a>
 									<ul class="dropdown-menu">
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteplanalto?id=<%=id[i].id_usuario %>">Relatorio de pacientes Planalto</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteluizote?id=<%=id[i].id_usuario %>">Relatorio de pacientes Luizote</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemartins?id=<%=id[i].id_usuario %>">Relatorio de pacientes Martins</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacienteroosevelt?id=<%=id[i].id_usuario %>">Relatorio de pacientes Roosevelt</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientetibery?id=<%=id[i].id_usuario %>">Relatorio de pacientes Tibery</a></li>
-										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopacientemorumbi?id=<%=id[i].id_usuario %>">Relatorio de pacientes Morumbi</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriouti?id=<%=id[i].id_usuario %>">Relatorio Sala de Emergência Covid</a></li>
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatorioenfermaria?id=<%=id[i].id_usuario %>">Relatorio Enfermaria Covid</a></li>
 									</ul>
 								</li>
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
