@@ -98,7 +98,7 @@ module.exports.centraluaipampulha= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitopampulha(function(error, resultado){
-			res.render("regulacao/centraluaipampulha", {leito : resultado, id : result});
+			res.render("gestao/centraluaipampulha", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -112,7 +112,7 @@ module.exports.centraluaipampulharelatorio= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitopampulha(function(error, resultado){
-			res.render("regulacao/centraluaipampulharelatorio", {leito : resultado, id : result});
+			res.render("gestao/centraluaipampulharelatorio", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -126,7 +126,7 @@ module.exports.centraluaisaojorge= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitosaojorge(function(error, resultado){
-			res.render("regulacao/centraluaisaojorge", {leito : resultado, id : result});
+			res.render("gestao/centraluaisaojorge", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -140,7 +140,7 @@ module.exports.centraluaisaojorgerelatorio= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitosaojorge(function(error, resultado){
-			res.render("regulacao/centraluaisaojorgerelatorio", {leito : resultado, id : result});
+			res.render("gestao/centraluaisaojorgerelatorio", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -154,7 +154,7 @@ module.exports.centraluaimorumbi= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitomorumbi(function(error, resultado){
-			res.render("regulacao/centraluaimorumbi", {leito : resultado, id : result});
+			res.render("gestao/centraluaimorumbi", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -168,7 +168,7 @@ module.exports.centraluaimorumbirelatorio= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitomorumbi(function(error, resultado){
-			res.render("regulacao/centraluaimorumbirelatorio", {leito : resultado, id : result});
+			res.render("gestao/centraluaimorumbirelatorio", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -182,7 +182,7 @@ module.exports.centraluaitibery= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitotibery(function(error, resultado){
-			res.render("regulacao/centraluaitibery", {leito : resultado, id : result});
+			res.render("gestao/centraluaitibery", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -196,7 +196,7 @@ module.exports.centraluaitiberyrelatorio= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitotibery(function(error, resultado){
-			res.render("regulacao/centraluaitiberyrelatorio", {leito : resultado, id : result});
+			res.render("gestao/centraluaitiberyrelatorio", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -210,7 +210,7 @@ module.exports.centraluairoosevelt= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitoroosevelt(function(error, resultado){
-			res.render("regulacao/centraluairoosevelt", {leito : resultado, id : result});
+			res.render("gestao/centraluairoosevelt", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -224,7 +224,7 @@ module.exports.centraluairooseveltrelatorio= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitoroosevelt(function(error, resultado){
-			res.render("regulacao/centraluairooseveltrelatorio", {leito : resultado, id : result});
+			res.render("gestao/centraluairooseveltrelatorio", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -238,7 +238,7 @@ module.exports.centraluaimartins= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitomartins(function(error, resultado){
-			res.render("regulacao/centraluaimartins", {leito : resultado, id : result});
+			res.render("gestao/centraluaimartins", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -252,7 +252,7 @@ module.exports.centraluaimartinsrelatorio= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitomartins(function(error, resultado){
-			res.render("regulacao/centraluaimartinsrelatorio", {leito : resultado, id : result});
+			res.render("gestao/centraluaimartinsrelatorio", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -265,7 +265,7 @@ module.exports.centraluailuizote= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitoluizote(function(error, resultado){
-			res.render("regulacao/centraluailuizote", {leito : resultado, id : result});
+			res.render("gestao/centraluailuizote", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -279,7 +279,7 @@ module.exports.centraluailuizoterelatorio= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitoluizote(function(error, resultado){
-			res.render("regulacao/centraluailuizoterelatorio", {leito : resultado, id : result});
+			res.render("gestao/centraluailuizoterelatorio", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -293,7 +293,7 @@ module.exports.centraluaiplanalto= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitoplanalto(function(error, resultado){
-			res.render("regulacao/centraluaiplanalto", {leito : resultado, id : result});
+			res.render("gestao/centraluaiplanalto", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -307,7 +307,7 @@ module.exports.centraluaiplanaltorelatorio= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladminregulacao.buscarleitoplanalto(function(error, resultado){
-			res.render("regulacao/centraluaiplanaltorelatorio", {leito : resultado, id : result});
+			res.render("gestao/centraluaiplanaltorelatorio", {leito : resultado, id : result});
 		});
 	});	
 }
@@ -484,7 +484,7 @@ module.exports.editarleitoluizote= function(application, req, res){
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		modelluizote.updateleitosluizote(idleitos,  dataatualizacao,horaatualizacao,se1ccv,se1cmv,se2ccv,se2cmv,se3ccv,se3cmv,se4ccv,se4cmv,seasccv,seascmv,enf1ccv,enf1cmv, enf2ccv,enf2cmv,enf3ccv,enf3cmv,enf4ccv,enf4cmv,enf5ccv,enf5cmv,enf6ccv,enf6cmv,enf7ccv,enf7cmv,se8ccv,se8cmv,se9ccv,se9cmv,enf10ccv,enf10cmv,enf11ccv,enf11cmv,enf12ccv,en12cmv, enf13ccv,enf13cmv, enf14ccv,enf14cmv,amb1ccv,amb1cmv, amb2ccv, amb2cmv, amb3ccv, amb3cmv, amb4ccv, amb4cmv,amb5ccv,amb5cmv,amb6ccv,amb6cmv,amb7ccv,amb7cmv,  function(error, result){
-			res.render("home/homeregulacao", {leito : result, id : resultados});
+			res.render("home/homegestao", {leito : result, id : resultados});
 		});
 	});	
 }
@@ -520,7 +520,7 @@ module.exports.editarleitoplanalto= function(application, req, res){
 	console.log(idleitos,senccv,sencmv,e1ccv,e1cmv,seccv, secmv,e3ccv,e3cmv,e4ccv,e4cmv,pediatriabcv,isccv,iscmv,emccv,emcmv,eaccv,eacmv,saccv,sacmv,macasccv,macascmv,macaparada,dataatualizacao,horaatualizacao)
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		modelplanalto.updateleitosplanalto(idleitos,senccv,sencmv,e1ccv,e1cmv,seccv, secmv,e3ccv,e3cmv,e4ccv,e4cmv,pediatriabcv,isccv,iscmv,emccv,emcmv,eaccv,eacmv,saccv,sacmv,macasccv,macascmv,macaparada,dataatualizacao,horaatualizacao,  function(error, result){
-			res.render("home/homeregulacao", {leito : result, id : resultados});
+			res.render("home/homegestao", {leito : result, id : resultados});
 		});
 	});	
 }
@@ -550,7 +550,7 @@ module.exports.editarleitomartins= function(application, req, res){
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		modelmartins.updateleitosmartins(idleitos, senccv,sencmv,seccv,secmv,emccv,emcmv,efccv,efcmv,corredorccv,corredorcmv,pediatriaccv,pediatriabcv,goccv,gocmv,eaccv,eacmv,dataatualizacao,horaatualizacao,  function(error, result){
-			res.render("home/homeregulacao", {leito : result, id : resultados});
+			res.render("home/homegestao", {leito : result, id : resultados});
 		});
 	});	
 }
@@ -613,7 +613,7 @@ module.exports.editarleitoroosevelt= function(application, req, res){
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		modelroosevelt.updateleitosroosevelt(idleitos, se1ccv ,se1cmv ,se2ccv ,se2cmv, se3ccv ,se3cmv ,se4ccv ,se4cmv ,se5ccv ,se5cmv ,se6ccv ,se6cmv ,seccv ,secmv ,paccv  ,pacmv ,is1ccv ,is1cmv ,is2ccv ,is2cmv ,is3ccv  ,is3cmv ,is4ccv ,is4cmv ,is5ccv ,is5cmv ,e7ccv ,e7cmv ,e8ccv ,e8cmv ,e9ccv ,e9cmv ,e11ccv ,e11cmv ,e12ccv ,e12cmv  ,e13ccv ,e13cmv ,e14ccv ,e14cmv ,e15ccv ,e15cmv ,e16ccv ,e16cmv ,e17ccv ,e17cmv ,corredorccv ,corredorcmv ,macaparada ,dataatualizacao,horaatualizacao,  function(error, result){
-			res.render("home/homeregulacao", {leito : result, id : resultados});
+			res.render("home/homegestao", {leito : result, id : resultados});
 		});
 	});	
 }
@@ -663,7 +663,7 @@ module.exports.editarleitotibery= function(application, req, res){
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		modeltibery.updateleitostibery(idleitos,macaparada, senccv,sencmv,ca9ccv,ca9cmv,ca10ccv,ca10cmv,ca18ccv,ca18cmv,ca19ccv,ca19cmv,ca20ccv,ca20bcv,cfccv,cfcmv,e1ccv,e1cmv,e2ccv,e2cmv,e3ccv,e3cmv,e4ccv,e4cmv,aeccv,aecmv,isccv,iscmv, slcccv, slccmv,ec1ccv,ec1cmv,ec2ccv,ec2cmv,occcv,occmv, dataatualizacao,horaatualizacao,  function(error, result){
-			res.render("home/homeregulacao", {leito : result, id : resultados});
+			res.render("home/homegestao", {leito : result, id : resultados});
 		});
 	});	
 }
@@ -702,7 +702,7 @@ module.exports.editarleitomorumbi= function(application, req, res){
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		modelmorumbi.updateleitosmorumbi(idleitos, sec1ccv ,sec1cmv ,slcccv ,slccmv ,emccv ,emcmv ,efcccv ,efccmv ,segccv ,segcmv ,sogccv ,sogcmv ,emncccv ,emnccmv ,efccv ,efcmv ,ee1ccv ,ee1cmv ,ee2ccv ,ee2cmv ,issccv ,isscmv ,macasccv ,macascmv ,macaparada ,dataatualizacao,horaatualizacao,  function(error, result){
-			res.render("home/homeregulacao", {leito : result, id : resultados});
+			res.render("home/homegestao", {leito : result, id : resultados});
 		});
 	});	
 }
@@ -812,7 +812,7 @@ module.exports.editarleitosaojorge= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		
 		modelsaojorge.updateleitossaojorge(idleitos, sec1,sec1cc,sec1ccv,sec1cm,sec1cmv,sec2,sec2cc,sec2ccv,sec2cm,sec2cmv,sec3,sec3cc,sec3ccv,sec3cm,sec3cmv,ec1,ec1cc,ec1ccv,ec1cm,ec1cmv,ec2,ec2cc,ec2ccv,ec2cm,ec2cmv,ec3,ec3cc,ec3ccv,ec3cm,ec3cmv,ec4,ec4cc,ec4ccv,ec4cm,ec4cmv,ec5,ec5cc,ec5ccv,ec5cm,ec5cmv,ec6,ec6cc,ec6ccv,ec6cm,ec6cmv,ec7,ec7cc,ec7ccv,ec7cm,ec7cmv,ec8,ec8cc,ec8ccv,ec8cm,ec8cmv,ec9,ec9cc,ec9ccv,ec9cm,ec9cmv,ec10,ec10cc,ec10ccv,ec10cm,ec10cmv,se,secc,seccv,secm,secmv,e1,e1cc,e1ccv,e1cm,e1cmv,e2,e2cc,e2ccv,e2cm,e2cmv,e3,e3cc,e3ccv,e3cm,e3cmv,e4,e4cc,e4ccv,e4cm,e4cmv,e5,e5cc,e5ccv,e5cm,e5cmv,dataatualizacao,horaatualizacao,  function(error, result){
-			res.render("home/homeregulacao", {leito : result, id : resultados});
+			res.render("home/homegestao", {leito : result, id : resultados});
 		});
 	});	
 }
@@ -907,7 +907,7 @@ module.exports.editarleitopampulha= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		
 		modelpampulha.updateleitospampulha(idleitos, sec1,sec1cc,sec1ccv,sec1cm,sec1cmv,sec2,sec2cc,sec2ccv,sec2cm,sec2cmv,sec3,sec3cc,sec3ccv,sec3cm,sec3cmv,ec1,ec1cc,ec1ccv,ec1cm,ec1cmv,ec2,ec2cc,ec2ccv,ec2cm,ec2cmv,ec3,ec3cc,ec3ccv,ec3cm,ec3cmv,ec4,ec4cc,ec4ccv,ec4cm,ec4cmv,ec5,ec5cc,ec5ccv,ec5cm,ec5cmv,ec6,ec6cc,ec6ccv,ec6cm,ec6cmv,ec7,ec7cc,ec7ccv,ec7cm,ec7cmv,se,secc,seccv,secm,secmv,e1,e1cc,e1ccv,e1cm,e1cmv,e2,e2cc,e2ccv,e2cm,e2cmv,e3,e3cc,e3ccv,e3cm,e3cmv,e4,e4cc,e4ccv,e4cm,e4cmv,e5,e5cc,e5ccv,e5cm,e5cmv,dataatualizacao,horaatualizacao,  function(error, result){
-			res.render("home/homeregulacao", {leito : result, id : resultados});
+			res.render("home/homegestao", {leito : result, id : resultados});
 		});
 	});	
 }

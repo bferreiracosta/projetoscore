@@ -1,4 +1,4 @@
-<%- include('./cabecalhoregulacao'); %>
+<%- include('./cabecalhogestao'); %>
     <h2>Central leito UAI Martins</h2>
     
         <% if(id.length > 0) { %>
@@ -8,27 +8,27 @@
             <thead>
                 <tr>
                     <th>Setor</th>
-                    <th></th>
+                   
                     <th>Capacidade</th>
-                    <th></th>
+                   
                     <th>Quantidade de Camas</th>
-                    <th></th>
+                   
                     <th>Quantidade de Camas Ocupadas</th>
-                    <th></th>
+                   
                     <th>Quantidade de Camas Vagas</th>
-                    <th></th>
+                   
                     <th>Quantidade de Macas</th>
-                    <th></th>
+                   
                     <th>Quantidade de Macas Ocupadas</th>
-                    <th></th>
+                   
                     <th>Quantidade de Macas Vagas</th>
-                    <th></th>
+                   
                     <th>Quantidade de Berços</th>
-                    <th></th>
+                   
                     <th>Quantidade de Berços Ocupados</th>
-                    <th></th>
+                   
                     <th>Quantidade de Berços Vagos</th>
-                    <th></th>
+                   
                     <th>Quantidade de Macas Parada</th>
                 </tr>
             </thead>
@@ -37,209 +37,209 @@
                     <% for(var j = 0; j < leito.length; j++) {%> 
                 <tr>
                     <td>Sala de Emergência Não Covid</td>
-                   <td><label hidden>/Capacidade: </label></td>
+                   
                     <td  ><%=leito[j].senc %></td>
-                   <td><label hidden>/Quantidade de Camas: </label></td>
+                   
                     <td class="subtotalqtdcamas"><%=leito[j].sencc %></td>
-                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
+                   
                     <td class="subtotalqtdcamasocupado"><%=leito[j].senccv %></td>
-                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
+                   
                     <td class="subtotalqtdcamasvago"></td>
-                   <td><label hidden>/Quantidade de Macas: </label></td>
+                   
                     <td class="subtotalmacas"><%=leito[j].sencm %></td>
-                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
+                   
                     <td class="subtotalmacasocupadas"><%=leito[j].sencmv %></td>
-                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                   
                     <td class="subtotalmacasvagas"></td>
-                   <td><label hidden>/Quantidade de Berços: </label></td> 
+                    
                     <td class="subtotalberco">0</td>
-                   <td><label hidden>/Quantidade de Berços Ocupados: </label></td>   
+                     
                     <td class="subtotalbercoocupado">0</td>
-                   <td><label hidden>/Quantidade de Berços Vagos: </label></td> 
+                   
                     <td class="subtotalbercovago">0</td>
-                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    
                     <td class="subtotalmacasparada"><%=leito[j].macaparada %></td>
                            
                 </tr>
                 <tr>
                     <td>Sala de Emergência</td>
-                   <td><label hidden>/Capacidade: </label></td>
+                   
                     <td ><%=leito[j].sec %></td>
-                   <td><label hidden>/Quantidade de Camas: </label></td>
+                   
                     <td class="subtotalqtdcamas"><%=leito[j].secc %></td>
-                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
+                   
                     <td class="subtotalqtdcamasocupado"><%=leito[j].seccv %></td>
-                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
+                   
                     <td class="subtotalqtdcamasvago"></td>
-                   <td><label hidden>/Quantidade de Macas: </label></td>
+                   
                     <td class="subtotalmacas"><%=leito[j].secm %></td>
-                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
+                   
                     <td class="subtotalmacasocupadas"><%=leito[j].secmv %></td>
-                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                   
                     <td class="subtotalmacasvagas"></td>
-                   <td><label hidden>/Quantidade de Berços: </label></td> 
+                    
                     <td class="subtotalberco">0</td>
-                   <td><label hidden>/Quantidade de Berços Ocupados: </label></td>   
+                     
                     <td class="subtotalbercoocupado">0</td>
-                   <td><label hidden>/Quantidade de Berços Vagos: </label></td> 
+                   
                     <td class="subtotalbercovago">0</td>
-                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    
                     <td class="subtotalmacasparada">0</td>
                                
                 </tr>
                 <tr>
                     <td>Enfermaria Masculina</td>
-                   <td><label hidden>/Capacidade: </label></td>
+                   
                     <td  ><%=leito[j].em %></td>
-                   <td><label hidden>/Quantidade de Camas: </label></td>
+                   
                     <td class="subtotalqtdcamas"><%=leito[j].emcc %></td>
-                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
+                   
                     <td class="subtotalqtdcamasocupado"><%=leito[j].emccv %></td>
-                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
+                   
                     <td class="subtotalqtdcamasvago"></td>
-                   <td><label hidden>/Quantidade de Macas: </label></td>
+                   
                     <td class="subtotalmacas"><%=leito[j].emcm %></td>
-                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
+                   
                     <td class="subtotalmacasocupadas"><%=leito[j].emcmv %></td>
-                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                   
                     <td class="subtotalmacasvagas"></td>
-                   <td><label hidden>/Quantidade de Berços: </label></td> 
+                    
                     <td class="subtotalberco">0</td>
-                   <td><label hidden>/Quantidade de Berços Ocupados: </label></td>   
+                     
                     <td class="subtotalbercoocupado">0</td>
-                   <td><label hidden>/Quantidade de Berços Vagos: </label></td> 
+                   
                     <td class="subtotalbercovago">0</td>
-                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    
                     <td class="subtotalmacasparada">0</td>
                            
                 </tr>
                 <tr>
                     <td>Enfermaria Feminina</td>
-                   <td><label hidden>/Capacidade: </label></td>
+                   
                     <td ><%=leito[j].ef %></td>
-                   <td><label hidden>/Quantidade de Camas: </label></td>
+                   
                     <td class="subtotalqtdcamas"><%=leito[j].efcc %></td>
-                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
+                   
                     <td class="subtotalqtdcamasocupado"><%=leito[j].efccv %></td>
-                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
+                   
                     <td class="subtotalqtdcamasvago"></td>
-                   <td><label hidden>/Quantidade de Macas: </label></td>
+                   
                     <td class="subtotalmacas"><%=leito[j].efcm %></td>
-                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
+                   
                     <td class="subtotalmacasocupadas"><%=leito[j].efcmv %></td>
-                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                   
                     <td class="subtotalmacasvagas"></td>
-                   <td><label hidden>/Quantidade de Berços: </label></td> 
+                    
                     <td class="subtotalberco">0</td>
-                   <td><label hidden>/Quantidade de Berços Ocupados: </label></td>   
+                     
                     <td class="subtotalbercoocupado">0</td>
-                   <td><label hidden>/Quantidade de Berços Vagos: </label></td> 
+                   
                     <td class="subtotalbercovago">0</td>
-                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    
                     <td class="subtotalmacasparada">0</td>
                              
                 </tr>
                 <tr>
                     <td>Corredor</td>
-                   <td><label hidden>/Capacidade: </label></td>
+                   
                     <td  ><%=leito[j].corredor %></td>
-                   <td><label hidden>/Quantidade de Camas: </label></td>
+                   
                     <td class="subtotalqtdcamas"><%=leito[j].corredorcc %></td>
-                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
+                   
                     <td class="subtotalqtdcamasocupado"><%=leito[j].corredorccv %></td>
-                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
+                   
                     <td class="subtotalqtdcamasvago"></td>
-                   <td><label hidden>/Quantidade de Macas: </label></td>
+                   
                     <td class="subtotalmacas"><%=leito[j].corredorcm %></td>
-                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
+                   
                     <td class="subtotalmacasocupadas"><%=leito[j].corredorcmv %></td>
-                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                   
                     <td class="subtotalmacasvagas"></td>
-                   <td><label hidden>/Quantidade de Berços: </label></td> 
+                    
                     <td class="subtotalberco">0</td>
-                   <td><label hidden>/Quantidade de Berços Ocupados: </label></td>   
+                     
                     <td class="subtotalbercoocupado">0</td>
-                   <td><label hidden>/Quantidade de Berços Vagos: </label></td> 
+                   
                     <td class="subtotalbercovago">0</td>
-                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    
                     <td class="subtotalmacasparada">0</td>
                               
                 </tr>
                 <tr>
                     <td>Pediatria</td>
-                   <td><label hidden>/Capacidade: </label></td>
+                   
                     <td ><%=leito[j].pediatria %></td>
-                   <td><label hidden>/Quantidade de Camas: </label></td>
+                   
                     <td class="subtotalqtdcamas"><%=leito[j].pediatriacc %></td>
-                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
+                   
                     <td class="subtotalqtdcamasocupado"><%=leito[j].pediatriaccv %></td>
-                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
+                   
                     <td class="subtotalqtdcamasvago"></td>
-                   <td><label hidden>/Quantidade de Macas: </label></td>
+                   
                     <td class="subtotalmacas">0</td>
-                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
+                   
                     <td class="subtotalmacasocupadas">0</td>
-                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                   
                     <td class="subtotalmacasvagas"></td>
-                   <td><label hidden>/Quantidade de Berços: </label></td> 
+                    
                     <td class="subtotalberco"><%=leito[j].pediatriabc %></td>
-                   <td><label hidden>/Quantidade de Berços Ocupados: </label></td>   
+                     
                     <td class="subtotalbercoocupado"><%=leito[j].pediatriabcv %></td>
-                   <td><label hidden>/Quantidade de Berços Vagos: </label></td> 
+                   
                     <td class="subtotalbercovago">0</td>
-                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    
                     <td class="subtotalmacasparada">0</td>
                              
                 </tr>
                 <tr>
                     <td>Ginecologia/Obstetricia</td>
-                   <td><label hidden>/Capacidade: </label></td>
+                   
                     <td  ><%=leito[j].go %></td>
-                   <td><label hidden>/Quantidade de Camas: </label></td>
+                   
                     <td class="subtotalqtdcamas"><%=leito[j].gocc %></td>
-                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
+                   
                     <td class="subtotalqtdcamasocupado"><%=leito[j].goccv %></td>
-                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
+                   
                     <td class="subtotalqtdcamasvago"></td>
-                   <td><label hidden>/Quantidade de Macas: </label></td>
+                   
                     <td class="subtotalmacas" ><%=leito[j].gocm %></td>
-                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
+                   
                     <td class="subtotalmacasocupadas"><%=leito[j].gocmv %></td>
-                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                   
                     <td class="subtotalmacasvagas"></td>
-                   <td><label hidden>/Quantidade de Berços: </label></td> 
+                    
                     <td class="subtotalberco">0</td>
-                   <td><label hidden>/Quantidade de Berços Ocupados: </label></td>   
+                     
                     <td class="subtotalbercoocupado">0</td>
-                   <td><label hidden>/Quantidade de Berços Vagos: </label></td> 
+                   
                     <td class="subtotalbercovago">0</td>
-                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    
                     <td class="subtotalmacasparada">0</td>
                            
                 </tr>
                 <tr>
                     <td>Enfermaria Ambulatorio(Covid)</td>
-                   <td><label hidden>/Capacidade: </label></td>
+                   
                     <td ><%=leito[j].ea %></td>
-                   <td><label hidden>/Quantidade de Camas: </label></td>
+                   
                     <td class="subtotalqtdcamas"><%=leito[j].eacc %></td>
-                   <td><label hidden>/Quantidade de Camas Ocupadas: </label></td>
+                   
                     <td class="subtotalqtdcamasocupado" ><%=leito[j].eaccv %></td>
-                   <td><label hidden>/Quantidade de Camas Vagas: </label></td>
+                   
                     <td class="subtotalqtdcamasvago"></td>
-                   <td><label hidden>/Quantidade de Macas: </label></td>
+                   
                     <td class="subtotalmacas" ><%=leito[j].eacm %></td>
-                   <td><label hidden>/Quantidade de Macas Ocupadas: </label></td>
+                   
                     <td class="subtotalmacasocupadas"><%=leito[j].eacmv %></td>
-                   <td><label hidden>/Quantidade de Macas Vagas: </label></td>
+                   
                     <td class="subtotalmacasvagas"></td>
-                   <td><label hidden>/Quantidade de Berços: </label></td> 
+                    
                     <td class="subtotalberco">0</td>
-                   <td><label hidden>/Quantidade de Berços Ocupados: </label></td>   
+                     
                     <td class="subtotalbercoocupado">0</td>
-                   <td><label hidden>/Quantidade de Berços Vagos: </label></td> 
+                   
                     <td class="subtotalbercovago">0</td>
-                   <td><label hidden>/Quantidade de Macas Parada: </label></td>  
+                    
                     <td class="subtotalmacasparada">0</td>
                            
                 </tr>
@@ -253,27 +253,27 @@
             <tfoot>
                 <tr>
                     <td>Total</td>
-                   <td><label hidden>/Resultado Capacidade: </label></td>
+                   
                     <td class="resultadocapacidade"></td>
-                   <td><label hidden>/Resultado Quantidade de Camas: </label></td>
+                   
                     <td class="resultadocamas"></td>
-                   <td><label hidden>/Resultado Quantidade de Camas Ocupadas: </label></td>
+                   
                     <td class="resultadocamasocupados"></td>
-                   <td><label hidden>/Resultado Quantidade de Camas Vagas: </label></td>
+                   
                     <td class="resultadocamasvagas"></td>
-                    <td><label hidden>/Resultado Quantidade de Berços:</label></td> 
+                    
                     <td class="resultadocberco"></td>
-                   <td><label hidden>/Resultado Quantidade de Berços Ocupados:</label></td>   
+                     
                     <td class="resultadobercoocupados"></td>
-                   <td><label hidden>/Resultado Quantidade de Berços Vagos:</label></td> 
+                   
                     <td class="resultadobercovagos"></td>
-                   <td><label hidden>/Resultado Quantidade de Macas: </label></td>
+                   
                     <td class="resultadomacas"></td>
-                   <td><label hidden>/Resultado Quantidade de Macas Ocupadas: </label></td>
+                   
                     <td class="resultadomacasocupados"></td>
-                   <td><label hidden>/Resultado Quantidade de Macas Vagas: </label></td>
+                   
                     <td class="resultadomacasvagas"></td>
-                    <td><label hidden>/Resultado Quantidade de Macas Parada: </label></td>
+                    
                     <td class="resultadomacasparada"></td>
                                
                 </tr>
@@ -309,25 +309,25 @@
             {
                 "extend": "copyHtml5",
                 "text": "COPIAR",
-                header: false,
+               
                 footer:true
             },          
             {
                 "extend": "pdf",
                 "text": "PDF",
-                header: false,
+               
                 footer:true
             },
             {
                 "extend": "excelHtml5",
                 "text": "EXCEL",
-                header: false,
+               
                 footer:true
             },
             {
                 "extend": "print",
                 "text": "IMPRIMIR",
-                header: false,
+               
                 footer:true
             }
         ],language: {
@@ -359,6 +359,27 @@
  
                 // Total over all pages
                 total = api
+                    .column( 1 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 1, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 1 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+            
+            // Total over all pages
+            total = api
                     .column( 2 )
                     .data()
                     .reduce( function (a, b) {
@@ -377,8 +398,27 @@
                 $( api.column( 2 ).footer() ).html(
                   pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
                 );
-            
-            // Total over all pages
+                // Total over all pages
+            total = api
+                    .column( 3 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 3, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 3 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
             total = api
                     .column( 4 )
                     .data()
@@ -396,6 +436,26 @@
  
                 // Update footer
                 $( api.column( 4 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 5 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 5, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 5 ).footer() ).html(
                   pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
                 );
                 // Total over all pages
@@ -420,6 +480,26 @@
                 );
                 // Total over all pages
             total = api
+                    .column( 7 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 7, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 7 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
                     .column( 8 )
                     .data()
                     .reduce( function (a, b) {
@@ -436,6 +516,26 @@
  
                 // Update footer
                 $( api.column( 8 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 9 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 9, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 9 ).footer() ).html(
                   pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
                 );
                 // Total over all pages
@@ -460,7 +560,7 @@
                 );
                 // Total over all pages
             total = api
-                    .column( 12 )
+                    .column( 11 )
                     .data()
                     .reduce( function (a, b) {
                         return intVal(a) + intVal(b);
@@ -468,114 +568,14 @@
  
                 // Total over this page
                 pageTotal = api
-                    .column( 12, { page: 'current'} )
+                    .column( 11, { page: 'current'} )
                     .data()
                     .reduce( function (a, b) {
                         return intVal(a) + intVal(b);
                     }, 0 );
  
                 // Update footer
-                $( api.column( 12 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 14 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 14, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 14 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 16 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 16, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 16 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 18 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 18, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 18 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 20 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 20, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 20 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 22 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 22, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 22 ).footer() ).html(
+                $( api.column( 11 ).footer() ).html(
                   pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
                 );
             }
@@ -583,21 +583,21 @@
 } );
 $('#mytable tbody tr').each(function(i){
              tr=$(this);
-            qtdcamas=tr.children('td:eq(4)').html();
-            qtdcamasocupadas = tr.children('td:eq(6)').html();
-            qtdmacas=tr.children('td:eq(10)').html();
-            qtdmacasocupadas = tr.children('td:eq(12)').html();
-            qtdbercos = tr.children('td:eq(16)').html();
-            qtdbercoscupadas = tr.children('td:eq(18)').html();
+            qtdcamas=tr.children('td:eq(2)').html();
+            qtdcamasocupadas = tr.children('td:eq(3)').html();
+            qtdmacas=tr.children('td:eq(5)').html();
+            qtdmacasocupadas = tr.children('td:eq(6)').html();
+            qtdbercos = tr.children('td:eq(8)').html();
+            qtdbercoscupadas = tr.children('td:eq(9)').html();
             var valorcamasvazias = 0;
             var valormacasvazias = 0;
             var valorbercosvazios = 0
             valorcamasvazias = qtdcamas - qtdcamasocupadas;
             valormacasvazias = qtdmacas - qtdmacasocupadas;
             valorbercosvazios = qtdbercos - qtdbercoscupadas;
-            tr.children('td:eq(8)').html(valorcamasvazias);
-            tr.children('td:eq(14)').html(valormacasvazias);
-            tr.children('td:eq(20)').html(valorbercosvazios);
+            tr.children('td:eq(4)').html(valorcamasvazias);
+            tr.children('td:eq(7)').html(valormacasvazias);
+            tr.children('td:eq(10)').html(valorbercosvazios);
 
 });
 

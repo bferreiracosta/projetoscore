@@ -26,7 +26,8 @@
                             <th>Autonegligencia</th>
                             <th>Dependencia</th>
                             <th>Terapeutico</th>
-                            <th>Social</th>     
+                            <th>Social</th>   
+                            <th></th>  
                             <th>Data Atualização</th>
                             <th>Hora Atualização</th>
                             <th></th>
@@ -37,23 +38,24 @@
                             <% if(mental.length > 0) { %>
                                 <% for(var j = 0; j < mental.length; j++) {%>		
                             <tr>
-                                <td hidden><%=mental[j].id_paciente %></td>
-                                <th><%=mental[j].prt %></th>
-                                <td><%=mental[j].paciente %></td>
-                                <td><%=mental[j].idade %></td>
-                                <td><%=mental[j].diagnostico %></td>
-                                <td><%=mental[j].referencia %></td>
-                                <td hidden><%=mental[j].soma %></td>
-                                <td><%=mental[j].tratamento %></td>
-                                <td><%=mental[j].risco %></td>
-                                <td><%=mental[j].comportamento %></td>
-                                <td><%=mental[j].exposicao %></td>
-                                <td><%=mental[j].autonegligencia %></td>
-                                <td><%=mental[j].dependencia %></td>
-                                <td><%=mental[j].terapeutico %></td>
-                                <td><%=mental[j].social %></td>
-                                <td ><%=mental[j].dataatu %></td>
-                                <td ><%=mental[j].hora %></td>
+                                <td hidden><label hidden for="">Id: </label><%=mental[j].id_paciente %></td>
+                                <th><label hidden for="">/Prontuario: </label><%=mental[j].prt %></th>
+                                <td><label hidden for="">/Nome: </label><%=mental[j].paciente %></td>
+                                <td><label hidden for="">/Idade: </label><%=mental[j].idade %></td>
+                                <td><label hidden for="">/Diagnostico: </label><%=mental[j].diagnostico %></td>
+                                <td><label hidden for="">/Referência: </label><%=mental[j].referencia %></td>
+                                <td hidden><label hidden for=""></label>/Prioridade: <%=mental[j].soma %></td>
+                                <td><label hidden for="">/Tratamento: </label><%=mental[j].tratamento %></td>
+                                <td><label hidden for="">/Risco: </label><%=mental[j].risco %></td>
+                                <td><label hidden for="">/Comportamento: </label><%=mental[j].comportamento %></td>
+                                <td><label hidden for="">/Exposicao: </label><%=mental[j].exposicao %></td>
+                                <td><label hidden for="">/Autonegligencia: </label><%=mental[j].autonegligencia %></td>
+                                <td><label hidden for="">/Dependencia: </label><%=mental[j].dependencia %></td>
+                                <td><label hidden for="">/Terapeutico: </label><%=mental[j].terapeutico %></td>
+                                <td><label hidden for="">/Social: </label><%=mental[j].social %></td>
+                                <td><label hidden for="">/Data Atualização: </label></td>
+                                <td><%=mental[j].dataatu %></td>
+                                <td><label hidden for="">/Hora Atualização: </label><%=mental[j].hora %></td>
                             <td>
                                 <a href="editpacientenorte/<%=id[i].id_usuario %>/?id=<%=mental[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
                             </td>
@@ -203,8 +205,7 @@ setInterval(function(){
         $('#mytable tbody tr').each(function(i){
             tr=$(this);
             tr.children('td').removeClass('fundoIdade');
-            valor=tr.children('td:eq(7)').html();
-            date = tr.children('td:eq(6)').html(); 
+            date = tr.children('td:eq(15)').html(); 
             console.log(hoje, date);
             if(hoje > date){
                 $("mytable tr:eq(6)").addClass("fundoIdade1");
@@ -212,7 +213,7 @@ setInterval(function(){
 
             }
             
-        })       
+        })            
     };
     
     function notificação(){

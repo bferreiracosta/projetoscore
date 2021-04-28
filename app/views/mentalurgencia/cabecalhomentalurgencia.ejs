@@ -67,6 +67,29 @@
 											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
 													
 										<% } %>
+										<% if(id[i].usuario== 'supervplalui' || id[i].usuario== 'supervmarroose' || id[i].usuario== 'supervtibmorum'){%>
+												
+											<li class="btn-success"><a class="btn  btn-sm" href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
+									
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteplanalto?id=<%=id[i].id_usuario %>">Uai Planalto</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteluizote?id=<%=id[i].id_usuario %>">Uai Luizote</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemartins?id=<%=id[i].id_usuario %>">Uai Martins</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacienteroosevelt?id=<%=id[i].id_usuario %>">Uai Roosevelt</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientetibery?id=<%=id[i].id_usuario %>">Uai Tibery</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>">Uai Morumbi</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientesaojorge?id=<%=id[i].id_usuario %>">Uai São Jorge</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm" href="/justificarpacientepampulha?id=<%=id[i].id_usuario %>">Uai Pampulha</a></li>
+											
+											<li class="btn-success"><a class="btn  btn-sm"  href="/sair"">SAIR</a></li>
+													
+										<% } %>
 										<% if(id[i].usuario== 'sheylla'){%>
 											<li class="btn-success"><a class="btn  btn-sm"  href="/historicogeral?id=<%=id[i].id_usuario %>">Historico</a></li>
 												
