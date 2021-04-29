@@ -167,17 +167,7 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/homeregulacao.controllercim', function(req, res){
-		if(req.session.loggedin){
-			console.log('Estou em routes');
-			application.app.controllers.regulacao.controllercim.homeregulacao(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
+
 	application.get('/addpacientecim', function(req, res){
 		if(req.session.loggedin){
 		

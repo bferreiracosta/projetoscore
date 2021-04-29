@@ -176,17 +176,7 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/homeregulacao.controllerplanalto', function(req, res){
-		if(req.session.loggedin){
-		
-			application.app.controllers.regulacao.controllerplanalto.homeregulacao(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
+
 	application.get('/addpacienteplanalto', function(req, res){
 		if(req.session.loggedin){
 		

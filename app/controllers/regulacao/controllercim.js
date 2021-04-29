@@ -94,7 +94,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var dataexame = req.body.dataexame;
 	var id = req.body.idusuario;
 	var unidade = 'CIM';
-	console.log(id);
+	
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelcim = new application.app.model.regulacao.modelcim(application);
@@ -241,7 +241,7 @@ module.exports.sinaisvitais= function(application, req, res){
 
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelcim.buscarpacienteid(idpaciente, unidade, function(error, resultado){
-			console.log(resultado);
+	
 			res.render("regulacao/sinaisvitaiscim", {paciente: resultado, id : result});
 		});
 	});
@@ -250,7 +250,7 @@ module.exports.sinaisvitais= function(application, req, res){
 module.exports.sinaisvitaisid= function(application, req, res){
 	var id = req.params.idusuario;
 	var idpaciente = req.query;
-	console.log(idpaciente);	
+	
 
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelcim = new application.app.model.regulacao.modelcim(application);
@@ -258,7 +258,7 @@ module.exports.sinaisvitaisid= function(application, req, res){
 
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelcim.buscarpacienteregulacao(idpaciente, function(error, resultado){
-			console.log(resultado);
+		
 			res.render("regulacao/sinaisvitais", {paciente: resultado, id : result});
 		});
 	});
@@ -331,7 +331,7 @@ module.exports.homeregulacao = function(application, req, res){
 	var modelcim = new application.app.model.regulacao.modelcim(application);
 	
 	
-	console.log('estou no controlle');
+
 	var id = req.query;
 	var unidade = 'CIM';
 	modeladmin.buscarusuario(id, function(error,result){

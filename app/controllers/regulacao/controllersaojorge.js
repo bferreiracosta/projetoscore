@@ -140,8 +140,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var dataexame = req.body.dataexame;
 	var id = req.body.idusuario;
 	var unidade = 'SaoJorge';
-	console.log(id);
-	
+
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelsaojorge = new application.app.model.regulacao.modelsaojorge(application);
 	
@@ -311,7 +310,7 @@ module.exports.sinaisvitais= function(application, req, res){
 
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelsaojorge.buscarpacienteid(idpaciente, unidade, function(error, resultado){
-			console.log(resultado);
+		
 			res.render("regulacao/sinaisvitaissaojorge", {paciente: resultado, id : result});
 		});
 	});
@@ -320,7 +319,7 @@ module.exports.sinaisvitais= function(application, req, res){
 module.exports.sinaisvitaisid= function(application, req, res){
 	var id = req.params.idusuario;
 	var idpaciente = req.query;
-	console.log(idpaciente);	
+	
 
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelsaojorge = new application.app.model.regulacao.modelsaojorge(application);
@@ -328,7 +327,7 @@ module.exports.sinaisvitaisid= function(application, req, res){
 
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelsaojorge.buscarpacienteregulacao(idpaciente, function(error, resultado){
-			console.log(resultado);
+
 			res.render("regulacao/sinaisvitais", {paciente: resultado, id : result});
 		});
 	});
@@ -401,7 +400,7 @@ module.exports.homeregulacao = function(application, req, res){
 	var modelsaojorge = new application.app.model.regulacao.modelsaojorge(application);
 	
 	
-	console.log('estou no controlle');
+
 	var id = req.query;
 	var unidade = 'SaoJorge';
 	modeladmin.buscarusuario(id, function(error,result){

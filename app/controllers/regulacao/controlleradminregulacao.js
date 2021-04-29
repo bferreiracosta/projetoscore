@@ -517,7 +517,8 @@ module.exports.editarleitoplanalto= function(application, req, res){
 	var horaatualizacao= req.body.horas
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelplanalto = new application.app.model.regulacao.modelplanalto(application);
-	console.log(idleitos,senccv,sencmv,e1ccv,e1cmv,seccv, secmv,e3ccv,e3cmv,e4ccv,e4cmv,pediatriabcv,isccv,iscmv,emccv,emcmv,eaccv,eacmv,saccv,sacmv,macasccv,macascmv,macaparada,dataatualizacao,horaatualizacao)
+	
+	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		modelplanalto.updateleitosplanalto(idleitos,senccv,sencmv,e1ccv,e1cmv,seccv, secmv,e3ccv,e3cmv,e4ccv,e4cmv,pediatriabcv,isccv,iscmv,emccv,emcmv,eaccv,eacmv,saccv,sacmv,macasccv,macascmv,macaparada,dataatualizacao,horaatualizacao,  function(error, result){
 			res.render("home/homegestao", {leito : result, id : resultados});

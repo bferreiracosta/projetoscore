@@ -176,17 +176,6 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/homeregulacao.controllerpampulha', function(req, res){
-		if(req.session.loggedin){
-		
-			application.app.controllers.regulacao.controllerpampulha.homeregulacao(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
 	application.get('/addpacientepampulha', function(req, res){
 		if(req.session.loggedin){
 		

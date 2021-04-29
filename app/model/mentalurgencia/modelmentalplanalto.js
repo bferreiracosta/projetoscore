@@ -29,7 +29,7 @@ modelmentalplanalto.prototype.updatecaps = function(idpaciente,vinculo,motivo, a
 }
 
 modelmentalplanalto.prototype.buscarpaciente = function(unidade, callback){
-	console.log(unidade)
+	
 	this._conection.query('select * from mentalurgencia where unidade = "'+unidade+'" and baixa is null', callback);
 }
 

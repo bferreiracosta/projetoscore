@@ -177,17 +177,7 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/homeregulacao.controllermartins', function(req, res){
-		if(req.session.loggedin){
-		
-			application.app.controllers.regulacao.controllermartins.homeregulacao(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
+
 	application.get('/addpacientemartins', function(req, res){
 		if(req.session.loggedin){
 		

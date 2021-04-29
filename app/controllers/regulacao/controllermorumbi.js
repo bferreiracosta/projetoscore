@@ -139,7 +139,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var dataexame = req.body.dataexame;
 	var id = req.body.idusuario;
 	var unidade = 'Morumbi';
-	console.log(id);
+
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelmorumbi = new application.app.model.regulacao.modelmorumbi(application);
@@ -310,7 +310,7 @@ module.exports.sinaisvitais= function(application, req, res){
 
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelmorumbi.buscarpacienteid(idpaciente, unidade, function(error, resultado){
-			console.log(resultado);
+	
 			res.render("regulacao/sinaisvitaismorumbi", {paciente: resultado, id : result});
 		});
 	});
@@ -319,7 +319,7 @@ module.exports.sinaisvitais= function(application, req, res){
 module.exports.sinaisvitaisid= function(application, req, res){
 	var id = req.params.idusuario;
 	var idpaciente = req.query;
-	console.log(idpaciente);	
+
 
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelmorumbi = new application.app.model.regulacao.modelmorumbi(application);
@@ -327,7 +327,7 @@ module.exports.sinaisvitaisid= function(application, req, res){
 
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelmorumbi.buscarpacienteregulacao(idpaciente, function(error, resultado){
-			console.log(resultado);
+
 			res.render("regulacao/sinaisvitais", {paciente: resultado, id : result});
 		});
 	});
@@ -400,7 +400,7 @@ module.exports.homeregulacao = function(application, req, res){
 	var modelmorumbi = new application.app.model.regulacao.modelmorumbi(application);
 	
 	
-	console.log('estou no controlle');
+
 	var id = req.query;
 	var unidade = 'Morumbi';
 	modeladmin.buscarusuario(id, function(error,result){

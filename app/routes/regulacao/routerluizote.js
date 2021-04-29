@@ -199,17 +199,7 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/homeregulacao.controllerluizote', function(req, res){
-		if(req.session.loggedin){
-			console.log('Estou em routes');
-			application.app.controllers.regulacao.controllerluizote.homeregulacao(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
+	
 	application.get('/addpacienteluizote', function(req, res){
 		if(req.session.loggedin){
 		

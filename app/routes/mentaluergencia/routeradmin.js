@@ -5,8 +5,8 @@ module.exports = function(application) {
 			application.app.controllers.mentalurgencia.controllermentaladmin.historicogeral(application, req, res);
 		}
 		else{
-			res.send("Faça login!!");
-			res.redirect('/')
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
 		}
 		
 	});

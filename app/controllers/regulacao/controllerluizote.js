@@ -141,7 +141,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var dataexame = req.body.dataexame;
 	var id = req.body.idusuario;
 	var unidade = 'Luizote';
-	console.log(id);
+	
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelluizote = new application.app.model.regulacao.modelluizote(application);
@@ -312,7 +312,7 @@ module.exports.sinaisvitais= function(application, req, res){
 
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelluizote.buscarpacienteid(idpaciente, unidade, function(error, resultado){
-			console.log(resultado);
+			
 			res.render("regulacao/sinaisvitaisluizote", {paciente: resultado, id : result});
 		});
 	});
@@ -321,7 +321,7 @@ module.exports.sinaisvitais= function(application, req, res){
 module.exports.sinaisvitaisid= function(application, req, res){
 	var id = req.params.idusuario;
 	var idpaciente = req.query;
-	console.log(idpaciente);	
+
 
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelluizote = new application.app.model.regulacao.modelluizote(application);
@@ -329,7 +329,7 @@ module.exports.sinaisvitaisid= function(application, req, res){
 
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelluizote.buscarpacienteregulacao(idpaciente, function(error, resultado){
-			console.log(resultado);
+		
 			res.render("regulacao/sinaisvitais", {paciente: resultado, id : result});
 		});
 	});
@@ -402,7 +402,7 @@ module.exports.homeregulacao = function(application, req, res){
 	var modelluizote = new application.app.model.regulacao.modelluizote(application);
 	
 	
-	console.log('estou no controlle');
+	
 	var id = req.query;
 	var unidade = 'Luizote';
 	modeladmin.buscarusuario(id, function(error,result){

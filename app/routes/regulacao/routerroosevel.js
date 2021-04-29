@@ -175,17 +175,7 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/homeregulacao.controllerroosevelt', function(req, res){
-		if(req.session.loggedin){
-		
-			application.app.controllers.regulacao.controllerroosevelt.homeregulacao(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
+
 	application.get('/addpacienteroosevelt', function(req, res){
 		if(req.session.loggedin){
 		
