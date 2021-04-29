@@ -9,279 +9,159 @@
                     <p hidden id="idunidade">  <%=id[i].unidade %>  
                         <% if(leito.length > 0) { %>
                             <% for(var j = 0; j < leito.length; j++) {%>
-                        <div>
-                            <div class="form-group">
-                                <label for="posto">Sala de Emergência 1 Covid</label>
-                                <input type="number" disabled name="sec1" class="form-control" value="<%=leito[j].sec1 %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="posto">Sala de Emergência 1 Covid (Camas)</label>
-                                <input type="number"disabled  name="sec1cc" class="form-control" value="<%=leito[j].sec1cc %>">
-                            </div>  
+                       
+                                <h3 for="posto">Sala de Emergência 1 Covid</h3>
+                               
                             <div class="form-group">
                                 <label for="posto">Sala de Emergência 1 Covid (Camas) Ocupados</label>
                                 <input type="number" name="sec1ccv" class="form-control" value="<%=leito[j].sec1ccv %>">
                             </div>
-                            <div class="form-group">
-                                <label for="posto">Sala de Emergência 1 Covid (Macas)</label>
-                                <input type="number"disabled  name="sec1cm" class="form-control" value="<%=leito[j].sec1cm %>">
-                            </div>   
+                              
                             <div class="form-group">
                                 <label for="posto">Sala de Emergência 1 Covid (Macas) Ocupados</label>
                                 <input type="number" name="sec1cmv" class="form-control" value="<%=leito[j].sec1cmv %>">
                             </div>                 
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="posto">Sala Laranja Covid</label>
-                                <input type="number" disabled name="slc" class="form-control" value="<%=leito[j].slc %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="posto">Sala Laranja Covid (Camas)</label>
-                                <input type="number"disabled  name="slccc" class="form-control" value="<%=leito[j].slccc %>">
-                            </div>  
+                       
+                                <h3 for="posto">Sala Laranja Covid</h3>
+                                
                             <div class="form-group">
                                 <label for="posto">Sala Laranja Covid (Camas) Ocupados</label>
                                 <input type="number" name="slcccv" class="form-control" value="<%=leito[j].slcccv %>">
                             </div>
-                            <div class="form-group">
-                                <label for="posto">Sala Laranja Covid (Macas)</label>
-                                <input type="number"disabled  name="slccm" class="form-control" value="<%=leito[j].slccm %>">
-                            </div>   
+                             
                             <div class="form-group">
                                 <label for="posto">Sala Laranja Covid (Macas) Ocupados</label>
                                 <input type="number" name="slccmv" class="form-control" value="<%=leito[j].slccmv %>">
                             </div>                 
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Masculina Covid</label>
-                                <input type="number" disabled name="emc" class="form-control" value="<%=leito[j].emc %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Masculina Covid (Camas)</label>
-                                <input type="number"disabled  name="emcc" class="form-control" value="<%=leito[j].emcc %>">
-                            </div>  
+                       
+                                <h3 for="posto">Enfermaria Masculina Covid</h3>
+                                
                             <div class="form-group">
                                 <label for="posto">Enfermaria Masculina Covid (Camas) Ocupados</label>
                                 <input type="number" name="emccv" class="form-control" value="<%=leito[j].emccv %>">
                             </div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Masculina Covid (Macas)</label>
-                                <input type="number"disabled  name="emcm" class="form-control" value="<%=leito[j].emcm %>">
-                            </div>   
+                             
                             <div class="form-group">
                                 <label for="posto">Enfermaria Masculina Covid (Macas) Ocupados</label>
                                 <input type="number" name="emcmv" class="form-control" value="<%=leito[j].emcmv %>">
                             </div>                 
-                        </div>
-                        
-                        <div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Feminina Covid</label>
-                                <input type="number" disabled name="efc" class="form-control" value="<%=leito[j].efc %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Feminina Covid (Camas)</label>
-                                <input type="number"disabled  name="efccc" class="form-control" value="<%=leito[j].efccc %>">
-                            </div>  
+                      
+                                <h3 for="posto">Enfermaria Feminina Covid</h3>
+                                
                             <div class="form-group">
                                 <label for="posto">Enfermaria Feminina Covid (Camas) Ocupados</label>
                                 <input type="number" name="efcccv" class="form-control" value="<%=leito[j].efcccv %>">
                             </div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Feminina Covid (Macas)</label>
-                                <input type="number"disabled  name="efccm" class="form-control" value="<%=leito[j].efccm %>">
-                            </div>   
+                              
                             <div class="form-group">
                                 <label for="posto">Enfermaria Feminina Covid (Macas) Ocupados</label>
                                 <input type="number" name="efccmv" class="form-control" value="<%=leito[j].efccmv %>">
                             </div>                 
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="posto">Sala de Emergência Geral</label>
-                                <input type="number" disabled name="seg" class="form-control" value="<%=leito[j].seg %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="posto">Sala de Emergência Geral (Camas)</label>
-                                <input type="number"disabled  name="segcc" class="form-control" value="<%=leito[j].segcc %>">
-                            </div>  
+                       
+                                <h3 for="posto">Sala de Emergência Geral</h3>
+                                
                             <div class="form-group">
                                 <label for="posto">Sala de Emergência Geral (Camas) Ocupados</label>
                                 <input type="number" name="segccv" class="form-control" value="<%=leito[j].segccv %>">
                             </div>
-                            <div class="form-group">
-                                <label for="posto">Sala de Emergência Geral (Macas)</label>
-                                <input type="number"disabled  name="segcm" class="form-control" value="<%=leito[j].segcm %>">
-                            </div>   
+                             
                             <div class="form-group">
                                 <label for="posto">Sala de Emergência Geral (Macas) Ocupados</label>
                                 <input type="number" name="segcmv" class="form-control" value="<%=leito[j].segcmv %>">
                             </div>                 
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="posto">Sala de Observação Geral</label>
-                                <input type="number" disabled name="sog" class="form-control" value="<%=leito[j].sog %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="posto">Sala de Observação Geral (Camas)</label>
-                                <input type="number"disabled  name="sogcc" class="form-control" value="<%=leito[j].sogcc %>">
-                            </div>  
+                       
+                                <h3 for="posto">Sala de Observação Geral</h3>
+                                
                             <div class="form-group">
                                 <label for="posto">Sala de Observação Geral (Camas) Ocupados</label>
                                 <input type="number" name="sogccv" class="form-control" value="<%=leito[j].sogccv %>">
                             </div>
-                            <div class="form-group">
-                                <label for="posto">Sala de Observação Geral (Macas)</label>
-                                <input type="number"disabled  name="sogcm" class="form-control" value="<%=leito[j].sogcm %>">
-                            </div>   
+                              
                             <div class="form-group">
                                 <label for="posto">Sala de Observação Geral (Macas) Ocupados</label>
                                 <input type="number" name="sogcmv" class="form-control" value="<%=leito[j].sogcmv %>">
                             </div>                 
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Masculina</label>
-                                <input type="number" disabled name="emnc" class="form-control" value="<%=leito[j].emnc %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Masculina (Camas)</label>
-                                <input type="number"disabled  name="emnccc" class="form-control" value="<%=leito[j].emnccc %>">
-                            </div>  
+                        
+                                <h3 for="posto">Enfermaria Masculina</h3>
+                                
                             <div class="form-group">
                                 <label for="posto">Enfermaria Masculina (Camas) Ocupados</label>
                                 <input type="number" name="emncccv" class="form-control" value="<%=leito[j].emncccv %>">
                             </div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Masculina (Macas)</label>
-                                <input type="number"disabled  name="emnccm" class="form-control" value="<%=leito[j].emnccm %>">
-                            </div>   
+                            
                             <div class="form-group">
                                 <label for="posto">Enfermaria Masculina (Macas) Ocupados</label>
                                 <input type="number" name="emnccmv" class="form-control" value="<%=leito[j].emnccmv %>">
                             </div>                 
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Feminina</label>
-                                <input type="number" disabled name="ef" class="form-control" value="<%=leito[j].ef %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Feminina (Camas)</label>
-                                <input type="number"disabled  name="efcc" class="form-control" value="<%=leito[j].efcc %>">
-                            </div>  
+                        
+                                <h3 for="posto">Enfermaria Feminina</h3>
+                                
                             <div class="form-group">
                                 <label for="posto">Enfermaria Feminina (Camas) Ocupados</label>
                                 <input type="number" name="efccv" class="form-control" value="<%=leito[j].efccv %>">
                             </div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Feminina (Macas)</label>
-                                <input type="number"disabled  name="efcm" class="form-control" value="<%=leito[j].efcm %>">
-                            </div>   
+                             
                             <div class="form-group">
                                 <label for="posto">Enfermaria Feminina (Macas) Ocupados</label>
                                 <input type="number" name="efcmv" class="form-control" value="<%=leito[j].efcmv %>">
                             </div>                 
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Extra 1</label>
-                                <input type="number" disabled name="ee1" class="form-control" value="<%=leito[j].ee1 %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Extra 1 (Camas)</label>
-                                <input type="number"disabled  name="ee1cc" class="form-control" value="<%=leito[j].ee1cc %>">
-                            </div>  
+                        
+                                <h3 for="posto">Enfermaria Extra 1</h3>
+                                
                             <div class="form-group">
                                 <label for="posto">Enfermaria Extra 1 (Camas) Ocupados</label>
                                 <input type="number" name="ee1ccv" class="form-control" value="<%=leito[j].ee1ccv %>">
                             </div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Extra 1 (Macas)</label>
-                                <input type="number"disabled  name="ee1cm" class="form-control" value="<%=leito[j].ee1cm %>">
-                            </div>   
+                            
                             <div class="form-group">
                                 <label for="posto">Enfermaria Extra 1 (Macas) Ocupados</label>
                                 <input type="number" name="ee1cmv" class="form-control" value="<%=leito[j].ee1cmv %>">
                             </div>                 
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Extra 2</label>
-                                <input type="number" disabled name="ee2" class="form-control" value="<%=leito[j].ee2 %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Extra 2 (Camas)</label>
-                                <input type="number"disabled  name="ee2cc" class="form-control" value="<%=leito[j].ee2cc %>">
-                            </div>  
+                       
+                                <h3 for="posto">Enfermaria Extra 2</h3>
+                               
                             <div class="form-group">
                                 <label for="posto">Enfermaria Extra 2 (Camas) Ocupados</label>
                                 <input type="number" name="ee2ccv" class="form-control" value="<%=leito[j].ee2ccv %>">
                             </div>
-                            <div class="form-group">
-                                <label for="posto">Enfermaria Extra 2 (Macas)</label>
-                                <input type="number"disabled  name="ee2cm" class="form-control" value="<%=leito[j].ee2cm %>">
-                            </div>   
+                            
                             <div class="form-group">
                                 <label for="posto">Enfermaria Extra 2 (Macas) Ocupados</label>
                                 <input type="number" name="ee2cmv" class="form-control" value="<%=leito[j].ee2cmv %>">
                             </div>                 
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="posto">Isolamento</label>
-                                <input type="number" disabled name="iss" class="form-control" value="<%=leito[j].iss %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="posto">Isolamento (Camas)</label>
-                                <input type="number"disabled  name="isscc" class="form-control" value="<%=leito[j].isscc %>">
-                            </div>  
+                        
+                                <h3 for="posto">Isolamento</h3>
+                               
                             <div class="form-group">
                                 <label for="posto">Isolamento (Camas) Ocupados</label>
                                 <input type="number" name="issccv" class="form-control" value="<%=leito[j].issccv %>">
                             </div>
-                            <div class="form-group">
-                                <label for="posto">Isolamento (Macas)</label>
-                                <input type="number"disabled  name="isscm" class="form-control" value="<%=leito[j].isscm %>">
-                            </div>   
+                             
                             <div class="form-group">
                                 <label for="posto">Isolamento (Macas) Ocupados</label>
                                 <input type="number" name="isscmv" class="form-control" value="<%=leito[j].isscmv %>">
                             </div>                 
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="posto">Macas</label>
-                                <input type="number" disabled name="macas" class="form-control" value="<%=leito[j].macas %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="posto">Macas (Camas)</label>
-                                <input type="number"disabled  name="macascc" class="form-control" value="<%=leito[j].macascc %>">
-                            </div>  
+                       
+                                <h3 for="posto">Macas</h3>
+                                
                             <div class="form-group">
                                 <label for="posto">Macas (Camas) Ocupados</label>
                                 <input type="number" name="macasccv" class="form-control" value="<%=leito[j].macasccv %>">
                             </div>
-                            <div class="form-group">
-                                <label for="posto">Macas (Macas)</label>
-                                <input type="number"disabled  name="macascm" class="form-control" value="<%=leito[j].macascm %>">
-                            </div>   
+                            
                             <div class="form-group">
                                 <label for="posto">Macas (Macas) Ocupados</label>
                                 <input type="number" name="macascmv" class="form-control" value="<%=leito[j].macascmv %>">
                             </div>                 
-                        </div>
-                        <div class="form-group">
-                            <label for="posto">Maca Parada</label>
-                            <input type="number" name="mr" class="form-control" value="<%=leito[j].macaparada %>">
-                        </div>    
-                        <div id="hora" class="form-group">
-                            <input  type="hidden" id="horas" name="horas"  class="form-control">
-                            <input  type="hidden" id="data" name="data"  class="form-control">
-                        </div>
+                       
+                            <div class="form-group">
+                                <label for="posto">Maca Parada</label>
+                                <input type="number" name="mr" class="form-control" value="<%=leito[j].macaparada %>">
+                            </div>    
+                            <div id="hora" class="form-group">
+                                <input  type="hidden" id="horas" name="horas"  class="form-control">
+                                <input  type="hidden" id="data" name="data"  class="form-control">
+                            </div>
                     
                 <div>
                     <a href="homeregulacao?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
