@@ -138,7 +138,13 @@
 $(document).ready(function() {
 $('#mytable').DataTable( {
 dom: 'Bfrtip',
-"scrollX": true,
+"sScrollY":  ( 0.5 * $(window).height() ),
+    "bPaginate": true,
+    "bJQueryUI": true,
+    "bScrollCollapse": true,
+    "bAutoWidth": true,
+    "sScrollX": "100%",
+    "sScrollXInner": "100%",
         pageLength: 50,
         buttons: [       
             {
