@@ -45,7 +45,7 @@
 					<ul class="nav navbar-nav navbar-right">
 				<% if(id.length > 0) { %>
 					<% for(var i = 0; i < id.length; i++) {%>
-						<% if(id[i].usuario== 'admin'){%>
+						<% if(id[i].usuario== 'admin' || id[i].usuario== 'coordsiate'  || id[i].usuario== 'rtsiate'){%>
 							<li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planalto</a>
 								<ul class="dropdown-menu">
@@ -635,7 +635,7 @@
 									</li>
 										<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 										
-									<% } %><% if(id[i].usuario== 'supervplalui'){%>
+									<% } %><% if(id[i].usuario== 'supervplalui'  || id[i].usuario== 'ivia'){%>
 							<li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planalto</a>
 								<ul class="dropdown-menu">

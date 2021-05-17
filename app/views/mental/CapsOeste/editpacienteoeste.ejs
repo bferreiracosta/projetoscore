@@ -103,7 +103,7 @@
 				<label for="exame">AUTONEGLIGENCIA GRAVE</label>
 				<select  class="form-control" id="autonegligenciaSelect" name="autonegligenciaSelect">
 					<option value="" disabled selected hidden></option>
-					<option value="AUSENTE">AUSENTE</option>
+					<option value="AUSENTE" <%=(mental[j].autonegligencia == 'AUSENTE')?'selected':''%>>AUSENTE</option>
 					<option value="PERDA PARCIAL DO AUTOCUIDADO (HABITOS DE HIGIENE)"<%=(mental[j].autonegligencia == 'PERDA PARCIAL DO AUTOCUIDADO (HABITOS DE HIGIENE)')?'selected':''%>>PERDA PARCIAL DO AUTOCUIDADO (HABITOS DE HIGIENE)</option>
 					<option value="PERDA MODERADA DO AUTOCUIDADO (HABITOS DE HIGIENE)"<%=(mental[j].autonegligencia == 'PERDA MODERADA DO AUTOCUIDADO (HABITOS DE HIGIENE)')?'selected':''%>>PERDA MODERADA DO AUTOCUIDADO (HABITOS DE HIGIENE)</option>
 					<option value="PERDA IMPORTANTE DO AUTOCUIDADO (HABITOS DE HIGIENE E ALIMENTAÇÃO)"<%=(mental[j].autonegligencia == 'PERDA IMPORTANTE DO AUTOCUIDADO (HABITOS DE HIGIENE E ALIMENTAÇÃO)')?'selected':''%>>PERDA IMPORTANTE DO AUTOCUIDADO (HABITOS DE HIGIENE E ALIMENTAÇÃO)</option>
