@@ -45,66 +45,58 @@
 					<ul class="nav navbar-nav navbar-right">
 				<% if(id.length > 0) { %>
 					<% for(var i = 0; i < id.length; i++) {%>
-						<% if(id[i].usuario== 'admin' || id[i].usuario== 'coordenfsiate'  || id[i].usuario== 'reguladorsiate'){%>
+						<% if(id[i].usuario== 'coordenfsiate'  || id[i].usuario== 'reguladorsiate'){%>
 							<li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planalto</a>
 								<ul class="dropdown-menu">
-									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanalto?id=<%=id[i].id_usuario %>">Atualizar Central de Leitos</a></li>
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Relatorio de Leitos Planalto</a></li>
 								</ul>
 							</li>
 							<li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Luizote</a>
 								<ul class="dropdown-menu">
-									<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizote?id=<%=id[i].id_usuario %>">Atualizar Central de Leitos</a></li>
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Relatorio de Leitos Luizote</a></li>
 								</ul>
 							</li>
 							<li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Martins</a>
 								<ul class="dropdown-menu">
-									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartins?id=<%=id[i].id_usuario %>">Atualizar Central de Leitos</a></li>
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Relatorio de Leitos Martins</a></li>
 								</ul>
 							</li>
 							<li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Roosevelt</a>
 								<ul class="dropdown-menu">
-									<li class="btn-success"><a class="btn   btn-sm" href="/centraluairoosevelt?id=<%=id[i].id_usuario %>">Atualizar Central de Leitos</a></li>
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Relatorio de Leitos Roosevelt</a></li>
 								</ul>
 							</li>
 							<li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Morumbi</a>
 								<ul class="dropdown-menu">
-									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbi?id=<%=id[i].id_usuario %>">Atualizar Central de Leitos</a></li>
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Relatorio de Leitos Morumbi</a></li>
 								</ul>
 							</li>
 							<li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tibery</a>
 								<ul class="dropdown-menu">
-									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitibery?id=<%=id[i].id_usuario %>">Atualizar Central de Leitos</a></li>
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Relatorio de Leitos Tibery</a></li>
 								</ul>
 							</li>
 							<li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">São Jorge</a>
 								<ul class="dropdown-menu">
-									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorge?id=<%=id[i].id_usuario %>">Atualizar Central de Leitos</a></li>
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Relatorio de Leitos São Jorge</a></li>
 								</ul>
 							</li>
 							<li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pampulha</a>
 								<ul class="dropdown-menu">
-									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulha?id=<%=id[i].id_usuario %>">Atualizar Central de Leitos</a></li>
 									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Relatorio de Leitos Pampulha</a></li>
 								</ul>
 							</li>
 							 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
 							 <% } %>
-						<% if(id[i].usuario== 'cida'){%>
+						<% if(id[i].usuario== 'cida' || id[i].usuario== 'admin'){%>
 							<li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planalto</a>
 								<ul class="dropdown-menu">
