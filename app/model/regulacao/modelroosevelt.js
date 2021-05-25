@@ -30,10 +30,6 @@ modelroosevelt.prototype.updateleitosroosevelt = function(idleitos, se1ccv ,se1c
 	
 	this._conection.query('update centralleitosroosevelt set  se1ccv ="'+se1ccv+'",se1cmv ="'+se1cmv+'",se2ccv  ="'+se2ccv+'",se2cmv  ="'+se2cmv+'",se3ccv  ="'+se3ccv+'",se3cmv  ="'+se3cmv+'",se4ccv  ="'+se4ccv+'",se4cmv  ="'+se4cmv+'",se5ccv  ="'+se5ccv+'",se5cmv  ="'+se5cmv+'",se6ccv  ="'+se6ccv+'",se6cmv  ="'+se6cmv+'",seccv  ="'+seccv+'",secmv  ="'+secmv+'",paccv   ="'+paccv+'",pacmv  ="'+pacmv+'",is1ccv  ="'+is1ccv+'",is1cmv  ="'+is1cmv+'",is2ccv  ="'+is2ccv+'",is2cmv  ="'+is2cmv+'",is3ccv   ="'+is3ccv+'",is3cmv  ="'+is3cmv+'",is4ccv  ="'+is4ccv+'",is4cmv  ="'+is4cmv+'",is5ccv  ="'+is5ccv+'",is5cmv  ="'+is5cmv+'",e7ccv  ="'+e7ccv+'",e7cmv  ="'+e7cmv+'",e8ccv  ="'+e8ccv+'",e8cmv  ="'+e8cmv+'",e9ccv  ="'+e9ccv+'",e9cmv  ="'+e9cmv+'",e11ccv  ="'+e11ccv+'",e11cmv  ="'+e11cmv+'",e12ccv  ="'+e12ccv+'",e12cmv   ="'+e12cmv+'",e13ccv  ="'+e13ccv+'",e13cmv  ="'+e13cmv+'",e14ccv  ="'+e14ccv+'",e14cmv  ="'+e14cmv+'",e15ccv  ="'+e15ccv+'",e15cmv  ="'+e15cmv+'",e16ccv  ="'+e16ccv+'",e16cmv  ="'+e16cmv+'",e17ccv  ="'+e17ccv+'",e17cmv  ="'+e17cmv+'",corredorccv  ="'+corredorccv+'", corredorcmv  ="'+corredorcmv+'",macaparada  ="'+macaparada+'",dataatualizacao="'+dataatualizacao+'",horaatualizacao="'+horaatualizacao+'" where id = ' + idleitos, callback);
 }
-modelroosevelt.prototype.updatedispositivo = function(vmu,vmd,mu,md,bicu,bicd,data, hora, callback){
-	
-	this._conection.query('update dispositivoroosevelt set dataatualizacao = "'+data+'", horaatualizacao="'+hora+'", vmu = "'+vmu+'", vmd = "'+vmd+'",mu = "'+mu+'",md = "'+md+'",bicu = "'+bicu+'",bicd = "'+bicd+'" where id = 1', callback);
-}
 
 modelroosevelt.prototype.baixa = function(idpaciente,baixa,data, callback){
 

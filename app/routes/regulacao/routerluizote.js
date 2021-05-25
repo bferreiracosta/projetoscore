@@ -245,15 +245,5 @@ module.exports = function(application) {
 		}
 		
 	});
-	application.post('/updatedispositivoluizote', function(req, res){
-		if(req.session.loggedin){
-			
-			application.app.controllers.regulacao.controllerluizote.updatedispositivo(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
+
 };

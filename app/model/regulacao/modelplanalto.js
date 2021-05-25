@@ -30,10 +30,7 @@ modelplanalto.prototype.updateleitosplanalto = function(idleitos,senccv,sencmv,e
 	
 	this._conection.query('update centralleitosplanalto set  senccv ="'+senccv+'",sencmv="'+sencmv+'",e1ccv="'+e1ccv+'",e1cmv="'+e1cmv+'",seccv="'+seccv+'",secmv="'+secmv+'",e3ccv="'+e3ccv+'",e3cmv="'+e3cmv+'",e4ccv="'+e4ccv+'",e4cmv="'+e4cmv+'",isccv="'+isccv+'",iscmv="'+iscmv+'",pediatriabcv="'+pediatriabcv+'",emccv="'+emccv+'",emcmv="'+emcmv+'",eaccv="'+eaccv+'",eacmv="'+eacmv+'",saccv="'+saccv+'",sacmv="'+sacmv+'",macasccv="'+macasccv+'",macascmv="'+macascmv+'",macaparada="'+macaparada+'",dataatualizacao="'+dataatualizacao+'",horaatualizacao="'+horaatualizacao+'" where id = ' + idleitos, callback);
 }
-modelplanalto.prototype.updatedispositivo = function(vmu,vmd,mu,md,bicu,bicd,data, hora, callback){
-	
-	this._conection.query('update dispositivoplanalto set dataatualizacao = "'+data+'", horaatualizacao="'+hora+'", vmu = "'+vmu+'", vmd = "'+vmd+'",mu = "'+mu+'",md = "'+md+'",bicu = "'+bicu+'",bicd = "'+bicd+'" where id = 1', callback);
-}
+
 
 modelplanalto.prototype.baixa = function(idpaciente,baixa,data, callback){
 

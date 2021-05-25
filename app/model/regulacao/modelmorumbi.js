@@ -30,10 +30,6 @@ modelmorumbi.prototype.updateleitosmorumbi = function(idleitos, sec1ccv ,sec1cmv
 	
 	this._conection.query('update centralleitosmorumbi set  sec1ccv = "'+sec1ccv+'",sec1cmv = "'+sec1cmv+'",slcccv = "'+slcccv+'",slccmv = "'+slccmv+'",emccv = "'+emccv+'",emcmv = "'+emcmv+'",efcccv = "'+efcccv+'",efccmv = "'+efccmv+'",segccv = "'+segccv+'",segcmv = "'+segcmv+'",sogccv = "'+sogccv+'",sogcmv = "'+sogcmv+'",emncccv = "'+emncccv+'",emnccmv = "'+emnccmv+'",efccv = "'+efccv+'",efcmv = "'+efcmv+'",ee1ccv = "'+ee1ccv+'",ee1cmv = "'+ee1cmv+'",ee2ccv = "'+ee2ccv+'",ee2cmv = "'+ee2cmv+'",issccv = "'+issccv+'",isscmv = "'+isscmv+'",macasccv = "'+macasccv+'",macascmv = "'+macascmv+'",macaparada = "'+macaparada+'",dataatualizacao="'+dataatualizacao+'",horaatualizacao="'+horaatualizacao+'" where id = ' + idleitos, callback);
 }
-modelmorumbi.prototype.updatedispositivo = function(vmu,vmd,mu,md,bicu,bicd,data, hora, callback){
-	
-	this._conection.query('update dispositivomorumbi set dataatualizacao = "'+data+'", horaatualizacao="'+hora+'", vmu = "'+vmu+'", vmd = "'+vmd+'",mu = "'+mu+'",md = "'+md+'",bicu = "'+bicu+'",bicd = "'+bicd+'" where id = 1', callback);
-}
 
 modelmorumbi.prototype.baixa = function(idpaciente,baixa,data, callback){
 

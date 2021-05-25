@@ -221,15 +221,5 @@ module.exports = function(application) {
 		}
 		
 	});
-	application.post('/updatedispositivoroosevelt', function(req, res){
-		if(req.session.loggedin){
-			
-			application.app.controllers.regulacao.controllerroosevelt.updatedispositivo(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
+
 };

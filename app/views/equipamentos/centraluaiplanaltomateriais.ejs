@@ -1,8 +1,8 @@
-<%- include('./cabecalhoregulacao'); %>
+<%- include('./cabecalhoequipamentos'); %>
 <div id="mobile" class="container">
 
-<form action="/updatedispositivoluizote" style="padding-left: 1%; padding-right: 1%;" method="post">
-                <h2>Quantidades de Materiais UAI Luizote</h2> 
+<form action="/updatedispositivoplanalto" style="padding-left: 1%; padding-right: 1%;" method="post">
+                <h2>Quantidades de Materiais UAI Planalto</h2> 
             
                 <% if(id.length > 0) { %>
                     <% for(var i = 0; i < id.length; i++) {%>
@@ -47,7 +47,26 @@
                                 <input type="number" name="bicd" class="form-control" value="<%=dispositivo[j].bicd %>">
                             </div>   
                             <br>              
-                        </div>               
+                        </div>  
+                        <div>
+                            <div class="form-group">
+                                <label for="posto">Equipamentos com defeitos</label>
+                                <br>
+                            </div>
+                            <div class="form-group">
+                                <label for="posto">Ventilador mecânico</label>
+                                <input type="number" name="vmde" class="form-control" value="<%=dispositivo[j].vmde %>">
+                            </div>  
+                            <div class="form-group">
+                                <label for="posto">Monitor:</label>
+                                <input type="number" name="mde" class="form-control" value="<%=dispositivo[j].mde %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="posto"> BIC:</label>
+                                <input type="number" name="bicde" class="form-control" value="<%=dispositivo[j].bicde %>">
+                            </div>   
+                            <br>              
+                        </div>                   
                         <div id="hora" class="form-group">
                             <input  type="hidden" id="horas" name="horas"  class="form-control">
                             <input  type="hidden" id="data" name="data"  class="form-control">

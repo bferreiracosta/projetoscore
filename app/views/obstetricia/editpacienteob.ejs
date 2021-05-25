@@ -1,0 +1,73 @@
+<%- include('./cabecalhoob'); %>
+<div id="mobile" class="container">
+<% if(id.length > 0) { %>
+    <% for(var i = 0; i < id.length; i++) {%>
+       
+<form action="/updateob" style="padding-left: 1%; padding-right: 1%;" method="post">
+	<h2>Editar  paciente</h2> 
+		<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
+		<% if(obstetricia.length > 0) { %>
+			<% for(var j = 0; j < obstetricia.length; j++) {%>
+			<div>
+				<div class="form-group">
+					<input type="hidden" name="id" class="form-control" placeholder="" value="<%=obstetricia[j].idpaciente %>" required>
+				</div>
+				<div class="form-group">
+					<label for="prontuario">Prontuario</label>
+					<input type="text" name="prt" class="form-control" value="<%=obstetricia[j].prt %>" required>
+				</div>
+				<div class="form-group">
+					<label for="prontuario">Data Atendimento</label>
+					<input type="text" name="data" class="form-control" value="<%=obstetricia[j].dataatendimento %>" required>
+				</div>
+				<div class="form-group">
+					<label for="paciente">Nome Paciente</label>
+					<input type="text" name="nome" class="form-control" value="<%=obstetricia[j].nome %>" required>
+				</div>
+				<div class="form-group">
+					<label for="motivo">Motivo Atendimento</label>
+					<input type="text" name="motivo" class="form-control" value="<%=obstetricia[j].motivo %>" required>
+				</div>
+				<div class="form-group">
+					<label for="unidade">Unidade de Referência</label>
+					<input type="text" name="unidade" class="form-control" value="<%=obstetricia[j].unidade %>" required>
+				</div>  		
+			</div>
+			<% } %>	
+			<% } %> 
+	<div>
+		<a href="/historicoob?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+		<button type="submit" class="btn btn-success">Salvar</button>
+		<br>
+		<br>
+		<br>
+	</div>
+	<% } %>	
+	<% } %> 
+</form>
+</div>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+<%- include('../home/footer'); %>
+</html>
+<script>
+$(function(){
+	$(window).on('resize load', function() {
+  		if ($(window).width() <= 768) { 
+			$("#mobile").removeClass("container");
+ 		 }
+  		else {
+    		$("#mobile").addClass("container");
+  		}
+	});
+});
+$(document).ready(function(){
+      $('#dataatendimento').mask('00/00/0000');
+	 	 
+      });	
+
+</script>

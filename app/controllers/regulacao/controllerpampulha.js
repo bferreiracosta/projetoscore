@@ -255,30 +255,7 @@ module.exports.updateresp= function(application, req, res){
 	});	
 }
 
-module.exports.updatedispositivo= function(application, req, res){
-	
-	var vmu = req.body.vmu;
-	var vmd = req.body.vmd;
-	var mu = req.body.mu;
-	var md = req.body.md;
-	var bicu = req.body.bicu;
-	var bicd = req.body.bicd;
-	var id = req.body.idusuario;
-	var data = req.body.data;
-	var hora = req.body.horas;
-	
-	
-	var modeladmin = new application.app.model.admin.modeladmin(application);
-	var modelpampulha = new application.app.model.regulacao.modelpampulha(application);
-	var modeladminregulacao = new application.app.model.regulacao.modeladminregulacao(application);
-	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modelpampulha.updatedispositivo(vmu,vmd,mu,md,bicu,bicd,data, hora,  function(error, result){
-			modeladminregulacao.buscardispositivopampulha(function(error, resultado){
-				res.render("regulacao/centraluaipampulharelatoriomateriais", {dispositivo : resultado, id : resultados});
-			});
-		});
-	});	
-}
+
 module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;
 	var id = req.body.campo2;

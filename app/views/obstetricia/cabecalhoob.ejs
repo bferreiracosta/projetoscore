@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		
+		<title>ScoreSystem</title>
+		
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- incluindo css -->
+		<link href="/css/style.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.buttons.css"/>
+
+		<!-- favicon -->
+		<link rel="shortcut icon" href="/images/favicon.ico" />
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default">
+			<div id="nav">
+			  <!-- Brand and toggle get grouped for better mobile display -->
+			  <div class="navbar-header">
+				 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				 <span class="sr-only">Toggle navigation</span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 </button>
+				 <img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+				 ScoreSystem
+			  </a>
+			  </div>
+				 <!-- Collect the nav links, forms, and other content for toggling -->
+				 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+					<% if(id.length > 0) { %>
+						<% for(var i = 0; i < id.length; i++) {%>
+							<% if(id[i].usuario== 'cida'){%>
+								<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteob?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/historicoob?id=<%=id[i].id_usuario %>">Historico</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+							<% } %>
+							<% if(id[i].usuario== 'sheylla' || id[i].usuario== 'supervmarroose'){%>
+								<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteob?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/historicoob?id=<%=id[i].id_usuario %>">Historico</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+							<% } %>
+							<% if(id[i].usuario== 'admin'){%>
+								<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteob?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/historicoob?id=<%=id[i].id_usuario %>">Historico</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+							<% } %>
+							<% if(id[i].unidade==3){%>
+								<li class="btn-success"><a class="btn  btn-sm" href="/addpacienteob?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/historicoob?id=<%=id[i].id_usuario %>">Historico</a></li>
+								<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+							<% } %>
+						<% } %>
+					<% } %>
+				</ul>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			</ul>
+		 </div>
+		 <!-- /.navbar-collapse -->
+	   </div>
+	   <!-- /.container-fluid -->
+	   </nav>
+
+<script>
+	$(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+});
+</script>
+

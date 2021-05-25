@@ -30,10 +30,6 @@ modeltibery.prototype.updateleitostibery = function(idleitos,macaparada, senccv,
 
 	this._conection.query('update centralleitostibery set  macaparada="'+macaparada+'",senccv="'+senccv+'",sencmv="'+sencmv+'",ca9ccv="'+ca9ccv+'",ca9cmv="'+ca9cmv+'",ca10ccv="'+ca10ccv+'",ca10cmv="'+ca10cmv+'",ca18ccv="'+ca18ccv+'",ca18cmv="'+ca18cmv+'",ca19ccv="'+ca19ccv+'",ca19cmv="'+ca19cmv+'",ca20ccv="'+ca20ccv+'",ca20cmv="'+ca20cmv+'",cfccv="'+cfccv+'",cfcmv="'+cfcmv+'",e1ccv="'+e1ccv+'",e1cmv="'+e1cmv+'",e2ccv="'+e2ccv+'",e2cmv="'+e2cmv+'",e3ccv="'+e3ccv+'",e3cmv="'+e3cmv+'",e4ccv="'+e4ccv+'",e4cmv="'+e4cmv+'",aeccv="'+aeccv+'",aecmv="'+aecmv+'",isccv="'+isccv+'",iscmv="'+iscmv+'",slcccv="'+slcccv+'",slccmv="'+slccmv+'",occcv="'+occcv+'",occmv="'+occmv+'",ec1ccv="'+ec1ccv+'",ec1cmv="'+ec1cmv+'",ec2ccv="'+ec2ccv+'",ec2cmv="'+ec2cmv+'",dataatualizacao="'+dataatualizacao+'",horaatualizacao="'+horaatualizacao+'" where id = ' + idleitos, callback);
 }
-modeltibery.prototype.updatedispositivo = function(vmu,vmd,mu,md,bicu,bicd,data, hora, callback){
-	
-	this._conection.query('update dispositivotibery set dataatualizacao = "'+data+'", horaatualizacao="'+hora+'", vmu = "'+vmu+'", vmd = "'+vmd+'",mu = "'+mu+'",md = "'+md+'",bicu = "'+bicu+'",bicd = "'+bicd+'" where id = 1', callback);
-}
 
 modeltibery.prototype.baixa = function(idpaciente,baixa,data, callback){
 

@@ -223,16 +223,5 @@ module.exports = function(application) {
 		}
 		
 	});
-	application.post('/updatedispositivomartins', function(req, res){
-		if(req.session.loggedin){
-			
-			application.app.controllers.regulacao.controllermartins.updatedispositivo(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
-	
+
 };
