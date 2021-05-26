@@ -3,650 +3,308 @@
     
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
-                <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
         <table class="table table-striped" style="width: 100%;" id="mytable">
-            
+            <input name="usuario" type="hidden" id="usuario" value="<%=id[i].id_usuario %>">
             <thead>
-            <tr>
-                <th>Setor</th>
-               
-                <th>Capacidade</th>
-               
-                <th>Quantidade de Camas</th>
-               
-                <th>Quantidade de Camas Ocupadas</th>
-               
-                <th>Quantidade de Camas Vagas</th>
-               
-                <th>Quantidade de Macas</th>
-               
-                <th>Quantidade de Macas Ocupadas</th>
-               
-                <th>Quantidade de Macas Vagas</th>
-               
-                <th>Quantidade de Macas Parada</th>
-            </tr>
+                <tr>
+
+                    <th>Setor</th>
+                   
+                    <th>Capacidade</th>
+                   
+                    <th>Quantidade de Camas</th>
+                   
+                    <th>Quantidade de Camas Ocupadas</th>
+                   
+                    <th>Quantidade de Camas Vagas</th>
+                   
+                    <th>Quantidade de Macas</th>
+                   
+                    <th>Quantidade de Macas Ocupadas</th>
+                   
+                    <th>Quantidade de Macas Vagas</th>
+                   
+                    <th>Quantidade de Berços</th>
+                   
+                    <th>Quantidade de Berços Ocupados</th>
+                   
+                    <th>Quantidade de Berços Vagos</th>
+                   
+                    <th>Quantidade de Macas Parada</th>
+
+                    <th>Quantidade de Macas Parada Vagos</th>
+
+                    <th>Leito Bloqueado</th>
+
+                    <th>Data Atualização</th>
+
+                    <th>Hora Atualização</th>
+
+                </tr>
             </thead>
             <tbody>   
                 <% if(leito.length > 0) { %>
                     <% for(var j = 0; j < leito.length; j++) {%> 
                 <tr>
-                    <td>Sala de Emergência 1</td>
+
+                    <td><%=leito[j].setor %></td>
                    
-                    <td  ><%=leito[j].se1 %></td>
-                  
-                    <td class="subtotalqtdcamas"><%=leito[j].se1cc %></td>
+                    <td  ><%=leito[j].capacidade %></td>
                    
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].se1ccv %></td>
+                    <td ><%=leito[j].capacidadecamas %></td>
                    
-                    <td class="subtotalqtdcamasvago"></td>
+                    <td  ><%=leito[j].capacidadecamasocupadas %></td>
                    
-                    <td class="subtotalmacas"><%=leito[j].se1cm %></td>
+                    <td ></td>
                    
-                    <td class="subtotalmacasocupadas"><%=leito[j].se1cmv %></td>
+                    <td ><%=leito[j].capacidademacas %></td>
                    
-                    <td class="subtotalmacasvagas"></td>
+                    <td ><%=leito[j].capacidademacasocupadas %></td>
+                   
+                    <td ></td>
                     
-                    <td class="subtotalmacasparada"><%=leito[j].macaparada %></td>
-                  
-                </tr>
-                <tr>
-                    <td>Sala de Emergência 2</td>
+                    <td ><%=leito[j].capacidadebercos %></td>
+                     
+                    <td ><%=leito[j].capacidadebercoocupado %></td>
                    
-                    <td  ><%=leito[j].se2c %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].se2cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].se2ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].se2cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].se2cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                   
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Sala de Emergência 3</td>
-                   
-                    <td  ><%=leito[j].se3c %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].se3cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].se3ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].se3cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].se3cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
+                    <td ></td>
                     
-                    <td class="subtotalmacasparada">0</td>
-                  
+                    <td ><%=leito[j].capacidademacasparada %></td>
+
+                    <td ><%=leito[j].capacidademacasparadavaga %></td>
+
+                    <td ><%=leito[j].bloqueado %></td>
+
+                    <td><%=leito[j].datas %></td>
+
+                    <td><%=leito[j].hora %></td>
+                        
                 </tr>
-                <tr>
-                    <td>Sala de Emergência 4</td>
-                   
-                    <td  ><%=leito[j].se4c %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].se4cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].se4ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].se4cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].se4cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Sala de Emergência Alta Suspeição</td>
-                   
-                    <td  ><%=leito[j].seas %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].seascc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].seasccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].seascm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].seascmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Enfermaria 1</td>
-                   
-                    <td  ><%=leito[j].enf1 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].enf1cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].enf1ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].enf1cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].enf1cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Enfermaria 2</td>
-                   
-                    <td  ><%=leito[j].enf2 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].enf2cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].enf2ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].enf2cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].enf2cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Enfermaria 3</td>
-                   
-                    <td  ><%=leito[j].enf3 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].enf3cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].enf3ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].enf3cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].enf3cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Enfermaria 4 </td>
-                   
-                    <td  ><%=leito[j].enf4 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].enf4cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].enf4ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].enf4cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].enf4cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Enfermaria 5 Ar Ambiente</td>
-                   
-                    <td  ><%=leito[j].enf5 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].enf5cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].enf5ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].enf5cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].enf5cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Enfermaria 6</td>
-                   
-                    <td  ><%=leito[j].enf6 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].enf6cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].enf6ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].enf6cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].enf6cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Enfermaria 7</td>
-                   
-                    <td  ><%=leito[j].enf7 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].enf7cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].enf7ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].enf7cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].enf7cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Sala de Emergência 8</td>
-                   
-                    <td  ><%=leito[j].se8 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].se8cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].se8ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].se8cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].se8cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Sala de Emergência 9</td>
-                   
-                    <td  ><%=leito[j].se9 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].se9cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].se9ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].se9cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].se9cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Enfermaria 10 Alta Suspeição</td>
-                   
-                    <td  ><%=leito[j].enf10 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].enf10cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].enf10ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].enf10cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].enf10cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Enfermaria 11 Alta Suspeição</td>
-                   
-                    <td  ><%=leito[j].enf11 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].enf11cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].enf11ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].enf11cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].enf11cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Enfermaria 12 Alta Suspeição</td>
-                   
-                    <td  ><%=leito[j].enf12 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].en12cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].enf12ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].enf12cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].en12cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Enfermaria 13 Covid</td>
-                   
-                    <td  ><%=leito[j].enf13 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].enf13cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].enf13ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].enf13cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].enf13cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Enfermaria 14 Covid</td>
-                   
-                    <td  ><%=leito[j].enf14 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].enf14cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].enf14ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].enf14cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].enf14cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Ambulatório 1 Alta Suspeição</td>
-                   
-                    <td  ><%=leito[j].amb1 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].amb1cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].amb1ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].amb1cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].amb1cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Ambulatório 2 Covid</td>
-                   
-                    <td  ><%=leito[j].amb2 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].amb2cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].amb2ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].amb2cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].amb2cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Ambulatório 3 Alta Suspeição</td>
-                   
-                    <td  ><%=leito[j].amb3 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].amb3cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].amb3ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].amb3cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].amb3cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Ambulatório 4 Alta Suspeição</td>
-                   
-                    <td  ><%=leito[j].amb4 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].amb4cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].amb4ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].amb4cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].amb4cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Ambulatório 5 Baixa Suspeição</td>
-                   
-                    <td  ><%=leito[j].amb5 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].amb5cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].amb5ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].amb5cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].amb5cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                  
-                </tr>
-                <tr>
-                    <td>Ambulatório 6 Baixa Suspeição</td>
-                   
-                    <td  ><%=leito[j].amb6 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].amb6cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].amb6ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].amb6cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].amb6cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                               
-                </tr>
-                <tr>
-                    <td>Ambulatório 7 Baixa Suspeição</td>
-                   
-                    <td  ><%=leito[j].amb7 %></td>
-                   
-                    <td class="subtotalqtdcamas"><%=leito[j].amb7cc %></td>
-                   
-                    <td class="subtotalqtdcamasocupado"><%=leito[j].amb7ccv %></td>
-                   
-                    <td class="subtotalqtdcamasvago"></td>
-                   
-                    <td class="subtotalmacas"><%=leito[j].amb7cm %></td>
-                   
-                    <td class="subtotalmacasocupadas"><%=leito[j].amb7cmv %></td>
-                   
-                    <td class="subtotalmacasvagas"></td>
-                    
-                    <td class="subtotalmacasparada">0</td>
-                              
-                </tr>
-                <p>Data Ultima Atualização: <%=leito[j].dataatualizacao %></p>
-                <p>Hora Ultima Atualização: <%=leito[j].horaatualizacao %></p>
+           
+                
                 <% } %>	
                 <% } %>
                 <% } %>	
                 <% } %>
             </tbody>
-                <tfoot>
-                    <tr>
-                        <td>Total</td>
-                       
-                        <td class="resultadocapacidade"></td>
-                       
-                        <td class="resultadocamas"></td>
-                       
-                        <td class="resultadocamasocupados"></td>
-                       
-                        <td class="resultadocamasvagas"></td>
-                       
-                        <td class="resultadomacas"></td>
-                       
-                        <td class="resultadomacasocupados"></td>
-                       
-                        <td class="resultadomacasvagas"></td>
+            <tfoot>
+                <tr>
+                    <td>Total</td>
+                   
+                    <td ></td>
+                   
+                    <td ></td>
+                   
+                    <td ></td>
+                   
+                    <td ></td>
+                    
+                    <td ></td>
+                     
+                    <td ></td>
+                   
+                    <td ></td>
+                   
+                    <td ></td>
+                   
+                    <td ></td>
+                   
+                    <td ></td>
+                    
+                    <td></td>
+
+                    <td></td>
+
+                    <td></td>
+
+                    <td></td>
+
+                    <td></td>
+                               
+                </tr>
+            </tfoot>
+        </table>
+        <form id="add-row-form" action="/editarleitoluizote" method="POST">
+       <div class="modal fade" id="DescModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                         <h3 class="modal-title">Atualização Setor</h3>
+                    </div>
+                   
+                    <div class="modal-body">
+                        <h1 class="setor"></h1>
+                        <input type="hidden" name="setor" id="campo" class="form-control setor2"  >
+                        <label for="paciente">Leito Bloqueado</label>
+						<select class="form-control leito" onchange="verifica(this.value)" id="leito" name="leito" required>
+							<option value="sim" >Sim</option>
+							<option value="nao" >Não</option>
+						</select>
+						<input  id="leitos" class="form-control leitos"  type="hidden" name="leitos">
+                        <div class="form-group">
+                            <label for="posto"> Camas Ocupados</label>
+                            <input type="text" name="capacidadecamasocupadas" id="cama" class="form-control cama"  >
+                        </div>
+                        <div class="form-group">
+                            <label for="posto"> Macas Ocupados</label>
+                            <input type="text" name="capacidademacasocupadas" id="maca" class="form-control maca"  >
+                        </div> 
+                        <div class="form-group">
+                            <label for="posto"> Berços Ocupados</label>
+                            <input type="text" name="capacidadebercoocupado" id="macaparada" class="form-control macaparada"  >
+                        </div> 
+                        <div class="form-group">
+                            <label for="posto"> Maca PCR</label>
+                            <input type="text" name="capacidademacasparadavaga" id="berco" class="form-control berco" >
+                        </div> 
                         
-                        <td class="resultadomacasparada"></td>          
-                    </tr>
-                </tfoot>
-            </table>
-          
-            <br>
-            <br>
-            <br>
-    
-    <!-- Importando o jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
-    <!-- Importando o js do bootstrap -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script>
-     $(document).ready(function() {
-            $('#mytable').DataTable( {
-                dom: 'Bfrtip',
-                order:false,
-                "scrollX": true,  
+                    <input  type="hidden" class="form-control idusuario"  name="idusuario" id="idusuario">
+                    <input  type="hidden" class="form-control data"  name="data" id="data">
+                    <input  type="hidden" class="form-control hora"  name="hora" id="hora">
+                    
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Atualizar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog-->
+        </div>
+    </form>
+        <br>
+        <br>
+        <br>
+
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+$('#mytable').on('dblclick', 'tr', function () {
+        var id = "";
+        var cama = "";
+        var maca = "";
+        var berco = "";
+        var macaparada = "";
+        var idusuario = "";
+        var setor = "";
         
-            pageLength: 50,
-            buttons: [       
-                {
-                    "extend": "copyHtml5",
-                    "text": "COPIAR",
-                   
-                    footer:true
-                },          
-                {
-                    "extend": "pdf",
-                    "text": "PDF",
-                   
-                    footer:true
-                },
-                {
-                    "extend": "excelHtml5",
-                    "text": "EXCEL",
-                   
-                    footer:true
-                },
-                {
-                    "extend": "print",
-                    "text": "IMPRIMIR",
-                   
-                    footer:true
-                }
-            ],language: {
-                buttons: {
-                    copyTitle: 'Copiado para área de transferência',
-                    copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
-                    copySuccess: {
-                        _: '%d linhas copiadas',
-                        1: '1 linha copiada'
-                    }
-                },
-                "paginate": {
-                    "previous": "Anterior",
-                    "next": "Próximo"
-                },
-                "search": "Pesquisar:"
+        var tableData = $(this).children("td").map(function()         {
+         return $(this).text();
+         }).get();
+         idusuario = document.getElementById('usuario').value;
+         setor =$.trim(tableData[0]);
+         cama =$.trim(tableData[3]);
+         maca =$.trim(tableData[6]);
+         berco =$.trim(tableData[9]);
+         macaparada =$.trim(tableData[12]);
+         bloqueado =$.trim(tableData[13]);
+         $('select.leito').val(bloqueado);
+         console.log(bloqueado);
+         $('input.leitos').val(bloqueado);
+         $('h1.setor').text(setor);
+         $('input.cama').val(cama);
+         $('input.maca').val(maca);
+         $('input.berco').val(berco);
+         $('input.macaparada').val(macaparada);
+         $('input.setor2').val(setor);
+         $('input.idusuario').val(idusuario);
+        $('#DescModal').modal("show");
+    });
+
+    function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
+function novaHora(){
+	
+	var date = new Date();
+	document.getElementById('hora').value= [date.getHours(), date.getMinutes()].map(pad).join(':');
+	document.getElementById('data').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+}
+novaHora();
+function verifica(value){
+		
+	  if(value == 'sim' ){
+		document.getElementById('leitos').value = "sim";
+        document.getElementById('cama').value=0;
+        document.getElementById('maca').value=0;
+        document.getElementById('macaparada').value=0;
+        document.getElementById('berco').value=0;
+        $('#mytable tbody tr').each(function(i){
+            tr=$(this);
+            tr.children('td').removeClass('fundoIdade');
+            tr.children('td:eq(13)').addClass('fundoIdade1');
+        });
+
+    }else{
+        document.getElementById('leitos').value = "nao";
+        document.getElementById('cama').value="";
+        document.getElementById('maca').value="";
+        document.getElementById('macaparada').value="";
+        document.getElementById('berco').value="";
+    }
+}	
+ $(document).ready(function() {
+        $('#mytable').DataTable( {
+            dom: 'Bfrtip',
+            order:false,
+            "scrollX": true,  
+   
+        pageLength: 50,
+        buttons: [       
+            {
+                "extend": "copyHtml5",
+                "text": "COPIAR",
+               
+                footer:true
+            },          
+            {
+                "extend": "pdf",
+                "text": "PDF",
+               
+                footer:true
             },
-            select: true,
-            "footerCallback": function ( row, data, start, end, display ) {
+            {
+                "extend": "excelHtml5",
+                "text": "EXCEL",
+               
+                footer:true
+            },
+            {
+                "extend": "print",
+                "text": "IMPRIMIR",
+               
+                footer:true
+            },
+        ],language: {
+            buttons: {
+                copyTitle: 'Copiado para área de transferência',
+                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+                copySuccess: {
+                    _: '%d linhas copiadas',
+                    1: '1 linha copiada'
+                }
+            },
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Próximo"
+            },
+            "search": "Pesquisar:"
+        },
+        select: true,
+        "footerCallback": function ( row, data, start, end, display ) {
                 var api = this.api(), data;
  
                 // Remove the formatting to get integer data for summation
@@ -818,31 +476,134 @@
                 $( api.column( 8 ).footer() ).html(
                   pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
                 );
+                // Total over all pages
+            total = api
+                    .column( 9 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 9, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 9 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 10 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 10, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 10 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                // Total over all pages
+            total = api
+                    .column( 11 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 11, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 11 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                 // Total over all pages
+            total = api
+                    .column( 12 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 12, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 12 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                 // Total over all pages
+            total = api
+                    .column( 13 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 13, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 13 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );              
+            
+              
             }
+            
     } );
 } );
 $('#mytable tbody tr').each(function(i){
-                    tr=$(this);
-                   qtdcamas=tr.children('td:eq(2)').html();
-                   qtdcamasocupadas = tr.children('td:eq(3)').html();
-                   qtdmacas=tr.children('td:eq(5)').html();
-                   qtdmacasocupadas = tr.children('td:eq(6)').html();
-                  
-                   var valorcamasvazias = 0;
-                   var valormacasvazias = 0;
-                   var valorbercosvazios = 0
-                   valorcamasvazias = qtdcamas - qtdcamasocupadas;
-                   valormacasvazias = qtdmacas - qtdmacasocupadas;
-          
-                   tr.children('td:eq(4)').html(valorcamasvazias);
-                   tr.children('td:eq(7)').html(valormacasvazias);
-                  
-       
-       });
-    
-    
-    </script>
-    <%- include('../home/footer'); %>
-    </body>
-    </html>
-    
+             tr=$(this);
+            qtdcamas=tr.children('td:eq(2)').html();
+            qtdcamasocupadas = tr.children('td:eq(3)').html();
+            qtdmacas=tr.children('td:eq(5)').html();
+            qtdmacasocupadas = tr.children('td:eq(6)').html();
+            qtdbercos = tr.children('td:eq(8)').html();
+            qtdbercoscupadas = tr.children('td:eq(9)').html();
+            var valorcamasvazias = 0;
+            var valormacasvazias = 0;
+            var valorbercosvazios = 0
+            valorcamasvazias = qtdcamas - qtdcamasocupadas;
+            valormacasvazias = qtdmacas - qtdmacasocupadas;
+            valorbercosvazios = qtdbercos - qtdbercoscupadas;
+            tr.children('td:eq(4)').html(valorcamasvazias);
+            tr.children('td:eq(7)').html(valormacasvazias);
+            tr.children('td:eq(10)').html(valorbercosvazios);
+
+});
+
+
+ </script>
+<%- include('../home/footer'); %>
+</body>
+</html>

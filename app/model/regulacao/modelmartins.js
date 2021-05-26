@@ -26,10 +26,7 @@ modelmartins.prototype.updateresp = function(idpaciente,vazaoDormonid,vazaoFenta
 	this._conection.query('update pacientes set vazaoDormonid="'+vazaoDormonid+'",vazaoFentanil="'+vazaoFentanil+'",vazaoRocuronio="'+vazaoRocuronio+'",vazaoPropofol="'+vazaoPropofol+'",vazaonora="'+vazaonora+'",vazaoadre="'+vazaoadre+'",vazaobica="'+vazaobica+'", profissional = "'+profissional+'",  dispositivo = "'+dispositivo+'", fluxo_de_o2 = "'+fluxoo2+'", droga = "'+droga+'", fio2 = "'+fio2+'", peep = "'+peep+'", sedacao = "'+sedacao+'", glasgow = "'+glasgow+'", acomodacao = "'+leito+'", nora = "'+nora+'", adrenalina = "'+adre+'",bicarbonato = "'+bica+'", dormonid = "'+dormonid+'", fentanil = "'+fentanil+'", rocuronio = "'+rocuronio+'", propofol = "'+propofol+'", bic = "'+bic+'" where id_paciente = ' + idpaciente, callback);
 }
 
-modelmartins.prototype.updateleitosmartins = function(idleitos, senccv,sencmv,seccv,secmv,emccv,emcmv,efccv,efcmv,corredorccv,corredorcmv,pediatriaccv,pediatriabcv,goccv,gocmv,eaccv,eacmv,dataatualizacao,horaatualizacao, callback){
-	
-	this._conection.query('update centralleitosmartins set  senccv ="'+senccv+'",sencmv="'+sencmv+'",seccv="'+seccv+'",secmv="'+secmv+'",emccv="'+emccv+'",emcmv="'+emcmv+'",efccv="'+efccv+'",efcmv="'+efcmv+'",corredorccv="'+corredorccv+'",corredorcmv="'+corredorcmv+'",pediatriaccv="'+pediatriaccv+'",pediatriabcv="'+pediatriabcv+'",goccv="'+goccv+'",gocmv="'+gocmv+'",eaccv="'+eaccv+'",eacmv="'+eacmv+'",dataatualizacao="'+dataatualizacao+'",horaatualizacao="'+horaatualizacao+'" where id = ' + idleitos, callback);
-}
+
 
 modelmartins.prototype.baixa = function(idpaciente,baixa,data, callback){
 

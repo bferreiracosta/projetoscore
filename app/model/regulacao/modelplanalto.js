@@ -26,10 +26,7 @@ modelplanalto.prototype.updateresp = function(idpaciente,vazaoDormonid,vazaoFent
 	this._conection.query('update pacientes set vazaoDormonid="'+vazaoDormonid+'",vazaoFentanil="'+vazaoFentanil+'",vazaoRocuronio="'+vazaoRocuronio+'",vazaoPropofol="'+vazaoPropofol+'",vazaonora="'+vazaonora+'",vazaoadre="'+vazaoadre+'",vazaobica="'+vazaobica+'", profissional = "'+profissional+'",  dispositivo = "'+dispositivo+'", fluxo_de_o2 = "'+fluxoo2+'", droga = "'+droga+'", fio2 = "'+fio2+'", peep = "'+peep+'", sedacao = "'+sedacao+'", glasgow = "'+glasgow+'", acomodacao = "'+leito+'", nora = "'+nora+'", adrenalina = "'+adre+'",bicarbonato = "'+bica+'", dormonid = "'+dormonid+'", fentanil = "'+fentanil+'", rocuronio = "'+rocuronio+'", propofol = "'+propofol+'", bic = "'+bic+'" where id_paciente = ' + idpaciente, callback);
 }
 
-modelplanalto.prototype.updateleitosplanalto = function(idleitos,senccv,sencmv,e1ccv,e1cmv,seccv, secmv,e3ccv,e3cmv,e4ccv,e4cmv,pediatriabcv,isccv,iscmv,emccv,emcmv,eaccv,eacmv,saccv,sacmv,macasccv,macascmv,macaparada,dataatualizacao,horaatualizacao, callback){
-	
-	this._conection.query('update centralleitosplanalto set  senccv ="'+senccv+'",sencmv="'+sencmv+'",e1ccv="'+e1ccv+'",e1cmv="'+e1cmv+'",seccv="'+seccv+'",secmv="'+secmv+'",e3ccv="'+e3ccv+'",e3cmv="'+e3cmv+'",e4ccv="'+e4ccv+'",e4cmv="'+e4cmv+'",isccv="'+isccv+'",iscmv="'+iscmv+'",pediatriabcv="'+pediatriabcv+'",emccv="'+emccv+'",emcmv="'+emcmv+'",eaccv="'+eaccv+'",eacmv="'+eacmv+'",saccv="'+saccv+'",sacmv="'+sacmv+'",macasccv="'+macasccv+'",macascmv="'+macascmv+'",macaparada="'+macaparada+'",dataatualizacao="'+dataatualizacao+'",horaatualizacao="'+horaatualizacao+'" where id = ' + idleitos, callback);
-}
+
 
 
 modelplanalto.prototype.baixa = function(idpaciente,baixa,data, callback){

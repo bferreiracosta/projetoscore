@@ -21,49 +21,12 @@ modeladminregulacao.prototype.updateleitoshmu = function(idleitos,uti,leitosutib
 	this._conection.query('update leitosdisponivel set utivagas = "'+uti+'", leitosbloqueadoutihmu = "'+leitosutibloqueado+'" where idleitos = ' + idleitos, callback);
 }
 
-modeladminregulacao.prototype.buscarleitomartins = function(callback){
-	
-	this._conection.query('select * from centralleitosmartins where id = 1 ', callback);
-}
 
-modeladminregulacao.prototype.buscarleitoplanalto = function(callback){
-	
-	this._conection.query('select * from centralleitosplanalto where id = 1 ', callback);
-}
 modeladminregulacao.prototype.buscarleito= function(callback){
 	
 	this._conection.query('select * from leitosdisponivel where idleitos = 1 ', callback);
 }
 
-modeladminregulacao.prototype.buscarleitoluizote = function(callback){
-	
-	this._conection.query('select * from centralleitosluizote where id = 1 ', callback);
-}
-
-modeladminregulacao.prototype.buscarleitoroosevelt = function(callback){
-	
-	this._conection.query('select * from centralleitosroosevelt where id = 1 ', callback);
-}
-
-modeladminregulacao.prototype.buscarleitotibery = function(callback){
-	
-	this._conection.query('select * from centralleitostibery where id = 1 ', callback);
-}
-
-modeladminregulacao.prototype.buscarleitomorumbi = function(callback){
-	
-	this._conection.query('select * from centralleitosmorumbi where id = 1 ', callback);
-}
-
-modeladminregulacao.prototype.buscarleitosaojorge = function(callback){
-	
-	this._conection.query('select * from centralleitossaojorge where id = 1 ', callback);
-}
-
-modeladminregulacao.prototype.buscarleitopampulha = function(callback){
-	
-	this._conection.query('select * from centralleitospampulha where id = 1 ', callback);
-}
 modeladminregulacao.prototype.buscarleitouti = function(callback){
 	
 	this._conection.query('select * from leitosdisponivel where idleitos = "1" ', callback);

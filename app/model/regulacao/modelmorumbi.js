@@ -26,10 +26,7 @@ modelmorumbi.prototype.updateresp = function(idpaciente,vazaoDormonid,vazaoFenta
 	this._conection.query('update pacientes set vazaoDormonid="'+vazaoDormonid+'",vazaoFentanil="'+vazaoFentanil+'",vazaoRocuronio="'+vazaoRocuronio+'",vazaoPropofol="'+vazaoPropofol+'",vazaonora="'+vazaonora+'",vazaoadre="'+vazaoadre+'",vazaobica="'+vazaobica+'", profissional = "'+profissional+'",  dispositivo = "'+dispositivo+'", fluxo_de_o2 = "'+fluxoo2+'", droga = "'+droga+'", fio2 = "'+fio2+'", peep = "'+peep+'", sedacao = "'+sedacao+'", glasgow = "'+glasgow+'", acomodacao = "'+leito+'", nora = "'+nora+'", adrenalina = "'+adre+'",bicarbonato = "'+bica+'", dormonid = "'+dormonid+'", fentanil = "'+fentanil+'", rocuronio = "'+rocuronio+'", propofol = "'+propofol+'", bic = "'+bic+'" where id_paciente = ' + idpaciente, callback);
 }
 
-modelmorumbi.prototype.updateleitosmorumbi = function(idleitos, sec1ccv ,sec1cmv ,slcccv ,slccmv ,emccv ,emcmv ,efcccv ,efccmv ,segccv ,segcmv ,sogccv ,sogcmv ,emncccv ,emnccmv ,efccv ,efcmv ,ee1ccv ,ee1cmv ,ee2ccv ,ee2cmv ,issccv ,isscmv ,macasccv ,macascmv ,macaparada ,dataatualizacao,horaatualizacao, callback){
-	
-	this._conection.query('update centralleitosmorumbi set  sec1ccv = "'+sec1ccv+'",sec1cmv = "'+sec1cmv+'",slcccv = "'+slcccv+'",slccmv = "'+slccmv+'",emccv = "'+emccv+'",emcmv = "'+emcmv+'",efcccv = "'+efcccv+'",efccmv = "'+efccmv+'",segccv = "'+segccv+'",segcmv = "'+segcmv+'",sogccv = "'+sogccv+'",sogcmv = "'+sogcmv+'",emncccv = "'+emncccv+'",emnccmv = "'+emnccmv+'",efccv = "'+efccv+'",efcmv = "'+efcmv+'",ee1ccv = "'+ee1ccv+'",ee1cmv = "'+ee1cmv+'",ee2ccv = "'+ee2ccv+'",ee2cmv = "'+ee2cmv+'",issccv = "'+issccv+'",isscmv = "'+isscmv+'",macasccv = "'+macasccv+'",macascmv = "'+macascmv+'",macaparada = "'+macaparada+'",dataatualizacao="'+dataatualizacao+'",horaatualizacao="'+horaatualizacao+'" where id = ' + idleitos, callback);
-}
+
 
 modelmorumbi.prototype.baixa = function(idpaciente,baixa,data, callback){
 
