@@ -10,6 +10,17 @@ module.exports = function(application) {
 		}
 		
 	});
+	application.get('/relatorioaps', function(req, res){
+		if(req.session.loggedin){
+			
+			application.app.controllers.obstetricia.controllerob.relatorioaps(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
 	application.post('/savepacienteob', function(req, res){
 		if(req.session.loggedin){
 			

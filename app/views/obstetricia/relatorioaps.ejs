@@ -14,7 +14,7 @@
                 <th>Prontuario</th>
                 <th>Motivo</th>
                 <th>Unidade Pré natal</th>
-                <th></th>
+                
             </tr>
             </thead>
             <tbody>   
@@ -27,9 +27,6 @@
                     <td><label hidden for="">/Prontuario: </label><%=obstetricia[j].prt %></td>
                     <td><label hidden for="">/Motivo: </label><%=obstetricia[j].motivo %></td>
                     <td><label hidden for="">/Unidade Pré Natal: </label><%=obstetricia[j].unidade %></td>
-                    <td>
-                        <a href="editpacienteob/<%=id[i].id_usuario %>/?id=<%=obstetricia[j].idpaciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
-                    </td>
                 </tr>
                 <% } %>	
                 <% } %>

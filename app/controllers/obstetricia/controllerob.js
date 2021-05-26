@@ -13,6 +13,20 @@ module.exports.historico= function(application, req, res){
 		});
 	});		
 }
+
+module.exports.relatorioaps= function(application, req, res){
+	
+	var modelob = new application.app.model.obstetricia.modelob(application);
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+
+	var id = req.query;
+		
+	modeladmin.buscarusuario(id, function(error, result){
+		modelob.buscarpaciente(function(error, resultado){
+			res.render("obstetricia/relatorioaps", {obstetricia : resultado, id : result});
+		});
+	});		
+}
 module.exports.cadastrarpaciente= function(application, req, res){
 	var paciente = req.body.paciente;
 	var data =  req.body.dataatendimento;

@@ -159,7 +159,7 @@ modeladmin.prototype.autenticar = function(usuario, senha, funcao, req, res){
 				this._conection.query('SELECT * FROM usuarios WHERE usuario = ? AND senha = ?', [usuario, senha], function(error, results, fields) {
 					
 						if (results.length > 0) {
-							if(results[0].obstetricia == 1){
+							if(results[0].obstetricia == 1 || results[0].aps == 1){
 							req.session.loggedin = true;
 							req.session.usuario = results[0].usuario;
 							
