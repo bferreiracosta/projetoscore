@@ -18,7 +18,7 @@
 				</div>
 				<div class="form-group">
 					<label for="prontuario">Data Atendimento</label>
-					<input type="text" name="data" class="form-control" value="<%=obstetricia[j].dataatendimento %>" required>
+					<input type="hidden" name="data" class="form-control" value="<%=obstetricia[j].dataatendimento %>" required>
 				</div>
 				<div class="form-group">
 					<label for="paciente">Nome Paciente</label>
@@ -68,6 +68,16 @@ $(function(){
 $(document).ready(function(){
       $('#dataatendimento').mask('00/00/0000');
 	 	 
-      });	
+      });
 
+function pad(s){
+return (s<10) ? '0' + s :s;
+}
+function novaHora(){
+	
+	var date = new Date();
+	document.getElementById('#dataatendimento').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+}
+
+</script>
 </script>

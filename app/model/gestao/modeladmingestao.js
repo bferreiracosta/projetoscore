@@ -10,7 +10,7 @@ modeladmingestao.prototype.buscarleitomartins = function(callback){
 
 modeladmingestao.prototype.updateleitosmartins = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
 	
-	this._conection.query('update martins set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+maca+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+macaparada+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
+	this._conection.query('update martins set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+macaparada+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+maca+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
 }
 
 modeladmingestao.prototype.buscarleitoplanalto = function(callback){
@@ -20,7 +20,7 @@ modeladmingestao.prototype.buscarleitoplanalto = function(callback){
 
 modeladmingestao.prototype.updateleitosplanalto = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
 	
-	this._conection.query('update planalto set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+maca+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+macaparada+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
+	this._conection.query('update planalto set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+macaparada+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+maca+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
 }
 
 modeladmingestao.prototype.buscarleitoluizote = function(callback){
@@ -30,7 +30,7 @@ modeladmingestao.prototype.buscarleitoluizote = function(callback){
 
 modeladmingestao.prototype.updateleitosluizote = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
 	
-	this._conection.query('update luizote set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+maca+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+macaparada+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
+	this._conection.query('update luizote set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+macaparada+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+maca+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
 }
 
 modeladmingestao.prototype.buscarleitoroosevelt = function(callback){
@@ -40,7 +40,7 @@ modeladmingestao.prototype.buscarleitoroosevelt = function(callback){
 
 modeladmingestao.prototype.updateleitosroosevelt = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
 	
-	this._conection.query('update roosevelt set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+maca+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+macaparada+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
+	this._conection.query('update roosevelt set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+macaparada+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+maca+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
 }
 
 modeladmingestao.prototype.buscarleitotibery = function(callback){
@@ -50,7 +50,7 @@ modeladmingestao.prototype.buscarleitotibery = function(callback){
 
 modeladmingestao.prototype.updateleitostibery = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
 	
-	this._conection.query('update tibery set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+maca+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+macaparada+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
+	this._conection.query('update tibery set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+macaparada+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+maca+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
 }
 
 modeladmingestao.prototype.buscarleitomorumbi = function(callback){
@@ -60,7 +60,7 @@ modeladmingestao.prototype.buscarleitomorumbi = function(callback){
 
 modeladmingestao.prototype.updateleitosmorumbi = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
 	
-	this._conection.query('update morumbi set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+maca+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+macaparada+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
+	this._conection.query('update morumbi set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+macaparada+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+maca+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
 }
 
 modeladmingestao.prototype.buscarleitosaojorge = function(callback){
@@ -70,7 +70,7 @@ modeladmingestao.prototype.buscarleitosaojorge = function(callback){
 
 modeladmingestao.prototype.updateleitossaojorge = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
 	
-	this._conection.query('update saojorge set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+maca+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+macaparada+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
+	this._conection.query('update saojorge set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+macaparada+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+maca+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
 }
 
 modeladmingestao.prototype.buscarleitopampulha = function(callback){
@@ -80,7 +80,7 @@ modeladmingestao.prototype.buscarleitopampulha = function(callback){
 
 modeladmingestao.prototype.updateleitospampulha = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
 	
-	this._conection.query('update pampulha set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+maca+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+macaparada+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
+	this._conection.query('update pampulha set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+macaparada+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+maca+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
 }
 
 module.exports = function(){
