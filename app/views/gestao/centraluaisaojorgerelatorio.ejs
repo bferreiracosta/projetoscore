@@ -1,5 +1,5 @@
 <%- include('./cabecalhogestao'); %>
-    <h2>Central leito UAI São Jorge</h2>
+    <h2>Central leito UAI São jorge</h2>
     
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
@@ -11,28 +11,6 @@
                     <th>Setor</th>
                    
                     <th>Capacidade</th>
-                   
-                    <th>Quantidade de Camas</th>
-                   
-                    <th>Quantidade de Camas Ocupadas</th>
-                   
-                    <th>Quantidade de Camas Vagas</th>
-                   
-                    <th>Quantidade de Macas</th>
-                   
-                    <th>Quantidade de Macas Ocupadas</th>
-                   
-                    <th>Quantidade de Macas Vagas</th>
-                   
-                    <th>Quantidade de Berços</th>
-                   
-                    <th>Quantidade de Berços Ocupados</th>
-                   
-                    <th>Quantidade de Berços Vagos</th>
-                   
-                    <th>Quantidade de Macas Parada</th>
-
-                    <th>Quantidade de Macas Parada Vagos</th>
 
                     <th>Leito Bloqueado</th>
 
@@ -51,28 +29,6 @@
                    
                     <td  ><%=leito[j].capacidade %></td>
                    
-                    <td ><%=leito[j].capacidadecamas %></td>
-                   
-                    <td  ><%=leito[j].capacidadecamasocupadas %></td>
-                   
-                    <td ></td>
-                   
-                    <td ><%=leito[j].capacidademacas %></td>
-                   
-                    <td ><%=leito[j].capacidademacasocupadas %></td>
-                   
-                    <td ></td>
-                    
-                    <td ><%=leito[j].capacidadebercos %></td>
-                     
-                    <td ><%=leito[j].capacidadebercoocupado %></td>
-                   
-                    <td ></td>
-                    
-                    <td ><%=leito[j].capacidademacasparada %></td>
-
-                    <td ><%=leito[j].capacidademacasparadavaga %></td>
-
                     <td ><%=leito[j].bloqueado %></td>
 
                     <td><%=leito[j].datas %></td>
@@ -90,28 +46,6 @@
             <tfoot>
                 <tr>
                     <td>Total</td>
-                   
-                    <td ></td>
-                   
-                    <td ></td>
-                   
-                    <td ></td>
-                   
-                    <td ></td>
-                    
-                    <td ></td>
-                     
-                    <td ></td>
-                   
-                    <td ></td>
-                   
-                    <td ></td>
-                   
-                    <td ></td>
-                   
-                    <td ></td>
-                    
-                    <td></td>
 
                     <td></td>
 
@@ -143,21 +77,9 @@
 						</select>
 						<input  id="leitos" class="form-control leitos"  type="hidden" name="leitos">
                         <div class="form-group">
-                            <label for="posto"> Camas Ocupados</label>
-                            <input type="text" name="capacidadecamasocupadas" id="cama" class="form-control cama"  >
+                            <label for="posto"> Capacidade</label>
+                            <input type="text" name="capacidade" id="cama" class="form-control capacidade"  >
                         </div>
-                        <div class="form-group">
-                            <label for="posto"> Macas Ocupados</label>
-                            <input type="text" name="capacidademacasocupadas" id="maca" class="form-control maca"  >
-                        </div> 
-                        <div class="form-group">
-                            <label for="posto"> Berços Ocupados</label>
-                            <input type="text" name="capacidadebercoocupado" id="macaparada" class="form-control macaparada"  >
-                        </div> 
-                        <div class="form-group">
-                            <label for="posto"> Maca PCR</label>
-                            <input type="text" name="capacidademacasparadavaga" id="berco" class="form-control berco" >
-                        </div> 
                         
                     <input  type="hidden" class="form-control idusuario"  name="idusuario" id="idusuario">
                     <input  type="hidden" class="form-control data"  name="data" id="data">
@@ -194,10 +116,7 @@
 <script>
 $('#mytable').on('dblclick', 'tr', function () {
         var id = "";
-        var cama = "";
-        var maca = "";
-        var berco = "";
-        var macaparada = "";
+        var capacidade = "";
         var idusuario = "";
         var setor = "";
         
@@ -206,20 +125,14 @@ $('#mytable').on('dblclick', 'tr', function () {
          }).get();
          idusuario = document.getElementById('usuario').value;
          setor =$.trim(tableData[0]);
-         cama =$.trim(tableData[3]);
-         maca =$.trim(tableData[6]);
-         berco =$.trim(tableData[9]);
-         macaparada =$.trim(tableData[12]);
-         bloqueado =$.trim(tableData[13]);
+         capacidade =$.trim(tableData[1]);
+         bloqueado =$.trim(tableData[2]);
          $('select.leito').val(bloqueado);
          console.log(bloqueado);
          $('input.leitos').val(bloqueado);
          $('h1.setor').text(setor);
-         $('input.cama').val(cama);
-         $('input.maca').val(maca);
-         $('input.berco').val(berco);
-         $('input.macaparada').val(macaparada);
          $('input.setor2').val(setor);
+         $('input.capacidade').val(capacidade);
          $('input.idusuario').val(idusuario);
         $('#DescModal').modal("show");
     });
@@ -238,10 +151,7 @@ function verifica(value){
 		
 	  if(value == 'sim' ){
 		document.getElementById('leitos').value = "sim";
-        document.getElementById('cama').value=0;
-        document.getElementById('maca').value=0;
-        document.getElementById('macaparada').value=0;
-        document.getElementById('berco').value=0;
+        document.getElementById('capacidade').value=0;
         $('#mytable tbody tr').each(function(i){
             tr=$(this);
             tr.children('td').removeClass('fundoIdade');
@@ -250,10 +160,7 @@ function verifica(value){
 
     }else{
         document.getElementById('leitos').value = "nao";
-        document.getElementById('cama').value="";
-        document.getElementById('maca').value="";
-        document.getElementById('macaparada').value="";
-        document.getElementById('berco').value="";
+        document.getElementById('capacidade').value="";
     }
 }	
  $(document).ready(function() {
@@ -337,272 +244,11 @@ function verifica(value){
                 );
             
             // Total over all pages
-            total = api
-                    .column( 2 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 2, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 2 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 3 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 3, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 3 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 4 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 4, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 4 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 5 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 5, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 5 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 6 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 6, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 6 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 7 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 7, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 7 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 8 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 8, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 8 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 9 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 9, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 9 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 10 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 10, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 10 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 11 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 11, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 11 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                 // Total over all pages
-            total = api
-                    .column( 12 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 12, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 12 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                 // Total over all pages
-            total = api
-                    .column( 13 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 13, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 13 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );              
-            
               
             }
             
     } );
 } );
-$('#mytable tbody tr').each(function(i){
-             tr=$(this);
-            qtdcamas=tr.children('td:eq(2)').html();
-            qtdcamasocupadas = tr.children('td:eq(3)').html();
-            qtdmacas=tr.children('td:eq(5)').html();
-            qtdmacasocupadas = tr.children('td:eq(6)').html();
-            qtdbercos = tr.children('td:eq(8)').html();
-            qtdbercoscupadas = tr.children('td:eq(9)').html();
-            var valorcamasvazias = 0;
-            var valormacasvazias = 0;
-            var valorbercosvazios = 0
-            valorcamasvazias = qtdcamas - qtdcamasocupadas;
-            valormacasvazias = qtdmacas - qtdmacasocupadas;
-            valorbercosvazios = qtdbercos - qtdbercoscupadas;
-            tr.children('td:eq(4)').html(valorcamasvazias);
-            tr.children('td:eq(7)').html(valormacasvazias);
-            tr.children('td:eq(10)').html(valorbercosvazios);
-
-});
-
-
  </script>
 <%- include('../home/footer'); %>
 </body>

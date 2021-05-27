@@ -246,20 +246,17 @@ module.exports.editarleitomorumbi= function(application, req, res){
 }
 module.exports.editarleitosaojorge= function(application, req, res){
 	var id = req.body.idusuario;
-	var cama = req.body.capacidadecamasocupadas;
-	var maca = req.body.capacidademacasocupadas;
-	var macaparada = req.body.capacidademacasparadavaga;
-	var berco = req.body.capacidadebercoocupado;
+	var capacidade = req.body.capacidade;
 	var setor = req.body.setor; 
 	var data = req.body.data;
 	var hora = req.body.hora;
 	var bloqueado = req.body.leitos;
-	
+	console.log(capacidade, setor, data, hora,bloqueado);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modeladmingestao.updateleitossaojorge(cama, maca, macaparada, berco, setor, data, hora,bloqueado, function(error, result){
+		modeladmingestao.updateleitossaojorge(capacidade, setor, data, hora,bloqueado, function(error, result){
 			modeladmingestao.buscarleitosaojorge(function(error, resultado){
 				res.render("gestao/centraluaisaojorgerelatorio", {leito : resultado, id : resultados});
 			});
@@ -268,20 +265,18 @@ module.exports.editarleitosaojorge= function(application, req, res){
 }
 module.exports.editarleitopampulha= function(application, req, res){
 	var id = req.body.idusuario;
-	var cama = req.body.capacidadecamasocupadas;
-	var maca = req.body.capacidademacasocupadas;
-	var macaparada = req.body.capacidademacasparadavaga;
-	var berco = req.body.capacidadebercoocupado;
+	var capacidade = req.body.capacidade;
 	var setor = req.body.setor; 
 	var data = req.body.data;
 	var hora = req.body.hora;
 	var bloqueado = req.body.leitos;
 	
+	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modeladmingestao.updateleitospampulha(cama, maca, macaparada, berco, setor, data, hora,bloqueado, function(error, result){
+		modeladmingestao.updateleitospampulha(capacidade, setor, data, hora,bloqueado, function(error, result){
 			modeladmingestao.buscarleitopampulha(function(error, resultado){
 				res.render("gestao/centraluaipampulharelatorio", {leito : resultado, id : resultados});
 			});

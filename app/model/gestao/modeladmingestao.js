@@ -68,9 +68,9 @@ modeladmingestao.prototype.buscarleitosaojorge = function(callback){
 	this._conection.query('select * from saojorge  ', callback);
 }
 
-modeladmingestao.prototype.updateleitossaojorge = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
-	
-	this._conection.query('update saojorge set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+macaparada+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+maca+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
+modeladmingestao.prototype.updateleitossaojorge = function(capacidade, setor, data, hora,bloqueado, callback){
+	console.log(capacidade, setor, data, hora,bloqueado);
+	this._conection.query('update saojorge set bloqueado="'+bloqueado+'", capacidade = "'+capacidade+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
 }
 
 modeladmingestao.prototype.buscarleitopampulha = function(callback){
@@ -78,9 +78,9 @@ modeladmingestao.prototype.buscarleitopampulha = function(callback){
 	this._conection.query('select * from pampulha  ', callback);
 }
 
-modeladmingestao.prototype.updateleitospampulha = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
-	
-	this._conection.query('update pampulha set bloqueado="'+bloqueado+'", capacidadecamasocupadas = "'+cama+'" ,capacidademacasparadavaga= "'+macaparada+'"  ,capacidadebercoocupado= "'+berco+'",  capacidademacasocupadas= "'+maca+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
+modeladmingestao.prototype.updateleitospampulha = function(capacidade, setor, data, hora,bloqueado, callback){
+	console.log(capacidade, setor, data, hora,bloqueado);
+	this._conection.query('update pampulha set bloqueado="'+bloqueado+'", capacidade = "'+capacidade+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
 }
 
 module.exports = function(){
