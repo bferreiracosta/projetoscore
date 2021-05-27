@@ -7,26 +7,34 @@
         <table class="table table-striped" style="width: 100%;" id="mytable">
             <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
             <thead>
-            <tr>
-                <th hidden>id</th>
-                <th>Data Admissão</th>
-                <th>Nome</th>
-                <th>Prontuario</th>
-                <th>Motivo</th>
-                <th>Unidade Pré natal</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>   
-                <% if(obstetricia.length > 0) { %>
-                    <% for(var j = 0; j < obstetricia.length; j++) {%> 
                 <tr>
-                    <td hidden><label hidden for="">/ID: </label><%=obstetricia[j].id_paciente %></td>
-                    <td><label hidden for="">/Data Admissão: </label><%=obstetricia[j].dataatendimento %></td>
-                    <td><label hidden for="">/Paciente: </label><%=obstetricia[j].nome %></td>
-                    <td><label hidden for="">/Prontuario: </label><%=obstetricia[j].prt %></td>
-                    <td><label hidden for="">/Motivo: </label><%=obstetricia[j].motivo %></td>
-                    <td><label hidden for="">/Unidade Pré Natal: </label><%=obstetricia[j].unidade %></td>
+                    <th hidden>id</th>
+                    <th>Data Admissão</th>
+                    <th>Nome</th>
+                    <th>Prontuario</th>
+                    <th>Motivo</th>
+                    <th>Unidade Pré natal</th>
+                    <th>Conduta</th>
+                    <th>Destino</th>
+                    <th>UFU</th>
+                    <th>HMU</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>   
+                    <% if(obstetricia.length > 0) { %>
+                        <% for(var j = 0; j < obstetricia.length; j++) {%> 
+                    <tr>
+                        <td hidden><%=obstetricia[j].idpaciente %></td>
+                        <td><%=obstetricia[j].dataatendimento %></td>
+                        <td><%=obstetricia[j].nome %></td>
+                        <td><%=obstetricia[j].prt %></td>
+                        <td><%=obstetricia[j].motivo %></td>
+                        <td><%=obstetricia[j].unidade %></td>
+                        <td><%=obstetricia[j].conduta %></td>
+                        <td><%=obstetricia[j].destino %></td>
+                        <td><%=obstetricia[j].ufu %></td>
+                        <td><%=obstetricia[j].hmu %></td>
                     <td>
                         <a href="editpacienteob/<%=id[i].id_usuario %>/?id=<%=obstetricia[j].idpaciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
                     </td>
@@ -68,22 +76,22 @@ order: ([ 1, 'desc']),
             {
                 "extend": "copyHtml5",
                 "text": "COPIAR",
-                header: false
+                
             },          
             {
                 "extend": "pdf",
                 "text": "PDF",
-                header: false
+               
             },
             {
                 "extend": "excelHtml5",
                 "text": "EXCEL",
-                header: false
+               
             },
             {
                 "extend": "print",
                 "text": "IMPRIMIR",
-                header: false
+                
             }
         ],language: {
             buttons: {

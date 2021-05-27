@@ -18,10 +18,6 @@
 								<input type="text" name="paciente" class="form-control" placeholder="Nome Paciente" required>
 							</div>
 							<div class="form-group">
-								<label for="dataatendimento">Data de Atendimento</label>
-								<input type="hidden" name="dataatendimento" id="dataatendimento" class="form-control" placeholder="Data de Atendimento" required>
-							</div>
-							<div class="form-group">
 								<label for="motivo">Motivo Atendimento</label>
 								<input type="text" name="motivo" class="form-control" placeholder="Motivo" required>
 							</div>
@@ -57,6 +53,9 @@
 									<input  id="hmu3"  type="hidden" name="hmu3">
 								</div>
 							</div>
+							<div class="form-group">
+								<input type="hidden" name="dataatendimento" id="dataatendimento"></input>
+							</div>
 						</div>							
                 <div>
                     <a href="historicoob?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
@@ -79,6 +78,7 @@
 </html>
 
 <script>
+	
 $(function(){
 	$(window).on('resize load', function() {
 			if ($(window).width() <= 768) { 
@@ -89,19 +89,7 @@ $(function(){
 		}
 	});
 });
-$(document).ready(function(){
-      $('#dataatendimento').mask('00/00/0000');
-	 	 
-      });
 
-function pad(s){
-return (s<10) ? '0' + s :s;
-}
-function novaHora(){
-	
-	var date = new Date();
-	document.getElementById('#dataatendimento').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
-}
 
 $("#conduta").on('change', function(e){
      var conduta = $(this).val();
@@ -129,6 +117,9 @@ function verificadestino(value){
 	input2.style.display = "none";
 	label.style.display = "none";
 	label2.style.display = "none";
+	var Pacote_i = "Não Encaminhado";
+	document.getElementById('ufu3').value = Pacote_i;
+	document.getElementById('hmu3').value = Pacote_i;
   }
 };
 
@@ -159,4 +150,22 @@ var pacote = document.getElementsByName('hospital');
 		}
 	}
 }
+
+window.onload = function() {
+  document.getElementById('ufu').style.display = 'none';
+  document.getElementById('hmu').style.display = 'none';
+  document.getElementById('ufu2').style.display = 'none';
+  document.getElementById('hmu2').style.display = 'none';
+};
+
+function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
+function novaHora(){
+	var date = new Date();
+		var data = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+		document.getElementById('dataatendimento').value = data;
+	
+}
+novaHora();
 </script>

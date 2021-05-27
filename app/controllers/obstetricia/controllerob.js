@@ -33,13 +33,18 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var prt = req.body.prontuario;
 	var motivo = req.body.motivo;
 	var unidade = req.body.unidade;
+	var conduta = req.body.conduta2;
+	var destino = req.body.destino2;
+	var ufu = req.body.ufu3;
+	var hmu =  req.body.hmu3;
 	var id = req.body.idusuario;
-	console.log(prt,data, paciente,motivo,unidade)
+
+	console.log(prt,data, paciente,motivo,unidade, conduta, destino, ufu, hmu)
 	var modelob = new application.app.model.obstetricia.modelob(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelob.cadastrarpaciente(prt,data, paciente,motivo,unidade, function(error, result){
+		modelob.cadastrarpaciente(prt,data, paciente,motivo,unidade, conduta, destino, ufu, hmu, function(error, result){
 			modelob.buscarpaciente(function(error, resultado){
 				res.render("obstetricia/historicoob", {obstetricia : resultado, id : resultados});
 			});
@@ -49,18 +54,21 @@ module.exports.cadastrarpaciente= function(application, req, res){
 
 module.exports.update= function(application, req, res){
 	var idpaciente = req.body.id;
-	var paciente = req.body.nome;
-	var data =  req.body.data;
-	var prt = req.body.prt;
+	var paciente = req.body.paciente;
+	var prt = req.body.prontuario;
 	var motivo = req.body.motivo;
 	var unidade = req.body.unidade;
+	var conduta = req.body.conduta2;
+	var destino = req.body.destino2;
+	var ufu = req.body.ufu3;
+	var hmu =  req.body.hmu3;
 	var id = req.body.idusuario;
-
+	console.log(prt, paciente,motivo,unidade, conduta, destino, ufu, hmu)
 	var modelob = new application.app.model.obstetricia.modelob(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modelob.update(idpaciente, prt,data, paciente,motivo,unidade,  function(error, result){
+		modelob.update(idpaciente, prt, paciente,motivo,unidade, conduta, destino, ufu, hmu,  function(error, result){
 			modelob.buscarpaciente( function(error, resultado){
 				res.render("obstetricia/historicoob", {obstetricia : resultado, id : resultados});
 			});
@@ -88,7 +96,7 @@ module.exports.editpaciente = function(application, req, res){
 
 	var id = req.params.idusuario;
 	var idpaciente = req.query;
-	console.log(idpaciente);
+	
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelob.buscarpacienteid(idpaciente, function(error, resultado){
 			res.render("obstetricia/editpacienteob", {obstetricia: resultado, id : result});
