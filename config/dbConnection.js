@@ -1,22 +1,22 @@
 var mysql = require('mysql');
 
-// const pool = mysql.createPool({
-//     connectionLimit: 25,
-//     host : 'localhost',
-//     user : 'root',
-//     password : '',
-//     database : 'portal_paciente',
-
-// });
-
 const pool = mysql.createPool({
     connectionLimit: 25,
-    host : 'portal-paciente.mysql.uhserver.com',
-    user : 'portal_paciente',
-    password : 'Bflc1989@',
+    host : 'localhost',
+    user : 'root',
+    password : '',
     database : 'portal_paciente',
 
 });
+
+// const pool = mysql.createPool({
+//     connectionLimit: 25,
+//     host : 'portal-paciente.mysql.uhserver.com',
+//     user : 'portal_paciente',
+//     password : 'Bflc1989@',
+//     database : 'portal_paciente',
+
+// });
 
 
 

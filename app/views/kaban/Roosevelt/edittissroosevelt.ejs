@@ -1,0 +1,332 @@
+<%- include('./cabecalhokaban'); %>
+<div id="mobile" class="container">
+<% if(id.length > 0) { %>
+    <% for(var i = 0; i < id.length; i++) {%>
+		<form action="/updatetissroosevelt" style="padding-left: 1%; padding-right: 1%;" method="post">
+			<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>"> 
+		<% if(paciente.length > 0) { %>
+			<% for(var j = 0; j < paciente.length; j++) {%>
+		
+			<div tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+				 aria-hidden="true">
+				<div  role="document">
+					<div >
+						<div >
+							<h5  id="exampleModalLabel">Tiss Roosevelt</h5>
+						</div>
+						<div >
+							<div class="form-group">
+								<input type="hidden" name="id" class="form-control" placeholder="" value="<%=paciente[j].id_paciente %>" required>
+							</div>
+							<div class="form-group">
+								<label for="atividades">Atividades Básicas</label>
+								<select class="form-control" id="atividades" name="atividades" required>
+									<option value="" disabled selected hidden>Atividades Básicas</option>
+									<option value="Monitorização Padrão.Sinais Vitais de horário ,registro e cálculo regular do balanço hídrico">Monitorização Padrão.Sinais Vitais de horário ,registro e cálculo regular do balanço hídrico</option>
+									<option value="Laboratório,Investigações  bioquímicas e microbiológicas">Laboratório,Investigações  bioquímicas e microbiológicas</option>
+									<option value="Medicação Única, EV,IM,SC  e/ou VO ou SNG">Medicação Única, EV,IM,SC  e/ou VO ou SNG</option>
+									<option value="Medicação Endovenosa Múltiplas. Mais que uma Droga">Medicação Endovenosa Múltiplas. Mais que uma Droga</option>
+									<option value="Troca de Curativos de Rotinas.Cuidado e prevenção de Ulceras de Decúbito/ Troca diária de curativo">Troca de Curativos de Rotinas.Cuidado e prevenção de Ulceras de Decúbito/ Troca diária de curativo</option>
+									<option value="Troca frequente de curativos .Pelo menos uma vez por turno de enfermagem e/ ou cuidados com feridas extensas ">Troca frequente de curativos .Pelo menos uma vez por turno de enfermagem e/ ou cuidados com feridas extensas </option>
+									<option value=" Cuidados com drenos .Todos (exceto SNG)"> Cuidados com drenos .Todos (exceto SNG)</option>
+								</select>
+								<input type="hidden" name="atividades2"  id="atividades2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="ventilatorio">Suporte Ventilatório </label>
+								<select class="form-control" id="ventilatorio" name="ventilatorio" required>
+									<option value="" disabled selected hidden>Suporte Ventilatório </option>
+									<option value="Ventilação Mecânica. Qualquer forma de ventilação mecânica com ou sem PEEP.Com ou sem relaxantes musculares respiração espontânea com PEEP">Ventilação Mecânica. Qualquer forma de ventilação mecânica com ou sem PEEP.Com ou sem relaxantes musculares respiração espontânea com PEEP</option>
+									<option value="Suporte ventilatório suplementar .Respiração espontânea através de SOT sem PEEP.O2 suplementar por qualquer método exceto aplicação de parâmetros de ventil. Mecânica">Suporte ventilatório suplementar .Respiração espontânea através de SOT sem PEEP.O2 suplementar por qualquer método exceto aplicação de parâmetros de ventil. Mecânica</option>
+									<option value="Cuidados com vias aéreas artificiais, SOT ou Traqueostomia  ">Cuidados com vias aéreas artificiais, SOT ou Traqueostomia  </option>
+									<option value="Tratamento para melhora da função pulmonar.Fisioterapia torácica , espirometria estipulada, terapia de inalação, aspiração traqueal">Tratamento para melhora da função pulmonar.Fisioterapia torácica , espirometria estipulada, terapia de inalação, aspiração traqueal</option>
+								</select>
+								<input type="hidden" name="ventilatorio2"  id="ventilatorio2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="cardiovascular">Suporte Cardiovascular</label>
+								<select class="form-control" id="cardiovascular" name="cardiovascular" required>
+									<option value="" disabled selected hidden>Suporte Cardiovascular</option>
+									<option value="Medicação vasoativa única.Qualquer droga vasoativa">Medicação vasoativa única.Qualquer droga vasoativa</option>
+									<option value="Medicação vasoativa múltipla. Mais que uma droga independente do tipo e dose ">Medicação vasoativa múltipla. Mais que uma droga independente do tipo e dose </option>
+									<option value="Reposição de grandes perdas volêmicas.Administração de volume maiores 31/ml/m/dia ">Reposição de grandes perdas volêmicas.Administração de volume maiores 31/ml/m/dia </option>
+									<option value="Catéter arterial periférico">Catéter arterial periférico</option>
+									<option value="Monitorização do átrio esquerdo .Catéter da arteria pulmonar com ou sem medida de débito cardíaco">Monitorização do átrio esquerdo .Catéter da arteria pulmonar com ou sem medida de débito cardíaco</option>
+									<option value="Via venosa central">Via venosa central</option>
+									<option value="Ressuscitação cardiopulmonar (PCR nas últimas  24hs)">Ressuscitação cardiopulmonar (PCR nas últimas  24hs)</option>
+								</select>
+								<input type="hidden" name="cardiovascular2"  id="cardiovascular2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="renal">Suporte Renal</label>
+								<select class="form-control" id="renal" name="renal" required>
+									<option value="" disabled selected hidden>Suporte Renal</option>
+									<option value="Técnicas de hemofiltração.Técnicas  diaíticas ">Técnicas de hemofiltração.Técnicas  diaíticas </option>
+									<option value="Medida quantitativa do débito urinário (Ex. SVD )">Medida quantitativa do débito urinário (Ex. SVD )</option>
+									<option value="Diurese ativa (Ex. furosemida maior 0,5mg/kg/dia)">Diurese ativa (Ex. furosemida maior 0,5mg/kg/dia)</option>
+								</select>
+								<input type="hidden" name="renal2"  id="renal2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="nerologico">Suporte Neurológico</label>
+								<select class="form-control" id="nerologico" name="nerologico" required>
+									<option value="" disabled selected hidden>Suporte Neurológico</option>
+									<option value="Medida da pressão intracraniana">Medida da pressão intracraniana</option>
+								</select>
+								<input type="hidden" name="nerologico2"  id="nerologico2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="metabolico">Suporte Metabólico</label>
+								<select class="form-control" id="metabolico" name="metabolico" required>
+									<option value="" disabled selected hidden>Suporte Metabólico</option>
+									<option value="Tratamento acidose/alcalose complicada">Tratamento acidose/alcalose complicada</option>
+									<option value="Nutrição parenteral total">Nutrição parenteral total</option>
+									<option value="Nutrição enteral ( Ex. SNG )">Nutrição enteral ( Ex. SNG )</option>
+								</select>
+								<input type="hidden" name="metabolico2"  id="metabolico2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="intervencoes">Intervenções específicas </label>
+								<select class="form-control" id="intervencoes" name="intervencoes" required>
+									<option value="" disabled selected hidden>Intervenções específicas </option>
+									<option value="Intervenção específica única na UTI. Intubação endotraqueal , introdução marcapasso ,endoscopia  cirurgia de emergência nas últimas 24 horas  , lavagem gástrica.Não estão inclusas intervenções de rotina s/ consequência direta para as condições do paciente ">Intervenção específica única na UTI. Intubação endotraqueal , introdução marcapasso ,endoscopia  cirurgia de emergência nas últimas 24 horas  , lavagem gástrica.Não estão inclusas intervenções de rotina s/ consequência direta para as condições do paciente </option>
+									<option value="Intervenção específica múltiplas na UTI. Mais que uma conforme descrição acima">Intervenção específica múltiplas na UTI. Mais que uma conforme descrição acima</option>
+									<option value="Intervenções específicas fora da UTI.Procedimentos diagnósticos ou cirúrgicos ">Intervenções específicas fora da UTI.Procedimentos diagnósticos ou cirúrgicos </option>
+								</select>
+								<input type="hidden" name="intervencoes2"  id="intervencoes2" class="form-control" required>
+							</div>
+
+							<div  class="form-group">
+								<button onclick="calcular()" type="button" class="btn btn-primary">Somar Tiss</button>
+							</div>
+							<div>
+								<label for="tiss">Tiss</label>
+								<input  type="text" id="tiss" name="tiss"  class="form-control" required>
+							</div>
+							<div id="hora" class="form-group">
+								<input  type="hidden" id="horas" name="horas"  class="form-control">
+								<input  type="hidden" id="data" name="data"  class="form-control">
+							</div>
+							</div>
+						<div >
+							<a href="/tissroosevelt?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+							<button type="submit" class="btn btn-primary">Atualizar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<% } %>	
+			<% } %>
+			<% } %>	
+			<% } %>
+			<br>
+					<br>
+					<br>
+</div>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<%- include('../home/footer'); %>
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+	$(window).on('resize load', function() {
+  if ($(window).width() <= 768) { 
+    $("#mobile").removeClass("container");
+  }
+  else {
+    $("#mobile").addClass("container");
+  }
+});
+});
+
+$("#atividades").on('change', function(e){
+     var atividades = document.getElementById('atividades').value;
+     document.getElementById('atividades2').value = atividades;
+});
+$("#ventiltorio").on('change', function(e){
+     var ventiltorio = document.getElementById('ventiltorio').value;
+     document.getElementById('ventiltorio2').value = ventiltorio;
+});
+$("#cardiovascular").on('change', function(e){
+     var cardiovascular = document.getElementById('cardiovascular').value;
+     document.getElementById('renal2').value = renal;
+});
+$("#renal").on('change', function(e){
+     var renal = document.getElementById('renal').value;
+     document.getElementById('renal2').value = renal;
+});
+$("#neurologico").on('change', function(e){
+     var neurologico = document.getElementById('neurologico').value;
+     document.getElementById('neurologico2').value = neurologico;
+});
+$("#metabolico").on('change', function(e){
+     var metabolico = document.getElementById('metabolico').value;
+     document.getElementById('metabolico2').value = metabolico;
+});
+$("#intervencoes").on('change', function(e){
+     var intervencoes = document.getElementById('intervencoes').value;
+     document.getElementById('intervencoes2').value = intervencoes;
+});
+
+
+function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
+function novaHora(){
+	
+	var date = new Date();
+	document.getElementById('horas').value= [date.getHours(), date.getMinutes()].map(pad).join(':');
+	document.getElementById('data').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+}
+novaHora();
+
+
+function calcular(){
+	var resultadoatividades;
+	var atividades = document.getElementById('atividades2').value;
+	
+	if(atividades == "Monitorização Padrão.Sinais Vitais de horário ,registro e cálculo regular do balanço hídrico"){
+		resultadoatividades = 6;
+	}
+	if(atividades == "Laboratório,Investigações  bioquímicas e microbiológicas"){
+		resultadoatividades = 1;
+	}
+	if(atividades == "Medicação Única, EV,IM,SC  e/ou VO ou SNG"){
+		resultadoatividades	= 2;
+	}
+	if(atividades == "Medicação Endovenosa Múltiplas. Mais que uma Droga"){
+		resultadoatividades = 3;
+	}
+	if(atividades == "Troca de Curativos de Rotinas.Cuidado e prevenção de Ulceras de Decúbito/ Troca diária de curativo"){
+		resultadoatividades = 1;
+	}
+	if(atividades == "Troca frequente de curativos .Pelo menos uma vez por turno de enfermagem e/ ou cuidados com feridas extensas "){
+		resultadoatividades = 1;
+	}
+	if(atividades == "Cuidados com drenos .Todos (exceto SNG)"){
+		resultadoatividades = 3;
+	}
+
+	var resultadoventilatorio;
+	var ventilatorio = document.getElementById('ventilatorio2').value;
+	
+	if(ventilatorio == "Ventilação Mecânica. Qualquer forma de ventilação mecânica com ou sem PEEP.Com ou sem relaxantes musculares respiração espontânea com PEEP"){
+		resultadoventilatorio = 5;
+	}
+	if(ventilatorio == "Suporte ventilatório suplementar .Respiração espontânea através de SOT sem PEEP.O2 suplementar por qualquer método exceto aplicação de parâmetros de ventil. Mecânica"){
+		resultadoventilatorio = 2;
+	}
+	if(ventilatorio == "Cuidados com vias aéreas artificiais, SOT ou Traqueostomia  "){
+		resultadoventilatorio	= 1;
+	}
+	if(ventilatorio == "Tratamento para melhora da função pulmonar.Fisioterapia torácica , espirometria estipulada, terapia de inalação, aspiração traqueal"){
+		resultadoventilatorio = 1;
+	}
+
+	var resultadocardiovascular;
+	var cardiovascular = document.getElementById('cardiovascular2').value;
+	
+	if(cardiovascular == "Medicação vasoativa única.Qualquer droga vasoativa"){
+		resultadocardiovascular = 3;
+	}
+	if(cardiovascular == "Medicação vasoativa múltipla. Mais que uma droga independente do tipo e dose "){
+		resultadocardiovascular = 4;
+	}
+	if(cardiovascular == "Reposição de grandes perdas volêmicas.Administração de volume maiores 31/ml/m/dia "){
+		resultadocardiovascular	= 4;
+	}
+	if(cardiovascular == "Catéter arterial periférico"){
+		resultadocardiovascular = 5;
+	}
+	if(cardiovascular == "Monitorização do átrio esquerdo .Catéter da arteria pulmonar com ou sem medida de débito cardíaco"){
+		resultadocardiovascular = 8;
+	}
+	if(cardiovascular == "Via venosa central"){
+		resultadocardiovascular = 2;
+	}
+	if(cardiovascular == "Ressuscitação cardiopulmonar (PCR nas últimas  24hs)"){
+		resultadocardiovascular = 3;
+	}
+
+	var resultadorenal;
+	var renal = document.getElementById('renal2').value;
+	
+	if(renal == "Técnicas de hemofiltração.Técnicas  diaíticas "){
+		resultadorenal = 3;
+	}
+	if(renal == "Medida quantitativa do débito urinário (Ex. SVD )"){
+		resultadorenal = 2;
+	}
+	if(renal == "Diurese ativa (Ex. furosemida maior 0,5mg/kg/dia)"){
+		resultadorenal	= 3;
+	}
+	
+	var resultadoneurologico;
+	var neurologico = document.getElementById('neurologico2').value;
+	
+	if(neurologico == "Medida da pressão intracraniana"){
+		resultadoneurologico = 4;
+	}
+	
+	var resultadometabolico;
+	var metabolico = document.getElementById('metabolico2').value;
+	
+	if(metabolico == "Tratamento acidose/alcalose complicada"){
+		resultadometabolico = 4;
+	}
+	if(metabolico == "Nutrição parenteral total"){
+		resultadometabolico = 3;
+	}
+	if(metabolico == "Nutrição enteral ( Ex. SNG )"){
+		resultadometabolico	= 2;
+	}
+	
+	var resultadointervencoes;
+	var intervencoes = document.getElementById('intervencoes2').value;
+	
+	if(intervencoes == "Intervenção específica única na UTI. Intubação endotraqueal , introdução marcapasso ,endoscopia  cirurgia de emergência nas últimas 24 horas  , lavagem gástrica.Não estão inclusas intervenções de rotina s/ consequência direta para as condições do paciente "){
+		resultadointervencoes = 3;
+	}
+	if(intervencoes == "Intervenção específica múltiplas na UTI. Mais que uma conforme descrição acima"){
+		resultadointervencoes = 5;
+	}
+	if(intervencoes == "Intervenções específicas fora da UTI.Procedimentos diagnósticos ou cirúrgicos "){
+		resultadointervencoes	= 5;
+	}
+	
+	var score = resultadoatividades + resultadoventilatorio + resultadocardiovascular + resultadorenal + resultadoneurologico + resultadometabolico + resultadointervencoes;
+	var resultadofinal;
+
+	if(score<10){
+		resultadofinal = "Classe I - Não Necessita de UTI";
+		document.getElementById('tiss').value = resultadofinal;
+	}
+	if(score>=10&&score<=19){
+		resultadofinal = "Classe II - Indicação de UTI";
+		document.getElementById('tiss').value = resultadofinal;
+	}
+	
+	if(score>=20&&score<=39){
+		resultadofinal = "Classe III - Instabilidade Hemodinamica(Assistência Intensiva)";
+		document.getElementById('tiss').value = resultadofinal;
+	}
+	
+	if(score>39){
+		resultadofinal = "Classe IV - Grande Instabilidade";
+		document.getElementById('tiss').value = resultadofinal;
+	}
+	
+	if(score>34){
+		resultadofinal = "Semi Intensivos";
+		document.getElementById('tiss').value = resultadofinal;
+	}	
+}
+
+</script>

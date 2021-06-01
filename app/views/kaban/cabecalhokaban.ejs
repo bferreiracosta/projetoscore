@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		
+		<title>ScoreSystem</title>
+		
+		<title>ScoreSystem</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- incluindo css -->
+		<link href="/css/style.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.buttons.css"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
+<!--Get your own code at fontawesome.com-->
+
+		<!-- favicon -->
+		<link rel="shortcut icon" href="/images/favicon.ico" />
+	</head>
+
+	<body>
+		
+		<nav class="navbar navbar-default">
+			<div id="nav">
+			  <!-- Brand and toggle get grouped for better mobile display -->
+			  <div class="navbar-header">
+				 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				 <span class="sr-only">Toggle navigation</span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 </button>
+				 <img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+				 ScoreSystem
+			  </a>
+			</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+				<% if(id.length > 0) { %>
+					<% for(var i = 0; i < id.length; i++) {%>
+						<% if(id[i].kaban== 1){%>
+							<li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Planalto</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacienteplanalto?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacienteplanalto?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanplanalto?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Luizote</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacienteluizote?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacienteluizote?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanluizote?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Martins</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacientemartins?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacientemartins?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanmartins?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Roosevelt</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacienteroosevelt?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacienteroosevelt?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanroosevelt?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Tibery</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacientetibery?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacientetibery?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabantibery?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Morumbi</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacientemorumbi?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacientemorumbi?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanmorumbi?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> São Jorge</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacientesaojorge?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacientesaojorge?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabansaojorge?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+								</ul>
+							 </li>
+							 <li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Pampulha</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacientepampulha?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacientepampulha?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanpampulha?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+								</ul>
+							 </li>
+							 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+							 <% } %>
+						<% if(id[i].enfermeiro==1){%>
+							<% if(id[i].unidade==1){%>
+								<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacienteplanalto?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacienteplanalto?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanplanalto?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+					
+								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+							<% } %>
+							<% if(id[i].unidade==2){%>
+								<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacienteluizote?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacienteluizote?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanluizote?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+					
+								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+							<% } %>
+							<% if(id[i].unidade==3){%>
+								<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacientemartins?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacientemartins?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanmartins?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+					
+								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+							<% } %>
+							<% if(id[i].unidade==4){%>
+								<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacienteroosevelt?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacienteroosevelt?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanroosevelt?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+					
+								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+							<% } %>
+							<% if(id[i].unidade==5){%>
+								<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacientetibery?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacientetibery?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/historicokabantibery?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+					
+								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+							<% } %>
+							<% if(id[i].unidade==6){%>
+								<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacientemorumbi?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacientemorumbi?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanmorumbi?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+					
+								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+							<% } %>
+							<% if(id[i].unidade==7){%>
+								<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacientesaojorge?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacientesaojorge?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/historicokabansaojorge?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+					
+								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+							<% } %>
+							<% if(id[i].unidade==8){%>
+								<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacientepampulha?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacientepampulha?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+
+								<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanpampulha?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+					
+								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+							<% } %>
+				<% } %>
+					<% } %>	
+						<% } %>
+							</ul>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+						</ul>
+					 </div>
+					 <!-- /.navbar-collapse -->
+				   </div>
+				   <!-- /.container-fluid -->
+				   </nav>
+			
+			<script>
+				$(document).ready(function() {
+				$(".dropdown-toggle").dropdown();
+			});
+			</script>
