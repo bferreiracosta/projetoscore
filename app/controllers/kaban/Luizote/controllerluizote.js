@@ -262,7 +262,7 @@ module.exports.editnewsluizote = function(application, req, res){
 	var unidade = 'Luizote';
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelluizote.buscarnewsid(idpaciente, unidade, function(error, resultado){
-			res.render("kaban/Luizote/editnewsluizote", {news: resultado, id : result});
+			res.render("kaban/Luizote/editnewskabanluizote", {news: resultado, id : result});
 		});
 	});
 }
@@ -308,7 +308,7 @@ module.exports.newsluizote = function(application, req, res){
 	var unidade = 'Luizote';
 	modeladmin.buscarusuario(id, function(error,result){
 		modelluizote.buscarnews(unidade, function(error, resultado){
-			res.render("kaban/Luizote/newsluizote", {news: resultado, id : result});
+			res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result});
 		});
 	});
 }
@@ -691,7 +691,7 @@ module.exports.cadastrarnews= function(application, req, res){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
 				modelluizote.updatenews(idpaciente, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 					modelluizote.buscarnews(unidade, function(error, resultado){
-							res.render("kaban/Luizote/newsluizote", {news: resultado, id : result });
+							res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
 					});
 				});
 			});	
@@ -700,7 +700,7 @@ module.exports.cadastrarnews= function(application, req, res){
 				modelluizote.addnews(idpaciente, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 					modelluizote.updatenewsstatus(json[0].idnews, function(error, resulta){
 						modelluizote.buscarnews(unidade, function(error, resultado){
-							res.render("kaban/Luizote/newsluizote", {news: resultado, id : result});
+							res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result});
 						});
 					});	
 				});
@@ -886,7 +886,7 @@ module.exports.updatenews= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		modelluizote.updatenewsdados(idpaciente,news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, result){
 			modelluizote.buscarnews(unidade, function(error, resultado){
-				res.render("kaban/Luizote/newsluizote", {news : resultado, id : resultados});
+				res.render("kaban/Luizote/newskabanluizote", {news : resultado, id : resultados});
 			});
 		});
 	});	

@@ -3,7 +3,7 @@
 
 <% if(id.length > 0) { %>
 	<% for(var i = 0; i < id.length; i++) {%>
-		<a href="newsluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Voltar News Atualizados</button></a>
+		<a href="newskabanluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Voltar News Atualizados</button></a>
 		<br>
 <br>
 <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>"> 
@@ -143,7 +143,7 @@
 							</div>
 								
 						   <div >
-							   <a href="/newsluizote?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+							   <a href="/newskabanluizote?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
 							   <button type="submit" class="btn btn-primary">Atualizar</button>
 						   </div>
 					   </div>
