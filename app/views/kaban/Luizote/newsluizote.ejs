@@ -1,20 +1,19 @@
-<%- include('./cabecalhoregulacao'); %>
-
-
-
-    <h2>Pacientes Luizote</h2>
+<%- include('../cabecalhokaban'); %>
     <% if(id.length > 0) { %>
         <% for(var i = 0; i < id.length; i++) {%>
-            <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
+
+            <h2> NEWS Luizote</h2>
+            <a href="addnewsluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Atualizar NEWS</button></a>
+            <br>
+            <br>
+            
             <table class="table table-striped" id="mytable">
+                <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
                 <thead>
                 <tr>
-                    <th hidden>id</th>
-                    <th>SusFacil</th>
+                    <th><i class="fas fa-edit"></i></th>
+                    <th>id</th>
                     <th>Nome</th>
-                    <th>Idade</th>
-                    <th>Leito</th>
-                    <th>Exame</th>
                     <th>Temperatura</th>
                     <th>PA Sistolica</th>
                     <th>Frequência Cardiaca</th>
@@ -26,35 +25,29 @@
                     <th></th>
                     <th>Data Atualização</th>
                     <th></th>
-                    <th>Hora Atualização</th>
-                    <th></th>
+                   
                 </tr>
                 </thead>
                 <tbody>    
-                    <% if(paciente.length > 0) { %>
-                        <% for(var j = 0; j < paciente.length; j++) {%>
+                    <% if(news.length > 0) { %>
+                        <% for(var j = 0; j < news.length; j++) {%>
                     <tr>
-                        <td hidden><label hidden for="">/ID: </label><%=paciente[j].id_paciente %></td>
-                        <td><label hidden for="">/Susfacil: </label><%=paciente[j].susfacil %></td>
-                        <td><label hidden for="">/Nome: </label><%=paciente[j].paciente %></td>
-                        <td><label hidden for="">/Idade: </label><%=paciente[j].idade %></td>
-                        <td><label hidden for="">/Leito: </label><%=paciente[j].leito %></td>
-                        <td><label hidden for="">/Exame: </label><%=paciente[j].exame %></td>
-                        <td><label hidden for="">/Temperatura: </label><%=paciente[j].temp %></td>
-                        <td><label hidden for="">/PA Sistolica: </label><%=paciente[j].sistolica %></td>
-                        <td><label hidden for="">/Frequência Cardiaca: </label><%=paciente[j].fc %></td>
-                        <td><label hidden for="">/Frequência Respiratoria: </label><%=paciente[j].fr %></td>
-                        <td><label hidden for="">/Saturação de O2: </label><%=paciente[j].sat %></td>
-                        <td><label hidden for="">/Nivel de Alerta: </label><%=paciente[j].alerta %></td>
-                        <td><label hidden for="">/News: </label></td>
-                        <td><%=paciente[j].news %></td>
-                        <td><label hidden for="">/Data da atualização: </label></td>
-                        <td><%=paciente[j].data %></td>
-                        <td><label hidden for="">/Hora da Atualização: </label></td>
-                        <td><%=paciente[j].tempo %></td>
                         <td>
-                            <a href="editnewsluizote/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %>" class="btn btn-sm btn-info edit">Edit</a>
+                            <a href="editnewsluizote/<%=id[i].id_usuario %>/?id=<%=news[j].idpaciente %>" class="btn btn-sm btn-info edit">Edit</a>
                         </td>
+                        <td><label hidden for="">/ID: </label><%=news[j].idpaciente %></td>
+                        <td><label hidden for="">Nome: </label><%=news[j].nome %></td>
+                        <td><label hidden for="">/Temperatura: </label><%=news[j].temp %></td>
+                        <td><label hidden for="">/PA Sistolica: </label><%=news[j].sistolica %></td>
+                        <td><label hidden for="">/Frequência Cardiaca: </label><%=news[j].fc %></td>
+                        <td><label hidden for="">/Frequência Respiratoria: </label><%=news[j].fr %></td>
+                        <td><label hidden for="">/Saturação de O2: </label><%=news[j].sat %></td>
+                        <td><label hidden for="">/Nivel de Alerta: </label><%=news[j].alerta %></td>
+                        <td><label hidden for="">/News: </label></td>
+                        <td><%=news[j].news %></td>
+                        <td><label hidden for="">/Data da atualização: </label></td>
+                        <td><%=news[j].dataatualizacao %></td>
+                        
                     </tr>
                     
                     <% } %>	
@@ -86,7 +79,7 @@
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<%- include('../home/footer'); %>
+<%- include('../../home/footer'); %>
 </body>
 </html>
 <script type="text/javascript">

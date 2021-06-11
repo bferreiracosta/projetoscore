@@ -187,7 +187,7 @@ modeladmin.prototype.autenticar = function(usuario, senha, funcao, req, res){
 							if(results[0].kaban == 1){
 							req.session.loggedin = true;
 							req.session.usuario = results[0].usuario;
-							
+														
 							res.render('home/homekaban', {id : results});
 						} else {
 							var mensage = "Você nao tem autorização para esse modulo";
@@ -229,7 +229,7 @@ modeladmin.prototype.buscarusuario = function(id, callback){
 }
 
 modeladmin.prototype.buscarusuarioporid = function(id, callback){
-
+	console.log(id)
 	this._conection.query('select * from usuarios where id_usuario = ' + id, callback);
 }
 

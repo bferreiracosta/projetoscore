@@ -2,7 +2,7 @@
 
 <div id="mobile" class="container">
 
-<form action="/savepacienteluizote" style="padding-left: 1%; padding-right: 1%;" method="post">
+<form action="/savekabanluizote" style="padding-left: 1%; padding-right: 1%;" method="post">
                 <h2>Adicionar novo paciente Luizote</h2> 
                 <% if(id.length > 0) { %>
                     <% for(var i = 0; i < id.length; i++) {%>
@@ -27,7 +27,7 @@
                     </div>
 					<div class="form-group">
 						<label for="idade">Idade</label>
-                        <input type="text" id="idade" name="idade" class="form-control" placeholder="Idade" required>
+                        <input readonly="readonly"  type="text" id="idade" name="idade" class="form-control" placeholder="Idade" required>
                     </div>
 					<div class="form-group">
 						<label for="da">Data de Admissão</label>
@@ -35,7 +35,7 @@
                     </div>
 					<div class="form-group">
 						<label for="qtdi">Quantidade de dias Internados</label>
-                        <input type="text" id="qtdi" name="qtdi" class="form-control" placeholder="Quantidade de dias Internados" required>
+                        <input readonly="readonly"  type="text" id="qtdi" name="qtdi" class="form-control" placeholder="Quantidade de dias Internados" required>
                     </div>
 					<div class="form-group">
 						<label for="ECF" id="ecf3">ECF</label>
@@ -58,52 +58,6 @@
 					<div class="form-group">
 						<label for="spcit" id="spict2">Spict</label>
                         <input type="text" id="spict" name="spcit" class="form-control" placeholder="Spict">
-					</div>
-					<div class="form-group">
-						<label for="Dispositivo">Dispositivo</label>
-						<select class="form-control" onchange="verificadispositivo(this.value)" id="dispositivo2" name="dispositivo2" required>
-							<option value="" disabled selected hidden>Dispositivo</option>
-							<option value="sim">Sim</option>
-							<option value="nao">Não</option>
-                        </select>
-                        <input type="hidden" name="dispositivo"   id="dispositivo" class="form-control" placeholder="Dispositivo" >
-						<div class="form-check">
-							<input  type="checkbox" name="dispositivo" id="svd"  class="form-check-input" onClick="check1()" value="svd">
-							<label class="form-check-label"  id="svd2" for="Dormonid">SVD</label>
-							<input  id="svd3"  type="hidden" name="svd3">
-							<label class="form-check-label"  id="datasvd" for="datasvd"> ---  Data SVD</label>
-							<input  id="datasvd2"  type="text" name="datasvd">
-						</div>
-						<div class="form-check">
-							<input type="checkbox" name="dispositivo" id="sne"  class="form-check-input" onClick="check1()" value="sne">
-							<label class="form-check-label"  id="sne2" for="sne2">SNE</label>
-							<input  id="sne3"  type="hidden" name="sne3">
-							<label class="form-check-label"  id="datasne" for="datasne"> ---  Data SNE</label>
-							<input  id="datasne2"  type="text" name="datasne">
-						</div>
-						<div class="form-check">
-							<input type="checkbox" name="dispositivo" id="avp"  class="form-check-input" onClick="check1()" value="avp">
-							<label class="form-check-label"  id="avp2" for="avp2">AVP</label>
-							<input  id="avp3"  type="hidden" name="avp3">
-							<label class="form-check-label"  id="dataavp" for="dataavp"> ---  Data AVP</label>
-							<input  id="dataavp2"  type="text" name="dataavp">
-						</div>
-						<div class="form-check">
-							<input type="checkbox" name="dispositivo" id="cvc"  class="form-check-input" onClick="check1()" value="cvc">
-							<label class="form-check-label"  id="cvc2" for="Propofol2">CVC</label>
-							<input  id="cvc3"  type="hidden" name="cvc3">
-							<label class="form-check-label"  id="datacvc" for="datacvc"> ---  Data CVC</label>
-							<input  id="datacvc2"  type="text" name="datacvc">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="leitos">Tipo de leito</label>
-                        <select class="form-control" id="leitos" name="leitos" required>
-                            <option value="" disabled selected hidden>Leito</option>
-							<option value="Enfermaria">Enfermaria</option>
-							<option value="Sala de Emergência">Sala de Emergência</option>
-                        </select>
-                        <input type="hidden" name="leito" id="leito">
 					</div>
 					<div class="form-group">
 						<label for="paliativos" id="paliativo2">Paliativos</label>
@@ -193,10 +147,6 @@ $('#datasne2').mask('00/00/0000');
 $('#dataavp2').mask('00/00/0000');
 $('#datacvc2').mask('00/00/0000');
 
-$("#leitos").on('change', function(e){
-     var leito = $(this).val();
-     document.getElementById('leito').value = leito;
-});
 
 $("#paliativos").on('change', function(e){
      var paliativo = $(this).val();
@@ -254,66 +204,6 @@ function difDias(dias){
 	idadeField.value = difDias(dias) + ' dia'
 })
 
-function verificadispositivo(value){
-	var input = document.getElementById("svd");
-	var input2 = document.getElementById("sne");
-	var input3 = document.getElementById("avp");
-	var input4 = document.getElementById("cvc");
-	var input5 = document.getElementById("svd3");
-	var input6 = document.getElementById("sne3");
-	var input7 = document.getElementById("avp3");
-	var input8 = document.getElementById("cvc3");
-	var label = document.getElementById("svd2");
-	var label2 = document.getElementById("sne2");
-	var label3 = document.getElementById("avp2");
-	var label4 = document.getElementById("cvc2");
-	var input9 = document.getElementById("datasvd");
-	var input10 = document.getElementById("datasne");
-	var input11 = document.getElementById("dataavp");
-	var input12 = document.getElementById("datacvc");
-	var label5 = document.getElementById("datasvd2");
-	var label6 = document.getElementById("datasne2");
-	var label7 = document.getElementById("datacvc2");
-	var label8 = document.getElementById("dataavp2");
-	
-
-  if(value == 'nao'){
-    input.style.display = "none";
-	input2.style.display = "none";
-	input3.style.display = "none";
-	input4.style.display = "none";
-	label.style.display = "none";
-	label2.style.display = "none";
-	label3.style.display = "none";
-	label4.style.display = "none";
-	input5.value = "Não Aplicado"
-	input6.value = "Não Aplicado"
-	input7.value = "Não Aplicado"
-	input8.value = "Não Aplicado"
-	input9.value = "Não Aplicado"
-	input10.value = "Não Aplicado"
-	input11.value = "Não Aplicado"
-	input12.value = "Não Aplicado"
-	input9.style.display = "none"
-	input10.style.display = "none"
-	input11.style.display = "none"
-	input12.style.display = "none"
-	label5.style.display = "none";
-	label6.style.display = "none";
-	label7.style.display = "none";
-	label8.style.display = "none";
-	
-  }else if(value == 'sim'){
-    input.style.display = "inline";
-	input2.style.display = "inline";
-	input3.style.display = "inline";
-	input4.style.display = "inline";
-	label.style.display = "inline";
-	label2.style.display = "inline";
-	label3.style.display = "inline";
-	label4.style.display = "inline";
-  }
-};
 function verificaecf(value){
 	var input = document.getElementById("spict");
 	var label = document.getElementById("spict2");
@@ -351,98 +241,6 @@ function verificaidade(value){
 	input2.style.display = "block";
   }
 };
-
-window.onload = function() {
-  document.getElementById('svd').style.display = 'none';
-  document.getElementById('svd2').style.display = 'none';
-  document.getElementById('sne').style.display = 'none';
-  document.getElementById('sne2').style.display = 'none';
-  document.getElementById('avp').style.display = 'none';
-  document.getElementById('avp2').style.display = 'none';
-  document.getElementById('cvc').style.display = 'none';
-  document.getElementById('cvc2').style.display = 'none';
-  document.getElementById('spict').style.display = 'none';
-  document.getElementById('spict2').style.display = 'none';
-  document.getElementById('datasvd').style.display = 'none';
-  document.getElementById('datasvd2').style.display = 'none';
-  document.getElementById('datasne').style.display = 'none';
-  document.getElementById('datasne2').style.display = 'none';
-  document.getElementById('dataavp').style.display = 'none';
-  document.getElementById('dataavp2').style.display = 'none';
-  document.getElementById('datacvc').style.display = 'none';
-  document.getElementById('datacvc2').style.display = 'none';
-  
-};
-
-function check1(){
-
-	var input9 = document.getElementById("datasvd");
-	var input10 = document.getElementById("datasne");
-	var input11 = document.getElementById("dataavp");
-	var input12 = document.getElementById("datacvc");
-	var label5 = document.getElementById("datasvd2");
-	var label6 = document.getElementById("datasne2");
-	var label7 = document.getElementById("datacvc2");
-	var label8 = document.getElementById("dataavp2");
-
-var pacote = document.getElementsByName('dispositivo');
-  for (var i = 0; i < pacote.length; i++){
-	  if ( pacote[i].checked ) {
-		  if(pacote[i].value == "svd"){
-			input9.style.display = "inline"
-			label5.style.display = "inline";
-			  var Pacote_i = "SVD";
-			  document.getElementById('svd3').value = Pacote_i;
-		  }else if (pacote[i].value == "sne") {
-			input10.style.display = "inline"
-			label6.style.display = "inline";
-			  var Pacote_ii = "SNE";
-			  document.getElementById('sne3').value = Pacote_ii;
-		  }else if (pacote[i].value == "avp") {
-			input11.style.display = "inline"
-			label8.style.display = "inline";
-			  var Pacote_iii = "AVP";
-			  document.getElementById('avp3').value = Pacote_iii;
-		  }else if (pacote[i].value == "cvc") {
-			input12.style.display = "inline"
-			label7.style.display = "inline";
-			  var Pacote_iiii = "CVC";
-			  document.getElementById('cvc3').value = Pacote_iiii;
-		  }
-		}
-  	}
-	 
-	 var estado = false;
-	for (var i = 0; i < pacote.length; i++) {
-		if ( pacote[i].checked == estado ) {
-		  if(pacote[i].value == "svd"){
-			input9.style.display = "none"
-			label5.style.display = "none";
-			input9.value = "Não Aplicado"
-			  var Pacote_i = "Não Aplicado";
-			  document.getElementById('svd3').value = Pacote_i;
-		  }else if (pacote[i].value == "sne") {
-			input10.style.display = "none"
-			label6.style.display = "none";
-			input10.value = "Não Aplicado"
-			  var Pacote_ii = "Não Aplicado";
-			  document.getElementById('sne3').value = Pacote_ii;
-		  }else if (pacote[i].value == "avp") {
-			input11.style.display = "none"
-			label8.style.display = "none";
-			input11.value = "Não Aplicado"
-			  var Pacote_iii = "Não Aplicado";
-			  document.getElementById('avp3').value = Pacote_iii;
-		  }else if (pacote[i].value == "cvc") {
-			input12.style.display = "none"
-			label7.style.display = "none";
-			input12.value = "Não Aplicado"
-			  var Pacote_iiii = "Não Aplicado";
-			  document.getElementById('cvc3').value = Pacote_iiii;
-		  }
-		}
-	}
-}
 </script>
 <%- include('../../home/footer'); %>
 </body>

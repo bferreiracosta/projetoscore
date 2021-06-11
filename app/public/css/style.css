@@ -3,6 +3,16 @@
 	margin-left: 160px;
 	margin-top: 15px;
 }
+
+@media print { 
+    .visible-print {
+        display: inherit !important;
+    }
+
+    .hidden-print {
+        display: none !important;
+    }
+}
 .btn-success1 {
     color: #000;
     background-color: #c9fac9;

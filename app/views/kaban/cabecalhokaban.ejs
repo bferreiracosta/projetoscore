@@ -4,8 +4,7 @@
 		<meta charset="UTF-8">
 
 		
-		<title>ScoreSystem</title>
-		
+			
 		<title>ScoreSystem</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<!-- incluindo css -->
@@ -18,8 +17,12 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.css"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.buttons.css"/>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
-<!--Get your own code at fontawesome.com-->
-
+		<!--Get your own code calendar-->
+		<link href='/css/fullcalendar.min.css' rel='stylesheet' />
+		<link href='/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+		<link href='/css/personalizado.css' rel='stylesheet' />
+		
+		
 		<!-- favicon -->
 		<link rel="shortcut icon" href="/images/favicon.ico" />
 	</head>
@@ -59,11 +62,22 @@
 							 <li class="btn-success">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Luizote</a>
 								<ul class="dropdown-menu">
-									<li class="btn-success"><a class="btn   btn-sm"  href="/addkabanpacienteluizote?id=<%=id[i].id_usuario %>">Adicionar Paciente</a></li>
-
+									
 									<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacienteluizote?id=<%=id[i].id_usuario %>">Pacientes</a></li>
 
+									<li class="btn-success"><a class="btn   btn-sm" href="/exameluizote?id=<%=id[i].id_usuario %>">Lista de Exames</a></li>
+									
+									<li class="btn-success"><a class="btn   btn-sm" href="/fugulinluizote?id=<%=id[i].id_usuario %>">Fugulin</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/newsluizote?id=<%=id[i].id_usuario %>">News</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/tissluizote?id=<%=id[i].id_usuario %>">TISS</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/dispositivoluizote?id=<%=id[i].id_usuario %>">Dispositivo</a></li>
+
 									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanluizote?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
+
+									<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmluizote?id=<%=id[i].id_usuario %>">Relatório Administrativo</a></li>
 								</ul>
 							 </li>
 							 <li class="btn-success">

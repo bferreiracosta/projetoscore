@@ -2,171 +2,132 @@
 
 <div id="mobile" class="container">
 
-<form action="/updateluizote" style="padding-left: 1%; padding-right: 1%;" method="post">
-                <h2>Editar paciente Luizote</h2> 
-                <% if(id.length > 0) { %>
-                    <% for(var i = 0; i < id.length; i++) {%>
+<form action="/updatekabanluizote" style="padding-left: 1%; padding-right: 1%;" method="post">
+				<% if(id.length > 0) { %>
+					<% for(var i = 0; i < id.length; i++) {%>            
+				<h2>Editar Paciente Luizote</h2> 
+				<% if(paciente.length > 0) { %>
+					<% for(var j = 0; j < paciente.length; j++) {%>
                     <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
                     <p hidden id="idunidade">  <%=id[i].unidade %>  
                 <div>
 					<div class="form-group">
+                        <input type="hidden" name="idpaciente" class="form-control" value="<%=paciente[j].idpaciente %>" required>
+                    </div>
+					<div class="form-group">
 						<label for="susfacil">SusFacil</label>
-                        <input type="text" name="susfacil" class="form-control" placeholder="SusFacil" required>
+                        <input type="text" name="susfacil" class="form-control" value="<%=paciente[j].susfacil %>" required>
                     </div>
 					<div class="form-group">
 						<label for="prontuario">Prontuario</label>
-                        <input type="text" name="prontuario" class="form-control" placeholder="Prontuario" required>
+                        <input type="text" name="prontuario" class="form-control" value="<%=paciente[j].prt %>" required>
                     </div>
                     <div class="form-group">
 						<label for="paciente">Nome Paciente</label>
-                        <input type="text" name="paciente" class="form-control" placeholder="Nome Paciente" required>
+                        <input type="text" name="paciente" class="form-control" value="<%=paciente[j].nome %>" required>
                     </div>
 					<div class="form-group">
 						<label for="dn">Data de Nascimento</label>
-                        <input type="date" id="dn" name="dn" class="form-control" placeholder="Data de Nascimento" required>
+                        <input type="date" id="dn" name="dn" class="form-control" value="<%=paciente[j].datanascimento %>" required>
                     </div>
 					<div class="form-group">
 						<label for="idade">Idade</label>
-                        <input type="text" id="idade" name="idade" class="form-control" placeholder="Idade" required>
+                        <input readonly="readonly" type="text" id="idade" name="idade" class="form-control" value="<%=paciente[j].idade %>" required>
                     </div>
 					<div class="form-group">
 						<label for="da">Data de Admissão</label>
-                        <input type="date" id="da" name="da" class="form-control" placeholder="Data de Admissão" required>
+                        <input type="date" id="da" name="da" class="form-control" value="<%=paciente[j].dataentrada %>" required>
                     </div>
 					<div class="form-group">
 						<label for="qtdi">Quantidade de dias Internados</label>
-                        <input type="text" id="qtdi" name="qtdi" class="form-control" placeholder="Quantidade de dias Internados" required>
+                        <input readonly="readonly" type="text" id="qtdi" name="qtdi" class="form-control" value="<%=paciente[j].qtddiasinternados %>" required>
                     </div>
 					<div class="form-group">
 						<label for="ECF" id="ecf3">ECF</label>
 						<select  onchange="verificaecf(this.value)"  class="form-control" id="ecf2" name="ecf2">
 							<option value="" disabled selected hidden>ECF</option>
-							<option value="0">Não aplicado</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
+							<option value="0" <%=(paciente[j].ECF == '0')?'selected':''%>>Não aplicado</option>
+							<option value="1" <%=(paciente[j].ECF == '1')?'selected':''%>>1</option>
+							<option value="2" <%=(paciente[j].ECF == '2')?'selected':''%>>2</option>
+							<option value="3" <%=(paciente[j].ECF == '3')?'selected':''%>>3</option>
+							<option value="4" <%=(paciente[j].ECF == '4')?'selected':''%>>4</option>
+							<option value="5" <%=(paciente[j].ECF == '5')?'selected':''%>>5</option>
+							<option value="6" <%=(paciente[j].ECF == '6')?'selected':''%>>6</option>
+							<option value="7" <%=(paciente[j].ECF == '7')?'selected':''%>>7</option>
+							<option value="8" <%=(paciente[j].ECF == '8')?'selected':''%>>8</option>
+							<option value="9" <%=(paciente[j].ECF == '9')?'selected':''%>>9</option>
+							<option value="10"<%=(paciente[j].ECF == '10')?'selected':''%>>10</option>
 						</select>
-						<input type="hidden" id="ecf"  name="ecf" class="form-control" placeholder="ECF">
+						<input type="hidden" id="ecf"  name="ecf" class="form-control"  value="<%=paciente[j].ECF %>">
 					</div>
 					<div class="form-group">
 						<label for="spcit" id="spict2">Spict</label>
-                        <input type="text" id="spict" name="spcit" class="form-control" placeholder="Spict">
-					</div>
-					<div class="form-group">
-						<label for="Dispositivo">Dispositivo</label>
-						<select class="form-control" onchange="verificadispositivo(this.value)" id="dispositivo2" name="dispositivo2" required>
-							<option value="" disabled selected hidden>Dispositivo</option>
-							<option value="sim">Sim</option>
-							<option value="nao">Não</option>
-                        </select>
-                        <input type="hidden" name="dispositivo"   id="dispositivo" class="form-control" placeholder="Dispositivo" >
-						<div class="form-check">
-							<input  type="checkbox" name="dispositivo" id="svd"  class="form-check-input" onClick="check1()" value="svd">
-							<label class="form-check-label"  id="svd2" for="Dormonid">SVD</label>
-							<input  id="svd3"  type="hidden" name="svd3">
-							<label class="form-check-label"  id="datasvd" for="datasvd"> ---  Data SVD</label>
-							<input  id="datasvd2"  type="text" name="datasvd">
-						</div>
-						<div class="form-check">
-							<input type="checkbox" name="dispositivo" id="sne"  class="form-check-input" onClick="check1()" value="sne">
-							<label class="form-check-label"  id="sne2" for="sne2">SNE</label>
-							<input  id="sne3"  type="hidden" name="sne3">
-							<label class="form-check-label"  id="datasne" for="datasne"> ---  Data SNE</label>
-							<input  id="datasne2"  type="text" name="datasne">
-						</div>
-						<div class="form-check">
-							<input type="checkbox" name="dispositivo" id="avp"  class="form-check-input" onClick="check1()" value="avp">
-							<label class="form-check-label"  id="avp2" for="avp2">AVP</label>
-							<input  id="avp3"  type="hidden" name="avp3">
-							<label class="form-check-label"  id="dataavp" for="dataavp"> ---  Data AVP</label>
-							<input  id="dataavp2"  type="text" name="dataavp">
-						</div>
-						<div class="form-check">
-							<input type="checkbox" name="dispositivo" id="cvc"  class="form-check-input" onClick="check1()" value="cvc">
-							<label class="form-check-label"  id="cvc2" for="Propofol2">CVC</label>
-							<input  id="cvc3"  type="hidden" name="cvc3">
-							<label class="form-check-label"  id="datacvc" for="datacvc"> ---  Data CVC</label>
-							<input  id="datacvc2"  type="text" name="datacvc">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="leitos">Tipo de leito</label>
-                        <select class="form-control" id="leitos" name="leitos" required>
-                            <option value="" disabled selected hidden>Leito</option>
-							<option value="Enfermaria">Enfermaria</option>
-							<option value="Sala de Emergência">Sala de Emergência</option>
-                        </select>
-                        <input type="hidden" name="leito" id="leito">
+                        <input type="text" id="spict" name="spcit" class="form-control" value="<%=paciente[j].spict %>">
 					</div>
 					<div class="form-group">
 						<label for="paliativos" id="paliativo2">Paliativos</label>
                         <select class="form-control" id="paliativos" name="paliativos">
                             <option value="" disabled selected hidden>Paliativo</option>
-							<option value="sim">Sim</option>
-							<option value="nao">Não</option>
+							<option value="sim" <%=(paciente[j].paliativo == 'sim')?'selected':''%> >Sim</option>
+							<option value="nao" <%=(paciente[j].paliativo == 'nao')?'selected':''%>>Não</option>
                         </select>
-                        <input type="hidden" name="paliativo" id="paliativo">
+                        <input type="hidden" name="paliativo" id="paliativo"  value="<%=paciente[j].paliativo %>">
 					</div>
 					<div class="form-group">
 						<label for="diagnostico">Diagnóstico</label>
-                        <input type="text" name="diagnostico" class="form-control" placeholder="Diagnóstico" required>
+                        <input type="text" name="diagnostico" class="form-control" value="<%=paciente[j].diagnostico %>" required>
                     </div>
 					<div class="form-group">
 						<label for="especialidade">Especialidade</label>
 						<select class="form-control" id="especialidades" name="especialidades">
                             <option value="" disabled selected hidden>Especialidade</option>
-							<option value="clinica">Clinica</option>
-							<option value="traumatologia">Traumatologia</option>
-							<option value="pediatria">Pediatria</option>
-							<option value="psquiatria">Psquiatria</option>
-							<option value="cirurgico">Cirurgico</option>
+							<option value="clinica" <%=(paciente[j].especialidade == 'clinica')?'selected':''%>>Clinica</option>
+							<option value="traumatologia" <%=(paciente[j].especialidade == 'traumatologia')?'selected':''%>>Traumatologia</option>
+							<option value="pediatria" <%=(paciente[j].especialidade == 'pediatria')?'selected':''%>>Pediatria</option>
+							<option value="psquiatria" <%=(paciente[j].especialidade == 'psquiatria')?'selected':''%>>Psquiatria</option>
+							<option value="cirurgico" <%=(paciente[j].especialidade == 'cirurgico')?'selected':''%>>Cirurgico</option>
                         </select> 
-                        <input type="hidden" id="especialidade" name="especialidade" class="form-control" placeholder="Especialidade" required>
+                        <input type="hidden" id="especialidade" name="especialidade" class="form-control"  value="<%=paciente[j].especialidade %>" required>
                     </div>
 					<div class="form-group">
 						<label for="observacao">Observação</label>
-                        <input type="text" name="observacao" class="form-control" placeholder="Observação" required>
+                        <input type="text" name="observacao" class="form-control" value="<%=paciente[j].observacao %>" required>
                     </div>
 					<div class="form-group">
 						<label for="banho">Banho</label>
 						<select class="form-control" id="banhos" name="banhos">
                             <option value="" disabled selected hidden>Horario Banho</option>
-							<option value="manha">Manha</option>
-							<option value="tarde">Tarde</option>
-							<option value="noite">Noite</option>
+							<option value="manha" <%=(paciente[j].banho == 'manha')?'selected':''%>>Manha</option>
+							<option value="tarde" <%=(paciente[j].banho == 'tarde')?'selected':''%>>Tarde</option>
+							<option value="noite" <%=(paciente[j].banho == 'noite')?'selected':''%>>Noite</option>
                         </select>
-                        <input type="hidden" id="banho" name="banho" class="form-control" placeholder="Banho" required>
+                        <input type="hidden" id="banho" name="banho" class="form-control"  value="<%=paciente[j].banho %>" required>
                     </div>
 					<div class="form-group">
 						<label for="mobilidade">Mobilidade</label>
 						<select class="form-control" id="mobilidades" name="mobilidades">
                             <option value="" disabled selected hidden>Mobilidade</option>
-							<option value="acamado">Acamando</option>
-							<option value="auxilio">Auxílio</option>
-							<option value="aspersao">Aspersão</option>
+							<option value="acamado" <%=(paciente[j].mobilidade == 'acamado')?'selected':''%>>Acamando</option>
+							<option value="auxilio" <%=(paciente[j].mobilidade == 'auxilio')?'selected':''%>>Auxílio</option>
+							<option value="aspersao" <%=(paciente[j].mobilidade == 'aspersao')?'selected':''%>>Aspersão</option>
                         </select>
-                        <input type="hidden" id="mobilidade" name="mobilidade" class="form-control" placeholder="Mobilidade" required>
+                        <input type="hidden" id="mobilidade" name="mobilidade" class="form-control"  value="<%=paciente[j].mobilidade %>" required>
                     </div>
 					<div class="form-group">
 						<label for="pendencias">Pendencias</label>
-                        <input type="text" name="pendencias" class="form-control" placeholder="Pendencias" required>
+                        <input type="text" name="pendencias" class="form-control" value="<%=paciente[j].pendencias %>" required>
                     </div>
                 </div>
                 <div>
-                    <a href="kabanpacienteluizote?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+                    <a href="/kabanpacienteluizote?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
                     <button type="submit" class="btn btn-success">Salvar</button>
 					<br>
 					<br>
 					<br>
                 </div>
                 <% } %>	
+                <% } %> 
+				<% } %>	
                 <% } %> 
 </form>
 </div>
@@ -192,11 +153,6 @@ $('#datasvd2').mask('00/00/0000');
 $('#datasne2').mask('00/00/0000');
 $('#dataavp2').mask('00/00/0000');
 $('#datacvc2').mask('00/00/0000');
-
-$("#leitos").on('change', function(e){
-     var leito = $(this).val();
-     document.getElementById('leito').value = leito;
-});
 
 $("#paliativos").on('change', function(e){
      var paliativo = $(this).val();
@@ -372,6 +328,35 @@ window.onload = function() {
   document.getElementById('datacvc').style.display = 'none';
   document.getElementById('datacvc2').style.display = 'none';
   
+$("#leitos").on('change', function(e){
+     var leito = $(this).val();
+     document.getElementById('leito').value = leito;
+});
+
+$("#paliativos").on('change', function(e){
+     var paliativo = $(this).val();
+     document.getElementById('paliativo').value = paliativo;
+});
+
+$("#ecf2").on('change', function(e){
+     var ecf = $(this).val();
+     document.getElementById('ecf').value = ecf;
+});
+
+$("#especialidades").on('change', function(e){
+     var especialidade = $(this).val();
+     document.getElementById('especialidade').value = especialidade;
+});
+
+$("#banhos").on('change', function(e){
+     var banho = $(this).val();
+     document.getElementById('banho').value = banho;
+});
+
+$("#mobilidades").on('change', function(e){
+     var mobilidade = $(this).val();
+     document.getElementById('mobilidade').value = mobilidade;
+});
 };
 
 function check1(){
