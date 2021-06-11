@@ -238,7 +238,7 @@ $("#login").click(function(){
         type: "GET",
         data: {usuario: usuario, senha: senha},
         contentType: 'application/json',
-        url: 'http://localhost:8080/auth',
+        url: '/auth',
         success: function(obj) { 
 			
             if (obj.length > 0){

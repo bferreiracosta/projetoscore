@@ -5,6 +5,7 @@ function modeladmin(application){
 modeladmin.prototype.autenticar = function(usuario, senha, req, res){
 	var usuario = usuario;
 	var senha = senha;
+	console.log(usuario, senha);
 	if (usuario && senha) {
 		this._conection.query('SELECT * FROM usuarios WHERE usuario = ? AND senha = ?', [usuario, senha], function(error, results, fields) {
 			
