@@ -60,6 +60,16 @@
                         <input type="text" id="spict" name="spcit" class="form-control" placeholder="Spict">
 					</div>
 					<div class="form-group">
+						<label for="setor">Setor</label>
+                        <select class="form-control" id="setor" name="setor">
+                            <option value="" disabled selected hidden>Setor</option>
+							<option value="Enfermaria">Enfermaria</option>
+							<option value="Sala de Emergência">Sala de Emergência</option>
+							<option value="Observação">Observação</option>
+                        </select>
+                        <input type="hidden" name="setor2" id="setor2">
+					</div>
+					<div class="form-group">
 						<label for="paliativos" id="paliativo2">Paliativos</label>
                         <select class="form-control" id="paliativos" name="paliativos">
                             <option value="" disabled selected hidden>Paliativo</option>
@@ -166,6 +176,11 @@ $("#especialidades").on('change', function(e){
 $("#banhos").on('change', function(e){
      var banho = $(this).val();
      document.getElementById('banho').value = banho;
+});
+
+$("#setor").on('change', function(e){
+     var setor = $(this).val();
+     document.getElementById('setor2').value = setor;
 });
 
 $("#mobilidades").on('change', function(e){

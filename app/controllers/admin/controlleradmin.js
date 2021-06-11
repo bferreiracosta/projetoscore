@@ -5,12 +5,22 @@ module.exports.index = function(application, req, res){
 
 module.exports.autenticacao = function(application, req, res){
 	
-	var usuario = req.body.usuario;
-	var senha = req.body.senha;
+	var usuario = req.query.usuario;
+	var senha = req.query.senha;
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	modeladmin.autenticar(usuario, senha,  req, res);
+	
+}
+
+module.exports.login = function(application, req, res){
+
+	var usuario = req.body.usuario2;
+	var senha = req.body.senha2;
 	var funcao = req.body.cargo;
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
-	modeladmin.autenticar(usuario, senha ,funcao,  req, res);
+	modeladmin.login(usuario, senha ,funcao,  req, res);
 	
 }
 

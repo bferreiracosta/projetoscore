@@ -65,6 +65,16 @@
                         <input type="text" id="spict" name="spcit" class="form-control" value="<%=paciente[j].spict %>">
 					</div>
 					<div class="form-group">
+						<label for="setor">Setor</label>
+                        <select class="form-control" id="setor" name="setor">
+                            <option value="" disabled selected hidden>Setor</option>
+							<option value="Enfermaria" <%=(paciente[j].setor == 'Enfermaria')?'selected':''%>>Enfermaria</option>
+							<option value="Sala de Emergência" <%=(paciente[j].setor == 'Sala de Emergência')?'selected':''%>>Sala de Emergência</option>
+							<option value="Observação" <%=(paciente[j].setor == 'Observação')?'selected':''%>>Observação</option>
+                        </select>
+                        <input type="hidden" name="setor2" id="setor2">
+					</div>
+					<div class="form-group">
 						<label for="paliativos" id="paliativo2">Paliativos</label>
                         <select class="form-control" id="paliativos" name="paliativos">
                             <option value="" disabled selected hidden>Paliativo</option>
@@ -172,6 +182,11 @@ $("#especialidades").on('change', function(e){
 $("#banhos").on('change', function(e){
      var banho = $(this).val();
      document.getElementById('banho').value = banho;
+});
+
+$("#setor").on('change', function(e){
+     var setor = $(this).val();
+     document.getElementById('setor2').value = setor;
 });
 
 $("#mobilidades").on('change', function(e){
@@ -346,6 +361,11 @@ $("#ecf2").on('change', function(e){
 $("#especialidades").on('change', function(e){
      var especialidade = $(this).val();
      document.getElementById('especialidade').value = especialidade;
+});
+
+$("#setor").on('change', function(e){
+     var setor = $(this).val();
+     document.getElementById('setor2').value = setor;
 });
 
 $("#banhos").on('change', function(e){

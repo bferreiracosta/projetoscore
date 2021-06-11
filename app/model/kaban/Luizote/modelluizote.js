@@ -96,17 +96,17 @@ modelluizote.prototype.buscardispositivohora = function(unidade, callback){
 
 modelluizote.prototype.buscarfugulinhora = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM fugulin dd where unidade = "'+unidade+'" and   status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or (dd.dataatualizacao) is null  GROUP BY idpaciente;', callback);
+	this._conection.query('SELECT * FROM fugulin dd where setor != "Observação" and unidade = "'+unidade+'" and   status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or setor!= "Observação" and unidade = "'+unidade+'" and (dd.dataatualizacao) is null  GROUP BY idpaciente;', callback);
 }
 
 modelluizote.prototype.buscarnewshora = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM news dd where unidade = "'+unidade+'" and   status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or (dd.dataatualizacao) is null  GROUP BY idpaciente;', callback);
+	this._conection.query('SELECT * FROM news dd where setor = "Enfermaria" and unidade = "'+unidade+'" and  status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or setor = "Enfermaria" and unidade = "'+unidade+'" and (dd.dataatualizacao) is null  GROUP BY idpaciente;', callback);
 }
 
 modelluizote.prototype.buscartisshora = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM tiss dd where unidade = "'+unidade+'" and   status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or (dd.dataatualizacao) is null  GROUP BY idpaciente;', callback);
+	this._conection.query('SELECT * FROM tiss dd where setor = "Sala de Emergência" and unidade = "'+unidade+'" and   status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or setor = "Sala de Emergência" and unidade = "'+unidade+'" and (dd.dataatualizacao) is null  GROUP BY idpaciente;', callback);
 }
 
 modelluizote.prototype.buscarfugulinid = function(idpaciente, unidade, callback){
@@ -128,17 +128,17 @@ modelluizote.prototype.buscartissid = function(idpaciente, unidade, callback){
 
 modelluizote.prototype.buscarfugulin = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM fugulin dd where unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY idpaciente ', callback);
+	this._conection.query('SELECT * FROM fugulin dd where setor != "Observação" and unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY idpaciente ', callback);
 }
 
 modelluizote.prototype.buscarnews = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM news dd where unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY idpaciente ', callback);
+	this._conection.query('SELECT * FROM news dd where setor = "Enfermaria" and unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY idpaciente ', callback);
 }
 
 modelluizote.prototype.buscartiss = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM tiss dd where unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY idpaciente ', callback);
+	this._conection.query('SELECT * FROM tiss dd where setor = "Sala de Emergência" and unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY idpaciente ', callback);
 }
 
 modelluizote.prototype.historico = function(unidade, callback){
@@ -175,18 +175,23 @@ modelluizote.prototype.buscarpacienteid = function(idpaciente, unidade, callback
 }
 
 modelluizote.prototype.buscarpacienteporid = function(idpaciente, callback){
+	
 	this._conection.query('select * from kaban where idpaciente = ' + idpaciente, callback);
 }
 
-modelluizote.prototype.cadastrarpaciente = function( paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
-	
-	this._conection.query('insert into kaban set nome = "'+paciente+'", susfacil = "'+susfacil+'",prt = "'+prt+'", datanascimento = "'+dn+'", idade = "'+idade+'", dataentrada = "'+da+'", qtddiasinternados = "'+qtdi+'" , ECF = "'+ecf+'", spict="'+spict+'" , paliativo = "'+paliativo+'" , diagnostico = "'+diagnostico+'" ,especialidade = "'+especialidade+'" ,observacao = "'+observacao+'" , banho = "'+banho+'" , pendencias = "'+pendencias+'" ,mobilidade = "'+mobilidade+'", unidade = "'+unidade+'"',callback);
+modelluizote.prototype.buscarsetor = function(idpaciente, callback){
 
+	this._conection.query('select setor from kaban where idpaciente = ' + idpaciente, callback);
 }
 
-modelluizote.prototype.update = function(idpaciente,paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
+modelluizote.prototype.cadastrarpaciente = function( paciente,setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
 	
-	this._conection.query('update kaban set nome = "'+paciente+'", susfacil = "'+susfacil+'",prt = "'+prt+'", datanascimento = "'+dn+'", idade = "'+idade+'", dataentrada = "'+da+'", qtddiasinternados = "'+qtdi+'" , ECF = "'+ecf+'", spict="'+spict+'" ,  paliativo = "'+paliativo+'" , diagnostico = "'+diagnostico+'" ,especialidade = "'+especialidade+'" ,observacao = "'+observacao+'" , banho = "'+banho+'" , pendencias = "'+pendencias+'" ,mobilidade = "'+mobilidade+'", unidade = "'+unidade+'" where idpaciente = ' + idpaciente, callback);
+	this._conection.query('insert into kaban set nome = "'+paciente+'", setor = "'+setor+'", susfacil = "'+susfacil+'",prt = "'+prt+'", datanascimento = "'+dn+'", idade = "'+idade+'", dataentrada = "'+da+'", qtddiasinternados = "'+qtdi+'" , ECF = "'+ecf+'", spict="'+spict+'" , paliativo = "'+paliativo+'" , diagnostico = "'+diagnostico+'" ,especialidade = "'+especialidade+'" ,observacao = "'+observacao+'" , banho = "'+banho+'" , pendencias = "'+pendencias+'" ,mobilidade = "'+mobilidade+'", unidade = "'+unidade+'"',callback);
+}
+
+modelluizote.prototype.update = function(idpaciente,setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
+	
+	this._conection.query('update kaban set nome = "'+paciente+'", setor = "'+setor+'", susfacil = "'+susfacil+'",prt = "'+prt+'", datanascimento = "'+dn+'", idade = "'+idade+'", dataentrada = "'+da+'", qtddiasinternados = "'+qtdi+'" , ECF = "'+ecf+'", spict="'+spict+'" ,  paliativo = "'+paliativo+'" , diagnostico = "'+diagnostico+'" ,especialidade = "'+especialidade+'" ,observacao = "'+observacao+'" , banho = "'+banho+'" , pendencias = "'+pendencias+'" ,mobilidade = "'+mobilidade+'", unidade = "'+unidade+'" where idpaciente = ' + idpaciente, callback);
 }
 
 modelluizote.prototype.baixa = function(idpaciente,baixa,data, callback){
@@ -259,9 +264,9 @@ modelluizote.prototype.updatefugulin = function(idpaciente, mental2,oxigenacao2,
 	this._conection.query('update fugulin set mental= "'+mental2+'",oxigenacao= "'+oxigenacao2+'",sinaisvitais= "'+sinaisvitais2+'",motilidade= "'+motilidade2+'",deambulacao= "'+deambulacao2+'",deambulacao= "'+deambulacao2+'",alimentacao= "'+alimentacao2+'",cuidado= "'+cuidado2+'",eliminacao= "'+eliminacao2+'",terapeutica= "'+terapeutica2+'",integridade= "'+integridade2+'" ,curativo= "'+curativo2+'",tempocurativo= "'+tempo2+'",resultado= "'+fugulin+'",dataatualizacao= STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ),unidade= "'+unidade+'", status= "Ativo"  where idpaciente = ' + idpaciente, callback);
 }
 
-modelluizote.prototype.updatefugulinnome = function(idpaciente, nome, callback){
-
-	this._conection.query('update fugulin set nome= "'+nome+'" where idpaciente = ' + idpaciente, callback);
+modelluizote.prototype.updatefugulinnome = function(idpaciente, nome, setor, callback){
+	console.log(setor);
+	this._conection.query('update fugulin set nome= "'+nome+'",setor= "'+setor+'"  where idpaciente = ' + idpaciente, callback);
 }
 
 modelluizote.prototype.updatefugulindados = function(idpaciente, mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,unidade, callback){
@@ -299,9 +304,9 @@ modelluizote.prototype.updatetissstatus = function(idtiss, callback){
 	this._conection.query('update tiss set status = "Inativo" where idtiss = '+ idtiss, callback);
 }
 
-modelluizote.prototype.updatetissnome = function(idpaciente, nome, callback){
-
-	this._conection.query('update tiss set nome= "'+nome+'" where idpaciente = ' + idpaciente, callback);
+modelluizote.prototype.updatetissnome = function(idpaciente, nome,setor, callback){
+	console.log(setor);
+	this._conection.query('update tiss set nome= "'+nome+'", setor= "'+setor+'" where idpaciente = ' + idpaciente, callback);
 }
 
 modelluizote.prototype.addnewsid = function(idpaciente,nome, unidade,callback){
@@ -329,9 +334,9 @@ modelluizote.prototype.updatenewsstatus = function(idnews, callback){
 	this._conection.query('update news set status = "Inativo" where idnews = '+ idnews, callback);
 }
 
-modelluizote.prototype.updatenewsnome = function(idpaciente, nome, callback){
-
-	this._conection.query('update news set nome= "'+nome+'" where idpaciente = ' + idpaciente, callback);
+modelluizote.prototype.updatenewsnome = function(idpaciente, nome,setor, callback){
+	console.log(setor);
+	this._conection.query('update news set nome= "'+nome+'", setor= "'+setor+'" where idpaciente = ' + idpaciente, callback);
 }
 
 

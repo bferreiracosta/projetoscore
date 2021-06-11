@@ -8,7 +8,7 @@
 	
     <!--Fontawesome CDN-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
+	
 	<!-- Custom styles
 	<link href="/css/style.css" rel="stylesheet"> -->
 
@@ -33,7 +33,7 @@ align-content: center;
 }
 
 .card{
-height: 370px;
+height: 300px;
 margin-top: auto;
 margin-bottom: auto;
 width: 430px;
@@ -150,7 +150,6 @@ background-color: #202020; }
 				<h3>Login</h3>
 			</div>
 			<div class="card-body">
-				<form action="auth" method="post">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -164,23 +163,7 @@ background-color: #202020; }
 						</div>
 						<input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" required />
 					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<select onChange="update()" id="funcao"  class="form-control form-control-lg" required>
-							<option hidden>Módulo</option>
-							<option hidden value="kaban">Kaban</option>
-							<option value="SCIH">SCIH</option>
-							<option value="gestao">Gestão de Leitos</option>
-							<option value="equipamentos">Central de Equipamentos</option>
-							<option value="Regulacao Covid">Regulação Covid</option>
-							<option value="obstetricia">Obstetricia</option>
-							<option value="SM Hospitalidade">SM Hospitalidade</option>
-							<option value="SM Urgência">SM Urgência</option>
-						</select>
-						<input  type="hidden" name="cargo" id="cargo">
-					</div>
+					
 					<div class="row align-items-center remember">
 						<div>
 							<% if ( msg.length > 0 ) { %>
@@ -189,19 +172,52 @@ background-color: #202020; }
 						</div>
 					</div>
 					<div class="form-group">
-						<button type="submit" class="btn btn-success">Entrar</button>
+						<button  id="login" class="btn btn-success"  data-toggle="modal" data-target="#BaixaModal">Login</button>
 						<a href="/updatepassword">Alterar Senha</a>
 					</div>
-				</form>
+				
 			</div>
 		</div>
 	</div>
 </div>
 
-	
+	<!-- Delete Product Modal-->
+    <form id="add-row-form" action="/login" method="POST">
+        <div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">Selecione o modulo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+						<input type="hidden" name="usuario2" id="usuario2" placeholder="Usuário" class="form-control" autocomplete="off" required />
+						<input type="hidden" name="senha2" id="senha2" placeholder="Senha" class="form-control" required />
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<select onChange="update()" id="funcao"  class="form-control form-control-lg" required>
+								<option></option>
+							</select>
+							<input  type="hidden" name="cargo" id="cargo">
+						</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-success">Entrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 
 </body>
 <%- include('./footer'); %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	function update() {
 		var select = document.getElementById('funcao');
@@ -213,6 +229,58 @@ background-color: #202020; }
 	}
 
 	update();
-
+$("#login").click(function(){
+	var usuario = document.getElementById("usuario").value;
+	var senha = document.getElementById("senha").value;
 	
+	obj = [];
+    $.ajax({
+        type: "GET",
+        data: {usuario: usuario, senha: senha},
+        contentType: 'application/json',
+        url: 'http://localhost:8080/auth',
+        success: function(obj) { 
+			
+            if (obj.length > 0){
+				document.getElementById("usuario2").value=obj[0].usuario;
+				document.getElementById("senha2").value=obj[0].senha; 
+                var option = '<option>Selecione o modulo </option>';
+				// if(obj[0].kaban == 1){
+				// 	var kaban = "Kaban";
+               	// 	option += '<option value="'+kaban+'">'+kaban+'</option>';
+				// }
+				if(obj[0].scih == 1){
+					var SCIH = "SCIH";
+               		option += '<option value="'+SCIH+'">'+SCIH+'</option>';
+				}
+				if(obj[0].regulacao == 1){
+					var regulacao = "Regulacao Covid";
+               		option += '<option value="'+regulacao+'">'+regulacao+'</option>';
+				}
+				if(obj[0].smh == 1){
+					var smh = "SM Hospitalidade";
+               		option += '<option value="'+smh+'">'+smh+'</option>';
+				}
+				if(obj[0].smu == 1){
+					var smu = "SM Urgência";
+               		option += '<option value="'+smu+'">'+smu+'</option>';
+				}
+				if(obj[0].gestao == 1){
+					var gestao = "Gestão de Leitos";
+               		option += '<option value="'+gestao+'">'+gestao+'</option>';
+				}
+				if(obj[0].equipamentos == 1){
+					var equipamentos = "Central de Equipamentos";
+               		option += '<option value="'+equipamentos+'">'+equipamentos+'</option>';
+				}
+				if(obj[0].obstetricia == 1){
+					var obstetricia = "Obstetricia";
+               		option += '<option value="'+obstetricia+'">'+obstetricia+'</option>';
+				}
+               
+            }
+			  $('#funcao').html(option).show();
+            }
+    });
+});
 </script>

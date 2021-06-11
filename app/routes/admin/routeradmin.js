@@ -15,8 +15,11 @@ module.exports = function(application){
 		application.app.controllers.admin.controlleradmin.index(application, req, res);
 	});
 
-	application.post('/auth', function(req, res) {
+	application.get('/auth', function(req, res) {
 		application.app.controllers.admin.controlleradmin.autenticacao(application, req, res);
+	});
+	application.post('/login', function(req, res) {
+		application.app.controllers.admin.controlleradmin.login(application, req, res);
 	});
 
 	application.get('/updatepassword', function(req, res) {

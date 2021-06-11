@@ -467,6 +467,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var paciente = req.body.paciente;
 	var susfacil = req.body.susfacil;
 	var prt = req.body.prontuario;
+	var setor = req.body.setor2;
 	var dn = req.body.dn;
 	var idade = req.body.idade;
 	var da = req.body.da;
@@ -487,7 +488,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelluizote.cadastrarpaciente(paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, result){
+		modelluizote.cadastrarpaciente(paciente,setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, result){
 			modelluizote.adddispositivoid(result.insertId, paciente, unidade, function(error, results){
 				modelluizote.addfugulinid(result.insertId,paciente,unidade, function(error, results){
 					modelluizote.addtissid(result.insertId,paciente,unidade, function(error, results){
@@ -721,7 +722,7 @@ module.exports.update= function(application, req, res){
 	var qtdi = req.body.qtdi;
 	var ecf = req.body.ecf;
 	var spict = req.body.spcit;
-	
+	var setor = req.body.setor2;
 	var paliativo = req.body.paliativo;
 	var diagnostico = req.body.diagnostico;
 	var especialidade = req.body.especialidade;
@@ -737,10 +738,10 @@ module.exports.update= function(application, req, res){
 	
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modelluizote.update(idpaciente,paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-			modelluizote.updatetissnome(idpaciente,paciente,  function(error, result){
-				modelluizote.updatefugulinnome(idpaciente,paciente,  function(error, result){
-					modelluizote.updatenewsnome(idpaciente,paciente,  function(error, result){
+		modelluizote.update(idpaciente,setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+			modelluizote.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+				modelluizote.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+					modelluizote.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
 						modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 							modelluizote.buscardispositivo(unidade, function(error, result){
 								modelluizote.buscarpaciente(unidade, function(error, resultado){
