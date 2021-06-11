@@ -203,7 +203,7 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/newsluizote', function(req, res){
+	application.get('/newskabanluizote', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Luizote.controllerluizote.newsluizote(application, req, res);
 		}
