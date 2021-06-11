@@ -170,7 +170,7 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/editnewsluizote/:idusuario/', function(req, res){
+	application.get('/editnewskabanluizote/:idusuario/', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Luizote.controllerluizote.editnewsluizote(application, req, res);
 		}
@@ -442,7 +442,7 @@ module.exports = function(application) {
 		}
 		
 	});
-	application.post('/updatenewsluizote', function(req, res){
+	application.post('/updatenewskabanluizote', function(req, res){
 		if(req.session.loggedin){
 			
 			application.app.controllers.kaban.Luizote.controllerluizote.updatenews(application, req, res);
