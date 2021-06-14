@@ -1,0 +1,803 @@
+<%- include('../cabecalhokaban'); %>
+<h2>Cadastrar dispositivo Luizote</h2>
+
+<% if(id.length > 0) { %>
+	<% for(var i = 0; i < id.length; i++) {%>
+		<a href="dispositivoluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Voltar Dispositivos Atualizados</button></a>
+		<br>
+<br>
+<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>"> 
+	<table class="table table-striped"  style="width: 100%;" id="mytable">
+                       
+		<thead>
+			<tr>
+				
+				<th>id</th>
+                <th><i class="fas fa-edit"></i></th>
+                <th>Nome</th>
+                <th>Dispositivo Ventilatorio</th>
+                <th>Fluxo de O2</th>
+                <th>Noradrenalina</th>
+                <th>Vazão Noradrenalina</th>
+                <th>Adrenalina</th>
+                <th>Vazão Adrenalina</th>
+                <th>Bicarbonato</th>
+                <th>Vazão Bicarbonato</th>
+                <th>FIO2</th>
+                <th>PEEP</th>
+                <th>Dormonid</th>
+                <th>Vazão Dormonid</th>
+                <th>Fentanil</th>
+                <th>Vazão Fentanil</th>
+                <th>Rocuronio</th>
+                <th>Vazão Rocuronio</th>
+                <th>Propofol</th>
+                <th>Vazão Propofol</th>
+				
+			</tr>
+			</thead>
+			<tbody>    
+				<% if(dispositivo.length > 0) { %>
+					<% for(var j = 0; j < dispositivo.length; j++) {%>
+						
+				<tr>
+				<td>
+					<a href="" onclick="setaDadosModal2('<%=id[i].id_usuario %>'),setaDadosModal('<%=dispositivo[j].idpaciente %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Adicionar dispositivo</a>
+				</td>
+				<td><label for="">ID: </label><%=dispositivo[j].idpaciente %></td>
+                <td><label hidden for="">Nome: </label><%=dispositivo[j].nome %></td>
+                <td><label hidden for="">Dispositivo: </label><%=dispositivo[j].dispositivoventilatorio %></td>
+                <td><label hidden for="">fluxo_de_o2: </label><%=dispositivo[j].fluxoo2 %></td>
+                <td><label hidden>/Noradrenalina: </label><%=dispositivo[j].nora %></td>
+                <td><label hidden>/Vazão Noradrenalina: </label><%=dispositivo[j].vazaonora %></td>
+                <td><label hidden>/Adrenalina: </label><%=dispositivo[j].adrenalina %></td>
+                <td><label hidden>/Vazão Adrenalina: </label><%=dispositivo[j].vazaoadrenalina %></td>
+                <td><label hidden>/Bicarbonato: </label><%=dispositivo[j].bicarbonato %></td>
+                <td><label hidden>/Vazão Bicarbonato: </label><%=dispositivo[j].vazaobicarbonato %></td>
+                <td><label hidden>/Fio2: </label><%=dispositivo[j].fio2 %></td>
+                <td><label hidden>/PEEP: </label><%=dispositivo[j].peep %></td>
+                <td><label hidden>/Dormonid: </label><%=dispositivo[j].dormonid %></td>
+                <td><label hidden>/Vazão Dormonid: </label><%=dispositivo[j].vazaodormonid %></td>
+                <td><label hidden>/Fentanil: </label><%=dispositivo[j].fentanil %></td>
+                <td><label hidden>/Vazão Fentanil: </label><%=dispositivo[j].vazaofentanil %></td>
+                <td><label hidden>/Rocuronio: </label><%=dispositivo[j].rocuronio %></td>
+                <td><label hidden>/Vazão Rocuronio: </label><%=dispositivo[j].vazaorocuronio %></td>
+                <td><label hidden>/Propofol: </label><%=dispositivo[j].propofol %></td>
+                <td><label hidden>/Vazão Propofol: </label><%=dispositivo[j].vazaopropofol %></td>
+                                
+            </tr>
+            <% } %>	
+            <% } %>
+		</tbody>
+	</table>
+	<br>
+	<br>
+	<br>
+
+	<% if(dispositivo.length > 0) { %>
+		<% for(var j = 0; j < dispositivo.length; j++) {%>
+
+<!-- Delete Product Modal-->
+<form id="add-row-form" action="/savedispositivoluizote" method="POST">
+	<div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title" id="myModalLabel">Cadastrar dispositivos</h2>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+				
+				<div class="modal-body">
+					<input type="hidden" name="campo" id="campo">
+					
+                <div>
+					<div class="form-group">
+                        <input readonly="readonly" type="hidden" name="idpaciente" class="form-control" value="<%=dispositivo[j].idpaciente%>" >
+						<label for="">Paciente</label>
+						<input readonly="readonly" type="text" name="nome" class="form-control" value="<%=dispositivo[j].nome %>" >
+						
+                    </div>
+					<div class="form-group">
+						<label for="Dispositivo">Dispositivo</label>
+						<div class="form-check">
+							<input  type="checkbox" name="dispositivo" id="svd"  class="form-check-input" onClick="check2()" value="svd" <%=(dispositivo[j].svd == 'SVD')?'checked':''%>>
+							<label class="form-check-label"  id="svd2" for="Dormonid">SVD</label>
+							<input  id="svd3"  type="hidden" name="svd3">
+							<label class="form-check-label"  id="datasvd" for="datasvd"> ---  Data SVD</label>
+							<input  id="datasvd2"  type="text" name="datasvd" value="<%=dispositivo[j].datasvd%>"  >
+						</div>
+						<div class="form-check">
+							<input type="checkbox" name="dispositivo" id="sne"  class="form-check-input" onClick="check2()" value="sne" <%=(dispositivo[j].sne == 'SNE')?'checked':''%>>
+							<label class="form-check-label"  id="sne2" for="sne2">SNE</label>
+							<input  id="sne3"  type="hidden" name="sne3">
+							<label class="form-check-label"  id="datasne" for="datasne"> ---  Data SNE</label>
+							<input  id="datasne2"  type="text" name="datasne" value="<%=dispositivo[j].datasne%>" >
+						</div>
+						<div class="form-check">
+							<input type="checkbox" name="dispositivo" id="avp"  class="form-check-input" onClick="check2()" value="avp" <%=(dispositivo[j].avp == 'AVP')?'checked':''%>>
+							<label class="form-check-label"  id="avp2" for="avp2">AVP</label>
+							<input  id="avp3"  type="hidden" name="avp3">
+							<label class="form-check-label"  id="dataavp" for="dataavp"> ---  Data AVP</label>
+							<input  id="dataavp2"  type="text" name="dataavp" value="<%=dispositivo[j].dataavp%>" >
+						</div>
+						<div class="form-check">
+							<input type="checkbox" name="dispositivo" id="cvc"  class="form-check-input" onClick="check2()" value="cvc"<%=(dispositivo[j].cvc == 'CVC')?'checked':''%>>
+							<label class="form-check-label"  id="cvc2" for="Propofol2">CVC</label>
+							<input  id="cvc3"  type="hidden" name="cvc3">
+							<label class="form-check-label"  id="datacvc" for="datacvc"> ---  Data CVC</label>
+							<input  id="datacvc2"  type="text" name="datacvc" value="<%=dispositivo[j].datacvc%>" >
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="paciente">Dispositivo Ventilatório</label>
+						<select class="form-control" onchange="verifica(this.value)" id="dispositivo" name="dispositivo" required>
+							<option value="Ar Ambiente" <%=(dispositivo[j].dispositivoventilatorio == 'Ar Ambiente')?'selected':''%>>Ar Ambiente</option>
+							<option value="Cateter O2" <%=(dispositivo[j].dispositivoventilatorio == 'Cateter O2')?'selected':''%>>Cateter O2</option>
+							<option value="Cateter O2 + VNI" <%=(dispositivo[j].dispositivoventilatorio == 'Cateter O2 + VNI')?'selected':''%>>Cateter O2 + VNI</option>
+							<option value="Mascara Reservatorio + VNI" <%=(dispositivo[j].dispositivoventilatorio == 'Mascara Reservatorio + VNI')?'selected':''%>>Mascara Reservatorio + VNI</option>
+                            <option value="Mascara Reservatorio" <%=(dispositivo[j].dispositivoventilatorio == 'Mascara Reservatorio')?'selected':''%>>Mascara Reservatório</option>
+                            <option value="Ventilacao Mecanica" <%=(dispositivo[j].dispositivoventilatorio == 'Ventilacao Mecanica')?'selected':''%>>Ventilação Mecânica</option>
+						</select>
+                    </div>
+					<input  id="dispositivo2"  type="hidden" name="dispositivo2">
+					<div class="form-group">
+						<label for="o2label" id="o2label">Fluxo de O2</label>
+                        <input type="text" name="o2" id="o2" class="form-control" value="<%=dispositivo[j].fluxoo2 %>">
+                    </div>
+                    <div class="form-group">
+						<label for="paciente">Drogas Vasoativas</label>
+						<select class="form-control" onchange="verificadroga(this.value)" id="droga" name="droga" required>
+							<option value="sim" <%=(dispositivo[j].drogas == 'sim')?'selected':''%> >Sim</option>
+							<option value="nao" <%=(dispositivo[j].drogas == 'nao')?'selected':''%>>Não</option>
+						</select>
+						<input  id="drogas"  type="hidden" name="drogas">
+						<div class="form-check">
+							<input  type="checkbox" name="DVA" id="Noradrenalina"  class="form-check-input" onClick="check()" value="Noradrenalina" <%=(dispositivo[j].nora == 'Noradrenalina')?'checked':''%>>
+							<label class="form-check-label"  id="Noradrenalina2" for="Noradrenalina">Noradrenalina</label>
+							<input  id="nora"  type="hidden" name="nora">
+					
+							<label class="form-check-label"  id="Noradrenalina3" for="Noradrenalina"> ---  Vazão Noradrenalina</label>
+							<input  id="vazaonora"  type="text" name="vazaonora"  value="<%=dispositivo[j].vazaonora %>">
+						</div>
+						<div class="form-check">
+							<input type="checkbox" name="DVA" id="Adrenalina"  class="form-check-input" onClick="check()" value="Adrenalina" <%=(dispositivo[j].adrenalina == 'Adrenalina')?'checked':''%>>
+							<label class="form-check-label"  id="Adrenalina2" for="Adrenalina">Adrenalina</label>
+							<input  id="adre"  type="hidden" name="adre" >
+						
+							<label class="form-check-label"  id="Adrenalin3" for="Adrenalina"> ---  Vazão Adrenalina</label>
+							<input  id="vazaoadre"  type="text" name="vazaoadre"  value="<%=dispositivo[j].vazaoadrenalina %>">
+						</div>
+						<div class="form-check">
+							<input type="checkbox" name="DVA" id="Bicarbonato"  class="form-check-input" onClick="check()" value="Bicarbonato" <%=(dispositivo[j].bicarbonato == 'Bicarbonato')?'checked':''%>>
+							<label class="form-check-label"  id="Bicarbonato2" for="Bicarbonato">Bicarbonato</label>
+							<input  id="bic"  type="hidden" name="bica">
+				
+							<label class="form-check-label"  id="Bicarbonato3" for="Bicarbonato"> ---  Vazão Bicarbonato</label>
+							<input  id="vazaobica"  type="text" name="vazaobica"  value="<%=dispositivo[j].vazaobicarbonato %>">
+						</div>
+                    </div>
+					<div class="form-group">
+						<label for="paciente" id="fio22">Fio2</label>
+                        <input type="text" name="fio2" id="fio2" class="form-control" value="<%=dispositivo[j].fio2 %>" >
+                    </div>
+					<div class="form-group">
+						<label for="paciente" id="peep2">PEEP</label>
+                        <input type="text" name="peep" id="peep" class="form-control" value="<%=dispositivo[j].peep %>" >
+                    </div>
+					<div class="form-group">
+						<label for="paciente">Sedação</label>
+						<select class="form-control" onchange="verificasedacao(this.value)" id="sedacao" name="sedacao" required>
+							<option value="sim" <%=(dispositivo[j].sedacao == 'sim')?'selected':''%> >Sim</option>
+							<option value="nao" <%=(dispositivo[j].sedacao == 'nao')?'selected':''%>>Não</option>
+						</select>
+						<input  id="sedacao3"  type="hidden" name="sedacao3">
+						<div class="form-check">
+							<input  type="checkbox" name="sedacao2" id="Dormonid"  class="form-check-input" onClick="check1()" value="Dormonid" <%=(dispositivo[j].dormonid == 'Dormonid')?'checked':''%>>
+							<label class="form-check-label"  id="Dormonid2" for="Dormonid">Dormonid</label>
+							<input  id="Dormonid3"  type="hidden" name="Dormonid3">
+							<label class="form-check-label"  id="Dormonid4" for="Dormonid"> ---  Vazão Dormonid</label>
+							<input  id="vazaoDormonid"  type="text" name="vazaoDormonid"  value="<%=dispositivo[j].vazaodormonid %>">
+						</div>
+						<div class="form-check">
+							<input type="checkbox" name="sedacao2" id="Fentanil"  class="form-check-input" onClick="check1()" value="Fentanil" <%=(dispositivo[j].fentanil == 'Fentanil')?'checked':''%>>
+							<label class="form-check-label"  id="Fentanil2" for="Fentanil2">Fentanil</label>
+							<input  id="Fentanil3"  type="hidden" name="Fentanil3">
+							<label class="form-check-label"  id="Fentanil4" for="Fentanil"> ---  Vazão Fentanil</label>
+							<input  id="vazaoFentanil"  type="text" name="vazaoFentanil"  value="<%=dispositivo[j].vazaofentanil %>">
+						</div>
+						<div class="form-check">
+							<input type="checkbox" name="sedacao2" id="Rocuronio"  class="form-check-input" onClick="check1()" value="Rocuronio" <%=(dispositivo[j].rocuronio == 'Rocuronio')?'checked':''%>>
+							<label class="form-check-label"  id="Rocuronio2" for="Rocuronio2">Rocuronio</label>
+							<input  id="Rocuronio3"  type="hidden" name="Rocuronio3">
+							<label class="form-check-label"  id="Rocuronio4" for="Rocuronio"> ---  Vazão Rocuronio</label>
+							<input  id="vazaoRocuronio"  type="text" name="vazaoRocuronio"  value="<%=dispositivo[j].vazaorocuronio %>">
+						</div>
+						<div class="form-check">
+							<input type="checkbox" name="sedacao2" id="Propofol"  class="form-check-input" onClick="check1()" value="Propofol" <%=(dispositivo[j].propofol == 'Propofol')?'checked':''%>>
+							<label class="form-check-label"  id="Propofol2" for="Propofol2">Propofol</label>
+							<input  id="Propofol3"  type="hidden" name="Propofol3">
+							<label class="form-check-label"  id="Propofol4" for="Propofol"> ---  Vazão Propofol</label>
+							<input  id="vazaoPropofol"  type="text" name="vazaoPropofol"  value="<%=dispositivo[j].vazaopropofol %>">
+						</div>
+						<div id="hora" class="form-group">
+							<input   type="hidden" id="data" name="data"  class="form-control">
+						</div>
+					</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+					<button type="submit" class="btn btn-success">Atualizar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<% } %>	
+<% } %>
+<% } %>	
+<% } %> 
+   </div>
+			
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.js"></script>
+<script src="https://colorlib.com/polygon/vendors/jquery/dist/jquery.min.js"></script>
+<script src="https://colorlib.com/polygon/vendors/pnotify/dist/pnotify.js"></script>
+<script src="https://colorlib.com/polygon/vendors/pnotify/dist/pnotify.buttons.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<%- include('../../home/footer'); %>
+</body>
+</html>
+<script>
+$(document).ready(function() {
+	$('#mytable').DataTable( {
+		dom: 'Bfrtip',
+		"scrollX": true,
+		order: ([ 3, 'asc']),
+		
+	pageLength: 50,
+	buttons: [       
+		{
+			"extend": "copyHtml5",
+			"text": "COPIAR",
+			header: false
+		},          
+		{
+			"extend": "pdf",
+			"text": "PDF",
+			header: false
+		},
+		{
+			"extend": "excelHtml5",
+			"text": "EXCEL",
+			header: false
+		},
+		{
+			"extend": "print",
+			"text": "IMPRIMIR",
+			header: false
+		}
+	],language: {
+		buttons: {
+			copyTitle: 'Copiado para área de transferência',
+			copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+			copySuccess: {
+				_: '%d linhas copiadas',
+				1: '1 linha copiada'
+			}
+		},
+		"paginate": {
+			"previous": "Anterior",
+			"next": "Próximo"
+		},
+		"search": "Pesquisar:"
+	},
+	select: true
+} );
+} );
+
+
+function setaDadosModal(valor) {
+	document.getElementById('idpaciente').value = valor;
+}
+
+function setaDadosModal2(valor) {
+	document.getElementById('campo').value = valor;
+}
+
+function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
+function novaHora(){
+	
+	var date = new Date();
+	document.getElementById('data').value = date.getDate() +'-'+ (date.getMonth() + 1) +'-'+ date.getFullYear() +' '+ date.getHours()+':'+date.getMinutes()+':'+date.getSeconds() ;
+}
+novaHora();
+
+$('#datasvd2').mask('00/00/0000');
+$('#datasne2').mask('00/00/0000');
+$('#dataavp2').mask('00/00/0000');
+$('#datacvc2').mask('00/00/0000');
+
+function check2(){
+
+	var input9 = document.getElementById("datasvd2");
+	var input10 = document.getElementById("datasne2");
+	var input11 = document.getElementById("dataavp2");
+	var input12 = document.getElementById("datacvc2");
+	var label5 = document.getElementById("datasvd");
+	var label6 = document.getElementById("datasne");
+	var label7 = document.getElementById("datacvc");
+	var label8 = document.getElementById("dataavp");
+
+var pacote = document.getElementsByName('dispositivo');
+  for (var i = 0; i < pacote.length; i++){
+	  if ( pacote[i].checked ) {
+		  if(pacote[i].value == "svd"){
+			input9.style.display = "inline"
+			label5.style.display = "inline";
+			  var Pacote_i = "SVD";
+			  document.getElementById('svd3').value = Pacote_i;
+		  }else if (pacote[i].value == "sne") {
+			input10.style.display = "inline"
+			label6.style.display = "inline";
+			  var Pacote_ii = "SNE";
+			  document.getElementById('sne3').value = Pacote_ii;
+		  }else if (pacote[i].value == "avp") {
+			input11.style.display = "inline"
+			label8.style.display = "inline";
+			  var Pacote_iii = "AVP";
+			  document.getElementById('avp3').value = Pacote_iii;
+		  }else if (pacote[i].value == "cvc") {
+			input12.style.display = "inline"
+			label7.style.display = "inline";
+			  var Pacote_iiii = "CVC";
+			  document.getElementById('cvc3').value = Pacote_iiii;
+		  }
+		}
+  	}
+	 
+	 var estado = false;
+	for (var i = 0; i < pacote.length; i++) {
+		if ( pacote[i].checked == estado ) {
+		  if(pacote[i].value == "svd"){
+			input9.style.display = "none"
+			label5.style.display = "none";
+			input9.value = "Não Aplicado"
+			  var Pacote_i = "Não Aplicado";
+			  document.getElementById('svd3').value = Pacote_i;
+		  }else if (pacote[i].value == "sne") {
+			input10.style.display = "none"
+			label6.style.display = "none";
+			input10.value = "Não Aplicado"
+			  var Pacote_ii = "Não Aplicado";
+			  document.getElementById('sne3').value = Pacote_ii;
+		  }else if (pacote[i].value == "avp") {
+			input11.style.display = "none"
+			label8.style.display = "none";
+			input11.value = "Não Aplicado"
+			  var Pacote_iii = "Não Aplicado";
+			  document.getElementById('avp3').value = Pacote_iii;
+		  }else if (pacote[i].value == "cvc") {
+			input12.style.display = "none"
+			label7.style.display = "none";
+			input12.value = "Não Aplicado"
+			  var Pacote_iiii = "Não Aplicado";
+			  document.getElementById('cvc3').value = Pacote_iiii;
+		  }
+		}
+	}
+}
+	
+	$("#droga").on('change', function(f){
+		 var droga = document.getElementById('droga').value;
+		 document.getElementById('drogas').value = droga;
+	});
+	$("#sedacao").on('change', function(f){
+		 var sedacao = document.getElementById('sedacao').value;
+		 document.getElementById('sedacao3').value = sedacao;
+	});
+
+	$("#dispositivo").on('change', function(f){
+		 var dispositivo = document.getElementById('dispositivo').value;
+		 document.getElementById('dispositivo2').value = dispositivo;
+	});
+	
+	
+	function verifica(value){
+		var input = document.getElementById("fio2");
+		var input2 = document.getElementById("peep");
+		var input3 = document.getElementById("o2");
+		var label5 = document.getElementById("o2label");
+		var label7 = document.getElementById("fio22");
+		var label8 = document.getElementById("peep2");
+	
+	  if(value == 'Cateter O2' || value == 'Mascara Reservatorio' ){
+		input.style.display = "none";
+		input2.style.display = "none";
+		input3.style.display = "inline";
+		label5.style.display = "inline";
+		label7.style.display = "none";
+		label8.style.display = "none";
+		input.value = "";
+		input2.value= "";
+		input.value = 'Não Aplicado';
+		input2.value = 'Não Aplicado';
+	  }else if(value == 'Cateter O2 + VNI' || value == 'Mascara Reservatorio + VNI' ){
+		input.style.display = "none";
+		input2.style.display = "none";
+		input3.style.display = "inline";
+		label5.style.display = "inline";
+		label7.style.display = "none";
+		label8.style.display = "none";
+		input.value = "";
+		input2.value= "";
+		input.value = 'Não Aplicado';
+		input2.value = 'Não Aplicado';
+	  }else if(value == 'Ventilacao Mecanica'){
+		input.style.display = "inline";
+		input2.style.display = "inline";
+		input3.style.display = "none";
+		label5.style.display = "none";
+		label7.style.display = "inline";
+		label8.style.display = "inline";
+		input3.value= "";
+		input4.value = "";
+		input3.value = 'Não Aplicado';
+	
+	  } else if(value == "Ar Ambiente"){
+		input.style.display = "none";
+		input2.style.display = "none";
+		input3.style.display = "none";
+		label5.style.display = "none";
+		label7.style.display = "none";
+		label8.style.display = "none";
+		input.value = "";
+		input2.value= "";
+		input3.value= "";
+		input3.value = 'Não Aplicado';
+		input.value = 'Não Aplicado';
+		input2.value = 'Não Aplicado';
+	  }
+	};
+	
+	function verificasedacao(value){
+		var input = document.getElementById("Dormonid");
+		var input2 = document.getElementById("Fentanil");
+		var input3 = document.getElementById("Rocuronio");
+		var input4 = document.getElementById("Propofol");
+		var label = document.getElementById("Dormonid2");
+		var label2 = document.getElementById("Fentanil2");
+		var label3 = document.getElementById("Rocuronio2");
+		var label4 = document.getElementById("Propofol2");
+		var input5 = document.getElementById("vazaoDormonid");
+		var input6 = document.getElementById("vazaoFentanil");
+		var input7 = document.getElementById("vazaoRocuronio");
+		var input8 = document.getElementById("vazaoPropofol");
+		var label5 = document.getElementById("Dormonid4");
+		var label6 = document.getElementById("Fentanil4");
+		var label7 = document.getElementById("Rocuronio4");
+		var label8 = document.getElementById("Propofol4");
+	
+	  if(value == 'nao'){
+		input.style.display = "none";
+		input2.style.display = "none";
+		input3.style.display = "none";
+		input4.style.display = "none";
+		label.style.display = "none";
+		label2.style.display = "none";
+		label3.style.display = "none";
+		label4.style.display = "none";
+		input5.style.display = "none";
+		input6.style.display = "none";
+		input7.style.display = "none";
+		input8.style.display = "none";
+		label5.style.display = "none";
+		label6.style.display = "none";
+		label7.style.display = "none";
+		label8.style.display = "none";
+		var pacote = document.getElementsByName('sedacao2');
+		var estado = false;
+		  for (var i = 0; i < pacote.length; i++){
+			pacote[i].checked == estado;
+			  if(pacote[i].value == "Dormonid"){
+				  var Pacote_i = "Não Usado";
+				  document.getElementById('Dormonid3').value = Pacote_i;
+				  input5.value="-";
+			  }else if (pacote[i].value == "Fentanil") {
+				  var Pacote_ii = "Não Usado";
+				  document.getElementById('Fentanil3').value = Pacote_ii;
+				  input6.value="-";
+			  }else if (pacote[i].value == "Rocuronio") {
+				  var Pacote_iii = "Não Usado";
+				  document.getElementById('Rocuronio3').value = Pacote_iii;
+				  input7.value="-";
+			  }else if (pacote[i].value == "Propofol") {
+				  var Pacote_iiii = "Não Usado";
+				  document.getElementById('Propofol3').value = Pacote_iiii;
+				  input8.value="-";
+			  }
+		  }
+	  }else if(value == 'sim'){
+		input.style.display = "inline";
+		input2.style.display = "inline";
+		input3.style.display = "inline";
+		input4.style.display = "inline";
+		label.style.display = "inline";
+		label2.style.display = "inline";
+		label3.style.display = "inline";
+		label4.style.display = "inline";
+		
+	  }
+	};
+	
+	
+	function verificadroga(value){
+		var input = document.getElementById("Noradrenalina");
+		var input2 = document.getElementById("Adrenalina");
+		var label = document.getElementById("Noradrenalina2");
+		var label2 = document.getElementById("Adrenalina2");
+		var input3 = document.getElementById("Bicarbonato");
+		var label3 = document.getElementById("Bicarbonato2");
+		var input4 = document.getElementById("vazaonora");
+		var input5 = document.getElementById("vazaoadre");
+		var label4 = document.getElementById("Noradrenalina3");
+		var label5 = document.getElementById("Adrenalin3");
+		var input6 = document.getElementById("vazaobica");
+		var label6 = document.getElementById("Bicarbonato3");
+		
+	
+	  if(value == 'nao'){
+		input.style.display = "none";
+		input2.style.display = "none";
+		input3.style.display = "none";
+		label.style.display = "none";
+		label2.style.display = "none";
+		label3.style.display = "none";
+		input4.style.display = "none";
+		input5.style.display = "none";
+		input6.style.display = "none";
+		label4.style.display = "none";
+		label5.style.display = "none";
+		label6.style.display = "none";
+		var pacote = document.getElementsByName('DVA');
+		var estado = false;
+		for (var i = 0; i < pacote.length; i++){
+			pacote[i].checked == estado;
+			  if(pacote[i].value == "Noradrenalina"){
+				  var Pacote_i = "Não Usado";
+				  document.getElementById('nora').value = Pacote_i;
+				  input4.value="-";
+			  }else if (pacote[i].value == "Adrenalina") {
+				  var Pacote_ii = "Não Usado";
+				  document.getElementById('adre').value = Pacote_ii;
+				  input5.value="-";
+			  }
+			  else if (pacote[i].value == "Bicarbonato") {
+				  var Pacote_iii = "Não Usado";
+				  document.getElementById('bic').value = Pacote_iii;
+				  input6.value="-";
+			  }
+		  }
+	  }else if(value == 'sim'){
+		input.style.display = "inline";
+		input2.style.display = "inline";
+		input3.style.display = "inline";
+		label.style.display = "inline";
+		label2.style.display = "inline";
+		label3.style.display = "inline";
+		
+	  }
+	};
+	window.onload = function() {
+		document.getElementById('fio2').style.display = 'none';
+		document.getElementById('peep').style.display = 'none';
+		document.getElementById('o2').style.display = 'none';
+		document.getElementById('Noradrenalina').style.display = 'none';
+		document.getElementById('Adrenalina').style.display = 'none';
+		document.getElementById('Noradrenalina2').style.display = 'none';
+		document.getElementById('Adrenalina2').style.display = 'none';
+		document.getElementById('Bicarbonato').style.display = 'none';
+		document.getElementById('Bicarbonato2').style.display = 'none';
+		document.getElementById('Dormonid').style.display = 'none';
+		document.getElementById('Dormonid2').style.display = 'none';
+		document.getElementById('Fentanil').style.display = 'none';
+		document.getElementById('Fentanil2').style.display = 'none';
+		document.getElementById('Rocuronio').style.display = 'none';
+		document.getElementById('Rocuronio2').style.display = 'none';
+		document.getElementById('Propofol').style.display = 'none';
+		document.getElementById('Propofol2').style.display = 'none';
+		document.getElementById('o2label').style.display ='none';
+		document.getElementById("fio22").style.display ='none';
+		document.getElementById("peep2").style.display ='none';
+		document.getElementById("datasvd").style.display ='none';
+		document.getElementById("datasne").style.display ='none';
+		document.getElementById("dataavp").style.display ='none';
+		document.getElementById("datacvc").style.display ='none';
+		document.getElementById("datasvd2").style.display ='none';
+		document.getElementById("datasne2").style.display ='none';
+		document.getElementById("datacvc2").style.display ='none';
+		document.getElementById("dataavp2").style.display ='none';
+	  var dispositivo = document.getElementById("dispositivo").value;
+	  verifica(dispositivo);
+	  document.getElementById('dispositivo2').value = dispositivo;
+	  var sedacao = document.getElementById("sedacao").value;
+	  verificasedacao(sedacao);
+		var droga = document.getElementById("droga").value;
+		verificadroga(droga);
+		document.getElementById('drogas').value = droga;
+
+		check();
+		check1();
+		check2();
+	};
+	function check(){
+	var input4 = document.getElementById("vazaonora");
+	var input5 = document.getElementById("vazaoadre");
+	var label4 = document.getElementById("Noradrenalina3");
+	var label5 = document.getElementById("Adrenalin3");
+	var input6 = document.getElementById("vazaobica");
+	var label6 = document.getElementById("Bicarbonato3");
+		
+	var pacote = document.getElementsByName('DVA');
+	  for (var i = 0; i < pacote.length; i++){
+		  if ( pacote[i].checked ) {
+			  if(pacote[i].value == "Noradrenalina"){
+				label4.style.display = "inline";
+				input4.style.display = "inline";
+				  var Pacote_i = "Noradrenalina";
+				  document.getElementById('nora').value = Pacote_i;
+				
+			  }else if (pacote[i].value == "Adrenalina") {
+				input5.style.display = "inline";
+				label5.style.display = "inline";
+				  var Pacote_ii = "Adrenalina";
+				  document.getElementById('adre').value = Pacote_ii;
+				
+			  }
+			  else if (pacote[i].value == "Bicarbonato") {
+				input6.style.display = "inline";
+				label6.style.display = "inline";
+				  var Pacote_iii = "Bicarbonato";
+				  document.getElementById('bic').value = Pacote_iii;
+				
+			  }
+			}
+		  }
+		var estado = false;
+		for (var i = 0; i < pacote.length; i++){
+		  if ( pacote[i].checked == estado ) {
+			  if(pacote[i].value == "Noradrenalina"){
+				label4.style.display = "none";
+				input4.style.display = "none";
+				input4.value="-";
+				  var Pacote_i = "Não Aplicado";
+				  document.getElementById('nora').value = Pacote_i;
+				 
+			  }else if (pacote[i].value == "Adrenalina") {
+				input5.style.display = "none";
+				label5.style.display = "none";
+				input5.value="-";
+				  var Pacote_ii = "Não Aplicado";
+				  document.getElementById('adre').value = Pacote_ii;
+				
+			  }
+			  else if (pacote[i].value == "Bicarbonato") {
+				input6.style.display = "none";
+				label6.style.display = "none";
+				input6.value="-";
+				  var Pacote_iii = "Não Aplicado";
+				  document.getElementById('bic').value = Pacote_iii;
+				 
+			  }
+			}
+		  }
+	}
+	
+	function check1(){
+		var input5 = document.getElementById("vazaoDormonid");
+		var input6 = document.getElementById("vazaoFentanil");
+		var input7 = document.getElementById("vazaoRocuronio");
+		var input8 = document.getElementById("vazaoPropofol");
+		var label5 = document.getElementById("Dormonid4");
+		var label6 = document.getElementById("Fentanil4");
+		var label7 = document.getElementById("Rocuronio4");
+		var label8 = document.getElementById("Propofol4");
+		
+	var pacote = document.getElementsByName('sedacao2');
+	for (var i = 0; i < pacote.length; i++){
+			if ( pacote[i].checked  == true) {
+				if(pacote[i].value == "Dormonid"){
+					input5.style.display = "inline";
+					label5.style.display = "inline";
+					var Pacote_i = "Dormonid";
+					document.getElementById('Dormonid3').value = Pacote_i;
+					
+				}
+			}
+			if ( pacote[i].checked  == true) { 
+				if (pacote[i].value == "Fentanil") {
+				input6.style.display = "inline";
+				label6.style.display = "inline";
+					var Pacote_ii = "Fentanil";
+					document.getElementById('Fentanil3').value = Pacote_ii;
+					
+				}
+			}
+			if ( pacote[i].checked  == true) {  
+				if (pacote[i].value == "Rocuronio") {
+				input7.style.display = "inline";
+				label7.style.display = "inline";
+					var Pacote_iii = "Rocuronio";
+					document.getElementById('Rocuronio3').value = Pacote_iii;
+					
+				}
+			}
+			if ( pacote[i].checked  == true) { 
+				if (pacote[i].value == "Propofol") {
+				label8.style.display = "inline";
+				input8.style.display = "inline";
+					var Pacote_iiii = "Propofol";
+					document.getElementById('Propofol3').value = Pacote_iiii;
+					
+				}
+			} 
+			if ( pacote[i].checked  == false) {
+				if(pacote[i].value == "Dormonid"){
+				input5.style.display = "none";
+				label5.style.display = "none";
+				input5.value="-";
+				  var Pacote_i = "Não Aplicado";
+				  document.getElementById('Dormonid3').value = Pacote_i;
+				 
+				}
+			}
+			if ( pacote[i].checked  == false) { 
+				  if (pacote[i].value == "Fentanil") {
+				input6.style.display = "none";
+				label6.style.display = "none";
+				input6.value="-";
+				  var Pacote_ii = "Não Aplicado";
+				  document.getElementById('Fentanil3').value = Pacote_ii;
+				 
+				 }
+			}
+			if ( pacote[i].checked  == false) { 
+				 if (pacote[i].value == "Rocuronio") {
+				input7.style.display = "none";
+				label7.style.display = "none";
+				input7.value="-";
+				  var Pacote_iii = "Não Aplicado";
+				  document.getElementById('Rocuronio3').value = Pacote_iii;
+				 
+				 }
+			  }
+			if ( pacote[i].checked  == false) { 
+				 if (pacote[i].value == "Propofol") {
+				label8.style.display = "none";
+				input8.style.display = "none";
+				input8.value="-";
+				  var Pacote_iiii = "Não Aplicado";
+				  document.getElementById('Propofol3').value = Pacote_iiii;
+				 
+				 }
+			  }
+		}
+	}
+
+</script>

@@ -43,7 +43,9 @@ modelmentalplanalto.prototype.historico = function(unidade, callback){
 modelmentalplanalto.prototype.buscarpacienteid = function(idpaciente, unidade, callback){
 	this._conection.query('select * from mentalurgencia where unidade = "'+unidade+'" and id_paciente = ' + idpaciente.id, callback);
 }
-
+modelmentalplanalto.prototype.buscarpacientepornome = function(paciente, unidade, callback){
+	this._conection.query('select idpaciente from mentalurgencia where unidade = "'+unidade+'" and paciente = ' + paciente, callback);
+}
 
 
 module.exports = function(){

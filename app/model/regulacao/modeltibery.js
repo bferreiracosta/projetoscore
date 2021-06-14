@@ -47,6 +47,9 @@ modeltibery.prototype.buscarpacienteid = function(idpaciente, unidade, callback)
 	this._conection.query('select * from pacientes where unidade = "'+unidade+'" and id_paciente = ' + idpaciente.id, callback);
 }
 
+modeltibery.prototype.buscarpacientepornome = function(paciente, unidade, callback){
+	this._conection.query('select id_paciente from pacientes where unidade = "'+unidade+'" and paciente = ' + paciente, callback);
+}
 
 module.exports = function(){
 	return modeltibery;

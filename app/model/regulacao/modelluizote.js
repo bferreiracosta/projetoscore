@@ -26,8 +26,6 @@ modelluizote.prototype.updateresp = function(idpaciente,vazaoDormonid,vazaoFenta
 	this._conection.query('update pacientes set vazaoDormonid="'+vazaoDormonid+'",vazaoFentanil="'+vazaoFentanil+'",vazaoRocuronio="'+vazaoRocuronio+'",vazaoPropofol="'+vazaoPropofol+'",vazaonora="'+vazaonora+'",vazaoadre="'+vazaoadre+'",vazaobica="'+vazaobica+'", profissional = "'+profissional+'",  dispositivo = "'+dispositivo+'", fluxo_de_o2 = "'+fluxoo2+'", droga = "'+droga+'", fio2 = "'+fio2+'", peep = "'+peep+'", sedacao = "'+sedacao+'", glasgow = "'+glasgow+'", acomodacao = "'+leito+'", nora = "'+nora+'", adrenalina = "'+adre+'",bicarbonato = "'+bica+'", dormonid = "'+dormonid+'", fentanil = "'+fentanil+'", rocuronio = "'+rocuronio+'", propofol = "'+propofol+'", bic = "'+bic+'" where id_paciente = ' + idpaciente, callback);
 }
 
-
-
 modelluizote.prototype.baixa = function(idpaciente,baixa,data, callback){
 
 	this._conection.query('update pacientes set   baixa = "'+baixa+'", databaixa = "'+data+'" where id_paciente = ' + idpaciente, callback);
@@ -47,7 +45,9 @@ modelluizote.prototype.buscarpacienteid = function(idpaciente, unidade, callback
 	this._conection.query('select * from pacientes where unidade = "'+unidade+'" and id_paciente = ' + idpaciente.id, callback);
 }
 
-
+modelluizote.prototype.buscarpacientepornome = function(paciente, unidade, callback){
+	this._conection.query('select id_paciente from pacientes where unidade = "'+unidade+'" and paciente = ' + paciente, callback);
+}
 
 module.exports = function(){
 	return modelluizote;

@@ -122,6 +122,54 @@
 						<label for="pendencias">Pendencias</label>
                         <input type="text" name="pendencias" class="form-control" placeholder="Pendencias" required>
                     </div>
+					<div class="form-group">
+						<label for="mental">Saude mental  </label>
+                        <label class="switch">
+							<input id="mental" type="checkbox">
+							<span class="slider round"></span>
+						  </label>
+						  <input type="hidden" id="mental2" name="mental2" class="form-control" placeholder="mental2" required>
+                    </div>
+					<div class="form-group">
+						<label id="labelexame" for="exame">Unidade de Referência</label>
+						<select  class="form-control" id="exame" name="exame">
+							<option value="" disabled selected hidden>Unidade de Referência</option>
+							<option value="Caps Oeste">Caps Oeste</option>
+							<option value="Caps Leste">Caps Leste</option>
+							<option value="Caps Norte">Caps Norte</option>
+							<option value="Caps Infantil">Caps Infantil</option>
+							<option value="Caps AD">Caps AD</option>
+						</select>
+					  </div>
+					  <input type="hidden" id="referencia"  name="referencia" class="form-control">
+					<div class="form-group">
+						<label for="covid">Sindrome Respiratória Aguda Grave  </label>
+                        <label class="switch">
+							<input id="covid" type="checkbox">
+							<span class="slider round"></span>
+						  </label>
+						  <input type="hidden" id="covid2" name="covid2" class="form-control" placeholder="covid2" required>
+                    </div>
+					<div class="form-group">
+						<label id="glasgowlabel">Glasgow  </label>
+						<input type="text" id="glasgow"  name="glasgow" class="form-control">
+						<label id="biclabel">Quantidades de Bics  </label>
+						<input type="text" id="bic"  name="bic" class="form-control">
+					</div>
+					<div class="form-group">
+						<label id="dataexames" for="data">Data Exame</label>
+						<input type="text" name="dataexame"  id="dataexame" class="form-control" placeholder="Data Exame" required>
+					</div>
+					<div class="form-group">
+						<label id="exames" for="exame">Exame</label>
+						<select  class="form-control" id="exame3" name="exame3" required>
+							<option value="" disabled selected hidden>Exame</option>
+							<option value="aguardando">Aguardando</option>
+							<option value="positivo">Positivo</option>
+							<option value="negativo">Negativo</option>
+						</select>
+                      </div>
+                      <input  type="hidden" name="exame4" id="exame4">
                 </div>
                 <div>
                     <a href="kabanpacienteluizote?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
@@ -152,16 +200,21 @@ $(function(){
 });
 });
 
-$('#datasvd2').mask('00/00/0000');
-$('#datasne2').mask('00/00/0000');
-$('#dataavp2').mask('00/00/0000');
-$('#datacvc2').mask('00/00/0000');
-
-
 $("#paliativos").on('change', function(e){
      var paliativo = $(this).val();
      document.getElementById('paliativo').value = paliativo;
 });
+
+
+$("#exames").on('change', function(e){
+	var exame = $(this).val();
+	document.getElementById('exame4').value = exame;
+});
+
+$(document).ready(function(){
+      $('#dataexame').mask('00/00/0000');
+	 	 
+      });
 
 $("#ecf2").on('change', function(e){
      var ecf = $(this).val();
@@ -186,6 +239,65 @@ $("#setor").on('change', function(e){
 $("#mobilidades").on('change', function(e){
      var mobilidade = $(this).val();
      document.getElementById('mobilidade').value = mobilidade;
+});
+
+$("#mental").on('change', function(e){
+	if ($(this).is(':checked')) {
+    	$(this).attr('value', 'true');
+	}
+	else {
+		$(this).attr('value', 'false');
+	}
+	 mental = $(this).val();
+	 document.getElementById('mental2').value = mental;
+
+	 if(mental == 'true'){
+		 document.getElementById("exame").style.display = 'inline';
+		 document.getElementById("labelexame").style.display = 'inline';
+		 
+	 }
+	 else{
+		document.getElementById("exame").style.display = 'none';
+		document.getElementById("labelexame").style.display = 'none';
+	 }
+    
+});
+
+$("#exame").on('change', function(e){
+     var exame = $(this).val();
+     document.getElementById('referencia').value = exame;
+});
+
+$("#covid").on('change', function(e){
+	if ($(this).is(':checked')) {
+    	$(this).attr('value', 'true');
+	}
+	else {
+		$(this).attr('value', 'false');
+	}
+     var covid = $(this).val();
+     document.getElementById('covid2').value = covid;
+	 if(covid == 'true'){
+		 document.getElementById("glasgow").style.display = 'inline';
+		 document.getElementById("bic").style.display = 'inline';
+		 document.getElementById("glasgowlabel").style.display = 'inline';
+		 document.getElementById("biclabel").style.display = 'inline';
+		 document.getElementById("dataexames").style.display = 'inline';
+		 document.getElementById("dataexame").style.display = 'inline';
+		 document.getElementById("exame3").style.display = 'inline';
+		 document.getElementById("exames").style.display = 'inline';
+		 
+	 }
+	 else{
+		document.getElementById("glasgow").style.display = 'none';
+		document.getElementById("bic").style.display = 'none';
+		document.getElementById("glasgowlabel").style.display = 'none';
+		document.getElementById("biclabel").style.display = 'none';
+		document.getElementById("dataexames").style.display = 'none';
+		 document.getElementById("dataexame").style.display = 'none';
+		 document.getElementById("exame3").style.display = 'none';
+		 document.getElementById("exames").style.display = 'none';
+	 }
 });
 
 function getAge(birth) {
@@ -256,6 +368,78 @@ function verificaidade(value){
 	input2.style.display = "block";
   }
 };
+
+window.onload = function() {
+		document.getElementById('exame').style.display = 'none';
+		document.getElementById('labelexame').style.display = 'none';
+		document.getElementById("glasgow").style.display = 'none';
+		document.getElementById("bic").style.display = 'none';
+		document.getElementById("glasgowlabel").style.display = 'none';
+		document.getElementById("biclabel").style.display = 'none';
+		document.getElementById("dataexames").style.display = 'none';
+		 document.getElementById("dataexame").style.display = 'none';
+		 document.getElementById("exame3").style.display = 'none';
+		 document.getElementById("exames").style.display = 'none';
+		$("#mental").on('change', function(e){
+
+	if ($(this).is(':checked')) {
+    	$(this).attr('value', 'true');
+	}
+	else {
+		$(this).attr('value', 'false');
+	}
+	 mental = $(this).val();
+	 document.getElementById('mental2').value = mental;
+
+	 if(mental == 'true'){
+		 document.getElementById("exame").style.display = 'inline';
+		 document.getElementById("labelexame").style.display = 'inline';
+		 
+	 }
+	 else{
+		document.getElementById("exame").style.display = 'none';
+		document.getElementById("labelexame").style.display = 'none';
+	 }
+    
+});
+
+$("#exame").on('change', function(e){
+     var exame = $(this).val();
+     document.getElementById('referencia').value = exame;
+});
+
+$("#covid").on('change', function(e){
+	if ($(this).is(':checked')) {
+    	$(this).attr('value', 'true');
+	}
+	else {
+		$(this).attr('value', 'false');
+	}
+     var covid = $(this).val();
+     document.getElementById('covid2').value = covid;
+	 if(covid == 'true'){
+		 document.getElementById("glasgow").style.display = 'inline';
+		 document.getElementById("bic").style.display = 'inline';
+		 document.getElementById("glasgowlabel").style.display = 'inline';
+		 document.getElementById("biclabel").style.display = 'inline';
+		 document.getElementById("dataexames").style.display = 'inline';
+		 document.getElementById("dataexame").style.display = 'inline';
+		 document.getElementById("exame3").style.display = 'inline';
+		 document.getElementById("exames").style.display = 'inline';
+		 
+	 }
+	 else{
+		document.getElementById("glasgow").style.display = 'none';
+		document.getElementById("bic").style.display = 'none';
+		document.getElementById("glasgowlabel").style.display = 'none';
+		document.getElementById("biclabel").style.display = 'none';
+		document.getElementById("dataexames").style.display = 'none';
+		 document.getElementById("dataexame").style.display = 'none';
+		 document.getElementById("exame3").style.display = 'none';
+		 document.getElementById("exames").style.display = 'none';
+	 }
+});
+	};
 </script>
 <%- include('../../home/footer'); %>
 </body>
