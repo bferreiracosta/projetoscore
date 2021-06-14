@@ -225,9 +225,9 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/relatorioadmluizote', function(req, res){
+	application.get('/relatorioadmkabanluizote', function(req, res){
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Luizote.controllerluizote.relatorioadmluizote(application, req, res);
+			application.app.controllers.kaban.Luizote.controllerluizote.relatorioadmkabanluizote(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
