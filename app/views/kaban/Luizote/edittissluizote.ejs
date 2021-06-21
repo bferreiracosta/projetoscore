@@ -103,7 +103,7 @@
 							</div>
 							<div>
 								<label for="tiss">Tiss</label>
-								<input  type="text" id="tiss" name="tiss"  class="form-control" required>
+								<input  type="text" id="tiss" name="tiss"  class="form-control" >
 							</div>
 							<div id="hora" class="form-group">
 								<input  type="hidden" id="data" name="data"  class="form-control">
@@ -240,6 +240,10 @@ function calcular(){
 		console.log(atividades)
 		resultadoatividades = 3;
 	}
+	if(atividades == ""){
+		console.log(atividades)
+		resultadoatividades = 0;
+	}
 
 	var resultadoventilatorio;
 	var ventilatorio = document.getElementById('ventilatorio2').value;
@@ -260,7 +264,10 @@ function calcular(){
 		console.log(ventilatorio)
 		resultadoventilatorio = 1;
 	}
-
+	if(ventilatorio == ""){
+		console.log(ventilatorio)
+		resultadoventilatorio = 0;
+	}
 	var resultadocardiovascular;
 	var cardiovascular = document.getElementById('cardiovascular2').value;
 	
@@ -291,7 +298,10 @@ function calcular(){
 		console.log(cardiovascular)
 		resultadocardiovascular = 3;
 	}
-
+	if(cardiovascular == ""){
+		console.log(cardiovascular)
+		resultadocardiovascular = 0;
+	}
 	var resultadorenal;
 	var renal = document.getElementById('renal').value;
 	
@@ -307,13 +317,20 @@ function calcular(){
 		console.log(renal)
 		resultadorenal	= 3;
 	}
-	
+	if(renal == ""){
+		console.log(renal)
+		resultadorenal	= 0;
+	}
 	var resultadoneurologico;
 	var neurologico = document.getElementById('neurologico2').value;
 	
 	if(neurologico == "Medida da pressão intracraniana"){
 		console.log(neurologico)
 		resultadoneurologico = 4;
+	}
+	if(neurologico == ""){
+		console.log(neurologico)
+		resultadoneurologico = 0;
 	}
 	
 	var resultadometabolico;
@@ -331,7 +348,10 @@ function calcular(){
 		console.log(metabolico)
 		resultadometabolico	= 2;
 	}
-	
+	if(metabolico == ""){
+		console.log(metabolico)
+		resultadometabolico	= 0;
+	}
 	var resultadointervencoes;
 	var intervencoes = document.getElementById('intervencoes2').value;
 	
@@ -347,8 +367,12 @@ function calcular(){
 		console.log(intervencoes)
 		resultadointervencoes	= 5;
 	}
-	
+	if(intervencoes == ""){
+		console.log(intervencoes)
+		resultadointervencoes	= 0;
+	}
 	var score = resultadoatividades + resultadoventilatorio + resultadocardiovascular + resultadorenal + resultadoneurologico + resultadometabolico + resultadointervencoes;
+	console.log(score);
 	var resultadofinal;
 
 	if(score<10){

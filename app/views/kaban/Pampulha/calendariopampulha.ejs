@@ -1,0 +1,116 @@
+<%- include('../cabecalhokaban'); %>
+<% if(id.length > 0) { %>
+    <% for(var i = 0; i < id.length; i++) {%>
+        
+      <h2>Agenda de Exames Pampulha</h2>
+      <a href="kabanpacientepampulha?id=<%=id[i].id_usuario %>" id="voltar" class="btn btn-md btn-success edit">Voltar Lista de pacientes</a>
+      <button class=" btn btn-md btn-info edit printBtn hidden-print">Imprimir</button>
+      <br>
+            <br>
+            <br>
+            <div id='calendar'></div>
+            <div id="calendarModal" class="modal fade">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                          <h4 id="modalTitle" class="modal-title"></h4>
+                      </div>
+                      <div id="modalBody" class="modal-body">
+                        <h5>Paciente</h5>
+                        <p class="paciente"></p>
+                        <h5>Dia e Horario</h5>
+                        <p class="start"></p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+              </div>
+              </div>
+            <br>
+            <br>
+            <br>
+        
+
+    <% } %>	
+    <% } %>
+    
+    <script src='js/moment.min.js'></script>
+		<script src='js/fullcalendar.min.js'></script>
+		<script src='locale/pt-br.js'></script>
+    <script>
+$(document).ready(function() {
+  $('.printBtn').on('click', function () {
+    
+                window.print();
+               
+            });
+  data = [];
+    var calendar = $('#calendar').fullCalendar({
+    plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list', 'adaptivePlugin' ],
+    locale: 'pt-BR',
+    timeZone: 'UTC',
+    buttonIcons: false, // show the prev/next text
+    navLinks: true, // can click day/week names to navigate views
+    editable: true,
+    defaultView: 'agendaDay',
+    height: 550,
+    header: {
+      left: 'prev,next today',
+						center: 'title',
+						right: 'month,agendaWeek,agendaDay'
+    },
+    buttonText: {
+        prev: 'Anterior',
+        next: 'Proximo',
+        today: 'Hoje',
+        month: 'Mês',
+        week: 'Semana',
+        day: 'Hoje',
+        list: 'Lista'
+      },
+      eventSources: [
+       {
+          events: function (start, end, timezone, callback) { 
+            $.ajax({
+                url: 'http://localhost:8080/montarcalendariopampulha',
+                type: 'GET', 
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }, success: function (data) {
+                    var events = [];
+                    $(data).each(function () {
+                    events.push({
+                        id: $(this).attr('id'),
+                        title: $(this).attr('title'),
+                        start: $(this).attr('start'),
+                        end: $(this).attr('end'),
+                        paciente: $(this).attr('paciente'),
+                        
+                        
+                    });
+                    
+                });
+               
+                callback(events);
+            }
+        });
+    }
+    }
+],
+eventClick:  function(event, jsEvent, view) {
+            $('#modalTitle').html(event.title);
+            $("#calendarModal .modal-body .start").text(new Date(event.start).toLocaleString('pt-BR', { timeZone: 'UTC' }));
+            $("#calendarModal .modal-body .paciente").html(event.paciente);
+            
+            $('#calendarModal').modal();
+        },
+  });
+  
+});
+    </script>
+
+</body>
+<%- include('../../home/footer'); %>
+</html>

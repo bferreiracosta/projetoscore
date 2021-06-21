@@ -42,7 +42,7 @@
 						
 				<tr>
 				<td>
-					<a href="" onclick="setaDadosModal2('<%=id[i].id_usuario %>'),setaDadosModal('<%=dispositivo[j].idpaciente %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Adicionar dispositivo</a>
+					<a href="" onclick="setaDadosModal2('<%=id[i].id_usuario %>'),setaDadosModal('<%=dispositivo[j].idpaciente %>'), setaDadosModal3('<%=dispositivo[j].nome %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#dispositivomodal">Adicionar dispositivo</a>
 				</td>
 				<td><label for="">ID: </label><%=dispositivo[j].idpaciente %></td>
                 <td><label hidden for="">Nome: </label><%=dispositivo[j].nome %></td>
@@ -74,12 +74,10 @@
 	<br>
 	<br>
 
-	<% if(dispositivo.length > 0) { %>
-		<% for(var j = 0; j < dispositivo.length; j++) {%>
 
 <!-- Delete Product Modal-->
 <form id="add-row-form" action="/savedispositivoluizote" method="POST">
-	<div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	<div class="modal fade" id="dispositivomodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -90,136 +88,135 @@
 				</div>
 				
 				<div class="modal-body">
-					<input type="hidden" name="campo" id="campo">
+					<input type="text" name="campo" id="campo">
 					
                 <div>
 					<div class="form-group">
-                        <input readonly="readonly" type="hidden" name="idpaciente" class="form-control" value="<%=dispositivo[j].idpaciente%>" >
+						<input readonly="readonly" type="hidden" name="idpaciente" id="idpaciente" class="form-control" placeholder="" required>
 						<label for="">Paciente</label>
-						<input readonly="readonly" type="text" name="nome" class="form-control" value="<%=dispositivo[j].nome %>" >
-						
-                    </div>
+						<input readonly="readonly" type="text" name="nome" id="nome" class="form-control" >
+					</div>
 					<div class="form-group">
 						<label for="Dispositivo">Dispositivo</label>
 						<div class="form-check">
-							<input  type="checkbox" name="dispositivo" id="svd"  class="form-check-input" onClick="check2()" value="svd" <%=(dispositivo[j].svd == 'SVD')?'checked':''%>>
+							<input  type="checkbox" name="dispositivo" id="svd"  class="form-check-input" onClick="check2()" value="svd" >
 							<label class="form-check-label"  id="svd2" for="Dormonid">SVD</label>
 							<input  id="svd3"  type="hidden" name="svd3">
 							<label class="form-check-label"  id="datasvd" for="datasvd"> ---  Data SVD</label>
-							<input  id="datasvd2"  type="text" name="datasvd" value="<%=dispositivo[j].datasvd%>"  >
+							<input  id="datasvd2"  type="text" name="datasvd" >
 						</div>
 						<div class="form-check">
-							<input type="checkbox" name="dispositivo" id="sne"  class="form-check-input" onClick="check2()" value="sne" <%=(dispositivo[j].sne == 'SNE')?'checked':''%>>
+							<input type="checkbox" name="dispositivo" id="sne"  class="form-check-input" onClick="check2()" value="sne" >
 							<label class="form-check-label"  id="sne2" for="sne2">SNE</label>
 							<input  id="sne3"  type="hidden" name="sne3">
 							<label class="form-check-label"  id="datasne" for="datasne"> ---  Data SNE</label>
-							<input  id="datasne2"  type="text" name="datasne" value="<%=dispositivo[j].datasne%>" >
+							<input  id="datasne2"  type="text" name="datasne" " >
 						</div>
 						<div class="form-check">
-							<input type="checkbox" name="dispositivo" id="avp"  class="form-check-input" onClick="check2()" value="avp" <%=(dispositivo[j].avp == 'AVP')?'checked':''%>>
+							<input type="checkbox" name="dispositivo" id="avp"  class="form-check-input" onClick="check2()" value="avp">
 							<label class="form-check-label"  id="avp2" for="avp2">AVP</label>
 							<input  id="avp3"  type="hidden" name="avp3">
 							<label class="form-check-label"  id="dataavp" for="dataavp"> ---  Data AVP</label>
-							<input  id="dataavp2"  type="text" name="dataavp" value="<%=dispositivo[j].dataavp%>" >
+							<input  id="dataavp2"  type="text" name="dataavp" >
 						</div>
 						<div class="form-check">
-							<input type="checkbox" name="dispositivo" id="cvc"  class="form-check-input" onClick="check2()" value="cvc"<%=(dispositivo[j].cvc == 'CVC')?'checked':''%>>
+							<input type="checkbox" name="dispositivo" id="cvc"  class="form-check-input" onClick="check2()" value="cvc">
 							<label class="form-check-label"  id="cvc2" for="Propofol2">CVC</label>
 							<input  id="cvc3"  type="hidden" name="cvc3">
 							<label class="form-check-label"  id="datacvc" for="datacvc"> ---  Data CVC</label>
-							<input  id="datacvc2"  type="text" name="datacvc" value="<%=dispositivo[j].datacvc%>" >
+							<input  id="datacvc2"  type="text" name="datacvc"  >
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="paciente">Dispositivo Ventilatório</label>
 						<select class="form-control" onchange="verifica(this.value)" id="dispositivo" name="dispositivo" required>
-							<option value="Ar Ambiente" <%=(dispositivo[j].dispositivoventilatorio == 'Ar Ambiente')?'selected':''%>>Ar Ambiente</option>
-							<option value="Cateter O2" <%=(dispositivo[j].dispositivoventilatorio == 'Cateter O2')?'selected':''%>>Cateter O2</option>
-							<option value="Cateter O2 + VNI" <%=(dispositivo[j].dispositivoventilatorio == 'Cateter O2 + VNI')?'selected':''%>>Cateter O2 + VNI</option>
-							<option value="Mascara Reservatorio + VNI" <%=(dispositivo[j].dispositivoventilatorio == 'Mascara Reservatorio + VNI')?'selected':''%>>Mascara Reservatorio + VNI</option>
-                            <option value="Mascara Reservatorio" <%=(dispositivo[j].dispositivoventilatorio == 'Mascara Reservatorio')?'selected':''%>>Mascara Reservatório</option>
-                            <option value="Ventilacao Mecanica" <%=(dispositivo[j].dispositivoventilatorio == 'Ventilacao Mecanica')?'selected':''%>>Ventilação Mecânica</option>
+							<option value="Ar Ambiente" >Ar Ambiente</option>
+							<option value="Cateter O2" >Cateter O2</option>
+							<option value="Cateter O2 + VNI" >Cateter O2 + VNI</option>
+							<option value="Mascara Reservatorio + VNI" >Mascara Reservatorio + VNI</option>
+                            <option value="Mascara Reservatorio" >Mascara Reservatório</option>
+                            <option value="Ventilacao Mecanica" >Ventilação Mecânica</option>
 						</select>
                     </div>
 					<input  id="dispositivo2"  type="hidden" name="dispositivo2">
 					<div class="form-group">
 						<label for="o2label" id="o2label">Fluxo de O2</label>
-                        <input type="text" name="o2" id="o2" class="form-control" value="<%=dispositivo[j].fluxoo2 %>">
+                        <input type="text" name="o2" id="o2" class="form-control">
                     </div>
                     <div class="form-group">
 						<label for="paciente">Drogas Vasoativas</label>
 						<select class="form-control" onchange="verificadroga(this.value)" id="droga" name="droga" required>
-							<option value="sim" <%=(dispositivo[j].drogas == 'sim')?'selected':''%> >Sim</option>
-							<option value="nao" <%=(dispositivo[j].drogas == 'nao')?'selected':''%>>Não</option>
+							<option value="sim"  >Sim</option>
+							<option value="nao" >Não</option>
 						</select>
 						<input  id="drogas"  type="hidden" name="drogas">
 						<div class="form-check">
-							<input  type="checkbox" name="DVA" id="Noradrenalina"  class="form-check-input" onClick="check()" value="Noradrenalina" <%=(dispositivo[j].nora == 'Noradrenalina')?'checked':''%>>
+							<input  type="checkbox" name="DVA" id="Noradrenalina"  class="form-check-input" onClick="check()" value="Noradrenalina" >
 							<label class="form-check-label"  id="Noradrenalina2" for="Noradrenalina">Noradrenalina</label>
 							<input  id="nora"  type="hidden" name="nora">
 					
 							<label class="form-check-label"  id="Noradrenalina3" for="Noradrenalina"> ---  Vazão Noradrenalina</label>
-							<input  id="vazaonora"  type="text" name="vazaonora"  value="<%=dispositivo[j].vazaonora %>">
+							<input  id="vazaonora"  type="text" name="vazaonora" >
 						</div>
 						<div class="form-check">
-							<input type="checkbox" name="DVA" id="Adrenalina"  class="form-check-input" onClick="check()" value="Adrenalina" <%=(dispositivo[j].adrenalina == 'Adrenalina')?'checked':''%>>
+							<input type="checkbox" name="DVA" id="Adrenalina"  class="form-check-input" onClick="check()" value="Adrenalina" >
 							<label class="form-check-label"  id="Adrenalina2" for="Adrenalina">Adrenalina</label>
 							<input  id="adre"  type="hidden" name="adre" >
 						
 							<label class="form-check-label"  id="Adrenalin3" for="Adrenalina"> ---  Vazão Adrenalina</label>
-							<input  id="vazaoadre"  type="text" name="vazaoadre"  value="<%=dispositivo[j].vazaoadrenalina %>">
+							<input  id="vazaoadre"  type="text" name="vazaoadre"  >
 						</div>
 						<div class="form-check">
-							<input type="checkbox" name="DVA" id="Bicarbonato"  class="form-check-input" onClick="check()" value="Bicarbonato" <%=(dispositivo[j].bicarbonato == 'Bicarbonato')?'checked':''%>>
+							<input type="checkbox" name="DVA" id="Bicarbonato"  class="form-check-input" onClick="check()" value="Bicarbonato" >
 							<label class="form-check-label"  id="Bicarbonato2" for="Bicarbonato">Bicarbonato</label>
 							<input  id="bic"  type="hidden" name="bica">
 				
 							<label class="form-check-label"  id="Bicarbonato3" for="Bicarbonato"> ---  Vazão Bicarbonato</label>
-							<input  id="vazaobica"  type="text" name="vazaobica"  value="<%=dispositivo[j].vazaobicarbonato %>">
+							<input  id="vazaobica"  type="text" name="vazaobica"  >
 						</div>
                     </div>
 					<div class="form-group">
 						<label for="paciente" id="fio22">Fio2</label>
-                        <input type="text" name="fio2" id="fio2" class="form-control" value="<%=dispositivo[j].fio2 %>" >
+                        <input type="text" name="fio2" id="fio2" class="form-control"  >
                     </div>
 					<div class="form-group">
 						<label for="paciente" id="peep2">PEEP</label>
-                        <input type="text" name="peep" id="peep" class="form-control" value="<%=dispositivo[j].peep %>" >
+                        <input type="text" name="peep" id="peep" class="form-control"  >
                     </div>
 					<div class="form-group">
 						<label for="paciente">Sedação</label>
 						<select class="form-control" onchange="verificasedacao(this.value)" id="sedacao" name="sedacao" required>
-							<option value="sim" <%=(dispositivo[j].sedacao == 'sim')?'selected':''%> >Sim</option>
-							<option value="nao" <%=(dispositivo[j].sedacao == 'nao')?'selected':''%>>Não</option>
+							<option value="sim"  >Sim</option>
+							<option value="nao" >Não</option>
 						</select>
 						<input  id="sedacao3"  type="hidden" name="sedacao3">
 						<div class="form-check">
-							<input  type="checkbox" name="sedacao2" id="Dormonid"  class="form-check-input" onClick="check1()" value="Dormonid" <%=(dispositivo[j].dormonid == 'Dormonid')?'checked':''%>>
+							<input  type="checkbox" name="sedacao2" id="Dormonid"  class="form-check-input" onClick="check1()" value="Dormonid" >
 							<label class="form-check-label"  id="Dormonid2" for="Dormonid">Dormonid</label>
 							<input  id="Dormonid3"  type="hidden" name="Dormonid3">
 							<label class="form-check-label"  id="Dormonid4" for="Dormonid"> ---  Vazão Dormonid</label>
-							<input  id="vazaoDormonid"  type="text" name="vazaoDormonid"  value="<%=dispositivo[j].vazaodormonid %>">
+							<input  id="vazaoDormonid"  type="text" name="vazaoDormonid"  >
 						</div>
 						<div class="form-check">
-							<input type="checkbox" name="sedacao2" id="Fentanil"  class="form-check-input" onClick="check1()" value="Fentanil" <%=(dispositivo[j].fentanil == 'Fentanil')?'checked':''%>>
+							<input type="checkbox" name="sedacao2" id="Fentanil"  class="form-check-input" onClick="check1()" value="Fentanil" >
 							<label class="form-check-label"  id="Fentanil2" for="Fentanil2">Fentanil</label>
 							<input  id="Fentanil3"  type="hidden" name="Fentanil3">
 							<label class="form-check-label"  id="Fentanil4" for="Fentanil"> ---  Vazão Fentanil</label>
-							<input  id="vazaoFentanil"  type="text" name="vazaoFentanil"  value="<%=dispositivo[j].vazaofentanil %>">
+							<input  id="vazaoFentanil"  type="text" name="vazaoFentanil"  >
 						</div>
 						<div class="form-check">
-							<input type="checkbox" name="sedacao2" id="Rocuronio"  class="form-check-input" onClick="check1()" value="Rocuronio" <%=(dispositivo[j].rocuronio == 'Rocuronio')?'checked':''%>>
+							<input type="checkbox" name="sedacao2" id="Rocuronio"  class="form-check-input" onClick="check1()" value="Rocuronio" >
 							<label class="form-check-label"  id="Rocuronio2" for="Rocuronio2">Rocuronio</label>
 							<input  id="Rocuronio3"  type="hidden" name="Rocuronio3">
 							<label class="form-check-label"  id="Rocuronio4" for="Rocuronio"> ---  Vazão Rocuronio</label>
-							<input  id="vazaoRocuronio"  type="text" name="vazaoRocuronio"  value="<%=dispositivo[j].vazaorocuronio %>">
+							<input  id="vazaoRocuronio"  type="text" name="vazaoRocuronio"  >
 						</div>
 						<div class="form-check">
-							<input type="checkbox" name="sedacao2" id="Propofol"  class="form-check-input" onClick="check1()" value="Propofol" <%=(dispositivo[j].propofol == 'Propofol')?'checked':''%>>
+							<input type="checkbox" name="sedacao2" id="Propofol"  class="form-check-input" onClick="check1()" value="Propofol" >
 							<label class="form-check-label"  id="Propofol2" for="Propofol2">Propofol</label>
 							<input  id="Propofol3"  type="hidden" name="Propofol3">
 							<label class="form-check-label"  id="Propofol4" for="Propofol"> ---  Vazão Propofol</label>
-							<input  id="vazaoPropofol"  type="text" name="vazaoPropofol"  value="<%=dispositivo[j].vazaopropofol %>">
+							<input  id="vazaoPropofol"  type="text" name="vazaoPropofol"  >
 						</div>
 						<div id="hora" class="form-group">
 							<input   type="hidden" id="data" name="data"  class="form-control">
@@ -234,8 +231,7 @@
 		</div>
 	</div>
 </form>
-<% } %>	
-<% } %>
+
 <% } %>	
 <% } %> 
    </div>
@@ -317,6 +313,10 @@ function setaDadosModal(valor) {
 
 function setaDadosModal2(valor) {
 	document.getElementById('campo').value = valor;
+}
+
+function setaDadosModal3(valor) {
+	document.getElementById('nome').value = valor;
 }
 
 function pad(s){

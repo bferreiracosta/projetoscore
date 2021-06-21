@@ -44,8 +44,10 @@ modelmentalsaojorge.prototype.buscarpacienteid = function(idpaciente, unidade, c
 	this._conection.query('select * from mentalurgencia where unidade = "'+unidade+'" and id_paciente = ' + idpaciente.id, callback);
 }
 
-modelmentalsaojorge.prototype.buscarpacientepornome = function(paciente, unidade, callback){
-	this._conection.query('select idpaciente from mentalurgencia where unidade = "'+unidade+'" and paciente = ' + paciente, callback);
+modelmentalsaojorge.prototype.buscarpacientepornome = function(paciente, callback){
+		
+	this._conection.query('select id_paciente from mentalurgencia where paciente = "'+paciente+'" and unidade = "SaoJorge"', callback);
+	
 }
 
 module.exports = function(){

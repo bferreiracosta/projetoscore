@@ -6,6 +6,8 @@
         <a href="addkabanpacienteluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
         <a href="leitosluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Atualizar Leitos</button></a>
         <a href="calendarioluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-info"  >Calendario Exames</button></a>
+        <a href="relatoriovisitasluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-secondary"  >Relatório Visitas</button></a>
+        <a href="relatoriodietasluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Relatório Dietas</button></a>
         <br>
         <br>
         <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
@@ -49,7 +51,7 @@
                             <a href="/addexameluizote/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-primary edit">Exames</a>
                         </td>
                         <td>
-                            <a href="javascript:void(0);" onclick="setaDadosModal('<%=paciente[j].idpaciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Saida</a>
+                            <a href="" onclick="setaDadosModal('<%=paciente[j].idpaciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#altamodal">Saida</a>
                         </td>
                         
                         <td hidden><%=paciente[j].idpaciente %></td>
@@ -60,7 +62,7 @@
                         <td><%=paciente[j].idade %></td>
                         <td><%=paciente[j].dataentrada %></td>
                         <td><%=paciente[j].qtddiasinternados %></td>
-                        <td><%=paciente[j].setor %></td>
+                        <td><%=paciente[j].acomodacao %></td>
                         <td><%=paciente[j].ECF %></td>
                         <td><%=paciente[j].spict %></td>
                         <td><%=paciente[j].paliativo %></td>
@@ -80,10 +82,11 @@
         <br>
 
         
-
+        <% } %>	
+        <% } %>
     <!-- Delete Product Modal-->
     <form id="add-row-form" action="/baixakabanluizote" method="POST">
-        <div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        <div class="modal fade" id="altamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -116,8 +119,7 @@
             </div>
         </div>
     </form>
-<% } %>	
-    <% } %>
+
        </div>
                 
 <!-- Importando o jQuery -->

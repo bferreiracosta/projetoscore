@@ -21,11 +21,9 @@
 				<th>Frequência Respiratoria</th>
 				<th>Saturação de O2</th>
 				<th>Nivel de Alerta</th>
-				<th></th>
 				<th>News</th>
-				<th></th>
 				<th>Data Atualização</th>
-				<th></th>
+				
 				
 			</tr>
 			</thead>
@@ -34,7 +32,7 @@
 					<% for(var j = 0; j < news.length; j++) {%>	
 			<tr>
 				<td>
-					<a href="" onclick="setaDadosModal2('<%=id[i].id_usuario %>'),setaDadosModal('<%=news[j].idpaciente %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Adicionar dispositivo</a>
+					<a href="" onclick="setaDadosModal2('<%=id[i].id_usuario %>'),setaDadosModal('<%=news[j].idpaciente %>'), setaDadosModal3('<%=news[j].nome %>'), setaDadosModal4('<%=news[j].setor %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#news">Adicionar dispositivo</a>
 				</td>
 				<td><label hidden for="">/ID: </label><%=news[j].idpaciente %></td>
 				<td><label hidden for="">Nome: </label><%=news[j].nome %></td>
@@ -44,11 +42,10 @@
 				<td><label hidden for="">/Frequência Respiratoria: </label><%=news[j].fr %></td>
 				<td><label hidden for="">/Saturação de O2: </label><%=news[j].sat %></td>
 				<td><label hidden for="">/Nivel de Alerta: </label><%=news[j].alerta %></td>
-				<td><label hidden for="">/News: </label></td>
-				<td><%=news[j].news %></td>
-				<td><label hidden for="">/Data da atualização: </label></td>
-				<td><%=news[j].dataatualizacao %></td>
-				<td></td>
+				<td><label hidden for="">/News: </label><%=news[j].news %></td>
+				<td><label hidden for="">/Data da atualização: </label><%=news[j].dataatualizacao %></td>
+	
+				
                                 
             </tr>
             <% } %>	
@@ -60,11 +57,9 @@
 	<br>
 
 	
-	<% if(news.length > 0) { %>
-		<% for(var j = 0; j < news.length; j++) {%>
 <!-- Delete Product Modal-->
 <form id="add-row-form" action="/savenewsluizote" method="POST">
-	<div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	<div class="modal fade" id="news" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -83,50 +78,51 @@
 					   <div >
 						   <div >
 							<div class="form-group">
-								<input readonly="readonly" type="hidden" name="id" class="form-control" placeholder="" value="<%=news[j].idpaciente %>" required>
+								<input readonly="readonly" type="hidden" name="idpaciente" id="idpaciente" class="form-control" placeholder="" required>
 								<label for="">Paciente</label>
-								<input readonly="readonly" type="text" name="nome" class="form-control" value="<%=news[j].nome %>" >
+								<input readonly="readonly" type="text" name="nome" id="nome" class="form-control" >
+								<input readonly="readonly" type="hidden" name="setor" id="setor" class="form-control" >
 							</div>
 							<div class="form-group">
 								<label for="fr">Frequência Respiratória</label>
-								<input type="number" id="fr" name="fr" class="form-control" value="<%=news[j].fr %>" required>
+								<input type="number" id="fr" name="fr" class="form-control"  required>
 							</div>
 							<div class="form-group">
 								<label for="sat">Saturação de O2</label>
-								<input type="number" name="sat"  id="sat" class="form-control" value="<%=news[j].sat %>" required>
+								<input type="number" name="sat"  id="sat" class="form-control"  required>
 							</div>
 							<div class="form-group">
 								<label for="o2">Uso de O2</label>
 								<select class="form-control" id="opcao2" name="opcao2" required>
 									<option value="" disabled selected hidden>Uso de O2</option>
-									<option value="sim" <%=(news[j].o2 == 'sim')?'selected':''%>>Sim</option>
-									<option value="nao" <%=(news[j].o2 == 'nao')?'selected':''%>>Não</option>
+									<option value="sim" >Sim</option>
+									<option value="nao" >Não</option>
 								</select>
-								<input type="hidden" name="o2"  id="uso02" class="form-control" value="<%=news[j].o2 %>" required>
+								<input type="hidden" name="o2"  id="uso02" class="form-control"  required>
 							</div>
 							<div class="form-group">
 								<label for="temp">Temperatura</label>
-								<input type="text" name="temp"  id="temp" data-mask="00.0" data-mask-selectonfocus="true" class="form-control" value="<%=news[j].temp %>" required>
+								<input type="text" name="temp"  id="temp" data-mask="00.0" data-mask-selectonfocus="true" class="form-control"  required>
 							</div>
 							<div class="form-group">
 								<label for="sistolica">PA Sistolica</label>
-								<input type="number" name="sistolica" id="pa" class="form-control" value="<%=news[j].sistolica %>" required>
+								<input type="number" name="sistolica" id="pa" class="form-control"  required>
 							</div>
 							<div class="form-group">
 								<label for="fc">Frequencia Cardiaca</label>
-								<input type="number" name="fc"  id="fc" class="form-control" value="<%=news[j].fc %>" required>
+								<input type="number" name="fc"  id="fc" class="form-control"  required>
 							</div>
 							
 							<div class="form-group">
 								<label for="opcao">Nivel Consciencia</label>
 								<select class="form-control" id="opcao" name="opcao" required>
 									<option value="" disabled selected hidden>Nivel Consciencia</option>
-									<option value="alerta" <%=(news[j].alerta == 'alerta')?'selected':''%>>Alerta</option>
-									<option value="verbal" <%=(news[j].alerta == 'verbal')?'selected':''%>>Estimulo Verbal</option>
-									<option value="doloroso" <%=(news[j].alerta == 'doloroso')?'selected':''%>>Estimulo Doloroso</option>
-									<option value="aresponsivo" <%=(news[j].alerta == 'aresponsivo')?'selected':''%>>Sem Resposta</option>
+									<option value="alerta" >Alerta</option>
+									<option value="verbal" >Estimulo Verbal</option>
+									<option value="doloroso" >Estimulo Doloroso</option>
+									<option value="aresponsivo" >Sem Resposta</option>
 								</select>
-								<input  id="ment"  type="hidden" name="covid" value="<%=news[j].alerta %>">
+								<input  id="ment"  type="hidden" name="covid" >
 							</div>
 							
 							<div  class="form-group">
@@ -134,12 +130,15 @@
 							</div>
 							<div>
 								<label for="news">News</label>
-								<input  type="text" id="news" name="news"  class="form-control" value="<%=news[j].news %>" required>
+								<input  type="text" id="news2" name="news" class="form-control"  required>
 							</div>
 							   <div id="hora" class="form-group">
 								<input  type="hidden" id="data" name="data"  class="form-control">
 							</div>
-			   
+							<div id="hora" class="form-group">
+								<input  type="hidden" id="horas" name="horas"  class="form-control">
+								<input  type="hidden" id="datareg" name="datareg"  class="form-control">
+							</div>
 							</div>
 								
 						   <div >
@@ -153,11 +152,10 @@
 		</div>
 	</div>
 </form>
+
 <% } %>	
-<% } %>
 <% } %>	
-							<% } %>	
-   </div>
+
 			
 <!-- Importando o jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -231,12 +229,19 @@ $(document).ready(function() {
 
 
 function setaDadosModal(valor) {
-	console.log(valor);
 	document.getElementById('idpaciente').value = valor;
 }
 
 function setaDadosModal2(valor) {
 	document.getElementById('campo').value = valor;
+}
+
+function setaDadosModal3(valor) {
+	document.getElementById('nome').value = valor;
+}
+
+function setaDadosModal4(valor) {
+	document.getElementById('setor').value = valor;
 }
 
 function pad(s){
@@ -246,6 +251,8 @@ function novaHora(){
 	
 	var date = new Date();
 	document.getElementById('data').value = date.getDate() +'-'+ (date.getMonth() + 1) +'-'+ date.getFullYear() +' '+ date.getHours()+':'+date.getMinutes()+':'+date.getSeconds() ;
+	document.getElementById('horas').value= [date.getHours(), date.getMinutes()].map(pad).join(':');
+	document.getElementById('datareg').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
 }
 novaHora();
 
@@ -307,20 +314,20 @@ function calcular(){
 	
 	var resultadotemp;
 	var temp = document.getElementById('temp').value;
-	
+
 	if(temp<=35){
 		resultadotemp = 3;
 	}
-	if(temp>=35.1&&temp<=36){
+	if(temp>=35 &&temp<=36 ||temp>=35.1&&temp<=36.0 ){
 		resultadotemp = 1;
 	}
-	if(temp>=36.1&&temp<=38){
+	if(temp>=36.1&&temp<=38.0 ||temp>=36 &&temp<=38){
 		resultadotemp	= 0;
 	}
-	if(temp>=38.1&&temp<=39){
+	if(temp>=38.1&&temp<=39.0 ||temp>=38 &&temp<=39){
 		resultadotemp = 1;
 	}
-	if(temp>=39.1 || temp>=39,1){
+	if(temp>=39.1 ||temp>=39 ){
 		resultadotemp = 2;
 	}
 
@@ -383,10 +390,10 @@ function calcular(){
 		resultadoment = 3;
 	}
 	
-	var score = resultadofr + resultadosat + resultadoo2 + resultadotemp + resultadofc + resultadofc + resultadoment;
-	console.log(resultadofr, resultadosat, resultadoo2, resultadotemp, resultadofc, resultadofc, resultadoment );
-	document.getElementById('news').value = score;
-	// resultadofc,resultadofc,resultadotemp,resultadoo2,resultadosat,resultadofr
+	var score = resultadofr + resultadosat + resultadoo2 + resultadotemp + resultadopa + resultadofc + resultadoment;
+	
+	document.getElementById('news2').value = score;
+	
 }
 
 </script>

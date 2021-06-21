@@ -1,0 +1,147 @@
+<%- include('../cabecalhokaban'); %>
+<% if(id.length > 0) { %>
+    <% for(var i = 0; i < id.length; i++) {%>
+       
+<h2> Dispositivos Pampulha</h2>
+<a href="adddispositivopampulha?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Atualizar Dispositivos</button></a>
+<br>
+<br>
+    <table class="table table-striped" id="mytable">
+        <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
+        
+        <thead>
+            <tr>
+                <th><i class="fas fa-edit"></i></th>
+                <th>id</th>
+                <th>Nome</th>
+                <th>Dispositivo Ventilatorio</th>
+                <th>Fluxo de O2</th>
+                <th>Noradrenalina</th>
+                <th>Vazão Noradrenalina</th>
+                <th>Adrenalina</th>
+                <th>Vazão Adrenalina</th>
+                <th>Bicarbonato</th>
+                <th>Vazão Bicarbonato</th>
+                <th>FIO2</th>
+                <th>PEEP</th>
+                <th>Dormonid</th>
+                <th>Vazão Dormonid</th>
+                <th>Fentanil</th>
+                <th>Vazão Fentanil</th>
+                <th>Rocuronio</th>
+                <th>Vazão Rocuronio</th>
+                <th>Propofol</th>
+                <th>Vazão Propofol</th>
+               
+                
+            </tr>
+        </thead>
+        <tbody>   
+            <% if(dispositivo.length > 0) { %>
+                <% for(var j = 0; j < dispositivo.length; j++) {%>
+                    
+            <tr>
+                <td>
+                    <a href="editkabandispositivopampulha/<%=id[i].id_usuario %>/?id=<%=dispositivo[j].idpaciente %>"class="btn btn-sm btn-info edit"> Editar</a>
+                </td>
+                <td><label for="">ID: </label><%=dispositivo[j].idpaciente %></td>
+                <td><label hidden for="">Nome: </label><%=dispositivo[j].nome %></td>
+                <td><label hidden for="">Dispositivo: </label><%=dispositivo[j].dispositivoventilatorio %></td>
+                <td><label hidden for="">fluxo_de_o2: </label><%=dispositivo[j].fluxoo2 %></td>
+                <td><label hidden>/Noradrenalina: </label><%=dispositivo[j].nora %></td>
+                <td><label hidden>/Vazão Noradrenalina: </label><%=dispositivo[j].vazaonora %></td>
+                <td><label hidden>/Adrenalina: </label><%=dispositivo[j].adrenalina %></td>
+                <td><label hidden>/Vazão Adrenalina: </label><%=dispositivo[j].vazaoadrenalina %></td>
+                <td><label hidden>/Bicarbonato: </label><%=dispositivo[j].bicarbonato %></td>
+                <td><label hidden>/Vazão Bicarbonato: </label><%=dispositivo[j].vazaobicarbonato %></td>
+                <td><label hidden>/Fio2: </label><%=dispositivo[j].fio2 %></td>
+                <td><label hidden>/PEEP: </label><%=dispositivo[j].peep %></td>
+                <td><label hidden>/Dormonid: </label><%=dispositivo[j].dormonid %></td>
+                <td><label hidden>/Vazão Dormonid: </label><%=dispositivo[j].vazaodormonid %></td>
+                <td><label hidden>/Fentanil: </label><%=dispositivo[j].fentanil %></td>
+                <td><label hidden>/Vazão Fentanil: </label><%=dispositivo[j].vazaofentanil %></td>
+                <td><label hidden>/Rocuronio: </label><%=dispositivo[j].rocuronio %></td>
+                <td><label hidden>/Vazão Rocuronio: </label><%=dispositivo[j].vazaorocuronio %></td>
+                <td><label hidden>/Propofol: </label><%=dispositivo[j].propofol %></td>
+                <td><label hidden>/Vazão Propofol: </label><%=dispositivo[j].vazaopropofol %></td>
+                                
+            </tr>
+            <% } %>	
+            <% } %>
+        </tbody>
+    </table>
+    <% } %>	
+    <% } %>
+    <br>
+					<br>
+					<br>
+
+
+
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.24/i18n/Portuguese-Brasil.json"></script>
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+    $('#mytable').DataTable( {
+        dom: 'Bfrtip',
+        order: ([ 2, 'asc']),
+        "scrollX": true,
+        pageLength: 50,
+        buttons: [       
+            {
+                "extend": "copyHtml5",
+                "text": "COPIAR",
+                header: false
+            },          
+            {
+                "extend": "pdf",
+                "text": "PDF",
+                header: false
+            },
+            {
+                "extend": "excelHtml5",
+                "text": "EXCEL",
+                header: false
+            },
+            {
+                "extend": "print",
+                "text": "IMPRIMIR",
+                header: false
+            }
+        ],language: {
+            buttons: {
+                copyTitle: 'Copiado para área de transferência',
+                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+                copySuccess: {
+                    _: '%d linhas copiadas',
+                    1: '1 linha copiada'
+                }
+            },
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Próximo"
+            },
+            "search": "Pesquisar:"
+        },
+        select: true
+    } );
+} );
+  
+</script>
+<%- include('../../home/footer'); %>
+</body>
+</html>

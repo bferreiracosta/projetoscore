@@ -9,7 +9,7 @@ modelmentalluizote.prototype.buscarpacientecaps = function(unidade, callback){
 
 modelmentalluizote.prototype.baixa = function(idpaciente,baixa, datas, callback){
 	
-	this._conection.query('update mentalurgencia set datas = "'+datas+'",  baixa = "'+baixa+'" where id_paciente = ' + idpaciente, callback);
+	this._conection.query('update mentalurgencia set datas = "'+datas+'",  motivo = "'+baixa+'" where id_paciente = ' + idpaciente, callback);
 }
 
 modelmentalluizote.prototype.cadastrarpaciente = function(prt,paciente, idade,diagnostico,referencia,unidade,data, callback){
@@ -45,10 +45,11 @@ modelmentalluizote.prototype.buscarpacienteid = function(idpaciente, unidade, ca
 	this._conection.query('select * from mentalurgencia where unidade = "'+unidade+'" and id_paciente = ' + idpaciente.id, callback);
 }
 
-modelmentalluizote.prototype.buscarpacientepornome = function(paciente, unidade, callback){
-	this._conection.query('select idpaciente from mentalurgencia where unidade = "'+unidade+'" and paciente = ' + paciente, callback);
+modelmentalluizote.prototype.buscarpacientepornome = function(paciente, callback){
+		
+	this._conection.query('select id_paciente from mentalurgencia where paciente = "'+paciente+'" and unidade = "Luizote"', callback);
+	
 }
-
 
 module.exports = function(){
 	return modelmentalluizote;

@@ -4,6 +4,13 @@
 	margin-top: 15px;
 }
 
+/* tr.group,
+tr.group:hover {
+    background-color: #ddd !important;
+    text-align: center !important;
+    
+} */
+
 .switch {
     position: relative;
     display: inline-block;

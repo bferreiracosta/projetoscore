@@ -1,0 +1,1784 @@
+module.exports.cadastrar= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+
+	var unidade = 'Tibery';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modeltibery.buscarpaciente(unidade, function(error, resultado){
+			res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : result});
+		});
+	});	
+}
+
+module.exports.saveexametibery= function(application, req, res){
+	var title = req.body.title;
+	var start = req.body.dataformatada;
+	var paciente = req.body.paciente;
+	var end = req.body.dataformatada;
+	var id = req.body.idusuario;
+
+	var unidade = 'Tibery';
+	
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+		modeladmin.buscarusuarioeditavel(id, function(error, result){	
+			modeltibery.addexame(title, start,end,paciente,unidade, function(error, resulta){
+				modeltibery.buscarpaciente(unidade, function(error, resultado){
+					res.render("kaban/Tibery/kabanpacientetibery", {paciente: resultado, id : result});
+				});
+			});	
+		});
+}
+
+module.exports.calendariotibery= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+
+	var unidade = 'Tibery';
+	var id = req.query;
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		res.render("kaban/Tibery/calendariotibery" ,{id : result});
+	});	
+}
+
+module.exports.addexametibery= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+	var id = req.params.idusuario;
+	var idpaciente = req.query;
+	var unidade = 'Tibery';
+	
+	modeladmin.buscarusuarioeditavel(id, function(error,result){
+		modeltibery.buscarpacienteid(idpaciente, unidade, function(error, resultado){
+			res.render("kaban/Tibery/addexametibery", {id : result, paciente: resultado});
+		});
+	});
+}
+
+module.exports.exametibery= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+
+	var unidade = 'Tibery';
+	var id = req.query;
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modeltibery.buscarexames(function(error, resultado){
+			res.render("kaban/Tibery/exametibery", {id : result, evento: resultado});
+		});
+	});	
+}
+module.exports.editexametibery= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+
+	var id = req.params.idusuario;
+	var idevento = req.query;
+
+	modeladmin.buscarusuarioeditavel(id, function(error, result){
+		modeltibery.buscarexamesid(idevento, function(error, resultado){
+			res.render("kaban/Tibery/editexametibery", {id : result, evento: resultado});
+		});
+	});	
+}
+
+module.exports.deleteexametibery= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+
+	var id = req.params.idusuario;
+	var idevento = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuarioeditavel(id, function(error, result){
+		modeltibery.deleteexametibery(idevento.id, function(error, resultado){
+			modeltibery.buscarpaciente(unidade, function(error, resultado){
+				res.render("kaban/Tibery/kabanpacientetibery", {paciente: resultado, id : result});
+			});
+		});
+	});	
+}
+
+module.exports.montarcalendariotibery= function(application, req, res){
+	
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+	modeltibery.buscarexames(function(error, resultadoexame){
+		
+		res.send(resultadoexame);
+	});
+}
+
+module.exports.updateexametibery= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+	var title = req.body.title;
+	var idevento = req.body.idevento;
+	var start = req.body.dataformatada;
+	var paciente = req.body.paciente;
+	var end = req.body.dataformatada;
+	var id = req.body.idusuario;
+	
+	modeladmin.buscarusuarioeditavel(id, function(error,result){
+		modeltibery.updateexametibery(idevento, title, start, paciente, end,  function(error, resultado){
+			modeltibery.buscarexames(function(error, resultado){
+				res.render("kaban/Tibery/exametibery", {id : result, evento: resultado});
+			});
+		});
+	});
+}
+
+module.exports.atualizarleitotibery= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
+
+	var idpaciente = req.body.idpaciente;
+	var setor = req.body.setor2;
+	var leito = req.body.leito2;
+	var id = req.body.idusuario;
+
+	
+	modeladmin.buscarusuarioporid(id, function(error, result){
+		modeltibery.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
+			modeltibery.buscarleitosid(setoresrecuperado, function(error, idleito){
+				if(setoresrecuperado[0].leito == null){
+					modeltibery.atualizarleitotibery(idpaciente, setor, leito, function(error, resultado){
+						modeltibery.buscarsetoresid(setor, function(error, resultado){
+							modeltibery.updateleitos(resultado, leito, function(error, resultado){
+								if(leito == "Maca"){
+									modeladmingestao.updateleitostiberymacamais(setor, function(error, resulta){
+										if(setoresrecuperado[0].setor == null){
+											modeltibery.buscarleitospacientes(function(error, resultadosetores){
+												res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+											});
+										}else{
+											modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modeltibery.buscarleitospacientes(function(error, resultadosetores){
+													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+												});
+											});
+										}
+									});	
+								}else{
+									modeladmingestao.updateleitostiberycamamais(setor, function(error, resulta){
+										if(setoresrecuperado[0].setor == null){
+											modeltibery.buscarleitospacientes(function(error, resultadosetores){
+												res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+											});
+										}else{
+											modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modeltibery.buscarleitospacientes(function(error, resultadosetores){
+													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+												});
+											});
+										}
+									});	
+								}
+							});	
+						});	
+					});	
+				}
+				if(setoresrecuperado[0].leito == "Maca"){
+					modeladmingestao.updateleitostiberymaca(setoresrecuperado[0].setor, function(error, resulta){
+						modeltibery.atualizarleitotibery(idpaciente, setor, leito, function(error, resultado){
+							modeltibery.buscarsetoresid(setor, function(error, resultado){
+								modeltibery.updateleitos(resultado, leito, function(error, resultado){
+									if(leito == "Maca"){
+										modeladmingestao.updateleitostiberymacamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
+												modeltibery.buscarleitospacientes(function(error, resultadosetores){
+													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+												});
+											}else{
+												modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+													modeltibery.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}else{
+										modeladmingestao.updateleitostiberycamamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
+												modeltibery.buscarleitospacientes(function(error, resultadosetores){
+													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+												});
+											}else{
+												modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+													modeltibery.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}
+								});	
+							});	
+						});	
+					});	
+				}
+				if(setoresrecuperado[0].leito == "Cama"){
+					modeladmingestao.updateleitostiberycama(setoresrecuperado[0].setor, function(error, resulta){
+						modeltibery.atualizarleitotibery(idpaciente, setor, leito, function(error, resultado){
+							modeltibery.buscarsetoresid(setor, function(error, resultado){
+								modeltibery.updateleitos(resultado, leito, function(error, resultado){
+									if(leito == "Maca"){
+										modeladmingestao.updateleitostiberymacamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
+												modeltibery.buscarleitospacientes(function(error, resultadosetores){
+													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+												});
+											}else{
+												modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+													modeltibery.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}else{
+										modeladmingestao.updateleitostiberycamamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
+												modeltibery.buscarleitospacientes(function(error, resultadosetores){
+													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+												});
+											}else{
+												modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+													modeltibery.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}
+								});	
+							});	
+						});	
+					});	
+				}
+			});	
+		});
+	});	
+}
+
+module.exports.leitos= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modeltibery.buscarleitospacientes(function(error, resultadosetores){
+			modeltibery.buscarsetores(function(error, resultadosetor){
+				res.render("kaban/Tibery/leitostibery", {leito : resultadosetores,setor : resultadosetor, id : result});
+			});
+		});
+	});	
+}
+
+
+module.exports.buscarleitos= function(application, req, res){
+	
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+	var valor = req.query;
+	modeltibery.buscarleitos(valor, function(error, resultadoleito){
+		res.send(resultadoleito);
+	});
+	
+}
+
+module.exports.buscarsetor= function(application, req, res){
+	
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+	
+	modeltibery.buscarsetores(function(error, resultadosetor){
+		res.send(resultadosetor);
+	});
+	
+}
+
+module.exports.editfugulintibery= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.params.idusuario;
+	var idpaciente = req.query;
+	var unidade = 'Tibery';
+
+	modeladmin.buscarusuarioeditavel(id, function(error,result){
+		modeltibery.buscarfugulinid(idpaciente, unidade, function(error, resultado){
+				res.render("kaban/Tibery/editfugulintibery", { fugulin: resultado, id : result});
+			});
+	});
+}
+
+module.exports.editkabandispositivotibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.params.idusuario;
+	var idpaciente = req.query;
+	var unidade = 'Tibery';
+	
+	modeladmin.buscarusuarioeditavel(id, function(error,result){
+		modeltibery.buscardispositivoid(idpaciente, unidade, function(error, resultado){
+				res.render("kaban/Tibery/editkabandispositivotibery", { dispositivo: resultado, id : result});
+			});
+	});
+}
+
+module.exports.editnewstibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.params.idusuario;
+	var idpaciente = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuarioeditavel(id, function(error,result){
+		modeltibery.buscarnewsid(idpaciente, unidade, function(error, resultado){
+			res.render("kaban/Tibery/editnewskabantibery", {news: resultado, id : result});
+		});
+	});
+}
+
+module.exports.edittisstibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.params.idusuario;
+	var idpaciente = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuarioeditavel(id, function(error,result){
+		modeltibery.buscartissid(idpaciente, unidade, function(error, resultado){
+			res.render("kaban/Tibery/edittisstibery", {tiss: resultado, id : result});
+		});
+	});
+}
+
+module.exports.fugulintibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuario(id, function(error,result){
+		modeltibery.buscarfugulin(unidade, function(error, resultado){
+			res.render("kaban/Tibery/fugulintibery", {fugulin: resultado, id : result});
+		});
+	});
+}
+
+module.exports.newstibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuario(id, function(error,result){
+		modeltibery.buscarnews(unidade, function(error, resultado){
+			res.render("kaban/Tibery/newskabantibery", {news: resultado, id : result});
+		});
+	});
+}
+
+module.exports.tisstibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuario(id, function(error,result){
+		modeltibery.buscartiss(unidade, function(error, resultado){
+			res.render("kaban/Tibery/tisstibery", {tiss: resultado, id : result});
+		});
+	});
+}
+
+module.exports.relatorioadmkabantibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuario(id, function(error,result){
+		modeltibery.buscarpaciente(unidade, function(error, resultado){
+			res.render("kaban/Tibery/relatorioadmkabantibery", {paciente: resultado, id : result});
+		});
+	});
+}
+
+module.exports.relatoriokabantibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuario(id, function(error,result){
+		modeltibery.buscarpacienterelatorio(unidade, function(error, resultado){
+			console.log(resultado);
+			res.render("kaban/Tibery/relatoriokabantibery", {paciente: resultado, id : result});
+		});
+	});
+}
+
+module.exports.relatoriovisitastibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuario(id, function(error,result){
+		modeltibery.buscarpacienterelatorio(unidade, function(error, resultado){
+			res.render("kaban/Tibery/relatoriovisitastibery", {paciente: resultado, id : result});
+		});
+	});
+}
+
+module.exports.relatoriodietastibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuario(id, function(error,result){
+		modeltibery.buscarpacienterelatorio(unidade, function(error, resultado){
+			res.render("kaban/Tibery/relatoriodietastibery", {paciente: resultado, id : result});
+		});
+	});
+}
+
+module.exports.historico= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.query;
+	var unidade = 'Tibery';
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modeltibery.historico(unidade, function(error, resultado){
+			res.render("kaban/Tibery/historicokabantibery", {paciente : resultado, id : result});
+		});
+	});		
+}
+
+module.exports.dispositivotibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuario(id, function(error,result){
+		modeltibery.buscardispositivo(unidade, function(error, resultado){
+			res.render("kaban/Tibery/dispositivotibery", {id : result, dispositivo: resultado });
+		});
+	});
+}
+
+module.exports.addpaciente = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	
+	
+	var id = req.query;
+	
+	modeladmin.buscarusuario(id, function(error,result){
+		res.render("kaban/Tibery/addkabanpacientetibery", {id : result});
+	});
+}
+
+module.exports.adddispositivotibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuario(id, function(error,result){
+		modeltibery.buscardispositivohora(unidade, function(error, resultados){
+			res.render("kaban/Tibery/adddispositivotibery", {id : result, dispositivo: resultados });
+		});
+	});
+}
+
+module.exports.addfugulintibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuario(id, function(error,result){
+		modeltibery.buscarfugulinhora(unidade, function(error, resultados){
+			res.render("kaban/Tibery/addfugulintibery", {id : result, fugulin: resultados });
+		});
+	});
+}
+
+module.exports.addtisstibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuario(id, function(error,result){
+		modeltibery.buscartisshora(unidade, function(error, resultados){
+			res.render("kaban/Tibery/addtisstibery", {id : result, tiss: resultados });
+		});
+	});
+}
+
+module.exports.addnewstibery = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+
+	var id = req.query;
+	var unidade = 'Tibery';
+	modeladmin.buscarusuario(id, function(error,result){
+		modeltibery.buscarnewshora(unidade, function(error, resultados){
+			res.render("kaban/Tibery/addnewstibery", {id : result, news: resultados });
+		});
+	});
+}
+
+module.exports.editpaciente = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+	var id = req.params.idusuario;
+	var idpaciente = req.query;
+	
+	var unidade = 'Tibery';
+	
+	modeladmin.buscarusuarioeditavel(id, function(error,result){
+		modeltibery.buscarpacienteid(idpaciente, unidade, function(error, resultado){
+			res.render("kaban/Tibery/editkabantibery", {paciente: resultado, id : result});
+		});
+	});
+}
+
+module.exports.cadastrarpaciente= function(application, req, res){
+	var paciente = req.body.paciente;
+	var susfacil = req.body.susfacil;
+	var prt = req.body.prontuario;
+	var setor = req.body.setor2;
+	var dn = req.body.dn;
+	var idade = req.body.idade;
+	var da = req.body.da;
+	var qtdi = req.body.qtdi;
+	var ecf = req.body.ecf;
+	var spict = req.body.spcit;
+	var paliativo = req.body.paliativo;
+	var diagnostico = req.body.diagnostico;
+	var especialidade = req.body.especialidade;
+	var observacao = req.body.observacao;
+	var banho = req.body.banho;
+	var mobilidade = req.body.mobilidade;
+	var pendencias = req.body.pendencias;
+	var mental = req.body.mental2;
+	var referencia = req.body.referencia;
+	var covid = req.body.covid2;
+	var glasgow = req.body.glasgow;
+	var bic = req.body.bic;
+	var dataexame = req.body.dataexame;
+	var exame = req.body.exame4;
+	var dieta = req.body.dieta2;
+	var id = req.body.idusuario;
+	var unidade = 'Tibery';
+
+	var svd = "";
+	var sne = "";
+	var avp = "";
+	var cvc = "";
+
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	var modelcovidtibery = new application.app.model.regulacao.modeltibery(application);
+	var modelmentaltibery = new application.app.model.mentalurgencia.modelmentaltibery(application);
+
+	if(mental == 'true'){
+		
+		if(covid == 'true'){
+		
+			modeladmin.buscarusuarioporid(id, function(error, resultados){
+				modeltibery.cadastrarpaciente(paciente, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+					modelmentaltibery.cadastrarpaciente(prt,dieta, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+						modelcovidtibery.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+							modeltibery.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
+								modeltibery.addfugulinid(resultdoinsert.insertId,setor,paciente,unidade, function(error, results){
+									modeltibery.addtissid(resultdoinsert.insertId,setor,paciente,unidade, function(error, results){
+										modeltibery.addnewsid(resultdoinsert.insertId,setor,paciente, unidade,function(error, results){
+											modeltibery.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
+												modeltibery.buscarpaciente(unidade, function(error, resultado){
+													res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});				
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});	
+		}
+		else{
+		
+			modeladmin.buscarusuarioporid(id, function(error, resultados){
+				modeltibery.cadastrarpaciente(paciente, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+					modelmentaltibery.cadastrarpaciente(prt, dieta, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+						modeltibery.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
+							modeltibery.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
+								modeltibery.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
+									modeltibery.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
+										modeltibery.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
+											modeltibery.buscarpaciente(unidade, function(error, resultado){
+												res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});				
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});	
+		}
+	}
+	else{
+	
+		if(covid == "false"){
+			modeladmin.buscarusuarioporid(id, function(error, resultados){
+				modeltibery.cadastrarpaciente(paciente, dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+					modeltibery.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
+						modeltibery.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
+							modeltibery.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
+								modeltibery.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
+									modeltibery.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
+										modeltibery.buscarpaciente(unidade, function(error, resultado){
+											res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});				
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});	
+		}
+		else{
+			
+			modeladmin.buscarusuarioporid(id, function(error, resultados){
+				modeltibery.cadastrarpaciente(paciente, dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+					modelcovidtibery.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+						modeltibery.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
+							modeltibery.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
+								modeltibery.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
+									modeltibery.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
+										modeltibery.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
+											modeltibery.buscarpaciente(unidade, function(error, resultado){
+												res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});				
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});	
+		}
+	}	
+}
+
+module.exports.cadastrardispositivo= function(application, req, res){
+	var idpaciente = req.body.idpaciente;
+	var nome = req.body.nome;
+	var svd = req.body.svd3;
+	var datasvd = req.body.datasvd;
+	var sne = req.body.sne3;
+	var datasne = req.body.datasne;
+	var avp = req.body.avp3;
+	var dataavp = req.body.dataavp;
+	var cvc = req.body.cvc3;
+	var datacvc = req.body.datacvc;
+	var dispositivoventilatorio = req.body.dispositivo2;
+	var fluxoo2 = req.body.o2;
+	var fio2 = req.body.fio2;
+	var peep = req.body.peep;
+	var drogas = req.body.drogas;
+	var nora = req.body.nora;
+	var vazaonora = req.body.vazaonora;
+	var adre = req.body.adre;
+	var vazaoadre = req.body.vazaoadre;
+	var bica = req.body.bica;
+	var vazaobica = req.body.vazaobica;
+	var sedacao = req.body.sedacao3;
+	var dormonid3 = req.body.Dormonid3;
+	var vazaoDormonid = req.body.vazaoDormonid;
+	var fentanil3 = req.body.Fentanil3;
+	var vazaoFentanil = req.body.vazaoFentanil;
+	var rocuronio3 = req.body.Rocuronio3;
+	var vazaoRocuronio = req.body.vazaoRocuronio;
+	var propofol3 = req.body.Propofol3;
+	var vazaoPropofol = req.body.vazaoPropofol;
+	var profissional = "Enfermeiro";
+	var data = req.body.data;
+	var id = req.body.campo;
+	var unidade = 'Tibery';
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	var modelcovidtibery = new application.app.model.regulacao.modeltibery(application);
+
+	modeltibery.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
+		var string=JSON.stringify(resultados);
+		var json =  JSON.parse(string);
+		if(json[0].dataatualizacao == null){
+			modeladmin.buscarusuarioporid(id, function(error, result){	
+				modeltibery.updatedispositivo(idpaciente, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
+					modelcovidtibery.updaterespkaban(idpaciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
+						modeltibery.buscardispositivo(unidade, function(error, resultado){
+								res.render("kaban/Tibery/dispositivotibery", {dispositivo: resultado, id : result });
+						});
+					});
+				});
+			});	
+		}else{
+			modeladmin.buscarusuarioeditavel(id, function(error, result){	
+				modeltibery.adddispositivo(idpaciente, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
+					modelcovidtibery.updaterespkaban(idpaciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, result){
+						modeltibery.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
+							modeltibery.buscardispositivo(unidade, function(error, resultado){
+								res.render("kaban/Tibery/dispositivotibery", {dispositivo: resultado, id : resulta});
+							});
+						});	
+					});	
+				});
+			});	
+		}
+	})
+	
+}
+module.exports.cadastrarfugulin= function(application, req, res){
+	var idpaciente = req.body.idpaciente;
+	var nome = req.body.nome;
+	var setor = req.body.setor;
+	var mental2 = req.body.mental2;
+	var oxigenacao2 = req.body.oxigenacao2;
+	var sinaisvitais2 = req.body.sinaisvitais2;
+	var motilidade2 = req.body.motilidade2;
+	var deambulacao2 = req.body.deambulacao2;
+	var alimentacao2 = req.body.alimentacao2;
+	var cuidado2 = req.body.cuidado2;
+	var eliminacao2 = req.body.eliminacao2;
+	var terapeutica2 = req.body.terapeutica2;
+	var integridade2 = req.body.integridade2;
+	var curativo2 = req.body.curativo2;
+	var tempo2 = req.body.tempo2;
+	var fugulin = req.body.fugulin;
+	var data = req.body.data;
+	var id = req.body.campo;
+	var unidade = 'Tibery';
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+	modeltibery.buscarfugulindataid(idpaciente, unidade, function(error, resultados){
+		var string=JSON.stringify(resultados);
+		var json =  JSON.parse(string);
+
+		if(json[0].dataatualizacao == null){
+			modeladmin.buscarusuarioporid(id, function(error, result){	
+				modeltibery.updatefugulin(idpaciente, mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,data,unidade,  function(error, resulta){
+					modeltibery.buscarfugulin(unidade, function(error, resultado){
+							res.render("kaban/Tibery/fugulintibery", {fugulin: resultado, id : result });
+					});
+				});
+			});	
+		}else{
+			modeladmin.buscarusuarioeditavel(id, function(error, result){	
+				modeltibery.addfugulin(idpaciente, setor, nome , mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,data,unidade,  function(error, resulta){
+					modeltibery.updatefugulinstatus(json[0].idfugulin, function(error, resulta){
+						modeltibery.buscarfugulin(unidade, function(error, resultado){
+							res.render("kaban/Tibery/fugulintibery", {fugulin: resultado, id : result});
+						});
+					});	
+				});
+			});	
+		}
+	})
+	
+}
+
+module.exports.cadastrartiss= function(application, req, res){
+	var idpaciente = req.body.idpaciente;
+	var nome = req.body.nome;
+	var setor = req.body.setor;
+	var atividades = req.body.atividades2;
+	var ventilatorio = req.body.ventilatorio2;
+	var cardiovascular = req.body.cardiovascular2;
+	var renal = req.body.renal2;
+	var neurologico = req.body.neurologico2;
+	var metabolico = req.body.metabolico2;
+	var intervencoes = req.body.intervencoes2;
+	var tiss = req.body.tiss;
+	var data = req.body.data;
+	var id = req.body.campo;
+	var unidade = 'Tibery';
+
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+	modeltibery.buscartissdataid(idpaciente, unidade, function(error, resultados){
+		var string=JSON.stringify(resultados);
+		var json =  JSON.parse(string);
+	
+		if(json[0].dataatualizacao == null){
+			modeladmin.buscarusuarioporid(id, function(error, result){	
+				modeltibery.updatetiss(idpaciente, atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss ,data,unidade,  function(error, resulta){
+					modeltibery.buscartiss(unidade, function(error, resultado){
+							res.render("kaban/Tibery/tisstibery", {tiss: resultado, id : result });
+					});
+				});
+			});	
+		}else{
+
+			modeladmin.buscarusuarioeditavel(id, function(error, result){	
+				modeltibery.addtiss(idpaciente, setor, nome, atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss ,data,unidade,  function(error, resulta){
+					modeltibery.updatetissstatus(json[0].idtiss, function(error, resulta){
+						modeltibery.buscartiss(unidade, function(error, resultado){
+							res.render("kaban/Tibery/tisstibery", {tiss: resultado, id : result});
+						});
+					});	
+				});
+			});	
+		}
+	})
+	
+}
+
+module.exports.cadastrarnews= function(application, req, res){
+	var nome = req.body.nome;
+	var idpaciente = req.body.idpaciente;
+	var setor = req.body.setor;
+	var news = req.body.news;
+	var data = req.body.data;
+	var id = req.body.campo;
+	var fc = req.body.fc;
+	var sat = req.body.sat;
+	var temp = req.body.temp;
+	var o2 = req.body.o2;
+	var fr = req.body.fr;
+	var sistolica = req.body.sistolica;
+	var alerta = req.body.covid;
+	var horasreg = req.body.horas;
+	var datareg = req.body.datareg;
+	var unidade = 'Tibery';
+	
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	var modelcovidtibery = new application.app.model.regulacao.modeltibery(application);
+
+	modeltibery.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
+		var string=JSON.stringify(resultados);
+		var json =  JSON.parse(string);
+		console.log(json[0].dataatualizacao, json[0].idnews);
+		if(json[0].dataatualizacao == null){
+			modeladmin.buscarusuarioporid(id, function(error, result){	
+				modeltibery.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+					modelcovidtibery.updatenews(idpaciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+						modeltibery.buscarnews(unidade, function(error, resultado){
+								res.render("kaban/Tibery/newskabantibery", {news: resultado, id : result });
+						});
+					});
+				});
+			});	
+		}else{
+			modeladmin.buscarusuarioeditavel(id, function(error, result){	
+				modeltibery.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+					modeltibery.updatenewsstatus(json[0].idnews, function(error, resulta){
+						modelcovidtibery.updatenews(idpaciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+							modeltibery.buscarnews(unidade, function(error, resultado){
+									res.render("kaban/Tibery/newskabantibery", {news: resultado, id : result });
+							});
+						});
+					});	
+				});
+			});	
+		}
+	})
+	
+}
+
+module.exports.update= function(application, req, res){
+	var idpaciente = req.body.idpaciente;
+	var paciente = req.body.paciente;
+	var susfacil = req.body.susfacil;
+	var prt = req.body.prontuario;
+	var dn = req.body.dn;
+	var idade = req.body.idade;
+	var da = req.body.da;
+	var qtdi = req.body.qtdi;
+	var ecf = req.body.ecf;
+	var spict = req.body.spcit;
+	var setor = req.body.setor2;
+	var paliativo = req.body.paliativo;
+	var diagnostico = req.body.diagnostico;
+	var especialidade = req.body.especialidade;
+	var observacao = req.body.observacao;
+	var banho = req.body.banho;
+	var mobilidade = req.body.mobilidade;
+	var pendencias = req.body.pendencias;
+	var mental = req.body.mental2;
+	var referencia = req.body.referencia;
+	var covid = req.body.covid2;
+	var glasgow = req.body.glasgow;
+	var bic = req.body.bic;
+	var dieta =  req.body.dieta2;
+	var dataexame = req.body.dataexame;
+	var data = req.body.data;
+	var baixa = "Erro na inserção Kaban";
+	var exame = req.body.exame4;
+	var id = req.body.idusuario;
+	var unidade = 'Tibery';
+
+	var svd = "";
+	var sne = "";
+	var avp = "";
+	var cvc = "";
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	var modelcovidtibery = new application.app.model.regulacao.modeltibery(application);
+	var modelmentaltibery = new application.app.model.mentalurgencia.modelmentaltibery(application);
+
+	modeltibery.buscarpacienteporid(idpaciente, function(error, idpac){
+	modelcovidtibery.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+		modelmentaltibery.buscarpacientepornome(idpac[0].nome, function(error, idmental){	
+			if(mental == 'true' && idpac[0].mental == "true" ){
+				if(covid == 'true' && idpac[0].covid == "true"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelcovidtibery.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+								modelmentaltibery.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
+									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+												modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+													modeltibery.buscardispositivo(unidade, function(error, result){
+														modeltibery.buscarpaciente(unidade, function(error, resultado){
+															res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == 'true' && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelcovidtibery.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+								modelmentaltibery.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
+									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+												modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+													modeltibery.buscardispositivo(unidade, function(error, result){
+														modeltibery.buscarpaciente(unidade, function(error, resultado){
+															res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == 'false' && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmentaltibery.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
+								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+									modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+												modeltibery.buscardispositivo(unidade, function(error, result){
+													modeltibery.buscarpaciente(unidade, function(error, resultado){
+														res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == 'false' && idpac[0].covid == "true"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+								modelmentaltibery.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
+									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+												modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+													modeltibery.buscardispositivo(unidade, function(error, result){
+														modeltibery.buscarpaciente(unidade, function(error, resultado){
+															res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+			}
+			if(mental == 'false' && idpac[0].mental == "false" ){
+				if(covid == "false" && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+								modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+									modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+											modeltibery.buscardispositivo(unidade, function(error, result){
+												modeltibery.buscarpaciente(unidade, function(error, resultado){
+													res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "true" && idpac[0].covid == "true"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelcovidtibery.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+									modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+												modeltibery.buscardispositivo(unidade, function(error, result){
+													modeltibery.buscarpaciente(unidade, function(error, resultado){
+														res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "true" && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelcovidtibery.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+									modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+												modeltibery.buscardispositivo(unidade, function(error, result){
+													modeltibery.buscarpaciente(unidade, function(error, resultado){
+														res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "false" && idpac[0].covid == "true"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+									modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+												modeltibery.buscardispositivo(unidade, function(error, result){
+													modeltibery.buscarpaciente(unidade, function(error, resultado){
+														res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+			}	
+			if(mental == 'true' && idpac[0].mental == "false" ){
+				if(covid == "false" && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmentaltibery.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+									modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+												modeltibery.buscardispositivo(unidade, function(error, result){
+													modeltibery.buscarpaciente(unidade, function(error, resultado){
+														res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "true" && idpac[0].covid == "true"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmentaltibery.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+								modelcovidtibery.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+												modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+													modeltibery.buscardispositivo(unidade, function(error, result){
+														modeltibery.buscarpaciente(unidade, function(error, resultado){
+															res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "true" && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmentaltibery.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+								modelcovidtibery.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+												modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+													modeltibery.buscardispositivo(unidade, function(error, result){
+														modeltibery.buscarpaciente(unidade, function(error, resultado){
+															res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "false" && idpac[0].covid == "true"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmentaltibery.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+								modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+												modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+													modeltibery.buscardispositivo(unidade, function(error, result){
+														modeltibery.buscarpaciente(unidade, function(error, resultado){
+															res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+			}	
+			if(mental == 'false' && idpac[0].mental == "true" ){
+				if(covid == "false" && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+									modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+												modeltibery.buscardispositivo(unidade, function(error, result){
+													modeltibery.buscarpaciente(unidade, function(error, resultado){
+														res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "true" && idpac[0].covid == "true"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+								modelcovidtibery.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+												modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+													modeltibery.buscardispositivo(unidade, function(error, result){
+														modeltibery.buscarpaciente(unidade, function(error, resultado){
+															res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "true" && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+								modelcovidtibery.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+												modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+													modeltibery.buscardispositivo(unidade, function(error, result){
+														modeltibery.buscarpaciente(unidade, function(error, resultado){
+															res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "false" && idpac[0].covid == "true"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+								modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+										modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+											modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+												modeltibery.updatedispositivonome(idpaciente,paciente,  function(error, result){
+													modeltibery.buscardispositivo(unidade, function(error, result){
+														modeltibery.buscarpaciente(unidade, function(error, resultado){
+															res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados, dispositivo: result});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+			}
+			
+		})
+	})
+})
+}
+
+module.exports.baixa= function(application, req, res){
+	var idpaciente = req.body.campo;
+	var id = req.body.campo2;
+	var baixa = req.body.baixa;
+	var data = req.body.data;
+	var unidade = 'Tibery';
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	var modelcovidtibery = new application.app.model.regulacao.modeltibery(application);
+	var modelmentaltibery = new application.app.model.mentalurgencia.modelmentaltibery(application);
+	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
+	modeltibery.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
+	modeltibery.buscarleitosid(setoresrecuperado, function(error, idleito){
+		if(setoresrecuperado[0].leito == "Maca"){	
+			modeladmingestao.updateleitostiberymaca(setoresrecuperado[0].setor, function(error, resulta){
+	modeltibery.buscarpacienteporid(idpaciente, function(error, idpac){
+		modelcovidtibery.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+			modelmentaltibery.buscarpacientepornome(idpac[0].nome, function(error, idmental){
+				if(idpac[0].mental == 'true'){
+					if(idpac[0].covid == 'true'){
+						modeladmin.buscarusuarioporid(id, function(error, resultados){
+							modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+								modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+									modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+										modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
+											modeltibery.baixatiss(idpaciente,baixa, function(error, result){
+												modeltibery.baixanews(idpaciente,baixa, function(error, result){
+													modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
+														modeltibery.baixacentral(idpaciente,baixa, function(error, result){
+															modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
+																modeltibery.buscarleitosnome(nome, function(error, idleito){
+			
+																	modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
+																		modeltibery.buscarpaciente(unidade, function(error, resultado){
+																			res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
+																		});
+																	});
+																});	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});	
+					}
+					else{
+						modeladmin.buscarusuarioporid(id, function(error, resultados){
+							modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+								modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+									modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
+										modeltibery.baixatiss(idpaciente,baixa, function(error, result){
+											modeltibery.baixanews(idpaciente,baixa, function(error, result){
+												modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
+													modeltibery.baixacentral(idpaciente,baixa, function(error, result){
+														modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
+															modeltibery.buscarleitosnome(nome, function(error, idleito){
+																
+																modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modeltibery.buscarpaciente(unidade, function(error, resultado){
+																		res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
+																	});
+																});
+															});	
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});	
+					}
+				}
+				else{
+					if(idpac[0].covid == "false"){
+						modeladmin.buscarusuarioporid(id, function(error, resultados){
+							modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+								modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
+									modeltibery.baixatiss(idpaciente,baixa, function(error, result){
+										modeltibery.baixanews(idpaciente,baixa, function(error, result){
+											modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
+												modeltibery.baixacentral(idpaciente,baixa, function(error, result){
+													modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
+														modeltibery.buscarleitosnome(nome, function(error, idleito){
+															
+															modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																modeltibery.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
+																});
+															});
+														});	
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});	
+					}
+					else{
+						modeladmin.buscarusuarioporid(id, function(error, resultados){
+							modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+								modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+									modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
+										modeltibery.baixatiss(idpaciente,baixa, function(error, result){
+											modeltibery.baixanews(idpaciente,baixa, function(error, result){
+												modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
+													modeltibery.baixacentral(idpaciente,baixa, function(error, result){
+														modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
+															modeltibery.buscarleitosnome(nome, function(error, idleito){
+														
+																modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modeltibery.buscarpaciente(unidade, function(error, resultado){
+																		res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
+																	});
+																});
+															});	
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});	
+					}
+				}	
+			})	
+		})	
+	})
+})
+}	if(setoresrecuperado[0].leito == "Cama"){
+	modeladmingestao.updateleitostiberycama(setoresrecuperado[0].setor, function(error, resulta){
+		modeltibery.buscarpacienteporid(idpaciente, function(error, idpac){
+			modelcovidtibery.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+				modelmentaltibery.buscarpacientepornome(idpac[0].nome, function(error, idmental){
+					if(idpac[0].mental == 'true'){
+						if(idpac[0].covid == 'true'){
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+									modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+										modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+											modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
+												modeltibery.baixatiss(idpaciente,baixa, function(error, result){
+													modeltibery.baixanews(idpaciente,baixa, function(error, result){
+														modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
+															modeltibery.baixacentral(idpaciente,baixa, function(error, result){
+																modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
+																	modeltibery.buscarleitosnome(nome, function(error, idleito){
+				
+																		modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
+																			modeltibery.buscarpaciente(unidade, function(error, resultado){
+																				res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
+																			});
+																		});
+																	});	
+																});
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});	
+						}
+						else{
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+									modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+										modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
+											modeltibery.baixatiss(idpaciente,baixa, function(error, result){
+												modeltibery.baixanews(idpaciente,baixa, function(error, result){
+													modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
+														modeltibery.baixacentral(idpaciente,baixa, function(error, result){
+															modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
+																modeltibery.buscarleitosnome(nome, function(error, idleito){
+																	
+																	modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																		modeltibery.buscarpaciente(unidade, function(error, resultado){
+																			res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
+																		});
+																	});
+																});	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});	
+						}
+					}
+					else{
+						if(idpac[0].covid == "false"){
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+									modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
+										modeltibery.baixatiss(idpaciente,baixa, function(error, result){
+											modeltibery.baixanews(idpaciente,baixa, function(error, result){
+												modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
+													modeltibery.baixacentral(idpaciente,baixa, function(error, result){
+														modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
+															modeltibery.buscarleitosnome(nome, function(error, idleito){
+																
+																modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modeltibery.buscarpaciente(unidade, function(error, resultado){
+																		res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
+																	});
+																});
+															});	
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});	
+						}
+						else{
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+									modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+										modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
+											modeltibery.baixatiss(idpaciente,baixa, function(error, result){
+												modeltibery.baixanews(idpaciente,baixa, function(error, result){
+													modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
+														modeltibery.baixacentral(idpaciente,baixa, function(error, result){
+															modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
+																modeltibery.buscarleitosnome(nome, function(error, idleito){
+															
+																	modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																		modeltibery.buscarpaciente(unidade, function(error, resultado){
+																			res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
+																		});
+																	});
+																});	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});	
+						}
+					}	
+				})	
+			})	
+		})
+	})
+	}	
+})
+})
+}
+
+module.exports.updatedispositivokabantibery= function(application, req, res){
+	var idpaciente = req.body.idpaciente;
+	var svd = req.body.svd3;
+	var datasvd = req.body.datasvd;
+	var sne = req.body.sne3;
+	var datasne = req.body.datasne;
+	var avp = req.body.avp3;
+	var dataavp = req.body.dataavp;
+	var cvc = req.body.cvc3;
+	var datacvc = req.body.datacvc;
+	var dispositivoventilatorio = req.body.dispositivo2;
+	var fluxoo2 = req.body.o2;
+	var fio2 = req.body.o2;
+	var peep = req.body.peep;
+	var drogas = req.body.drogas;
+	var nora = req.body.nora;
+	var vazaonora = req.body.vazaonora;
+	var adre = req.body.adre;
+	var vazaoadre = req.body.vazaoadre;
+	var bica = req.body.bica;
+	var vazaobica = req.body.vazaobica;
+	var sedacao = req.body.sedacao3;
+	var dormonid3 = req.body.Dormonid3;
+	var vazaoDormonid = req.body.vazaoDormonid;
+	var fentanil3 = req.body.Fentanil3;
+	var vazaoFentanil = req.body.vazaoFentanil;
+	var rocuronio3 = req.body.Rocuronio3;
+	var vazaoRocuronio = req.body.vazaoRocuronio;
+	var propofol3 = req.body.Propofol3;
+	var vazaoPropofol = req.body.vazaoPropofol;
+	var id = req.body.idusuario;
+	var unidade = 'Tibery';
+	var profissional = "Enfermeiro";
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	var modelcovidtibery = new application.app.model.regulacao.modeltibery(application);
+
+	modeladmin.buscarusuarioporid(id, function(error, result){	
+		modeltibery.updatedispositivodados(idpaciente,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
+			modelcovidtibery.updaterespkaban(idpaciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
+				modeltibery.buscardispositivo(unidade, function(error, resultado){
+						res.render("kaban/Tibery/dispositivotibery", {dispositivo: resultado, id : result });
+				});
+			});
+		});
+	});	
+}
+
+module.exports.updatefugulin= function(application, req, res){
+	var idpaciente = req.body.idpaciente;
+	var mental2 = req.body.mental2;
+	var oxigenacao2 = req.body.oxigenacao2;
+	var sinaisvitais2 = req.body.sinaisvitais2;
+	var motilidade2 = req.body.motilidade2;
+	var deambulacao2 = req.body.deambulacao2;
+	var alimentacao2 = req.body.alimentacao2;
+	var cuidado2 = req.body.cuidado2;
+	var eliminacao2 = req.body.eliminacao2;
+	var terapeutica2 = req.body.terapeutica2;
+	var integridade2 = req.body.integridade2;
+	var curativo2 = req.body.curativo2;
+	var tempo2 = req.body.tempo2;
+	var fugulin = req.body.fugulin;
+	var id = req.body.idusuario;
+	var unidade = 'Tibery';
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+	modeladmin.buscarusuarioporid(id, function(error, resultados){	
+		modeltibery.updatefugulindados(idpaciente, mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,unidade,  function(error, result){
+			modeltibery.buscarfugulin(unidade, function(error, resultado){
+				res.render("kaban/Tibery/fugulintibery", {fugulin : resultado, id : resultados});
+			});
+		});
+	});	
+}
+
+module.exports.updatenews= function(application, req, res){
+	var nome = req.body.nome;
+	var idpaciente = req.body.id;
+	var setor = req.body.setor;
+	var news = req.body.news;
+	var data = req.body.data;
+	var id = req.body.campo;
+	var fc = req.body.fc;
+	var sat = req.body.sat;
+	var temp = req.body.temp;
+	var o2 = req.body.o2;
+	var fr = req.body.fr;
+	var sistolica = req.body.sistolica;
+	var alerta = req.body.covid;
+	var horasreg = req.body.horas;
+	var datareg = req.body.datareg;
+	var id = req.body.idusuario;
+	var unidade = 'Tibery';
+	
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	var modelcovidtibery = new application.app.model.regulacao.modeltibery(application);
+
+			modeladmin.buscarusuarioporid(id, function(error, result){	
+				modeltibery.updatenewsdados(idpaciente, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+					modelcovidtibery.updatenews(idpaciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+						modeltibery.buscarnews(unidade, function(error, resultado){
+								res.render("kaban/Tibery/newskabantibery", {news: resultado, id : result });
+						});
+					});
+				});
+			});		
+}
+
+module.exports.updatetiss= function(application, req, res){
+	var idpaciente = req.body.idpaciente;
+	var atividades = req.body.atividades2;
+	var ventilatorio = req.body.ventilatorio2;
+	var cardiovascular = req.body.cardiovascular2;
+	var renal = req.body.renal2;
+	var neurologico = req.body.neurologico2;
+	var metabolico = req.body.metabolico2;
+	var intervencoes = req.body.intervencoes2;
+	var tiss = req.body.tiss;
+	var id = req.body.idusuario;
+	var unidade = 'Tibery';
+
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+	modeladmin.buscarusuarioporid(id, function(error, resultados){	
+		modeltibery.updatetissdados(idpaciente, atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss,unidade,  function(error, result){
+			modeltibery.buscartiss(unidade, function(error, resultado){
+				res.render("kaban/Tibery/tisstibery", {tiss : resultado, id : resultados});
+			});
+		});
+	});	
+}
+

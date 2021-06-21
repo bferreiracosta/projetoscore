@@ -20,11 +20,9 @@
                     <th>Frequência Respiratoria</th>
                     <th>Saturação de O2</th>
                     <th>Nivel de Alerta</th>
-                    <th></th>
                     <th>News</th>
-                    <th></th>
                     <th>Data Atualização</th>
-                    <th></th>
+                    
                    
                 </tr>
                 </thead>
@@ -43,11 +41,9 @@
                         <td><label hidden for="">/Frequência Respiratoria: </label><%=news[j].fr %></td>
                         <td><label hidden for="">/Saturação de O2: </label><%=news[j].sat %></td>
                         <td><label hidden for="">/Nivel de Alerta: </label><%=news[j].alerta %></td>
-                        <td><label hidden for="">/News: </label></td>
                         <td><%=news[j].news %></td>
-                        <td><label hidden for="">/Data da atualização: </label></td>
                         <td><%=news[j].dataatualizacao %></td>
-                        
+        
                     </tr>
                     
                     <% } %>	
@@ -147,42 +143,37 @@ setInterval(function(){
 
 function init_PNotify() {
     
-    var data = new Date;
-    var now = (new Date).toLocaleString().substr(11, 5)
-    var hoje = data.getDate() + "/" + (data.getMonth()+1) + "/" + data.getFullYear();
+    var date = new Date();
+    var hoje = date.getHours()+':'+date.getMinutes();
     $('#mytable tbody tr').each(function(i){
         tr=$(this);
         tr.children('td').removeClass('fundoIdade');
-        valor=tr.children('td:eq(17)').html();
-        date = tr.children('td:eq(15)').html();
-        news =tr.children('td:eq(13)').html();
-        console.log(valor, date, news);
+        valor=tr.children('td:eq(10)').html();
+        news =tr.children('td:eq(9)').html();
+       
         if(news <= 4){
             var tempocerto = somartempos('6:00', valor); 
-            console.log(now, tempocerto);
-            if(hoje > date || now == tempocerto || now > tempocerto){
-                tr.children('td:eq(13)').addClass('fundoIdade');
+            var compahora = compararHora(hoje, tempocerto)
+            if(compahora == true){
+                tr.children('td:eq(9)').addClass('fundoIdade');
                 notificação(); 
             }
-        }if(news > 4 && news <=6){
-            var tempocerto = somartempos('4:00', valor);
-            console.log(now, tempocerto); 
-            if(hoje > date || now == tempocerto || now > tempocerto){
-                tr.children('td:eq(13)').addClass('fundoIdade1');
+        }if(compahora == true){
+            var tempocerto = somartempos('4:00', valor); 
+            if(hoje == tempocerto || hoje < tempocerto){
+                tr.children('td:eq(9)').addClass('fundoIdade1');
                 notificação(); 
             }
-        }if(news >= 7){
+        }if(compahora == true){
             var tempocerto = somartempos('1:00', valor); 
-            console.log(now, tempocerto);
-            if( hoje > date || now == tempocerto || now > tempocerto){
-                tr.children('td:eq(13)').addClass('fundoIdade2');
+            if( hoje == tempocerto || hoje < tempocerto){
+                tr.children('td:eq(9)').addClass('fundoIdade2');
                 notificação(); 
             }
         }
         if(news = 0){
             var tempocerto = somartempos('1:00', valor); 
-            console.log(now, tempocerto);
-            if(hoje > date || now == tempocerto || now > tempocerto){
+            if(compahora == true){
                 notificação(); 
             }
         }
@@ -191,10 +182,12 @@ function init_PNotify() {
 };
 
 function somartempos(tempo1, tempo2) {
-    
+
+    var date = new Date(tempo2);
+    var hoje = date.getHours()+':'+date.getMinutes();
     var array1 = tempo1.split(':');
     var tempo_seg1 = (parseInt(array1[0]) * 3600) + (parseInt(array1[1]) * 60);
-    var array2 = tempo2.split(':');
+    var array2 = hoje.split(':');
     var tempo_seg2 = (parseInt(array2[0]) * 3600) + (parseInt(array2[1]) * 60);
     var tempofinal = parseInt(tempo_seg1) + parseInt(tempo_seg2);
     var hours = Math.floor(tempofinal / (60 * 60));
@@ -205,6 +198,18 @@ function somartempos(tempo1, tempo2) {
     if (minutes < 10) { contador += "0" + minutes } else { contador += minutes; }
     return contador;
 }
+
+function compararHora(hora1, hora2)
+{
+    hora1 = hora1.split(":");
+    hora2 = hora2.split(":");
+    
+    var d = new Date();
+    var data1 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), hora1[0], hora1[1]);
+    var data2 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), hora2[0], hora2[1]);
+    
+    return data1 > data2;
+};
 
 function notificação(){
     new PNotify({

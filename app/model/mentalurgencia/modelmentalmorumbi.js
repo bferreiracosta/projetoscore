@@ -44,10 +44,11 @@ modelmentalmorumbi.prototype.buscarpacienteid = function(idpaciente, unidade, ca
 	this._conection.query('select * from mentalurgencia where unidade = "'+unidade+'" and id_paciente = ' + idpaciente.id, callback);
 }
 
-modelmentalmorumbi.prototype.buscarpacientepornome = function(paciente, unidade, callback){
-	this._conection.query('select idpaciente from mentalurgencia where unidade = "'+unidade+'" and paciente = ' + paciente, callback);
+modelmentalmorumbi.prototype.buscarpacientepornome = function(paciente, callback){
+		
+	this._conection.query('select id_paciente from mentalurgencia where paciente = "'+paciente+'" and unidade = "Morumbi"', callback);
+	
 }
-
 module.exports = function(){
 	return modelmentalmorumbi;
 }

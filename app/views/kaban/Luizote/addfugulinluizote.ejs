@@ -35,7 +35,7 @@
 			<tr>
 				
 				<td>
-                    <a href="" onclick="setaDadosModal2('<%=id[i].id_usuario %>'),setaDadosModal('<%=fugulin[j].idpaciente %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Adicionar dispositivo</a>
+                    <a href="" onclick="setaDadosModal2('<%=id[i].id_usuario %>'),setaDadosModal('<%=fugulin[j].idpaciente %>'), setaDadosModal3('<%=fugulin[j].nome %>'), setaDadosModal4('<%=fugulin[j].setor %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Adicionar dispositivo</a>
                 </td>
 				<td><label for="">ID: </label><%=fugulin[j].idpaciente %></td>
 				<td><label hidden for="">Nome: </label><%=fugulin[j].nome %></td>
@@ -63,8 +63,7 @@
 	<br>
 
 	
-	<% if(fugulin.length > 0) { %>
-		<% for(var j = 0; j < fugulin.length; j++) {%>
+	
 <!-- Delete Product Modal-->
 <form id="add-row-form" action="/savefugulinluizote" method="POST">
 	<div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -86,18 +85,19 @@
 					   <div >
 						   <div >
 							<div class="form-group">
-								<input readonly="readonly" type="hidden" id="idpaciente" name="idpaciente" class="form-control" value="<%=fugulin[j].idpaciente%>">
+								<input readonly="readonly" type="hidden" name="idpaciente" id="idpaciente" class="form-control" placeholder="" required>
 								<label for="">Paciente</label>
-								<input  readonly="readonly" type="text" name="nome" class="form-control" value="<%=fugulin[j].nome %>" >
+								<input readonly="readonly" type="text" name="nome" id="nome" class="form-control" >
+								<input readonly="readonly" type="hidden" name="setor" id="setor" class="form-control" >
 							</div>
 							<div class="form-group">
 								<label for="mental">Estado Mental</label>
 								<select class="form-control" id="mental" name="mental" required>
 									<option value="" disabled selected hidden>Estado Mental</option>
-									<option value="Inconsciênte" <%=(fugulin[j].mental == 'Inconsciênte')?'selected':''%>>Inconsciênte</option>
-									<option value="Períodos de Inconsciência"  <%=(fugulin[j].mental == 'Períodos de Inconsciência')?'selected':''%>>Períodos de Inconsciência</option>
-									<option value="Períodos de desorientação no tempo e no espaço"  <%=(fugulin[j].mental == 'Períodos de desorientação no tempo e no espaço')?'selected':''%>>Períodos de desorientação no tempo e no espaço</option>
-									<option value="Orientado no tempo e no espaço"  <%=(fugulin[j].mental == 'Orientado no tempo e no espaço')?'selected':''%>>Orientado no tempo e no espaço</option>
+									<option value="Inconsciênte" >Inconsciênte</option>
+									<option value="Períodos de Inconsciência" >Períodos de Inconsciência</option>
+									<option value="Períodos de desorientação no tempo e no espaço"  >Períodos de desorientação no tempo e no espaço</option>
+									<option value="Orientado no tempo e no espaço">Orientado no tempo e no espaço</option>
 								</select>
 								<input type="hidden" name="mental2"  id="mental2" class="form-control" required>
 							</div>
@@ -105,10 +105,10 @@
 								<label for="oxigenacao">Oxigenação</label>
 								<select class="form-control" id="oxigenacao" name="oxigenacao" required>
 									<option value="" disabled selected hidden>Oxigenação</option>
-									<option value="Ventilação mecânica (uso de ventilador a pressão ou a volume)" <%=(fugulin[j].oxigenacao == 'Ventilação mecânica (uso de ventilador a pressão ou a volume)')?'selected':''%>>Ventilação mecânica (uso de ventilador a pressão ou a volume)</option>
-									<option value="Uso contínuo de máscara ou cateter de oxigênio" <%=(fugulin[j].oxigenacao == 'Uso contínuo de máscara ou cateter de oxigênio')?'selected':''%>>Uso contínuo de máscara ou cateter de oxigênio</option>
-									<option value="Uso intermitente de máscara ou cateter de oxigênio" <%=(fugulin[j].oxigenacao == 'Uso intermitente de máscara ou cateter de oxigênio')?'selected':''%>>Uso intermitente de máscara ou cateter de oxigênio.</option>
-									<option value="Não depende de oxigênio" <%=(fugulin[j].oxigenacao == 'Não depende de oxigênio')?'selected':''%>>Não depende de oxigênio.</option>
+									<option value="Ventilação mecânica (uso de ventilador a pressão ou a volume)" >Ventilação mecânica (uso de ventilador a pressão ou a volume)</option>
+									<option value="Uso contínuo de máscara ou cateter de oxigênio" >Uso contínuo de máscara ou cateter de oxigênio</option>
+									<option value="Uso intermitente de máscara ou cateter de oxigênio" >Uso intermitente de máscara ou cateter de oxigênio.</option>
+									<option value="Não depende de oxigênio" >Não depende de oxigênio.</option>
 								</select>
 								<input type="hidden" name="oxigenacao2"  id="oxigenacao2" class="form-control" required>
 							</div>
@@ -116,10 +116,10 @@
 								<label for="sinaisvitais">Sinais Vitais</label>
 								<select class="form-control" id="sinaisvitais" name="sinaisvitais" required>
 									<option value="" disabled selected hidden>Sinais Vitais</option>
-									<option value="Contole em intervalos menores ou iguais a 2 horas" <%=(fugulin[j].sinaisvitais == 'Contole em intervalos menores ou iguais a 2 horas')?'selected':''%>>Contole em intervalos menores ou iguais a 2 horas</option>
-									<option value="Controle em intervalos de 4 horas" <%=(fugulin[j].sinaisvitais == 'Controle em intervalos de 4 horas')?'selected':''%>>Controle em intervalos de 4 horas</option>
-									<option value="Controle em intervalos de 6 horas" <%=(fugulin[j].sinaisvitais == 'Controle em intervalos de 6 horas')?'selected':''%>>Controle em intervalos de 6 horas</option>
-									<option value="Controle de rotina (8 horas)" <%=(fugulin[j].sinaisvitais == 'Controle de rotina (8 horas)')?'selected':''%>>Controle de rotina (8 horas)</option>
+									<option value="Contole em intervalos menores ou iguais a 2 horas" >Contole em intervalos menores ou iguais a 2 horas</option>
+									<option value="Controle em intervalos de 4 horas" >Controle em intervalos de 4 horas</option>
+									<option value="Controle em intervalos de 6 horas" >Controle em intervalos de 6 horas</option>
+									<option value="Controle de rotina (8 horas)" >Controle de rotina (8 horas)</option>
 								</select>
 								<input type="hidden" name="sinaisvitais2"  id="sinaisvitais2" class="form-control" required>
 							</div>
@@ -127,10 +127,10 @@
 								<label for="motilidade">Motilidade</label>
 								<select class="form-control" id="motilidade" name="motilidade" required>
 									<option value="" disabled selected hidden>Motilidade</option>
-									<option value="Incapaz de movimentar qualquer segmento corporal. Mudança de decúbito e movimentação passiva programada e realizada pela enfermagem" <%=(fugulin[j].motilidade == 'Incapaz de movimentar qualquer segmento corporal. Mudança de decúbito e movimentação passiva programada e realizada pela enfermagem')?'selected':''%>>Incapaz de movimentar qualquer segmento corporal. Mudança de decúbito e movimentação passiva programada e realizada pela enfermagem</option>
-									<option value="Dificuldade para movimentar segmentos corporais. Mudança de decúbito e movimentação passiva auxiliada pela enfermagem" <%=(fugulin[j].motilidade == 'Dificuldade para movimentar segmentos corporais. Mudança de decúbito e movimentação passiva auxiliada pela enfermagem')?'selected':''%>>Dificuldade para movimentar segmentos corporais. Mudança de decúbito e movimentação passiva auxiliada pela enfermagem</option>
-									<option value="Limitação de movimentos" <%=(fugulin[j].motilidade == 'Limitação de movimentos')?'selected':''%>>Limitação de movimentos</option>
-									<option value="Movimenta todos os segmentos corporais" <%=(fugulin[j].motilidade == 'Movimenta todos os segmentos corporais')?'selected':''%>>Movimenta todos os segmentos corporais</option>
+									<option value="Incapaz de movimentar qualquer segmento corporal. Mudança de decúbito e movimentação passiva programada e realizada pela enfermagem" >Incapaz de movimentar qualquer segmento corporal. Mudança de decúbito e movimentação passiva programada e realizada pela enfermagem</option>
+									<option value="Dificuldade para movimentar segmentos corporais. Mudança de decúbito e movimentação passiva auxiliada pela enfermagem" >Dificuldade para movimentar segmentos corporais. Mudança de decúbito e movimentação passiva auxiliada pela enfermagem</option>
+									<option value="Limitação de movimentos" >Limitação de movimentos</option>
+									<option value="Movimenta todos os segmentos corporais" >Movimenta todos os segmentos corporais</option>
 								</select>
 								<input type="hidden" name="motilidade2"  id="motilidade2" class="form-control" required>
 							</div>
@@ -138,10 +138,10 @@
 								<label for="deambulacao">Deambulação</label>
 								<select class="form-control" id="deambulacao" name="deambulacao" required>
 									<option value="" disabled selected hidden>Deambulação</option>
-									<option value="Restrito ao leito" <%=(fugulin[j].deambulacao == 'Restrito ao leito')?'selected':''%>>Restrito ao leito</option>
-									<option value="Locomoção através de cadeira de rodas" <%=(fugulin[j].deambulacao == 'Locomoção através de cadeira de rodas')?'selected':''%>>Locomoção através de cadeira de rodas</option>
-									<option value="Necessita de auxílio para deambular" <%=(fugulin[j].deambulacao == 'Necessita de auxílio para deambular')?'selected':''%>>Necessita de auxílio para deambular</option>
-									<option value="Ambulante" <%=(fugulin[j].deambulacao == 'Ambulante')?'selected':''%>>Ambulante</option>
+									<option value="Restrito ao leito" >Restrito ao leito</option>
+									<option value="Locomoção através de cadeira de rodas" >Locomoção através de cadeira de rodas</option>
+									<option value="Necessita de auxílio para deambular" >Necessita de auxílio para deambular</option>
+									<option value="Ambulante" >Ambulante</option>
 								</select>
 								<input type="hidden" name="deambulacao2"  id="deambulacao2" class="form-control" required>
 							</div>
@@ -149,10 +149,10 @@
 								<label for="alimentacao">Alimentação</label>
 								<select class="form-control" id="alimentacao" name="alimentacao" required>
 									<option value="" disabled selected hidden>Alimentação</option>
-									<option value="Através de cateter central" <%=(fugulin[j].alimentacao == 'Através de cateter central')?'selected':''%>>Através de cateter central</option>
-									<option value="Através de sonda nasogástrica" <%=(fugulin[j].alimentacao == 'través de sonda nasogástrica')?'selected':''%>>Através de sonda nasogástrica</option>
-									<option value="Por boca, com auxílio" <%=(fugulin[j].alimentacao == 'Por boca, com auxílio')?'selected':''%>>Por boca, com auxílio</option>
-									<option value="Auto suficiente" <%=(fugulin[j].alimentacao == 'Auto suficiente')?'selected':''%>>Auto suficiente</option>
+									<option value="Através de cateter central" >Através de cateter central</option>
+									<option value="Através de sonda nasogástrica" >Através de sonda nasogástrica</option>
+									<option value="Por boca, com auxílio" >Por boca, com auxílio</option>
+									<option value="Auto suficiente" >Auto suficiente</option>
 								</select>
 								<input type="hidden" name="alimentacao2"  id="alimentacao2" class="form-control" required>
 							</div>
@@ -160,10 +160,10 @@
 								<label for="cuidado">Cuidado corporal</label>
 								<select class="form-control" id="cuidado" name="cuidado" required>
 									<option value="" disabled selected hidden>Cuidado corporal</option>
-									<option value="Banho no leito, higiêne oral realizada pela enfermagem" <%=(fugulin[j].cuidado == 'Banho no leito, higiêne oral realizada pela enfermagem')?'selected':''%>>Banho no leito, higiêne oral realizada pela enfermagem</option>
-									<option value="Banho de chuveiro, higiêne oral realizada pela enfermagem" <%=(fugulin[j].cuidado == 'Banho de chuveiro, higiêne oral realizada pela enfermagem')?'selected':''%>>Banho de chuveiro, higiêne oral realizada pela enfermagem</option>
-									<option value="Auxílio no banho de chuveiroe/ou higiêne oral" <%=(fugulin[j].cuidado == 'Auxílio no banho de chuveiroe/ou higiêne oral')?'selected':''%>>Auxílio no banho de chuveiroe/ou higiêne oral</option>
-									<option value="Auto suficiente" <%=(fugulin[j].cuidado == 'Auto suficiente')?'selected':''%>>Auto suficiente</option>
+									<option value="Banho no leito, higiêne oral realizada pela enfermagem" >Banho no leito, higiêne oral realizada pela enfermagem</option>
+									<option value="Banho de chuveiro, higiêne oral realizada pela enfermagem" >Banho de chuveiro, higiêne oral realizada pela enfermagem</option>
+									<option value="Auxílio no banho de chuveiroe/ou higiêne oral" >Auxílio no banho de chuveiroe/ou higiêne oral</option>
+									<option value="Auto suficiente" >Auto suficiente</option>
 								</select>
 								<input type="hidden" name="cuidado2"  id="cuidado2" class="form-control" required>
 							</div>
@@ -171,10 +171,10 @@
 								<label for="eliminacao">Eliminação</label>
 								<select class="form-control" id="eliminacao" name="eliminacao" required>
 									<option value="" disabled selected hidden>Eliminação</option>
-									<option value="Evacuação no leito e uso de sonda vesical para controle da diurese" <%=(fugulin[j].eliminacao == 'Evacuação no leito e uso de sonda vesical para controle da diurese')?'selected':''%>>Evacuação no leito e uso de sonda vesical para controle da diurese</option>
-									<option value="Uso de comadre ou eliminações no leito" <%=(fugulin[j].eliminacao == 'Uso de comadre ou eliminações no leito')?'selected':''%>>Uso de comadre ou eliminações no leito</option>
-									<option value="Uso de vaso sanitário com auxílio" <%=(fugulin[j].eliminacao == 'Uso de vaso sanitário com auxílio')?'selected':''%>>Uso de vaso sanitário com auxílio</option>
-									<option value="Auto suficiente" <%=(fugulin[j].eliminacao == 'Auto suficiente')?'selected':''%>>Auto suficiente</option>
+									<option value="Evacuação no leito e uso de sonda vesical para controle da diurese" >Evacuação no leito e uso de sonda vesical para controle da diurese</option>
+									<option value="Uso de comadre ou eliminações no leito" >Uso de comadre ou eliminações no leito</option>
+									<option value="Uso de vaso sanitário com auxílio" >Uso de vaso sanitário com auxílio</option>
+									<option value="Auto suficiente" >Auto suficiente</option>
 								</select>
 								<input type="hidden" name="eliminacao2"  id="eliminacao2" class="form-control" required>
 							</div>
@@ -182,10 +182,10 @@
 								<label for="terapeutica">Terapêutica</label>
 								<select class="form-control" id="terapeutica" name="terapeutica" required>
 									<option value="" disabled selected hidden>Terapêutica</option>
-									<option value="Uso de drogas vasoativas para manutenção de P.A" <%=(fugulin[j].terapeutica == 'Uso de drogas vasoativas para manutenção de P.A')?'selected':''%>>Uso de drogas vasoativas para manutenção de P.A</option>
-									<option value="E.V. contínuo ou através de sonda nasogástrica" <%=(fugulin[j].terapeutica == 'E.V. contínuo ou através de sonda nasogástrica')?'selected':''%>>E.V. contínuo ou através de sonda nasogástrica</option>
-									<option value="E.V. intermitente" <%=(fugulin[j].terapeutica == 'E.V. intermitente')?'selected':''%>>E.V. intermitente</option>
-									<option value="I.M. ou V.O" <%=(fugulin[j].terapeutica == 'I.M. ou V.O')?'selected':''%>>I.M. ou V.O</option>
+									<option value="Uso de drogas vasoativas para manutenção de P.A" >Uso de drogas vasoativas para manutenção de P.A</option>
+									<option value="E.V. contínuo ou através de sonda nasogástrica" >E.V. contínuo ou através de sonda nasogástrica</option>
+									<option value="E.V. intermitente" >E.V. intermitente</option>
+									<option value="I.M. ou V.O" >I.M. ou V.O</option>
 								</select>
 								<input type="hidden" name="terapeutica2"  id="terapeutica2" class="form-control" required>
 							</div>
@@ -193,10 +193,10 @@
 								<label for="integridade">Integridade Cutânea-mucosa/ Comprometimento tecidual</label>
 								<select class="form-control" id="integridade" name="integridade" required>
 									<option value="" disabled selected hidden>Integridade Cutânea-mucosa/ Comprometimento tecidual</option>
-									<option value="Presença da pele com destruição da derme, epiderme, músculos" <%=(fugulin[j].integridade == 'Presença da pele com destruição da derme, epiderme, músculos')?'selected':''%>>Presença da pele com destruição da derme, epiderme, músculos</option>
-									<option value="Presença de solução de continuidade da pele.Incisão cirúrgica. Ostomias. Drenos" <%=(fugulin[j].integridade == 'Presença de solução de continuidade da pele.Incisão cirúrgica. Ostomias. Drenos')?'selected':''%>>Presença de solução de continuidade da pele.Incisão cirúrgica. Ostomias. Drenos</option>
-									<option value="Presença de alteração da cor da pele e/ou presença de solução de continuidade da pele envolvendo a epiderme, derme" <%=(fugulin[j].integridade == 'Presença de alteração da cor da pele e/ou presença de solução de continuidade da pele envolvendo a epiderme, derme')?'selected':''%>>Presença de alteração da cor da pele e/ou presença de solução de continuidade da pele envolvendo a epiderme, derme</option>
-									<option value="Pele íntegra" <%=(fugulin[j].integridade == 'Pele íntegra')?'selected':''%>>Pele íntegra</option>
+									<option value="Presença da pele com destruição da derme, epiderme, músculos" >Presença da pele com destruição da derme, epiderme, músculos</option>
+									<option value="Presença de solução de continuidade da pele.Incisão cirúrgica. Ostomias. Drenos" >Presença de solução de continuidade da pele.Incisão cirúrgica. Ostomias. Drenos</option>
+									<option value="Presença de alteração da cor da pele e/ou presença de solução de continuidade da pele envolvendo a epiderme, derme" >Presença de alteração da cor da pele e/ou presença de solução de continuidade da pele envolvendo a epiderme, derme</option>
+									<option value="Pele íntegra" >Pele íntegra</option>
 								</select>
 								<input type="hidden" name="integridade2"  id="integridade2" class="form-control" required>
 							</div>
@@ -204,10 +204,10 @@
 								<label for="curativo">Curativo</label>
 								<select class="form-control" id="curativo" name="curativo" required>
 									<option value="" disabled selected hidden>Curativo</option>
-									<option value="Curativo realizado 3 vezes ao dia ou mais, pela equipe de enfermagem" <%=(fugulin[j].curativo == 'Curativo realizado 3 vezes ao dia ou mais, pela equipe de enfermagem')?'selected':''%>>Curativo realizado 3 vezes ao dia ou mais, pela equipe de enfermagem</option>
-									<option value="Curativo realizado 2 vezes ao dia, pela equipe de enfermagem" <%=(fugulin[j].curativo == 'Curativo realizado 2 vezes ao dia, pela equipe de enfermagem')?'selected':''%>>Curativo realizado 2 vezes ao dia, pela equipe de enfermagem</option>
-									<option value="Curativo realizado 1 vez ao dia, pela equipe de enfermagem" <%=(fugulin[j].curativo == 'Curativo realizado 1 vez ao dia, pela equipe de enfermagem')?'selected':''%>>Curativo realizado 1 vez ao dia, pela equipe de enfermagem</option>
-									<option value="Sem curativo ou limpeza da ferida/incisão cirúrgica, realizada pelo paciente, durante o banho" <%=(fugulin[j].curativo == 'Sem curativo ou limpeza da ferida/incisão cirúrgica, realizada pelo paciente, durante o banho')?'selected':''%>>Sem curativo ou limpeza da ferida/incisão cirúrgica, realizada pelo paciente, durante o banho</option>
+									<option value="Curativo realizado 3 vezes ao dia ou mais, pela equipe de enfermagem" >Curativo realizado 3 vezes ao dia ou mais, pela equipe de enfermagem</option>
+									<option value="Curativo realizado 2 vezes ao dia, pela equipe de enfermagem" >Curativo realizado 2 vezes ao dia, pela equipe de enfermagem</option>
+									<option value="Curativo realizado 1 vez ao dia, pela equipe de enfermagem" >Curativo realizado 1 vez ao dia, pela equipe de enfermagem</option>
+									<option value="Sem curativo ou limpeza da ferida/incisão cirúrgica, realizada pelo paciente, durante o banho" >Sem curativo ou limpeza da ferida/incisão cirúrgica, realizada pelo paciente, durante o banho</option>
 								</select>
 								<input type="hidden" name="curativo2"  id="curativo2" class="form-control" required>
 							</div>
@@ -215,10 +215,10 @@
 								<label for="tempo">Tempo utilizado na realização de curativos</label>
 								<select class="form-control" id="tempo" name="tempo" required>
 									<option value="" disabled selected hidden>Tempo utilizado na realização de curativos</option>
-									<option value="Superior a 30 minutos" <%=(fugulin[j].tempocurativo == 'Superior a 30 minutos')?'selected':''%>>Superior a 30 minutos</option>
-									<option value="Entre 15 a 30 minutos" <%=(fugulin[j].tempocurativo == 'Entre 15 a 30 minutos')?'selected':''%>>Entre 15 a 30 minutos</option>
-									<option value="Entre 5 e 15 minutos" <%=(fugulin[j].tempocurativo == 'Entre 5 e 15 minutos')?'selected':''%>>Entre 5 e 15 minutos</option>
-									<option value="Sem curativo ou limpeza da ferida realizada durante o banho" <%=(fugulin[j].tempocurativo == 'Sem curativo ou limpeza da ferida realizada durante o banho')?'selected':''%>>Sem curativo ou limpeza da ferida realizada durante o banho</option>
+									<option value="Superior a 30 minutos" >Superior a 30 minutos</option>
+									<option value="Entre 15 a 30 minutos" >Entre 15 a 30 minutos</option>
+									<option value="Entre 5 e 15 minutos" >Entre 5 e 15 minutos</option>
+									<option value="Sem curativo ou limpeza da ferida realizada durante o banho" >Sem curativo ou limpeza da ferida realizada durante o banho</option>
 								</select>
 								<input type="hidden" name="tempo2"  id="tempo2" class="form-control"  required>
 							</div>
@@ -246,8 +246,6 @@
 		</div>
 	</div>
 </form>
-<% } %>	
-							<% } %>		
 <% } %>	
 <% } %>
 			
@@ -328,6 +326,14 @@ function setaDadosModal(valor) {
 
 function setaDadosModal2(valor) {
 	document.getElementById('campo').value = valor;
+}
+
+function setaDadosModal3(valor) {
+	document.getElementById('nome').value = valor;
+}
+
+function setaDadosModal4(valor) {
+	document.getElementById('setor').value = valor;
 }
 
 window.onload = function(){

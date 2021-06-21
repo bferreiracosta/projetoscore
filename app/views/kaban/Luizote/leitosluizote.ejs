@@ -112,7 +112,7 @@ $(document).ready(function() {
         type: "GET",
         data: obj,
         contentType: 'application/json',
-        url: '/buscarsetor',
+        url: '/buscarsetorluizote',
         success: function(obj) {  
             if (obj.length > 0){
                 var option = '<option>Selecione o Leito </option>';
@@ -134,7 +134,7 @@ $("#setor").on('change', function(e){
         type: "GET",
         data: { valor: opcaoValor},
         contentType: 'application/json',
-        url: '/buscarleitos',
+        url: '/buscarleitosluizote',
         success: function(data) {  
             if (data.length > 0){
                 var option = '<option>Selecione o Leito </option>';
