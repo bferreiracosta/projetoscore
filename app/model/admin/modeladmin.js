@@ -227,6 +227,32 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 						var mensage = "Por favor entre com usuario e senha";
 									res.render("home/index", {msg : mensage});
 					}
+				}else if(funcao == 'administrativo') {
+						console.log(funcao);
+						if (usuario && senha) {
+							this._conection.query('SELECT * FROM usuarios WHERE usuario = ? AND senha = ?', [usuario, senha], function(error, results, fields) {
+								
+									if (results.length > 0) {
+										if(results[0].admin == 1){
+										req.session.loggedin = true;
+										req.session.usuario = results[0].usuario;
+																	
+										res.render('home/homeadministrativo', {id : results});
+									} else {
+										var mensage = "Você nao tem autorização para esse modulo";
+										res.render("home/index", {msg : mensage});
+									}			
+								}
+								else{
+									var mensage = "Usuario o senha incorreto";
+										res.render("home/index", {msg : mensage});
+								}
+								res.end();
+							});
+						} else {
+							var mensage = "Por favor entre com usuario e senha";
+										res.render("home/index", {msg : mensage});
+						}
 				} else {
 		var mensage = "Por favor entre com usuario e senha";
 					res.render("home/index", {msg : mensage});
@@ -423,6 +449,32 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 									req.session.usuario = results[0].usuario;
 																
 									res.render('home/homekaban', {id : results});
+								} else {
+									var mensage = "Você nao tem autorização para esse modulo";
+									res.render("home/index", {msg : mensage});
+								}			
+							}
+							else{
+								var mensage = "Usuario o senha incorreto";
+									res.render("home/index", {msg : mensage});
+							}
+							res.end();
+						});
+					} else {
+						var mensage = "Por favor entre com usuario e senha";
+									res.render("home/index", {msg : mensage});
+					}
+				}else if(funcao == 'administrativo') {
+					console.log(funcao);
+					if (usuario && senha) {
+						this._conection.query('SELECT * FROM usuarios WHERE usuario = ? AND senha = ?', [usuario, senha], function(error, results, fields) {
+							
+								if (results.length > 0) {
+									if(results[0].admin == 1){
+									req.session.loggedin = true;
+									req.session.usuario = results[0].usuario;
+																
+									res.render('home/homeadministrativo', {id : results});
 								} else {
 									var mensage = "Você nao tem autorização para esse modulo";
 									res.render("home/index", {msg : mensage});

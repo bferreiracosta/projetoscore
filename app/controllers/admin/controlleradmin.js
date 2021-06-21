@@ -103,3 +103,15 @@ module.exports.homemental = function(application, req, res){
 		res.render("home/homemental", {id : result});
 	});
 }
+
+module.exports.homemadministrativo = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+
+	var id = req.query;
+	
+	modeladmin.buscarusuario(id, function(error,result){
+	
+		res.render("home/homemadministrativo", {id : result});
+	});
+}

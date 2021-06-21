@@ -33,7 +33,7 @@
                             <td><%=mental[j].diagnostico %></td>
                             <td><%=mental[j].referencia %></td>
                             <td>
-                                <a href="" onclick="setaDadosModal('<%=mental[j].id_paciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Saida</a>
+                                <a href="" onclick="setaDadosModal('<%=mental[j].id_paciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModalmental">Saida</a>
                             </td>
 						</tr>
 						<% } %>	
@@ -48,7 +48,7 @@
 
              <!-- Delete Product Modal-->
              <form id="add-row-form" action="/baixamentalpampulha" method="POST">
-                <div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                <div class="modal fade" id="BaixaModalmental" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">

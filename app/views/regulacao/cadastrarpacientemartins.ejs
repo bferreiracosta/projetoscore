@@ -50,7 +50,7 @@
                                 <td><a href="editpacientemartins/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0);" onclick="setaDadosModal('<%=paciente[j].id_paciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Saida</a>
+                                    <a href="javascript:void(0);" onclick="setaDadosModal('<%=paciente[j].id_paciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModalcovid">Saida</a>
                                 </td>
                             </tr>
                             <% } %>	
@@ -65,7 +65,7 @@
                     
                 <!-- Delete Product Modal-->
                 <form id="add-row-form" action="/baixamartins" method="POST">
-                    <div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    <div class="modal fade" id="BaixaModalcovid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
