@@ -133,6 +133,10 @@ modelluizote.prototype.buscardispositivoid = function(idpaciente, unidade, callb
 	this._conection.query('select * from dispositivokaban where unidade = "'+unidade+'" and idpaciente = "'+idpaciente.id+'"', callback);
 }
 
+modelluizote.prototype.buscardispositivoporid = function(idpaciente, unidade, callback){
+	this._conection.query('select * from dispositivokaban where unidade = "'+unidade+'" and idpaciente = "'+idpaciente+'" and status = "Ativo"', callback);
+}
+
 modelluizote.prototype.buscarnewsid = function(idpaciente, unidade, callback){
 
 	this._conection.query('select * from news where unidade = "'+unidade+'" and idpaciente = "'+idpaciente.id+'" and status = "Ativo"', callback);

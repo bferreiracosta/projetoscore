@@ -782,35 +782,66 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelmartins = new application.app.model.kaban.Martins.modelmartins(application);
 	var modelcovidmartins = new application.app.model.regulacao.modelmartins(application);
-	modelcovidplanalto.buscarpacientepornome(nome, function(error, idcovid){
-		console.log(idcovid)
-	modelmartins.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
-		var string=JSON.stringify(resultados);
-		var json =  JSON.parse(string);
-		if(json[0].dataatualizacao == null){
-			modeladmin.buscarusuarioporid(id, function(error, result){	
-				modelmartins.updatedispositivo(idpaciente, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
-					modelcovidmartins.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
-						modelmartins.buscardispositivo(unidade, function(error, resultado){
-								res.render("kaban/Martins/dispositivomartins", {dispositivo: resultado, id : result });
-						});
-					});
-				});
-			});	
-		}else{
-			modeladmin.buscarusuarioeditavel(id, function(error, result){	
-				modelmartins.adddispositivo(idpaciente, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
-					modelcovidmartins.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, result){
-						modelmartins.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
+	modelmartins.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
+		if(resultados[0].covid == null){
+			modelmartins.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
+				var string=JSON.stringify(resultados);
+				var json =  JSON.parse(string);
+				if(json[0].dataatualizacao == null){
+					modeladmin.buscarusuarioporid(id, function(error, result){	
+						modelmartins.updatedispositivo(idpaciente, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelmartins.buscardispositivo(unidade, function(error, resultado){
-								res.render("kaban/Martins/dispositivomartins", {dispositivo: resultado, id : resulta});
+									res.render("kaban/Planalto/dispositivoplanalto", {dispositivo: resultado, id : result });
 							});
-						});	
+						});
 					});	
-				});
-			});	
+				}else{
+					modeladmin.buscarusuarioeditavel(id, function(error, result){	
+						modelmartins.adddispositivo(idpaciente, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
+							modelmartins.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
+								modelmartins.buscardispositivo(unidade, function(error, resultado){
+									res.render("kaban/Planalto/dispositivoplanalto", {dispositivo: resultado, id : result});
+								});
+							});	
+						});
+					});	
+				}
+			})
+		
 		}
-	})
+		else{
+			modelcovidmartins.buscarpacientepornome(nome, function(error, idcovid){
+				console.log(idcovid)
+			modelmartins.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
+				var string=JSON.stringify(resultados);
+				var json =  JSON.parse(string);
+				if(json[0].dataatualizacao == null){
+					modeladmin.buscarusuarioporid(id, function(error, result){	
+						modelmartins.updatedispositivo(idpaciente, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
+							modelcovidmartins.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
+								modelmartins.buscardispositivo(unidade, function(error, resultado){
+										res.render("kaban/Planalto/dispositivoplanalto", {dispositivo: resultado, id : result });
+								});
+							});
+						});
+					});	
+				}else{
+					modeladmin.buscarusuarioeditavel(id, function(error, result){	
+						modelmartins.adddispositivo(idpaciente, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
+							modelcovidmartins.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
+								modelmartins.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
+									modelmartins.buscardispositivo(unidade, function(error, resultado){
+										res.render("kaban/Planalto/dispositivoplanalto", {dispositivo: resultado, id : result});
+									});
+								});	
+							});	
+						});
+					});	
+				}
+			})
+		})
+		}
+	
 })	
 }
 module.exports.cadastrarfugulin= function(application, req, res){

@@ -134,6 +134,10 @@ modelroosevelt.prototype.buscardispositivoid = function(idpaciente, unidade, cal
 	this._conection.query('select * from dispositivokaban where unidade = "'+unidade+'" and idpaciente = "'+idpaciente.id+'" and status = "Ativo"', callback);
 }
 
+modelroosevelt.prototype.buscardispositivoporid = function(idpaciente, unidade, callback){
+	this._conection.query('select * from dispositivokaban where unidade = "'+unidade+'" and idpaciente = "'+idpaciente+'" and status = "Ativo"', callback);
+}
+
 modelroosevelt.prototype.buscarnewsid = function(idpaciente, unidade, callback){
 
 	this._conection.query('select * from news where unidade = "'+unidade+'" and idpaciente = "'+idpaciente.id+'" and status = "Ativo"', callback);

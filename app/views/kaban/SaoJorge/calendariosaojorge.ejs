@@ -74,7 +74,7 @@ $(document).ready(function() {
        {
           events: function (start, end, timezone, callback) { 
             $.ajax({
-                url: 'http://localhost:8080/montarcalendariosaojorge',
+                url: '/montarcalendariosaojorge',
                 type: 'GET', 
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

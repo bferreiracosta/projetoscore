@@ -4,7 +4,7 @@
 
 <form action="/savekabanroosevelt" style="padding-left: 1%; padding-right: 1%;" method="post">
                 <h2>Adicionar novo paciente Roosevelt</h2> 
-                <% if(id.length > 0) { %>
+				<% if(id.length > 0) { %>
                     <% for(var i = 0; i < id.length; i++) {%>
                     <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
                     <p hidden id="idunidade">  <%=id[i].unidade %>  
@@ -102,13 +102,12 @@
 						</select>
 						<input type="hidden" id="dieta2"  name="dieta2" class="form-control" >
 					</div>
-
 					<div class="form-group">
 						<label for="paliativos" id="paliativo2">Paliativos</label>
                         <select class="form-control" id="paliativos" name="paliativos" required>
                             <option value="" disabled selected hidden>Paliativo</option>
-							<option value="sim">Sim</option>
-							<option value="nao">Não</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
                         </select>
                         <input type="hidden" name="paliativo" id="paliativo">
 					</div>
@@ -120,11 +119,11 @@
 						<label for="especialidade">Especialidade</label>
 						<select class="form-control" id="especialidades" name="especialidades" required>
                             <option value="" disabled selected hidden>Especialidade</option>
-							<option value="clinica">Clinica</option>
-							<option value="traumatologia">Traumatologia</option>
-							<option value="pediatria">Pediatria</option>
-							<option value="psquiatria">Psquiatria</option>
-							<option value="cirurgico">Cirurgico</option>
+							<option value="Clinica">Clinica</option>
+							<option value="Traumatologia">Traumatologia</option>
+							<option value="Pediatria">Pediatria</option>
+							<option value="Psquiatria">Psquiatria</option>
+							<option value="Cirurgico">Cirurgico</option>
                         </select> 
                         <input type="hidden" id="especialidade" name="especialidade" class="form-control" placeholder="Especialidade" >
                     </div>
@@ -136,9 +135,9 @@
 						<label for="banho">Banho</label>
 						<select class="form-control" id="banhos" name="banhos">
                             <option value="" disabled selected hidden>Horario Banho</option>
-							<option value="manha">Manha</option>
-							<option value="tarde">Tarde</option>
-							<option value="noite">Noite</option>
+							<option value="Manhã">Manha</option>
+							<option value="Tarde">Tarde</option>
+							<option value="Noite">Noite</option>
                         </select>
                         <input type="hidden" id="banho" name="banho" class="form-control" placeholder="Banho" >
                     </div>
@@ -146,9 +145,9 @@
 						<label for="mobilidade">Mobilidade</label>
 						<select class="form-control" id="mobilidades" name="mobilidades" required>
                             <option value="" disabled selected hidden>Mobilidade</option>
-							<option value="acamado">Acamando</option>
-							<option value="auxilio">Auxílio</option>
-							<option value="aspersao">Aspersão</option>
+							<option value="Acamando">Acamando</option>
+							<option value="Auxílio">Auxílio</option>
+							<option value="Aspersão">Aspersão</option>
                         </select>
                         <input type="hidden" id="mobilidade" name="mobilidade" class="form-control" placeholder="Mobilidade" >
                     </div>
@@ -182,7 +181,7 @@
 							<input id="covid" type="checkbox">
 							<span class="slider round"></span>
 						  </label>
-						  <input type="text" id="covid2" name="covid2" class="form-control" placeholder="covid2">
+						  <input type="hidden" id="covid2" name="covid2" class="form-control" placeholder="covid2">
                     </div>
 					<div class="form-group">
 						<label id="glasgowlabel">Glasgow  </label>
@@ -198,9 +197,9 @@
 						<label id="exames" for="exame">Exame</label>
 						<select  class="form-control" id="exame3" name="exame3">
 							<option value="" disabled selected hidden>Exame</option>
-							<option value="aguardando">Aguardando</option>
-							<option value="positivo">Positivo</option>
-							<option value="negativo">Negativo</option>
+							<option value="Aguardando">Aguardando</option>
+							<option value="Positivo">Positivo</option>
+							<option value="Negativo">Negativo</option>
 						</select>
                       </div>
                       <input  type="hidden" name="exame4" id="exame4">

@@ -110,6 +110,10 @@ modelmartins.prototype.buscardispositivohora = function(unidade, callback){
 	this._conection.query('SELECT * FROM dispositivokaban dd where unidade = "'+unidade+'" and  status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or unidade = "'+unidade+'" and (dd.dataatualizacao) is null and  baixa is null  GROUP BY idpaciente;', callback);
 }
 
+modelmartins.prototype.buscardispositivoporid = function(idpaciente, unidade, callback){
+	this._conection.query('select * from dispositivokaban where unidade = "'+unidade+'" and idpaciente = "'+idpaciente+'" and status = "Ativo"', callback);
+}
+
 modelmartins.prototype.buscarfugulinhora = function(unidade, callback){
 	
 	this._conection.query('SELECT * FROM fugulin dd where setor != "Observação" and unidade = "'+unidade+'" and   status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or setor!= "Observação" and unidade = "'+unidade+'" and (dd.dataatualizacao) is null and  baixa is null  GROUP BY idpaciente;', callback);
