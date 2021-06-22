@@ -202,12 +202,12 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 						var mensage = "Por favor entre com usuario e senha";
 									res.render("home/index", {msg : mensage});
 					}
-				}else if(funcao == 'Kaban') {
+				}else if(funcao == 'Kamban') {
 					if (usuario && senha) {
 						this._conection.query('SELECT * FROM usuarios WHERE usuario = ? AND senha = ?', [usuario, senha], function(error, results, fields) {
 							
 								if (results.length > 0) {
-									if(results[0].kaban == 1){
+									if(results[0].kamban == 1){
 									req.session.loggedin = true;
 									req.session.usuario = results[0].usuario;
 																
@@ -439,12 +439,12 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 						var mensage = "Por favor entre com usuario e senha";
 									res.render("home/index", {msg : mensage});
 					}
-				}else if(funcao == 'Kaban') {
+				}else if(funcao == 'Kamban') {
 					if (usuario && senha) {
 						this._conection.query('SELECT * FROM usuarios WHERE usuario = ? AND senha = ?', [usuario, senha], function(error, results, fields) {
 							
 								if (results.length > 0) {
-									if(results[0].kaban == 1){
+									if(results[0].kamban == 1){
 									req.session.loggedin = true;
 									req.session.usuario = results[0].usuario;
 																
