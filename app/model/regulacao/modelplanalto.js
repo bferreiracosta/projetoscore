@@ -15,7 +15,7 @@ modelplanalto.prototype.update = function(idpaciente,dataexame, susfacil,prt,pac
 }
 
 modelplanalto.prototype.updatenews = function(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta, callback){
-
+	console.log(idpaciente,news,tempo, data, fr, sat, temp, o2, sistolica, fc, alerta)
 
 	this._conection.query('update pacientes set  news = "'+news+'", tempo = "'+tempo+'", data = "'+data+'", fr = "'+fr+'", sat = "'+sat+'", temp = "'+temp+'", o2 = "'+o2+'", sistolica = "'+sistolica+'", fc = "'+fc+'", alerta = "'+alerta+'"  where id_paciente = ' + idpaciente, callback);
 }

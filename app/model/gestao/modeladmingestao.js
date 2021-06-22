@@ -19,7 +19,7 @@ modeladmingestao.prototype.updateleitosmartinsmaca = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitosmartinsmacamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update martins set capacidademacasocupadas = (capacidademacasocupadas + 1)  where setor = "'+setor+'"', callback);
 }
 
@@ -29,7 +29,7 @@ modeladmingestao.prototype.updateleitosmartinscama = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitosmartinscamamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update martins set capacidadecamasocupadas = capacidadecamasocupadas + 1  where setor = "'+setor+'"', callback);
 }
 
@@ -49,7 +49,7 @@ modeladmingestao.prototype.updateleitosplanaltomaca = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitosplanaltomacamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update planalto set capacidademacasocupadas = (capacidademacasocupadas + 1)  where setor = "'+setor+'"', callback);
 }
 
@@ -59,7 +59,7 @@ modeladmingestao.prototype.updateleitosplanaltocama = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitosplanaltocamamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update planalto set capacidadecamasocupadas = capacidadecamasocupadas + 1  where setor = "'+setor+'"', callback);
 }
 
@@ -79,7 +79,7 @@ modeladmingestao.prototype.updateleitosluizotemaca = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitosluizotemacamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update luizote set capacidademacasocupadas = (capacidademacasocupadas + 1)  where setor = "'+setor+'"', callback);
 }
 
@@ -89,7 +89,7 @@ modeladmingestao.prototype.updateleitosluizotecama = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitosluizotecamamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update luizote set capacidadecamasocupadas = capacidadecamasocupadas + 1  where setor = "'+setor+'"', callback);
 }
 modeladmingestao.prototype.buscarleitoroosevelt = function(callback){
@@ -108,7 +108,7 @@ modeladmingestao.prototype.updateleitosrooseveltmaca = function(setor, callback)
 }
 
 modeladmingestao.prototype.updateleitosrooseveltmacamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update roosevelt set capacidademacasocupadas = (capacidademacasocupadas + 1)  where setor = "'+setor+'"', callback);
 }
 
@@ -118,7 +118,7 @@ modeladmingestao.prototype.updateleitosrooseveltcama = function(setor, callback)
 }
 
 modeladmingestao.prototype.updateleitosrooseveltcamamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update roosevelt set capacidadecamasocupadas = capacidadecamasocupadas + 1  where setor = "'+setor+'"', callback);
 }
 
@@ -138,7 +138,7 @@ modeladmingestao.prototype.updateleitostiberymaca = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitostiberymacamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update tibery set capacidademacasocupadas = (capacidademacasocupadas + 1)  where setor = "'+setor+'"', callback);
 }
 
@@ -148,7 +148,7 @@ modeladmingestao.prototype.updateleitostiberycama = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitostiberycamamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update tibery set capacidadecamasocupadas = capacidadecamasocupadas + 1  where setor = "'+setor+'"', callback);
 }
 
@@ -168,7 +168,7 @@ modeladmingestao.prototype.updateleitosmorumbimaca = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitosmorumbimacamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update morumbi set capacidademacasocupadas = (capacidademacasocupadas + 1)  where setor = "'+setor+'"', callback);
 }
 
@@ -178,7 +178,7 @@ modeladmingestao.prototype.updateleitosmorumbicama = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitosmorumbicamamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update morumbi set capacidadecamasocupadas = capacidadecamasocupadas + 1  where setor = "'+setor+'"', callback);
 }
 
@@ -198,7 +198,7 @@ modeladmingestao.prototype.updateleitossaojorgemaca = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitossaojorgemacamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update saojorge set capacidademacasocupadas = (capacidademacasocupadas + 1)  where setor = "'+setor+'"', callback);
 }
 
@@ -208,7 +208,7 @@ modeladmingestao.prototype.updateleitossaojorgecama = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitossaojorgecamamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update saojorge set capacidadecamasocupadas = capacidadecamasocupadas + 1  where setor = "'+setor+'"', callback);
 }
 
@@ -228,7 +228,7 @@ modeladmingestao.prototype.updateleitospampulhamaca = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitospampulhamacamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update pampulha set capacidademacasocupadas = (capacidademacasocupadas + 1)  where setor = "'+setor+'"', callback);
 }
 
@@ -238,7 +238,7 @@ modeladmingestao.prototype.updateleitospampulhacama = function(setor, callback){
 }
 
 modeladmingestao.prototype.updateleitospampulhacamamais = function(setor, callback){
-	console.log(setor)
+	
 	this._conection.query('update pampulha set capacidadecamasocupadas = capacidadecamasocupadas + 1  where setor = "'+setor+'"', callback);
 }
 

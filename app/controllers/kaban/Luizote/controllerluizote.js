@@ -652,8 +652,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 		if(covid == 'true'){
 		
 			modeladmin.buscarusuarioporid(id, function(error, resultados){
-				modelluizote.cadastrarpaciente(paciente, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
-					modelmentalluizote.cadastrarpaciente(prt,dieta, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+				modelluizote.cadastrarpaciente(paciente,dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+					modelmentalluizote.cadastrarpaciente(prt, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 						modelcovidluizote.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
 							modelluizote.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 								modelluizote.addfugulinid(resultdoinsert.insertId,setor,paciente,unidade, function(error, results){
@@ -676,8 +676,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 		else{
 		
 			modeladmin.buscarusuarioporid(id, function(error, resultados){
-				modelluizote.cadastrarpaciente(paciente, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
-					modelmentalluizote.cadastrarpaciente(prt, dieta, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+				modelluizote.cadastrarpaciente(paciente,dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+					modelmentalluizote.cadastrarpaciente(prt, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 						modelluizote.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 							modelluizote.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 								modelluizote.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -781,14 +781,15 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
 	var modelcovidluizote = new application.app.model.regulacao.modelluizote(application);
-
+	modelcovidplanalto.buscarpacientepornome(nome, function(error, idcovid){
+		console.log(idcovid)
 	modelluizote.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 		var string=JSON.stringify(resultados);
 		var json =  JSON.parse(string);
 		if(json[0].dataatualizacao == null){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
 				modelluizote.updatedispositivo(idpaciente, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
-					modelcovidluizote.updaterespkaban(idpaciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
+					modelcovidluizote.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 						modelluizote.buscardispositivo(unidade, function(error, resultado){
 								res.render("kaban/Luizote/dispositivoluizote", {dispositivo: resultado, id : result });
 						});
@@ -798,7 +799,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 		}else{
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
 				modelluizote.adddispositivo(idpaciente, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
-					modelcovidluizote.updaterespkaban(idpaciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, result){
+					modelcovidluizote.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, result){
 						modelluizote.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
 							modelluizote.buscardispositivo(unidade, function(error, resultado){
 								res.render("kaban/Luizote/dispositivoluizote", {dispositivo: resultado, id : resulta});
@@ -809,7 +810,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 			});	
 		}
 	})
-	
+})	
 }
 module.exports.cadastrarfugulin= function(application, req, res){
 	var idpaciente = req.body.idpaciente;
@@ -931,7 +932,8 @@ module.exports.cadastrarnews= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
 	var modelcovidluizote = new application.app.model.regulacao.modelluizote(application);
-
+	modelcovidplanalto.buscarpacientepornome(nome, function(error, idcovid){
+		console.log(idcovid)
 	modelluizote.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
 		var string=JSON.stringify(resultados);
 		var json =  JSON.parse(string);
@@ -939,7 +941,7 @@ module.exports.cadastrarnews= function(application, req, res){
 		if(json[0].dataatualizacao == null){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
 				modelluizote.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-					modelcovidluizote.updatenews(idpaciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+					modelcovidluizote.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
 						modelluizote.buscarnews(unidade, function(error, resultado){
 								res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
 						});
@@ -950,7 +952,7 @@ module.exports.cadastrarnews= function(application, req, res){
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
 				modelluizote.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 					modelluizote.updatenewsstatus(json[0].idnews, function(error, resulta){
-						modelcovidluizote.updatenews(idpaciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+						modelcovidluizote.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
 							modelluizote.buscarnews(unidade, function(error, resultado){
 									res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
 							});
@@ -960,7 +962,7 @@ module.exports.cadastrarnews= function(application, req, res){
 			});	
 		}
 	})
-	
+})
 }
 
 module.exports.update= function(application, req, res){

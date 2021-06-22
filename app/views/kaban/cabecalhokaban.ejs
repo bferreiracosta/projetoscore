@@ -247,7 +247,7 @@
 
 									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanplanalto?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
 
-									<li class="btn-success"><a class="btn   btn-sm" href="/relatorioplanalto?id=<%=id[i].id_usuario %>">Relatório</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanplanalto?id=<%=id[i].id_usuario %>">Relatório</a></li>
 					
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
@@ -266,7 +266,7 @@
 
 									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanluizote?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
 
-									<li class="btn-success"><a class="btn   btn-sm" href="/relatorioluizote?id=<%=id[i].id_usuario %>">Relatório</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanluizote?id=<%=id[i].id_usuario %>">Relatório</a></li>
 					
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
@@ -285,7 +285,7 @@
 
 									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanmartins?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
 
-									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriomartins?id=<%=id[i].id_usuario %>">Relatório</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/relatorikabanomartins?id=<%=id[i].id_usuario %>">Relatório</a></li>
 					
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
@@ -304,7 +304,7 @@
 
 									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanroosevelt?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
 
-									<li class="btn-success"><a class="btn   btn-sm" href="/relatorioroosevelt?id=<%=id[i].id_usuario %>">Relatório</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanroosevelt?id=<%=id[i].id_usuario %>">Relatório</a></li>
 					
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
@@ -323,7 +323,7 @@
 
 									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanmorumbi?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
 
-									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriomorumbi?id=<%=id[i].id_usuario %>">Relatório</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanmorumbi?id=<%=id[i].id_usuario %>">Relatório</a></li>
 					
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
@@ -342,7 +342,7 @@
 
 									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabantibery?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
 
-									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriotibery?id=<%=id[i].id_usuario %>">Relatório</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabantibery?id=<%=id[i].id_usuario %>">Relatório</a></li>
 					
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
@@ -361,7 +361,7 @@
 
 									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabansaojorge?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
 
-									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriosaojorge?id=<%=id[i].id_usuario %>">Relatório</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabansaojorge?id=<%=id[i].id_usuario %>">Relatório</a></li>
 					
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
@@ -380,7 +380,7 @@
 
 									<li class="btn-success"><a class="btn   btn-sm" href="/historicokabanpampulha?id=<%=id[i].id_usuario %>">Historico Paciente</a></li>
 
-									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriopampulha?id=<%=id[i].id_usuario %>">Relatório</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanpampulha?id=<%=id[i].id_usuario %>">Relatório</a></li>
 					
 								<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 							<% } %>
@@ -641,10 +641,10 @@
 				document.getElementById("usuario2").value=obj[0].usuario;
 				document.getElementById("senha2").value=obj[0].senha; 
                 var option = '<option>Selecione o modulo </option>';
-				// if(obj[0].kaban == 1){
-				// 	var kaban = "Kaban";
-               	// 	option += '<option value="'+kaban+'">'+kaban+'</option>';
-				// }
+				if(obj[0].kaban == 1){
+					var kaban = "Kaban";
+               		option += '<option value="'+kaban+'">'+kaban+'</option>';
+				}
 				if(obj[0].scih == 1){
 					var SCIH = "SCIH";
                		option += '<option value="'+SCIH+'">'+SCIH+'</option>';
