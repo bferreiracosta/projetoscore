@@ -791,7 +791,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelroosevelt.updatedispositivo(idpaciente, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelroosevelt.buscardispositivo(unidade, function(error, resultado){
-									res.render("kaban/Planalto/dispositivoplanalto", {dispositivo: resultado, id : result });
+									res.render("kaban/roosevelt/dispositivoroosevelt", {dispositivo: resultado, id : result });
 							});
 						});
 					});	
@@ -800,7 +800,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 						modelroosevelt.adddispositivo(idpaciente, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelroosevelt.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
 								modelroosevelt.buscardispositivo(unidade, function(error, resultado){
-									res.render("kaban/Planalto/dispositivoplanalto", {dispositivo: resultado, id : result});
+									res.render("kaban/roosevelt/dispositivoroosevelt", {dispositivo: resultado, id : result});
 								});
 							});	
 						});
@@ -820,7 +820,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 						modelroosevelt.updatedispositivo(idpaciente, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelcovidroosevelt.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 								modelroosevelt.buscardispositivo(unidade, function(error, resultado){
-										res.render("kaban/Planalto/dispositivoplanalto", {dispositivo: resultado, id : result });
+										res.render("kaban/roosevelt/dispositivoroosevelt", {dispositivo: resultado, id : result });
 								});
 							});
 						});
@@ -831,7 +831,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 							modelcovidroosevelt.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 								modelroosevelt.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
 									modelroosevelt.buscardispositivo(unidade, function(error, resultado){
-										res.render("kaban/Planalto/dispositivoplanalto", {dispositivo: resultado, id : result});
+										res.render("kaban/roosevelt/dispositivoroosevelt", {dispositivo: resultado, id : result});
 									});
 								});	
 							});	
@@ -964,7 +964,7 @@ module.exports.cadastrarnews= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelroosevelt = new application.app.model.kaban.Roosevelt.modelroosevelt(application);
 	var modelcovidroosevelt = new application.app.model.regulacao.modelroosevelt(application);
-	modelcovidplanalto.buscarpacientepornome(nome, function(error, idcovid){
+	modelcovidroosevelt.buscarpacientepornome(nome, function(error, idcovid){
 		console.log(idcovid)
 	modelroosevelt.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
 		var string=JSON.stringify(resultados);
@@ -1672,6 +1672,133 @@ module.exports.baixa= function(application, req, res){
 			})	
 		})
 	})
+	}	
+	if(setoresrecuperado[0].leito == null){
+		
+		modelroosevelt.buscarpacienteporid(idpaciente, function(error, idpac){
+			modelcovidroosevelt.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+				modelmentalroosevelt.buscarpacientepornome(idpac[0].nome, function(error, idmental){
+					if(idpac[0].mental == 'true'){
+						if(idpac[0].covid == 'true'){
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modelroosevelt.baixa(idpaciente,baixa,data, function(error, result){
+									modelcovidroosevelt.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+										modelmentalroosevelt.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+											modelroosevelt.baixadispositivo(idpaciente,baixa, function(error, result){
+												modelroosevelt.baixatiss(idpaciente,baixa, function(error, result){
+													modelroosevelt.baixanews(idpaciente,baixa, function(error, result){
+														modelroosevelt.baixafugulin(idpaciente,baixa, function(error, result){
+															modelroosevelt.baixacentral(idpaciente,baixa, function(error, result){
+																modelroosevelt.buscarleitospacientespornome(idpaciente, function(error, nome){
+																	modelroosevelt.buscarleitosnome(nome, function(error, idleito){
+				
+																		modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
+																			modelroosevelt.buscarpaciente(unidade, function(error, resultado){
+																				res.render("kaban/Roosevelt/kabanpacienteroosevelt", {paciente : resultado, id : resultados});
+																			});
+																		});
+																	});	
+																});
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});	
+						}
+						else{
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modelroosevelt.baixa(idpaciente,baixa,data, function(error, result){
+									modelmentalroosevelt.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+										modelroosevelt.baixadispositivo(idpaciente,baixa, function(error, result){
+											modelroosevelt.baixatiss(idpaciente,baixa, function(error, result){
+												modelroosevelt.baixanews(idpaciente,baixa, function(error, result){
+													modelroosevelt.baixafugulin(idpaciente,baixa, function(error, result){
+														modelroosevelt.baixacentral(idpaciente,baixa, function(error, result){
+															modelroosevelt.buscarleitospacientespornome(idpaciente, function(error, nome){
+																modelroosevelt.buscarleitosnome(nome, function(error, idleito){
+																	
+																	modelroosevelt.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																		modelroosevelt.buscarpaciente(unidade, function(error, resultado){
+																			res.render("kaban/Roosevelt/kabanpacienteroosevelt", {paciente : resultado, id : resultados});
+																		});
+																	});
+																});	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});	
+						}
+					}
+					else{
+						if(idpac[0].covid == "false"){
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modelroosevelt.baixa(idpaciente,baixa,data, function(error, result){
+									modelroosevelt.baixadispositivo(idpaciente,baixa, function(error, result){
+										modelroosevelt.baixatiss(idpaciente,baixa, function(error, result){
+											modelroosevelt.baixanews(idpaciente,baixa, function(error, result){
+												modelroosevelt.baixafugulin(idpaciente,baixa, function(error, result){
+													modelroosevelt.baixacentral(idpaciente,baixa, function(error, result){
+														modelroosevelt.buscarleitospacientespornome(idpaciente, function(error, nome){
+															modelroosevelt.buscarleitosnome(nome, function(error, idleito){
+																
+																modelroosevelt.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modelroosevelt.buscarpaciente(unidade, function(error, resultado){
+																		res.render("kaban/Roosevelt/kabanpacienteroosevelt", {paciente : resultado, id : resultados});
+																	});
+																});
+															});	
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});	
+						}
+						else{
+							console.log("Estou aqui")
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modelroosevelt.baixa(idpaciente,baixa,data, function(error, result){
+									modelcovidroosevelt.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+										modelroosevelt.baixadispositivo(idpaciente,baixa, function(error, result){
+											modelroosevelt.baixatiss(idpaciente,baixa, function(error, result){
+												modelroosevelt.baixanews(idpaciente,baixa, function(error, result){
+													modelroosevelt.baixafugulin(idpaciente,baixa, function(error, result){
+														modelroosevelt.baixacentral(idpaciente,baixa, function(error, result){
+															modelroosevelt.buscarleitospacientespornome(idpaciente, function(error, nome){
+																modelroosevelt.buscarleitosnome(nome, function(error, idleito){
+															
+																	modelroosevelt.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																		modelroosevelt.buscarpaciente(unidade, function(error, resultado){
+																			res.render("kaban/Roosevelt/kabanpacienteroosevelt", {paciente : resultado, id : resultados});
+																		});
+																	});
+																});	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});	
+						}
+					}	
+				})	
+			})	
+		})
+	
 	}	
 })
 })

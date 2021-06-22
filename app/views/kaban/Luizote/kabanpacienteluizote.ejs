@@ -61,7 +61,7 @@
                         <td><%=paciente[j].datanascimento %></td>
                         <td><%=paciente[j].idade %></td>
                         <td><%=paciente[j].dataentrada %></td>
-                        <td><%=paciente[j].qtddiasinternados %></td>
+                        <td></td>
                         <td><%=paciente[j].acomodacao %></td>
                         <td><%=paciente[j].ECF %></td>
                         <td><%=paciente[j].spict %></td>
@@ -189,6 +189,23 @@
         select: true
     } );
 } );
+
+$(document).ready(function() {
+   
+    const current = new Date()
+    var timeDiff = Math.abs(current.getTime() - (dias.getTime()));
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 	
+})
+
+$('#mytable tbody tr').each(function(i){
+    tr=$(this);
+    const daField = tr.children('td:eq(6)').html();
+	const idadeField = document.querySelector('#qtdi')
+	daField.addEventListener('change', (event) => {
+  	const dias = new Date(event.target.value)
+	idadeField.value = difDias(dias) + ' dia'
+})
+})
 
     function pad(s){
             return (s<10) ? '0' + s :s;

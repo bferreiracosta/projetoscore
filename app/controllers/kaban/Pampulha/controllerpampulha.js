@@ -789,7 +789,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelpampulha.updatedispositivo(idpaciente, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelpampulha.buscardispositivo(unidade, function(error, resultado){
-									res.render("kaban/Planalto/dispositivoplanalto", {dispositivo: resultado, id : result });
+									res.render("kaban/pampulha/dispositivopampulha", {dispositivo: resultado, id : result });
 							});
 						});
 					});	
@@ -798,7 +798,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 						modelpampulha.adddispositivo(idpaciente, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelpampulha.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
 								modelpampulha.buscardispositivo(unidade, function(error, resultado){
-									res.render("kaban/Planalto/dispositivoplanalto", {dispositivo: resultado, id : result});
+									res.render("kaban/pampulha/dispositivopampulha", {dispositivo: resultado, id : result});
 								});
 							});	
 						});
@@ -818,7 +818,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 						modelpampulha.updatedispositivo(idpaciente, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelcovidpampulha.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 								modelpampulha.buscardispositivo(unidade, function(error, resultado){
-										res.render("kaban/Planalto/dispositivoplanalto", {dispositivo: resultado, id : result });
+										res.render("kaban/pampulha/dispositivopampulha", {dispositivo: resultado, id : result });
 								});
 							});
 						});
@@ -829,7 +829,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 							modelcovidpampulha.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 								modelpampulha.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
 									modelpampulha.buscardispositivo(unidade, function(error, resultado){
-										res.render("kaban/Planalto/dispositivoplanalto", {dispositivo: resultado, id : result});
+										res.render("kaban/pampulha/dispositivopampulha", {dispositivo: resultado, id : result});
 									});
 								});	
 							});	
@@ -962,7 +962,7 @@ module.exports.cadastrarnews= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
 	var modelcovidpampulha = new application.app.model.regulacao.modelpampulha(application);
-	modelcovidplanalto.buscarpacientepornome(nome, function(error, idcovid){
+	modelcovidpampulha.buscarpacientepornome(nome, function(error, idcovid){
 		console.log(idcovid)
 	modelpampulha.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
 		var string=JSON.stringify(resultados);
@@ -1670,6 +1670,133 @@ module.exports.baixa= function(application, req, res){
 			})	
 		})
 	})
+	}	
+	if(setoresrecuperado[0].leito == null){
+		
+		modelpampulha.buscarpacienteporid(idpaciente, function(error, idpac){
+			modelcovidpampulha.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+				modelmentalpampulha.buscarpacientepornome(idpac[0].nome, function(error, idmental){
+					if(idpac[0].mental == 'true'){
+						if(idpac[0].covid == 'true'){
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modelpampulha.baixa(idpaciente,baixa,data, function(error, result){
+									modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+										modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+											modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
+												modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
+													modelpampulha.baixanews(idpaciente,baixa, function(error, result){
+														modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
+															modelpampulha.baixacentral(idpaciente,baixa, function(error, result){
+																modelpampulha.buscarleitospacientespornome(idpaciente, function(error, nome){
+																	modelpampulha.buscarleitosnome(nome, function(error, idleito){
+				
+																		modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
+																			modelpampulha.buscarpaciente(unidade, function(error, resultado){
+																				res.render("kaban/Pampulha/kabanpacientepampulha", {paciente : resultado, id : resultados});
+																			});
+																		});
+																	});	
+																});
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});	
+						}
+						else{
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modelpampulha.baixa(idpaciente,baixa,data, function(error, result){
+									modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+										modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
+											modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
+												modelpampulha.baixanews(idpaciente,baixa, function(error, result){
+													modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
+														modelpampulha.baixacentral(idpaciente,baixa, function(error, result){
+															modelpampulha.buscarleitospacientespornome(idpaciente, function(error, nome){
+																modelpampulha.buscarleitosnome(nome, function(error, idleito){
+																	
+																	modelpampulha.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																		modelpampulha.buscarpaciente(unidade, function(error, resultado){
+																			res.render("kaban/Pampulha/kabanpacientepampulha", {paciente : resultado, id : resultados});
+																		});
+																	});
+																});	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});	
+						}
+					}
+					else{
+						if(idpac[0].covid == "false"){
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modelpampulha.baixa(idpaciente,baixa,data, function(error, result){
+									modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
+										modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
+											modelpampulha.baixanews(idpaciente,baixa, function(error, result){
+												modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
+													modelpampulha.baixacentral(idpaciente,baixa, function(error, result){
+														modelpampulha.buscarleitospacientespornome(idpaciente, function(error, nome){
+															modelpampulha.buscarleitosnome(nome, function(error, idleito){
+																
+																modelpampulha.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modelpampulha.buscarpaciente(unidade, function(error, resultado){
+																		res.render("kaban/Pampulha/kabanpacientepampulha", {paciente : resultado, id : resultados});
+																	});
+																});
+															});	
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});	
+						}
+						else{
+							console.log("Estou aqui")
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modelpampulha.baixa(idpaciente,baixa,data, function(error, result){
+									modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+										modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
+											modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
+												modelpampulha.baixanews(idpaciente,baixa, function(error, result){
+													modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
+														modelpampulha.baixacentral(idpaciente,baixa, function(error, result){
+															modelpampulha.buscarleitospacientespornome(idpaciente, function(error, nome){
+																modelpampulha.buscarleitosnome(nome, function(error, idleito){
+															
+																	modelpampulha.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																		modelpampulha.buscarpaciente(unidade, function(error, resultado){
+																			res.render("kaban/Pampulha/kabanpacientepampulha", {paciente : resultado, id : resultados});
+																		});
+																	});
+																});	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});	
+						}
+					}	
+				})	
+			})	
+		})
+	
 	}	
 })
 })

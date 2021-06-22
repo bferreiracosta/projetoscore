@@ -445,6 +445,7 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 							
 								if (results.length > 0) {
 									if(results[0].kamban == 1){
+										console.log(results);
 									req.session.loggedin = true;
 									req.session.usuario = results[0].usuario;
 																

@@ -1422,6 +1422,7 @@ module.exports.baixa= function(application, req, res){
 	var modelmentalplanalto = new application.app.model.mentalurgencia.modelmentalplanalto(application);
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	modelplanalto.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
+		
 	modelplanalto.buscarleitosid(setoresrecuperado, function(error, idleito){
 		if(setoresrecuperado[0].leito == "Maca"){	
 			modeladmingestao.updateleitosplanaltomaca(setoresrecuperado[0].setor, function(error, resulta){
@@ -1641,6 +1642,7 @@ module.exports.baixa= function(application, req, res){
 							});	
 						}
 						else{
+							console.log("Estou aqui")
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
 								modelplanalto.baixa(idpaciente,baixa,data, function(error, result){
 									modelcovidplanalto.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
@@ -1674,6 +1676,134 @@ module.exports.baixa= function(application, req, res){
 		})
 	})
 	}	
+
+	if(setoresrecuperado[0].leito == null){
+		
+			modelplanalto.buscarpacienteporid(idpaciente, function(error, idpac){
+				modelcovidplanalto.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+					modelmentalplanalto.buscarpacientepornome(idpac[0].nome, function(error, idmental){
+						if(idpac[0].mental == 'true'){
+							if(idpac[0].covid == 'true'){
+								modeladmin.buscarusuarioporid(id, function(error, resultados){
+									modelplanalto.baixa(idpaciente,baixa,data, function(error, result){
+										modelcovidplanalto.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+											modelmentalplanalto.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+												modelplanalto.baixadispositivo(idpaciente,baixa, function(error, result){
+													modelplanalto.baixatiss(idpaciente,baixa, function(error, result){
+														modelplanalto.baixanews(idpaciente,baixa, function(error, result){
+															modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
+																modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
+																	modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
+																		modelplanalto.buscarleitosnome(nome, function(error, idleito){
+					
+																			modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
+																				modelplanalto.buscarpaciente(unidade, function(error, resultado){
+																					res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
+																				});
+																			});
+																		});	
+																	});
+																});
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});	
+							}
+							else{
+								modeladmin.buscarusuarioporid(id, function(error, resultados){
+									modelplanalto.baixa(idpaciente,baixa,data, function(error, result){
+										modelmentalplanalto.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+											modelplanalto.baixadispositivo(idpaciente,baixa, function(error, result){
+												modelplanalto.baixatiss(idpaciente,baixa, function(error, result){
+													modelplanalto.baixanews(idpaciente,baixa, function(error, result){
+														modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
+															modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
+																modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
+																	modelplanalto.buscarleitosnome(nome, function(error, idleito){
+																		
+																		modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																			modelplanalto.buscarpaciente(unidade, function(error, resultado){
+																				res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
+																			});
+																		});
+																	});	
+																});
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});	
+							}
+						}
+						else{
+							if(idpac[0].covid == "false"){
+								modeladmin.buscarusuarioporid(id, function(error, resultados){
+									modelplanalto.baixa(idpaciente,baixa,data, function(error, result){
+										modelplanalto.baixadispositivo(idpaciente,baixa, function(error, result){
+											modelplanalto.baixatiss(idpaciente,baixa, function(error, result){
+												modelplanalto.baixanews(idpaciente,baixa, function(error, result){
+													modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
+														modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
+															modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
+																modelplanalto.buscarleitosnome(nome, function(error, idleito){
+																	
+																	modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																		modelplanalto.buscarpaciente(unidade, function(error, resultado){
+																			res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
+																		});
+																	});
+																});	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});	
+							}
+							else{
+								console.log("Estou aqui")
+								modeladmin.buscarusuarioporid(id, function(error, resultados){
+									modelplanalto.baixa(idpaciente,baixa,data, function(error, result){
+										modelcovidplanalto.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+											modelplanalto.baixadispositivo(idpaciente,baixa, function(error, result){
+												modelplanalto.baixatiss(idpaciente,baixa, function(error, result){
+													modelplanalto.baixanews(idpaciente,baixa, function(error, result){
+														modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
+															modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
+																modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
+																	modelplanalto.buscarleitosnome(nome, function(error, idleito){
+																
+																		modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																			modelplanalto.buscarpaciente(unidade, function(error, resultado){
+																				res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
+																			});
+																		});
+																	});	
+																});
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});	
+							}
+						}	
+					})	
+				})	
+			})
+		
+		}	
 })
 })
 }
