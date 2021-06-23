@@ -52,48 +52,49 @@
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
-$(document).ready(function() {
-$('#mytable').DataTable( { 
-dom: 'Bfrtip',
-"scrollX": true,
-        buttons: [       
-            {
-                "extend": "copyHtml5",
-                "text": "COPIAR",
-            },          
-            {
-                "extend": "pdf",
-                "text": "PDF",
-            },
-            {
-                "extend": "excelHtml5",
-                "text": "EXCEL",
-            },
-            {
-                "extend": "print",
-                "text": "IMPRIMIR", 
-            }
-            
-        ],language: {
-            buttons: {
-                copyTitle: 'Copiado para área de transferência',
-                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
-                copySuccess: {
-                    _: '%d linhas copiadas',
-                    1: '1 linha copiada'
+ $(document).ready(function() {
+    $('#mytable').DataTable( { 
+    dom: 'Bfrtip',
+    pageLength: 50,
+    "scrollX": true,
+            buttons: [       
+                {
+                    "extend": "copyHtml5",
+                    "text": "COPIAR",
+                },          
+                {
+                    "extend": "pdf",
+                    "text": "PDF",
+                },
+                {
+                    "extend": "excelHtml5",
+                    "text": "EXCEL",
+                },
+                {
+                    "extend": "print",
+                    "text": "IMPRIMIR", 
                 }
+                
+            ],language: {
+                buttons: {
+                    copyTitle: 'Copiado para área de transferência',
+                    copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+                    copySuccess: {
+                        _: '%d linhas copiadas',
+                        1: '1 linha copiada'
+                    }
+                },
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Próximo"
+                },
+                "search": "Pesquisar:"
             },
-            "paginate": {
-                "previous": "Anterior",
-                "next": "Próximo"
-            },
-            "search": "Pesquisar:"
-        },
-        select: true
+            select: true
+        } );
     } );
-} );
-
-</script>
+    
+    </script>
 <%- include('../../home/footer'); %>
 </body>
 </html>
