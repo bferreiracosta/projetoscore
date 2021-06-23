@@ -6,7 +6,6 @@
                     <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
                         <thead>
                             <tr>
-                                <th hidden>id</th>
                                 <th>SusFacil</th>
                                 <th>Prontuario</th>
                                 <th>Nome</th>
@@ -16,7 +15,6 @@
                                 <th>Dias Internados</th>
                                 <th>Setor</th>
                                 <th>ECF</th>
-                                <th>Spict</th>
                                 <th>Paliativo</th>
                                 <th>Diagnóstico</th>
                                 <th>Especialidade</th>
@@ -32,7 +30,6 @@
                                     <% for(var j = 0; j < paciente.length; j++) {%>
                                         
                                 <tr>                                  
-                                    <td hidden><%=paciente[j].idpaciente %></td>
                                     <td><%=paciente[j].susfacil %></td>
                                     <th><%=paciente[j].prt %></th>
                                     <td><%=paciente[j].nome %></td>
@@ -42,7 +39,6 @@
                                     <td></td>
                                     <td><%=paciente[j].setor %></td>
                                     <td><%=paciente[j].ECF %></td>
-                                    <td><%=paciente[j].spict %></td>
                                     <td><%=paciente[j].paliativo %></td>
                                     <td><%=paciente[j].diagnostico %></td>
                                     <td><%=paciente[j].especialidade %></td>
@@ -79,7 +75,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
      $(document).ready(function() {
-var groupColumn = 8;
+var groupColumn = 7;
 $('#mytable').DataTable( { 
 dom: 'Bfrtip',
 "scrollX": true,
@@ -189,16 +185,16 @@ rowGroup: {
 
 $('#mytable tbody tr').each(function(i){
             tr=$(this);
-            valor=tr.children('td:eq(5)').html();
-            idade=tr.children('td:eq(3)').html();
+            valor=tr.children('td:eq(4)').html();
+            idade=tr.children('td:eq(2)').html();
             var date2 = new Date(valor);
             const now = new Date(); // Data de hoje
             const diff = Math.abs(now.getTime() - date2.getTime()); // Subtrai uma data pela outra
             const days = Math.ceil(diff / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
 
             // Mostra a diferença em dias
-            tr.children('td:eq(6)').text(days + " dias");
-            tr.children('td:eq(4)').text(calcularIdade(idade)+ " anos");
+            tr.children('td:eq(5)').text(days + " dias");
+            tr.children('td:eq(3)').text(calcularIdade(idade)+ " anos");
 });
 
 function calcularIdade(aniversario) {
