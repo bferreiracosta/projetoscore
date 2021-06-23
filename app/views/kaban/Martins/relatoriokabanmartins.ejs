@@ -195,8 +195,8 @@ $('#mytable tbody tr').each(function(i){
             const days = Math.ceil(diff / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
 
             // Mostra a diferença em dias
-            tr.children('td:eq(6)').text(days + " dias");
-            tr.children('td:eq(4)').text(calcularIdade(idade)+ " anos");
+            tr.children('td:eq(5)').text(days);
+            tr.children('td:eq(3)').text(calcularIdade(idade));
 });
 
 function calcularIdade(aniversario) {
