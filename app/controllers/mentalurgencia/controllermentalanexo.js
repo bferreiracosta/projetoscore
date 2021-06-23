@@ -10,7 +10,7 @@ module.exports.justificarpaciente= function(application, req, res){
 	
 	modeladmin.buscarusuario(id, function(error, result){
 		modelanexo.buscarpaciente(unidade, function(error, resultado){
-			res.render("mentalurgencia/anexo/justificarpacienteanexo", {mental : resultado, id : result});
+			res.render("mentalurgencia/Anexo/justificarpacienteanexo", {mental : resultado, id : result});
 		});
 	});	
 }
@@ -30,7 +30,7 @@ module.exports.updatecaps= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		modelmentalanexo.updatecaps(idpaciente,vinculo,motivo, articulacao, matriciado, unidade,  function(error, result){
 			modelmentalanexo.buscarpaciente(unidade, function(error, resultado){
-				res.render("mentalurgencia/anexo/justificarpacienteanexo", {mental : resultado, id : resultados});
+				res.render("mentalurgencia/Anexo/justificarpacienteanexo", {mental : resultado, id : resultados});
 			});
 		});
 	});	
@@ -48,7 +48,7 @@ module.exports.editpacientecaps = function(application, req, res){
 
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelanexo.buscarpacienteid(idpaciente, unidade, function(error, resultado){
-			res.render("mentalurgencia/anexo/editanexo", {mental: resultado, id : result});
+			res.render("mentalurgencia/Anexo/editanexo", {mental: resultado, id : result});
 		});
 	});
 }
@@ -64,7 +64,7 @@ module.exports.baixa= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
 		modelmentalanexo.baixa(idpaciente,baixa, datas, function(error, result){
 			modelmentalanexo.buscarpaciente(unidade, function(error, resultado){
-				res.render("mentalurgencia/anexo/destinomentalanexo", {mental : resultado, id : resultados});
+				res.render("mentalurgencia/Anexo/destinomentalanexo", {mental : resultado, id : resultados});
 			});
 		});
 	});	
@@ -80,7 +80,7 @@ module.exports.destino= function(application, req, res){
 	
 	modeladmin.buscarusuario(id, function(error, result){
 		modelmentalanexo.buscarpacientecaps(unidade, function(error, resultado){
-			res.render("mentalurgencia/anexo/destinomentalanexo", {mental : resultado, id : result});
+			res.render("mentalurgencia/Anexo/destinomentalanexo", {mental : resultado, id : result});
 		});
 	});	
 }
@@ -99,7 +99,7 @@ module.exports.cadastrar= function(application, req, res){
 	
 	modeladmin.buscarusuario(id, function(error, result){
 		modelmentalanexo.buscarpaciente(unidade, function(error, resultado){
-			res.render("mentalurgencia/anexo/cadastrarmentalanexo", {mental : resultado, id : result});
+			res.render("mentalurgencia/Anexo/cadastrarmentalanexo", {mental : resultado, id : result});
 		});
 	});	
 }
@@ -115,7 +115,7 @@ module.exports.historico= function(application, req, res){
 	
 	modeladmin.buscarusuario(id, function(error, result){
 		modelmentalanexo.historico(unidade, function(error, resultado){
-			res.render("mentalurgencia/anexo/historicomentalanexo", {mental : resultado, id : result});
+			res.render("mentalurgencia/Anexo/historicomentalanexo", {mental : resultado, id : result});
 		});
 	});		
 }
@@ -136,7 +136,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
 		modelmentalanexo.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,data, function(error, result){
 			modelmentalanexo.buscarpaciente(unidade, function(error, resultado){
-				res.render("mentalurgencia/anexo/cadastrarmentalanexo", {mental : resultado, id : resultados});
+				res.render("mentalurgencia/Anexo/cadastrarmentalanexo", {mental : resultado, id : resultados});
 			});
 		});
 	});	
@@ -158,7 +158,7 @@ module.exports.update= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		modelmentalanexo.update(idpaciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
 			modelmentalanexo.buscarpaciente(unidade, function(error, resultado){
-				res.render("mentalurgencia/anexo/cadastrarmentalanexo", {mental : resultado, id : resultados});
+				res.render("mentalurgencia/Anexo/cadastrarmentalanexo", {mental : resultado, id : resultados});
 			});
 		});
 	});	
@@ -173,7 +173,7 @@ module.exports.addpaciente = function(application, req, res){
 	var id = req.query;
 	
 	modeladmin.buscarusuario(id, function(error,result){
-		res.render("mentalurgencia/anexo/addmentalanexo", {id : result});
+		res.render("mentalurgencia/Anexo/addmentalanexo", {id : result});
 	});
 }
 
@@ -188,7 +188,7 @@ module.exports.editpaciente = function(application, req, res){
 
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelmentalanexo.buscarpacienteid(idpaciente, unidade, function(error, resultado){
-			res.render("mentalurgencia/anexo/editmentalanexo", {mental: resultado, id : result});
+			res.render("mentalurgencia/Anexo/editmentalanexo", {mental: resultado, id : result});
 		});
 	});
 }
