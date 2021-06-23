@@ -87,7 +87,6 @@ rowGroup: {
             {"className": "dt-center", "targets": "_all"},
            
         ],
-        fixedColumns: true,
         rowGroup: {
             dataSrc: groupColumn,
         },
@@ -101,7 +100,7 @@ rowGroup: {
             api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
                 if ( last !== group ) {
                     $(rows).eq( i ).before(
-                        '<tr class="group" style = "background-color: #ddd !important;text-align: center !important"><td colspan="18" >'+group+'</td></tr>'
+                        '<tr class="group" ><td colspan="18" >'+group+'</td></tr>'
                     );
  
                     last = group;
@@ -121,11 +120,7 @@ rowGroup: {
                 "text": "PDF",
                 orientation: 'landscape',
                 pageSize: 'LEGAL',
-                customize: function(doc) {
-                    doc.styles.tableBodyEven.alignment = 'center';
-                    doc.styles.tableBodyOdd.alignment = 'center'; 
-                   
-                }, 
+                alignment: "center",
                 exportOptions: {
                     grouped_array_index: [groupColumn],
                     columns: ':visible'
