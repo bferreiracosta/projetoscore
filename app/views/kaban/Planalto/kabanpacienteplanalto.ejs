@@ -59,9 +59,9 @@
                         <th><%=paciente[j].prt %></th>
                         <td><%=paciente[j].nome %></td>
                         <td><%=paciente[j].datanascimento %></td>
-                        <td><%=paciente[j].idade %></td>
+                        <td></td>
                         <td><%=paciente[j].dataentrada %></td>
-                        <td><%=paciente[j].qtddiasinternados %></td>
+                        <td></td>
                         <td><%=paciente[j].acomodacao %></td>
                         <td><%=paciente[j].ECF %></td>
                         <td><%=paciente[j].spict %></td>
@@ -148,7 +148,7 @@
             dom: 'Bfrtip',
             "scrollX": true,
             order: ([ 3, 'asc']),
-            
+            fixedHeader: true,
         pageLength: 50,
         buttons: [       
             {
@@ -190,6 +190,28 @@
     } );
 } );
 
+$('#mytable tbody tr').each(function(i){
+            tr=$(this);
+            valor=tr.children('td:eq(8)').html();
+            idade=tr.children('td:eq(6)').html();
+            var date2 = new Date(valor);
+            const now = new Date(); // Data de hoje
+            const diff = Math.abs(now.getTime() - date2.getTime()); // Subtrai uma data pela outra
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
+
+            // Mostra a diferença em dias
+            tr.children('td:eq(9)').text(days + " dias");
+            tr.children('td:eq(7)').text(calcularIdade(idade)+ " anos");
+});
+
+function calcularIdade(aniversario) {
+    var ano_atual = new Date().getFullYear();
+var data_aniversario = new Date(aniversario).getFullYear();;
+// var ano_informado = data_aniversario.split('/')[2];
+return (ano_atual - data_aniversario);
+   
+}
+
     function pad(s){
             return (s<10) ? '0' + s :s;
         }
@@ -213,91 +235,5 @@
         document.getElementById('baixa').value = baixa;
     });
     
-    setInterval(function(){
-        init_PNotify()
-    },10000)
-    
-    function init_PNotify() {
         
-        var data = new Date;
-        var now = (new Date).toLocaleString().substr(11, 5)
-        var hoje = data.getDate() + "/" + (data.getMonth()+1) + "/" + data.getFullYear();
-        $('#mytable tbody tr').each(function(i){
-            tr=$(this);
-            tr.children('td').removeClass('fundoIdade');
-            valor=tr.children('td:eq(11)').html();
-            date = tr.children('td:eq(10)').html();
-            news =tr.children('td:eq(7)').html();
-            
-            if(news <= 4){
-                var tempocerto = somartempos('6:00', valor); 
-                console.log(now, tempocerto);
-                if(hoje > date || now == tempocerto || now > tempocerto){
-                    tr.children('td:eq(7)').addClass('fundoIdade');
-                    notificação(); 
-                }
-            }if(news > 4 && news <=6){
-                var tempocerto = somartempos('4:00', valor);
-                console.log(now, tempocerto); 
-                if(hoje > date || now == tempocerto || now > tempocerto){
-                    tr.children('td:eq(7)').addClass('fundoIdade1');
-                    notificação(); 
-                }
-            }if(news >= 7){
-                var tempocerto = somartempos('1:00', valor); 
-                console.log(now, tempocerto);
-                if( hoje > date || now == tempocerto || now > tempocerto){
-                    tr.children('td:eq(7)').addClass('fundoIdade2');
-                    notificação(); 
-                }
-            }
-            if(news = 0){
-                var tempocerto = somartempos('1:00', valor); 
-                console.log(now, tempocerto);
-                if(hoje > date || now == tempocerto || now > tempocerto){
-                    notificação(); 
-                }
-            }
-            
-        })       
-    };
-    
-    function somartempos(tempo1, tempo2) {
-        
-        var array1 = tempo1.split(':');
-        var tempo_seg1 = (parseInt(array1[0]) * 3600) + (parseInt(array1[1]) * 60);
-        var array2 = tempo2.split(':');
-        var tempo_seg2 = (parseInt(array2[0]) * 3600) + (parseInt(array2[1]) * 60);
-        var tempofinal = parseInt(tempo_seg1) + parseInt(tempo_seg2);
-        var hours = Math.floor(tempofinal / (60 * 60));
-        var divisorMinutos = tempofinal % (60 * 60);
-        var minutes = Math.floor(divisorMinutos / 60);
-        var contador = "";
-        if (hours < 10) { contador = "0" + hours + ":"; } else { contador = hours + ":"; }
-        if (minutes < 10) { contador += "0" + minutes } else { contador += minutes; }
-        return contador;
-    }
-    
-    function notificação(){
-        new PNotify({
-            title: "Alerta",
-            type: "info",
-            text: "Há paciente sem atualizar",
-            maxonscreen: Infinity,
-            closer: true,
-            closer_hover: true,
-            opacity: 0.95,
-            history: false,
-            sticker: true,
-            nonblock: {
-                nonblock: true,
-            },
-            addclass: 'pnotify-center',
-            delay:2000,
-            styling: 'bootstrap3',
-            hide: true,
-            remove: true
-        });
-    }
-    
     </script>

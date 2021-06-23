@@ -783,7 +783,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
 	var modelcovidtibery = new application.app.model.regulacao.modeltibery(application);
 	modeltibery.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == null){
+		if(resultados[0].covid == false){
 			modeltibery.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 				var string=JSON.stringify(resultados);
 				var json =  JSON.parse(string);
@@ -1835,6 +1835,7 @@ module.exports.updatedispositivokabantibery= function(application, req, res){
 	var propofol3 = req.body.Propofol3;
 	var vazaoPropofol = req.body.vazaoPropofol;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'Tibery';
 	var profissional = "Enfermeiro";
 	var modeladmin = new application.app.model.admin.modeladmin(application);
@@ -1842,7 +1843,7 @@ module.exports.updatedispositivokabantibery= function(application, req, res){
 	var modelcovidtibery = new application.app.model.regulacao.modeltibery(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, result){	
-		modeltibery.updatedispositivodados(idpaciente,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
+		modeltibery.updatedispositivodados(idpaciente, data, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
 			modelcovidtibery.updaterespkaban(idpaciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 				modeltibery.buscardispositivo(unidade, function(error, resultado){
 						res.render("kaban/Tibery/dispositivotibery", {dispositivo: resultado, id : result });
@@ -1868,13 +1869,15 @@ module.exports.updatefugulin= function(application, req, res){
 	var tempo2 = req.body.tempo2;
 	var fugulin = req.body.fugulin;
 	var id = req.body.idusuario;
+	var data = req.body.data;
+	
 	var unidade = 'Tibery';
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modeltibery.updatefugulindados(idpaciente, mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,unidade,  function(error, result){
+		modeltibery.updatefugulindados(idpaciente,data, mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,unidade,  function(error, result){
 			modeltibery.buscarfugulin(unidade, function(error, resultado){
 				res.render("kaban/Tibery/fugulintibery", {fugulin : resultado, id : resultados});
 			});
@@ -1899,6 +1902,7 @@ module.exports.updatenews= function(application, req, res){
 	var horasreg = req.body.horas;
 	var datareg = req.body.datareg;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'Tibery';
 	
 	
@@ -1907,7 +1911,7 @@ module.exports.updatenews= function(application, req, res){
 	var modelcovidtibery = new application.app.model.regulacao.modeltibery(application);
 
 			modeladmin.buscarusuarioporid(id, function(error, result){	
-				modeltibery.updatenewsdados(idpaciente, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+				modeltibery.updatenewsdados(idpaciente,data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 					modelcovidtibery.updatenews(idpaciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
 						modeltibery.buscarnews(unidade, function(error, resultado){
 								res.render("kaban/Tibery/newskabantibery", {news: resultado, id : result });
@@ -1928,13 +1932,14 @@ module.exports.updatetiss= function(application, req, res){
 	var intervencoes = req.body.intervencoes2;
 	var tiss = req.body.tiss;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'Tibery';
 
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modeltibery.updatetissdados(idpaciente, atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss,unidade,  function(error, result){
+		modeltibery.updatetissdados(idpaciente,data, atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss,unidade,  function(error, result){
 			modeltibery.buscartiss(unidade, function(error, resultado){
 				res.render("kaban/Tibery/tisstibery", {tiss : resultado, id : resultados});
 			});

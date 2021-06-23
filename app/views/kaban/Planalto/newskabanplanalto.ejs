@@ -20,7 +20,9 @@
                     <th>Frequência Respiratoria</th>
                     <th>Saturação de O2</th>
                     <th>Nivel de Alerta</th>
+                    <th></th>
                     <th>News</th>
+                    <th></th>
                     <th>Data Atualização</th>
                     
                    
@@ -41,8 +43,10 @@
                         <td><label hidden for="">/Frequência Respiratoria: </label><%=news[j].fr %></td>
                         <td><label hidden for="">/Saturação de O2: </label><%=news[j].sat %></td>
                         <td><label hidden for="">/Nivel de Alerta: </label><%=news[j].alerta %></td>
-                        <td><label hidden for="">/News: </label><%=news[j].news %></td>
-                        <td><label hidden for="">/Data da atualização: </label><%=news[j].dataatualizacao %></td>
+                        <td><label hidden for="">/News: </label></td>
+                        <td><%=news[j].news %></td>
+                        <td><label hidden for="">/Data da atualização: </label></td>
+                        <td><%=news[j].dataatualizacao %></td>
         
                     </tr>
                     
@@ -148,26 +152,26 @@
         $('#mytable tbody tr').each(function(i){
             tr=$(this);
             tr.children('td').removeClass('fundoIdade');
-            valor=tr.children('td:eq(10)').html();
-            news =tr.children('td:eq(9)').html();
-           
+            valor=tr.children('td:eq(12)').html();
+            news =tr.children('td:eq(10)').html();
+           console.log(news);
             if(news <= 4){
                 var tempocerto = somartempos('6:00', valor); 
                 var compahora = compararHora(hoje, tempocerto)
                 if(compahora == true){
-                    tr.children('td:eq(9)').addClass('fundoIdade');
+                    tr.children('td:eq(10)').addClass('fundoIdade');
                     notificação(); 
                 }
             }if(compahora == true){
                 var tempocerto = somartempos('4:00', valor); 
                 if(hoje == tempocerto || hoje < tempocerto){
-                    tr.children('td:eq(9)').addClass('fundoIdade1');
+                    tr.children('td:eq(10)').addClass('fundoIdade1');
                     notificação(); 
                 }
             }if(compahora == true){
                 var tempocerto = somartempos('1:00', valor); 
                 if( hoje == tempocerto || hoje < tempocerto){
-                    tr.children('td:eq(9)').addClass('fundoIdade2');
+                    tr.children('td:eq(10)').addClass('fundoIdade2');
                     notificação(); 
                 }
             }

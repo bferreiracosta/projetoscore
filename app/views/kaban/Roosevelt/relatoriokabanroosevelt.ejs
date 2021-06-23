@@ -37,9 +37,9 @@
                                     <th><%=paciente[j].prt %></th>
                                     <td><%=paciente[j].nome %></td>
                                     <td><%=paciente[j].datanascimento %></td>
-                                    <td><%=paciente[j].idade %></td>
+                                    <td></td>
                                     <td><%=paciente[j].dataentrada %></td>
-                                    <td><%=paciente[j].qtddiasinternados %></td>
+                                    <td></td>
                                     <td><%=paciente[j].setor %></td>
                                     <td><%=paciente[j].ECF %></td>
                                     <td><%=paciente[j].spict %></td>
@@ -78,7 +78,7 @@
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
 var groupColumn = 8;
 $('#mytable').DataTable( { 
 dom: 'Bfrtip',
@@ -88,8 +88,10 @@ rowGroup: {
     },
 "columnDefs": [
             { "visible": false, "targets": groupColumn },
-            {"className": "dt-center", "targets": "_all"}
+            {"className": "dt-center", "targets": "_all"},
+            { "width": "5%", "targets":  "_all" }
         ],
+        fixedColumns: true,
         rowGroup: {
             dataSrc: groupColumn,
         },
@@ -115,7 +117,8 @@ rowGroup: {
                 "extend": "copyHtml5",
                 "text": "COPIAR",
                 orientation: 'landscape',
-                pageSize: 'LEGAL'
+                pageSize: 'A4',
+                pageMargins: [ 5, 5, 5, 5 ],
             },          
             {
                 "extend": "pdf",
@@ -125,6 +128,7 @@ rowGroup: {
                 customize: function(doc) {
                     doc.styles.tableBodyEven.alignment = 'center';
                     doc.styles.tableBodyOdd.alignment = 'center'; 
+                   
                 }, 
                 exportOptions: {
                     grouped_array_index: [groupColumn],
@@ -144,7 +148,7 @@ rowGroup: {
 
             },
             orientation: 'landscape',
-                pageSize: 'LEGAL'
+                pageSize: 'A4'
             },
             {
                 "extend": "print",
@@ -159,7 +163,7 @@ rowGroup: {
                     $(win.document.body).find('table').addClass('dt-center').css('text-align','center');
                 },
                 orientation: 'landscape',
-                pageSize: 'LEGAL'
+                pageSize: 'A4'
             }
             
         ],language: {
@@ -181,7 +185,50 @@ rowGroup: {
     } );
 } );
 
-</script>
-<%- include('../../home/footer'); %>
-</body>
-</html>
+$('#mytable tbody tr').each(function(i){
+            tr=$(this);
+            valor=tr.children('td:eq(5)').html();
+            idade=tr.children('td:eq(3)').html();
+            var date2 = new Date(valor);
+            const now = new Date(); // Data de hoje
+            const diff = Math.abs(now.getTime() - date2.getTime()); // Subtrai uma data pela outra
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
+
+            // Mostra a diferença em dias
+            tr.children('td:eq(6)').text(days + " dias");
+            tr.children('td:eq(4)').text(calcularIdade(idade)+ " anos");
+});
+
+function calcularIdade(aniversario) {
+    var ano_atual = new Date().getFullYear();
+var data_aniversario = new Date(aniversario).getFullYear();;
+// var ano_informado = data_aniversario.split('/')[2];
+return (ano_atual - data_aniversario);
+   
+}
+
+    function pad(s){
+            return (s<10) ? '0' + s :s;
+        }
+    function novaHora(){
+        
+        var date = new Date();
+        document.getElementById('data').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+    }
+    novaHora();
+    
+    
+    function setaDadosModal(valor) {
+        document.getElementById('campo').value = valor;
+    }
+    
+    function setaDadosModal2(valor) {
+        document.getElementById('campo2').value = valor;
+    }
+    $("#baixaselect").on('change', function(e){
+        var baixa = $(this).val();
+        document.getElementById('baixa').value = baixa;
+    });
+    
+        
+    </script>

@@ -160,7 +160,6 @@
 								<input  type="text" id="fugulin" name="fugulin"  class="form-control" required>
 							</div>
 							<div id="hora" class="form-group">
-								<input  type="hidden" id="horas" name="horas"  class="form-control">
 								<input  type="hidden" id="data" name="data"  class="form-control">
 							</div>
 							</div>
@@ -304,7 +303,7 @@ $("#tempo").on('change', function(e){
 function pad(s){
 		return (s<10) ? '0' + s :s;
 	}
-function novaHora(){
+	function novaHora(){
 	
 	var date = new Date();
 	document.getElementById('data').value = date.getDate() +'-'+ (date.getMonth() + 1) +'-'+ date.getFullYear() +' '+ date.getHours()+':'+date.getMinutes()+':'+date.getSeconds() ;

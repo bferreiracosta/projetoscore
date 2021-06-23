@@ -146,6 +146,17 @@ $(function(){
   }
 });
 });
+
+function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
+	function novaHora(){
+	
+	var date = new Date();
+	document.getElementById('data').value = date.getDate() +'-'+ (date.getMonth() + 1) +'-'+ date.getFullYear() +' '+ date.getHours()+':'+date.getMinutes()+':'+date.getSeconds() ;
+}
+novaHora();
+
 window.onload = function(){
 
 $("#atividades").on('change', function(e){

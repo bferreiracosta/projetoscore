@@ -139,6 +139,9 @@
 							<label class="form-check-label"  id="Propofol4" for="Propofol"> ---  Vazão Propofol</label>
 							<input  id="vazaoPropofol"  type="text" name="vazaoPropofol"  value="<%=dispositivo[j].vazaopropofol %>">
 						</div>
+						<div id="hora" class="form-group">
+							<input   type="hidden" id="data" name="data"  class="form-control">
+						</div>
 					</div>
 				</div>
                 <div>
@@ -185,7 +188,15 @@ $(function(){
   }
 });
 });
-
+function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
+	function novaHora(){
+	
+	var date = new Date();
+	document.getElementById('data').value = date.getDate() +'-'+ (date.getMonth() + 1) +'-'+ date.getFullYear() +' '+ date.getHours()+':'+date.getMinutes()+':'+date.getSeconds() ;
+}
+novaHora();
 
 $('#datasvd2').mask('00/00/0000');
 $('#datasne2').mask('00/00/0000');

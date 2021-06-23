@@ -76,6 +76,7 @@
 							 <div id="hora" class="form-group">
 								 <input  type="hidden" id="horas" name="horas"  class="form-control">
 								 <input  type="hidden" id="datareg" name="datareg"  class="form-control">
+								 <input  type="hidden" id="data" name="data"  class="form-control">
 							 </div>
 							 </div>
 			
@@ -126,6 +127,7 @@ function novaHora(){
 	
 	document.getElementById('horas').value= [date.getHours(), date.getMinutes()].map(pad).join(':');
 	document.getElementById('datareg').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+	document.getElementById('data').value = date.getDate() +'-'+ (date.getMonth() + 1) +'-'+ date.getFullYear() +' '+ date.getHours()+':'+date.getMinutes()+':'+date.getSeconds() ;
 }
 novaHora();
 $("#opcao").on('change', function(e){

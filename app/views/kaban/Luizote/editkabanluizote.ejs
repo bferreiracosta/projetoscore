@@ -111,8 +111,8 @@
 						<label for="paliativos" id="paliativo2">Paliativos</label>
                         <select class="form-control" id="paliativos" name="paliativos">
                             <option value="" disabled selected hidden>Paliativo</option>
-							<option value="sim" <%=(paciente[j].paliativo == 'sim')?'selected':''%> >Sim</option>
-							<option value="nao" <%=(paciente[j].paliativo == 'nao')?'selected':''%>>Não</option>
+							<option value="Sim" <%=(paciente[j].paliativo == 'SIM')?'selected':''%> >Sim</option>
+							<option value="Não" <%=(paciente[j].paliativo == 'Não')?'selected':''%>>Não</option>
                         </select>
                         <input type="hidden" name="paliativo" id="paliativo"  value="<%=paciente[j].paliativo %>">
 					</div>
@@ -124,11 +124,11 @@
 						<label for="especialidade">Especialidade</label>
 						<select class="form-control" id="especialidades" name="especialidades">
                             <option value="" disabled selected hidden>Especialidade</option>
-							<option value="clinica" <%=(paciente[j].especialidade == 'clinica')?'selected':''%>>Clinica</option>
-							<option value="traumatologia" <%=(paciente[j].especialidade == 'traumatologia')?'selected':''%>>Traumatologia</option>
-							<option value="pediatria" <%=(paciente[j].especialidade == 'pediatria')?'selected':''%>>Pediatria</option>
-							<option value="psquiatria" <%=(paciente[j].especialidade == 'psquiatria')?'selected':''%>>Psquiatria</option>
-							<option value="cirurgico" <%=(paciente[j].especialidade == 'cirurgico')?'selected':''%>>Cirurgico</option>
+							<option value="Clinica" <%=(paciente[j].especialidade == 'Clinica')?'selected':''%>>Clinica</option>
+							<option value="Traumatologia" <%=(paciente[j].especialidade == 'Traumatologia')?'selected':''%>>Traumatologia</option>
+							<option value="Pediatria" <%=(paciente[j].especialidade == 'Pediatria')?'selected':''%>>Pediatria</option>
+							<option value="Psquiatria" <%=(paciente[j].especialidade == 'Psquiatria')?'selected':''%>>Psquiatria</option>
+							<option value="Cirurgico" <%=(paciente[j].especialidade == 'Cirurgico')?'selected':''%>>Cirurgico</option>
                         </select> 
                         <input type="hidden" id="especialidade" name="especialidade" class="form-control"  value="<%=paciente[j].especialidade %>" required>
                     </div>
@@ -140,9 +140,9 @@
 						<label for="banho">Banho</label>
 						<select class="form-control" id="banhos" name="banhos">
                             <option value="" disabled selected hidden>Horario Banho</option>
-							<option value="manha" <%=(paciente[j].banho == 'manha')?'selected':''%>>Manha</option>
-							<option value="tarde" <%=(paciente[j].banho == 'tarde')?'selected':''%>>Tarde</option>
-							<option value="noite" <%=(paciente[j].banho == 'noite')?'selected':''%>>Noite</option>
+							<option value="Manhã" <%=(paciente[j].banho == 'Manhã')?'selected':''%>>Manha</option>
+							<option value="Tarde" <%=(paciente[j].banho == 'Tarde')?'selected':''%>>Tarde</option>
+							<option value="Noite" <%=(paciente[j].banho == 'Noite')?'selected':''%>>Noite</option>
                         </select>
                         <input type="hidden" id="banho" name="banho" class="form-control"  value="<%=paciente[j].banho %>" required>
                     </div>
@@ -150,9 +150,9 @@
 						<label for="mobilidade">Mobilidade</label>
 						<select class="form-control" id="mobilidades" name="mobilidades">
                             <option value="" disabled selected hidden>Mobilidade</option>
-							<option value="acamado" <%=(paciente[j].mobilidade == 'acamado')?'selected':''%>>Acamando</option>
-							<option value="auxilio" <%=(paciente[j].mobilidade == 'auxilio')?'selected':''%>>Auxílio</option>
-							<option value="aspersao" <%=(paciente[j].mobilidade == 'aspersao')?'selected':''%>>Aspersão</option>
+							<option value="Acamando" <%=(paciente[j].mobilidade == 'Acamando')?'selected':''%>>Acamando</option>
+							<option value="Auxílio" <%=(paciente[j].mobilidade == 'Auxílio')?'selected':''%>>Auxílio</option>
+							<option value="Aspersão" <%=(paciente[j].mobilidade == 'Aspersão')?'selected':''%>>Aspersão</option>
                         </select>
                         <input type="hidden" id="mobilidade" name="mobilidade" class="form-control"  value="<%=paciente[j].mobilidade %>" required>
                     </div>

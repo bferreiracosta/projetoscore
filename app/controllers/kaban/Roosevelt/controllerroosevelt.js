@@ -783,7 +783,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var modelroosevelt = new application.app.model.kaban.Roosevelt.modelroosevelt(application);
 	var modelcovidroosevelt = new application.app.model.regulacao.modelroosevelt(application);
 	modelroosevelt.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == null){
+		if(resultados[0].covid == false){
 			modelroosevelt.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 				var string=JSON.stringify(resultados);
 				var json =  JSON.parse(string);
@@ -1835,6 +1835,7 @@ module.exports.updatedispositivokabanroosevelt= function(application, req, res){
 	var propofol3 = req.body.Propofol3;
 	var vazaoPropofol = req.body.vazaoPropofol;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'Roosevelt';
 	var profissional = "Enfermeiro";
 	var modeladmin = new application.app.model.admin.modeladmin(application);
@@ -1842,7 +1843,7 @@ module.exports.updatedispositivokabanroosevelt= function(application, req, res){
 	var modelcovidroosevelt = new application.app.model.regulacao.modelroosevelt(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, result){	
-		modelroosevelt.updatedispositivodados(idpaciente,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
+		modelroosevelt.updatedispositivodados(idpaciente,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
 			modelcovidroosevelt.updaterespkaban(idpaciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 				modelroosevelt.buscardispositivo(unidade, function(error, resultado){
 						res.render("kaban/Roosevelt/dispositivoroosevelt", {dispositivo: resultado, id : result });
@@ -1868,13 +1869,14 @@ module.exports.updatefugulin= function(application, req, res){
 	var tempo2 = req.body.tempo2;
 	var fugulin = req.body.fugulin;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'Roosevelt';
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelroosevelt = new application.app.model.kaban.Roosevelt.modelroosevelt(application);
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modelroosevelt.updatefugulindados(idpaciente, mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,unidade,  function(error, result){
+		modelroosevelt.updatefugulindados(idpaciente,data, mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,unidade,  function(error, result){
 			modelroosevelt.buscarfugulin(unidade, function(error, resultado){
 				res.render("kaban/Roosevelt/fugulinroosevelt", {fugulin : resultado, id : resultados});
 			});
@@ -1899,6 +1901,7 @@ module.exports.updatenews= function(application, req, res){
 	var horasreg = req.body.horas;
 	var datareg = req.body.datareg;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'Roosevelt';
 	
 	
@@ -1907,7 +1910,7 @@ module.exports.updatenews= function(application, req, res){
 	var modelcovidroosevelt = new application.app.model.regulacao.modelroosevelt(application);
 
 			modeladmin.buscarusuarioporid(id, function(error, result){	
-				modelroosevelt.updatenewsdados(idpaciente, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+				modelroosevelt.updatenewsdados(idpaciente,data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 					modelcovidroosevelt.updatenews(idpaciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
 						modelroosevelt.buscarnews(unidade, function(error, resultado){
 								res.render("kaban/Roosevelt/newskabanroosevelt", {news: resultado, id : result });
@@ -1928,13 +1931,14 @@ module.exports.updatetiss= function(application, req, res){
 	var intervencoes = req.body.intervencoes2;
 	var tiss = req.body.tiss;
 	var id = req.body.idusuario;
+	var data = req.body.data;
 	var unidade = 'Roosevelt';
 
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelroosevelt = new application.app.model.kaban.Roosevelt.modelroosevelt(application);
 	
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modelroosevelt.updatetissdados(idpaciente, atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss,unidade,  function(error, result){
+		modelroosevelt.updatetissdados(idpaciente, data, atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss,unidade,  function(error, result){
 			modelroosevelt.buscartiss(unidade, function(error, resultado){
 				res.render("kaban/Roosevelt/tissroosevelt", {tiss : resultado, id : resultados});
 			});
