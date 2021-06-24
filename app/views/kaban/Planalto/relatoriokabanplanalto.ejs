@@ -155,12 +155,14 @@ rowGroup: {
                     columns: ':visible'
                 },
                 customize: function ( win ) {
-                    $(win.document.body).css('text-align','center');
-                    $(win.document.body).find('h1').css('text-align','center');
-                    $(win.document.body).find('table').addClass('dt-center').css('text-align','center');
+                    $(win.document.body)
+                    .css( 'font-size', '12px' );
+
+                $(win.document.body).find( 'table' )
+                    .css( 'font-size', '12px' );
                 },
                 orientation: 'landscape',
-                pageSize: 'A4'
+                pageSize: 'LEGAL'
             }
             
         ],language: {
