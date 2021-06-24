@@ -4,76 +4,105 @@
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
                 <input name="usuario" type="hidden" id="usuario" value="<%=id[i].id_usuario %>">
-        <table class="table table-bordered" style="width: 50%;" id="clinico">
-            <thead>
-                <tr>
-                    <th style="width:110px"></th>
-                    <th style="width:50px">QTD</th>
-                </tr>
-            </thead>
-            <tbody>  
-                <tr> 
-                    <td style="width:110px">Quantidade de pacientes Clinicos</td>
-                    <td style="width:50px"></td>   
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered" style="width: 50%;" id="traumatologia">
-            <thead>
-                <tr>
-                    <th style="width:110px"></th>
-                    <th style="width:50px"></th>
-                </tr>
-            </thead>
-            <tbody>  
-                <tr> 
-                    <td style="width:110px">Quantidade de pacientes Traumatologia</td>
-                    <td style="width:50px"></td>   
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered" style="width: 50%;" id="psquiatria">
-            <thead>
-                <tr>
-                    <th style="width:110px"></th>
-                    <th style="width:50px"></th>
-                </tr>
-            </thead>
-            <tbody>  
-                <tr> 
-                    <td style="width:110px">Quantidade de pacientes Psquiatria</td>
-                    <td style="width:50px"></td>   
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered" style="width: 50%;" id="pediatria">
-            <thead>
-                <tr>
-                    <th style="width:110px"></th>
-                    <th style="width:50px"></th>
-                </tr>
-            </thead>
-            <tbody>  
-                <tr> 
-                    <td style="width:110px">Quantidade de pacientes pediatria</td>
-                    <td style="width:50px"></td>   
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered" style="width: 50%;" id="cirurgico">
-            <thead>
-                <tr>
-                    <th style="width:110px"></th>
-                    <th style="width:50px"></th>
-                </tr>
-            </thead>
-            <tbody>  
-                <tr> 
-                    <td style="width:110px">Quantidade de pacientes Cirurgico</td>
-                    <td style="width:50px"></td>   
-                </tr>
-            </tbody>
-        </table>
+                <table class="table table-bordered" style="width: 100%;" id="mytable">
+                    <thead>
+                        <tr>
+                            <th style="width:110px">Quantidades</th>
+                            <th style="width:50px">QTD</th>
+                        </tr>
+                    </thead>
+                    <tbody>  
+                        <% if(inter.length > 0) { %>
+                            <% for(var a = 0; a < inter.length; a++) {%>
+                        <tr> 
+                            <td style="width:110px">Quantidade de pacientes Internados no dia</td>
+                            <td style="width:50px" id="int"><%=inter[a].Inernação %></td>   
+                        </tr>
+                        <% } %>	
+                        <% } %>
+                        <% if(clinico.length > 0) { %>
+                            <% for(var b = 0; b < clinico.length; b++) {%>
+                        <tr> 
+                            <td style="width:110px">Quantidade de pacientes Clinicos</td>
+                            <td style="width:50px"><%=clinico[b].Clinica %></td>   
+                        </tr>
+                        <% } %>	
+                        <% } %>
+                        <% if(tto.length > 0) { %>
+                            <% for(var c = 0; c < tto.length; c++) {%>
+                        <tr> 
+                            <td style="width:110px">Quantidade de pacientes Traumatologia</td>
+                            <td style="width:50px" id="cli"><%=tto[c].Traumatologia %></td>   
+                        </tr>
+                        <% } %>	
+                        <% } %>
+                        <% if(psq.length > 0) { %>
+                            <% for(var d = 0; d < psq.length; d++) {%>
+                        <tr> 
+                            <td style="width:110px">Quantidade de pacientes Psquiatria</td>
+                            <td style="width:50px"><%=psq[d].Psquiatria %></td>   
+                        </tr>
+                        <% } %>	
+                        <% } %>
+                        <% if(ped.length > 0) { %>
+                            <% for(var e = 0; e < ped.length; e++) {%>
+                        <tr> 
+                            <td style="width:110px">Quantidade de pacientes pediatria</td>
+                            <td style="width:50px"><%=ped[e].Pediatria %></td>   
+                        </tr>
+                        <% } %>	
+                        <% } %>
+                        <% if(cirur.length > 0) { %>
+                            <% for(var f = 0; f < cirur.length; f++) {%>
+                        <tr> 
+                            <td style="width:110px">Quantidade de pacientes Cirurgico</td>
+                            <td style="width:50px"><%=cirur[f].Cirurgico %></td>   
+                        </tr>
+                        <% } %>	
+                        <% } %>
+                        <% if(obser.length > 0) { %>
+                            <% for(var g = 0; g < obser.length; g++) {%>
+                        <tr> 
+                            <td style="width:110px">Quantidade de pacientes em Observaçao</td>
+                            <td style="width:50px"><%=obser[g].Observação %></td>   
+                        </tr>
+                        <% } %>	
+                        <% } %>
+                        <% if(evasao.length > 0) { %>
+                            <% for(var h = 0; h < evasao.length; h++) {%>
+                        <tr> 
+                            <td style="width:110px">Quantidade de Evasão</td>
+                            <td style="width:50px"><%=evasao[h].Evasão %></td>   
+                        </tr>
+                        <% } %>	
+                        <% } %>
+                        <% if(alta.length > 0) { %>
+                            <% for(var k = 0; k < alta.length; k++) {%>
+                        <tr> 
+                            <td style="width:110px">Quantidade de Altas</td>
+                            <td style="width:50px"><%=alta[k].Altas %></td>   
+                        </tr>
+                        <% } %>	
+                        <% } %>
+                        <% if(obito.length > 0) { %>
+                            <% for(var l = 0; l < obito.length; l++) {%>
+                        <tr> 
+                            <td style="width:110px">Quantidade de Obitos</td>
+                            <td style="width:50px"><%=obito[l].Obitos %></td>   
+                        </tr>
+                        <% } %>	
+                        <% } %>
+                        <% if(transf.length > 0) { %>
+                            <% for(var m = 0; m < transf.length; m++) {%>
+                        <tr> 
+                            <td style="width:110px">Quantidade de Transferência</td>
+                            <td style="width:50px"><%=transf[m].Transferência %></td>   
+                        </tr>
+                        <% } %>	
+                        <% } %>
+                    </tbody>
+                </table>
+       
         <% } %>	
                 <% } %>
 <!-- Importando o jQuery -->
@@ -92,97 +121,52 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
- obj = [];
-    $.ajax({
-        type: "GET",
-        data: obj,
-        contentType: 'application/json',
-        url: '/buscarclinicoluizote',
-        success: function(obj) {  
-            if (obj.length > 0){
-                var clinico = obj[0].Clinica;
-                console.log(clinico);
-                $('#clinico tbody tr').each(function(i){
-                 tr=$(this);
-                tr.children('td:eq(1)').html(clinico);
-            });
+        $('#mytable').DataTable( {
+            dom: 'Bfrtip',
+            "scrollX": true,
+            fixedHeader: true,
+        pageLength: 50,
+        buttons: [       
+            {
+                "extend": "copyHtml5",
+                "text": "COPIAR",
+                header: false
+            },          
+            {
+                "extend": "pdf",
+                "text": "PDF",
+                header: false
+            },
+            {
+                "extend": "excelHtml5",
+                "text": "EXCEL",
+                header: false
+            },
+            {
+                "extend": "print",
+                "text": "IMPRIMIR",
+                header: false
             }
-        }
-    });
+        ],language: {
+            buttons: {
+                copyTitle: 'Copiado para área de transferência',
+                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+                copySuccess: {
+                    _: '%d linhas copiadas',
+                    1: '1 linha copiada'
+                }
+            },
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Próximo"
+            },
+            "search": "Pesquisar:"
+        },
+        select: true
+    } );
+} );
 
-    tto = [];
-    $.ajax({
-        type: "GET",
-        data: tto,
-        contentType: 'application/json',
-        url: '/buscartraumatologialuizote',
-        success: function(tto) {  
-            if (tto.length > 0){
-                var tto = tto[0].Traumatologia;
-                console.log(tto);
-                $('#traumatologia tbody tr').each(function(i){
-                 tr=$(this);
-                tr.children('td:eq(1)').html(tto);
-            });
-            }
-        }
-    });
 
-    ped = [];
-    $.ajax({
-        type: "GET",
-        data: ped,
-        contentType: 'application/json',
-        url: '/buscarpediatrialuizote',
-        success: function(ped) {  
-            if (ped.length > 0){
-                var ped = ped[0].Pediatria;
-                console.log(ped);
-                $('#pediatria tbody tr').each(function(i){
-                 tr=$(this);
-                tr.children('td:eq(1)').html(ped);
-            });
-            }
-        }
-    });
-
-    psq = [];
-    $.ajax({
-        type: "GET",
-        data: psq,
-        contentType: 'application/json',
-        url: '/buscarpsquiatrialuizote',
-        success: function(psq) {  
-            if (psq.length > 0){
-                var psq = psq[0].Psquiatria;
-                console.log(psq);
-                $('#psquiatria tbody tr').each(function(i){
-                 tr=$(this);
-                tr.children('td:eq(1)').html(psq);
-            });
-            }
-        }
-    });
-
-    cir = [];
-    $.ajax({
-        type: "GET",
-        data: cir,
-        contentType: 'application/json',
-        url: '/buscarcirurgicooluizote',
-        success: function(cir) {  
-            if (cir.length > 0){
-                var cir = cir[0].Cirurgico;
-                console.log(cir);
-                $('#cirurgico tbody tr').each(function(i){
-                 tr=$(this);
-                tr.children('td:eq(1)').html(cir);
-            });
-            }
-        }
-    });
-});
- 
- </script>
+    </script>
 </body>
 </html>

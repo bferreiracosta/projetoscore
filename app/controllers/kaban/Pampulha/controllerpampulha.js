@@ -989,32 +989,34 @@ module.exports.cadastrarnews= function(application, req, res){
 			})
 		}
 		else{
-			modelpampulha.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
-					modeladmin.buscarusuarioporid(id, function(error, result){	
-						modelpampulha.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-							modelcovidpampulha.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
-								modelpampulha.buscarnews(unidade, function(error, resultado){
-										res.render("kaban/Pampulha/newskabanpampulha", {news: resultado, id : result });
-								});
-							});
-						});
-					});	
-				}else{
-					modeladmin.buscarusuarioeditavel(id, function(error, result){	
-						modelpampulha.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-							modelpampulha.updatenewsstatus(json[0].idnews, function(error, resulta){
+			modelcovidpampulha.buscarpacientepornome( nome, function(error, idcovid){
+				modelpampulha.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
+					var string=JSON.stringify(resultados);
+					var json =  JSON.parse(string);
+					if(json[0].dataatualizacao == null){
+						modeladmin.buscarusuarioporid(id, function(error, result){	
+							modelpampulha.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 								modelcovidpampulha.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
 									modelpampulha.buscarnews(unidade, function(error, resultado){
 											res.render("kaban/Pampulha/newskabanpampulha", {news: resultado, id : result });
 									});
 								});
-							});	
-						});
-					});	
-				}
+							});
+						});	
+					}else{
+						modeladmin.buscarusuarioeditavel(id, function(error, result){	
+							modelpampulha.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+								modelpampulha.updatenewsstatus(json[0].idnews, function(error, resulta){
+									modelcovidpampulha.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+										modelpampulha.buscarnews(unidade, function(error, resultado){
+												res.render("kaban/Pampulha/newskabanpampulha", {news: resultado, id : result });
+										});
+									});
+								});	
+							});
+						});	
+					}
+				})
 			})
 		}
 })	

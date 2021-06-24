@@ -110,7 +110,7 @@
                       </div>
                       <input  type="hidden" name="covid" id="covid">
                       <div id="hora" class="form-group">
-                        <input  type="hidden" id="data" name="data"  class="form-control">
+                        <input  type="text" id="data" name="data"  class="form-control">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -219,7 +219,7 @@ return (ano_atual - data_aniversario);
     function novaHora(){
         
         var date = new Date();
-        document.getElementById('data').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+        document.getElementById('data').value = date.getDate() + "/" + (("0" + (date.getMonth() + 1)).slice(-2)) + "/" + date.getFullYear();
     }
     novaHora();
     

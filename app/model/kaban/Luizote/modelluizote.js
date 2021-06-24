@@ -386,32 +386,32 @@ modelluizote.prototype.buscarcirurgicoluizote = function(unidade, callback){
 
 modelluizote.prototype.buscarobservacaoluizote = function(unidade, callback){
 
-	this._conection.query('select count(acomodacao) as Observação  from kaban where acomodacao = "Observacao" and unidade = "Planalto" and baixa is not null;', callback);
+	this._conection.query('select count(acomodacao) as Observação  from kaban where acomodacao = "Observacao" and unidade = "'+unidade+'" and baixa is not null;', callback);
 }
 
 modelluizote.prototype.buscaraltaluizote = function(unidade, callback){
 
-	this._conection.query('select count(baixa) as Altas  from kaban where baixa = "alta" and unidade = "Planalto" and  datasaida = now();', callback);
+	this._conection.query('select count(baixa) as Altas  from kaban where baixa = "alta" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
 modelluizote.prototype.buscarevasaoluizote = function(unidade, callback){
 
-	this._conection.query('select count(baixa) as Evasão  from kaban where baixa = "evasao" and unidade = "Planalto" and  datasaida = now();', callback);
+	this._conection.query('select count(baixa) as Evasão  from kaban where baixa = "evasao" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
 modelluizote.prototype.buscartransferencialuizote = function(unidade, callback){
 
-	this._conection.query('select count(baixa) as Transferência  from kaban where baixa = "transferencia" and unidade = "Planalto" and  datasaida = now();', callback);
+	this._conection.query('select count(baixa) as Transferência  from kaban where baixa = "transferencia" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
 modelluizote.prototype.buscarobitoluizote = function(unidade, callback){
 
-	this._conection.query('select count(baixa) as Obitos  from kaban where baixa = "obito" and unidade = "Planalto" and  datasaida = now();', callback);
+	this._conection.query('select count(baixa) as Obitos  from kaban where baixa = "obito" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
 modelluizote.prototype.buscarinternacaodialuizote = function(unidade, callback){
 
-	this._conection.query('select count(especialidade) as Cirurgico  from kaban where especialidade = "Cirurgico" and unidade = "'+unidade+'" and baixa is null;', callback);
+	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%Y-%m-%d") as hoje);', callback);
 }
 
 

@@ -212,13 +212,13 @@ return (ano_atual - data_aniversario);
    
 }
 
-    function pad(s){
+function pad(s){
             return (s<10) ? '0' + s :s;
         }
     function novaHora(){
         
         var date = new Date();
-        document.getElementById('data').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+        document.getElementById('data').value = date.getDate() + "/" + (("0" + (date.getMonth() + 1)).slice(-2)) + "/" + date.getFullYear();
     }
     novaHora();
     

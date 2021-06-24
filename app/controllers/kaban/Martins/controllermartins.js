@@ -991,32 +991,34 @@ module.exports.cadastrarnews= function(application, req, res){
 			})
 		}
 		else{
-			modelmartins.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
-					modeladmin.buscarusuarioporid(id, function(error, result){	
-						modelmartins.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-							modelcovidmartins.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
-								modelmartins.buscarnews(unidade, function(error, resultado){
-										res.render("kaban/Martins/newskabanmartins", {news: resultado, id : result });
-								});
-							});
-						});
-					});	
-				}else{
-					modeladmin.buscarusuarioeditavel(id, function(error, result){	
-						modelmartins.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-							modelmartins.updatenewsstatus(json[0].idnews, function(error, resulta){
+			modelcovidmartins.buscarpacientepornome( nome, function(error, idcovid){
+				modelmartins.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
+					var string=JSON.stringify(resultados);
+					var json =  JSON.parse(string);
+					if(json[0].dataatualizacao == null){
+						modeladmin.buscarusuarioporid(id, function(error, result){	
+							modelmartins.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 								modelcovidmartins.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
 									modelmartins.buscarnews(unidade, function(error, resultado){
 											res.render("kaban/Martins/newskabanmartins", {news: resultado, id : result });
 									});
 								});
-							});	
-						});
-					});	
-				}
+							});
+						});	
+					}else{
+						modeladmin.buscarusuarioeditavel(id, function(error, result){	
+							modelmartins.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+								modelmartins.updatenewsstatus(json[0].idnews, function(error, resulta){
+									modelcovidmartins.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+										modelmartins.buscarnews(unidade, function(error, resultado){
+												res.render("kaban/Martins/newskabanmartins", {news: resultado, id : result });
+										});
+									});
+								});	
+							});
+						});	
+					}
+				})
 			})
 		}
 })	
