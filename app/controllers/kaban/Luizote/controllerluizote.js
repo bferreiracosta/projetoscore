@@ -790,7 +790,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelluizote.updatedispositivo(idpaciente, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelluizote.buscardispositivo(unidade, function(error, resultado){
-									res.render("kaban/luizote/dispositivoluizote", {dispositivo: resultado, id : result });
+									res.render("kaban/Luizote/dispositivoluizote", {dispositivo: resultado, id : result });
 							});
 						});
 					});	
@@ -799,7 +799,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 						modelluizote.adddispositivo(idpaciente, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelluizote.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
 								modelluizote.buscardispositivo(unidade, function(error, resultado){
-									res.render("kaban/luizote/dispositivoluizote", {dispositivo: resultado, id : result});
+									res.render("kaban/Luizote/dispositivoluizote", {dispositivo: resultado, id : result});
 								});
 							});	
 						});
@@ -819,7 +819,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 						modelluizote.updatedispositivo(idpaciente, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelcovidluizote.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 								modelluizote.buscardispositivo(unidade, function(error, resultado){
-										res.render("kaban/luizote/dispositivoluizote", {dispositivo: resultado, id : result });
+										res.render("kaban/Luizote/dispositivoluizote", {dispositivo: resultado, id : result });
 								});
 							});
 						});
@@ -830,7 +830,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 							modelcovidluizote.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 								modelluizote.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
 									modelluizote.buscardispositivo(unidade, function(error, resultado){
-										res.render("kaban/luizote/dispositivoluizote", {dispositivo: resultado, id : result});
+										res.render("kaban/Luizote/dispositivoluizote", {dispositivo: resultado, id : result});
 									});
 								});	
 							});	
@@ -963,36 +963,61 @@ module.exports.cadastrarnews= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
 	var modelcovidluizote = new application.app.model.regulacao.modelluizote(application);
-	modelcovidluizote.buscarpacientepornome(nome, function(error, idcovid){
-		console.log(idcovid)
-	modelluizote.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-		var string=JSON.stringify(resultados);
-		var json =  JSON.parse(string);
-		console.log(json[0].dataatualizacao, json[0].idnews);
-		if(json[0].dataatualizacao == null){
-			modeladmin.buscarusuarioporid(id, function(error, result){	
-				modelluizote.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-					modelcovidluizote.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
-						modelluizote.buscarnews(unidade, function(error, resultado){
-								res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
-						});
-					});
-				});
-			});	
-		}else{
-			modeladmin.buscarusuarioeditavel(id, function(error, result){	
-				modelluizote.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-					modelluizote.updatenewsstatus(json[0].idnews, function(error, resulta){
-						modelcovidluizote.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+	modelluizote.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
+		if(resultados[0].covid == 'false'){
+			modelluizote.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
+				var string=JSON.stringify(resultados);
+				var json =  JSON.parse(string);
+				if(json[0].dataatualizacao == null){
+					modeladmin.buscarusuarioporid(id, function(error, result){	
+						modelluizote.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 							modelluizote.buscarnews(unidade, function(error, resultado){
 									res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
 							});
 						});
 					});	
-				});
-			});	
+				}else{
+					modeladmin.buscarusuarioeditavel(id, function(error, result){	
+						modelluizote.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+							modelluizote.updatenewsstatus(json[0].idnews, function(error, resulta){
+								modelluizote.buscarnews(unidade, function(error, resultado){
+										res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
+								});
+							});	
+						});
+					});	
+				}
+			})
 		}
-	})
+		else{
+			modelluizote.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
+				var string=JSON.stringify(resultados);
+				var json =  JSON.parse(string);
+				if(json[0].dataatualizacao == null){
+					modeladmin.buscarusuarioporid(id, function(error, result){	
+						modelluizote.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+							modelcovidluizote.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+								modelluizote.buscarnews(unidade, function(error, resultado){
+										res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
+								});
+							});
+						});
+					});	
+				}else{
+					modeladmin.buscarusuarioeditavel(id, function(error, result){	
+						modelluizote.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+							modelluizote.updatenewsstatus(json[0].idnews, function(error, resulta){
+								modelcovidluizote.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+									modelluizote.buscarnews(unidade, function(error, resultado){
+											res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
+									});
+								});
+							});	
+						});
+					});	
+				}
+			})
+		}
 })
 }
 
@@ -1945,3 +1970,191 @@ module.exports.updatetiss= function(application, req, res){
 	});	
 }
 
+module.exports.buscarclinicoluizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscarclinicoluizote(unidade, function(error, resultado){
+			res.send(resultado);
+		});
+	});	
+};
+
+module.exports.buscartraumatologialuizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscartraumatologialuizote(unidade, function(error, resultado){
+			res.send(resultado);
+		});
+	});	
+};
+
+module.exports.buscarpediatrialuizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscarpediatrialuizote(unidade, function(error, resultado){
+			res.send(resultado);
+		});
+	});	
+};
+
+module.exports.buscarpsquiatrialuizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscarpsquiatrialuizote(unidade, function(error, resultado){
+			res.send(resultado);
+		});
+	});	
+};
+
+module.exports.buscarcirurgicoluizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscarcirurgicoluizote(unidade, function(error, resultado){
+			res.send(resultado);
+		});
+	});	
+};
+
+module.exports.buscaraltaluizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscaraltaluizote(unidade, function(error, resultado){
+			res.send(resultado);
+		});
+	});	
+};
+
+module.exports.buscarobservacaoluizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscarobservacaoluizote(unidade, function(error, resultado){
+			res.send(resultado);
+		});
+	});	
+};
+
+module.exports.buscartransferencialuizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscartransferencialuizote(unidade, function(error, resultado){
+			res.send(resultado);
+		});
+	});	
+};
+
+module.exports.buscarobitoluizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscarobitoluizote(unidade, function(error, resultado){
+			res.send(resultado);
+		});
+	});	
+};
+
+module.exports.buscarevasaoluizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscarevasaoluizote(unidade, function(error, resultado){
+			res.send(resultado);
+		});
+	});	
+};
+
+module.exports.buscarinternacaodialuizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+	
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscarinternacaodialuizote(unidade, function(error, resultado){
+			res.send(resultado);
+		});
+	});	
+};
+
+module.exports.infouailuizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		res.render("kaban/Luizote/infouailuizote", {id : result});
+	});
+}

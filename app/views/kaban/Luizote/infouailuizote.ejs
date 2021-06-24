@@ -1,0 +1,188 @@
+<%- include('../cabecalhokaban'); %>
+    <h2>Info UAI Luizote</h2>
+    
+        <% if(id.length > 0) { %>
+            <% for(var i = 0; i < id.length; i++) {%>
+                <input name="usuario" type="hidden" id="usuario" value="<%=id[i].id_usuario %>">
+        <table class="table table-bordered" style="width: 50%;" id="clinico">
+            <thead>
+                <tr>
+                    <th style="width:110px"></th>
+                    <th style="width:50px">QTD</th>
+                </tr>
+            </thead>
+            <tbody>  
+                <tr> 
+                    <td style="width:110px">Quantidade de pacientes Clinicos</td>
+                    <td style="width:50px"></td>   
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered" style="width: 50%;" id="traumatologia">
+            <thead>
+                <tr>
+                    <th style="width:110px"></th>
+                    <th style="width:50px"></th>
+                </tr>
+            </thead>
+            <tbody>  
+                <tr> 
+                    <td style="width:110px">Quantidade de pacientes Traumatologia</td>
+                    <td style="width:50px"></td>   
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered" style="width: 50%;" id="psquiatria">
+            <thead>
+                <tr>
+                    <th style="width:110px"></th>
+                    <th style="width:50px"></th>
+                </tr>
+            </thead>
+            <tbody>  
+                <tr> 
+                    <td style="width:110px">Quantidade de pacientes Psquiatria</td>
+                    <td style="width:50px"></td>   
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered" style="width: 50%;" id="pediatria">
+            <thead>
+                <tr>
+                    <th style="width:110px"></th>
+                    <th style="width:50px"></th>
+                </tr>
+            </thead>
+            <tbody>  
+                <tr> 
+                    <td style="width:110px">Quantidade de pacientes pediatria</td>
+                    <td style="width:50px"></td>   
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered" style="width: 50%;" id="cirurgico">
+            <thead>
+                <tr>
+                    <th style="width:110px"></th>
+                    <th style="width:50px"></th>
+                </tr>
+            </thead>
+            <tbody>  
+                <tr> 
+                    <td style="width:110px">Quantidade de pacientes Cirurgico</td>
+                    <td style="width:50px"></td>   
+                </tr>
+            </tbody>
+        </table>
+        <% } %>	
+                <% } %>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+ obj = [];
+    $.ajax({
+        type: "GET",
+        data: obj,
+        contentType: 'application/json',
+        url: '/buscarclinicoluizote',
+        success: function(obj) {  
+            if (obj.length > 0){
+                var clinico = obj[0].Clinica;
+                console.log(clinico);
+                $('#clinico tbody tr').each(function(i){
+                 tr=$(this);
+                tr.children('td:eq(1)').html(clinico);
+            });
+            }
+        }
+    });
+
+    tto = [];
+    $.ajax({
+        type: "GET",
+        data: tto,
+        contentType: 'application/json',
+        url: '/buscartraumatologialuizote',
+        success: function(tto) {  
+            if (tto.length > 0){
+                var tto = tto[0].Traumatologia;
+                console.log(tto);
+                $('#traumatologia tbody tr').each(function(i){
+                 tr=$(this);
+                tr.children('td:eq(1)').html(tto);
+            });
+            }
+        }
+    });
+
+    ped = [];
+    $.ajax({
+        type: "GET",
+        data: ped,
+        contentType: 'application/json',
+        url: '/buscarpediatrialuizote',
+        success: function(ped) {  
+            if (ped.length > 0){
+                var ped = ped[0].Pediatria;
+                console.log(ped);
+                $('#pediatria tbody tr').each(function(i){
+                 tr=$(this);
+                tr.children('td:eq(1)').html(ped);
+            });
+            }
+        }
+    });
+
+    psq = [];
+    $.ajax({
+        type: "GET",
+        data: psq,
+        contentType: 'application/json',
+        url: '/buscarpsquiatrialuizote',
+        success: function(psq) {  
+            if (psq.length > 0){
+                var psq = psq[0].Psquiatria;
+                console.log(psq);
+                $('#psquiatria tbody tr').each(function(i){
+                 tr=$(this);
+                tr.children('td:eq(1)').html(psq);
+            });
+            }
+        }
+    });
+
+    cir = [];
+    $.ajax({
+        type: "GET",
+        data: cir,
+        contentType: 'application/json',
+        url: '/buscarcirurgicooluizote',
+        success: function(cir) {  
+            if (cir.length > 0){
+                var cir = cir[0].Cirurgico;
+                console.log(cir);
+                $('#cirurgico tbody tr').each(function(i){
+                 tr=$(this);
+                tr.children('td:eq(1)').html(cir);
+            });
+            }
+        }
+    });
+});
+ 
+ </script>
+</body>
+</html>

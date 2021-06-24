@@ -964,34 +964,61 @@ module.exports.cadastrarnews= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelplanalto = new application.app.model.kaban.Planalto.modelplanalto(application);
 	var modelcovidplanalto = new application.app.model.regulacao.modelplanalto(application);
-	modelcovidplanalto.buscarpacientepornome(nome, function(error, idcovid){
-	modelplanalto.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-		var string=JSON.stringify(resultados);
-		var json =  JSON.parse(string);
-		if(json[0].dataatualizacao == null){
-			modeladmin.buscarusuarioporid(id, function(error, result){	
-				modelplanalto.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-					modelcovidplanalto.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
-						modelplanalto.buscarnews(unidade, function(error, resultado){
-								res.render("kaban/Planalto/newskabanplanalto", {news: resultado, id : result });
-						});
-					});
-				});
-			});	
-		}else{
-			modeladmin.buscarusuarioeditavel(id, function(error, result){	
-				modelplanalto.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-					modelplanalto.updatenewsstatus(json[0].idnews, function(error, resulta){
-						modelcovidplanalto.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+	modelplanalto.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
+		if(resultados[0].covid == 'false'){
+			modelplanalto.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
+				var string=JSON.stringify(resultados);
+				var json =  JSON.parse(string);
+				if(json[0].dataatualizacao == null){
+					modeladmin.buscarusuarioporid(id, function(error, result){	
+						modelplanalto.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 							modelplanalto.buscarnews(unidade, function(error, resultado){
 									res.render("kaban/Planalto/newskabanplanalto", {news: resultado, id : result });
 							});
 						});
 					});	
-				});
-			});	
+				}else{
+					modeladmin.buscarusuarioeditavel(id, function(error, result){	
+						modelplanalto.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+							modelplanalto.updatenewsstatus(json[0].idnews, function(error, resulta){
+								modelplanalto.buscarnews(unidade, function(error, resultado){
+										res.render("kaban/Planalto/newskabanplanalto", {news: resultado, id : result });
+								});
+							});	
+						});
+					});	
+				}
+			})
 		}
-	})
+		else{
+			modelplanalto.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
+				var string=JSON.stringify(resultados);
+				var json =  JSON.parse(string);
+				if(json[0].dataatualizacao == null){
+					modeladmin.buscarusuarioporid(id, function(error, result){	
+						modelplanalto.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+							modelcovidplanalto.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+								modelplanalto.buscarnews(unidade, function(error, resultado){
+										res.render("kaban/Planalto/newskabanplanalto", {news: resultado, id : result });
+								});
+							});
+						});
+					});	
+				}else{
+					modeladmin.buscarusuarioeditavel(id, function(error, result){	
+						modelplanalto.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+							modelplanalto.updatenewsstatus(json[0].idnews, function(error, resulta){
+								modelcovidplanalto.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+									modelplanalto.buscarnews(unidade, function(error, resultado){
+											res.render("kaban/Planalto/newskabanplanalto", {news: resultado, id : result });
+									});
+								});
+							});	
+						});
+					});	
+				}
+			})
+		}
 })
 }
 

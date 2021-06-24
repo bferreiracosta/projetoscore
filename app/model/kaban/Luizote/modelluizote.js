@@ -359,6 +359,60 @@ modelluizote.prototype.updatenewsnome = function(idpaciente, nome,setor, callbac
 	this._conection.query('update news set nome= "'+nome+'", setor= "'+setor+'" where idpaciente = ' + idpaciente, callback);
 }
 
+modelluizote.prototype.buscarclinicoluizote = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Clinica  from kaban where especialidade = "Clinica" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelluizote.prototype.buscartraumatologialuizote = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Traumatologia  from kaban where especialidade = "Traumatologia" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelluizote.prototype.buscarpediatrialuizote = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Pediatria  from kaban where especialidade = "Pediatria" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelluizote.prototype.buscarpsquiatrialuizote = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Psquiatria  from kaban where especialidade = "Psquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelluizote.prototype.buscarcirurgicoluizote = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Cirurgico  from kaban where especialidade = "Cirurgico" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelluizote.prototype.buscarobservacaoluizote = function(unidade, callback){
+
+	this._conection.query('select count(acomodacao) as Observação  from kaban where acomodacao = "Observacao" and unidade = "Planalto" and baixa is not null;', callback);
+}
+
+modelluizote.prototype.buscaraltaluizote = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Altas  from kaban where baixa = "alta" and unidade = "Planalto" and  datasaida = now();', callback);
+}
+
+modelluizote.prototype.buscarevasaoluizote = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Evasão  from kaban where baixa = "evasao" and unidade = "Planalto" and  datasaida = now();', callback);
+}
+
+modelluizote.prototype.buscartransferencialuizote = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Transferência  from kaban where baixa = "transferencia" and unidade = "Planalto" and  datasaida = now();', callback);
+}
+
+modelluizote.prototype.buscarobitoluizote = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Obitos  from kaban where baixa = "obito" and unidade = "Planalto" and  datasaida = now();', callback);
+}
+
+modelluizote.prototype.buscarinternacaodialuizote = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Cirurgico  from kaban where especialidade = "Cirurgico" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
 
 
 module.exports = function(){

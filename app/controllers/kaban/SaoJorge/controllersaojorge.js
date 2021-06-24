@@ -791,7 +791,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelsaojorge.updatedispositivo(idpaciente, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelsaojorge.buscardispositivo(unidade, function(error, resultado){
-									res.render("kaban/saojorge/dispositivosaojorge", {dispositivo: resultado, id : result });
+									res.render("kaban/SaoJorge/dispositivosaojorge", {dispositivo: resultado, id : result });
 							});
 						});
 					});	
@@ -800,7 +800,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 						modelsaojorge.adddispositivo(idpaciente, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelsaojorge.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
 								modelsaojorge.buscardispositivo(unidade, function(error, resultado){
-									res.render("kaban/saojorge/dispositivosaojorge", {dispositivo: resultado, id : result});
+									res.render("kaban/SaoJorge/dispositivosaojorge", {dispositivo: resultado, id : result});
 								});
 							});	
 						});
@@ -820,7 +820,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 						modelsaojorge.updatedispositivo(idpaciente, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelcovidsaojorge.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 								modelsaojorge.buscardispositivo(unidade, function(error, resultado){
-										res.render("kaban/saojorge/dispositivosaojorge", {dispositivo: resultado, id : result });
+										res.render("kaban/SaoJorge/dispositivosaojorge", {dispositivo: resultado, id : result });
 								});
 							});
 						});
@@ -831,7 +831,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 							modelcovidsaojorge.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 								modelsaojorge.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
 									modelsaojorge.buscardispositivo(unidade, function(error, resultado){
-										res.render("kaban/saojorge/dispositivosaojorge", {dispositivo: resultado, id : result});
+										res.render("kaban/SaoJorge/dispositivosaojorge", {dispositivo: resultado, id : result});
 									});
 								});	
 							});	
@@ -964,36 +964,61 @@ module.exports.cadastrarnews= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelsaojorge = new application.app.model.kaban.SaoJorge.modelsaojorge(application);
 	var modelcovidsaojorge = new application.app.model.regulacao.modelsaojorge(application);
-	modelcovidsaojorge.buscarpacientepornome(nome, function(error, idcovid){
-		console.log(idcovid)
-	modelsaojorge.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-		var string=JSON.stringify(resultados);
-		var json =  JSON.parse(string);
-		console.log(json[0].dataatualizacao, json[0].idnews);
-		if(json[0].dataatualizacao == null){
-			modeladmin.buscarusuarioporid(id, function(error, result){	
-				modelsaojorge.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-					modelcovidsaojorge.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
-						modelsaojorge.buscarnews(unidade, function(error, resultado){
-								res.render("kaban/SaoJorge/newskabansaojorge", {news: resultado, id : result });
-						});
-					});
-				});
-			});	
-		}else{
-			modeladmin.buscarusuarioeditavel(id, function(error, result){	
-				modelsaojorge.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-					modelsaojorge.updatenewsstatus(json[0].idnews, function(error, resulta){
-						modelcovidsaojorge.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+	modelsaojorge.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
+		if(resultados[0].covid == 'false'){
+			modelsaojorge.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
+				var string=JSON.stringify(resultados);
+				var json =  JSON.parse(string);
+				if(json[0].dataatualizacao == null){
+					modeladmin.buscarusuarioporid(id, function(error, result){	
+						modelsaojorge.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 							modelsaojorge.buscarnews(unidade, function(error, resultado){
 									res.render("kaban/SaoJorge/newskabansaojorge", {news: resultado, id : result });
 							});
 						});
 					});	
-				});
-			});	
+				}else{
+					modeladmin.buscarusuarioeditavel(id, function(error, result){	
+						modelsaojorge.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+							modelsaojorge.updatenewsstatus(json[0].idnews, function(error, resulta){
+								modelsaojorge.buscarnews(unidade, function(error, resultado){
+										res.render("kaban/SaoJorge/newskabansaojorge", {news: resultado, id : result });
+								});
+							});	
+						});
+					});	
+				}
+			})
 		}
-	})
+		else{
+			modelsaojorge.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
+				var string=JSON.stringify(resultados);
+				var json =  JSON.parse(string);
+				if(json[0].dataatualizacao == null){
+					modeladmin.buscarusuarioporid(id, function(error, result){	
+						modelsaojorge.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+							modelcovidsaojorge.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+								modelsaojorge.buscarnews(unidade, function(error, resultado){
+										res.render("kaban/SaoJorge/newskabansaojorge", {news: resultado, id : result });
+								});
+							});
+						});
+					});	
+				}else{
+					modeladmin.buscarusuarioeditavel(id, function(error, result){	
+						modelsaojorge.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+							modelsaojorge.updatenewsstatus(json[0].idnews, function(error, resulta){
+								modelcovidsaojorge.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+									modelsaojorge.buscarnews(unidade, function(error, resultado){
+											res.render("kaban/SaoJorge/newskabansaojorge", {news: resultado, id : result });
+									});
+								});
+							});	
+						});
+					});	
+				}
+			})
+		}
 })	
 }
 
