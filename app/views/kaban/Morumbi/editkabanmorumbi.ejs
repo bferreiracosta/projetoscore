@@ -28,19 +28,17 @@
 							</div>
 							<div class="form-group">
 								<label for="dn">Data de Nascimento</label>
-								<input type="date" id="dn" name="dn" class="form-control" value="<%=paciente[j].datanascimento %>" required>
+								<input type="text" id="dn" data-mask="00/00/0000" data-mask-selectonfocus="true" name="dn" class="form-control" value="<%=paciente[j].datanascimento %>" required >
 							</div>
 							<div class="form-group">
-								<label for="idade">Idade</label>
-								<input readonly="readonly" type="text" id="idade" name="idade" class="form-control" value="<%=paciente[j].idade %>" required>
+								<input readonly="readonly"  type="hidden" id="idade" name="idade" class="form-control" placeholder="Idade" >
 							</div>
 							<div class="form-group">
 								<label for="da">Data de Admissão</label>
-								<input type="date" id="da" name="da" class="form-control" value="<%=paciente[j].dataentrada %>" required>
+								<input type="text" id="da" data-mask="00/00/0000" data-mask-selectonfocus="true" name="da" class="form-control" value="<%=paciente[j].dataentrada %>" required >
 							</div>
 							<div class="form-group">
-								<label for="qtdi">Quantidade de dias Internados</label>
-								<input readonly="readonly" type="text" id="qtdi" name="qtdi" class="form-control" value="<%=paciente[j].qtddiasinternados %>" required>
+								<input readonly="readonly"  type="hidden" id="qtdi" name="qtdi" class="form-control" placeholder="Quantidade de dias Internados" >
 							</div>
 							<div class="form-group">
 								<label for="ECF" id="ecf3">ECF</label>
