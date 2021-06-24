@@ -121,6 +121,10 @@ rowGroup: {
                 orientation: 'landscape',
                 pageSize: 'LEGAL',
                 alignment: "center",
+                customize: function(doc) {
+                    //pageMargins [left, top, right, bottom] 
+                    doc.pageMargins = [ 20, 20, 150, 20 ];
+                },
                 exportOptions: {
                     grouped_array_index: [groupColumn],
                     columns: ':visible'
