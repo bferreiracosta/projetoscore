@@ -783,7 +783,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
 	var modelcovidmorumbi = new application.app.model.regulacao.modelmorumbi(application);
 	modelmorumbi.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == false){
+		if(resultados[0].covid == 'false'){
 			modelmorumbi.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 				var string=JSON.stringify(resultados);
 				var json =  JSON.parse(string);

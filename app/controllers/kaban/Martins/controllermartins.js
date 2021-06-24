@@ -783,7 +783,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var modelmartins = new application.app.model.kaban.Martins.modelmartins(application);
 	var modelcovidmartins = new application.app.model.regulacao.modelmartins(application);
 	modelmartins.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == false){
+		if(resultados[0].covid == 'false'){
 			modelmartins.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 				var string=JSON.stringify(resultados);
 				var json =  JSON.parse(string);

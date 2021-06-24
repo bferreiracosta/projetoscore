@@ -783,7 +783,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var modelsaojorge = new application.app.model.kaban.SaoJorge.modelsaojorge(application);
 	var modelcovidsaojorge = new application.app.model.regulacao.modelsaojorge(application);
 	modelsaojorge.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == false){
+		if(resultados[0].covid == 'false'){
 			modelsaojorge.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 				var string=JSON.stringify(resultados);
 				var json =  JSON.parse(string);

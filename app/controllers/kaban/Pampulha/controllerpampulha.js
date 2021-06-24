@@ -781,7 +781,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
 	var modelcovidpampulha = new application.app.model.regulacao.modelpampulha(application);
 	modelpampulha.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == false){
+		if(resultados[0].covid == 'false'){
 			modelpampulha.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 				var string=JSON.stringify(resultados);
 				var json =  JSON.parse(string);

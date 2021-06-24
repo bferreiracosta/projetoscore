@@ -782,7 +782,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
 	var modelcovidluizote = new application.app.model.regulacao.modelluizote(application);
 	modelluizote.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == false){
+		if(resultados[0].covid == 'false'){
 			modelluizote.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 				var string=JSON.stringify(resultados);
 				var json =  JSON.parse(string);
