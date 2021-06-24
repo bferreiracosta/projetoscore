@@ -6,26 +6,31 @@
         <br><br>
                  <table class="table table-striped"  style="width: 100%;" id="mytable">
                     <caption style="font-size: 25px; text-align: center; ">Visitas Pacientes Roosevelt</caption>
-                        <thead>
-                            <tr>
-                                <th hidden>id</th>
-                                <th>Prontuario</th>
-                                <th>Nome</th>
-                                <th>Data de Nascimento</th>
-                                <th>Idade</th>
-                            </tr>
+                    <thead>
+                        <tr>
+                            <th hidden>id</th>
+                            <th>Prontuario</th>
+                            <th>Nome</th>
+                            <th>Setor</th>
+                            <th>Data de Nascimento</th>
+                            <th>Idade</th>
+                            <th>Observação</th>                                
+                        </tr>
                         </thead>
                         <tbody>    
-                        <% if(paciente.length > 0) { %>
-                            <% for(var j = 0; j < paciente.length; j++) {%>    
+                            <% if(paciente.length > 0) { %>
+                                <% for(var j = 0; j < paciente.length; j++) {%>
+                                    
                             <tr>                                  
                                 <td hidden><%=paciente[j].idpaciente %></td>
                                 <td><%=paciente[j].prt %></td>
                                 <td><%=paciente[j].nome %></td>
+                                <td><%=paciente[j].setor %></td>
                                 <td><%=paciente[j].datanascimento %></td>
-                                <td><%=paciente[j].idade %></td> 
-                            </tr>
-                            <% } %>	
+                                <td><%=paciente[j].idade %></td>
+                                <td>                         </td>
+                        </tr>
+                        <% } %>	
                         <% } %>
                     </tbody>
                 </table>
@@ -52,48 +57,116 @@
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
- $(document).ready(function() {
-    $('#mytable').DataTable( { 
-    dom: 'Bfrtip',
-    pageLength: 50,
-    "scrollX": true,
-            buttons: [       
-                {
-                    "extend": "copyHtml5",
-                    "text": "COPIAR",
-                },          
-                {
-                    "extend": "pdf",
-                    "text": "PDF",
-                },
-                {
-                    "extend": "excelHtml5",
-                    "text": "EXCEL",
-                },
-                {
-                    "extend": "print",
-                    "text": "IMPRIMIR", 
+    $(document).ready(function() {
+var groupColumn = 3;
+   $('#mytable').DataTable( { 
+dom: 'Bfrtip',
+"scrollX": true,
+rowGroup: {
+        dataSrc: 'groupColumn'
+    },
+"columnDefs": [
+            { "visible": false, "targets": groupColumn },
+            {"className": "dt-center", "targets": "_all"},
+           
+        ],
+        rowGroup: {
+            dataSrc: groupColumn,
+        },
+        "order": [[ groupColumn, 'asc' ]],
+        pageLength: 50,
+        "drawCallback": function ( settings ) {
+            var api = this.api();
+            var rows = api.rows( {page:'current'} ).nodes();
+            var last=null;
+ 
+            api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
+                if ( last !== group ) {
+                    $(rows).eq( i ).before(
+                        '<tr class="group" ><td colspan="18" >'+group+'</td></tr>'
+                    );
+ 
+                    last = group;
                 }
-                
-            ],language: {
-                buttons: {
-                    copyTitle: 'Copiado para área de transferência',
-                    copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
-                    copySuccess: {
-                        _: '%d linhas copiadas',
-                        1: '1 linha copiada'
-                    }
+            } );
+        },
+        buttons: [       
+            {
+                "extend": "copyHtml5",
+                "text": "COPIAR",
+                orientation: 'landscape',
+                pageSize: 'LEGAL',
+               
+            },          
+            {
+                "extend": "pdf",
+                "text": "PDF",
+                orientation: 'landscape',
+                pageSize: 'LEGAL',
+                customize: function(doc) {
+                    //pageMargins [left, top, right, bottom] 
+                    doc.pageMargins = [ 10, 20, 10, 10 ];
+                    doc.defaultStyle.fontSize = 8,
+                    doc.styles.tableBodyEven.alignment = 'center';
+                   doc.styles.tableBodyOdd.alignment = 'center';
                 },
-                "paginate": {
-                    "previous": "Anterior",
-                    "next": "Próximo"
+                exportOptions: {
+                    grouped_array_index: [groupColumn],
+                    columns: ':visible'
                 },
-                "search": "Pesquisar:"
             },
-            select: true
-        } );
+            {
+                "extend": "excelHtml5",
+                "text": "EXCEL",
+                exportOptions: {
+                    grouped_array_index: [groupColumn],
+                    columns: ':visible'
+                },
+                customize: function( xlsx ) {
+                var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                $('c', sheet).attr( 's', '51' );
+
+            },
+            orientation: 'landscape',
+                pageSize: 'LEGAL'
+            },
+            {
+                "extend": "print",
+                "text": "IMPRIMIR", 
+                exportOptions: {
+                    grouped_array_index: [groupColumn],
+                    columns: ':visible'
+                },
+                customize: function ( win ) {
+                    $(win.document.body)
+                    .css( 'font-size', '12px' );
+
+                $(win.document.body).find( 'table' )
+                    .css( 'font-size', '12px' );
+                },
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
+            }
+            
+        ],language: {
+            buttons: {
+                copyTitle: 'Copiado para área de transferência',
+                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+                copySuccess: {
+                    _: '%d linhas copiadas',
+                    1: '1 linha copiada'
+                }
+            },
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Próximo"
+            },
+            "search": "Pesquisar:"
+        },
+        select: true,
+        
     } );
-    
+} );   
     </script>
 <%- include('../../home/footer'); %>
 </body>

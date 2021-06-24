@@ -453,7 +453,6 @@ module.exports.relatoriokabanplanalto = function(application, req, res){
 	var unidade = 'Planalto';
 	modeladmin.buscarusuario(id, function(error,result){
 		modelplanalto.buscarpacienterelatorio(unidade, function(error, resultado){
-			console.log(resultado);
 			res.render("kaban/Planalto/relatoriokabanplanalto", {paciente: resultado, id : result});
 		});
 	});
