@@ -120,10 +120,12 @@ rowGroup: {
                 "text": "PDF",
                 orientation: 'landscape',
                 pageSize: 'LEGAL',
-                alignment: "center",
                 customize: function(doc) {
                     //pageMargins [left, top, right, bottom] 
-                    doc.pageMargins = [ 20, 20, 150, 20 ];
+                    doc.pageMargins = [ 10, 20, 10, 10 ];
+                    doc.defaultStyle.fontSize = 8,
+                    doc.styles.tableBodyEven.alignment = 'center';
+                   doc.styles.tableBodyOdd.alignment = 'center';
                 },
                 exportOptions: {
                     grouped_array_index: [groupColumn],
