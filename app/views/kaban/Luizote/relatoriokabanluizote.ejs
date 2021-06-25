@@ -40,7 +40,7 @@
                                     <td></td>
                                     <td><%=paciente[j].dataentrada %></td>
                                     <td></td>
-                                    <td><%=paciente[j].setor %></td>
+                                    <td><%=paciente[j].acomodacao %></td>
                                     <td><%=paciente[j].ECF %></td>
                                     <td><%=paciente[j].spict %></td>
                                     <td><%=paciente[j].paliativo %></td>
@@ -79,7 +79,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
-var groupColumn = 7;
+var groupColumn = 8;
 $('#mytable').DataTable( { 
 dom: 'Bfrtip',
 "scrollX": true,
@@ -192,8 +192,8 @@ rowGroup: {
 
 $('#mytable tbody tr').each(function(i){
             tr=$(this);
-            valor=tr.children('td:eq(4)').html();
-            idade=tr.children('td:eq(2)').html();
+            valor=tr.children('td:eq(5)').html();
+            idade=tr.children('td:eq(3)').html();
             var data2 = valor;
             // Precisamos quebrar a string para retornar cada parte
             const dataSplit = data2.split('/');
@@ -209,8 +209,8 @@ $('#mytable tbody tr').each(function(i){
             const days = Math.ceil(diff / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
 
             // Mostra a diferença em dias
-            tr.children('td:eq(5)').text(days + " dias");
-            tr.children('td:eq(3)').text(calcularIdade(idade)+ " anos");
+            tr.children('td:eq(6)').text(days + " dias");
+            tr.children('td:eq(4)').text(calcularIdade(idade)+ " anos");
 });
 
 function calcularIdade(aniversario) {

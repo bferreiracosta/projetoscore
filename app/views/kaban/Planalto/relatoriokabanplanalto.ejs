@@ -74,87 +74,88 @@
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
-     $(document).ready(function() {
-var groupColumn = 7;
+    $(document).ready(function() {
+var groupColumn = 8;
 $('#mytable').DataTable( { 
 dom: 'Bfrtip',
 "scrollX": true,
 rowGroup: {
-        dataSrc: 'groupColumn'
-    },
+       dataSrc: 'groupColumn'
+   },
 "columnDefs": [
-            { "visible": false, "targets": groupColumn },
-            {"className": "dt-center", "targets": "_all"},
-           
-        ],
-        rowGroup: {
-            dataSrc: groupColumn,
-        },
-        "order": [[ groupColumn, 'asc' ]],
-        pageLength: 50,
-        "drawCallback": function ( settings ) {
-            var api = this.api();
-            var rows = api.rows( {page:'current'} ).nodes();
-            var last=null;
- 
-            api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
-                if ( last !== group ) {
-                    $(rows).eq( i ).before(
-                        '<tr class="group" ><td colspan="18" >'+group+'</td></tr>'
-                    );
- 
-                    last = group;
-                }
-            } );
-        },
-        buttons: [       
-            {
-                "extend": "copyHtml5",
-                "text": "COPIAR",
-                orientation: 'landscape',
-                pageSize: 'LEGAL',
-               
-            },          
-            {
-                "extend": "pdf",
-                "text": "PDF",
-                orientation: 'landscape',
-                pageSize: 'LEGAL',
-                customize: function(doc) {
+           { "visible": false, "targets": groupColumn },
+           {"className": "dt-center", "targets": "_all"},
+          
+       ],
+       fixedColumns: true,
+       rowGroup: {
+           dataSrc: groupColumn,
+       },
+       "order": [[ groupColumn, 'asc' ]],
+       pageLength: 50,
+       "drawCallback": function ( settings ) {
+           var api = this.api();
+           var rows = api.rows( {page:'current'} ).nodes();
+           var last=null;
+
+           api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
+               if ( last !== group ) {
+                   $(rows).eq( i ).before(
+                       '<tr class="group" style = "background-color: #ddd !important;text-align: center !important"><td colspan="18" >'+group+'</td></tr>'
+                   );
+
+                   last = group;
+               }
+           } );
+       },
+       buttons: [       
+           {
+               "extend": "copyHtml5",
+               "text": "COPIAR",
+               orientation: 'landscape',
+               pageSize: 'LEGAL',
+              
+           },          
+           {
+               "extend": "pdf",
+               "text": "PDF",
+               orientation: 'landscape',
+               pageSize: 'LEGAL',
+               customize: function(doc) {
                     //pageMargins [left, top, right, bottom] 
                     doc.pageMargins = [ 10, 20, 10, 10 ];
                     doc.defaultStyle.fontSize = 8,
                     doc.styles.tableBodyEven.alignment = 'center';
                    doc.styles.tableBodyOdd.alignment = 'center';
-                },
-                exportOptions: {
-                    grouped_array_index: [groupColumn],
-                    columns: ':visible'
-                },
-            },
-            {
-                "extend": "excelHtml5",
-                "text": "EXCEL",
-                exportOptions: {
-                    grouped_array_index: [groupColumn],
-                    columns: ':visible'
-                },
-                customize: function( xlsx ) {
-                var sheet = xlsx.xl.worksheets['sheet1.xml'];
-                $('c', sheet).attr( 's', '51' );
+                }, 
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+           },
+           {
+               "extend": "excelHtml5",
+               "text": "EXCEL",
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+               customize: function( xlsx ) {
+               var sheet = xlsx.xl.worksheets['sheet1.xml'];
+               $('c', sheet).attr( 's', '51' );
 
-            },
-            orientation: 'landscape',
-                pageSize: 'LEGAL'
-            },
-            {
-                "extend": "print",
-                "text": "IMPRIMIR", 
-                exportOptions: {
-                    grouped_array_index: [groupColumn],
-                    columns: ':visible'
-                },
-                customize: function ( win ) {
+           },
+           orientation: 'landscape',
+               pageSize: 'LEGAL'
+           },
+           {
+               "extend": "print",
+               "text": "IMPRIMIR", 
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+               customize: function ( win ) {
                     $(win.document.body)
                     .css( 'font-size', '12px' );
 
@@ -164,31 +165,31 @@ rowGroup: {
                 orientation: 'landscape',
                 pageSize: 'LEGAL'
             }
-            
-        ],language: {
-            buttons: {
-                copyTitle: 'Copiado para área de transferência',
-                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
-                copySuccess: {
-                    _: '%d linhas copiadas',
-                    1: '1 linha copiada'
-                }
-            },
-            "paginate": {
-                "previous": "Anterior",
-                "next": "Próximo"
-            },
-            "search": "Pesquisar:"
-        },
-        select: true
-    } );
+           
+       ],language: {
+           buttons: {
+               copyTitle: 'Copiado para área de transferência',
+               copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+               copySuccess: {
+                   _: '%d linhas copiadas',
+                   1: '1 linha copiada'
+               }
+           },
+           "paginate": {
+               "previous": "Anterior",
+               "next": "Próximo"
+           },
+           "search": "Pesquisar:"
+       },
+       select: true
+   } );
 } );
 
 
 $('#mytable tbody tr').each(function(i){
             tr=$(this);
-            valor=tr.children('td:eq(4)').html();
-            idade=tr.children('td:eq(2)').html();
+            valor=tr.children('td:eq(5)').html();
+            idade=tr.children('td:eq(3)').html();
             var data2 = valor;
             // Precisamos quebrar a string para retornar cada parte
             const dataSplit = data2.split('/');
@@ -204,8 +205,8 @@ $('#mytable tbody tr').each(function(i){
             const days = Math.ceil(diff / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
 
             // Mostra a diferença em dias
-            tr.children('td:eq(5)').text(days + " dias");
-            tr.children('td:eq(3)').text(calcularIdade(idade)+ " anos");
+            tr.children('td:eq(6)').text(days + " dias");
+            tr.children('td:eq(4)').text(calcularIdade(idade)+ " anos");
 });
 
 function calcularIdade(aniversario) {
@@ -216,28 +217,28 @@ return (ano_atual - data_aniversario);
    
 }
 
-    function pad(s){
-            return (s<10) ? '0' + s :s;
-        }
-    function novaHora(){
-        
-        var date = new Date();
-        document.getElementById('data').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
-    }
-    novaHora();
-    
-    
-    function setaDadosModal(valor) {
-        document.getElementById('campo').value = valor;
-    }
-    
-    function setaDadosModal2(valor) {
-        document.getElementById('campo2').value = valor;
-    }
-    $("#baixaselect").on('change', function(e){
-        var baixa = $(this).val();
-        document.getElementById('baixa').value = baixa;
-    });
-    
-        
-    </script>
+   function pad(s){
+           return (s<10) ? '0' + s :s;
+       }
+   function novaHora(){
+       
+       var date = new Date();
+       document.getElementById('data').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+   }
+   novaHora();
+   
+   
+   function setaDadosModal(valor) {
+       document.getElementById('campo').value = valor;
+   }
+   
+   function setaDadosModal2(valor) {
+       document.getElementById('campo2').value = valor;
+   }
+   $("#baixaselect").on('change', function(e){
+       var baixa = $(this).val();
+       document.getElementById('baixa').value = baixa;
+   });
+   
+       
+   </script>
