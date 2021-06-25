@@ -495,4 +495,14 @@ module.exports = function(application) {
 		}
 		
 	});
+	application.get('/infouaitibery', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Tibery.controllertibery.infouaitibery(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
 };

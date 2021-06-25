@@ -365,7 +365,80 @@ modelsaojorge.prototype.updatenewsnome = function(idpaciente, nome,setor, callba
 	this._conection.query('update news set nome= "'+nome+'", setor= "'+setor+'" where idpaciente = ' + idpaciente, callback);
 }
 
+modelsaojorge.prototype.buscarclinicosaojorge = function(unidade, callback){
 
+	this._conection.query('select count(especialidade) as Clinica  from kaban where especialidade = "Clinica" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelsaojorge.prototype.buscartraumatologiasaojorge = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Traumatologia  from kaban where especialidade = "Traumatologia" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelsaojorge.prototype.buscarpediatriasaojorge = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Pediatria  from kaban where especialidade = "Pediatria" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelsaojorge.prototype.buscarpsquiatriasaojorge = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Psquiatria  from kaban where especialidade = "Psquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelsaojorge.prototype.buscarcirurgicosaojorge = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Cirurgico  from kaban where especialidade = "Cirurgico" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelsaojorge.prototype.buscarobservacaosaojorge = function(unidade, callback){
+
+	this._conection.query('select count(acomodacao) as Observação  from kaban where acomodacao = "Observacao" and unidade = "'+unidade+'" and baixa is not null;', callback);
+}
+
+modelsaojorge.prototype.buscaraltasaojorge = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Altas  from kaban where baixa = "alta" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+}
+
+modelsaojorge.prototype.buscarevasaosaojorge = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Evasão  from kaban where baixa = "evasao" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+}
+
+modelsaojorge.prototype.buscartransferenciasaojorge = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Transferência  from kaban where baixa = "transferencia" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+}
+
+modelsaojorge.prototype.buscarobitosaojorge = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Obitos  from kaban where baixa = "obito" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+}
+
+modelsaojorge.prototype.buscarinternacaodiasaojorge = function(unidade, callback){
+
+	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%Y-%m-%d") as hoje);', callback);
+}
+
+modelsaojorge.prototype.buscarsetoressaojorge = function(callback){
+
+	this._conection.query('SELECT setor, capacidadecamasocupadas, capacidademacasocupadas FROM saojorge', callback);
+}
+
+modelsaojorge.prototype.buscarbanhomanhasaojorge = function(callback){
+
+	this._conection.query('SELECT count(banho) as manha from kaban where banho = "Manhã" and baixa is null and unidade = "SaoJorge";', callback);
+}
+
+modelsaojorge.prototype.buscarbanhotardesaojorge = function(callback){
+
+	this._conection.query('SELECT count(banho) as tarde from kaban where banho = "Tarde"  and baixa is null and unidade = "SaoJorge";', callback);
+}
+
+modelsaojorge.prototype.buscarbanhonoitesaojorge = function(callback){
+
+	this._conection.query('SELECT count(banho) as noite from kaban where banho = "Noite"  and baixa is null and unidade = "SaoJorge";', callback);
+}
 
 module.exports = function(){
 	return modelsaojorge;

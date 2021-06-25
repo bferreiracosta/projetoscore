@@ -495,4 +495,14 @@ module.exports = function(application) {
 		}
 		
 	});
+	application.get('/infouaimorumbi', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Morumbi.controllermorumbi.infouaimorumbi(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
 };

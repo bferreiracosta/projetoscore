@@ -495,4 +495,14 @@ module.exports = function(application) {
 		}
 		
 	});
+	application.get('/infouailuizote', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Luizote.controllerluizote.infouailuizote(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
 };

@@ -365,6 +365,80 @@ modelroosevelt.prototype.updatenewsnome = function(idpaciente, nome,setor, callb
 	this._conection.query('update news set nome= "'+nome+'", setor= "'+setor+'" where idpaciente = ' + idpaciente, callback);
 }
 
+modelroosevelt.prototype.buscarclinicoroosevelt = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Clinica  from kaban where especialidade = "Clinica" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelroosevelt.prototype.buscartraumatologiaroosevelt = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Traumatologia  from kaban where especialidade = "Traumatologia" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelroosevelt.prototype.buscarpediatriaroosevelt = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Pediatria  from kaban where especialidade = "Pediatria" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelroosevelt.prototype.buscarpsquiatriaroosevelt = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Psquiatria  from kaban where especialidade = "Psquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelroosevelt.prototype.buscarcirurgicoroosevelt = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Cirurgico  from kaban where especialidade = "Cirurgico" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelroosevelt.prototype.buscarobservacaoroosevelt = function(unidade, callback){
+
+	this._conection.query('select count(acomodacao) as Observação  from kaban where acomodacao = "Observacao" and unidade = "'+unidade+'" and baixa is not null;', callback);
+}
+
+modelroosevelt.prototype.buscaraltaroosevelt = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Altas  from kaban where baixa = "alta" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+}
+
+modelroosevelt.prototype.buscarevasaoroosevelt = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Evasão  from kaban where baixa = "evasao" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+}
+
+modelroosevelt.prototype.buscartransferenciaroosevelt = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Transferência  from kaban where baixa = "transferencia" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+}
+
+modelroosevelt.prototype.buscarobitoroosevelt = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Obitos  from kaban where baixa = "obito" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+}
+
+modelroosevelt.prototype.buscarinternacaodiaroosevelt = function(unidade, callback){
+
+	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%Y-%m-%d") as hoje);', callback);
+}
+
+modelroosevelt.prototype.buscarsetoresroosevelt = function(callback){
+
+	this._conection.query('SELECT setor, capacidadecamasocupadas, capacidademacasocupadas FROM roosevelt', callback);
+}
+
+modelroosevelt.prototype.buscarbanhomanharoosevelt = function(callback){
+
+	this._conection.query('SELECT count(banho) as manha from kaban where banho = "Manhã" and baixa is null and unidade = "Roosevelt";', callback);
+}
+
+modelroosevelt.prototype.buscarbanhotarderoosevelt = function(callback){
+
+	this._conection.query('SELECT count(banho) as tarde from kaban where banho = "Tarde"  and baixa is null and unidade = "Roosevelt";', callback);
+}
+
+modelroosevelt.prototype.buscarbanhonoiteroosevelt = function(callback){
+
+	this._conection.query('SELECT count(banho) as noite from kaban where banho = "Noite"  and baixa is null and unidade = "Roosevelt";', callback);
+}
 
 
 module.exports = function(){

@@ -495,4 +495,14 @@ module.exports = function(application) {
 		}
 		
 	});
+	application.get('/infouaipampulha', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Pampulha.controllerpampulha.infouaipampulha(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
 };

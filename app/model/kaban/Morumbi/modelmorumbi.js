@@ -365,6 +365,80 @@ modelmorumbi.prototype.updatenewsnome = function(idpaciente, nome,setor, callbac
 	this._conection.query('update news set nome= "'+nome+'", setor= "'+setor+'" where idpaciente = ' + idpaciente, callback);
 }
 
+modelmorumbi.prototype.buscarclinicomorumbi = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Clinica  from kaban where especialidade = "Clinica" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelmorumbi.prototype.buscartraumatologiamorumbi = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Traumatologia  from kaban where especialidade = "Traumatologia" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelmorumbi.prototype.buscarpediatriamorumbi = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Pediatria  from kaban where especialidade = "Pediatria" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelmorumbi.prototype.buscarpsquiatriamorumbi = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Psquiatria  from kaban where especialidade = "Psquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelmorumbi.prototype.buscarcirurgicomorumbi = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as Cirurgico  from kaban where especialidade = "Cirurgico" and unidade = "'+unidade+'" and baixa is null;', callback);
+}
+
+modelmorumbi.prototype.buscarobservacaomorumbi = function(unidade, callback){
+
+	this._conection.query('select count(acomodacao) as Observação  from kaban where acomodacao = "Observacao" and unidade = "'+unidade+'" and baixa is not null;', callback);
+}
+
+modelmorumbi.prototype.buscaraltamorumbi = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Altas  from kaban where baixa = "alta" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+}
+
+modelmorumbi.prototype.buscarevasaomorumbi = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Evasão  from kaban where baixa = "evasao" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+}
+
+modelmorumbi.prototype.buscartransferenciamorumbi = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Transferência  from kaban where baixa = "transferencia" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+}
+
+modelmorumbi.prototype.buscarobitomorumbi = function(unidade, callback){
+
+	this._conection.query('select count(baixa) as Obitos  from kaban where baixa = "obito" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+}
+
+modelmorumbi.prototype.buscarinternacaodiamorumbi = function(unidade, callback){
+
+	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%Y-%m-%d") as hoje);', callback);
+}
+
+modelmorumbi.prototype.buscarsetoresmorumbi = function(callback){
+
+	this._conection.query('SELECT setor, capacidadecamasocupadas, capacidademacasocupadas FROM morumbi', callback);
+}
+
+modelmorumbi.prototype.buscarbanhomanhamorumbi = function(callback){
+
+	this._conection.query('SELECT count(banho) as manha from kaban where banho = "Manhã" and baixa is null and unidade = "Morumbi";', callback);
+}
+
+modelmorumbi.prototype.buscarbanhotardemorumbi = function(callback){
+
+	this._conection.query('SELECT count(banho) as tarde from kaban where banho = "Tarde"  and baixa is null and unidade = "Morumbi";', callback);
+}
+
+modelmorumbi.prototype.buscarbanhonoitemorumbi = function(callback){
+
+	this._conection.query('SELECT count(banho) as noite from kaban where banho = "Noite"  and baixa is null and unidade = "Morumbi";', callback);
+}
 
 
 module.exports = function(){
