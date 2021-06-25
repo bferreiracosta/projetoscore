@@ -1722,15 +1722,10 @@ module.exports.baixa= function(application, req, res){
 													modeltibery.baixanews(idpaciente,baixa, function(error, result){
 														modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 															modeltibery.baixacentral(idpaciente,baixa, function(error, result){
-																modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	
-				
-																		modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modeltibery.buscarpaciente(unidade, function(error, resultado){
-																				res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
-																			});
-																		});
-																		
+																modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){	
+																	modeltibery.buscarpaciente(unidade, function(error, resultado){
+																		res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
+																	});
 																});
 															});
 														});
@@ -1752,14 +1747,9 @@ module.exports.baixa= function(application, req, res){
 													modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 														modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 															modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																	
-																	modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modeltibery.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
-																		});
-																	});
-																	
+																modeltibery.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
+																});
 															});
 														});
 													});
@@ -1781,14 +1771,9 @@ module.exports.baixa= function(application, req, res){
 												modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 													modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 														modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																
-																modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																	modeltibery.buscarpaciente(unidade, function(error, resultado){
-																		res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
-																	});
-																});
-																
+															modeltibery.buscarpaciente(unidade, function(error, resultado){
+																res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
+															});
 														});
 													});
 												});
@@ -1809,14 +1794,9 @@ module.exports.baixa= function(application, req, res){
 													modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 														modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 															modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-															
-																	modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modeltibery.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
-																		});
-																	});
-																	
+																modeltibery.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
+																});
 															});
 														});
 													});
@@ -1980,3 +1960,60 @@ module.exports.updatetiss= function(application, req, res){
 	});	
 }
 
+module.exports.infouaitibery= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+	var unidade = 'Tibery';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modeltibery.buscarinternacaodiatibery(unidade, function(error, inter){
+			modeltibery.buscarevasaotibery(unidade, function(error, evasao){
+				modeltibery.buscarobitotibery(unidade, function(error, obito){
+					modeltibery.buscartransferenciatibery(unidade, function(error, transf){
+						modeltibery.buscarobservacaotibery(unidade, function(error, obser){
+							modeltibery.buscaraltatibery(unidade, function(error, alta){
+								modeltibery.buscarcirurgicotibery(unidade, function(error, cirur){
+									modeltibery.buscarpsquiatriatibery(unidade, function(error, psq){
+										modeltibery.buscarpediatriatibery(unidade, function(error, ped){
+											modeltibery.buscartraumatologiatibery(unidade, function(error, tto){
+												modeltibery.buscarclinicotibery(unidade, function(error, clinico){
+													modeltibery.buscarsetorestibery(function(error, setor){
+														modeltibery.buscarbanhomanhatibery(function(error, manha){
+															modeltibery.buscarbanhotardetibery(function(error, tarde){
+																modeltibery.buscarbanhonoitetibery(function(error, noite){
+																	res.render("kaban/Tibery/infouaitibery", {inter : inter,
+																		evasao : evasao,
+																		obito : obito,
+																		transf : transf,
+																		obser : obser,
+																		alta : alta,
+																		cirur : cirur,
+																		psq : psq,
+																		ped : ped,
+																		tto : tto,
+																		clinico : clinico,
+																		setor : setor,
+																		manha : manha,
+																		tarde : tarde,
+																		noite : noite,
+																		id : result});
+																	});
+																});
+															});
+														});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+	});
+}

@@ -1723,14 +1723,9 @@ module.exports.baixa= function(application, req, res){
 														modelroosevelt.baixafugulin(idpaciente,baixa, function(error, result){
 															modelroosevelt.baixacentral(idpaciente,baixa, function(error, result){
 																modelroosevelt.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	
-				
-																		modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modelroosevelt.buscarpaciente(unidade, function(error, resultado){
-																				res.render("kaban/Roosevelt/kabanpacienteroosevelt", {paciente : resultado, id : resultados});
-																			});
-																		});
-																		
+																	modelroosevelt.buscarpaciente(unidade, function(error, resultado){
+																		res.render("kaban/Roosevelt/kabanpacienteroosevelt", {paciente : resultado, id : resultados});
+																	});
 																});
 															});
 														});
@@ -1752,14 +1747,9 @@ module.exports.baixa= function(application, req, res){
 													modelroosevelt.baixafugulin(idpaciente,baixa, function(error, result){
 														modelroosevelt.baixacentral(idpaciente,baixa, function(error, result){
 															modelroosevelt.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																	
-																	modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelroosevelt.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Roosevelt/kabanpacienteroosevelt", {paciente : resultado, id : resultados});
-																		});
-																	});
-																
+																modelroosevelt.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/Roosevelt/kabanpacienteroosevelt", {paciente : resultado, id : resultados});
+																});
 															});
 														});
 													});
@@ -1781,14 +1771,9 @@ module.exports.baixa= function(application, req, res){
 												modelroosevelt.baixafugulin(idpaciente,baixa, function(error, result){
 													modelroosevelt.baixacentral(idpaciente,baixa, function(error, result){
 														modelroosevelt.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																
-																modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																	modelroosevelt.buscarpaciente(unidade, function(error, resultado){
-																		res.render("kaban/Roosevelt/kabanpacienteroosevelt", {paciente : resultado, id : resultados});
-																	});
-																});
-															
+															modelroosevelt.buscarpaciente(unidade, function(error, resultado){
+																res.render("kaban/Roosevelt/kabanpacienteroosevelt", {paciente : resultado, id : resultados});
+															});
 														});
 													});
 												});
@@ -1809,14 +1794,9 @@ module.exports.baixa= function(application, req, res){
 													modelroosevelt.baixafugulin(idpaciente,baixa, function(error, result){
 														modelroosevelt.baixacentral(idpaciente,baixa, function(error, result){
 															modelroosevelt.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-															
-																	modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelroosevelt.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Roosevelt/kabanpacienteroosevelt", {paciente : resultado, id : resultados});
-																		});
-																	});
-																
+																modelroosevelt.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/Roosevelt/kabanpacienteroosevelt", {paciente : resultado, id : resultados});
+																});
 															});
 														});
 													});
@@ -1979,3 +1959,60 @@ module.exports.updatetiss= function(application, req, res){
 	});	
 }
 
+module.exports.infouairoosevelt= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelroosevelt = new application.app.model.kaban.Roosevelt.modelroosevelt(application);
+	var unidade = 'Roosevelt';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelroosevelt.buscarinternacaodiaroosevelt(unidade, function(error, inter){
+			modelroosevelt.buscarevasaoroosevelt(unidade, function(error, evasao){
+				modelroosevelt.buscarobitoroosevelt(unidade, function(error, obito){
+					modelroosevelt.buscartransferenciaroosevelt(unidade, function(error, transf){
+						modelroosevelt.buscarobservacaoroosevelt(unidade, function(error, obser){
+							modelroosevelt.buscaraltaroosevelt(unidade, function(error, alta){
+								modelroosevelt.buscarcirurgicoroosevelt(unidade, function(error, cirur){
+									modelroosevelt.buscarpsquiatriaroosevelt(unidade, function(error, psq){
+										modelroosevelt.buscarpediatriaroosevelt(unidade, function(error, ped){
+											modelroosevelt.buscartraumatologiaroosevelt(unidade, function(error, tto){
+												modelroosevelt.buscarclinicoroosevelt(unidade, function(error, clinico){
+													modelroosevelt.buscarsetoresroosevelt(function(error, setor){
+														modelroosevelt.buscarbanhomanharoosevelt(function(error, manha){
+															modelroosevelt.buscarbanhotarderoosevelt(function(error, tarde){
+																modelroosevelt.buscarbanhonoiteroosevelt(function(error, noite){
+																	res.render("kaban/Roosevelt/infouairoosevelt", {inter : inter,
+																		evasao : evasao,
+																		obito : obito,
+																		transf : transf,
+																		obser : obser,
+																		alta : alta,
+																		cirur : cirur,
+																		psq : psq,
+																		ped : ped,
+																		tto : tto,
+																		clinico : clinico,
+																		setor : setor,
+																		manha : manha,
+																		tarde : tarde,
+																		noite : noite,
+																		id : result});
+																	});
+																});
+															});
+														});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+	});
+}

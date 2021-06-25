@@ -1723,14 +1723,9 @@ module.exports.baixa= function(application, req, res){
 														modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
 															modelmorumbi.baixacentral(idpaciente,baixa, function(error, result){
 																modelmorumbi.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	
-				
-																		modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-																				res.render("kaban/Morumbi/kabanpacientemorumbi", {paciente : resultado, id : resultados});
-																			});
-																		});
-																		
+																	modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																		res.render("kaban/Morumbi/kabanpacientemorumbi", {paciente : resultado, id : resultados});
+																	});
 																});
 															});
 														});
@@ -1752,14 +1747,9 @@ module.exports.baixa= function(application, req, res){
 													modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
 														modelmorumbi.baixacentral(idpaciente,baixa, function(error, result){
 															modelmorumbi.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																	
-																	modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Morumbi/kabanpacientemorumbi", {paciente : resultado, id : resultados});
-																		});
-																	});
-																	
+																modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/Morumbi/kabanpacientemorumbi", {paciente : resultado, id : resultados});
+																});
 															});
 														});
 													});
@@ -1781,14 +1771,9 @@ module.exports.baixa= function(application, req, res){
 												modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
 													modelmorumbi.baixacentral(idpaciente,baixa, function(error, result){
 														modelmorumbi.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																
-																modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																	modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-																		res.render("kaban/Morumbi/kabanpacientemorumbi", {paciente : resultado, id : resultados});
-																	});
-																});
-																
+															modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																res.render("kaban/Morumbi/kabanpacientemorumbi", {paciente : resultado, id : resultados});
+															});
 														});
 													});
 												});
@@ -1809,14 +1794,9 @@ module.exports.baixa= function(application, req, res){
 													modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
 														modelmorumbi.baixacentral(idpaciente,baixa, function(error, result){
 															modelmorumbi.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-															
-																	modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Morumbi/kabanpacientemorumbi", {paciente : resultado, id : resultados});
-																		});
-																	});
-																
+																modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/Morumbi/kabanpacientemorumbi", {paciente : resultado, id : resultados});
+																});
 															});
 														});
 													});
@@ -1979,3 +1959,60 @@ module.exports.updatetiss= function(application, req, res){
 	});	
 }
 
+module.exports.infouaimorumbi= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
+	var unidade = 'Morumbi';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelmorumbi.buscarinternacaodiamorumbi(unidade, function(error, inter){
+			modelmorumbi.buscarevasaomorumbi(unidade, function(error, evasao){
+				modelmorumbi.buscarobitomorumbi(unidade, function(error, obito){
+					modelmorumbi.buscartransferenciamorumbi(unidade, function(error, transf){
+						modelmorumbi.buscarobservacaomorumbi(unidade, function(error, obser){
+							modelmorumbi.buscaraltamorumbi(unidade, function(error, alta){
+								modelmorumbi.buscarcirurgicomorumbi(unidade, function(error, cirur){
+									modelmorumbi.buscarpsquiatriamorumbi(unidade, function(error, psq){
+										modelmorumbi.buscarpediatriamorumbi(unidade, function(error, ped){
+											modelmorumbi.buscartraumatologiamorumbi(unidade, function(error, tto){
+												modelmorumbi.buscarclinicomorumbi(unidade, function(error, clinico){
+													modelmorumbi.buscarsetoresmorumbi(function(error, setor){
+														modelmorumbi.buscarbanhomanhamorumbi(function(error, manha){
+															modelmorumbi.buscarbanhotardemorumbi(function(error, tarde){
+																modelmorumbi.buscarbanhonoitemorumbi(function(error, noite){
+																	res.render("kaban/Morumbi/infouaimorumbi", {inter : inter,
+																		evasao : evasao,
+																		obito : obito,
+																		transf : transf,
+																		obser : obser,
+																		alta : alta,
+																		cirur : cirur,
+																		psq : psq,
+																		ped : ped,
+																		tto : tto,
+																		clinico : clinico,
+																		setor : setor,
+																		manha : manha,
+																		tarde : tarde,
+																		noite : noite,
+																		id : result});
+																	});
+																});
+															});
+														});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+	});
+}

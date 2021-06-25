@@ -1723,14 +1723,9 @@ module.exports.baixa= function(application, req, res){
 														modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 															modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 																modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	
-				
-																		modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modelsaojorge.buscarpaciente(unidade, function(error, resultado){
-																				res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
-																			});
-																		});
-																		
+																	modelsaojorge.buscarpaciente(unidade, function(error, resultado){
+																		res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
+																	});
 																});
 															});
 														});
@@ -1752,14 +1747,9 @@ module.exports.baixa= function(application, req, res){
 													modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 														modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 															modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																	
-																	modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelsaojorge.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
-																		});
-																	});
-																
+																modelsaojorge.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
+																});
 															});
 														});
 													});
@@ -1781,14 +1771,9 @@ module.exports.baixa= function(application, req, res){
 												modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 													modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 														modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																
-																modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																	modelsaojorge.buscarpaciente(unidade, function(error, resultado){
-																		res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
-																	});
-																});
-															
+															modelsaojorge.buscarpaciente(unidade, function(error, resultado){
+																res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
+															});
 														});
 													});
 												});
@@ -1809,14 +1794,9 @@ module.exports.baixa= function(application, req, res){
 													modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 														modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 															modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-															
-																	modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelsaojorge.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
-																		});
-																	});
-															
+																modelsaojorge.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
+																});
 															});
 														});
 													});
@@ -1979,3 +1959,60 @@ module.exports.updatetiss= function(application, req, res){
 	});	
 }
 
+module.exports.infouaisaojorge= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelsaojorge = new application.app.model.kaban.SaoJorge.modelsaojorge(application);
+	var unidade = 'SaoJorge';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelsaojorge.buscarinternacaodiasaojorge(unidade, function(error, inter){
+			modelsaojorge.buscarevasaosaojorge(unidade, function(error, evasao){
+				modelsaojorge.buscarobitosaojorge(unidade, function(error, obito){
+					modelsaojorge.buscartransferenciasaojorge(unidade, function(error, transf){
+						modelsaojorge.buscarobservacaosaojorge(unidade, function(error, obser){
+							modelsaojorge.buscaraltasaojorge(unidade, function(error, alta){
+								modelsaojorge.buscarcirurgicosaojorge(unidade, function(error, cirur){
+									modelsaojorge.buscarpsquiatriasaojorge(unidade, function(error, psq){
+										modelsaojorge.buscarpediatriasaojorge(unidade, function(error, ped){
+											modelsaojorge.buscartraumatologiasaojorge(unidade, function(error, tto){
+												modelsaojorge.buscarclinicosaojorge(unidade, function(error, clinico){
+													modelsaojorge.buscarsetoressaojorge(function(error, setor){
+														modelsaojorge.buscarbanhomanhasaojorge(function(error, manha){
+															modelsaojorge.buscarbanhotardesaojorge(function(error, tarde){
+																modelsaojorge.buscarbanhonoitesaojorge(function(error, noite){
+																	res.render("kaban/SaoJorge/infouaisaojorge", {inter : inter,
+																		evasao : evasao,
+																		obito : obito,
+																		transf : transf,
+																		obser : obser,
+																		alta : alta,
+																		cirur : cirur,
+																		psq : psq,
+																		ped : ped,
+																		tto : tto,
+																		clinico : clinico,
+																		setor : setor,
+																		manha : manha,
+																		tarde : tarde,
+																		noite : noite,
+																		id : result});
+																	});
+																});
+															});
+														});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+	});
+}

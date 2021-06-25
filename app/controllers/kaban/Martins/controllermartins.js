@@ -1723,14 +1723,9 @@ module.exports.baixa= function(application, req, res){
 														modelmartins.baixafugulin(idpaciente,baixa, function(error, result){
 															modelmartins.baixacentral(idpaciente,baixa, function(error, result){
 																modelmartins.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	
-				
-																		modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modelmartins.buscarpaciente(unidade, function(error, resultado){
-																				res.render("kaban/Martins/kabanpacientemartins", {paciente : resultado, id : resultados});
-																			});
-																		});
-																		
+																	modelmartins.buscarpaciente(unidade, function(error, resultado){
+																		res.render("kaban/Martins/kabanpacientemartins", {paciente : resultado, id : resultados});
+																	});
 																});
 															});
 														});
@@ -1752,14 +1747,9 @@ module.exports.baixa= function(application, req, res){
 													modelmartins.baixafugulin(idpaciente,baixa, function(error, result){
 														modelmartins.baixacentral(idpaciente,baixa, function(error, result){
 															modelmartins.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																	
-																	modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelmartins.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Martins/kabanpacientemartins", {paciente : resultado, id : resultados});
-																		});
-																	});
-																	
+																modelmartins.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/Martins/kabanpacientemartins", {paciente : resultado, id : resultados});
+																});
 															});
 														});
 													});
@@ -1781,14 +1771,9 @@ module.exports.baixa= function(application, req, res){
 												modelmartins.baixafugulin(idpaciente,baixa, function(error, result){
 													modelmartins.baixacentral(idpaciente,baixa, function(error, result){
 														modelmartins.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																
-																modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																	modelmartins.buscarpaciente(unidade, function(error, resultado){
-																		res.render("kaban/Martins/kabanpacientemartins", {paciente : resultado, id : resultados});
-																	});
-																});
-																
+															modelmartins.buscarpaciente(unidade, function(error, resultado){
+																res.render("kaban/Martins/kabanpacientemartins", {paciente : resultado, id : resultados});
+															});
 														});
 													});
 												});
@@ -1809,14 +1794,9 @@ module.exports.baixa= function(application, req, res){
 													modelmartins.baixafugulin(idpaciente,baixa, function(error, result){
 														modelmartins.baixacentral(idpaciente,baixa, function(error, result){
 															modelmartins.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-															
-																	modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelmartins.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Martins/kabanpacientemartins", {paciente : resultado, id : resultados});
-																		});
-																	});
-																
+																modelmartins.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/Martins/kabanpacientemartins", {paciente : resultado, id : resultados});
+																});
 															});
 														});
 													});
@@ -1978,4 +1958,63 @@ module.exports.updatetiss= function(application, req, res){
 		});
 	});	
 }
+
+module.exports.infouaimartins= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelmartins = new application.app.model.kaban.Martins.modelmartins(application);
+	var unidade = 'Martins';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelmartins.buscarinternacaodiamartins(unidade, function(error, inter){
+			modelmartins.buscarevasaomartins(unidade, function(error, evasao){
+				modelmartins.buscarobitomartins(unidade, function(error, obito){
+					modelmartins.buscartransferenciamartins(unidade, function(error, transf){
+						modelmartins.buscarobservacaomartins(unidade, function(error, obser){
+							modelmartins.buscaraltamartins(unidade, function(error, alta){
+								modelmartins.buscarcirurgicomartins(unidade, function(error, cirur){
+									modelmartins.buscarpsquiatriamartins(unidade, function(error, psq){
+										modelmartins.buscarpediatriamartins(unidade, function(error, ped){
+											modelmartins.buscartraumatologiamartins(unidade, function(error, tto){
+												modelmartins.buscarclinicomartins(unidade, function(error, clinico){
+													modelmartins.buscarsetoresmartins(function(error, setor){
+														modelmartins.buscarbanhomanhamartins(function(error, manha){
+															modelmartins.buscarbanhotardemartins(function(error, tarde){
+																modelmartins.buscarbanhonoitemartins(function(error, noite){
+																	res.render("kaban/Martins/infouaimartins", {inter : inter,
+																		evasao : evasao,
+																		obito : obito,
+																		transf : transf,
+																		obser : obser,
+																		alta : alta,
+																		cirur : cirur,
+																		psq : psq,
+																		ped : ped,
+																		tto : tto,
+																		clinico : clinico,
+																		setor : setor,
+																		manha : manha,
+																		tarde : tarde,
+																		noite : noite,
+																		id : result});
+																	});
+																});
+															});
+														});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+	});
+}
+
 

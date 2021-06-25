@@ -1721,14 +1721,9 @@ module.exports.baixa= function(application, req, res){
 														modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
 															modelpampulha.baixacentral(idpaciente,baixa, function(error, result){
 																modelpampulha.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	
-				
-																		modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																				res.render("kaban/Pampulha/kabanpacientepampulha", {paciente : resultado, id : resultados});
-																			});
-																		});
-																		
+																	modelpampulha.buscarpaciente(unidade, function(error, resultado){
+																		res.render("kaban/Pampulha/kabanpacientepampulha", {paciente : resultado, id : resultados});
+																	});
 																});
 															});
 														});
@@ -1750,14 +1745,9 @@ module.exports.baixa= function(application, req, res){
 													modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
 														modelpampulha.baixacentral(idpaciente,baixa, function(error, result){
 															modelpampulha.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																	
-																	modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Pampulha/kabanpacientepampulha", {paciente : resultado, id : resultados});
-																		});
-																	});
-																
+																modelpampulha.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/Pampulha/kabanpacientepampulha", {paciente : resultado, id : resultados});
+																});
 															});
 														});
 													});
@@ -1779,14 +1769,9 @@ module.exports.baixa= function(application, req, res){
 												modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
 													modelpampulha.baixacentral(idpaciente,baixa, function(error, result){
 														modelpampulha.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																
-																modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																	modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																		res.render("kaban/Pampulha/kabanpacientepampulha", {paciente : resultado, id : resultados});
-																	});
-																});
-																
+															modelpampulha.buscarpaciente(unidade, function(error, resultado){
+																res.render("kaban/Pampulha/kabanpacientepampulha", {paciente : resultado, id : resultados});
+															});
 														});
 													});
 												});
@@ -1807,14 +1792,9 @@ module.exports.baixa= function(application, req, res){
 													modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
 														modelpampulha.baixacentral(idpaciente,baixa, function(error, result){
 															modelpampulha.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-															
-																	modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Pampulha/kabanpacientepampulha", {paciente : resultado, id : resultados});
-																		});
-																	});
-																
+																modelpampulha.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/Pampulha/kabanpacientepampulha", {paciente : resultado, id : resultados});
+																});
 															});
 														});
 													});
@@ -1975,5 +1955,62 @@ module.exports.updatetiss= function(application, req, res){
 			});
 		});
 	});	
+}
+module.exports.infouaipampulha= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
+	var unidade = 'Pampulha';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelpampulha.buscarinternacaodiapampulha(unidade, function(error, inter){
+			modelpampulha.buscarevasaopampulha(unidade, function(error, evasao){
+				modelpampulha.buscarobitopampulha(unidade, function(error, obito){
+					modelpampulha.buscartransferenciapampulha(unidade, function(error, transf){
+						modelpampulha.buscarobservacaopampulha(unidade, function(error, obser){
+							modelpampulha.buscaraltapampulha(unidade, function(error, alta){
+								modelpampulha.buscarcirurgicopampulha(unidade, function(error, cirur){
+									modelpampulha.buscarpsquiatriapampulha(unidade, function(error, psq){
+										modelpampulha.buscarpediatriapampulha(unidade, function(error, ped){
+											modelpampulha.buscartraumatologiapampulha(unidade, function(error, tto){
+												modelpampulha.buscarclinicopampulha(unidade, function(error, clinico){
+													modelpampulha.buscarsetorespampulha(function(error, setor){
+														modelpampulha.buscarbanhomanhapampulha(function(error, manha){
+															modelpampulha.buscarbanhotardepampulha(function(error, tarde){
+																modelpampulha.buscarbanhonoitepampulha(function(error, noite){
+																	res.render("kaban/Pampulha/infouaipampulha", {inter : inter,
+																		evasao : evasao,
+																		obito : obito,
+																		transf : transf,
+																		obser : obser,
+																		alta : alta,
+																		cirur : cirur,
+																		psq : psq,
+																		ped : ped,
+																		tto : tto,
+																		clinico : clinico,
+																		setor : setor,
+																		manha : manha,
+																		tarde : tarde,
+																		noite : noite,
+																		id : result});
+																	});
+																});
+															});
+														});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+	});
 }
 

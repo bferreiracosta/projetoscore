@@ -1475,8 +1475,6 @@ module.exports.baixa= function(application, req, res){
 													modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 														modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 															modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																	console.log(idleito[0].idleito)
 																	modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
@@ -1504,8 +1502,6 @@ module.exports.baixa= function(application, req, res){
 												modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 													modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 														modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-														
-																console.log(idleito[0].idleito)
 																modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
@@ -1533,8 +1529,6 @@ module.exports.baixa= function(application, req, res){
 											modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 												modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 													modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-													
-															console.log(idleito[0].idleito)
 															modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																	res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
@@ -1560,8 +1554,6 @@ module.exports.baixa= function(application, req, res){
 												modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 													modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 														modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-														
-																console.log(idleito[0].idleito)
 																modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
@@ -1600,7 +1592,6 @@ module.exports.baixa= function(application, req, res){
 														modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 															modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 																modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
 																		console.log(idleito[0].idleito)
 																		modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																			modelplanalto.buscarpaciente(unidade, function(error, resultado){
@@ -1629,8 +1620,6 @@ module.exports.baixa= function(application, req, res){
 													modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 														modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 															modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																	console.log(idleito[0].idleito)
 																	modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
@@ -1658,7 +1647,6 @@ module.exports.baixa= function(application, req, res){
 												modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 													modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 														modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-														
 																console.log(idleito[0].idleito)
 																modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelplanalto.buscarpaciente(unidade, function(error, resultado){
@@ -1727,14 +1715,9 @@ module.exports.baixa= function(application, req, res){
 															modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 																modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 																	modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	
-					
-																			modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																				modelplanalto.buscarpaciente(unidade, function(error, resultado){
-																					res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
-																				});
-																			});
-																		
+																		modelplanalto.buscarpaciente(unidade, function(error, resultado){
+																			res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
+																		});
 																	});
 																});
 															});
@@ -1756,14 +1739,9 @@ module.exports.baixa= function(application, req, res){
 														modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 															modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 																modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																		
-																		modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modelplanalto.buscarpaciente(unidade, function(error, resultado){
-																				res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
-																			});
-																		});
-																		
+																	modelplanalto.buscarpaciente(unidade, function(error, resultado){
+																		res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
+																	});
 																});
 															});
 														});
@@ -1785,14 +1763,9 @@ module.exports.baixa= function(application, req, res){
 													modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 														modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 															modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																	
-																	modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelplanalto.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
-																		});
-																	});
-																	
+																modelplanalto.buscarpaciente(unidade, function(error, resultado){
+																	res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
+																});
 															});
 														});
 													});
@@ -1812,14 +1785,9 @@ module.exports.baixa= function(application, req, res){
 														modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 															modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 																modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																
-																		modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modelplanalto.buscarpaciente(unidade, function(error, resultado){
-																				res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
-																			});
-																		});
-																	
+																	modelplanalto.buscarpaciente(unidade, function(error, resultado){
+																		res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
+																	});
 																});
 															});
 														});
@@ -1980,5 +1948,62 @@ module.exports.updatetiss= function(application, req, res){
 			});
 		});
 	});	
+}
+module.exports.infouaiplanalto= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelplanalto = new application.app.model.kaban.Planalto.modelplanalto(application);
+	var unidade = 'Planalto';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelplanalto.buscarinternacaodiaplanalto(unidade, function(error, inter){
+			modelplanalto.buscarevasaoplanalto(unidade, function(error, evasao){
+				modelplanalto.buscarobitoplanalto(unidade, function(error, obito){
+					modelplanalto.buscartransferenciaplanalto(unidade, function(error, transf){
+						modelplanalto.buscarobservacaoplanalto(unidade, function(error, obser){
+							modelplanalto.buscaraltaplanalto(unidade, function(error, alta){
+								modelplanalto.buscarcirurgicoplanalto(unidade, function(error, cirur){
+									modelplanalto.buscarpsquiatriaplanalto(unidade, function(error, psq){
+										modelplanalto.buscarpediatriaplanalto(unidade, function(error, ped){
+											modelplanalto.buscartraumatologiaplanalto(unidade, function(error, tto){
+												modelplanalto.buscarclinicoplanalto(unidade, function(error, clinico){
+													modelplanalto.buscarsetoresplanalto(function(error, setor){
+														modelplanalto.buscarbanhomanhaplanalto(function(error, manha){
+															modelplanalto.buscarbanhotardeplanalto(function(error, tarde){
+																modelplanalto.buscarbanhonoiteplanalto(function(error, noite){
+																	res.render("kaban/Planalto/infouaiplanalto", {inter : inter,
+																		evasao : evasao,
+																		obito : obito,
+																		transf : transf,
+																		obser : obser,
+																		alta : alta,
+																		cirur : cirur,
+																		psq : psq,
+																		ped : ped,
+																		tto : tto,
+																		clinico : clinico,
+																		setor : setor,
+																		manha : manha,
+																		tarde : tarde,
+																		noite : noite,
+																		id : result});
+																	});
+																});
+															});
+														});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+	});
 }
 
