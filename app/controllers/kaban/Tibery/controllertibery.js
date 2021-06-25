@@ -142,7 +142,7 @@ module.exports.updateexametibery= function(application, req, res){
 	});
 }
 
-module.exports.atualizarleitotibery= function(application, req, res){
+module.exports.atualizarleitokaban= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
@@ -158,7 +158,7 @@ module.exports.atualizarleitotibery= function(application, req, res){
 		modeltibery.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 			modeltibery.buscarleitosid(setoresrecuperado, function(error, idleito){
 				if(setoresrecuperado[0].leito == null){
-					modeltibery.atualizarleitotibery(idpaciente, setor, leito, function(error, resultado){
+					modeltibery.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 						modeltibery.buscarsetoresid(setor, function(error, resultado){
 							modeltibery.updateleitos(resultado, leito, function(error, resultado){
 								if(leito == "Maca"){
@@ -196,7 +196,7 @@ module.exports.atualizarleitotibery= function(application, req, res){
 				}
 				if(setoresrecuperado[0].leito == "Maca"){
 					modeladmingestao.updateleitostiberymaca(setoresrecuperado[0].setor, function(error, resulta){
-						modeltibery.atualizarleitotibery(idpaciente, setor, leito, function(error, resultado){
+						modeltibery.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modeltibery.buscarsetoresid(setor, function(error, resultado){
 								modeltibery.updateleitos(resultado, leito, function(error, resultado){
 									if(leito == "Maca"){
@@ -235,7 +235,7 @@ module.exports.atualizarleitotibery= function(application, req, res){
 				}
 				if(setoresrecuperado[0].leito == "Cama"){
 					modeladmingestao.updateleitostiberycama(setoresrecuperado[0].setor, function(error, resulta){
-						modeltibery.atualizarleitotibery(idpaciente, setor, leito, function(error, resultado){
+						modeltibery.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modeltibery.buscarsetoresid(setor, function(error, resultado){
 								modeltibery.updateleitos(resultado, leito, function(error, resultado){
 									if(leito == "Maca"){
