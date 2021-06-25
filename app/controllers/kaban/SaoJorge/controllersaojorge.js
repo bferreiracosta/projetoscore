@@ -160,7 +160,8 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 				if(setoresrecuperado[0].leito == null){
 					modelsaojorge.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 						modelsaojorge.buscarsetoresid(setor, function(error, resultado){
-							modelsaojorge.updateleitos(resultado, leito, function(error, resultado){
+							modelsaojorge.buscarleitoativo(resultado,leito, function(error, idleitos){
+								modelsaojorge.updateleitos(idleitos, function(error, resultado){
 								if(leito == "Maca"){
 									modeladmingestao.updateleitossaojorgemacamais(setor, function(error, resulta){
 										if(setoresrecuperado[0].setor == null){
@@ -191,6 +192,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 									});	
 								}
 							});	
+						});
 						});	
 					});	
 				}
@@ -198,7 +200,8 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 					modeladmingestao.updateleitossaojorgemaca(setoresrecuperado[0].setor, function(error, resulta){
 						modelsaojorge.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelsaojorge.buscarsetoresid(setor, function(error, resultado){
-								modelsaojorge.updateleitos(resultado, leito, function(error, resultado){
+								modelsaojorge.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modelsaojorge.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitossaojorgemacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -230,6 +233,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 									}
 								});	
 							});	
+						});
 						});	
 					});	
 				}
@@ -237,7 +241,8 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 					modeladmingestao.updateleitossaojorgecama(setoresrecuperado[0].setor, function(error, resulta){
 						modelsaojorge.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelsaojorge.buscarsetoresid(setor, function(error, resultado){
-								modelsaojorge.updateleitos(resultado, leito, function(error, resultado){
+								modelsaojorge.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modelsaojorge.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitossaojorgemacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -270,6 +275,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 								});	
 							});	
 						});	
+					});
 					});	
 				}
 			});	

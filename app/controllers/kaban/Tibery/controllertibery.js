@@ -160,7 +160,8 @@ module.exports.atualizarleitotibery= function(application, req, res){
 				if(setoresrecuperado[0].leito == null){
 					modeltibery.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 						modeltibery.buscarsetoresid(setor, function(error, resultado){
-							modeltibery.updateleitos(resultado, leito, function(error, resultado){
+							modeltibery.buscarleitoativo(resultado,leito, function(error, idleitos){
+								modeltibery.updateleitos(idleitos, function(error, resultado){
 								if(leito == "Maca"){
 									modeladmingestao.updateleitostiberymacamais(setor, function(error, resulta){
 										if(setoresrecuperado[0].setor == null){
@@ -191,6 +192,7 @@ module.exports.atualizarleitotibery= function(application, req, res){
 									});	
 								}
 							});	
+						});
 						});	
 					});	
 				}
@@ -198,7 +200,8 @@ module.exports.atualizarleitotibery= function(application, req, res){
 					modeladmingestao.updateleitostiberymaca(setoresrecuperado[0].setor, function(error, resulta){
 						modeltibery.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modeltibery.buscarsetoresid(setor, function(error, resultado){
-								modeltibery.updateleitos(resultado, leito, function(error, resultado){
+								modeltibery.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modeltibery.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitostiberymacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -229,6 +232,7 @@ module.exports.atualizarleitotibery= function(application, req, res){
 										});	
 									}
 								});	
+							});
 							});	
 						});	
 					});	
@@ -237,7 +241,8 @@ module.exports.atualizarleitotibery= function(application, req, res){
 					modeladmingestao.updateleitostiberycama(setoresrecuperado[0].setor, function(error, resulta){
 						modeltibery.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modeltibery.buscarsetoresid(setor, function(error, resultado){
-								modeltibery.updateleitos(resultado, leito, function(error, resultado){
+								modeltibery.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modeltibery.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitostiberymacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -268,6 +273,7 @@ module.exports.atualizarleitotibery= function(application, req, res){
 										});	
 									}
 								});	
+							});
 							});	
 						});	
 					});	

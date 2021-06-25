@@ -1,108 +1,174 @@
 <%- include('../cabecalhokaban'); %>
     <h2>Info UAI Luizote</h2>
     
+
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
                 <input name="usuario" type="hidden" id="usuario" value="<%=id[i].id_usuario %>">
-                <table class="table table-bordered" style="width: 100%;" id="mytable">
+                <p>
+                    <input type="button" value="Criar PDF" id="btnImprimir" onclick="CriaPDF()" />
+                </p>
+                    <div class="row " id="tabela">
+                        <div class="col col-md-4">
+                <table class="table table-bordered"  id="mytable">
                     <thead>
                         <tr>
-                            <th style="width:110px">Quantidades</th>
-                            <th style="width:50px">QTD</th>
+                            <th >Quantidades</th>
+                            <th >QTD</th>
                         </tr>
                     </thead>
                     <tbody>  
                         <% if(inter.length > 0) { %>
                             <% for(var a = 0; a < inter.length; a++) {%>
                         <tr> 
-                            <td style="width:110px">Quantidade de pacientes Internados no dia</td>
-                            <td style="width:50px" id="int"><%=inter[a].Inernação %></td>   
+                            <td >Quantidade de pacientes Internados no dia</td>
+                            <td  id="int"><%=inter[a].Inernação %></td>   
                         </tr>
                         <% } %>	
                         <% } %>
                         <% if(clinico.length > 0) { %>
                             <% for(var b = 0; b < clinico.length; b++) {%>
                         <tr> 
-                            <td style="width:110px">Quantidade de pacientes Clinicos</td>
-                            <td style="width:50px"><%=clinico[b].Clinica %></td>   
+                            <td >Quantidade de pacientes Clinicos</td>
+                            <td ><%=clinico[b].Clinica %></td>   
                         </tr>
                         <% } %>	
                         <% } %>
                         <% if(tto.length > 0) { %>
                             <% for(var c = 0; c < tto.length; c++) {%>
                         <tr> 
-                            <td style="width:110px">Quantidade de pacientes Traumatologia</td>
-                            <td style="width:50px" id="cli"><%=tto[c].Traumatologia %></td>   
+                            <td >Quantidade de pacientes Traumatologia</td>
+                            <td  id="cli"><%=tto[c].Traumatologia %></td>   
                         </tr>
                         <% } %>	
                         <% } %>
                         <% if(psq.length > 0) { %>
                             <% for(var d = 0; d < psq.length; d++) {%>
                         <tr> 
-                            <td style="width:110px">Quantidade de pacientes Psquiatria</td>
-                            <td style="width:50px"><%=psq[d].Psquiatria %></td>   
+                            <td >Quantidade de pacientes Psquiatria</td>
+                            <td ><%=psq[d].Psquiatria %></td>   
                         </tr>
                         <% } %>	
                         <% } %>
                         <% if(ped.length > 0) { %>
                             <% for(var e = 0; e < ped.length; e++) {%>
                         <tr> 
-                            <td style="width:110px">Quantidade de pacientes pediatria</td>
-                            <td style="width:50px"><%=ped[e].Pediatria %></td>   
+                            <td >Quantidade de pacientes pediatria</td>
+                            <td ><%=ped[e].Pediatria %></td>   
                         </tr>
                         <% } %>	
                         <% } %>
                         <% if(cirur.length > 0) { %>
                             <% for(var f = 0; f < cirur.length; f++) {%>
                         <tr> 
-                            <td style="width:110px">Quantidade de pacientes Cirurgico</td>
-                            <td style="width:50px"><%=cirur[f].Cirurgico %></td>   
+                            <td >Quantidade de pacientes Cirurgico</td>
+                            <td ><%=cirur[f].Cirurgico %></td>   
                         </tr>
                         <% } %>	
                         <% } %>
                         <% if(obser.length > 0) { %>
                             <% for(var g = 0; g < obser.length; g++) {%>
                         <tr> 
-                            <td style="width:110px">Quantidade de pacientes em Observaçao</td>
-                            <td style="width:50px"><%=obser[g].Observação %></td>   
+                            <td >Quantidade de pacientes em Observaçao</td>
+                            <td ><%=obser[g].Observação %></td>   
                         </tr>
                         <% } %>	
                         <% } %>
                         <% if(evasao.length > 0) { %>
                             <% for(var h = 0; h < evasao.length; h++) {%>
                         <tr> 
-                            <td style="width:110px">Quantidade de Evasão</td>
-                            <td style="width:50px"><%=evasao[h].Evasão %></td>   
+                            <td >Quantidade de Evasão</td>
+                            <td ><%=evasao[h].Evasão %></td>   
                         </tr>
                         <% } %>	
                         <% } %>
                         <% if(alta.length > 0) { %>
                             <% for(var k = 0; k < alta.length; k++) {%>
                         <tr> 
-                            <td style="width:110px">Quantidade de Altas</td>
-                            <td style="width:50px"><%=alta[k].Altas %></td>   
+                            <td >Quantidade de Altas</td>
+                            <td ><%=alta[k].Altas %></td>   
                         </tr>
                         <% } %>	
                         <% } %>
                         <% if(obito.length > 0) { %>
                             <% for(var l = 0; l < obito.length; l++) {%>
                         <tr> 
-                            <td style="width:110px">Quantidade de Obitos</td>
-                            <td style="width:50px"><%=obito[l].Obitos %></td>   
+                            <td >Quantidade de Obitos</td>
+                            <td ><%=obito[l].Obitos %></td>   
                         </tr>
                         <% } %>	
                         <% } %>
                         <% if(transf.length > 0) { %>
                             <% for(var m = 0; m < transf.length; m++) {%>
                         <tr> 
-                            <td style="width:110px">Quantidade de Transferência</td>
-                            <td style="width:50px"><%=transf[m].Transferência %></td>   
+                            <td >Quantidade de Transferência</td>
+                            <td ><%=transf[m].Transferência %></td>   
                         </tr>
                         <% } %>	
                         <% } %>
                     </tbody>
                 </table>
-       
+            </div>
+                <div class="col col-md-4"> 
+                    <table class="table table-bordered" id="mytable">
+                        <thead>
+                            <tr>
+                                <th >Setor</th>
+                                <th >Camas Ocupadas</th>
+                                <th >Macas Ocupadas</th>
+                            </tr>
+                        </thead>
+                        <tbody>  
+                            <% if(setor.length > 0) { %>
+                                <% for(var n = 0; n < setor.length; n++) {%>
+                            <tr> 
+                                <td><%=setor[n].setor %></td> 
+                                <td><%=setor[n].capacidadecamasocupadas %></td>   
+                                <td><%=setor[n].capacidademacasocupadas %></td> 
+                            </tr>
+                            <% } %>	
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col col-md-4"> 
+                    <table class="table table-bordered" id="mytable">
+                        <thead>
+                            <tr>
+                                <th >Quantidades Banho</th>
+                                <th >QTD</th>
+                            </tr>
+                        </thead>
+                        <tbody>  
+                            <% if(manha.length > 0) { %>
+                                <% for(var o = 0; o < manha.length; o++) {%>
+                            <tr> 
+                                <td >Quantidades Banho Manhã</td>
+                                <td  id="int"><%=manha[o].manha %></td>   
+                            </tr>
+                            <% } %>	
+                            <% } %>
+                            <% if(tarde.length > 0) { %>
+                                <% for(var p = 0; p < tarde.length; p++) {%>
+                            <tr> 
+                                <td >Quantidades Banho Tarde</td>
+                                <td ><%=tarde[p].tarde %></td>   
+                            </tr>
+                            <% } %>	
+                            <% } %>
+                            <% if(noite.length > 0) { %>
+                                <% for(var q = 0; q < noite.length; q++) {%>
+                            <tr> 
+                                <td >Quantidades Banho Noite</td>
+                                <td  id="cli"><%=noite[q].noite %></td>   
+                            </tr>
+                            <% } %>	
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        
         <% } %>	
                 <% } %>
 <!-- Importando o jQuery -->
@@ -120,53 +186,26 @@
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
-    $(document).ready(function() {
-        $('#mytable').DataTable( {
-            dom: 'Bfrtip',
-            "scrollX": true,
-            fixedHeader: true,
-        pageLength: 50,
-        buttons: [       
-            {
-                "extend": "copyHtml5",
-                "text": "COPIAR",
-                header: false
-            },          
-            {
-                "extend": "pdf",
-                "text": "PDF",
-                header: false
-            },
-            {
-                "extend": "excelHtml5",
-                "text": "EXCEL",
-                header: false
-            },
-            {
-                "extend": "print",
-                "text": "IMPRIMIR",
-                header: false
-            }
-        ],language: {
-            buttons: {
-                copyTitle: 'Copiado para área de transferência',
-                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
-                copySuccess: {
-                    _: '%d linhas copiadas',
-                    1: '1 linha copiada'
-                }
-            },
-            "paginate": {
-                "previous": "Anterior",
-                "next": "Próximo"
-            },
-            "search": "Pesquisar:"
-        },
-        select: true
-    } );
-} );
+    function CriaPDF() {
+        var minhaTabela = document.getElementById('tabela').innerHTML;
+        var style = "<style>";
+        style = style + "table {width: 100%;font: 20px Calibri;}";
+        style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
+        style = style + "padding: 2px 3px;}";
+        style = style + "</style>";
+        // CRIA UM OBJETO WINDOW
+        var win = window.open('', '', 'height=700,width=700');
+        win.document.write('<html><head>');
+        win.document.write('<title>Info SoreSystem</title>');   // <title> CABEÇALHO DO PDF.
+        win.document.write(style);                                     // INCLUI UM ESTILO NA TAB HEAD
+        win.document.write('</head>');
+        win.document.write('<body>');
+        win.document.write(minhaTabela);                          // O CONTEUDO DA TABELA DENTRO DA TAG BODY
+        win.document.write('</body></html>');
+        win.document.close(); 	                                         // FECHA A JANELA
+        win.print();                                                            // IMPRIME O CONTEUDO
+    }
 
-
-    </script>
+</script>
 </body>
 </html>

@@ -160,7 +160,8 @@ module.exports.atualizarleitomartins= function(application, req, res){
 				if(setoresrecuperado[0].leito == null){
 					modelmartins.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 						modelmartins.buscarsetoresid(setor, function(error, resultado){
-							modelmartins.updateleitos(resultado, leito, function(error, resultado){
+							modelmartins.buscarleitoativo(resultado,leito, function(error, idleitos){
+								modelmartins.updateleitos(idleitos, function(error, resultado){
 								if(leito == "Maca"){
 									modeladmingestao.updateleitosmartinsmacamais(setor, function(error, resulta){
 										if(setoresrecuperado[0].setor == null){
@@ -191,6 +192,7 @@ module.exports.atualizarleitomartins= function(application, req, res){
 									});	
 								}
 							});	
+						});
 						});	
 					});	
 				}
@@ -198,7 +200,8 @@ module.exports.atualizarleitomartins= function(application, req, res){
 					modeladmingestao.updateleitosmartinsmaca(setoresrecuperado[0].setor, function(error, resulta){
 						modelmartins.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelmartins.buscarsetoresid(setor, function(error, resultado){
-								modelmartins.updateleitos(resultado, leito, function(error, resultado){
+								modelmartins.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modelmartins.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitosmartinsmacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -230,6 +233,7 @@ module.exports.atualizarleitomartins= function(application, req, res){
 									}
 								});	
 							});	
+						});
 						});	
 					});	
 				}
@@ -237,7 +241,8 @@ module.exports.atualizarleitomartins= function(application, req, res){
 					modeladmingestao.updateleitosmartinscama(setoresrecuperado[0].setor, function(error, resulta){
 						modelmartins.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelmartins.buscarsetoresid(setor, function(error, resultado){
-								modelmartins.updateleitos(resultado, leito, function(error, resultado){
+								modelmartins.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modelmartins.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitosmartinsmacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -270,6 +275,7 @@ module.exports.atualizarleitomartins= function(application, req, res){
 								});	
 							});	
 						});	
+					});
 					});	
 				}
 			});	

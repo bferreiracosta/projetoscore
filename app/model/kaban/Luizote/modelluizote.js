@@ -78,9 +78,14 @@ modelluizote.prototype.atualizarleitoluizote = function(idpaciente, setor, leito
 	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'" where idpaciente = '+ idpaciente, callback);
 }
 
-modelluizote.prototype.updateleitos = function(idsetor, leito, callback){
+modelluizote.prototype.buscarleitoativo = function(idsetor, leito, callback){
 
-	this._conection.query('update leitos set status = "Inativo"  where idleito = (select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leito = "'+leito+'" and status = "Ativo" limit 1)', callback);
+	this._conection.query('select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leito = "'+leito+'" and status = "Ativo" limit 1', callback);
+}
+
+modelluizote.prototype.updateleitos = function(idleito, callback){
+	
+	this._conection.query('update leitos set status = "Inativo"  where idleito = "'+idleito[0].idleito+'"', callback);
 }
 
 modelluizote.prototype.updateleitosativo = function(idleito, callback){
@@ -414,6 +419,25 @@ modelluizote.prototype.buscarinternacaodialuizote = function(unidade, callback){
 	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%Y-%m-%d") as hoje);', callback);
 }
 
+modelluizote.prototype.buscarsetoresluizote = function(callback){
+
+	this._conection.query('SELECT setor, capacidadecamasocupadas, capacidademacasocupadas FROM luizote', callback);
+}
+
+modelluizote.prototype.buscarbanhomanhaluizote = function(callback){
+
+	this._conection.query('SELECT count(banho) as manha from kaban where banho = "Manhã" and baixa is null and unidade = "Luizote";', callback);
+}
+
+modelluizote.prototype.buscarbanhotardeluizote = function(callback){
+
+	this._conection.query('SELECT count(banho) as tarde from kaban where banho = "Tarde"  and baixa is null and unidade = "Luizote";', callback);
+}
+
+modelluizote.prototype.buscarbanhonoiteluizote = function(callback){
+
+	this._conection.query('SELECT count(banho) as noite from kaban where banho = "Noite"  and baixa is null and unidade = "Luizote";', callback);
+}
 
 module.exports = function(){
 	return modelluizote;

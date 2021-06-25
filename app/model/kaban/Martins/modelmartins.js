@@ -79,9 +79,14 @@ modelmartins.prototype.atualizarleitokaban = function(idpaciente, setor, leito, 
 	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'" where idpaciente = '+ idpaciente, callback);
 }
 
-modelmartins.prototype.updateleitos = function(idsetor, leito, callback){
+modelmartins.prototype.buscarleitoativo = function(idsetor, leito, callback){
 
-	this._conection.query('update leitos set status = "Inativo"  where idleito = (select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leito = "'+leito+'" and status = "Ativo" limit 1)', callback);
+	this._conection.query('select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leito = "'+leito+'" and status = "Ativo" limit 1', callback);
+}
+
+modelmartins.prototype.updateleitos = function(idleito, callback){
+	
+	this._conection.query('update leitos set status = "Inativo"  where idleito = "'+idleito[0].idleito+'"', callback);
 }
 
 modelmartins.prototype.updateleitosativo = function(idleito, callback){

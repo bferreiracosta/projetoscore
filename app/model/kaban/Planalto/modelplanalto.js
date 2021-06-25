@@ -78,9 +78,14 @@ modelplanalto.prototype.atualizarleitokaban = function(idpaciente, setor, leito,
 	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'" where idpaciente = '+ idpaciente, callback);
 }
 
-modelplanalto.prototype.updateleitos = function(idsetor, leito, callback){
+modelplanalto.prototype.buscarleitoativo = function(idsetor, leito, callback){
 
-	this._conection.query('update leitos set status = "Inativo"  where idleito = (select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leito = "'+leito+'" and status = "Ativo" limit 1)', callback);
+	this._conection.query('select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leito = "'+leito+'" and status = "Ativo" limit 1', callback);
+}
+
+modelplanalto.prototype.updateleitos = function(idleito, callback){
+	
+	this._conection.query('update leitos set status = "Inativo"  where idleito = "'+idleito[0].idleito+'"', callback);
 }
 
 modelplanalto.prototype.updateleitosativo = function(idleito, callback){

@@ -160,7 +160,8 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 				if(setoresrecuperado[0].leito == null){
 					modelplanalto.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 						modelplanalto.buscarsetoresid(setor, function(error, resultado){
-							modelplanalto.updateleitos(resultado, leito, function(error, resultado){
+							modelplanalto.buscarleitoativo(resultado,leito, function(error, idleitos){
+								modelplanalto.updateleitos(idleitos, function(error, resultado){
 								if(leito == "Maca"){
 									modeladmingestao.updateleitosplanaltomacamais(setor, function(error, resulta){
 										if(setoresrecuperado[0].setor == null){
@@ -191,6 +192,7 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 									});	
 								}
 							});	
+						});
 						});	
 					});	
 				}
@@ -198,7 +200,8 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 					modeladmingestao.updateleitosplanaltomaca(setoresrecuperado[0].setor, function(error, resulta){
 						modelplanalto.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelplanalto.buscarsetoresid(setor, function(error, resultado){
-								modelplanalto.updateleitos(resultado, leito, function(error, resultado){
+								modelplanalto.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modelplanalto.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitosplanaltomacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -231,13 +234,15 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 								});	
 							});	
 						});	
+					});
 					});	
 				}
 				if(setoresrecuperado[0].leito == "Cama"){
 					modeladmingestao.updateleitosplanaltocama(setoresrecuperado[0].setor, function(error, resulta){
 						modelplanalto.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelplanalto.buscarsetoresid(setor, function(error, resultado){
-								modelplanalto.updateleitos(resultado, leito, function(error, resultado){
+								modelplanalto.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modelplanalto.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitosplanaltomacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -270,7 +275,9 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 								});	
 							});	
 						});	
+					});
 					});	
+					
 				}
 			});	
 		});

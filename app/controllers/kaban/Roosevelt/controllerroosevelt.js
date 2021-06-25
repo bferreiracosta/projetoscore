@@ -160,37 +160,39 @@ module.exports.atualizarleitoroosevelt= function(application, req, res){
 				if(setoresrecuperado[0].leito == null){
 					modelroosevelt.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 						modelroosevelt.buscarsetoresid(setor, function(error, resultado){
-							modelroosevelt.updateleitos(resultado, leito, function(error, resultado){
-								if(leito == "Maca"){
-									modeladmingestao.updateleitosrooseveltmacamais(setor, function(error, resulta){
-										if(setoresrecuperado[0].setor == null){
-											modelroosevelt.buscarleitospacientes(function(error, resultadosetores){
-												res.render("kaban/Roosevelt/leitosroosevelt", {leito : resultadosetores, id : result});
-											});
-										}else{
-											modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
+							modelroosevelt.buscarleitoativo(resultado,leito, function(error, idleitos){
+								modelroosevelt.updateleitos(idleitos, function(error, resultado){
+									if(leito == "Maca"){
+										modeladmingestao.updateleitosrooseveltmacamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
 												modelroosevelt.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Roosevelt/leitosroosevelt", {leito : resultadosetores, id : result});
 												});
-											});
-										}
-									});	
-								}else{
-									modeladmingestao.updateleitosrooseveltcamamais(setor, function(error, resulta){
-										if(setoresrecuperado[0].setor == null){
-											modelroosevelt.buscarleitospacientes(function(error, resultadosetores){
-												res.render("kaban/Roosevelt/leitosroosevelt", {leito : resultadosetores, id : result});
-											});
-										}else{
-											modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
+											}else{
+												modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
+													modelroosevelt.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Roosevelt/leitosroosevelt", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}else{
+										modeladmingestao.updateleitosrooseveltcamamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
 												modelroosevelt.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Roosevelt/leitosroosevelt", {leito : resultadosetores, id : result});
 												});
-											});
-										}
-									});	
-								}
-							});	
+											}else{
+												modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
+													modelroosevelt.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Roosevelt/leitosroosevelt", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}
+								});	
+							})
 						});	
 					});	
 				}
@@ -198,7 +200,8 @@ module.exports.atualizarleitoroosevelt= function(application, req, res){
 					modeladmingestao.updateleitosrooseveltmaca(setoresrecuperado[0].setor, function(error, resulta){
 						modelroosevelt.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelroosevelt.buscarsetoresid(setor, function(error, resultado){
-								modelroosevelt.updateleitos(resultado, leito, function(error, resultado){
+								modelroosevelt.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modelroosevelt.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitosrooseveltmacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -230,6 +233,7 @@ module.exports.atualizarleitoroosevelt= function(application, req, res){
 									}
 								});	
 							});	
+						});
 						});	
 					});	
 				}
@@ -237,7 +241,8 @@ module.exports.atualizarleitoroosevelt= function(application, req, res){
 					modeladmingestao.updateleitosrooseveltcama(setoresrecuperado[0].setor, function(error, resulta){
 						modelroosevelt.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelroosevelt.buscarsetoresid(setor, function(error, resultado){
-								modelroosevelt.updateleitos(resultado, leito, function(error, resultado){
+								modelroosevelt.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modelroosevelt.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitosrooseveltmacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -270,9 +275,11 @@ module.exports.atualizarleitoroosevelt= function(application, req, res){
 								});	
 							});	
 						});	
+					});
 					});	
 				}
 			});	
+			
 		});
 	});	
 }

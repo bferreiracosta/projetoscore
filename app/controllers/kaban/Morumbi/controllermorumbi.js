@@ -160,7 +160,8 @@ module.exports.atualizarleitomorumbi= function(application, req, res){
 				if(setoresrecuperado[0].leito == null){
 					modelmorumbi.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 						modelmorumbi.buscarsetoresid(setor, function(error, resultado){
-							modelmorumbi.updateleitos(resultado, leito, function(error, resultado){
+							modelmorumbi.buscarleitoativo(resultado,leito, function(error, idleitos){
+								modelmorumbi.updateleitos(idleitos, function(error, resultado){
 								if(leito == "Maca"){
 									modeladmingestao.updateleitosmorumbimacamais(setor, function(error, resulta){
 										if(setoresrecuperado[0].setor == null){
@@ -191,6 +192,7 @@ module.exports.atualizarleitomorumbi= function(application, req, res){
 									});	
 								}
 							});	
+						});
 						});	
 					});	
 				}
@@ -198,7 +200,8 @@ module.exports.atualizarleitomorumbi= function(application, req, res){
 					modeladmingestao.updateleitosmorumbimaca(setoresrecuperado[0].setor, function(error, resulta){
 						modelmorumbi.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelmorumbi.buscarsetoresid(setor, function(error, resultado){
-								modelmorumbi.updateleitos(resultado, leito, function(error, resultado){
+								modelmorumbi.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modelmorumbi.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitosmorumbimacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -229,6 +232,7 @@ module.exports.atualizarleitomorumbi= function(application, req, res){
 										});	
 									}
 								});	
+							});
 							});	
 						});	
 					});	
@@ -237,7 +241,8 @@ module.exports.atualizarleitomorumbi= function(application, req, res){
 					modeladmingestao.updateleitosmorumbicama(setoresrecuperado[0].setor, function(error, resulta){
 						modelmorumbi.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelmorumbi.buscarsetoresid(setor, function(error, resultado){
-								modelmorumbi.updateleitos(resultado, leito, function(error, resultado){
+								modelmorumbi.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modelmorumbi.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitosmorumbimacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -269,6 +274,7 @@ module.exports.atualizarleitomorumbi= function(application, req, res){
 									}
 								});	
 							});	
+						});
 						});	
 					});	
 				}

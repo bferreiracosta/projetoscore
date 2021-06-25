@@ -160,7 +160,8 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 				if(setoresrecuperado[0].leito == null){
 					modelluizote.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 						modelluizote.buscarsetoresid(setor, function(error, resultado){
-							modelluizote.updateleitos(resultado, leito, function(error, resultado){
+							modelluizote.buscarleitoativo(resultado,leito, function(error, idleitos){
+								modelluizote.updateleitos(idleitos, function(error, resultado){
 								if(leito == "Maca"){
 									modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
 										if(setoresrecuperado[0].setor == null){
@@ -190,7 +191,8 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 										}
 									});	
 								}
-							});	
+							});
+							});
 						});	
 					});	
 				}
@@ -198,7 +200,8 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 					modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
 						modelluizote.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelluizote.buscarsetoresid(setor, function(error, resultado){
-								modelluizote.updateleitos(resultado, leito, function(error, resultado){
+								modelluizote.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modelluizote.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -229,7 +232,8 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 										});	
 									}
 								});	
-							});	
+							});
+						});	
 						});	
 					});	
 				}
@@ -237,7 +241,8 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 					modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
 						modelluizote.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelluizote.buscarsetoresid(setor, function(error, resultado){
-								modelluizote.updateleitos(resultado, leito, function(error, resultado){
+								modelluizote.buscarleitoativo(resultado,leito, function(error, idleitos){
+									modelluizote.updateleitos(idleitos, function(error, resultado){
 									if(leito == "Maca"){
 										modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
 											if(setoresrecuperado[0].setor == null){
@@ -270,6 +275,7 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 								});	
 							});	
 						});	
+					});
 					});	
 				}
 			});	
@@ -1992,18 +1998,30 @@ module.exports.infouailuizote= function(application, req, res){
 										modelluizote.buscarpediatrialuizote(unidade, function(error, ped){
 											modelluizote.buscartraumatologialuizote(unidade, function(error, tto){
 												modelluizote.buscarclinicoluizote(unidade, function(error, clinico){
-													res.render("kaban/Luizote/infouailuizote", {inter : inter,
-														evasao : evasao,
-														obito : obito,
-														transf : transf,
-														obser : obser,
-														alta : alta,
-														cirur : cirur,
-														psq : psq,
-														ped : ped,
-														tto : tto,
-														clinico : clinico,
-														 id : result});
+													modelluizote.buscarsetoresluizote(function(error, setor){
+														modelluizote.buscarbanhomanhaluizote(function(error, manha){
+															modelluizote.buscarbanhotardeluizote(function(error, tarde){
+																modelluizote.buscarbanhonoiteluizote(function(error, noite){
+																	res.render("kaban/Luizote/infouailuizote", {inter : inter,
+																		evasao : evasao,
+																		obito : obito,
+																		transf : transf,
+																		obser : obser,
+																		alta : alta,
+																		cirur : cirur,
+																		psq : psq,
+																		ped : ped,
+																		tto : tto,
+																		clinico : clinico,
+																		setor : setor,
+																		manha : manha,
+																		tarde : tarde,
+																		noite : noite,
+																		id : result});
+																	});
+																});
+															});
+														});
 												});
 											});
 										});
