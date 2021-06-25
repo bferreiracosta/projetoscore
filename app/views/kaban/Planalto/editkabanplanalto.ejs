@@ -31,7 +31,8 @@
 								<input type="text" id="dn" data-mask="00/00/0000" data-mask-selectonfocus="true" name="dn" class="form-control" value="<%=paciente[j].datanascimento %>" required >
 							</div>
 							<div class="form-group">
-								<input readonly="readonly"  type="hidden" id="idade" name="idade" class="form-control" placeholder="Idade" >
+								<label for="dn">Idade</label>
+								<input  type="text" id="idade" name="idade" class="form-control" value="<%=paciente[j].idade %>" >
 							</div>
 							<div class="form-group">
 								<label for="da">Data de Admissão</label>
@@ -326,10 +327,14 @@ $("#covid").on('change', function(e){
      var covid = $(this).val();
      document.getElementById('covid2').value = covid;
 	 if(covid == 'true'){
-		 document.getElementById("glasgow").style.display = 'inline';
+		document.getElementById("glasgow").style.display = 'inline';
 		 document.getElementById("bic").style.display = 'inline';
 		 document.getElementById("glasgowlabel").style.display = 'inline';
 		 document.getElementById("biclabel").style.display = 'inline';
+		 document.getElementById("dataexames").style.display = 'inline';
+		 document.getElementById("dataexame").style.display = 'inline';
+		 document.getElementById("exame3").style.display = 'inline';
+		 document.getElementById("exames").style.display = 'inline';
 		 
 	 }
 	 else{
@@ -337,39 +342,43 @@ $("#covid").on('change', function(e){
 		document.getElementById("bic").style.display = 'none';
 		document.getElementById("glasgowlabel").style.display = 'none';
 		document.getElementById("biclabel").style.display = 'none';
+		document.getElementById("dataexames").style.display = 'none';
+		 document.getElementById("dataexame").style.display = 'none';
+		 document.getElementById("exame3").style.display = 'none';
+		 document.getElementById("exames").style.display = 'none';
 	 }
 });
 
-function getAge(birth) {
-  const current = new Date()
-  let diff = current.getFullYear() - birth.getFullYear()
-  if (
-    new Date(current.getFullYear(), current.getMonth(), current.getDate()) <
-    new Date(current.getFullYear(), birth.getMonth(), birth.getDate())
-  )
-    diff--
-  return diff
-}
-const birthField = document.querySelector('#dn')
-const ageField = document.querySelector('#idade')
-birthField.addEventListener('change', (event) => {
-  const date = new Date(event.target.value)
-  ageField.value = getAge(date) + ' anos'
-})
+// function getAge(birth) {
+//   const current = new Date()
+//   let diff = current.getFullYear() - birth.getFullYear()
+//   if (
+//     new Date(current.getFullYear(), current.getMonth(), current.getDate()) <
+//     new Date(current.getFullYear(), birth.getMonth(), birth.getDate())
+//   )
+//     diff--
+//   return diff
+// }
+// const birthField = document.querySelector('#dn')
+// const ageField = document.querySelector('#idade')
+// birthField.addEventListener('change', (event) => {
+//   const date = new Date(event.target.value)
+//   ageField.value = getAge(date) + ' anos'
+// })
 
-function difDias(dias){
-	const current = new Date()
-	var timeDiff = Math.abs(current.getTime() - (dias.getTime()));
-	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-	 console.log(diffDays);
-	 return diffDays
-}
-    const daField = document.querySelector('#da')
-	const idadeField = document.querySelector('#qtdi')
-	daField.addEventListener('change', (event) => {
-  	const dias = new Date(event.target.value)
-	idadeField.value = difDias(dias) + ' dia'
-})
+// function difDias(dias){
+// 	const current = new Date()
+// 	var timeDiff = Math.abs(current.getTime() - (dias.getTime()));
+// 	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+// 	 console.log(diffDays);
+// 	 return diffDays
+// }
+//     const daField = document.querySelector('#da')
+// 	const idadeField = document.querySelector('#qtdi')
+// 	daField.addEventListener('change', (event) => {
+//   	const dias = new Date(event.target.value)
+// 	idadeField.value = difDias(dias) + ' dia'
+// })
 
 
 function verificaecf(value){

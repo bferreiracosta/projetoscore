@@ -26,7 +26,8 @@
                         <input type="text" id="dn" data-mask="00/00/0000" data-mask-selectonfocus="true" name="dn" class="form-control" placeholder="Data de Nascimento" required >
                     </div>
 					<div class="form-group">
-                        <input readonly="readonly"  type="hidden" id="idade" name="idade" class="form-control" placeholder="Idade" >
+						<label for="dn">Idade</label>
+                        <input   type="text" id="idade" name="idade" class="form-control" placeholder="Idade" >
                     </div>
 					<div class="form-group">
 						<label for="da">Data de Admissão</label>
@@ -335,36 +336,36 @@ $("#covid").on('change', function(e){
 	 }
 });
 
-function getAge(birth) {
-  const current = new Date()
-  let diff = current.getFullYear() - birth.getFullYear()
-  if (
-    new Date(current.getFullYear(), current.getMonth(), current.getDate()) <
-    new Date(current.getFullYear(), birth.getMonth(), birth.getDate())
-  )
-    diff--
-  return diff
-}
-const birthField = document.querySelector('#dn')
-const ageField = document.querySelector('#idade')
-birthField.addEventListener('change', (event) => {
-  const date = new Date(event.target.value)
-  ageField.value = getAge(date) + ' anos'
-})
+// function getAge(birth) {
+//   const current = new Date()
+//   let diff = current.getFullYear() - birth.getFullYear()
+//   if (
+//     new Date(current.getFullYear(), current.getMonth(), current.getDate()) <
+//     new Date(current.getFullYear(), birth.getMonth(), birth.getDate())
+//   )
+//     diff--
+//   return diff
+// }
+// const birthField = document.querySelector('#dn')
+// const ageField = document.querySelector('#idade')
+// birthField.addEventListener('change', (event) => {
+//   const date = new Date(event.target.value)
+//   ageField.value = getAge(date) + ' anos'
+// })
 
-function difDias(dias){
-	const current = new Date()
-	var timeDiff = Math.abs(current.getTime() - (dias.getTime()));
-	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+// function difDias(dias){
+// 	const current = new Date()
+// 	var timeDiff = Math.abs(current.getTime() - (dias.getTime()));
+// 	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
 
-	 return diffDays
-}
-    const daField = document.querySelector('#da')
-	const idadeField = document.querySelector('#qtdi')
-	daField.addEventListener('change', (event) => {
-  	const dias = new Date(event.target.value)
-	idadeField.value = difDias(dias) + ' dia'
-})
+// 	 return diffDays
+// }
+//     const daField = document.querySelector('#da')
+// 	const idadeField = document.querySelector('#qtdi')
+// 	daField.addEventListener('change', (event) => {
+//   	const dias = new Date(event.target.value)
+// 	idadeField.value = difDias(dias) + ' dia'
+// })
 
 function verificaecf(value){
 	var input = document.getElementById("spict");
