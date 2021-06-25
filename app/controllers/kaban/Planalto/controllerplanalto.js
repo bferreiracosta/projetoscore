@@ -168,7 +168,7 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 												res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
 											});
 										}else{
-											modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+											modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 												modelplanalto.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
 												});
@@ -182,7 +182,7 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 												res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
 											});
 										}else{
-											modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+											modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 												modelplanalto.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
 												});
@@ -206,7 +206,7 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 													res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modelplanalto.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
 													});
@@ -220,7 +220,7 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 													res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modelplanalto.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
 													});
@@ -245,7 +245,7 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 													res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modelplanalto.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
 													});
@@ -259,7 +259,7 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 													res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modelplanalto.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
 													});
@@ -1468,14 +1468,14 @@ module.exports.baixa= function(application, req, res){
 													modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 														modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 															modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelplanalto.buscarleitosnome(nome, function(error, idleito){
-			
+															
+																	console.log(idleito[0].idleito)
 																	modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																	
 															});
 														});
 													});
@@ -1497,14 +1497,14 @@ module.exports.baixa= function(application, req, res){
 												modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 													modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 														modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modelplanalto.buscarleitosnome(nome, function(error, idleito){
-																
-																modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+														
+																console.log(idleito[0].idleito)
+																modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+																
 														});
 													});
 												});
@@ -1526,14 +1526,14 @@ module.exports.baixa= function(application, req, res){
 											modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 												modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 													modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-														modelplanalto.buscarleitosnome(nome, function(error, idleito){
-															
-															modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+													
+															console.log(idleito[0].idleito)
+															modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																	res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
 																});
 															});
-														});	
+														
 													});
 												});
 											});
@@ -1553,14 +1553,14 @@ module.exports.baixa= function(application, req, res){
 												modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 													modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 														modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modelplanalto.buscarleitosnome(nome, function(error, idleito){
 														
-																modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																console.log(idleito[0].idleito)
+																modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+																
 														});
 													});
 												});
@@ -1593,14 +1593,14 @@ module.exports.baixa= function(application, req, res){
 														modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 															modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 																modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	modelplanalto.buscarleitosnome(nome, function(error, idleito){
-				
+																
+																		console.log(idleito[0].idleito)
 																		modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																			modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																				res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
 																			});
 																		});
-																	});	
+																		
 																});
 															});
 														});
@@ -1622,14 +1622,14 @@ module.exports.baixa= function(application, req, res){
 													modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 														modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 															modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelplanalto.buscarleitosnome(nome, function(error, idleito){
-																	
-																	modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+															
+																	console.log(idleito[0].idleito)
+																	modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																
 															});
 														});
 													});
@@ -1651,14 +1651,14 @@ module.exports.baixa= function(application, req, res){
 												modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 													modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 														modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modelplanalto.buscarleitosnome(nome, function(error, idleito){
-																
-																modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+														
+																console.log(idleito[0].idleito)
+																modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+															
 														});
 													});
 												});
@@ -1678,14 +1678,14 @@ module.exports.baixa= function(application, req, res){
 													modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 														modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 															modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelplanalto.buscarleitosnome(nome, function(error, idleito){
 															
-																	modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	console.log(idleito[0].idleito)
+																	modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																	
 															});
 														});
 													});
@@ -1720,14 +1720,14 @@ module.exports.baixa= function(application, req, res){
 															modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 																modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 																	modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																		modelplanalto.buscarleitosnome(nome, function(error, idleito){
+																	
 					
 																			modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																				modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																					res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
 																				});
 																			});
-																		});	
+																		
 																	});
 																});
 															});
@@ -1749,14 +1749,14 @@ module.exports.baixa= function(application, req, res){
 														modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 															modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 																modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	modelplanalto.buscarleitosnome(nome, function(error, idleito){
+																
 																		
-																		modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																		modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																			modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																				res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
 																			});
 																		});
-																	});	
+																		
 																});
 															});
 														});
@@ -1778,14 +1778,14 @@ module.exports.baixa= function(application, req, res){
 													modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 														modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 															modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelplanalto.buscarleitosnome(nome, function(error, idleito){
+															
 																	
-																	modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																	
 															});
 														});
 													});
@@ -1805,14 +1805,14 @@ module.exports.baixa= function(application, req, res){
 														modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 															modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 																modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	modelplanalto.buscarleitosnome(nome, function(error, idleito){
 																
-																		modelplanalto.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																
+																		modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																			modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																				res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : resultados});
 																			});
 																		});
-																	});	
+																	
 																});
 															});
 														});

@@ -55,7 +55,7 @@ modelmorumbi.prototype.baixacentral = function(idpaciente,baixa, callback){
 
 modelmorumbi.prototype.buscarleitosid = function(valor,callback){
 
-	this._conection.query('select idleitos from leitos where idsetor = (select idsetor from setor where setor = "'+valor[0].setor+'"and unidade = "Morumbi") and leito = "'+valor[0].leito+'" and unidade = "Morumbi" and status = "Inativo"', callback);
+	this._conection.query('select idleito from leitos where idsetor = (select idsetor from setor where setor = "'+valor[0].setor+'"and unidade = "Morumbi") and leito = "'+valor[0].leito+'" and unidade = "Morumbi" and status = "Inativo" limit 1', callback);
 
 }
 
@@ -81,12 +81,12 @@ modelmorumbi.prototype.atualizarleitokaban = function(idpaciente, setor, leito, 
 
 modelmorumbi.prototype.updateleitos = function(idsetor, leito, callback){
 
-	this._conection.query('update leitos set status = "Inativo"  where idleitos = (select idleitos from leitos where idsetor="'+idsetor[0].idsetor+'" and leito = "'+leito+'" and status = "Ativo" limit 1)', callback);
+	this._conection.query('update leitos set status = "Inativo"  where idleito = (select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leito = "'+leito+'" and status = "Ativo" limit 1)', callback);
 }
 
 modelmorumbi.prototype.updateleitosativo = function(idleito, callback){
 
-	this._conection.query('update leitos set status = "Ativo" where idleitos = "'+idleito+'"', callback);
+	this._conection.query('update leitos set status = "Ativo" where idleito = "'+idleito+'"', callback);
 }
 
 modelmorumbi.prototype.buscarsetoresid = function(setor, callback){

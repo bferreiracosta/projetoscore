@@ -55,7 +55,7 @@ modelplanalto.prototype.baixacentral = function(idpaciente,baixa, callback){
 
 modelplanalto.prototype.buscarleitosid = function(valor,callback){
 
-	this._conection.query('select idleitos from leitos where idsetor = (select idsetor from setor where setor = "'+valor[0].setor+'"and unidade = "Planalto") and leito = "'+valor[0].leito+'" and unidade = "Planalto" and status = "Inativo"', callback);
+	this._conection.query('select idleito from leitos where idsetor = (select idsetor from setor where setor = "'+valor[0].setor+'"and unidade = "Planalto") and leito = "'+valor[0].leito+'" and unidade = "Planalto" and status = "Inativo" limit 1', callback);
 }
 
 modelplanalto.prototype.buscarleitosnome = function(valor,callback){
@@ -80,12 +80,12 @@ modelplanalto.prototype.atualizarleitokaban = function(idpaciente, setor, leito,
 
 modelplanalto.prototype.updateleitos = function(idsetor, leito, callback){
 
-	this._conection.query('update leitos set status = "Inativo"  where idleitos = (select idleitos from leitos where idsetor="'+idsetor[0].idsetor+'" and leito = "'+leito+'" and status = "Ativo" limit 1)', callback);
+	this._conection.query('update leitos set status = "Inativo"  where idleito = (select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leito = "'+leito+'" and status = "Ativo" limit 1)', callback);
 }
 
 modelplanalto.prototype.updateleitosativo = function(idleito, callback){
 
-	this._conection.query('update leitos set status = "Ativo" where idleitos = "'+idleito+'"', callback);
+	this._conection.query('update leitos set status = "Ativo" where idleito = "'+idleito+'"', callback);
 }
 
 modelplanalto.prototype.buscarsetoresid = function(setor, callback){

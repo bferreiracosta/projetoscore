@@ -168,7 +168,7 @@ module.exports.atualizarleitotibery= function(application, req, res){
 												res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 											});
 										}else{
-											modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+											modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 												modeltibery.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 												});
@@ -182,7 +182,7 @@ module.exports.atualizarleitotibery= function(application, req, res){
 												res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 											});
 										}else{
-											modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+											modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 												modeltibery.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 												});
@@ -206,7 +206,7 @@ module.exports.atualizarleitotibery= function(application, req, res){
 													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modeltibery.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 													});
@@ -220,7 +220,7 @@ module.exports.atualizarleitotibery= function(application, req, res){
 													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modeltibery.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 													});
@@ -245,7 +245,7 @@ module.exports.atualizarleitotibery= function(application, req, res){
 													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modeltibery.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 													});
@@ -259,7 +259,7 @@ module.exports.atualizarleitotibery= function(application, req, res){
 													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modeltibery.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 													});
@@ -1466,14 +1466,14 @@ module.exports.baixa= function(application, req, res){
 													modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 														modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 															modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modeltibery.buscarleitosnome(nome, function(error, idleito){
+																
 			
 																	modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modeltibery.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																	
 															});
 														});
 													});
@@ -1495,14 +1495,14 @@ module.exports.baixa= function(application, req, res){
 												modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 													modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 														modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modeltibery.buscarleitosnome(nome, function(error, idleito){
+															
 																
-																modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modeltibery.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+															
 														});
 													});
 												});
@@ -1524,14 +1524,14 @@ module.exports.baixa= function(application, req, res){
 											modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 												modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 													modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-														modeltibery.buscarleitosnome(nome, function(error, idleito){
+														
 															
-															modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+															modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																modeltibery.buscarpaciente(unidade, function(error, resultado){
 																	res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
 																});
 															});
-														});	
+															
 													});
 												});
 											});
@@ -1551,14 +1551,14 @@ module.exports.baixa= function(application, req, res){
 												modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 													modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 														modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modeltibery.buscarleitosnome(nome, function(error, idleito){
+															
 														
-																modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modeltibery.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+																
 														});
 													});
 												});
@@ -1591,14 +1591,14 @@ module.exports.baixa= function(application, req, res){
 														modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 															modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 																modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	modeltibery.buscarleitosnome(nome, function(error, idleito){
+																	
 				
 																		modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																			modeltibery.buscarpaciente(unidade, function(error, resultado){
 																				res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
 																			});
 																		});
-																	});	
+																		
 																});
 															});
 														});
@@ -1620,14 +1620,14 @@ module.exports.baixa= function(application, req, res){
 													modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 														modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 															modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modeltibery.buscarleitosnome(nome, function(error, idleito){
+																
 																	
-																	modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modeltibery.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																
 															});
 														});
 													});
@@ -1649,14 +1649,14 @@ module.exports.baixa= function(application, req, res){
 												modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 													modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 														modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modeltibery.buscarleitosnome(nome, function(error, idleito){
+															
 																
-																modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modeltibery.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+																
 														});
 													});
 												});
@@ -1676,14 +1676,14 @@ module.exports.baixa= function(application, req, res){
 													modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 														modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 															modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modeltibery.buscarleitosnome(nome, function(error, idleito){
+																
 															
-																	modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modeltibery.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																	
 															});
 														});
 													});
@@ -1717,14 +1717,14 @@ module.exports.baixa= function(application, req, res){
 														modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 															modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 																modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	modeltibery.buscarleitosnome(nome, function(error, idleito){
+																	
 				
 																		modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																			modeltibery.buscarpaciente(unidade, function(error, resultado){
 																				res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
 																			});
 																		});
-																	});	
+																		
 																});
 															});
 														});
@@ -1746,14 +1746,14 @@ module.exports.baixa= function(application, req, res){
 													modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 														modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 															modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modeltibery.buscarleitosnome(nome, function(error, idleito){
+																
 																	
-																	modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modeltibery.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																	
 															});
 														});
 													});
@@ -1775,14 +1775,14 @@ module.exports.baixa= function(application, req, res){
 												modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 													modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 														modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modeltibery.buscarleitosnome(nome, function(error, idleito){
+															
 																
-																modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modeltibery.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+																
 														});
 													});
 												});
@@ -1803,14 +1803,14 @@ module.exports.baixa= function(application, req, res){
 													modeltibery.baixafugulin(idpaciente,baixa, function(error, result){
 														modeltibery.baixacentral(idpaciente,baixa, function(error, result){
 															modeltibery.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modeltibery.buscarleitosnome(nome, function(error, idleito){
+																
 															
-																	modeltibery.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modeltibery.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Tibery/kabanpacientetibery", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																	
 															});
 														});
 													});

@@ -158,7 +158,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 		modelsaojorge.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 			modelsaojorge.buscarleitosid(setoresrecuperado, function(error, idleito){
 				if(setoresrecuperado[0].leito == null){
-					modelsaojorge.atualizarleitosaojorge(idpaciente, setor, leito, function(error, resultado){
+					modelsaojorge.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 						modelsaojorge.buscarsetoresid(setor, function(error, resultado){
 							modelsaojorge.updateleitos(resultado, leito, function(error, resultado){
 								if(leito == "Maca"){
@@ -168,7 +168,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 												res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
 											});
 										}else{
-											modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+											modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 												modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
 												});
@@ -182,7 +182,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 												res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
 											});
 										}else{
-											modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+											modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 												modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
 												});
@@ -196,7 +196,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 				}
 				if(setoresrecuperado[0].leito == "Maca"){
 					modeladmingestao.updateleitossaojorgemaca(setoresrecuperado[0].setor, function(error, resulta){
-						modelsaojorge.atualizarleitosaojorge(idpaciente, setor, leito, function(error, resultado){
+						modelsaojorge.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelsaojorge.buscarsetoresid(setor, function(error, resultado){
 								modelsaojorge.updateleitos(resultado, leito, function(error, resultado){
 									if(leito == "Maca"){
@@ -206,7 +206,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 													res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
 													});
@@ -220,7 +220,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 													res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
 													});
@@ -235,7 +235,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 				}
 				if(setoresrecuperado[0].leito == "Cama"){
 					modeladmingestao.updateleitossaojorgecama(setoresrecuperado[0].setor, function(error, resulta){
-						modelsaojorge.atualizarleitosaojorge(idpaciente, setor, leito, function(error, resultado){
+						modelsaojorge.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelsaojorge.buscarsetoresid(setor, function(error, resultado){
 								modelsaojorge.updateleitos(resultado, leito, function(error, resultado){
 									if(leito == "Maca"){
@@ -245,7 +245,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 													res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
 													});
@@ -259,7 +259,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 													res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
 													});
@@ -1466,14 +1466,14 @@ module.exports.baixa= function(application, req, res){
 													modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 														modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 															modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelsaojorge.buscarleitosnome(nome, function(error, idleito){
+																
 			
 																	modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelsaojorge.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																
 															});
 														});
 													});
@@ -1495,14 +1495,14 @@ module.exports.baixa= function(application, req, res){
 												modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 													modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 														modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modelsaojorge.buscarleitosnome(nome, function(error, idleito){
+															
 																
-																modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelsaojorge.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+																
 														});
 													});
 												});
@@ -1524,14 +1524,14 @@ module.exports.baixa= function(application, req, res){
 											modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 												modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 													modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-														modelsaojorge.buscarleitosnome(nome, function(error, idleito){
+														
 															
-															modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+															modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																modelsaojorge.buscarpaciente(unidade, function(error, resultado){
 																	res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
 																});
 															});
-														});	
+														
 													});
 												});
 											});
@@ -1551,14 +1551,14 @@ module.exports.baixa= function(application, req, res){
 												modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 													modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 														modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modelsaojorge.buscarleitosnome(nome, function(error, idleito){
+															
 														
-																modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelsaojorge.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+															
 														});
 													});
 												});
@@ -1591,14 +1591,14 @@ module.exports.baixa= function(application, req, res){
 														modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 															modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 																modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	modelsaojorge.buscarleitosnome(nome, function(error, idleito){
+																	
 				
 																		modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																			modelsaojorge.buscarpaciente(unidade, function(error, resultado){
 																				res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
 																			});
 																		});
-																	});	
+																		
 																});
 															});
 														});
@@ -1620,14 +1620,14 @@ module.exports.baixa= function(application, req, res){
 													modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 														modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 															modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelsaojorge.buscarleitosnome(nome, function(error, idleito){
+																
 																	
-																	modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelsaojorge.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																
 															});
 														});
 													});
@@ -1649,14 +1649,14 @@ module.exports.baixa= function(application, req, res){
 												modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 													modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 														modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modelsaojorge.buscarleitosnome(nome, function(error, idleito){
+															
 																
-																modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelsaojorge.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+															
 														});
 													});
 												});
@@ -1676,14 +1676,14 @@ module.exports.baixa= function(application, req, res){
 													modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 														modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 															modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelsaojorge.buscarleitosnome(nome, function(error, idleito){
+																
 															
-																	modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelsaojorge.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																	
 															});
 														});
 													});
@@ -1717,14 +1717,14 @@ module.exports.baixa= function(application, req, res){
 														modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 															modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 																modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	modelsaojorge.buscarleitosnome(nome, function(error, idleito){
+																	
 				
 																		modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																			modelsaojorge.buscarpaciente(unidade, function(error, resultado){
 																				res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
 																			});
 																		});
-																	});	
+																		
 																});
 															});
 														});
@@ -1746,14 +1746,14 @@ module.exports.baixa= function(application, req, res){
 													modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 														modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 															modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelsaojorge.buscarleitosnome(nome, function(error, idleito){
+																
 																	
-																	modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelsaojorge.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																
 															});
 														});
 													});
@@ -1775,14 +1775,14 @@ module.exports.baixa= function(application, req, res){
 												modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 													modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 														modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modelsaojorge.buscarleitosnome(nome, function(error, idleito){
+															
 																
-																modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelsaojorge.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+															
 														});
 													});
 												});
@@ -1803,14 +1803,14 @@ module.exports.baixa= function(application, req, res){
 													modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
 														modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
 															modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelsaojorge.buscarleitosnome(nome, function(error, idleito){
+																
 															
-																	modelsaojorge.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelsaojorge.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/SaoJorge/kabanpacientesaojorge", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+															
 															});
 														});
 													});

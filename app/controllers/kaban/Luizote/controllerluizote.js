@@ -158,7 +158,7 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 		modelluizote.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 			modelluizote.buscarleitosid(setoresrecuperado, function(error, idleito){
 				if(setoresrecuperado[0].leito == null){
-					modelluizote.atualizarleitoluizote(idpaciente, setor, leito, function(error, resultado){
+					modelluizote.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 						modelluizote.buscarsetoresid(setor, function(error, resultado){
 							modelluizote.updateleitos(resultado, leito, function(error, resultado){
 								if(leito == "Maca"){
@@ -168,7 +168,7 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 												res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 											});
 										}else{
-											modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+											modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 												modelluizote.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 												});
@@ -182,7 +182,7 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 												res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 											});
 										}else{
-											modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+											modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 												modelluizote.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 												});
@@ -196,7 +196,7 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 				}
 				if(setoresrecuperado[0].leito == "Maca"){
 					modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
-						modelluizote.atualizarleitoluizote(idpaciente, setor, leito, function(error, resultado){
+						modelluizote.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelluizote.buscarsetoresid(setor, function(error, resultado){
 								modelluizote.updateleitos(resultado, leito, function(error, resultado){
 									if(leito == "Maca"){
@@ -206,7 +206,7 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 													res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modelluizote.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 													});
@@ -220,7 +220,7 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 													res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modelluizote.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 													});
@@ -235,7 +235,7 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 				}
 				if(setoresrecuperado[0].leito == "Cama"){
 					modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
-						modelluizote.atualizarleitoluizote(idpaciente, setor, leito, function(error, resultado){
+						modelluizote.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
 							modelluizote.buscarsetoresid(setor, function(error, resultado){
 								modelluizote.updateleitos(resultado, leito, function(error, resultado){
 									if(leito == "Maca"){
@@ -245,7 +245,7 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 													res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modelluizote.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 													});
@@ -259,7 +259,7 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 													res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 												});
 											}else{
-												modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+												modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 													modelluizote.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 													});
@@ -1465,14 +1465,14 @@ module.exports.baixa= function(application, req, res){
 													modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
 														modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 															modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelluizote.buscarleitosnome(nome, function(error, idleito){
+																
 			
 																	modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelluizote.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																	
 															});
 														});
 													});
@@ -1494,14 +1494,14 @@ module.exports.baixa= function(application, req, res){
 												modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
 													modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 														modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modelluizote.buscarleitosnome(nome, function(error, idleito){
+															
 																
-																modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelluizote.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+																
 														});
 													});
 												});
@@ -1523,14 +1523,14 @@ module.exports.baixa= function(application, req, res){
 											modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
 												modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 													modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-														modelluizote.buscarleitosnome(nome, function(error, idleito){
+														
 															
-															modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+															modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																modelluizote.buscarpaciente(unidade, function(error, resultado){
 																	res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
 																});
 															});
-														});	
+														
 													});
 												});
 											});
@@ -1550,14 +1550,14 @@ module.exports.baixa= function(application, req, res){
 												modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
 													modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 														modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modelluizote.buscarleitosnome(nome, function(error, idleito){
+															
 														
-																modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelluizote.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+																
 														});
 													});
 												});
@@ -1590,14 +1590,14 @@ module.exports.baixa= function(application, req, res){
 														modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
 															modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 																modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	modelluizote.buscarleitosnome(nome, function(error, idleito){
+																	
 				
 																		modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																			modelluizote.buscarpaciente(unidade, function(error, resultado){
 																				res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
 																			});
 																		});
-																	});	
+																		
 																});
 															});
 														});
@@ -1619,14 +1619,14 @@ module.exports.baixa= function(application, req, res){
 													modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
 														modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 															modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelluizote.buscarleitosnome(nome, function(error, idleito){
+																
 																	
-																	modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelluizote.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																
 															});
 														});
 													});
@@ -1648,14 +1648,14 @@ module.exports.baixa= function(application, req, res){
 												modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
 													modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 														modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modelluizote.buscarleitosnome(nome, function(error, idleito){
+															
 																
-																modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelluizote.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+																
 														});
 													});
 												});
@@ -1675,14 +1675,14 @@ module.exports.baixa= function(application, req, res){
 													modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
 														modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 															modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelluizote.buscarleitosnome(nome, function(error, idleito){
+																
 															
-																	modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelluizote.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																	
 															});
 														});
 													});
@@ -1716,14 +1716,14 @@ module.exports.baixa= function(application, req, res){
 														modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
 															modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 																modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	modelluizote.buscarleitosnome(nome, function(error, idleito){
+																	
 				
 																		modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																			modelluizote.buscarpaciente(unidade, function(error, resultado){
 																				res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
 																			});
 																		});
-																	});	
+																	
 																});
 															});
 														});
@@ -1745,14 +1745,14 @@ module.exports.baixa= function(application, req, res){
 													modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
 														modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 															modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelluizote.buscarleitosnome(nome, function(error, idleito){
+																
 																	
-																	modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelluizote.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																
 															});
 														});
 													});
@@ -1774,14 +1774,14 @@ module.exports.baixa= function(application, req, res){
 												modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
 													modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 														modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-															modelluizote.buscarleitosnome(nome, function(error, idleito){
+															
 																
-																modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelluizote.buscarpaciente(unidade, function(error, resultado){
 																		res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
 																	});
 																});
-															});	
+																
 														});
 													});
 												});
@@ -1802,14 +1802,14 @@ module.exports.baixa= function(application, req, res){
 													modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
 														modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 															modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-																modelluizote.buscarleitosnome(nome, function(error, idleito){
+																
 															
-																	modelluizote.updateleitosativo(idleito[0].idleitos, function(error, resultado){
+																	modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelluizote.buscarpaciente(unidade, function(error, resultado){
 																			res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
 																		});
 																	});
-																});	
+																	
 															});
 														});
 													});
