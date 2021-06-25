@@ -495,9 +495,9 @@ module.exports = function(application) {
 		}
 		
 	});
-	application.get('/infouailuizote', function(req, res){
+	application.get('/infouaimartins', function(req, res){
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Luizote.controllerluizote.infouailuizote(application, req, res);
+			application.app.controllers.kaban.Martins.controllermartins.infouaimartins(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
