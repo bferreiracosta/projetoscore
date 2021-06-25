@@ -142,7 +142,7 @@ module.exports.updateexametibery= function(application, req, res){
 	});
 }
 
-module.exports.atualizarleitokaban= function(application, req, res){
+module.exports.atualizarleitotibery= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
