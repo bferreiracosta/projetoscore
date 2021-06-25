@@ -6,6 +6,7 @@
                     <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
                         <thead>
                             <tr>
+                                <th hidden>id</th>
                                 <th>SusFacil</th>
                                 <th>Prontuario</th>
                                 <th>Nome</th>
@@ -15,6 +16,7 @@
                                 <th>Dias Internados</th>
                                 <th>Setor</th>
                                 <th>ECF</th>
+                                <th>Spict</th>
                                 <th>Paliativo</th>
                                 <th>Diagnóstico</th>
                                 <th>Especialidade</th>
@@ -30,6 +32,7 @@
                                     <% for(var j = 0; j < paciente.length; j++) {%>
                                         
                                 <tr>                                  
+                                    <td hidden><%=paciente[j].idpaciente %></td>
                                     <td><%=paciente[j].susfacil %></td>
                                     <th><%=paciente[j].prt %></th>
                                     <td><%=paciente[j].nome %></td>
@@ -39,6 +42,7 @@
                                     <td></td>
                                     <td><%=paciente[j].setor %></td>
                                     <td><%=paciente[j].ECF %></td>
+                                    <td><%=paciente[j].spict %></td>
                                     <td><%=paciente[j].paliativo %></td>
                                     <td><%=paciente[j].diagnostico %></td>
                                     <td><%=paciente[j].especialidade %></td>
