@@ -58,87 +58,88 @@
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
-      $(document).ready(function() {
+    $(document).ready(function() {
 var groupColumn = 3;
-   $('#mytable').DataTable( { 
+$('#mytable').DataTable( { 
 dom: 'Bfrtip',
 "scrollX": true,
 rowGroup: {
-        dataSrc: 'groupColumn'
-    },
+       dataSrc: 'groupColumn'
+   },
 "columnDefs": [
-            { "visible": false, "targets": groupColumn },
-            {"className": "dt-center", "targets": "_all"},
-           
-        ],
-        rowGroup: {
-            dataSrc: groupColumn,
-        },
-        "order": [[ groupColumn, 'asc' ]],
-        pageLength: 50,
-        "drawCallback": function ( settings ) {
-            var api = this.api();
-            var rows = api.rows( {page:'current'} ).nodes();
-            var last=null;
- 
-            api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
-                if ( last !== group ) {
-                    $(rows).eq( i ).before(
-                        '<tr class="group" ><td colspan="18" >'+group+'</td></tr>'
-                    );
- 
-                    last = group;
-                }
-            } );
-        },
-        buttons: [       
-            {
-                "extend": "copyHtml5",
-                "text": "COPIAR",
-                orientation: 'landscape',
-                pageSize: 'LEGAL',
-               
-            },          
-            {
-                "extend": "pdf",
-                "text": "PDF",
-                orientation: 'landscape',
-                pageSize: 'LEGAL',
-                customize: function(doc) {
+           { "visible": false, "targets": groupColumn },
+           {"className": "dt-center", "targets": "_all"},
+          
+       ],
+       fixedColumns: true,
+       rowGroup: {
+           dataSrc: groupColumn,
+       },
+       "order": [[ groupColumn, 'asc' ]],
+       pageLength: 50,
+       "drawCallback": function ( settings ) {
+           var api = this.api();
+           var rows = api.rows( {page:'current'} ).nodes();
+           var last=null;
+
+           api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
+               if ( last !== group ) {
+                   $(rows).eq( i ).before(
+                       '<tr class="group" style = "background-color: #ddd !important;text-align: center !important"><td colspan="18" >'+group+'</td></tr>'
+                   );
+
+                   last = group;
+               }
+           } );
+       },
+       buttons: [       
+           {
+               "extend": "copyHtml5",
+               "text": "COPIAR",
+               orientation: 'landscape',
+               pageSize: 'LEGAL',
+              
+           },          
+           {
+               "extend": "pdf",
+               "text": "PDF",
+               orientation: 'landscape',
+               pageSize: 'LEGAL',
+               customize: function(doc) {
                     //pageMargins [left, top, right, bottom] 
                     doc.pageMargins = [ 10, 20, 10, 10 ];
                     doc.defaultStyle.fontSize = 8,
                     doc.styles.tableBodyEven.alignment = 'center';
                    doc.styles.tableBodyOdd.alignment = 'center';
-                },
-                exportOptions: {
-                    grouped_array_index: [groupColumn],
-                    columns: ':visible'
-                },
-            },
-            {
-                "extend": "excelHtml5",
-                "text": "EXCEL",
-                exportOptions: {
-                    grouped_array_index: [groupColumn],
-                    columns: ':visible'
-                },
-                customize: function( xlsx ) {
-                var sheet = xlsx.xl.worksheets['sheet1.xml'];
-                $('c', sheet).attr( 's', '51' );
+                }, 
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+           },
+           {
+               "extend": "excelHtml5",
+               "text": "EXCEL",
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+               customize: function( xlsx ) {
+               var sheet = xlsx.xl.worksheets['sheet1.xml'];
+               $('c', sheet).attr( 's', '51' );
 
-            },
-            orientation: 'landscape',
-                pageSize: 'LEGAL'
-            },
-            {
-                "extend": "print",
-                "text": "IMPRIMIR", 
-                exportOptions: {
-                    grouped_array_index: [groupColumn],
-                    columns: ':visible'
-                },
-                customize: function ( win ) {
+           },
+           orientation: 'landscape',
+               pageSize: 'LEGAL'
+           },
+           {
+               "extend": "print",
+               "text": "IMPRIMIR", 
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+               customize: function ( win ) {
                     $(win.document.body)
                     .css( 'font-size', '12px' );
 
@@ -148,27 +149,47 @@ rowGroup: {
                 orientation: 'landscape',
                 pageSize: 'LEGAL'
             }
-            
-        ],language: {
-            buttons: {
-                copyTitle: 'Copiado para área de transferência',
-                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
-                copySuccess: {
-                    _: '%d linhas copiadas',
-                    1: '1 linha copiada'
-                }
-            },
-            "paginate": {
-                "previous": "Anterior",
-                "next": "Próximo"
-            },
-            "search": "Pesquisar:"
-        },
-        select: true,
-        
-    } );
-} );   
-    </script>
-<%- include('../../home/footer'); %>
-</body>
-</html>
+           
+       ],language: {
+           buttons: {
+               copyTitle: 'Copiado para área de transferência',
+               copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+               copySuccess: {
+                   _: '%d linhas copiadas',
+                   1: '1 linha copiada'
+               }
+           },
+           "paginate": {
+               "previous": "Anterior",
+               "next": "Próximo"
+           },
+           "search": "Pesquisar:"
+       },
+       select: true
+   } );
+} );
+
+
+$('#mytable tbody tr').each(function(i){
+            tr=$(this);
+            idade=tr.children('td:eq(4)').html();
+            var data3 = idade;
+            // Precisamos quebrar a string para retornar cada parte
+            const dataSplits = data3.split('/');
+            const dayss = dataSplits[0]; // 30
+            const months = dataSplits[1]; // 03
+            const years = dataSplits[2]; // 2019
+            // Agora podemos inicializar o objeto Date, lembrando que o mês começa em 0, então fazemos -1.
+            data3 = new Date(years, months - 1, dayss);
+            tr.children('td:eq(5)').text(calcularIdade(data3)+ " anos");
+});
+
+function calcularIdade(aniversario) {
+    var ano_atual = new Date().getFullYear();
+var data_aniversario = new Date(aniversario).getFullYear();;
+// var ano_informado = data_aniversario.split('/')[2];
+return (ano_atual - data_aniversario);
+   
+}
+       
+   </script>
