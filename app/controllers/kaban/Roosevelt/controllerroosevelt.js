@@ -1855,15 +1855,30 @@ module.exports.updatedispositivokabanroosevelt= function(application, req, res){
 	var modelroosevelt = new application.app.model.kaban.Roosevelt.modelroosevelt(application);
 	var modelcovidroosevelt = new application.app.model.regulacao.modelroosevelt(application);
 
-	modeladmin.buscarusuarioporid(id, function(error, result){	
-		modelroosevelt.updatedispositivodados(idpaciente,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
-			modelcovidroosevelt.updaterespkaban(idpaciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
-				modelroosevelt.buscardispositivo(unidade, function(error, resultado){
-						res.render("kaban/Roosevelt/dispositivoroosevelt", {dispositivo: resultado, id : result });
-				});
-			});
+	modelroosevelt.buscarpacienteporid(idpaciente, function(error, idpac){
+		modelcovidroosevelt.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+			if(idpac[0].covid == 'true'){
+				modeladmin.buscarusuarioporid(id, function(error, result){	
+					modelroosevelt.updatedispositivodados(idpaciente,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
+						modelcovidroosevelt.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
+							modelroosevelt.buscardispositivo(unidade, function(error, resultado){
+									res.render("kaban/Roosevelt/dispositivoroosevelt", {dispositivo: resultado, id : result });
+							});
+						});
+					});
+				});	
+			}
+			else{
+				modeladmin.buscarusuarioporid(id, function(error, result){	
+					modelroosevelt.updatedispositivodados(idpaciente,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
+						modelroosevelt.buscardispositivo(unidade, function(error, resultado){
+								res.render("kaban/Roosevelt/dispositivoroosevelt", {dispositivo: resultado, id : result });
+						});	
+					});
+				});	
+			}
 		});
-	});	
+	});
 }
 
 module.exports.updatefugulin= function(application, req, res){
@@ -1922,15 +1937,30 @@ module.exports.updatenews= function(application, req, res){
 	var modelroosevelt = new application.app.model.kaban.Roosevelt.modelroosevelt(application);
 	var modelcovidroosevelt = new application.app.model.regulacao.modelroosevelt(application);
 
-			modeladmin.buscarusuarioporid(id, function(error, result){	
-				modelroosevelt.updatenewsdados(idpaciente,data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-					modelcovidroosevelt.updatenews(idpaciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+	modelroosevelt.buscarpacienteporid(idpaciente, function(error, idpac){
+		modelcovidroosevelt.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+			if(idpac[0].covid == 'true'){
+				modeladmin.buscarusuarioporid(id, function(error, result){	
+					modelroosevelt.updatenewsdados(idpaciente, data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+						modelcovidroosevelt.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+							modelroosevelt.buscarnews(unidade, function(error, resultado){
+									res.render("kaban/Roosevelt/newskabanroosevelt", {news: resultado, id : result });
+							});
+						});
+					});
+				});	
+			}
+			else{
+				modeladmin.buscarusuarioporid(id, function(error, result){	
+					modelroosevelt.updatenewsdados(idpaciente, data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 						modelroosevelt.buscarnews(unidade, function(error, resultado){
 								res.render("kaban/Roosevelt/newskabanroosevelt", {news: resultado, id : result });
 						});
 					});
-				});
-			});		
+				});	
+			}
+		});
+	});	
 }
 
 module.exports.updatetiss= function(application, req, res){

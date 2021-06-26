@@ -1855,15 +1855,30 @@ module.exports.updatedispositivokabanmartins= function(application, req, res){
 	var modelmartins = new application.app.model.kaban.Martins.modelmartins(application);
 	var modelcovidmartins = new application.app.model.regulacao.modelmartins(application);
 
-	modeladmin.buscarusuarioporid(id, function(error, result){	
-		modelmartins.updatedispositivodados(idpaciente,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
-			modelcovidmartins.updaterespkaban(idpaciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
-				modelmartins.buscardispositivo(unidade, function(error, resultado){
-						res.render("kaban/Martins/dispositivomartins", {dispositivo: resultado, id : result });
-				});
-			});
+	modelmartins.buscarpacienteporid(idpaciente, function(error, idpac){
+		modelcovidmartins.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+			if(idpac[0].covid == 'true'){
+				modeladmin.buscarusuarioporid(id, function(error, result){	
+					modelmartins.updatedispositivodados(idpaciente,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
+						modelcovidmartins.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
+							modelmartins.buscardispositivo(unidade, function(error, resultado){
+									res.render("kaban/martins/dispositivomartins", {dispositivo: resultado, id : result });
+							});
+						});
+					});
+				});	
+			}
+			else{
+				modeladmin.buscarusuarioporid(id, function(error, result){	
+					modelmartins.updatedispositivodados(idpaciente,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
+						modelmartins.buscardispositivo(unidade, function(error, resultado){
+								res.render("kaban/martins/dispositivomartins", {dispositivo: resultado, id : result });
+						});	
+					});
+				});	
+			}
 		});
-	});	
+	});
 }
 
 module.exports.updatefugulin= function(application, req, res){
@@ -1922,15 +1937,30 @@ module.exports.updatenews= function(application, req, res){
 	var modelmartins = new application.app.model.kaban.Martins.modelmartins(application);
 	var modelcovidmartins = new application.app.model.regulacao.modelmartins(application);
 
-			modeladmin.buscarusuarioporid(id, function(error, result){	
-				modelmartins.updatenewsdados(idpaciente, data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-					modelcovidmartins.updatenews(idpaciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
-						modelmartins.buscarnews(unidade, function(error, resultado){
-								res.render("kaban/Martins/newskabanmartins", {news: resultado, id : result });
+	modelmartins.buscarpacienteporid(idpaciente, function(error, idpac){
+		modelcovidmartins.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+			if(idpac[0].covid == 'true'){
+				modeladmin.buscarusuarioporid(id, function(error, result){	
+					modelmartins.updatenewsdados(idpaciente, data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+						modelcovidmartins.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+							modelmartins.buscarnews(unidade, function(error, resultado){
+									res.render("kaban/martins/newskabanmartins", {news: resultado, id : result });
+							});
 						});
 					});
-				});
-			});		
+				});	
+			}
+			else{
+				modeladmin.buscarusuarioporid(id, function(error, result){	
+					modelmartins.updatenewsdados(idpaciente, data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+						modelmartins.buscarnews(unidade, function(error, resultado){
+								res.render("kaban/martins/newskabanmartins", {news: resultado, id : result });
+						});
+					});
+				});	
+			}
+		});
+	});	
 }
 
 module.exports.updatetiss= function(application, req, res){

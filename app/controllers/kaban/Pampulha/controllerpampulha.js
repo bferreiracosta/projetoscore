@@ -1853,15 +1853,30 @@ module.exports.updatedispositivokabanpampulha= function(application, req, res){
 	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
 	var modelcovidpampulha = new application.app.model.regulacao.modelpampulha(application);
 
-	modeladmin.buscarusuarioporid(id, function(error, result){	
-		modelpampulha.updatedispositivodados(idpaciente,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
-			modelcovidpampulha.updaterespkaban(idpaciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
-				modelpampulha.buscardispositivo(unidade, function(error, resultado){
-						res.render("kaban/Pampulha/dispositivopampulha", {dispositivo: resultado, id : result });
-				});
-			});
+	modelpampulha.buscarpacienteporid(idpaciente, function(error, idpac){
+		modelcovidpampulha.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+			if(idpac[0].covid == 'true'){
+				modeladmin.buscarusuarioporid(id, function(error, result){	
+					modelpampulha.updatedispositivodados(idpaciente,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
+						modelcovidpampulha.updaterespkaban(idcovid[0].id_paciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
+							modelpampulha.buscardispositivo(unidade, function(error, resultado){
+									res.render("kaban/Pampulha/dispositivopampulha", {dispositivo: resultado, id : result });
+							});
+						});
+					});
+				});	
+			}
+			else{
+				modeladmin.buscarusuarioporid(id, function(error, result){	
+					modelpampulha.updatedispositivodados(idpaciente,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
+						modelpampulha.buscardispositivo(unidade, function(error, resultado){
+								res.render("kaban/Pampulha/dispositivopampulha", {dispositivo: resultado, id : result });
+						});	
+					});
+				});	
+			}
 		});
-	});	
+	});
 }
 
 module.exports.updatefugulin= function(application, req, res){
@@ -1920,15 +1935,30 @@ module.exports.updatenews= function(application, req, res){
 	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
 	var modelcovidpampulha = new application.app.model.regulacao.modelpampulha(application);
 
-			modeladmin.buscarusuarioporid(id, function(error, result){	
-				modelpampulha.updatenewsdados(idpaciente, data,setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-					modelcovidpampulha.updatenews(idpaciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+	modelpampulha.buscarpacienteporid(idpaciente, function(error, idpac){
+		modelcovidpampulha.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+			if(idpac[0].covid == 'true'){
+				modeladmin.buscarusuarioporid(id, function(error, result){	
+					modelpampulha.updatenewsdados(idpaciente, data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+						modelcovidpampulha.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
+							modelpampulha.buscarnews(unidade, function(error, resultado){
+									res.render("kaban/Pampulha/newskabanpampulha", {news: resultado, id : result });
+							});
+						});
+					});
+				});	
+			}
+			else{
+				modeladmin.buscarusuarioporid(id, function(error, result){	
+					modelpampulha.updatenewsdados(idpaciente, data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 						modelpampulha.buscarnews(unidade, function(error, resultado){
 								res.render("kaban/Pampulha/newskabanpampulha", {news: resultado, id : result });
 						});
 					});
-				});
-			});		
+				});	
+			}
+		});
+	});	
 }
 
 module.exports.updatetiss= function(application, req, res){
