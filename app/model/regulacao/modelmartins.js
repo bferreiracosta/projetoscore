@@ -47,7 +47,7 @@ modelmartins.prototype.buscarpacienteid = function(idpaciente, unidade, callback
 
 modelmartins.prototype.buscarpacientepornome = function(paciente, callback){
 	
-	this._conection.query('select id_paciente from pacientes where paciente = "'+paciente+'" and unidade = "Martins"', callback);
+	this._conection.query('select id_paciente from pacientes where paciente = "'+paciente+'" and unidade = "Martins" order by id_paciente desc limit 1 ', callback);
 	
 }
 modelmartins.prototype.updaterespkaban = function(idpaciente,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivo,fluxoo2, droga, fio2, peep, sedacao, nora, adre,bica,dormonid,fentanil,rocuronio,propofol, callback){

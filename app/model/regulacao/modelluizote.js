@@ -50,7 +50,7 @@ modelluizote.prototype.buscarpacienteid = function(idpaciente, unidade, callback
 
 modelluizote.prototype.buscarpacientepornome = function(paciente, callback){
 	
-	this._conection.query('select id_paciente from pacientes where paciente = "'+paciente+'" and unidade = "Luizote"', callback);
+	this._conection.query('select id_paciente from pacientes where paciente = "'+paciente+'" and unidade = "Luizote" order by id_paciente desc limit 1 ', callback);
 	
 }
 
