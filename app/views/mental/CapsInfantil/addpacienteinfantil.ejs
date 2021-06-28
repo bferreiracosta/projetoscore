@@ -155,9 +155,9 @@
 				<br>
 				<input type="text" id="classificado" value="Classificado" class="form-control">
 				<br>
-				<input  type="text" id="data" name="data"  class="form-control">
-				<input  type="text" id="dataatu" name="dataatu"  class="form-control">
-				<input  type="text" id="horas" name="horas"  class="form-control">
+				<input  type="hidden" id="data" name="data"  class="form-control">
+				<input  type="hidden" id="dataatu" name="dataatu"  class="form-control">
+				<input  type="hidden" id="horas" name="horas"  class="form-control">
 				  
 			</div>							
                 <div>
@@ -437,7 +437,7 @@ function calcular(){
 		document.getElementById("classificado").style.display = 'inline';
 	}else{
 		var soma;
-		console.log(numtra,numrisc,numcom,numexp,numal,numdep,numter,numsoc,numida)
+		
 	soma = numtra+numrisc+numcom+numexp+numal+numdep+numter+numsoc+numida
 	document.getElementById('soma').value = soma;
 	document.getElementById("classificado").style.display = 'inline';
