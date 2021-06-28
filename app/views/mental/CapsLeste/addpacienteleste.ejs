@@ -227,7 +227,9 @@ $("#socialSelect").on('change', function(e){
      var social = $(this).val();
      document.getElementById('social').value = social;
 });
-
+function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
 function novaHora(){
 	
 	var date = new Date();

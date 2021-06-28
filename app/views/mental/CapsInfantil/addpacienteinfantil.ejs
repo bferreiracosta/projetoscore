@@ -155,9 +155,9 @@
 				<br>
 				<input type="text" id="classificado" value="Classificado" class="form-control">
 				<br>
-				<input  type="hidden" id="data" name="data"  class="form-control">
-							  <input  type="hidden" id="dataatu" name="dataatu"  class="form-control">
-							  <input  type="hidden" id="horas" name="horas"  class="form-control">
+				<input  type="text" id="data" name="data"  class="form-control">
+				<input  type="text" id="dataatu" name="dataatu"  class="form-control">
+				<input  type="text" id="horas" name="horas"  class="form-control">
 				  
 			</div>							
                 <div>
@@ -227,7 +227,9 @@ $("#socialSelect").on('change', function(e){
      var social = $(this).val();
      document.getElementById('social').value = social;
 });
-
+function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
 function novaHora(){
 	
 	var date = new Date();
