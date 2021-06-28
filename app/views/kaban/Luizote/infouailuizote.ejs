@@ -6,7 +6,7 @@
             <% for(var i = 0; i < id.length; i++) {%>
                 <input name="usuario" type="hidden" id="usuario" value="<%=id[i].id_usuario %>">
                 <p>
-                    <input type="button" value="Criar PDF" id="btnImprimir" onclick="CriaPDF()" />
+                    <input type="button" class="btn btn-success" value="Criar PDF" id="btnImprimir" onclick="CriaPDF()" />
                 </p>
                     <div class="row " id="tabela">
                         <div class="col col-md-4">
@@ -110,12 +110,14 @@
                 </table>
             </div>
                 <div class="col col-md-4"> 
-                    <table class="table table-bordered" id="mytable">
+                    <table class="table table-bordered" id="ocupacao">
                         <thead>
                             <tr>
                                 <th >Setor</th>
+                                <th >Capacidade</th>
                                 <th >Camas Ocupadas</th>
                                 <th >Macas Ocupadas</th>
+                                <td>Total</td> 
                             </tr>
                         </thead>
                         <tbody>  
@@ -123,12 +125,24 @@
                                 <% for(var n = 0; n < setor.length; n++) {%>
                             <tr> 
                                 <td><%=setor[n].setor %></td> 
+                                <td><%=setor[n].capacidade %></td> 
                                 <td><%=setor[n].capacidadecamasocupadas %></td>   
                                 <td><%=setor[n].capacidademacasocupadas %></td> 
+                                <td class="somatoria"></td> 
                             </tr>
                             <% } %>	
                             <% } %>
                         </tbody>
+                        <tfoot>  
+                            <tr> 
+                                <td class="total"></td> 
+                                <td class="capacidade"></td> 
+                                <td class="cama"></td>   
+                                <td class="maca"></td> 
+                                <td class="soma"></td>  
+                            </tr>
+                            
+                        </tfoot>
                     </table>
                 </div>
                 <div class="col col-md-4"> 
@@ -206,6 +220,34 @@
         win.print();                                                            // IMPRIME O CONTEUDO
     }
 
+    $(function(){
+      var total = 0;
+      var total2 = 0;
+      var totalcapacidade = 0;
+      var soma = 0;
+      $('#ocupacao tbody tr').each(function(i){
+            tr=$(this);
+            camas=tr.children('td:eq(2)').html();
+            macas =tr.children('td:eq(3)').html();
+            capacidade =tr.children('td:eq(1)').html();
+           
+            somatoria = parseInt(camas) + parseInt(macas);
+            tr.children('td:eq(4)').html(somatoria);
+            total = (total + parseInt(camas));
+            total2 = (total2 + parseInt(macas));
+            totalcapacidade = (totalcapacidade + parseInt(capacidade));
+            soma = total + total2;
+      });
+      $('.total').text('Total pacientes');
+      $('.cama').text(total );
+      $('.maca').text(total2 );
+      $('.soma').text(soma );
+      $('.capacidade').text(totalcapacidade);
+      
+
+    });
+
+    
 </script>
 </body>
 </html>

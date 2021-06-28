@@ -4,56 +4,58 @@
                  <table class="table table-striped"  style="width: 100%;" id="mytable">
                     <caption style="font-size: 25px; text-align: center; ">Kamban Pacientes Planalto</caption>
                     <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
-                        <thead>
-                            <tr>
-                                <th hidden>id</th>
-                                <th>SusFacil</th>
-                                <th>Prontuario</th>
-                                <th>Nome</th>
-                                <th>Data de Nascimento</th>
-                                <th>Idade</th>
-                                <th>Data Admissão</th>
-                                <th>Dias Internados</th>
-                                <th>Setor</th>
-                                <th>ECF</th>
-                                <th>Spict</th>
-                                <th>Paliativo</th>
-                                <th>Diagnóstico</th>
-                                <th>Especialidade</th>
-                                <th>Banho</th>
-                                <th>Mobilidade</th>
-                                <th>Observação</th>
-                                <th>Pendencias</th>
-                                
-                            </tr>
-                            </thead>
-                            <tbody>    
-                                <% if(paciente.length > 0) { %>
-                                    <% for(var j = 0; j < paciente.length; j++) {%>
-                                        
-                                <tr>                                  
-                                    <td hidden><%=paciente[j].idpaciente %></td>
-                                    <td><%=paciente[j].susfacil %></td>
-                                    <th><%=paciente[j].prt %></th>
-                                    <td><%=paciente[j].nome %></td>
-                                    <td><%=paciente[j].datanascimento %></td>
-                                    <td></td>
-                                    <td><%=paciente[j].dataentrada %></td>
-                                    <td></td>
-                                    <td><%=paciente[j].setor %></td>
-                                    <td><%=paciente[j].ECF %></td>
-                                    <td><%=paciente[j].spict %></td>
-                                    <td><%=paciente[j].paliativo %></td>
-                                    <td><%=paciente[j].diagnostico %></td>
-                                    <td><%=paciente[j].especialidade %></td>
-                                    <td><%=paciente[j].banho %></td>
-                                    <td><%=paciente[j].mobilidade %></td>
-                                    <td><%=paciente[j].observacao %></td>
-                                    <td ><%=paciente[j].pendencias %></td>
-                            </tr>
-                            <% } %>	
-                            <% } %>
-                        </tbody>
+                    <thead>
+                        <tr>
+                            <th hidden>id</th>
+                            <th>SusFacil</th>
+                            <th>Prontuario</th>
+                            <th>Nome</th>
+                            <th>Data de Nascimento</th>
+                            <th>Idade</th>
+                            <th>Data Admissão</th>
+                            <th>Dias Internados</th>
+                            <th>Setor</th>
+                            <th>Medico</th>
+                            <th>ECF</th>
+                            <th>Spict</th>
+                            <th>Paliativo</th>
+                            <th>Diagnóstico</th>
+                            <th>Especialidade</th>
+                            <th>Banho</th>
+                            <th>Mobilidade</th>
+                            <th>Observação</th>
+                            <th>Pendencias</th>
+                            
+                        </tr>
+                        </thead>
+                        <tbody>    
+                            <% if(paciente.length > 0) { %>
+                                <% for(var j = 0; j < paciente.length; j++) {%>
+                                    
+                            <tr>                                  
+                                <td hidden><%=paciente[j].idpaciente %></td>
+                                <td><%=paciente[j].susfacil %></td>
+                                <th><%=paciente[j].prt %></th>
+                                <td><%=paciente[j].nome %></td>
+                                <td><%=paciente[j].datanascimento %></td>
+                                <td></td>
+                                <td><%=paciente[j].dataentrada %></td>
+                                <td></td>
+                                <td><%=paciente[j].setor %></td>
+                                <td><%=paciente[j].medico %></td>
+                                <td><%=paciente[j].ECF %></td>
+                                <td><%=paciente[j].spict %></td>
+                                <td><%=paciente[j].paliativo %></td>
+                                <td><%=paciente[j].diagnostico %></td>
+                                <td><%=paciente[j].especialidade %></td>
+                                <td><%=paciente[j].banho %></td>
+                                <td><%=paciente[j].mobilidade %></td>
+                                <td><%=paciente[j].observacao %></td>
+                                <td ><%=paciente[j].pendencias %></td>
+                        </tr>
+                        <% } %>	
+                        <% } %>
+                    </tbody>
                 </table>
         <% } %>	
         <% } %>

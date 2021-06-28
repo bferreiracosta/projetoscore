@@ -490,9 +490,85 @@ module.exports.relatoriodietastibery = function(application, req, res){
 	var unidade = 'Tibery';
 	modeladmin.buscarusuario(id, function(error,result){
 		modeltibery.buscarpacienterelatorio(unidade, function(error, resultado){
-			res.render("kaban/Tibery/relatoriodietastibery", {paciente: resultado, id : result});
+			modeltibery.buscardieta1(unidade, function(error,dieta1){
+				modeltibery.buscardieta2(unidade, function(error, dieta2){
+					modeltibery.buscardieta3(unidade, function(error, dieta3){
+						modeltibery.buscardieta4(unidade, function(error, dieta4){
+							modeltibery.buscardieta5(unidade, function(error, dieta5){
+								modeltibery.buscardieta6(unidade, function(error, dieta6){
+									modeltibery.buscardieta7(unidade, function(error, dieta7){
+										modeltibery.buscardieta8(unidade, function(error, dieta8){
+											modeltibery.buscardieta9(unidade, function(error, dieta9){
+												modeltibery.buscardieta10(unidade, function(error, dieta10){
+													modeltibery.buscardieta11(unidade, function(error, dieta11){
+														modeltibery.buscardieta12(unidade,function(error, dieta12){
+															modeltibery.buscardieta13(unidade,function(error, dieta13){
+																modeltibery.buscardieta14(unidade,function(error, dieta14){
+																	modeltibery.buscardieta15(unidade,function(error, dieta15){
+																		modeltibery.buscardieta16(unidade, function(error, dieta16){
+																			modeltibery.buscardieta17(unidade, function(error, dieta17){
+																				modeltibery.buscardieta18(unidade, function(error, dieta18){
+																					modeltibery.buscardieta19(unidade, function(error, dieta19){
+																						modeltibery.buscardieta20(unidade, function(error, dieta20){
+																							modeltibery.buscardieta21(unidade, function(error, dieta21){
+																								modeltibery.buscardieta22(unidade,function(error, dieta22){
+																									modeltibery.buscardieta23(unidade,function(error, dieta23){
+																										modeltibery.buscardieta24(unidade,function(error, dieta24){
+																											modeltibery.buscardieta25(unidade,function(error, dieta25){
+																												res.render("kaban/Tibery/relatoriodietastibery", {paciente: resultado, id : result,
+																													dieta1 : dieta1,
+																													dieta2 : dieta2,
+																													dieta3 : dieta3,
+																													dieta4 : dieta4,
+																													dieta5 : dieta5,
+																													dieta6 : dieta6,
+																													dieta7 : dieta7,
+																													dieta8 : dieta8,
+																													dieta9 : dieta9,
+																													dieta10 : dieta10,
+																													dieta11 : dieta11,
+																													dieta12 : dieta12,
+																													dieta13 : dieta13,
+																													dieta14 : dieta14,
+																													dieta15 : dieta15,
+																													dieta16 : dieta16,
+																													dieta17 : dieta17,
+																													dieta18 : dieta18,
+																													dieta19 : dieta19,
+																													dieta20 : dieta20,
+																													dieta21 : dieta21,
+																													dieta22 : dieta22,
+																													dieta23 : dieta23,
+																													dieta24 : dieta24,
+																													dieta25 : dieta25,
+																											});
+																										});
+																									});
+																								});
+																							});
+																						});
+																					});
+																				});
+																			});
+																		});
+																	});
+																});
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
 		});
 	});
+});
 }
 
 module.exports.historico= function(application, req, res){
@@ -641,6 +717,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var dataexame = req.body.dataexame;
 	var exame = req.body.exame4;
 	var dieta = req.body.dieta2;
+	var medico = req.body.medico;
 	var id = req.body.idusuario;
 	var unidade = 'Tibery';
 
@@ -659,7 +736,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 		if(covid == 'true'){
 		
 			modeladmin.buscarusuarioporid(id, function(error, resultados){
-				modeltibery.cadastrarpaciente(paciente,dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+				modeltibery.cadastrarpaciente(paciente,medico, dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 					modelmentaltibery.cadastrarpaciente(prt, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 						modelcovidtibery.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
 							modeltibery.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
@@ -683,7 +760,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 		else{
 		
 			modeladmin.buscarusuarioporid(id, function(error, resultados){
-				modeltibery.cadastrarpaciente(paciente,dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+				modeltibery.cadastrarpaciente(paciente,medico, dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 					modelmentaltibery.cadastrarpaciente(prt,  paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 						modeltibery.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 							modeltibery.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -707,7 +784,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	
 		if(covid == "false"){
 			modeladmin.buscarusuarioporid(id, function(error, resultados){
-				modeltibery.cadastrarpaciente(paciente, dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+				modeltibery.cadastrarpaciente(paciente,medico, dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 					modeltibery.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 						modeltibery.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 							modeltibery.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -727,7 +804,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 		else{
 			
 			modeladmin.buscarusuarioporid(id, function(error, resultados){
-				modeltibery.cadastrarpaciente(paciente, dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+				modeltibery.cadastrarpaciente(paciente,medico, dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 					modelcovidtibery.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
 						modeltibery.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 							modeltibery.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -1059,6 +1136,7 @@ module.exports.update= function(application, req, res){
 	var data = req.body.data;
 	var baixa = "Erro na inserção Kaban";
 	var exame = req.body.exame4;
+	var medico = req.body.medico;
 	var id = req.body.idusuario;
 	var unidade = 'Tibery';
 
@@ -1078,7 +1156,7 @@ module.exports.update= function(application, req, res){
 			if(mental == 'true' && idpac[0].mental == "true" ){
 				if(covid == 'true' && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelcovidtibery.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
 								modelmentaltibery.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
 									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1101,7 +1179,7 @@ module.exports.update= function(application, req, res){
 				}
 				if(covid == 'true' && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelcovidtibery.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
 								modelmentaltibery.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
 									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1124,7 +1202,7 @@ module.exports.update= function(application, req, res){
 				}
 				if(covid == 'false' && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelmentaltibery.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
 								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 									modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1145,7 +1223,7 @@ module.exports.update= function(application, req, res){
 				}
 				if(covid == 'false' && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 								modelmentaltibery.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
 									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1170,7 +1248,7 @@ module.exports.update= function(application, req, res){
 			if(mental == 'false' && idpac[0].mental == "false" ){
 				if(covid == "false" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 								modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
 									modeltibery.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
@@ -1189,7 +1267,7 @@ module.exports.update= function(application, req, res){
 				}
 				if(covid == "true" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelcovidtibery.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
 								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 									modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1210,7 +1288,7 @@ module.exports.update= function(application, req, res){
 				}
 				if(covid == "true" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelcovidtibery.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
 								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 									modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1231,7 +1309,7 @@ module.exports.update= function(application, req, res){
 				}
 				if(covid == "false" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 									modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1254,7 +1332,7 @@ module.exports.update= function(application, req, res){
 			if(mental == 'true' && idpac[0].mental == "false" ){
 				if(covid == "false" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelmentaltibery.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 									modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1275,7 +1353,7 @@ module.exports.update= function(application, req, res){
 				}
 				if(covid == "true" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelmentaltibery.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 								modelcovidtibery.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
 									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1298,7 +1376,7 @@ module.exports.update= function(application, req, res){
 				}
 				if(covid == "true" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelmentaltibery.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 								modelcovidtibery.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
 									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1321,7 +1399,7 @@ module.exports.update= function(application, req, res){
 				}
 				if(covid == "false" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelmentaltibery.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 								modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1346,7 +1424,7 @@ module.exports.update= function(application, req, res){
 			if(mental == 'false' && idpac[0].mental == "true" ){
 				if(covid == "false" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 									modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1367,7 +1445,7 @@ module.exports.update= function(application, req, res){
 				}
 				if(covid == "true" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 								modelcovidtibery.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
 									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1390,7 +1468,7 @@ module.exports.update= function(application, req, res){
 				}
 				if(covid == "true" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 								modelcovidtibery.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
 									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1413,7 +1491,7 @@ module.exports.update= function(application, req, res){
 				}
 				if(covid == "false" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modeltibery.update(idpaciente,dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modeltibery.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 							modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 								modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 									modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1445,6 +1523,8 @@ module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;
 	var id = req.body.campo2;
 	var baixa = req.body.baixa;
+	var destino = req.body.destino2;
+	var alta = req.body.alta2;
 	var data = req.body.data;
 	var unidade = 'Tibery';
 	
@@ -1463,7 +1543,7 @@ module.exports.baixa= function(application, req, res){
 				if(idpac[0].mental == 'true'){
 					if(idpac[0].covid == 'true'){
 						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+							modeltibery.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 								modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 									modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 										modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
@@ -1493,7 +1573,7 @@ module.exports.baixa= function(application, req, res){
 					}
 					else{
 						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+							modeltibery.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 								modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 									modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
 										modeltibery.baixatiss(idpaciente,baixa, function(error, result){
@@ -1523,7 +1603,7 @@ module.exports.baixa= function(application, req, res){
 				else{
 					if(idpac[0].covid == "false"){
 						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+							modeltibery.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 								modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
 									modeltibery.baixatiss(idpaciente,baixa, function(error, result){
 										modeltibery.baixanews(idpaciente,baixa, function(error, result){
@@ -1549,7 +1629,7 @@ module.exports.baixa= function(application, req, res){
 					}
 					else{
 						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+							modeltibery.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 								modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 									modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
 										modeltibery.baixatiss(idpaciente,baixa, function(error, result){
@@ -1588,7 +1668,7 @@ module.exports.baixa= function(application, req, res){
 					if(idpac[0].mental == 'true'){
 						if(idpac[0].covid == 'true'){
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+								modeltibery.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 									modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 										modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 											modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
@@ -1618,7 +1698,7 @@ module.exports.baixa= function(application, req, res){
 						}
 						else{
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+								modeltibery.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 									modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 										modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
 											modeltibery.baixatiss(idpaciente,baixa, function(error, result){
@@ -1648,7 +1728,7 @@ module.exports.baixa= function(application, req, res){
 					else{
 						if(idpac[0].covid == "false"){
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+								modeltibery.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 									modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
 										modeltibery.baixatiss(idpaciente,baixa, function(error, result){
 											modeltibery.baixanews(idpaciente,baixa, function(error, result){
@@ -1674,7 +1754,7 @@ module.exports.baixa= function(application, req, res){
 						}
 						else{
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+								modeltibery.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 									modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 										modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
 											modeltibery.baixatiss(idpaciente,baixa, function(error, result){
@@ -1714,7 +1794,7 @@ module.exports.baixa= function(application, req, res){
 					if(idpac[0].mental == 'true'){
 						if(idpac[0].covid == 'true'){
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+								modeltibery.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 									modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 										modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 											modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
@@ -1739,7 +1819,7 @@ module.exports.baixa= function(application, req, res){
 						}
 						else{
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+								modeltibery.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 									modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 										modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
 											modeltibery.baixatiss(idpaciente,baixa, function(error, result){
@@ -1764,7 +1844,7 @@ module.exports.baixa= function(application, req, res){
 					else{
 						if(idpac[0].covid == "false"){
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+								modeltibery.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 									modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
 										modeltibery.baixatiss(idpaciente,baixa, function(error, result){
 											modeltibery.baixanews(idpaciente,baixa, function(error, result){
@@ -1786,7 +1866,7 @@ module.exports.baixa= function(application, req, res){
 						else{
 							console.log("Estou aqui")
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modeltibery.baixa(idpaciente,baixa,data, function(error, result){
+								modeltibery.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 									modelcovidtibery.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 										modeltibery.baixadispositivo(idpaciente,baixa, function(error, result){
 											modeltibery.baixatiss(idpaciente,baixa, function(error, result){

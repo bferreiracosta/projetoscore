@@ -29,6 +29,7 @@
                     <th>Data Admissão</th>
                     <th>Dias Internados</th>
                     <th>Setor</th>
+                    <th>Medico</th>
                     <th>ECF</th>
                     <th>Spict</th>
                     <th>Paliativo</th>
@@ -64,7 +65,8 @@
                         <td></td>
                         <td><%=paciente[j].dataentrada %></td>
                         <td></td>
-                        <td><%=paciente[j].acomodacao %></td>
+                        <td><%=paciente[j].setor %></td>
+                        <td><%=paciente[j].medcio %></td>
                         <td><%=paciente[j].ECF %></td>
                         <td><%=paciente[j].spict %></td>
                         <td><%=paciente[j].paliativo %></td>
@@ -86,8 +88,8 @@
         
         <% } %>	
         <% } %>
-    <!-- Delete Product Modal-->
-    <form id="add-row-form" action="/baixakabanplanalto" method="POST">
+     <!-- Delete Product Modal-->
+     <form id="add-row-form" action="/baixakabanluizote" method="POST">
         <div class="modal fade" id="altamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
@@ -98,16 +100,40 @@
                                 aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
-                        <select  class="form-control" id="baixaselect" name="baixaselect">
+                        <select  class="form-control" onchange="verificadestino(this.value)"  id="baixaselect" name="baixaselect">
                             <option value="" disabled selected hidden>Exame</option>
-                            <option value="transferência">Transferência</option>
-                            <option value="alta">Alta</option>
-                            <option value="obito">Obito</option>
-                            <option value="evasao">evasao</option>
+                            <option value="Transferência">Transferência</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Óbito">Óbito</option>
+                            <option value="Evasão">Evasão</option>
                         </select>
+                        <select  class="form-control"  id="destino" name="destino">
+                            <option value="" disabled selected hidden>Destino</option>
+                            <option value="HMU">HMU</option>
+                            <option value="UFU">UFU</option>
+                            <option value="CIM">CIM</option>
+                            <option value="Anexo HMU">Anexo HMU</option>
+                            <option value="CIP">CIP</option>
+                            <option value="Uai Planalto">Uai Planalto</option>
+                            <option value="Uai Martins">Uai Martins</option>
+                            <option value="Uai Luizote">Uai Luizote</option>
+                            <option value="Uai Roosevelt">Uai Roosevelt</option>
+                            <option value="Uai Pampulha">Uai Pampulha</option>
+                            <option value="Uai São Jorge">Uai São Jorge</option>
+                            <option value="Uai Tibery">Uai Tibery</option>
+                            <option value="Uai Morumbi">Uai Morumbi</option>
+                        </select>
+                        <select  class="form-control"  id="alta" name="alta">
+                            <option value="" disabled selected hidden>Destino</option>
+                            <option value="Alta Domiciliar">Alta Domociliar</option>
+                            <option value="Alta Melhor em Casa">Alta Melhor em Casa</option>
+                        </select>
+                        
                         <input type="hidden" name="campo" id="campo">
                         <input type="hidden" name="campo2" id="campo2">
                         <input type="hidden" name="baixa" id="baixa">
+                        <input type="hidden" name="destino2" id="destino2">
+                        <input type="hidden" name="alta2" id="alta2">
                       </div>
                       <input  type="hidden" name="covid" id="covid">
                       <div id="hora" class="form-group">
@@ -123,7 +149,6 @@
     </form>
 
        </div>
-                
 <!-- Importando o jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.js"></script>
@@ -144,6 +169,8 @@
 <%- include('../../home/footer'); %>
 </body>
 </html>
+</body>
+</html>
 <script>
     $(document).ready(function() {
         $('#mytable').DataTable( {
@@ -151,7 +178,6 @@
             "scrollX": true,
             order: ([ 3, 'asc']),
             fixedHeader: true,
-            "autoWidth": true,
         pageLength: 50,
         buttons: [       
             {
@@ -229,7 +255,7 @@ return (ano_atual - data_aniversario);
    
 }
 
-function pad(s){
+    function pad(s){
             return (s<10) ? '0' + s :s;
         }
     function novaHora(){
@@ -251,6 +277,40 @@ function pad(s){
         var baixa = $(this).val();
         document.getElementById('baixa').value = baixa;
     });
+    $("#destino").on('change', function(e){
+        var destino = $(this).val();
+        document.getElementById('destino2').value = destino;
+    });
+    $("#alta").on('change', function(e){
+        var alta = $(this).val();
+        document.getElementById('alta2').value = alta;
+    });
     
-        
+    function verificadestino(value){
+	var input = document.getElementById("destino");
+    var input2 = document.getElementById("alta");
+	
+	
+  if(value == "Transferência"){
+    input.style.display = "inline";
+    input2.style.display = "none";
+    document.getElementById('alta2').value = "Paciente Transferido";
+	
+  }else if(value == "Alta"){
+	input.style.display = "none";
+	input2.style.display = "inline";
+    document.getElementById('destino2').value = "Paciente foi de Alta";
+  }else{
+    input.style.display = "none";
+    input2.style.display = "none";
+    document.getElementById('alta2').value = "Não Aplicado";
+    document.getElementById('destino2').value = "Não Aplicado";
+  }
+};
+
+window.onload = function() {
+  document.getElementById('destino').style.display = 'none';
+  document.getElementById('alta').style.display = 'none';
+  
+};
     </script>

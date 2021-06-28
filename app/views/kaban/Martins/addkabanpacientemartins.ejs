@@ -37,6 +37,10 @@
                         <input readonly="readonly"  type="hidden" id="qtdi" name="qtdi" class="form-control" placeholder="Quantidade de dias Internados" >
                     </div>
 					<div class="form-group">
+						<label for="medico">Medico</label>
+                        <input type="text" id="medico" name="medico" class="form-control" placeholder="Nome do Médico Responsalvel pelo paciente">
+					</div>
+					<div class="form-group">
 						<label for="ECF" id="ecf3">ECF</label>
 						<select  onchange="verificaecf(this.value)"  class="form-control" id="ecf2" name="ecf2" required>
 							<option value="" disabled selected hidden>ECF</option>
@@ -121,7 +125,7 @@
 							<option value="Clinica">Clinica</option>
 							<option value="Traumatologia">Traumatologia</option>
 							<option value="Pediatria">Pediatria</option>
-							<option value="Psquiatria">Psquiatria</option>
+							<option value="Psiquiatria">Psiquiatria</option>
 							<option value="Cirurgico">Cirurgico</option>
 							<option value="Ginecologia/Obstetricia">Ginecologia/Obstetricia</option>
                         </select> 
@@ -145,7 +149,7 @@
 						<label for="mobilidade">Mobilidade</label>
 						<select class="form-control" id="mobilidades" name="mobilidades" required>
                             <option value="" disabled selected hidden>Mobilidade</option>
-							<option value="Acamando">Acamando</option>
+							<option value="Acamado">Acamado</option>
 							<option value="Auxílio">Auxílio</option>
 							<option value="Aspersão">Aspersão</option>
                         </select>

@@ -210,19 +210,19 @@ modeltibery.prototype.buscarsetor = function(idpaciente, callback){
 	this._conection.query('select acomodacao from kaban where idpaciente = ' + idpaciente, callback);
 }
 
-modeltibery.prototype.cadastrarpaciente = function( paciente, dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
+modeltibery.prototype.cadastrarpaciente = function( paciente, medico, dieta, exame, dataexame, mental, referencia, covid, glasgow, bic, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
 	
-	this._conection.query('insert into kaban set dieta = "'+dieta+'", exame = "'+exame+'", dataexame = "'+dataexame+'",mental = "'+mental+'", referencia = "'+referencia+'", covid = "'+covid+'", glasgow = "'+glasgow+'", bic = "'+bic+'",  nome = "'+paciente+'", acomodacao = "'+setor+'", susfacil = "'+susfacil+'",prt = "'+prt+'", datanascimento = "'+dn+'", idade = "'+idade+'", dataentrada = "'+da+'", qtddiasinternados = "'+qtdi+'" , ECF = "'+ecf+'", spict="'+spict+'" , paliativo = "'+paliativo+'" , diagnostico = "'+diagnostico+'" ,especialidade = "'+especialidade+'" ,observacao = "'+observacao+'" , banho = "'+banho+'" , pendencias = "'+pendencias+'" ,mobilidade = "'+mobilidade+'", unidade = "'+unidade+'"',callback);
+	this._conection.query('insert into kaban set medico = "'+medico+'", dieta = "'+dieta+'", exame = "'+exame+'", dataexame = "'+dataexame+'",mental = "'+mental+'", referencia = "'+referencia+'", covid = "'+covid+'", glasgow = "'+glasgow+'", bic = "'+bic+'",  nome = "'+paciente+'", acomodacao = "'+setor+'", susfacil = "'+susfacil+'",prt = "'+prt+'", datanascimento = "'+dn+'", idade = "'+idade+'", dataentrada = "'+da+'", qtddiasinternados = "'+qtdi+'" , ECF = "'+ecf+'", spict="'+spict+'" , paliativo = "'+paliativo+'" , diagnostico = "'+diagnostico+'" ,especialidade = "'+especialidade+'" ,observacao = "'+observacao+'" , banho = "'+banho+'" , pendencias = "'+pendencias+'" ,mobilidade = "'+mobilidade+'", unidade = "'+unidade+'"',callback);
 }
 
-modeltibery.prototype.update = function(idpaciente, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
+modeltibery.prototype.update = function(idpaciente, medico, dieta, dataexame, exame, mental, referencia, covid, glasgow, bic, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
 	
-	this._conection.query('update kaban set dieta = "'+dieta+'", dataexame="'+dataexame+'", exame="'+exame+'", mental = "'+mental+'", referencia = "'+referencia+'", covid = "'+covid+'", glasgow = "'+glasgow+'", bic = "'+bic+'",  nome = "'+paciente+'", acomodacao = "'+setor+'", susfacil = "'+susfacil+'",prt = "'+prt+'", datanascimento = "'+dn+'", idade = "'+idade+'", dataentrada = "'+da+'", qtddiasinternados = "'+qtdi+'" , ECF = "'+ecf+'", spict="'+spict+'" ,  paliativo = "'+paliativo+'" , diagnostico = "'+diagnostico+'" ,especialidade = "'+especialidade+'" ,observacao = "'+observacao+'" , banho = "'+banho+'" , pendencias = "'+pendencias+'" ,mobilidade = "'+mobilidade+'", unidade = "'+unidade+'" where idpaciente = ' + idpaciente, callback);
+	this._conection.query('update kaban set medico = "'+medico+'", dieta = "'+dieta+'", dataexame="'+dataexame+'", exame="'+exame+'", mental = "'+mental+'", referencia = "'+referencia+'", covid = "'+covid+'", glasgow = "'+glasgow+'", bic = "'+bic+'",  nome = "'+paciente+'", acomodacao = "'+setor+'", susfacil = "'+susfacil+'",prt = "'+prt+'", datanascimento = "'+dn+'", idade = "'+idade+'", dataentrada = "'+da+'", qtddiasinternados = "'+qtdi+'" , ECF = "'+ecf+'", spict="'+spict+'" ,  paliativo = "'+paliativo+'" , diagnostico = "'+diagnostico+'" ,especialidade = "'+especialidade+'" ,observacao = "'+observacao+'" , banho = "'+banho+'" , pendencias = "'+pendencias+'" ,mobilidade = "'+mobilidade+'", unidade = "'+unidade+'" where idpaciente = ' + idpaciente, callback);
 }
 
-modeltibery.prototype.baixa = function(idpaciente,baixa,data, callback){
+modeltibery.prototype.baixa = function(idpaciente,baixa, destino, alta,data, callback){
 
-	this._conection.query('update kaban set   baixa = "'+baixa+'", datasaida = "'+data+'" where idpaciente = ' + idpaciente, callback);
+	this._conection.query('update kaban set destino="'+destino+'", alta = "'+alta+'",   baixa = "'+baixa+'", datasaida = "'+data+'" where idpaciente = ' + idpaciente, callback);
 }
 
 modeltibery.prototype.baixadispositivo = function(idpaciente,baixa, callback){
@@ -422,7 +422,7 @@ modeltibery.prototype.buscarinternacaodiatibery = function(unidade, callback){
 
 modeltibery.prototype.buscarsetorestibery = function(callback){
 
-	this._conection.query('SELECT setor, capacidadecamasocupadas, capacidademacasocupadas FROM tibery', callback);
+	this._conection.query('SELECT setor, capacidadecamasocupadas, capacidademacasocupadas, capacidade FROM tibery', callback);
 }
 
 modeltibery.prototype.buscarbanhomanhatibery = function(callback){
@@ -440,6 +440,131 @@ modeltibery.prototype.buscarbanhonoitetibery = function(callback){
 	this._conection.query('SELECT count(banho) as noite from kaban where banho = "Noite"  and baixa is null and unidade = "Tibery";', callback);
 }
 
+modeltibery.prototype.buscardieta1 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta1 FROM portal_paciente.kaban where dieta ="BRANDA" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta2 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta2 FROM portal_paciente.kaban where dieta ="BRANDA + HEP" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta3 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta3 FROM portal_paciente.kaban where dieta ="BRANDA + LAX" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta4 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta4 FROM portal_paciente.kaban where dieta ="BRANDA + NEF" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta5 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta5 FROM portal_paciente.kaban where dieta ="BRANDA DM" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta6 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta6 FROM portal_paciente.kaban where dieta ="IRC" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta7 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta7 FROM portal_paciente.kaban where dieta ="DM" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta8 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta8 FROM portal_paciente.kaban where dieta ="DM + HEP + NEF" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta9 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta9 FROM portal_paciente.kaban where dieta ="DM + LAX" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta10 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta10 FROM portal_paciente.kaban where dieta ="DM + NEF" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta11 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta11 FROM portal_paciente.kaban where dieta ="HPS" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta12 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta12 FROM portal_paciente.kaban where dieta ="HPS + DM"and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta13 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta13 FROM portal_paciente.kaban where dieta ="HPS + HEP" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta14 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta14 FROM portal_paciente.kaban where dieta ="HPS  + LAX" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta15 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta15 FROM portal_paciente.kaban where dieta ="HIPOLIPIDICA" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta16 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta16 FROM portal_paciente.kaban where dieta ="LÍQUIDA" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta17 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta17 FROM portal_paciente.kaban where dieta ="LIVRE" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta18 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta18 FROM portal_paciente.kaban where dieta ="LIVRE + LAX" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta19 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta19 FROM portal_paciente.kaban where dieta ="LIVRE POBRE K" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta20 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta20 FROM portal_paciente.kaban where dieta ="PASTOSA" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta21 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta21 FROM portal_paciente.kaban where dieta ="PASTOSA + OVO" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta22 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta22 FROM portal_paciente.kaban where dieta ="SNE 1.0" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta23 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta23 FROM portal_paciente.kaban where dieta ="SNE 1.5" and unidade = "'+unidade+'";', callback);
+}
+
+
+modeltibery.prototype.buscardieta24 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta24 FROM portal_paciente.kaban where dieta ="DIBEN 1.0" and unidade = "'+unidade+'";', callback);
+}
+
+modeltibery.prototype.buscardieta25 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta25 FROM portal_paciente.kaban where dieta ="OBSTIPANTE" and unidade = "'+unidade+'";', callback);
+}
 module.exports = function(){
 	return modeltibery;
 }

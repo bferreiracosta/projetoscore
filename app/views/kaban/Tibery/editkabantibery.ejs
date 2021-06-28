@@ -42,6 +42,10 @@
 								<input readonly="readonly"  type="hidden" id="qtdi" name="qtdi" class="form-control" placeholder="Quantidade de dias Internados" >
 							</div>
 							<div class="form-group">
+								<label for="medico">Medico</label>
+								<input type="text" id="medico" name="medico" class="form-control" placeholder="Nome do Médico Responsalvel pelo paciente">
+							</div>
+							<div class="form-group">
 								<label for="ECF" id="ecf3">ECF</label>
 								<select  onchange="verificaecf(this.value)"  class="form-control" id="ecf2" name="ecf2">
 									<option value="" disabled selected hidden>ECF</option>
@@ -126,7 +130,7 @@
 									<option value="Clinica" <%=(paciente[j].especialidade == 'Clinica')?'selected':''%>>Clinica</option>
 									<option value="Traumatologia" <%=(paciente[j].especialidade == 'Traumatologia')?'selected':''%>>Traumatologia</option>
 									<option value="Pediatria" <%=(paciente[j].especialidade == 'Pediatria')?'selected':''%>>Pediatria</option>
-									<option value="Psquiatria" <%=(paciente[j].especialidade == 'Psquiatria')?'selected':''%>>Psquiatria</option>
+									<option value="Psiquiatria" <%=(paciente[j].especialidade == 'Psiquiatria')?'selected':''%>>Psiquiatria</option>
 									<option value="Cirurgico" <%=(paciente[j].especialidade == 'Cirurgico')?'selected':''%>>Cirurgico</option>
 								</select> 
 								<input type="hidden" id="especialidade" name="especialidade" class="form-control"  value="<%=paciente[j].especialidade %>" required>
@@ -149,7 +153,7 @@
 								<label for="mobilidade">Mobilidade</label>
 								<select class="form-control" id="mobilidades" name="mobilidades">
 									<option value="" disabled selected hidden>Mobilidade</option>
-									<option value="Acamando" <%=(paciente[j].mobilidade == 'Acamando')?'selected':''%>>Acamando</option>
+									<option value="Acamado" <%=(paciente[j].mobilidade == 'Acamado')?'selected':''%>>Acamado</option>
 									<option value="Auxílio" <%=(paciente[j].mobilidade == 'Auxílio')?'selected':''%>>Auxílio</option>
 									<option value="Aspersão" <%=(paciente[j].mobilidade == 'Aspersão')?'selected':''%>>Aspersão</option>
 								</select>
