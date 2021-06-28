@@ -157,128 +157,112 @@ module.exports.atualizarleitopampulha= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelpampulha.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 			modelpampulha.buscarleitosid(setoresrecuperado, function(error, idleito){
-				if(setoresrecuperado[0].leito == null){
-					modelpampulha.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-						modelpampulha.buscarsetoresid(setor, function(error, resultado){
-							modelpampulha.buscarleitoativo(resultado,leito, function(error, idleitos){
-								modelpampulha.updateleitos(idleitos, function(error, resultado){
-								if(leito == "Maca"){
-									modeladmingestao.updateleitospampulhamacamais(setor, function(error, resulta){
-										if(setoresrecuperado[0].setor == null){
-											modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-												res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
-											});
-										}else{
-											modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
+				modelpampulha.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
+					modelpampulha.buscarsetoresid(setor, function(error, resultado){
+						modelpampulha.buscarleitoativo(resultado,leito, function(error, idleitos){
+							modelpampulha.updateleitos(idleitos, function(error, resultado){
+								if(setoresrecuperado[0].leito == null){
+									if(leito == "Maca"){
+										modeladmingestao.updateleitospampulhamacamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
 												modelpampulha.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
 												});
-											});
-										}
-									});	
-								}else{
-									modeladmingestao.updateleitospampulhacamamais(setor, function(error, resulta){
-										if(setoresrecuperado[0].setor == null){
-											modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-												res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
-											});
-										}else{
-											modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
+											}else{
+												modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
+													modelpampulha.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}else{
+										modeladmingestao.updateleitospampulhacamamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
 												modelpampulha.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
 												});
-											});
-										}
-									});	
+											}else{
+												modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
+													modelpampulha.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}		
 								}
-							});	
-						});
-						});	
+								if(setoresrecuperado[0].leito == "Maca"){
+									modeladmingestao.updateleitospampulhamaca(setoresrecuperado[0].setor, function(error, resulta){
+										if(leito == "Maca"){
+											modeladmingestao.updateleitospampulhamacamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelpampulha.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelpampulha.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}else{
+											modeladmingestao.updateleitospampulhacamamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelpampulha.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelpampulha.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}
+									});		
+								}
+								if(setoresrecuperado[0].leito == "Cama"){
+									modeladmingestao.updateleitospampulhacama(setoresrecuperado[0].setor, function(error, resulta){
+										if(leito == "Maca"){
+											modeladmingestao.updateleitospampulhamacamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelpampulha.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelpampulha.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}else{
+											modeladmingestao.updateleitospampulhacamamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelpampulha.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelpampulha.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}
+									});			
+								}
+							});
+						})
 					});	
-				}
-				if(setoresrecuperado[0].leito == "Maca"){
-					modeladmingestao.updateleitospampulhamaca(setoresrecuperado[0].setor, function(error, resulta){
-						modelpampulha.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-							modelpampulha.buscarsetoresid(setor, function(error, resultado){
-								modelpampulha.buscarleitoativo(resultado,leito, function(error, idleitos){
-									modelpampulha.updateleitos(idleitos, function(error, resultado){
-									if(leito == "Maca"){
-										modeladmingestao.updateleitospampulhamacamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}else{
-										modeladmingestao.updateleitospampulhacamamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}
-								});	
-							});	
-						});	
-					});
-					});	
-				}
-				if(setoresrecuperado[0].leito == "Cama"){
-					modeladmingestao.updateleitospampulhacama(setoresrecuperado[0].setor, function(error, resulta){
-						modelpampulha.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-							modelpampulha.buscarsetoresid(setor, function(error, resultado){
-								modelpampulha.buscarleitoativo(resultado,leito, function(error, idleitos){
-									modelpampulha.updateleitos(idleitos, function(error, resultado){
-									if(leito == "Maca"){
-										modeladmingestao.updateleitospampulhamacamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}else{
-										modeladmingestao.updateleitospampulhacamamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Pampulha/leitospampulha", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}
-								});	
-							});	
-						});	
-					});
-					});	
-				}
-			});	
+				});	
+			});		
 		});
 	});	
 }

@@ -157,132 +157,115 @@ module.exports.atualizarleitomorumbi= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelmorumbi.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 			modelmorumbi.buscarleitosid(setoresrecuperado, function(error, idleito){
-				if(setoresrecuperado[0].leito == null){
-					modelmorumbi.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-						modelmorumbi.buscarsetoresid(setor, function(error, resultado){
-							modelmorumbi.buscarleitoativo(resultado,leito, function(error, idleitos){
-								modelmorumbi.updateleitos(idleitos, function(error, resultado){
-								if(leito == "Maca"){
-									modeladmingestao.updateleitosmorumbimacamais(setor, function(error, resulta){
-										if(setoresrecuperado[0].setor == null){
-											modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
-												res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
-											});
-										}else{
-											modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
+				modelmorumbi.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
+					modelmorumbi.buscarsetoresid(setor, function(error, resultado){
+						modelmorumbi.buscarleitoativo(resultado,leito, function(error, idleitos){
+							modelmorumbi.updateleitos(idleitos, function(error, resultado){
+								if(setoresrecuperado[0].leito == null){
+									if(leito == "Maca"){
+										modeladmingestao.updateleitosmorumbimacamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
 												modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
 												});
-											});
-										}
-									});	
-								}else{
-									modeladmingestao.updateleitosmorumbicamamais(setor, function(error, resulta){
-										if(setoresrecuperado[0].setor == null){
-											modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
-												res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
-											});
-										}else{
-											modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
+											}else{
+												modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
+													modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}else{
+										modeladmingestao.updateleitosmorumbicamamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
 												modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
 												});
-											});
-										}
-									});	
+											}else{
+												modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
+													modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}		
 								}
-							});	
-						});
-						});	
-					});	
-				}
-				if(setoresrecuperado[0].leito == "Maca"){
-					modeladmingestao.updateleitosmorumbimaca(setoresrecuperado[0].setor, function(error, resulta){
-						modelmorumbi.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-							modelmorumbi.buscarsetoresid(setor, function(error, resultado){
-								modelmorumbi.buscarleitoativo(resultado,leito, function(error, idleitos){
-									modelmorumbi.updateleitos(idleitos, function(error, resultado){
-									if(leito == "Maca"){
-										modeladmingestao.updateleitosmorumbimacamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
+								if(setoresrecuperado[0].leito == "Maca"){
+									modeladmingestao.updateleitosmorumbimaca(setoresrecuperado[0].setor, function(error, resulta){
+										if(leito == "Maca"){
+											modeladmingestao.updateleitosmorumbimacamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
 													modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
 													});
-												});
-											}
-										});	
-									}else{
-										modeladmingestao.updateleitosmorumbicamamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
+												}else{
+													modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}else{
+											modeladmingestao.updateleitosmorumbicamamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
 													modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
 													});
-												});
-											}
-										});	
-									}
-								});	
+												}else{
+													modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}
+									});		
+								}
+								if(setoresrecuperado[0].leito == "Cama"){
+									modeladmingestao.updateleitosmorumbicama(setoresrecuperado[0].setor, function(error, resulta){
+										if(leito == "Maca"){
+											modeladmingestao.updateleitosmorumbimacamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}else{
+											modeladmingestao.updateleitosmorumbicamamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}
+									});			
+								}
 							});
-							});	
-						});	
+						})
 					});	
-				}
-				if(setoresrecuperado[0].leito == "Cama"){
-					modeladmingestao.updateleitosmorumbicama(setoresrecuperado[0].setor, function(error, resulta){
-						modelmorumbi.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-							modelmorumbi.buscarsetoresid(setor, function(error, resultado){
-								modelmorumbi.buscarleitoativo(resultado,leito, function(error, idleitos){
-									modelmorumbi.updateleitos(idleitos, function(error, resultado){
-									if(leito == "Maca"){
-										modeladmingestao.updateleitosmorumbimacamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}else{
-										modeladmingestao.updateleitosmorumbicamamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}
-								});	
-							});	
-						});
-						});	
-					});	
-				}
-			});	
+				});	
+			});		
 		});
 	});	
 }
-
 module.exports.leitos= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);

@@ -157,128 +157,112 @@ module.exports.atualizarleitomartins= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelmartins.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 			modelmartins.buscarleitosid(setoresrecuperado, function(error, idleito){
-				if(setoresrecuperado[0].leito == null){
-					modelmartins.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-						modelmartins.buscarsetoresid(setor, function(error, resultado){
-							modelmartins.buscarleitoativo(resultado,leito, function(error, idleitos){
-								modelmartins.updateleitos(idleitos, function(error, resultado){
-								if(leito == "Maca"){
-									modeladmingestao.updateleitosmartinsmacamais(setor, function(error, resulta){
-										if(setoresrecuperado[0].setor == null){
-											modelmartins.buscarleitospacientes(function(error, resultadosetores){
-												res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
-											});
-										}else{
-											modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
+				modelmartins.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
+					modelmartins.buscarsetoresid(setor, function(error, resultado){
+						modelmartins.buscarleitoativo(resultado,leito, function(error, idleitos){
+							modelmartins.updateleitos(idleitos, function(error, resultado){
+								if(setoresrecuperado[0].leito == null){
+									if(leito == "Maca"){
+										modeladmingestao.updateleitosmartinsmacamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
 												modelmartins.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
 												});
-											});
-										}
-									});	
-								}else{
-									modeladmingestao.updateleitosmartinscamamais(setor, function(error, resulta){
-										if(setoresrecuperado[0].setor == null){
-											modelmartins.buscarleitospacientes(function(error, resultadosetores){
-												res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
-											});
-										}else{
-											modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
+											}else{
+												modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
+													modelmartins.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}else{
+										modeladmingestao.updateleitosmartinscamamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
 												modelmartins.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
 												});
-											});
-										}
-									});	
+											}else{
+												modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
+													modelmartins.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}		
 								}
-							});	
-						});
-						});	
+								if(setoresrecuperado[0].leito == "Maca"){
+									modeladmingestao.updateleitosmartinsmaca(setoresrecuperado[0].setor, function(error, resulta){
+										if(leito == "Maca"){
+											modeladmingestao.updateleitosmartinsmacamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelmartins.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelmartins.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}else{
+											modeladmingestao.updateleitosmartinscamamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelmartins.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelmartins.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}
+									});		
+								}
+								if(setoresrecuperado[0].leito == "Cama"){
+									modeladmingestao.updateleitosmartinscama(setoresrecuperado[0].setor, function(error, resulta){
+										if(leito == "Maca"){
+											modeladmingestao.updateleitosmartinsmacamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelmartins.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelmartins.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}else{
+											modeladmingestao.updateleitosmartinscamamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelmartins.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelmartins.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}
+									});			
+								}
+							});
+						})
 					});	
-				}
-				if(setoresrecuperado[0].leito == "Maca"){
-					modeladmingestao.updateleitosmartinsmaca(setoresrecuperado[0].setor, function(error, resulta){
-						modelmartins.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-							modelmartins.buscarsetoresid(setor, function(error, resultado){
-								modelmartins.buscarleitoativo(resultado,leito, function(error, idleitos){
-									modelmartins.updateleitos(idleitos, function(error, resultado){
-									if(leito == "Maca"){
-										modeladmingestao.updateleitosmartinsmacamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelmartins.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelmartins.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}else{
-										modeladmingestao.updateleitosmartinscamamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelmartins.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelmartins.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}
-								});	
-							});	
-						});
-						});	
-					});	
-				}
-				if(setoresrecuperado[0].leito == "Cama"){
-					modeladmingestao.updateleitosmartinscama(setoresrecuperado[0].setor, function(error, resulta){
-						modelmartins.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-							modelmartins.buscarsetoresid(setor, function(error, resultado){
-								modelmartins.buscarleitoativo(resultado,leito, function(error, idleitos){
-									modelmartins.updateleitos(idleitos, function(error, resultado){
-									if(leito == "Maca"){
-										modeladmingestao.updateleitosmartinsmacamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelmartins.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelmartins.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}else{
-										modeladmingestao.updateleitosmartinscamamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelmartins.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelmartins.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Martins/leitosmartins", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}
-								});	
-							});	
-						});	
-					});
-					});	
-				}
-			});	
+				});	
+			});		
 		});
 	});	
 }

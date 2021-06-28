@@ -157,128 +157,112 @@ module.exports.atualizarleitotibery= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modeltibery.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 			modeltibery.buscarleitosid(setoresrecuperado, function(error, idleito){
-				if(setoresrecuperado[0].leito == null){
-					modeltibery.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-						modeltibery.buscarsetoresid(setor, function(error, resultado){
-							modeltibery.buscarleitoativo(resultado,leito, function(error, idleitos){
-								modeltibery.updateleitos(idleitos, function(error, resultado){
-								if(leito == "Maca"){
-									modeladmingestao.updateleitostiberymacamais(setor, function(error, resulta){
-										if(setoresrecuperado[0].setor == null){
-											modeltibery.buscarleitospacientes(function(error, resultadosetores){
-												res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
-											});
-										}else{
-											modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
+				modeltibery.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
+					modeltibery.buscarsetoresid(setor, function(error, resultado){
+						modeltibery.buscarleitoativo(resultado,leito, function(error, idleitos){
+							modeltibery.updateleitos(idleitos, function(error, resultado){
+								if(setoresrecuperado[0].leito == null){
+									if(leito == "Maca"){
+										modeladmingestao.updateleitostiberymacamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
 												modeltibery.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 												});
-											});
-										}
-									});	
-								}else{
-									modeladmingestao.updateleitostiberycamamais(setor, function(error, resulta){
-										if(setoresrecuperado[0].setor == null){
-											modeltibery.buscarleitospacientes(function(error, resultadosetores){
-												res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
-											});
-										}else{
-											modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
+											}else{
+												modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
+													modeltibery.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}else{
+										modeladmingestao.updateleitostiberycamamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
 												modeltibery.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 												});
-											});
-										}
-									});	
+											}else{
+												modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
+													modeltibery.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}		
 								}
-							});	
-						});
-						});	
-					});	
-				}
-				if(setoresrecuperado[0].leito == "Maca"){
-					modeladmingestao.updateleitostiberymaca(setoresrecuperado[0].setor, function(error, resulta){
-						modeltibery.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-							modeltibery.buscarsetoresid(setor, function(error, resultado){
-								modeltibery.buscarleitoativo(resultado,leito, function(error, idleitos){
-									modeltibery.updateleitos(idleitos, function(error, resultado){
-									if(leito == "Maca"){
-										modeladmingestao.updateleitostiberymacamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modeltibery.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
+								if(setoresrecuperado[0].leito == "Maca"){
+									modeladmingestao.updateleitostiberymaca(setoresrecuperado[0].setor, function(error, resulta){
+										if(leito == "Maca"){
+											modeladmingestao.updateleitostiberymacamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
 													modeltibery.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 													});
-												});
-											}
-										});	
-									}else{
-										modeladmingestao.updateleitostiberycamamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modeltibery.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
+												}else{
+													modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modeltibery.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}else{
+											modeladmingestao.updateleitostiberycamamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
 													modeltibery.buscarleitospacientes(function(error, resultadosetores){
 														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
 													});
-												});
-											}
-										});	
-									}
-								});	
+												}else{
+													modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modeltibery.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}
+									});		
+								}
+								if(setoresrecuperado[0].leito == "Cama"){
+									modeladmingestao.updateleitostiberycama(setoresrecuperado[0].setor, function(error, resulta){
+										if(leito == "Maca"){
+											modeladmingestao.updateleitostiberymacamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modeltibery.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modeltibery.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}else{
+											modeladmingestao.updateleitostiberycamamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modeltibery.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modeltibery.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}
+									});			
+								}
 							});
-							});	
-						});	
+						})
 					});	
-				}
-				if(setoresrecuperado[0].leito == "Cama"){
-					modeladmingestao.updateleitostiberycama(setoresrecuperado[0].setor, function(error, resulta){
-						modeltibery.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-							modeltibery.buscarsetoresid(setor, function(error, resultado){
-								modeltibery.buscarleitoativo(resultado,leito, function(error, idleitos){
-									modeltibery.updateleitos(idleitos, function(error, resultado){
-									if(leito == "Maca"){
-										modeladmingestao.updateleitostiberymacamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modeltibery.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modeltibery.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}else{
-										modeladmingestao.updateleitostiberycamamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modeltibery.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modeltibery.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modeltibery.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Tibery/leitostibery", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}
-								});	
-							});
-							});	
-						});	
-					});	
-				}
-			});	
+				});	
+			});		
 		});
 	});	
 }

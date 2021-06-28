@@ -157,128 +157,112 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelluizote.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 			modelluizote.buscarleitosid(setoresrecuperado, function(error, idleito){
-				if(setoresrecuperado[0].leito == null){
-					modelluizote.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-						modelluizote.buscarsetoresid(setor, function(error, resultado){
-							modelluizote.buscarleitoativo(resultado,leito, function(error, idleitos){
-								modelluizote.updateleitos(idleitos, function(error, resultado){
-								if(leito == "Maca"){
-									modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
-										if(setoresrecuperado[0].setor == null){
-											modelluizote.buscarleitospacientes(function(error, resultadosetores){
-												res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
-											});
-										}else{
-											modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
+				modelluizote.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
+					modelluizote.buscarsetoresid(setor, function(error, resultado){
+						modelluizote.buscarleitoativo(resultado,leito, function(error, idleitos){
+							modelluizote.updateleitos(idleitos, function(error, resultado){
+								if(setoresrecuperado[0].leito == null){
+									if(leito == "Maca"){
+										modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
 												modelluizote.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 												});
-											});
-										}
-									});	
-								}else{
-									modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
-										if(setoresrecuperado[0].setor == null){
-											modelluizote.buscarleitospacientes(function(error, resultadosetores){
-												res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
-											});
-										}else{
-											modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
+											}else{
+												modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
+													modelluizote.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}else{
+										modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
+											if(setoresrecuperado[0].setor == null){
 												modelluizote.buscarleitospacientes(function(error, resultadosetores){
 													res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
 												});
-											});
+											}else{
+												modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
+													modelluizote.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});	
+									}		
+								}
+								if(setoresrecuperado[0].leito == "Maca"){
+									modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
+										if(leito == "Maca"){
+											modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelluizote.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelluizote.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}else{
+											modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelluizote.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelluizote.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
 										}
-									});	
+									});		
+								}
+								if(setoresrecuperado[0].leito == "Cama"){
+									modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
+										if(leito == "Maca"){
+											modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelluizote.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelluizote.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}else{
+											modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
+												if(setoresrecuperado[0].setor == null){
+													modelluizote.buscarleitospacientes(function(error, resultadosetores){
+														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+													});
+												}else{
+													modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
+														modelluizote.buscarleitospacientes(function(error, resultadosetores){
+															res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+														});
+													});
+												}
+											});	
+										}
+									});			
 								}
 							});
-							});
-						});	
+						})
 					});	
-				}
-				if(setoresrecuperado[0].leito == "Maca"){
-					modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
-						modelluizote.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-							modelluizote.buscarsetoresid(setor, function(error, resultado){
-								modelluizote.buscarleitoativo(resultado,leito, function(error, idleitos){
-									modelluizote.updateleitos(idleitos, function(error, resultado){
-									if(leito == "Maca"){
-										modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelluizote.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelluizote.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}else{
-										modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelluizote.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelluizote.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}
-								});	
-							});
-						});	
-						});	
-					});	
-				}
-				if(setoresrecuperado[0].leito == "Cama"){
-					modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
-						modelluizote.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
-							modelluizote.buscarsetoresid(setor, function(error, resultado){
-								modelluizote.buscarleitoativo(resultado,leito, function(error, idleitos){
-									modelluizote.updateleitos(idleitos, function(error, resultado){
-									if(leito == "Maca"){
-										modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelluizote.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelluizote.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}else{
-										modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelluizote.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelluizote.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
-									}
-								});	
-							});	
-						});	
-					});
-					});	
-				}
-			});	
+				});	
+			});		
 		});
 	});	
 }
