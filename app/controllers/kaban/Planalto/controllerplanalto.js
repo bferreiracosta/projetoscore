@@ -784,7 +784,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	
 		if(covid == "false"){
 			modeladmin.buscarusuarioporid(id, function(error, resultados){
-				modelplanalto.cadastrarpaciente(paciente,medcio, dieta, exame, dataexame, mental, referencia, covid,  setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+				modelplanalto.cadastrarpaciente(paciente,medico, dieta, exame, dataexame, mental, referencia, covid,  setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 					modelplanalto.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 						modelplanalto.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 							modelplanalto.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
