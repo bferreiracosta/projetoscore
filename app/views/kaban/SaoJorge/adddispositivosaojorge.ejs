@@ -218,6 +218,12 @@
 							<label class="form-check-label"  id="Propofol4" for="Propofol"> ---  Vazão Propofol</label>
 							<input  id="vazaoPropofol"  type="text" name="vazaoPropofol"  >
 						</div>
+						<div class="form-group">
+							<label id="glasgowlabel">Glasgow  </label>
+							<input type="text" id="glasgow"  name="glasgow" class="form-control">
+							<label id="biclabel">Quantidades de Bics  </label>
+							<input type="text" id="bic"  name="bic" class="form-control">
+						</div>
 						<div id="hora" class="form-group">
 							<input   type="hidden" id="data" name="data"  class="form-control">
 						</div>
@@ -426,14 +432,19 @@ var pacote = document.getElementsByName('dispositivo');
 		var label5 = document.getElementById("o2label");
 		var label7 = document.getElementById("fio22");
 		var label8 = document.getElementById("peep2");
-	
+		var input4 = document.getElementById("glasgow");
+		var label9 = document.getElementById("glasgowlabel");
+
 	  if(value == 'Cateter O2' || value == 'Mascara Reservatorio' ){
 		input.style.display = "none";
 		input2.style.display = "none";
 		input3.style.display = "inline";
+		input4.style.display = "inline";
+		label9.style.display = "inline";
 		label5.style.display = "inline";
 		label7.style.display = "none";
 		label8.style.display = "none";
+		
 		input.value = "";
 		input2.value= "";
 		input.value = 'Não Aplicado';
@@ -445,6 +456,8 @@ var pacote = document.getElementsByName('dispositivo');
 		label5.style.display = "inline";
 		label7.style.display = "none";
 		label8.style.display = "none";
+		input4.style.display = "inline";
+		label9.style.display = "inline";
 		input.value = "";
 		input2.value= "";
 		input.value = 'Não Aplicado';
@@ -456,6 +469,8 @@ var pacote = document.getElementsByName('dispositivo');
 		label5.style.display = "none";
 		label7.style.display = "inline";
 		label8.style.display = "inline";
+		input4.style.display = "none";
+		label9.style.display = "none";
 		input3.value= "";
 		input4.value = "";
 		input3.value = 'Não Aplicado';
@@ -467,6 +482,8 @@ var pacote = document.getElementsByName('dispositivo');
 		label5.style.display = "none";
 		label7.style.display = "none";
 		label8.style.display = "none";
+		input4.style.display = "inline";
+		label9.style.display = "inline";
 		input.value = "";
 		input2.value= "";
 		input3.value= "";
@@ -633,6 +650,8 @@ var pacote = document.getElementsByName('dispositivo');
 		document.getElementById("datasne2").style.display ='none';
 		document.getElementById("datacvc2").style.display ='none';
 		document.getElementById("dataavp2").style.display ='none';
+		document.getElementById("glasgow").style.display ='none';
+		document.getElementById("glasgowlabel").style.display ='none';
 	  var dispositivo = document.getElementById("dispositivo").value;
 	  verifica(dispositivo);
 	  document.getElementById('dispositivo2').value = dispositivo;

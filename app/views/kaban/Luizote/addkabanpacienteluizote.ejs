@@ -187,12 +187,6 @@
 						  <input type="hidden" id="covid2" name="covid2" class="form-control" placeholder="covid2">
                     </div>
 					<div class="form-group">
-						<label id="glasgowlabel">Glasgow  </label>
-						<input type="text" id="glasgow"  name="glasgow" class="form-control">
-						<label id="biclabel">Quantidades de Bics  </label>
-						<input type="text" id="bic"  name="bic" class="form-control">
-					</div>
-					<div class="form-group">
 						<label id="dataexames" for="data">Data Exame</label>
 						<input type="text" name="dataexame"  id="dataexame" class="form-control" placeholder="Data Exame">
 					</div>
@@ -317,10 +311,7 @@ $("#covid").on('change', function(e){
      var covid = $(this).val();
      document.getElementById('covid2').value = covid;
 	 if(covid == 'true'){
-		 document.getElementById("glasgow").style.display = 'inline';
-		 document.getElementById("bic").style.display = 'inline';
-		 document.getElementById("glasgowlabel").style.display = 'inline';
-		 document.getElementById("biclabel").style.display = 'inline';
+
 		 document.getElementById("dataexames").style.display = 'inline';
 		 document.getElementById("dataexame").style.display = 'inline';
 		 document.getElementById("exame3").style.display = 'inline';
@@ -328,10 +319,7 @@ $("#covid").on('change', function(e){
 		 
 	 }
 	 else{
-		document.getElementById("glasgow").style.display = 'none';
-		document.getElementById("bic").style.display = 'none';
-		document.getElementById("glasgowlabel").style.display = 'none';
-		document.getElementById("biclabel").style.display = 'none';
+
 		document.getElementById("dataexames").style.display = 'none';
 		 document.getElementById("dataexame").style.display = 'none';
 		 document.getElementById("exame3").style.display = 'none';
@@ -411,10 +399,6 @@ function verificaidade(value){
 window.onload = function() {
 		document.getElementById('exame').style.display = 'none';
 		document.getElementById('labelexame').style.display = 'none';
-		document.getElementById("glasgow").style.display = 'none';
-		document.getElementById("bic").style.display = 'none';
-		document.getElementById("glasgowlabel").style.display = 'none';
-		document.getElementById("biclabel").style.display = 'none';
 		document.getElementById("dataexames").style.display = 'none';
 		 document.getElementById("dataexame").style.display = 'none';
 		 document.getElementById("exame3").style.display = 'none';
@@ -457,10 +441,7 @@ selectcovid = document.getElementById('covid');
      var covid = $(selectcovid).val();
      document.getElementById('covid2').value = covid;
 	 if(covid == 'true'){
-		 document.getElementById("glasgow").style.display = 'inline';
-		 document.getElementById("bic").style.display = 'inline';
-		 document.getElementById("glasgowlabel").style.display = 'inline';
-		 document.getElementById("biclabel").style.display = 'inline';
+
 		 document.getElementById("dataexames").style.display = 'inline';
 		 document.getElementById("dataexame").style.display = 'inline';
 		 document.getElementById("exame3").style.display = 'inline';
@@ -468,10 +449,7 @@ selectcovid = document.getElementById('covid');
 		 
 	 }
 	 else{
-		document.getElementById("glasgow").style.display = 'none';
-		document.getElementById("bic").style.display = 'none';
-		document.getElementById("glasgowlabel").style.display = 'none';
-		document.getElementById("biclabel").style.display = 'none';
+
 		document.getElementById("dataexames").style.display = 'none';
 		 document.getElementById("dataexame").style.display = 'none';
 		 document.getElementById("exame3").style.display = 'none';

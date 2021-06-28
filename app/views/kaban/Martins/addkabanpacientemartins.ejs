@@ -179,7 +179,7 @@
 						</select>
 					  </div>
 					  <input type="hidden" id="referencia"  name="referencia" class="form-control">
-					<div class="form-group">
+					  <div class="form-group">
 						<label for="covid">Sindrome Respiratória Aguda Grave  </label>
                         <label class="switch">
 							<input id="covid" type="checkbox">
@@ -187,12 +187,6 @@
 						  </label>
 						  <input type="hidden" id="covid2" name="covid2" class="form-control" placeholder="covid2">
                     </div>
-					<div class="form-group">
-						<label id="glasgowlabel">Glasgow  </label>
-						<input type="text" id="glasgow"  name="glasgow" class="form-control">
-						<label id="biclabel">Quantidades de Bics  </label>
-						<input type="text" id="bic"  name="bic" class="form-control">
-					</div>
 					<div class="form-group">
 						<label id="dataexames" for="data">Data Exame</label>
 						<input type="text" name="dataexame"  id="dataexame" class="form-control" placeholder="Data Exame">
@@ -222,10 +216,10 @@
 <!-- Importando o jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript">
+
 $(function(){
 	$(window).on('resize load', function() {
   if ($(window).width() <= 768) { 
@@ -242,10 +236,6 @@ $("#paliativos").on('change', function(e){
      document.getElementById('paliativo').value = paliativo;
 });
 
-$("#dieta").on('change', function(e){
-     var dieta = $(this).val();
-     document.getElementById('dieta2').value = dieta;
-});
 
 $("#exame3").on('change', function(e){
 	var exame = $(this).val();
@@ -259,6 +249,11 @@ $(document).ready(function(){
 $("#ecf2").on('change', function(e){
      var ecf = $(this).val();
      document.getElementById('ecf').value = ecf;
+});
+
+$("#dieta").on('change', function(e){
+     var dieta = $(this).val();
+     document.getElementById('dieta2').value = dieta;
 });
 
 $("#especialidades").on('change', function(e){
@@ -318,10 +313,7 @@ $("#covid").on('change', function(e){
      var covid = $(this).val();
      document.getElementById('covid2').value = covid;
 	 if(covid == 'true'){
-		 document.getElementById("glasgow").style.display = 'inline';
-		 document.getElementById("bic").style.display = 'inline';
-		 document.getElementById("glasgowlabel").style.display = 'inline';
-		 document.getElementById("biclabel").style.display = 'inline';
+
 		 document.getElementById("dataexames").style.display = 'inline';
 		 document.getElementById("dataexame").style.display = 'inline';
 		 document.getElementById("exame3").style.display = 'inline';
@@ -329,10 +321,7 @@ $("#covid").on('change', function(e){
 		 
 	 }
 	 else{
-		document.getElementById("glasgow").style.display = 'none';
-		document.getElementById("bic").style.display = 'none';
-		document.getElementById("glasgowlabel").style.display = 'none';
-		document.getElementById("biclabel").style.display = 'none';
+
 		document.getElementById("dataexames").style.display = 'none';
 		 document.getElementById("dataexame").style.display = 'none';
 		 document.getElementById("exame3").style.display = 'none';
@@ -412,10 +401,6 @@ function verificaidade(value){
 window.onload = function() {
 		document.getElementById('exame').style.display = 'none';
 		document.getElementById('labelexame').style.display = 'none';
-		document.getElementById("glasgow").style.display = 'none';
-		document.getElementById("bic").style.display = 'none';
-		document.getElementById("glasgowlabel").style.display = 'none';
-		document.getElementById("biclabel").style.display = 'none';
 		document.getElementById("dataexames").style.display = 'none';
 		 document.getElementById("dataexame").style.display = 'none';
 		 document.getElementById("exame3").style.display = 'none';
@@ -458,10 +443,7 @@ selectcovid = document.getElementById('covid');
      var covid = $(selectcovid).val();
      document.getElementById('covid2').value = covid;
 	 if(covid == 'true'){
-		 document.getElementById("glasgow").style.display = 'inline';
-		 document.getElementById("bic").style.display = 'inline';
-		 document.getElementById("glasgowlabel").style.display = 'inline';
-		 document.getElementById("biclabel").style.display = 'inline';
+
 		 document.getElementById("dataexames").style.display = 'inline';
 		 document.getElementById("dataexame").style.display = 'inline';
 		 document.getElementById("exame3").style.display = 'inline';
@@ -469,10 +451,7 @@ selectcovid = document.getElementById('covid');
 		 
 	 }
 	 else{
-		document.getElementById("glasgow").style.display = 'none';
-		document.getElementById("bic").style.display = 'none';
-		document.getElementById("glasgowlabel").style.display = 'none';
-		document.getElementById("biclabel").style.display = 'none';
+
 		document.getElementById("dataexames").style.display = 'none';
 		 document.getElementById("dataexame").style.display = 'none';
 		 document.getElementById("exame3").style.display = 'none';

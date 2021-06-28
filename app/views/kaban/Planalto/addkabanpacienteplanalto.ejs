@@ -178,7 +178,7 @@
 						</select>
 					  </div>
 					  <input type="hidden" id="referencia"  name="referencia" class="form-control">
-					<div class="form-group">
+					  <div class="form-group">
 						<label for="covid">Sindrome Respiratória Aguda Grave  </label>
                         <label class="switch">
 							<input id="covid" type="checkbox">
@@ -186,12 +186,6 @@
 						  </label>
 						  <input type="hidden" id="covid2" name="covid2" class="form-control" placeholder="covid2">
                     </div>
-					<div class="form-group">
-						<label id="glasgowlabel">Glasgow  </label>
-						<input type="text" id="glasgow"  name="glasgow" class="form-control">
-						<label id="biclabel">Quantidades de Bics  </label>
-						<input type="text" id="bic"  name="bic" class="form-control">
-					</div>
 					<div class="form-group">
 						<label id="dataexames" for="data">Data Exame</label>
 						<input type="text" name="dataexame"  id="dataexame" class="form-control" placeholder="Data Exame">
@@ -221,266 +215,249 @@
 <!-- Importando o jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript">
-$(function(){
-	$(window).on('resize load', function() {
-  if ($(window).width() <= 768) { 
-    $("#mobile").removeClass("container");
-  }
-  else {
-    $("#mobile").addClass("container");
-  }
-});
-});
-
-$("#paliativos").on('change', function(e){
-     var paliativo = $(this).val();
-     document.getElementById('paliativo').value = paliativo;
-});
-
-$("#dieta").on('change', function(e){
-     var dieta = $(this).val();
-     document.getElementById('dieta2').value = dieta;
-});
-
-
-$("#exame3").on('change', function(e){
-	var exame = $(this).val();
-	document.getElementById('exame4').value = exame;
-});
-
-$(document).ready(function(){
-      $('#dataexame').mask('00/00/0000');
-      });
-
-$("#ecf2").on('change', function(e){
-     var ecf = $(this).val();
-     document.getElementById('ecf').value = ecf;
-});
-
-$("#especialidades").on('change', function(e){
-     var especialidade = $(this).val();
-     document.getElementById('especialidade').value = especialidade;
-});
-
-$("#banhos").on('change', function(e){
-     var banho = $(this).val();
-     document.getElementById('banho').value = banho;
-});
-
-$("#setor").on('change', function(e){
-     var setor = $(this).val();
-     document.getElementById('setor2').value = setor;
-});
-
-$("#mobilidades").on('change', function(e){
-     var mobilidade = $(this).val();
-     document.getElementById('mobilidade').value = mobilidade;
-});
-
-$("#mental").on('change', function(e){
-	if ($(this).is(':checked')) {
-    	$(this).attr('value', 'true');
-	}
-	else {
-		$(this).attr('value', 'false');
-	}
-	 mental = $(this).val();
-	 document.getElementById('mental2').value = mental;
-
-	 if(mental == 'true'){
-		 document.getElementById("exame").style.display = 'inline';
-		 document.getElementById("labelexame").style.display = 'inline';
-		 
-	 }
-	 else{
-		document.getElementById("exame").style.display = 'none';
-		document.getElementById("labelexame").style.display = 'none';
-	 }
-    
-});
-
-$("#exame").on('change', function(e){
-     var exame = $(this).val();
-     document.getElementById('referencia').value = exame;
-});
-
-$("#covid").on('change', function(e){
-	if ($(this).is(':checked')) {
-    	$(this).attr('value', 'true');
-	}
-	else {
-		$(this).attr('value', 'false');
-	}
-     var covid = $(this).val();
-     document.getElementById('covid2').value = covid;
-	 if(covid == 'true'){
-		 document.getElementById("glasgow").style.display = 'inline';
-		 document.getElementById("bic").style.display = 'inline';
-		 document.getElementById("glasgowlabel").style.display = 'inline';
-		 document.getElementById("biclabel").style.display = 'inline';
-		 document.getElementById("dataexames").style.display = 'inline';
-		 document.getElementById("dataexame").style.display = 'inline';
-		 document.getElementById("exame3").style.display = 'inline';
-		 document.getElementById("exames").style.display = 'inline';
-		 
-	 }
-	 else{
-		document.getElementById("glasgow").style.display = 'none';
-		document.getElementById("bic").style.display = 'none';
-		document.getElementById("glasgowlabel").style.display = 'none';
-		document.getElementById("biclabel").style.display = 'none';
-		document.getElementById("dataexames").style.display = 'none';
-		 document.getElementById("dataexame").style.display = 'none';
-		 document.getElementById("exame3").style.display = 'none';
-		 document.getElementById("exames").style.display = 'none';
-	 }
-});
-
-// function getAge(birth) {
-//   const current = new Date()
-//   let diff = current.getFullYear() - birth.getFullYear()
-//   if (
-//     new Date(current.getFullYear(), current.getMonth(), current.getDate()) <
-//     new Date(current.getFullYear(), birth.getMonth(), birth.getDate())
-//   )
-//     diff--
-//   return diff
-// }
-// const birthField = document.querySelector('#dn')
-// const ageField = document.querySelector('#idade')
-// birthField.addEventListener('change', (event) => {
-//   const date = new Date(event.target.value)
-//   ageField.value = getAge(date) + ' anos'
-// })
-
-// function difDias(dias){
-// 	const current = new Date()
-// 	var timeDiff = Math.abs(current.getTime() - (dias.getTime()));
-// 	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-
-// 	 return diffDays
-// }
-//     const daField = document.querySelector('#da')
-// 	const idadeField = document.querySelector('#qtdi')
-// 	daField.addEventListener('change', (event) => {
-//   	const dias = new Date(event.target.value)
-// 	idadeField.value = difDias(dias) + ' dia'
-// })
-
-function verificaecf(value){
-	var input = document.getElementById("spict");
-	var label = document.getElementById("spict2");
+	$(function(){
+		$(window).on('resize load', function() {
+	  if ($(window).width() <= 768) { 
+		$("#mobile").removeClass("container");
+	  }
+	  else {
+		$("#mobile").addClass("container");
+	  }
+	});
+	});
 	
-  if(value == 6 || value == 7 || value == 8){
-    input.style.display = "inline";
-	label.style.display = "inline";
-	document.getElementById('paliativos').style.display = 'inline'
-	  document.getElementById('paliativo2').style.display = 'inline'
-  }else{
-    input.style.display = "none";
-	label.style.display = "none";
-	document.getElementById('paliativos').style.display = 'inline'
-	  document.getElementById('paliativo2').style.display = 'inline'
-	input.value= "Não aplicado"
-  }
-  if(value == 9 || value == 10){
-	  var paliativo = 'sim';
-	  document.getElementById('paliativos').style.display = 'none'
-	  document.getElementById('paliativo2').style.display = 'none'
-	  input.value= "Não aplicado"
-	  document.getElementById('paliativo').value = paliativo;
-  }
-};
-function verificaidade(value){
-	var input = document.getElementById("ecf2");
-	var input2 = document.getElementById("ecf3");
-
-  if(value < 60 ){
-    input.style.display = "none";
-	input2.style.display = "none";
-	document.getElementById('ecf').value = 0;
-  }else{
-    input.style.display = "block";
-	input2.style.display = "block";
-  }
-};
-
-window.onload = function() {
-		document.getElementById('exame').style.display = 'none';
-		document.getElementById('labelexame').style.display = 'none';
-		document.getElementById("glasgow").style.display = 'none';
-		document.getElementById("bic").style.display = 'none';
-		document.getElementById("glasgowlabel").style.display = 'none';
-		document.getElementById("biclabel").style.display = 'none';
-		document.getElementById("dataexames").style.display = 'none';
-		 document.getElementById("dataexame").style.display = 'none';
-		 document.getElementById("exame3").style.display = 'none';
-		 document.getElementById("exames").style.display = 'none';
-		 selectmental = document.getElementById('mental');
-
-	if ($(selectmental).is(':checked')) {
-    	$(selectmental).attr('value', 'true');
-	}
-	else {
-		$(selectmental).attr('value', 'false');
-	}
-	 mental = $(selectmental).val();
-	 document.getElementById('mental2').value = mental;
-
-	 if(mental == 'true'){
-		 document.getElementById("exame").style.display = 'inline';
-		 document.getElementById("labelexame").style.display = 'inline';
-		 
-	 }
-	 else{
-		document.getElementById("exame").style.display = 'none';
-		document.getElementById("labelexame").style.display = 'none';
-	 }
-    
-
-
-$("#exame").on('change', function(e){
-     var exame = $(this).val();
-     document.getElementById('referencia').value = exame;
-});
-
-selectcovid = document.getElementById('covid');
-	if ($(selectcovid).is(':checked')) {
-    	$(selectcovid).attr('value', 'true');
-	}
-	else {
-		$(selectcovid).attr('value', 'false');
-	}
-     var covid = $(selectcovid).val();
-     document.getElementById('covid2').value = covid;
-	 if(covid == 'true'){
-		 document.getElementById("glasgow").style.display = 'inline';
-		 document.getElementById("bic").style.display = 'inline';
-		 document.getElementById("glasgowlabel").style.display = 'inline';
-		 document.getElementById("biclabel").style.display = 'inline';
-		 document.getElementById("dataexames").style.display = 'inline';
-		 document.getElementById("dataexame").style.display = 'inline';
-		 document.getElementById("exame3").style.display = 'inline';
-		 document.getElementById("exames").style.display = 'inline';
-		 
-	 }
-	 else{
-		document.getElementById("glasgow").style.display = 'none';
-		document.getElementById("bic").style.display = 'none';
-		document.getElementById("glasgowlabel").style.display = 'none';
-		document.getElementById("biclabel").style.display = 'none';
-		document.getElementById("dataexames").style.display = 'none';
-		 document.getElementById("dataexame").style.display = 'none';
-		 document.getElementById("exame3").style.display = 'none';
-		 document.getElementById("exames").style.display = 'none';
-	 }
-
+	$("#paliativos").on('change', function(e){
+		 var paliativo = $(this).val();
+		 document.getElementById('paliativo').value = paliativo;
+	});
+	
+	
+	$("#exame3").on('change', function(e){
+		var exame = $(this).val();
+		document.getElementById('exame4').value = exame;
+	});
+	
+	$(document).ready(function(){
+		  $('#dataexame').mask('00/00/0000');
+		  });
+	
+	$("#ecf2").on('change', function(e){
+		 var ecf = $(this).val();
+		 document.getElementById('ecf').value = ecf;
+	});
+	
+	$("#dieta").on('change', function(e){
+		 var dieta = $(this).val();
+		 document.getElementById('dieta2').value = dieta;
+	});
+	
+	$("#especialidades").on('change', function(e){
+		 var especialidade = $(this).val();
+		 document.getElementById('especialidade').value = especialidade;
+	});
+	
+	$("#banhos").on('change', function(e){
+		 var banho = $(this).val();
+		 document.getElementById('banho').value = banho;
+	});
+	
+	$("#setor").on('change', function(e){
+		 var setor = $(this).val();
+		 document.getElementById('setor2').value = setor;
+	});
+	
+	$("#mobilidades").on('change', function(e){
+		 var mobilidade = $(this).val();
+		 document.getElementById('mobilidade').value = mobilidade;
+	});
+	
+	$("#mental").on('change', function(e){
+		if ($(this).is(':checked')) {
+			$(this).attr('value', 'true');
+		}
+		else {
+			$(this).attr('value', 'false');
+		}
+		 mental = $(this).val();
+		 document.getElementById('mental2').value = mental;
+	
+		 if(mental == 'true'){
+			 document.getElementById("exame").style.display = 'inline';
+			 document.getElementById("labelexame").style.display = 'inline';
+			 
+		 }
+		 else{
+			document.getElementById("exame").style.display = 'none';
+			document.getElementById("labelexame").style.display = 'none';
+		 }
+		
+	});
+	
+	$("#exame").on('change', function(e){
+		 var exame = $(this).val();
+		 document.getElementById('referencia').value = exame;
+	});
+	
+	$("#covid").on('change', function(e){
+		if ($(this).is(':checked')) {
+			$(this).attr('value', 'true');
+		}
+		else {
+			$(this).attr('value', 'false');
+		}
+		 var covid = $(this).val();
+		 document.getElementById('covid2').value = covid;
+		 if(covid == 'true'){
+	
+			 document.getElementById("dataexames").style.display = 'inline';
+			 document.getElementById("dataexame").style.display = 'inline';
+			 document.getElementById("exame3").style.display = 'inline';
+			 document.getElementById("exames").style.display = 'inline';
+			 
+		 }
+		 else{
+	
+			document.getElementById("dataexames").style.display = 'none';
+			 document.getElementById("dataexame").style.display = 'none';
+			 document.getElementById("exame3").style.display = 'none';
+			 document.getElementById("exames").style.display = 'none';
+		 }
+	});
+	
+	// function getAge(birth) {
+	//   const current = new Date()
+	//   let diff = current.getFullYear() - birth.getFullYear()
+	//   if (
+	//     new Date(current.getFullYear(), current.getMonth(), current.getDate()) <
+	//     new Date(current.getFullYear(), birth.getMonth(), birth.getDate())
+	//   )
+	//     diff--
+	//   return diff
+	// }
+	// const birthField = document.querySelector('#dn')
+	// const ageField = document.querySelector('#idade')
+	// birthField.addEventListener('change', (event) => {
+	//   const date = new Date(event.target.value)
+	//   ageField.value = getAge(date) + ' anos'
+	// })
+	
+	// function difDias(dias){
+	// 	const current = new Date()
+	// 	var timeDiff = Math.abs(current.getTime() - (dias.getTime()));
+	// 	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+	
+	// 	 return diffDays
+	// }
+	//     const daField = document.querySelector('#da')
+	// 	const idadeField = document.querySelector('#qtdi')
+	// 	daField.addEventListener('change', (event) => {
+	//   	const dias = new Date(event.target.value)
+	// 	idadeField.value = difDias(dias) + ' dia'
+	// })
+	
+	function verificaecf(value){
+		var input = document.getElementById("spict");
+		var label = document.getElementById("spict2");
+		
+	  if(value == 6 || value == 7 || value == 8){
+		input.style.display = "inline";
+		label.style.display = "inline";
+		document.getElementById('paliativos').style.display = 'inline'
+		  document.getElementById('paliativo2').style.display = 'inline'
+	  }else{
+		input.style.display = "none";
+		label.style.display = "none";
+		document.getElementById('paliativos').style.display = 'inline'
+		  document.getElementById('paliativo2').style.display = 'inline'
+		input.value= "Não aplicado"
+	  }
+	  if(value == 9 || value == 10){
+		  var paliativo = 'sim';
+		  document.getElementById('paliativos').style.display = 'none'
+		  document.getElementById('paliativo2').style.display = 'none'
+		  input.value= "Não aplicado"
+		  document.getElementById('paliativo').value = paliativo;
+	  }
 	};
-</script>
-<%- include('../../home/footer'); %>
-</body>
-</html>
+	function verificaidade(value){
+		var input = document.getElementById("ecf2");
+		var input2 = document.getElementById("ecf3");
+	
+	  if(value < 60 ){
+		input.style.display = "none";
+		input2.style.display = "none";
+		document.getElementById('ecf').value = 0;
+	  }else{
+		input.style.display = "block";
+		input2.style.display = "block";
+	  }
+	};
+	
+	window.onload = function() {
+			document.getElementById('exame').style.display = 'none';
+			document.getElementById('labelexame').style.display = 'none';
+			document.getElementById("dataexames").style.display = 'none';
+			 document.getElementById("dataexame").style.display = 'none';
+			 document.getElementById("exame3").style.display = 'none';
+			 document.getElementById("exames").style.display = 'none';
+			 selectmental = document.getElementById('mental');
+	
+		if ($(selectmental).is(':checked')) {
+			$(selectmental).attr('value', 'true');
+		}
+		else {
+			$(selectmental).attr('value', 'false');
+		}
+		 mental = $(selectmental).val();
+		 document.getElementById('mental2').value = mental;
+	
+		 if(mental == 'true'){
+			 document.getElementById("exame").style.display = 'inline';
+			 document.getElementById("labelexame").style.display = 'inline';
+			 
+		 }
+		 else{
+			document.getElementById("exame").style.display = 'none';
+			document.getElementById("labelexame").style.display = 'none';
+		 }
+		
+	
+	
+	$("#exame").on('change', function(e){
+		 var exame = $(this).val();
+		 document.getElementById('referencia').value = exame;
+	});
+	
+	selectcovid = document.getElementById('covid');
+		if ($(selectcovid).is(':checked')) {
+			$(selectcovid).attr('value', 'true');
+		}
+		else {
+			$(selectcovid).attr('value', 'false');
+		}
+		 var covid = $(selectcovid).val();
+		 document.getElementById('covid2').value = covid;
+		 if(covid == 'true'){
+	
+			 document.getElementById("dataexames").style.display = 'inline';
+			 document.getElementById("dataexame").style.display = 'inline';
+			 document.getElementById("exame3").style.display = 'inline';
+			 document.getElementById("exames").style.display = 'inline';
+			 
+		 }
+		 else{
+	
+			document.getElementById("dataexames").style.display = 'none';
+			 document.getElementById("dataexame").style.display = 'none';
+			 document.getElementById("exame3").style.display = 'none';
+			 document.getElementById("exames").style.display = 'none';
+		 }
+	
+		};
+	</script>
+	<%- include('../../home/footer'); %>
+	</body>
+	</html>
