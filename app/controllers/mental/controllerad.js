@@ -105,13 +105,26 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var modelad = new application.app.model.mental.modelad(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
+	if(soma == "Excludente"){
+	var data = req.body.data;
+	var motivo = "Excludente";
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelad.cadastrarpaciente(dataatu, horas,prt,paciente, idade,diagnostico,referencia,unidade,data,tratamento,risco,comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma, function(error, result){
+		modelad.cadastrarpacienteexcludente(data, motivo,prt,paciente, idade,diagnostico,referencia,unidade,data,tratamento,risco,comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma, function(error, result){
 			modelad.buscarpaciente(unidade, function(error, resultado){
 				res.render("mental/CapsAd/cadastrarpacientead", {mental : resultado, id : resultados});
 			});
 		});
 	});	
+	}else{
+		modeladmin.buscarusuarioporid(id, function(error, resultados){
+			modelad.cadastrarpaciente(dataatu, horas,prt,paciente, idade,diagnostico,referencia,unidade,data,tratamento,risco,comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma, function(error, result){
+				modelad.buscarpaciente(unidade, function(error, resultado){
+					res.render("mental/CapsAd/cadastrarpacientead", {mental : resultado, id : resultados});
+				});
+			});
+		});	
+	}
+	
 }
 
 module.exports.update= function(application, req, res){

@@ -70,14 +70,25 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var horas = req.body.horas;
 	var modelinfantil = new application.app.model.mental.modelinfantil(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
-	
-	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelinfantil.cadastrarpaciente(dataatu, horas,prt,paciente, idade,diagnostico,referencia,unidade,data,tratamento,risco,comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma, function(error, result){
-			modelinfantil.buscarpaciente(unidade, function(error, resultado){
-				res.render("mental/CapsInfantil/cadastrarpacienteinfantil", {mental : resultado, id : resultados});
+	if(soma == "Excludente"){
+		var data = req.body.data;
+		var motivo = "Excludente";
+		modeladmin.buscarusuarioporid(id, function(error, resultados){
+			modelinfantil.cadastrarpacienteexcludente(data, motivo,prt,paciente, idade,diagnostico,referencia,unidade,data,tratamento,risco,comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma, function(error, result){
+				modelinfantil.buscarpaciente(unidade, function(error, resultado){
+					res.render("mental/CapsInfantil/cadastrarpacienteinfantil", {mental : resultado, id : resultados});
+				});
 			});
-		});
-	});	
+		});	
+		}else{
+			modeladmin.buscarusuarioporid(id, function(error, resultados){
+				modelinfantil.cadastrarpaciente(dataatu, horas,prt,paciente, idade,diagnostico,referencia,unidade,data,tratamento,risco,comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma, function(error, result){
+					modelinfantil.buscarpaciente(unidade, function(error, resultado){
+						res.render("mental/CapsInfantil/cadastrarpacienteinfantil", {mental : resultado, id : resultados});
+					});
+				});
+			});	
+		}
 }
 
 module.exports.update= function(application, req, res){
