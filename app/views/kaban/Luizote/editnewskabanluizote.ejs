@@ -4,8 +4,8 @@
     <% for(var i = 0; i < id.length; i++) {%>
 		<% if(news.length > 0) { %>
 			<% for(var j = 0; j < news.length; j++) {%>
-		<form action="/updatenewskabanluizote" style="padding-left: 1%; padding-right: 1%;" method="post">
-			<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>"> 
+		<form action="/savenewsluizote" style="padding-left: 1%; padding-right: 1%;" method="post">
+			<input type="hidden" name="campo" value="<%=id[i].id_usuario %>"> 
 		
 		
 			<div tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

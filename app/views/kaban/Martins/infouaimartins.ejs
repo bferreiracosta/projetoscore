@@ -131,8 +131,8 @@
                         <tr>
                             <th >Setor</th>
                             <th >Capacidade</th>
-                            <th >Camas Ocupadas</th>
-                            <th >Macas Ocupadas</th>
+                            <th hidden >Camas Ocupadas</th>
+                            <th  hidden>Macas Ocupadas</th>
                             <td>Total</td> 
                         </tr>
                     </thead>
@@ -142,8 +142,8 @@
                         <tr> 
                             <td><%=setor[n].setor %></td> 
                             <td><%=setor[n].capacidade %></td> 
-                            <td><%=setor[n].capacidadecamasocupadas %></td>   
-                            <td><%=setor[n].capacidademacasocupadas %></td> 
+                            <td hidden><%=setor[n].capacidadecamasocupadas %></td>   
+                            <td hidden><%=setor[n].capacidademacasocupadas %></td> 
                             <td class="somatoria"></td> 
                         </tr>
                         <% } %>	
@@ -153,8 +153,8 @@
                         <tr> 
                             <td class="total"></td> 
                             <td class="capacidade"></td> 
-                            <td class="cama"></td>   
-                            <td class="maca"></td> 
+                            <td hidden class="cama"></td>   
+                            <td hidden class="maca"></td> 
                             <td class="soma"></td>  
                         </tr>
                         

@@ -135,7 +135,7 @@ modelluizote.prototype.buscarfugulinid = function(idpaciente, unidade, callback)
 }
 
 modelluizote.prototype.buscardispositivoid = function(idpaciente, unidade, callback){
-	this._conection.query('select * from dispositivokaban where unidade = "'+unidade+'" and idpaciente = "'+idpaciente.id+'"', callback);
+	this._conection.query('select * from dispositivokaban where unidade = "'+unidade+'" and idpaciente = "'+idpaciente.id+'" and status = "Ativo"', callback);
 }
 
 modelluizote.prototype.buscardispositivoporid = function(idpaciente, unidade, callback){

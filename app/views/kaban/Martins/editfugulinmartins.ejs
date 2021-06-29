@@ -2,8 +2,8 @@
 <div id="mobile" class="container">
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
-		<form action="/updatefugulinmartins" style="padding-left: 1%; padding-right: 1%;" method="post">
-			<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>"> 
+		<form action="/savefugulinmartins" style="padding-left: 1%; padding-right: 1%;" method="post">
+			<input type="hidden" name="campo" value="<%=id[i].id_usuario %>"> 
 			<div tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 				 aria-hidden="true">
 				<div  role="document">

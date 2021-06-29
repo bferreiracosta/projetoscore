@@ -2,14 +2,14 @@
 
 <div id="mobile" class="container">
 
-<form action="/updatedispositivokabansaojorge" style="padding-left: 1%; padding-right: 1%;" method="post">
+<form action="/savedispositivosaojorge" style="padding-left: 1%; padding-right: 1%;" method="post">
 			<% if(id.length > 0) { %>
 				<% for(var i = 0; i < id.length; i++) {%>
 					<% if(dispositivo.length > 0) { %>
 						<% for(var j = 0; j < dispositivo.length; j++) {%>
 				<h2>Editar Dispositivo São Jorge</h2> 
 								
-                    <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
+                    <input type="hidden" name="campo" value="<%=id[i].id_usuario %>">     
                     <p hidden id="idunidade">  <%=id[i].unidade %>  
                 <div>
 					<div class="form-group">
