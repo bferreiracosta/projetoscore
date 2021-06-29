@@ -8,7 +8,7 @@ modelmentalanexo.prototype.buscarpacientecaps = function(unidade, callback){
 }
 
 modelmentalanexo.prototype.baixa = function(idpaciente,baixa, datas, callback){
-	console.log(idpaciente,baixa, datas);
+
 	this._conection.query('update mentalurgencia set datas = "'+datas+'",  baixa = "'+baixa+'" where id_paciente = ' + idpaciente, callback);
 }
 

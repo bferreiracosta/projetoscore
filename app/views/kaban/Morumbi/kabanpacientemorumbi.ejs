@@ -202,7 +202,7 @@ rowGroup: {
            api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
                if ( last !== group ) {
                    $(rows).eq( i ).before(
-                       '<tr class="group" style = "background-color: #ddd !important;text-align: center !important"><td colspan="20" >'+group+'</td></tr>'
+                       '<tr class="group" style = "background-color: #ddd !important;text-align: center !important"><td colspan="23" >'+group+'</td></tr>'
                    );
 
                    last = group;

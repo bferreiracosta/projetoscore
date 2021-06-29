@@ -16,7 +16,7 @@
 						</div>
 						<div>
 							<div class="form-group">
-								<input type="text" name="idevento" class="form-control" value="<%=evento[j].idevento %>" >
+								<input type="hidden" name="idevento" class="form-control" value="<%=evento[j].idevento %>" >
 							</div>
 							<div class="form-group">
 								<label for="">Nome Paciente</label>
@@ -62,10 +62,10 @@
 	$("#hora").on('change', function(e){
 		const input = document.getElementById('data').value;
 		const datas = input.replace(/(\d{1,2})\/(\d{1,2})\/(\d{4})/, '$3-$2-$1');
-		console.log(datas);
+
 		const inputs = document.getElementById('hora').value;
 		const horas = inputs.replace(/(\d{1,2})\/(\d{1,2})/, '$1:$2');
-		console.log(horas);
+	
 		let dataformatada = datas + ' ' + horas;
 		document.getElementById('dataformatada').value = dataformatada;
 	});

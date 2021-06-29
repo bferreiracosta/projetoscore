@@ -442,7 +442,6 @@ module.exports.relatoriokabanmorumbi = function(application, req, res){
 	var unidade = 'Morumbi';
 	modeladmin.buscarusuario(id, function(error,result){
 		modelmorumbi.buscarpacienterelatorio(unidade, function(error, resultado){
-			console.log(resultado);
 			res.render("kaban/Morumbi/relatoriokabanmorumbi", {paciente: resultado, id : result});
 		});
 	});
@@ -879,7 +878,6 @@ module.exports.cadastrardispositivo= function(application, req, res){
 		}
 		else{
 			modelcovidmorumbi.buscarpacientepornome(nome, function(error, idcovid){
-				console.log(idcovid)
 			modelmorumbi.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 				var string=JSON.stringify(resultados);
 				var json =  JSON.parse(string);
@@ -1848,7 +1846,6 @@ module.exports.baixa= function(application, req, res){
 							});	
 						}
 						else{
-							console.log("Estou aqui")
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
 								modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 									modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){

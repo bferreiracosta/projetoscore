@@ -20,14 +20,13 @@ const pool = mysql.createPool({
 
 
 
-console.log('pool => criado');
 
-pool.on('release', () => console.log('pool => conexão retornada')); 
+
+// pool.on('release', () => console.log('')); 
 
 process.on('SIGINT', () => 
     pool.end(err => {
         if(err) return console.log(err);
-        console.log('pool => fechado');
         process.exit(0);
     })
 ); 
@@ -36,7 +35,7 @@ pool => (req, res, next) => {
 
     pool.getConnection((err, connection) => {
         if(err) return next(err);
-        console.log('pool => obteve conexão');
+
         // adicionou a conexão na requisição
         req.connection = connection;
         // passa a requisição o próximo middleware

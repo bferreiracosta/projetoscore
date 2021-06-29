@@ -879,7 +879,6 @@ module.exports.cadastrardispositivo= function(application, req, res){
 		}
 		else{
 			modelcovidluizote.buscarpacientepornome(nome, function(error, idcovid){
-				console.log(idcovid)
 			modelluizote.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 				var string=JSON.stringify(resultados);
 				var json =  JSON.parse(string);
@@ -1848,7 +1847,6 @@ module.exports.baixa= function(application, req, res){
 							});	
 						}
 						else{
-							console.log("Estou aqui")
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
 								modelluizote.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 									modelcovidluizote.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){

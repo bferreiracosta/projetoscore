@@ -443,7 +443,6 @@ module.exports.relatoriokabanpampulha = function(application, req, res){
 	var unidade = 'Pampulha';
 	modeladmin.buscarusuario(id, function(error,result){
 		modelpampulha.buscarpacienterelatorio(unidade, function(error, resultado){
-			console.log(resultado);
 			res.render("kaban/Pampulha/relatoriokabanpampulha", {paciente: resultado, id : result});
 		});
 	});
@@ -877,7 +876,6 @@ module.exports.cadastrardispositivo= function(application, req, res){
 		}
 		else{
 			modelcovidpampulha.buscarpacientepornome(nome, function(error, idcovid){
-				console.log(idcovid)
 			modelpampulha.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 				var string=JSON.stringify(resultados);
 				var json =  JSON.parse(string);
@@ -1846,7 +1844,6 @@ module.exports.baixa= function(application, req, res){
 							});	
 						}
 						else{
-							console.log("Estou aqui")
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
 								modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 									modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){

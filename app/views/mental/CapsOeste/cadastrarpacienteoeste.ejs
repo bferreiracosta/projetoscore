@@ -207,7 +207,7 @@ setInterval(function(){
             tr=$(this);
             tr.children('td').removeClass('fundoIdade');
             date = tr.children('td:eq(15)').html(); 
-            console.log(hoje, date);
+
             if(hoje > date){
                 $("mytable tr:eq(6)").addClass("fundoIdade1");
                 notificação(); 

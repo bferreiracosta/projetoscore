@@ -188,7 +188,7 @@ dom: 'Bfrtip',
 
 
 setInterval(function(){
-    console.log('Estou aqui');
+
     init_PNotify()
 },10000)
 
@@ -203,24 +203,24 @@ function init_PNotify() {
         valor=tr.children('td:eq(17)').html();
         date = tr.children('td:eq(15)').html();
         news =tr.children('td:eq(13)').html();
-        console.log(valor, date, news);
+       
         if(news <= 4){
             var tempocerto = somartempos('6:00', valor); 
-            console.log(now, tempocerto);
+          
             if(hoje > date || now == tempocerto || now > tempocerto){
                 tr.children('td:eq(13)').addClass('fundoIdade');
                 notificação(); 
             }
         }if(news > 4 && news <=6){
             var tempocerto = somartempos('4:00', valor);
-            console.log(now, tempocerto); 
+
             if(hoje > date || now == tempocerto || now > tempocerto){
                 tr.children('td:eq(13)').addClass('fundoIdade1');
                 notificação(); 
             }
         }if(news >= 7){
             var tempocerto = somartempos('1:00', valor); 
-            console.log(now, tempocerto);
+     
             if( hoje > date || now == tempocerto || now > tempocerto){
                 tr.children('td:eq(13)').addClass('fundoIdade2');
                 notificação(); 
@@ -228,7 +228,7 @@ function init_PNotify() {
         }
         if(news = 0){
             var tempocerto = somartempos('1:00', valor); 
-            console.log(now, tempocerto);
+        
             if(hoje > date || now == tempocerto || now > tempocerto){
                 notificação(); 
             }

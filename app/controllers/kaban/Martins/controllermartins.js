@@ -443,7 +443,6 @@ module.exports.relatoriokabanmartins = function(application, req, res){
 	var unidade = 'Martins';
 	modeladmin.buscarusuario(id, function(error,result){
 		modelmartins.buscarpacienterelatorio(unidade, function(error, resultado){
-			console.log(resultado);
 			res.render("kaban/Martins/relatoriokabanmartins", {paciente: resultado, id : result});
 		});
 	});
@@ -880,7 +879,6 @@ module.exports.cadastrardispositivo= function(application, req, res){
 		}
 		else{
 			modelcovidmartins.buscarpacientepornome(nome, function(error, idcovid){
-				console.log(idcovid)
 			modelmartins.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 				var string=JSON.stringify(resultados);
 				var json =  JSON.parse(string);
@@ -1850,7 +1848,6 @@ module.exports.baixa= function(application, req, res){
 							});	
 						}
 						else{
-							console.log("Estou aqui")
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
 								modelmartins.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 									modelcovidmartins.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){

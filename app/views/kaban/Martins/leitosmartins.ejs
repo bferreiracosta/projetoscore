@@ -58,14 +58,14 @@
                         </div> 
                         <div class="form-group">
                             <label for="posto"> Setor</label>
-                            <select name="setor" id="setor" class="form-control setor" >
+                            <select name="setor" id="setor" class="form-control setor" required >
                                 <option ></option> 
                             </select>
                             <input type="hidden" name="setor2" id="setor2" class="form-control setor2"  >
                         </div> 
                         <div class="form-group">
                             <label for="posto"> Leito</label>
-                            <select name="leito" id="leito" class="form-control leito">
+                            <select name="leito" id="leito" class="form-control leito" required>
                                 <option></option>  
                             </select>
                             <input type="hidden" name="leito2" id="leito2" class="form-control leito2"  >
@@ -172,7 +172,7 @@ $('#mytable').on('dblclick', 'tr', function () {
          leito2 =$.trim(tableData[3]);
          nome =$.trim(tableData[1]);
          idpaciente =$.trim(tableData[0]);
-        console.log(setor2)
+     
          $('input.setor2').val(setor2);
          $('input.leito2').val(leito2);
          $('input.id').val(idpaciente);

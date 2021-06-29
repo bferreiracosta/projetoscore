@@ -228,7 +228,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 									res.render("home/index", {msg : mensage});
 					}
 				}else if(funcao == 'administrativo') {
-						console.log(funcao);
+					
 						if (usuario && senha) {
 							this._conection.query('SELECT * FROM usuarios WHERE usuario = ? AND senha = ?', [usuario, senha], function(error, results, fields) {
 								
@@ -445,7 +445,7 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 							
 								if (results.length > 0) {
 									if(results[0].kamban == 1){
-										console.log(results);
+										
 									req.session.loggedin = true;
 									req.session.usuario = results[0].usuario;
 																
@@ -466,7 +466,6 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 									res.render("home/index", {msg : mensage});
 					}
 				}else if(funcao == 'administrativo') {
-					console.log(funcao);
 					if (usuario && senha) {
 						this._conection.query('SELECT * FROM usuarios WHERE usuario = ? AND senha = ?', [usuario, senha], function(error, results, fields) {
 							

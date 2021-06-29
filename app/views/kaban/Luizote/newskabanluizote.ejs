@@ -141,7 +141,6 @@ dom: 'Bfrtip',
 });
 
 setInterval(function(){
-    console.log('Estou aqui');
     init_PNotify()
 },10000)
 
@@ -154,7 +153,7 @@ function init_PNotify() {
             tr.children('td').removeClass('fundoIdade');
             valor=tr.children('td:eq(12)').html();
             news =tr.children('td:eq(10)').html();
-           console.log(news);
+
             if(news <= 4){
                 var tempocerto = somartempos('6:00', valor); 
                 var compahora = compararHora(hoje, tempocerto)

@@ -188,7 +188,7 @@ modeladmingestao.prototype.buscarleitosaojorge = function(callback){
 }
 
 modeladmingestao.prototype.updateleitossaojorge = function(capacidade, setor, data, hora,bloqueado, callback){
-	console.log(capacidade, setor, data, hora,bloqueado);
+
 	this._conection.query('update saojorge set bloqueado="'+bloqueado+'", capacidade = "'+capacidade+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
 }
 
@@ -218,7 +218,7 @@ modeladmingestao.prototype.buscarleitopampulha = function(callback){
 }
 
 modeladmingestao.prototype.updateleitospampulha = function(capacidade, setor, data, hora,bloqueado, callback){
-	console.log(capacidade, setor, data, hora,bloqueado);
+
 	this._conection.query('update pampulha set bloqueado="'+bloqueado+'", capacidade = "'+capacidade+'", datas= "'+data+'", hora= "'+hora+'" where setor = "'+setor+'"', callback);
 }
 

@@ -847,7 +847,7 @@
 				update();
 					   $("#modulo").click(function(){
 				var id = document.getElementById("id").value;
-				console.log(id);
+			
 				
 				obj = [];
 				$.ajax({
@@ -856,7 +856,7 @@
 					contentType: 'application/json',
 					url: '/modulo',
 					success: function(obj) { 
-							console.log(obj);
+					
 						if (obj.length > 0){
 							document.getElementById("usuario2").value=obj[0].usuario;
 							document.getElementById("senha2").value=obj[0].senha; 

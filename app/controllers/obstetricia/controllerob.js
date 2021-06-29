@@ -39,7 +39,6 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var hmu =  req.body.hmu3;
 	var id = req.body.idusuario;
 
-	console.log(prt,data, paciente,motivo,unidade, conduta, destino, ufu, hmu)
 	var modelob = new application.app.model.obstetricia.modelob(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
@@ -63,7 +62,6 @@ module.exports.update= function(application, req, res){
 	var ufu = req.body.ufu3;
 	var hmu =  req.body.hmu3;
 	var id = req.body.idusuario;
-	console.log(prt, paciente,motivo,unidade, conduta, destino, ufu, hmu)
 	var modelob = new application.app.model.obstetricia.modelob(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 

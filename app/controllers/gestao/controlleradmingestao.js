@@ -77,7 +77,6 @@ module.exports.centraluaimartinsrelatorio= function(application, req, res){
 	
 	modeladmin.buscarusuario(id, function(error, result){
 		modeladmingestao.buscarleitomartins(function(error, resultado){
-			console.log(resultado);
 			res.render("gestao/centraluaimartinsrelatorio", {leito : resultado, id : result});
 		});
 	});	
@@ -251,7 +250,6 @@ module.exports.editarleitosaojorge= function(application, req, res){
 	var data = req.body.data;
 	var hora = req.body.hora;
 	var bloqueado = req.body.leitos;
-	console.log(capacidade, setor, data, hora,bloqueado);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	

@@ -443,7 +443,6 @@ module.exports.relatoriokabansaojorge = function(application, req, res){
 	var unidade = 'Sao Jorge';
 	modeladmin.buscarusuario(id, function(error,result){
 		modelsaojorge.buscarpacienterelatorio(unidade, function(error, resultado){
-			console.log(resultado);
 			res.render("kaban/SaoJorge/relatoriokabansaojorge", {paciente: resultado, id : result});
 		});
 	});
@@ -880,7 +879,6 @@ module.exports.cadastrardispositivo= function(application, req, res){
 		}
 		else{
 			modelcovidsaojorge.buscarpacientepornome(nome, function(error, idcovid){
-				console.log(idcovid)
 			modelsaojorge.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 				var string=JSON.stringify(resultados);
 				var json =  JSON.parse(string);
@@ -1849,7 +1847,6 @@ module.exports.baixa= function(application, req, res){
 							});	
 						}
 						else{
-							console.log("Estou aqui")
 							modeladmin.buscarusuarioporid(id, function(error, resultados){
 								modelsaojorge.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 									modelcovidsaojorge.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){

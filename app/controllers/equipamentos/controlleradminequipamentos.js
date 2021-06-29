@@ -433,7 +433,6 @@ module.exports.updatedispositivoplanalto= function(application, req, res){
 	var id = req.body.idusuario;
 	var data = req.body.data;
 	var hora = req.body.horas;
-	console.log(vmu,vmd, vmde, mu,md, mde, bicu,bicd,bicde, data, hora);
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	
