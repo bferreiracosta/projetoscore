@@ -66,6 +66,8 @@ $(document).ready(function() {
 $('#mytable').DataTable( {
 dom: 'Bfrtip',
 "scrollX": true,
+order: ([ 1, 'desc']),
+        "columnDefs" : [{"targets":1, "type":"date-eu"}],
         pageLength: 50,
         buttons: [       
             {
