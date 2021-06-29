@@ -73,7 +73,7 @@ modelluizote.prototype.buscarleitospacientespornome = function(valor, callback){
 	this._conection.query('select nome from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
-modelluizote.prototype.atualizarleitoluizote = function(idpaciente, setor, leito, callback){
+modelluizote.prototype.atualizarleitokaban = function(idpaciente, setor, leito, callback){
 	
 	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'" where idpaciente = '+ idpaciente, callback);
 }

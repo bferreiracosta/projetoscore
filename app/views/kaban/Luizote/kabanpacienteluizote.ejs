@@ -171,51 +171,116 @@
 </html>
 <script>
     $(document).ready(function() {
-        $('#mytable').DataTable( {
-            dom: 'Bfrtip',
-            "scrollX": true,
-            order: ([ 3, 'asc']),
-            fixedHeader: true,
-        pageLength: 50,
-        buttons: [       
-            {
-                "extend": "copyHtml5",
-                "text": "COPIAR",
-                header: false
-            },          
-            {
-                "extend": "pdf",
-                "text": "PDF",
-                header: false
-            },
-            {
-                "extend": "excelHtml5",
-                "text": "EXCEL",
-                header: false
-            },
-            {
-                "extend": "print",
-                "text": "IMPRIMIR",
-                header: false
+var groupColumn = 11;
+$('#mytable').DataTable( { 
+dom: 'Bfrtip',
+"scrollX": true,
+rowGroup: {
+       dataSrc: 'groupColumn'
+   },
+"columnDefs": [
+           { "visible": false, "targets": groupColumn },
+           {"className": "dt-center", "targets": "_all"},
+          
+       ],
+       fixedColumns: true,
+       rowGroup: {
+           dataSrc: groupColumn,
+       },
+       "order": [[ groupColumn, 'asc' ]],
+       pageLength: 50,
+       "drawCallback": function ( settings ) {
+           var api = this.api();
+           var rows = api.rows( {page:'current'} ).nodes();
+           var last=null;
+
+           api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
+               if ( last !== group ) {
+                   $(rows).eq( i ).before(
+                       '<tr class="group" style = "background-color: #ddd !important;text-align: center !important"><td colspan="20" >'+group+'</td></tr>'
+                   );
+
+                   last = group;
+               }
+           } );
+       },
+       buttons: [       
+           {
+               "extend": "copyHtml5",
+               "text": "COPIAR",
+               orientation: 'landscape',
+               pageSize: 'LEGAL',
+              
+           },          
+           {
+               "extend": "pdf",
+               "text": "PDF",
+               orientation: 'landscape',
+               pageSize: 'LEGAL',
+               customize: function(doc) {
+                    //pageMargins [left, top, right, bottom] 
+                    doc.pageMargins = [ 10, 20, 10, 10 ];
+                    doc.defaultStyle.fontSize = 8,
+                    doc.styles.tableBodyEven.alignment = 'center';
+                   doc.styles.tableBodyOdd.alignment = 'center';
+                }, 
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+           },
+           {
+               "extend": "excelHtml5",
+               "text": "EXCEL",
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+               customize: function( xlsx ) {
+               var sheet = xlsx.xl.worksheets['sheet1.xml'];
+               $('c', sheet).attr( 's', '51' );
+
+           },
+           orientation: 'landscape',
+               pageSize: 'LEGAL'
+           },
+           {
+               "extend": "print",
+               "text": "IMPRIMIR", 
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+               customize: function ( win ) {
+                    $(win.document.body)
+                    .css( 'font-size', '12px' );
+
+                $(win.document.body).find( 'table' )
+                    .css( 'font-size', '12px' );
+                },
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
             }
-        ],language: {
-            buttons: {
-                copyTitle: 'Copiado para área de transferência',
-                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
-                copySuccess: {
-                    _: '%d linhas copiadas',
-                    1: '1 linha copiada'
-                }
-            },
-            "paginate": {
-                "previous": "Anterior",
-                "next": "Próximo"
-            },
-            "search": "Pesquisar:"
-        },
-        select: true
-    } );
+           
+       ],language: {
+           buttons: {
+               copyTitle: 'Copiado para área de transferência',
+               copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+               copySuccess: {
+                   _: '%d linhas copiadas',
+                   1: '1 linha copiada'
+               }
+           },
+           "paginate": {
+               "previous": "Anterior",
+               "next": "Próximo"
+           },
+           "search": "Pesquisar:"
+       },
+       select: true
+   } );
 } );
+
 
 $('#mytable tbody tr').each(function(i){
             tr=$(this);

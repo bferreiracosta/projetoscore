@@ -8,7 +8,7 @@ module.exports.cadastrar= function(application, req, res){
 	
 	
 	modeladmin.buscarusuario(id, function(error, result){
-		modelplanalto.buscarpaciente(unidade, function(error, resultado){
+		modelplanalto.buscarpacienterelatorio(unidade, function(error, resultado){
 			res.render("kaban/Planalto/kabanpacienteplanalto", {paciente : resultado, id : result});
 		});
 	});	
