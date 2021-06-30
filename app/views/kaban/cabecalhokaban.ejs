@@ -525,6 +525,72 @@
 										<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
 									<% } %>
 									<% } %>
+									<% if(id[i].medico==1){%>
+								<% if(id[i].unidade==1){%>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/exameplanalto?id=<%=id[i].id_usuario %>">Exames</a></li>
+	
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanplanalto?id=<%=id[i].id_usuario %>">Relatório</a></li>
+						
+									<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+								<% } %>
+								<% if(id[i].unidade==2){%>
+									
+										<li class="btn-success"><a class="btn   btn-sm" href="/exameluizote?id=<%=id[i].id_usuario %>">Exames</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanluizote?id=<%=id[i].id_usuario %>">Relatório</a></li>
+						
+									<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+								<% } %>
+								<% if(id[i].unidade==3){%>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/examemartins?id=<%=id[i].id_usuario %>">Exames</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanmartins?id=<%=id[i].id_usuario %>">Relatório</a></li>
+						
+									<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+								<% } %>
+								<% if(id[i].unidade==4){%>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/exameroosevelt?id=<%=id[i].id_usuario %>">Exames</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanroosevelt?id=<%=id[i].id_usuario %>">Relatório</a></li>
+						
+									<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+								<% } %>
+								<% if(id[i].unidade==5){%>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/examemorumbi?id=<%=id[i].id_usuario %>">Exames</a></li>
+		
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanmorumbi?id=<%=id[i].id_usuario %>">Relatório</a></li>
+						
+									<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+								<% } %>
+								<% if(id[i].unidade==6){%>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/exametibery?id=<%=id[i].id_usuario %>">Exames</a></li>
+	
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabantibery?id=<%=id[i].id_usuario %>">Relatório</a></li>
+						
+									<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+								<% } %>
+								<% if(id[i].unidade==7){%>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/examesaojorge?id=<%=id[i].id_usuario %>">Exames</a></li>
+	
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabansaojorge?id=<%=id[i].id_usuario %>">Relatório</a></li>
+						
+									<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+								<% } %>
+								<% if(id[i].unidade==8){%>
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/examepampulha?id=<%=id[i].id_usuario %>">Exames</a></li>
+	
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanpampulha?id=<%=id[i].id_usuario %>">Relatório</a></li>
+						
+									<li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li>
+								<% } %>
+								<% } %>
 									<% if(id[i].administrativo==1){%>
 										<% if(id[i].unidade==1){%>
 											<li class="btn-success"><a class="btn   btn-sm" href="/relatorioadmkabanplanalto?id=<%=id[i].id_usuario %>">Relatório Administrativo</a></li>
