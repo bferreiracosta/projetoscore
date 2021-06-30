@@ -179,7 +179,7 @@ modelmartins.prototype.historico = function(unidade, callback){
 
 modelmartins.prototype.buscardispositivo = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM dispositivokaban dd where unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY idpaciente ', callback);
+	this._conection.query('SELECT * FROM dispositivokaban dd where unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY and status = "Ativo" idpaciente ', callback);
 }
 
 modelmartins.prototype.buscardispositivodataid = function(idpaciente, unidade, callback){
