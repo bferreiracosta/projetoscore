@@ -116,7 +116,7 @@ modelluizote.prototype.buscardispositivohora = function(unidade, callback){
 
 modelluizote.prototype.buscarfugulinhora = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM fugulin dd where setor != "Observação" and unidade = "'+unidade+'" and   status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or setor!= "Observação" and unidade = "'+unidade+'" and (dd.dataatualizacao) is null and  baixa is null  GROUP BY idpaciente;', callback);
+	this._conection.query('SELECT * FROM fugulin dd where setor = "Enfermaria" and unidade = "'+unidade+'" and   status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or setor!= "Observação" and unidade = "'+unidade+'" and (dd.dataatualizacao) is null and  baixa is null  GROUP BY idpaciente;', callback);
 }
 
 modelluizote.prototype.buscarnewshora = function(unidade, callback){
@@ -153,7 +153,7 @@ modelluizote.prototype.buscartissid = function(idpaciente, unidade, callback){
 
 modelluizote.prototype.buscarfugulin = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM fugulin dd where setor != "Observação" and  status = "Ativo" and unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY idpaciente', callback);
+	this._conection.query('SELECT * FROM fugulin dd where setor = "Enfermaria" and  status = "Ativo" and unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY idpaciente', callback);
 }
 
 modelluizote.prototype.buscarnews = function(unidade, callback){
