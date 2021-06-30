@@ -392,7 +392,7 @@ modeltibery.prototype.buscarcirurgicotibery = function(unidade, callback){
 
 modeltibery.prototype.buscarobservacaotibery = function(unidade, callback){
 
-	this._conection.query('select count(acomodacao) as Observação  from kaban where acomodacao = "Observacao" and unidade = "'+unidade+'" and baixa is not null;', callback);
+	this._conection.query('select count(acomodacao) as Observação  from kaban where acomodacao = "Observacao" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
 modeltibery.prototype.buscaraltatibery = function(unidade, callback){

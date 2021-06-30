@@ -392,7 +392,7 @@ modelsaojorge.prototype.buscarcirurgicosaojorge = function(unidade, callback){
 
 modelsaojorge.prototype.buscarobservacaosaojorge = function(unidade, callback){
 
-	this._conection.query('select count(acomodacao) as Observação  from kaban where acomodacao = "Observacao" and unidade = "'+unidade+'" and baixa is not null;', callback);
+	this._conection.query('select count(acomodacao) as Observação  from kaban where acomodacao = "Observacao" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
 modelsaojorge.prototype.buscaraltasaojorge = function(unidade, callback){

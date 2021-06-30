@@ -390,7 +390,7 @@ modelplanalto.prototype.buscarcirurgicoplanalto = function(unidade, callback){
 
 modelplanalto.prototype.buscarobservacaoplanalto = function(unidade, callback){
 
-	this._conection.query('select count(acomodacao) as Observação  from kaban where acomodacao = "Observacao" and unidade = "'+unidade+'" and baixa is not null;', callback);
+	this._conection.query('select count(acomodacao) as Observação  from kaban where acomodacao = "Observacao" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
 modelplanalto.prototype.buscaraltaplanalto = function(unidade, callback){
