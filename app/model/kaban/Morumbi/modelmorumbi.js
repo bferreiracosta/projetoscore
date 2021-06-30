@@ -417,7 +417,7 @@ modelmorumbi.prototype.buscarobitomorumbi = function(unidade, callback){
 
 modelmorumbi.prototype.buscarinternacaodiamorumbi = function(unidade, callback){
 
-	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%Y-%m-%d") as hoje);', callback);
+	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
 modelmorumbi.prototype.buscarsetoresmorumbi = function(callback){

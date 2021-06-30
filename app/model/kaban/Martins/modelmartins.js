@@ -422,7 +422,7 @@ modelmartins.prototype.buscarobitomartins = function(unidade, callback){
 
 modelmartins.prototype.buscarinternacaodiamartins = function(unidade, callback){
 
-	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%Y-%m-%d") as hoje);', callback);
+	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
 modelmartins.prototype.buscarsetoresmartins = function(callback){
@@ -447,7 +447,7 @@ modelmartins.prototype.buscarbanhonoitemartins = function(callback){
 
 modelmartins.prototype.buscartransfegomartins = function(callback){
 
-	this._conection.query('SELECT count(destino) as obst from obstetricia where destino = "transferências" and dataatendimento =(select DATE_FORMAT(NOW(), "%Y-%m-%d") as hoje);', callback);
+	this._conection.query('SELECT count(destino) as obst from obstetricia where destino = "transferências" and dataatendimento =(select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
 modelmartins.prototype.buscargomartins = function(unidade, callback){

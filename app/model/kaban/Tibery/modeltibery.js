@@ -417,7 +417,7 @@ modeltibery.prototype.buscarobitotibery = function(unidade, callback){
 
 modeltibery.prototype.buscarinternacaodiatibery = function(unidade, callback){
 
-	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%Y-%m-%d") as hoje);', callback);
+	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
 modeltibery.prototype.buscarsetorestibery = function(callback){
