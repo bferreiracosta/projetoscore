@@ -162,7 +162,7 @@ window.onload = function() {
 function novaHora(){
 	
 	var date = new Date();
-	document.getElementById('dataatendimento').value = date.getDate() +'/'+ ("0" + (date.getMonth() + 1)).slice(-2) +'/'+ date.getFullYear();
+	document.getElementById('dataatendimento').value = ("0" + date.getDate()).slice(-2) +'/'+ ("0" + (date.getMonth() + 1)).slice(-2) +'/'+ date.getFullYear();
 }
 novaHora();
 </script>
