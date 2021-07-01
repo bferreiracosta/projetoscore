@@ -120,57 +120,19 @@
 						<% if(id.length > 0) { %>
 							<% for(var i = 0; i < id.length; i++) {%>
 								<% if(id[i].autorizacao==1){%>
-									 <li class="btn-success"><a class="btn  btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a> </li>
+									<li class="btn-success"><a class="btn  btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a> </li>
+									<li class="btn-success"><a class="btn  btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a> </li>
+									<li class="btn-success"><a class="btn  btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a> </li>
+									<li class="btn-success"><a class="btn  btn-sm" href="obito?id=<%=id[i].id_usuario %>">Obito</a> </li>
+									<li class="btn-success"><a class="btn  btn-sm" href="rouparia?id=<%=id[i].id_usuario %>">Rouparia</a> </li>
+									<li class="btn-success"><a class="btn  btn-sm" href="isolamento?id=<%=id[i].id_usuario %>">Isolamento</a> </li>
+									<li class="btn-success"><a class="btn  btn-sm" href="sepse?id=<%=id[i].id_usuario %>">Sepse</a> </li>
+									<li class="btn-success"><a class="btn  btn-sm" href="indicador?id=<%=id[i].id_usuario %>">Indicador</a> </li>
+									<li class="btn-success"><a class="btn  btn-sm" href="lixo?id=<%=id[i].id_usuario %>">Lixo Hospitalar</a> </li>
+									<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a> </li>
 						<% } %>
 							<% } %>	
 								<% } %>
-								<% if(id.length > 0) { %>
-									<% for(var i = 0; i < id.length; i++) {%>
-										<% if(id[i].autorizacao==5){%>
-									 <li class="btn-success"><a class="btn  btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="obito?id=<%=id[i].id_usuario %>">Obito</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="rouparia?id=<%=id[i].id_usuario %>">Rouparia</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="isolamento?id=<%=id[i].id_usuario %>">Isolamento</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="sepse?id=<%=id[i].id_usuario %>">Sepse</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="indicador?id=<%=id[i].id_usuario %>">Indicador</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="lixo?id=<%=id[i].id_usuario %>">Lixo Hospitalar</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a> </li>
-								<% } %>
-									<% } %>	
-										<% } %>
-										<% if(id.length > 0) { %>
-											<% for(var i = 0; i < id.length; i++) {%>
-												<% if(id[i].autorizacao==3){%>
-									 <li class="btn-success"><a class="btn  btn-sm" href="obito?id=<%=id[i].id_usuario %>">Obito</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="isolamento?id=<%=id[i].id_usuario %>">Isolamento</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="sepse?id=<%=id[i].id_usuario %>"></a>Sepse </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a> </li>
-										<% } %>
-											<% } %>	
-												<% } %>
-							<% if(id.length > 0) { %>
-								<% for(var i = 0; i < id.length; i++) {%>
-									<% if(id[i].autorizacao==2){%>
-									 <li class="btn-success"><a class="btn  btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a> </li>
-									 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a> </li>
-							<% } %>
-								<% } %>	
-								<% } %>	
-								<% if(id.length > 0) { %>
-						        	<% for(var i = 0; i < id.length; i++) {%>
-							        	<% if(id[i].autorizacao==4){%>
-						        	 <li class="btn-success"><a class="btn  btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a> </li>
-						        	 <li class="btn-success"><a class="btn  btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a> </li>
-                                     <li class="btn-success"><a class="btn  btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a> </li>
-							         <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a> </li>
-					            <% } %>
-						        	<% } %>	
-							            <% } %>
 									</ul>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
