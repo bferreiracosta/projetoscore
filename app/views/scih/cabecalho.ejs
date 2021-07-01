@@ -120,9 +120,6 @@
 						<% if(id.length > 0) { %>
 							<% for(var i = 0; i < id.length; i++) {%>
 								<% if(id[i].autorizacao==1){%>
-									<li class="btn-success"><a class="btn  btn-sm" href="paciente?id=<%=id[i].id_usuario %>">Cadastrar Exames</a> </li>
-									<li class="btn-success"><a class="btn  btn-sm" href="pacientes?id=<%=id[i].id_usuario %>">Relatorio Exames</a> </li>
-									<li class="btn-success"><a class="btn  btn-sm" href="status?id=<%=id[i].id_usuario %>">Status Covid</a> </li>
 									<li class="btn-success"><a class="btn  btn-sm" href="obito?id=<%=id[i].id_usuario %>">Obito</a> </li>
 									<li class="btn-success"><a class="btn  btn-sm" href="rouparia?id=<%=id[i].id_usuario %>">Rouparia</a> </li>
 									<li class="btn-success"><a class="btn  btn-sm" href="isolamento?id=<%=id[i].id_usuario %>">Isolamento</a> </li>
