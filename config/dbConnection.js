@@ -22,7 +22,7 @@ const pool = mysql.createPool({
 
 
 
-// pool.on('release', () => console.log('')); 
+
 
 process.on('SIGINT', () => 
     pool.end(err => {
@@ -35,7 +35,6 @@ pool => (req, res, next) => {
 
     pool.getConnection((err, connection) => {
         if(err) return next(err);
-
         // adicionou a conexão na requisição
         req.connection = connection;
         // passa a requisição o próximo middleware
@@ -44,7 +43,6 @@ pool => (req, res, next) => {
         res.on('finish', () => req.connection.release());
     });
 };
-
 module.exports = function () {
 	return pool;
 }
