@@ -59,54 +59,42 @@
             </tfoot>
         </table>
         <form id="add-row-form" action="/editarleitosaojorge" method="POST">
-            <div class="modal fade" id="DescModal" role="dialog">
-                 <div class="modal-dialog">
-                     <div class="modal-content">
-                         <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                              <h3 class="modal-title">Atualização Setor</h3>
-                         </div>
+       <div class="modal fade" id="DescModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                         <h3 class="modal-title">Atualização Setor</h3>
+                    </div>
+                   
+                    <div class="modal-body">
+                        <h1 class="setor"></h1>
+                        <input type="hidden" name="setor" id="campo" class="form-control setor2"  >
+                        <label for="paciente">Leito Bloqueado</label>
+						<select class="form-control leito" onchange="verifica(this.value)" id="leito" name="leito" required>
+							<option value="sim" >Sim</option>
+							<option value="nao" >Não</option>
+						</select>
+						<input  id="leitos" class="form-control leitos"  type="hidden" name="leitos">
+                        <div class="form-group">
+                            <label for="posto"> Ocupação</label>
+                            <input type="text" name="capacidade" id="cama" class="form-control capacidade"  >
+                        </div>
                         
-                         <div class="modal-body">
-                             <h1 class="setor"></h1>
-                             <input type="hidden" name="setor" id="campo" class="form-control setor2"  >
-                             <label for="paciente">Leito Bloqueado</label>
-                             <select class="form-control leito" onchange="verifica(this.value)" id="leito" name="leito" required>
-                                 <option value="sim" >Sim</option>
-                                 <option value="nao" >Não</option>
-                             </select>
-                             <input  id="leitos" class="form-control leitos"  type="hidden" name="leitos">
-                             <div class="form-group">
-                                 <label hidden for="posto"> Camas Ocupados</label>
-                                 <input  type="hidden" name="capacidadecamasocupadas" id="cama" class="form-control cama"  >
-                             </div>
-                             <div class="form-group">
-                                 <label hidden for="posto"> Macas Ocupados</label>
-                                 <input type="hidden" name="capacidademacasocupadas" id="maca" class="form-control maca"  >
-                             </div> 
-                             <div class="form-group">
-                                 <label hidden for="posto"> Berços Ocupados</label>
-                                 <input type="hidden" name="capacidadebercoocupado" id="macaparada" class="form-control macaparada"  >
-                             </div> 
-                             <div class="form-group">
-                                 <label hidden for="posto"> Maca PCR</label>
-                                 <input type="hidden" name="capacidademacasparadavaga" id="berco" class="form-control berco" >
-                             </div> 
-                             
-                         <input  type="hidden" class="form-control idusuario"  name="idusuario" id="idusuario">
-                         <input  type="hidden" class="form-control data"  name="data" id="data">
-                         <input  type="hidden" class="form-control hora"  name="hora" id="hora">
-                         
-                         <div class="modal-footer">
-                             <button type="submit" class="btn btn-success">Atualizar</button>
-                             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                         </div>
-                     </div>
-                     <!-- /.modal-content -->
-                 </div>
-                 <!-- /.modal-dialog-->
-             </div>
-         </form>
+                    <input  type="hidden" class="form-control idusuario"  name="idusuario" id="idusuario">
+                    <input  type="hidden" class="form-control data"  name="data" id="data">
+                    <input  type="hidden" class="form-control hora"  name="hora" id="hora">
+                    
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Atualizar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog-->
+        </div>
+    </form>
         <br>
         <br>
         <br>
@@ -160,13 +148,20 @@ function novaHora(){
 novaHora();
 function verifica(value){
 		
-        if(value == 'sim' ){
-          document.getElementById('leitos').value = "sim";
-  
-      }else{
-          document.getElementById('leitos').value = "nao";
-      }
-  }	
+	  if(value == 'sim' ){
+		document.getElementById('leitos').value = "sim";
+        document.getElementById('capacidade').value=0;
+        $('#mytable tbody tr').each(function(i){
+            tr=$(this);
+            tr.children('td').removeClass('fundoIdade');
+            tr.children('td:eq(13)').addClass('fundoIdade1');
+        });
+
+    }else{
+        document.getElementById('leitos').value = "nao";
+        document.getElementById('capacidade').value="";
+    }
+}	
  $(document).ready(function() {
         $('#mytable').DataTable( {
             dom: 'Bfrtip',

@@ -950,6 +950,7 @@ module.exports.cadastrarfugulin= function(application, req, res){
 		}else{
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
 				modelluizote.addfugulin(idpaciente, setor, nome , mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,data,unidade,  function(error, resulta){
+					console.log(json[0].idfugulin)
 					modelluizote.updatefugulinstatus(json[0].idfugulin, function(error, resulta){
 						modelluizote.buscarfugulin(unidade, function(error, resultado){
 							res.render("kaban/Luizote/fugulinluizote", {fugulin: resultado, id : result});
