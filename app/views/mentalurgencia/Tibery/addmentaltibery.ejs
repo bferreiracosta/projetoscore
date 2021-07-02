@@ -74,10 +74,13 @@
      var exame = $(this).val();
      document.getElementById('referencia').value = exame;
 });
+function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
 function novaHora(){
+	
 	var date = new Date();
-		var data = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
-		document.getElementById('dataa').value = data;
+	document.getElementById('dataa').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
 	
 }
 novaHora();
