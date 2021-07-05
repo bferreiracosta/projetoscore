@@ -1495,7 +1495,7 @@ module.exports.baixa= function(application, req, res){
 	modelplanalto.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 		
 	modelplanalto.buscarleitosid(setoresrecuperado, function(error, idleito){
-		if(setoresrecuperado[0].leito == "Maca"){	
+		if(setoresrecuperado[0].acomodacao == "Maca"){	
 			modeladmingestao.updateleitosplanaltomaca(setoresrecuperado[0].setor, function(error, resulta){
 	modelplanalto.buscarpacienteporid(idpaciente, function(error, idpac){
 		modelcovidplanalto.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
@@ -1612,7 +1612,7 @@ module.exports.baixa= function(application, req, res){
 		})	
 	})
 })
-}	if(setoresrecuperado[0].leito == "Cama"){
+}	if(setoresrecuperado[0].acomodacao == "Cama"){
 	modeladmingestao.updateleitosplanaltocama(setoresrecuperado[0].setor, function(error, resulta){
 		modelplanalto.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidplanalto.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
@@ -1731,7 +1731,7 @@ module.exports.baixa= function(application, req, res){
 	})
 	}	
 
-	if(setoresrecuperado[0].leito == null){
+	if(setoresrecuperado[0].acomodacao == null){
 		
 			modelplanalto.buscarpacienteporid(idpaciente, function(error, idpac){
 				modelcovidplanalto.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	

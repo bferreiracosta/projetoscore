@@ -1491,7 +1491,7 @@ module.exports.baixa= function(application, req, res){
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	modelsaojorge.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 	modelsaojorge.buscarleitosid(setoresrecuperado, function(error, idleito){
-		if(setoresrecuperado[0].leito == "Maca"){	
+		if(setoresrecuperado[0].acomodacao == "Maca"){	
 			modeladmingestao.updateleitossaojorgemaca(setoresrecuperado[0].setor, function(error, resulta){
 	modelsaojorge.buscarpacienteporid(idpaciente, function(error, idpac){
 		modelcovidsaojorge.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
@@ -1616,7 +1616,7 @@ module.exports.baixa= function(application, req, res){
 		})	
 	})
 })
-}	if(setoresrecuperado[0].leito == "Cama"){
+}	if(setoresrecuperado[0].acomodacao == "Cama"){
 	modeladmingestao.updateleitossaojorgecama(setoresrecuperado[0].setor, function(error, resulta){
 		modelsaojorge.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidsaojorge.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
@@ -1742,7 +1742,7 @@ module.exports.baixa= function(application, req, res){
 		})
 	})
 	}	
-	if(setoresrecuperado[0].leito == null){
+	if(setoresrecuperado[0].acomodacao == null){
 		
 		modelsaojorge.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidsaojorge.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	

@@ -1490,7 +1490,7 @@ module.exports.baixa= function(application, req, res){
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	modelmorumbi.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 	modelmorumbi.buscarleitosid(setoresrecuperado, function(error, idleito){
-		if(setoresrecuperado[0].leito == "Maca"){	
+		if(setoresrecuperado[0].acomodacao == "Maca"){	
 			modeladmingestao.updateleitosmorumbimaca(setoresrecuperado[0].setor, function(error, resulta){
 	modelmorumbi.buscarpacienteporid(idpaciente, function(error, idpac){
 		modelcovidmorumbi.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
@@ -1615,7 +1615,7 @@ module.exports.baixa= function(application, req, res){
 		})	
 	})
 })
-}	if(setoresrecuperado[0].leito == "Cama"){
+}	if(setoresrecuperado[0].acomodacao == "Cama"){
 	modeladmingestao.updateleitosmorumbicama(setoresrecuperado[0].setor, function(error, resulta){
 		modelmorumbi.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidmorumbi.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
@@ -1741,7 +1741,7 @@ module.exports.baixa= function(application, req, res){
 		})
 	})
 	}	
-	if(setoresrecuperado[0].leito == null){
+	if(setoresrecuperado[0].acomodacao == null){
 		
 		modelmorumbi.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidmorumbi.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	

@@ -1502,7 +1502,7 @@ module.exports.baixa= function(application, req, res){
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	modelluizote.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 	modelluizote.buscarleitosid(setoresrecuperado, function(error, idleito){
-		if(setoresrecuperado[0].leito == "Maca"){	
+		if(setoresrecuperado[0].acomodacao == "Maca"){	
 			modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
 	modelluizote.buscarpacienteporid(idpaciente, function(error, idpac){
 		modelcovidluizote.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
@@ -1627,7 +1627,7 @@ module.exports.baixa= function(application, req, res){
 		})	
 	})
 })
-}	if(setoresrecuperado[0].leito == "Cama"){
+}	if(setoresrecuperado[0].acomodacao == "Cama"){
 	modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
 		modelluizote.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidluizote.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
@@ -1753,7 +1753,7 @@ module.exports.baixa= function(application, req, res){
 		})
 	})
 	}	
-	if(setoresrecuperado[0].leito == null){
+	if(setoresrecuperado[0].acomodacao == null){
 		
 		modelluizote.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidluizote.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	

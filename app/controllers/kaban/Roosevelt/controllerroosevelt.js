@@ -1491,7 +1491,7 @@ module.exports.baixa= function(application, req, res){
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	modelroosevelt.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 	modelroosevelt.buscarleitosid(setoresrecuperado, function(error, idleito){
-		if(setoresrecuperado[0].leito == "Maca"){	
+		if(setoresrecuperado[0].acomodacao == "Maca"){	
 			modeladmingestao.updateleitosrooseveltmaca(setoresrecuperado[0].setor, function(error, resulta){
 	modelroosevelt.buscarpacienteporid(idpaciente, function(error, idpac){
 		modelcovidroosevelt.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
@@ -1616,7 +1616,7 @@ module.exports.baixa= function(application, req, res){
 		})	
 	})
 })
-}	if(setoresrecuperado[0].leito == "Cama"){
+}	if(setoresrecuperado[0].acomodacao == "Cama"){
 	modeladmingestao.updateleitosrooseveltcama(setoresrecuperado[0].setor, function(error, resulta){
 		modelroosevelt.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidroosevelt.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
@@ -1742,7 +1742,7 @@ module.exports.baixa= function(application, req, res){
 		})
 	})
 	}	
-	if(setoresrecuperado[0].leito == null){
+	if(setoresrecuperado[0].acomodacao == null){
 		
 		modelroosevelt.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidroosevelt.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
