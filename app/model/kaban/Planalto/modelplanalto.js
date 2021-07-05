@@ -109,6 +109,12 @@ modelplanalto.prototype.buscarleitos = function(valor, callback){
 
 }
 
+modelplanalto.prototype.buscaracomodacao = function(valor, callback){
+
+	this._conection.query('select * from acomodacao inner join setor on acomodacao.idsetor = setor.idsetor inner join leitos on acomodacao.idleito = leitos.idleito where setor.setor = "'+valor.valorsetor+'" and leitos = "'+valor.valorleito+'" and acomodacao.unidade = "Luizote" and leitos.status = "Ativo";', callback);
+
+}
+
 modelplanalto.prototype.buscardispositivohora = function(unidade, callback){
 	
 	this._conection.query('SELECT * FROM dispositivokaban dd where unidade = "'+unidade+'" and  status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or unidade = "'+unidade+'" and (dd.dataatualizacao) is null and  baixa is null  GROUP BY idpaciente;', callback);
