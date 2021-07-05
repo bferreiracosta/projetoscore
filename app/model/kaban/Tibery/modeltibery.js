@@ -402,23 +402,24 @@ modeltibery.prototype.buscarobservacaotibery = function(unidade, callback){
 
 modeltibery.prototype.buscaraltatibery = function(unidade, callback){
 
-	this._conection.query('select count(baixa) as Altas  from kaban where baixa = "alta" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+	this._conection.query('select count(baixa) as Altas  from kaban where baixa = "Alta" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
 modeltibery.prototype.buscarevasaotibery = function(unidade, callback){
 
-	this._conection.query('select count(baixa) as Evasão  from kaban where baixa = "evasao" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+	this._conection.query('select count(baixa) as Evasão  from kaban where baixa = "Evasão" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
 modeltibery.prototype.buscartransferenciatibery = function(unidade, callback){
 
-	this._conection.query('select count(baixa) as Transferência  from kaban where baixa = "transferencia" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+	this._conection.query('select count(baixa) as Transferência  from kaban where baixa = "Transferência" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
 modeltibery.prototype.buscarobitotibery = function(unidade, callback){
 
-	this._conection.query('select count(baixa) as Obitos  from kaban where baixa = "obito" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+	this._conection.query('select count(baixa) as Obitos  from kaban where baixa = "Óbito" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
+
 
 modeltibery.prototype.buscarinternacaodiatibery = function(unidade, callback){
 

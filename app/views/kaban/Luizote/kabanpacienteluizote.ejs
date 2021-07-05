@@ -328,7 +328,7 @@ return (ano_atual - data_aniversario);
     function novaHora(){
         
         var date = new Date();
-        document.getElementById('data').value = date.getDate() + "/" + (("0" + (date.getMonth() + 1)).slice(-2)) + "/" + date.getFullYear();
+        document.getElementById('data').value = ("0" + date.getDate()).slice(-2) + "/" + (("0" + (date.getMonth() + 1)).slice(-2)) + "/" + date.getFullYear();
     }
     novaHora();
     
