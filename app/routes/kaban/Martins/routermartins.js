@@ -144,6 +144,18 @@ module.exports = function(application) {
 		
 	});
 	
+	application.get('/buscaracomodacaomartins', function(req, res){
+		
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Martins.controllermartins.buscaracomodacao(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+	
 	application.get('/buscarleitosmartins', function(req, res){
 		
 		if(req.session.loggedin){

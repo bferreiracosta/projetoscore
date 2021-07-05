@@ -55,8 +55,7 @@ modeltibery.prototype.baixacentral = function(idpaciente,baixa, callback){
 
 modeltibery.prototype.buscarleitosid = function(valor,callback){
 
-	this._conection.query('select idleito from leitos where idsetor = (select idsetor from setor where setor = "'+valor[0].setor+'"and unidade = "Tibery") and leito = "'+valor[0].leito+'" and unidade = "Tibery" and status = "Inativo" limit 1', callback);
-
+	this._conection.query('select idleito from leitos where idsetor = (select idsetor from setor where setor = "'+valor[0].setor+'"and unidade = "Tibery") and leitos = "'+valor[0].leito+'" and unidade = "Tibery" and status = "Inativo" limit 1', callback);
 }
 
 modeltibery.prototype.buscarleitosnome = function(valor,callback){
@@ -66,7 +65,7 @@ modeltibery.prototype.buscarleitosnome = function(valor,callback){
 
 modeltibery.prototype.buscarleitospacientesporid = function(valor, callback){
 	
-	this._conection.query('select setor, leito from leitokaban where idpaciente = "'+valor+'"', callback);
+	this._conection.query('select setor, leito, acomodacao from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
 modeltibery.prototype.buscarleitospacientespornome = function(valor, callback){
@@ -74,14 +73,14 @@ modeltibery.prototype.buscarleitospacientespornome = function(valor, callback){
 	this._conection.query('select nome from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
-modeltibery.prototype.atualizarleitokaban = function(idpaciente, setor, leito, callback){
+modeltibery.prototype.atualizarleitokaban = function(idpaciente, setor, leito,acomodacao, callback){
 	
-	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'" where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'", acomodacao = "'+acomodacao+'"  where idpaciente = '+ idpaciente, callback);
 }
 
 modeltibery.prototype.buscarleitoativo = function(idsetor, leito, callback){
 
-	this._conection.query('select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leito = "'+leito+'" and status = "Ativo" limit 1', callback);
+	this._conection.query('select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leitos = "'+leito+'" and status = "Ativo" limit 1', callback);
 }
 
 modeltibery.prototype.updateleitos = function(idleito, callback){

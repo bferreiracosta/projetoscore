@@ -144,6 +144,18 @@ module.exports = function(application) {
 		
 	});
 	
+	application.get('/buscaracomodacaotibery', function(req, res){
+		
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Tibery.controllertibery.buscaracomodacao(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+	
 	application.get('/buscarleitostibery', function(req, res){
 		
 		if(req.session.loggedin){

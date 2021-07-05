@@ -143,7 +143,19 @@ module.exports = function(application) {
 		}
 		
 	});
-	
+
+	application.get('/buscaracomodacaosaojorge', function(req, res){
+		
+		if(req.session.loggedin){
+			application.app.controllers.kaban.SaoJorge.controllersaojorge.buscaracomodacao(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+		
 	application.get('/buscarleitossaojorge', function(req, res){
 		
 		if(req.session.loggedin){

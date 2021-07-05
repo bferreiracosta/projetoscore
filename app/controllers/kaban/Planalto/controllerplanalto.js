@@ -151,121 +151,94 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 	var idpaciente = req.body.idpaciente;
 	var setor = req.body.setor2;
 	var leito = req.body.leito2;
+	var acomodacao = req.body.acomodacao2;
 	var id = req.body.idusuario;
-
-	
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelplanalto.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
-			modelplanalto.buscarleitosid(setoresrecuperado, function(error, idleito){
-				modelplanalto.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
+			if(setoresrecuperado[0].acomodacao == null){
+				modelplanalto.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
 					modelplanalto.buscarsetoresid(setor, function(error, resultado){
 						modelplanalto.buscarleitoativo(resultado,leito, function(error, idleitos){
 							modelplanalto.updateleitos(idleitos, function(error, resultado){
-								if(setoresrecuperado[0].leito == null){
-									if(leito == "Maca"){
+								modelplanalto.buscarleitospacientes(function(error, resultadosetores){
+									if(acomodacao == "Maca"){
 										modeladmingestao.updateleitosplanaltomacamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
+											res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
+										});
 									}else{
 										modeladmingestao.updateleitosplanaltocamamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
+											res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
+										});
+									}
+								});
+							});
+						});
+					});
+				});
+			}
+			if(setoresrecuperado[0].acomodacao == "Cama"){
+				modelplanalto.buscarleitosid(setoresrecuperado, function(error, idleito){
+					modelplanalto.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
+						modelplanalto.buscarsetoresid(setor, function(error, resultado){
+							modelplanalto.buscarleitoativo(resultado,leito, function(error, idleitos){
+								modelplanalto.updateleitos(idleitos, function(error, resultado){
+									modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
+										modelplanalto.buscarleitospacientes(function(error, resultadosetores){
+											if(acomodacao == "Maca"){
+												modeladmingestao.updateleitosplanaltomacamais(setor, function(error, resulta){
+													modeladmingestao.updateleitosplanaltocama(setoresrecuperado[0].setor, function(error, resulta){
+														res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
+													});
 												});
 											}else{
-												modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelplanalto.buscarleitospacientes(function(error, resultadosetores){
+												modeladmingestao.updateleitosplanaltocamamais(setor, function(error, resulta){
+													modeladmingestao.updateleitosplanaltocama(setoresrecuperado[0].setor, function(error, resulta){
 														res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
 													});
 												});
 											}
-										});	
-									}		
-								}
-								if(setoresrecuperado[0].leito == "Maca"){
-									modeladmingestao.updateleitosplanaltomaca(setoresrecuperado[0].setor, function(error, resulta){
-										if(leito == "Maca"){
-											modeladmingestao.updateleitosplanaltomacamais(setor, function(error, resulta){
-												if(setoresrecuperado[0].setor == null){
-													modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
-													});
-												}else{
-													modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-														modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-															res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
-														});
-													});
-												}
-											});	
-										}else{
-											modeladmingestao.updateleitosplanaltocamamais(setor, function(error, resulta){
-												if(setoresrecuperado[0].setor == null){
-													modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
-													});
-												}else{
-													modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-														modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-															res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
-														});
-													});
-												}
-											});	
-										}
-									});		
-								}
-								if(setoresrecuperado[0].leito == "Cama"){
-									modeladmingestao.updateleitosplanaltocama(setoresrecuperado[0].setor, function(error, resulta){
-										if(leito == "Maca"){
-											modeladmingestao.updateleitosplanaltomacamais(setor, function(error, resulta){
-												if(setoresrecuperado[0].setor == null){
-													modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
-													});
-												}else{
-													modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-														modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-															res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
-														});
-													});
-												}
-											});	
-										}else{
-											modeladmingestao.updateleitosplanaltocamamais(setor, function(error, resulta){
-												if(setoresrecuperado[0].setor == null){
-													modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
-													});
-												}else{
-													modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-														modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-															res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
-														});
-													});
-												}
-											});	
-										}
-									});			
-								}
+										});
+									});	
+								});
 							});
-						})
-					});	
-				});	
-			});		
+						});
+					});
+				});
+			}
+			if(setoresrecuperado[0].acomodacao == "Maca"){
+				modelplanalto.buscarleitosid(setoresrecuperado, function(error, idleito){
+					modelplanalto.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
+						modelplanalto.buscarsetoresid(setor, function(error, resultado){
+							modelplanalto.buscarleitoativo(resultado,leito, function(error, idleitos){
+								modelplanalto.updateleitos(idleitos, function(error, resultado){
+									modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
+										modelplanalto.buscarleitospacientes(function(error, resultadosetores){
+											if(acomodacao == "Maca"){
+												modeladmingestao.updateleitosplanaltomacamais(setor, function(error, resulta){
+													modeladmingestao.updateleitosplanaltomaca(setoresrecuperado[0].setor, function(error, resulta){
+														res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
+													});
+												});
+											}else{
+												modeladmingestao.updateleitosplanaltocamamais(setor, function(error, resulta){
+													modeladmingestao.updateleitosplanaltomaca(setoresrecuperado[0].setor, function(error, resulta){
+														res.render("kaban/Planalto/leitosplanalto", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});
+									});	
+								});
+							});
+						});
+					});
+				});
+
+			}
+			
 		});
-	});	
-}
+	});
+}	
 
 module.exports.leitos= function(application, req, res){
 	

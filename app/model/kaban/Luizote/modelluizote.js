@@ -55,7 +55,7 @@ modelluizote.prototype.baixacentral = function(idpaciente,baixa, callback){
 
 modelluizote.prototype.buscarleitosid = function(valor,callback){
 
-	this._conection.query('select idleito from leitos where idsetor = (select idsetor from setor where setor = "'+valor[0].setor+'"and unidade = "Luizote") and leito = "'+valor[0].leito+'" and unidade = "Luizote" and status = "Inativo" limit 1', callback);
+	this._conection.query('select idleito from leitos where idsetor = (select idsetor from setor where setor = "'+valor[0].setor+'"and unidade = "Luizote") and leitos = "'+valor[0].leito+'" and unidade = "Luizote" and status = "Inativo" limit 1', callback);
 }
 
 modelluizote.prototype.buscarleitosnome = function(valor,callback){
@@ -65,7 +65,7 @@ modelluizote.prototype.buscarleitosnome = function(valor,callback){
 
 modelluizote.prototype.buscarleitospacientesporid = function(valor, callback){
 	
-	this._conection.query('select setor, leito from leitokaban where idpaciente = "'+valor+'"', callback);
+	this._conection.query('select setor, leito, acomodacao from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
 modelluizote.prototype.buscarleitospacientespornome = function(valor, callback){
@@ -73,18 +73,18 @@ modelluizote.prototype.buscarleitospacientespornome = function(valor, callback){
 	this._conection.query('select nome from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
-modelluizote.prototype.atualizarleitokaban = function(idpaciente, setor, leito, callback){
+modelluizote.prototype.atualizarleitokaban = function(idpaciente, setor, leito,acomodacao, callback){
 	
-	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'" where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'", acomodacao = "'+acomodacao+'"  where idpaciente = '+ idpaciente, callback);
 }
 
 modelluizote.prototype.buscarleitoativo = function(idsetor, leito, callback){
 
-	this._conection.query('select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leito = "'+leito+'" and status = "Ativo" limit 1', callback);
+	this._conection.query('select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leitos = "'+leito+'" and status = "Ativo" limit 1', callback);
 }
 
 modelluizote.prototype.updateleitos = function(idleito, callback){
-	
+
 	this._conection.query('update leitos set status = "Inativo"  where idleito = "'+idleito[0].idleito+'"', callback);
 }
 
@@ -106,6 +106,12 @@ modelluizote.prototype.buscarsetores = function(callback){
 modelluizote.prototype.buscarleitos = function(valor, callback){
 
 	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo"  and setor.unidade = "Luizote"', callback);
+
+}
+
+modelluizote.prototype.buscaracomodacao = function(valor, callback){
+
+	this._conection.query('select * from acomodacao inner join setor on acomodacao.idsetor = setor.idsetor inner join leitos on acomodacao.idleito = leitos.idleito where setor.setor = "'+valor.valorsetor+'" and leitos = "'+valor.valorleito+'" and acomodacao.unidade = "Luizote" and leitos.status = "Ativo";', callback);
 
 }
 

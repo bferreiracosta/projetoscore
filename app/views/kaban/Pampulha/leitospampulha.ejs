@@ -18,6 +18,8 @@
                     <th>Setor</th>
                    
                     <th>Leito</th>
+
+                    <th>Acomodação</th>
                   
                 </tr>
             </thead>
@@ -33,6 +35,8 @@
                     <td><%=leito[j].setor %></td>    
                     
                     <td><%=leito[j].leito %></td>   
+
+                    <td><%=leito[j].acomodacao %></td>   
                 </tr>
                 <% } %>	
                 <% } %>
@@ -57,8 +61,8 @@
                             <input type="hidden" name="idpaciente" id="idpaciente" class="form-control id"  >
                         </div> 
                         <div class="form-group">
-                            <label for="posto"> Setor</label >
-                            <select name="setor" id="setor" class="form-control setor"  required>
+                            <label for="posto"> Setor</label>
+                            <select name="setor" id="setor" class="form-control setor" required >
                                 <option ></option> 
                             </select>
                             <input type="hidden" name="setor2" id="setor2" class="form-control setor2"  >
@@ -69,6 +73,13 @@
                                 <option></option>  
                             </select>
                             <input type="hidden" name="leito2" id="leito2" class="form-control leito2"  >
+                        </div> 
+                        <div class="form-group">
+                            <label for="posto"> Acomodação</label>
+                            <select name="acomodacao" id="acomodacao" class="form-control leito" required >
+                                <option></option>  
+                            </select>
+                            <input type="hidden" name="acomodacao2" id="acomodacao2" class="form-control acomodacao2"  >
                         </div> 
                         
                     <input  type="hidden" class="form-control idusuario"  name="idusuario" id="idusuario">
@@ -139,7 +150,7 @@ $("#setor").on('change', function(e){
             if (data.length > 0){
                 var option = '<option>Selecione o Leito </option>';
                 for (var i=0;i<data.length;i++){
-                var leito = data[i].leito;
+                var leito = data[i].leitos;
                 option += '<option value="'+leito+'">'+leito+'</option>';
             }
 			  $('#leito').html(option).show();
@@ -147,6 +158,31 @@ $("#setor").on('change', function(e){
         }
     });
 });
+
+$("#leito").on('change', function(e){
+    var select = document.getElementById("setor");
+    var opcaoValor =  select.options[select.selectedIndex].value;
+    var selectleito = document.getElementById("leito");
+    var opcaoValorleito =  selectleito.options[selectleito.selectedIndex].value;
+    dataleito = [];
+    $.ajax({
+        type: "GET",
+        data: { valorleito: opcaoValorleito, valorsetor: opcaoValor},
+        contentType: 'application/json',
+        url: '/buscaracomodacaopampulha',
+        success: function(dataleito) {  
+            if (dataleito.length > 0){
+                var option = '<option>Selecione a Acomodação </option>';
+                for (var i=0;i<dataleito.length;i++){
+                var acomodacao = dataleito[i].acomodacao;
+                option += '<option value="'+acomodacao+'">'+acomodacao+'</option>';
+            }
+			  $('#acomodacao').html(option).show();
+            }
+        }
+    });
+});
+
 $("#setor").on('change', function(e){
 	var setor = document.getElementById('setor').value;
 	document.getElementById('setor2').value = setor;
@@ -155,6 +191,11 @@ $("#setor").on('change', function(e){
 $("#leito").on('change', function(e){
 	var leito = document.getElementById('leito').value;
 	document.getElementById('leito2').value = leito;
+});
+
+$("#acomodacao").on('change', function(e){
+	var acomodacao = document.getElementById('acomodacao').value;
+	document.getElementById('acomodacao2').value = acomodacao;
 });
 
 $('#mytable').on('dblclick', 'tr', function () {
@@ -172,7 +213,6 @@ $('#mytable').on('dblclick', 'tr', function () {
          leito2 =$.trim(tableData[3]);
          nome =$.trim(tableData[1]);
          idpaciente =$.trim(tableData[0]);
-
          $('input.setor2').val(setor2);
          $('input.leito2').val(leito2);
          $('input.id').val(idpaciente);
@@ -205,7 +245,7 @@ $('#mytable').on('dblclick', 'tr', function () {
             {
                 "extend": "excelHtml5",
                 "text": "EXCEL",
-                messageTop: 'Kaban pampulha',
+                messageTop: 'Kaban Pampulha',
                
                 footer:true
             },

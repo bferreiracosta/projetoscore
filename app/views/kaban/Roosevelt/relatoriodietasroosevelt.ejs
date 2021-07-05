@@ -13,6 +13,7 @@
                     <thead>
                         <tr>
                             <th hidden>id</th>
+                            <th>Leito</th>
                             <th>Prontuario</th>
                             <th>Nome</th>
                             <th>Setor</th>
@@ -27,6 +28,7 @@
                                     
                             <tr>                                  
                                 <td hidden><%=paciente[j].idpaciente %></td>
+                                <td><%=paciente[j].leito %></td>
                                 <td><%=paciente[j].prt %></td>
                                 <td><%=paciente[j].nome %></td>
                                 <td><%=paciente[j].setor %></td>
@@ -295,7 +297,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
-var groupColumn = 3;
+var groupColumn = 4;
 $('#mytable').DataTable( { 
 dom: 'Bfrtip',
 "scrollX": true,
@@ -311,7 +313,7 @@ rowGroup: {
        rowGroup: {
            dataSrc: groupColumn,
        },
-       "order": [[ groupColumn, 'asc' ]],
+       "order": [[ 1, 'asc' ]],
        pageLength: 50,
        "drawCallback": function ( settings ) {
            var api = this.api();
@@ -408,7 +410,7 @@ rowGroup: {
 
 $('#mytable tbody tr').each(function(i){
             tr=$(this);
-            idade=tr.children('td:eq(4)').html();
+            idade=tr.children('td:eq(5)').html();
             var data3 = idade;
             // Precisamos quebrar a string para retornar cada parte
             const dataSplits = data3.split('/');
@@ -417,7 +419,7 @@ $('#mytable tbody tr').each(function(i){
             const years = dataSplits[2]; // 2019
             // Agora podemos inicializar o objeto Date, lembrando que o mês começa em 0, então fazemos -1.
             data3 = new Date(years, months - 1, dayss);
-            tr.children('td:eq(5)').text(calcularIdade(data3)+ " anos");
+            tr.children('td:eq(6)').text(calcularIdade(data3)+ " anos");
 });
 
 function calcularIdade(aniversario) {
@@ -454,14 +456,14 @@ var total2 = 0;
 var resultado = 0;
 $('#dieta tbody tr').each(function(i){
         tr=$(this);
-        dieta=tr.children('td:eq(1)').html();
+        dieta=tr.children('td:eq(2)').html();
         total = (total + parseInt(dieta));
        
 });
   
 $('#dieta2 tbody tr').each(function(i){
     tr=$(this);
-        dieta2=tr.children('td:eq(1)').html();
+        dieta2=tr.children('td:eq(2)').html();
         total2 = (tota2l + parseInt(dieta2));
        
 });

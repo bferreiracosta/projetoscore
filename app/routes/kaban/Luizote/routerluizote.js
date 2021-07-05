@@ -124,6 +124,18 @@ module.exports = function(application) {
 		
 	});
 	
+	application.get('/buscaracomodacaoluizote', function(req, res){
+		
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Luizote.controllerluizote.buscaracomodacao(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
 	application.get('/buscarleitosluizote', function(req, res){
 		
 		if(req.session.loggedin){

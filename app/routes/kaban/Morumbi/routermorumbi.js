@@ -144,6 +144,18 @@ module.exports = function(application) {
 		
 	});
 	
+	application.get('/buscaracomodacaomorumbi', function(req, res){
+		
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Morumbi.controllermorumbi.buscaracomodacao(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+	
 	application.get('/buscarleitosmorumbi', function(req, res){
 		
 		if(req.session.loggedin){

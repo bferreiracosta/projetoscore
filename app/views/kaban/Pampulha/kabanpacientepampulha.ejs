@@ -8,8 +8,7 @@
         <a href="calendariopampulha?id=<%=id[i].id_usuario %>"><button class="btn btn-info"  >Calendario Exames</button></a>
         <a href="relatoriovisitaspampulha?id=<%=id[i].id_usuario %>"><button class="btn btn-secondary"  >Relatório Visitas</button></a>
         <a href="relatoriodietaspampulha?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Relatório Dietas</button></a>
-        <a href="infouaimartins?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a> <br>
-
+        <a href="infouaipampulha?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a>
         <br>
         <br>
         <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
@@ -21,6 +20,7 @@
                     <th></th>
                     <th></th>
                     <th hidden>id</th>
+                    <th>Leito</th>
                     <th>SusFacil</th>
                     <th>Prontuario</th>
                     <th>Nome</th>
@@ -32,6 +32,7 @@
                     <th>Medico</th>
                     <th>Dieta</th>
                     <th>ECF</th>
+                    <th>Spict</th>
                     <th>Paliativo</th>
                     <th>Diagnóstico</th>
                     <th>Especialidade</th>
@@ -58,6 +59,7 @@
                         </td>
                         
                         <td hidden><%=paciente[j].idpaciente %></td>
+                        <td><%=paciente[j].leito %></td>
                         <td><%=paciente[j].susfacil %></td>
                         <th><%=paciente[j].prt %></th>
                         <td><%=paciente[j].nome %></td>
@@ -69,6 +71,7 @@
                         <td><%=paciente[j].medico %></td>
                         <td><%=paciente[j].dieta %></td>
                         <td><%=paciente[j].ECF %></td>
+                        <td><%=paciente[j].spict %></td>
                         <td><%=paciente[j].paliativo %></td>
                         <td><%=paciente[j].diagnostico %></td>
                         <td><%=paciente[j].especialidade %></td>
@@ -88,7 +91,7 @@
         
         <% } %>	
         <% } %>
-      <!-- Delete Product Modal-->
+    <!-- Delete Product Modal-->
     <form id="add-row-form" action="/baixakabanpampulha" method="POST">
         <div class="modal fade" id="altamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
@@ -149,6 +152,7 @@
     </form>
 
        </div>
+                
 <!-- Importando o jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.js"></script>
@@ -169,11 +173,9 @@
 <%- include('../../home/footer'); %>
 </body>
 </html>
-</body>
-</html>
 <script>
     $(document).ready(function() {
-var groupColumn = 11;
+var groupColumn = 12;
 $('#mytable').DataTable( { 
 dom: 'Bfrtip',
 "scrollX": true,
@@ -189,7 +191,7 @@ rowGroup: {
        rowGroup: {
            dataSrc: groupColumn,
        },
-       "order": [[ groupColumn, 'asc' ]],
+       "order": [[ 4, 'asc' ]],
        pageLength: 50,
        "drawCallback": function ( settings ) {
            var api = this.api();
@@ -286,7 +288,7 @@ rowGroup: {
 
 $('#mytable tbody tr').each(function(i){
             tr=$(this);
-            valor=tr.children('td:eq(8)').html();
+            valor=tr.children('td:eq(9)').html();
             var data2 = valor;
             // Precisamos quebrar a string para retornar cada parte
             const dataSplit = data2.split('/');
@@ -299,8 +301,8 @@ $('#mytable tbody tr').each(function(i){
             const diff = Math.abs(now.getTime() - data2.getTime()); // Subtrai uma data pela outra
             const days = Math.ceil(diff / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
             // Mostra a diferença em dias
-            tr.children('td:eq(9)').text(days + " dias");
-            idade=tr.children('td:eq(6)').html();
+            tr.children('td:eq(10)').text(days + " dias");
+            idade=tr.children('td:eq(7)').html();
             var data3 = idade;
             // Precisamos quebrar a string para retornar cada parte
             const dataSplits = data3.split('/');
@@ -309,7 +311,7 @@ $('#mytable tbody tr').each(function(i){
             const years = dataSplits[2]; // 2019
             // Agora podemos inicializar o objeto Date, lembrando que o mês começa em 0, então fazemos -1.
             data3 = new Date(years, months - 1, dayss);
-            tr.children('td:eq(7)').text(calcularIdade(data3)+ " anos");
+            tr.children('td:eq(8)').text(calcularIdade(data3)+ " anos");
 });
 
 function calcularIdade(aniversario) {

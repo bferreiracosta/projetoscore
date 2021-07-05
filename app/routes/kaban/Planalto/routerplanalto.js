@@ -144,6 +144,18 @@ module.exports = function(application) {
 		
 	});
 	
+	application.get('/buscaracomodacaoplanalto', function(req, res){
+		
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Planalto.controllerplanalto.buscaracomodacao(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+	
 	application.get('/buscarleitosplanalto', function(req, res){
 		
 		if(req.session.loggedin){

@@ -55,8 +55,7 @@ modelmartins.prototype.baixacentral = function(idpaciente,baixa, callback){
 
 modelmartins.prototype.buscarleitosid = function(valor,callback){
 
-	this._conection.query('select idleito from leitos where idsetor = (select idsetor from setor where setor = "'+valor[0].setor+'"and unidade = "Martins") and leito = "'+valor[0].leito+'" and unidade = "Martins" and status = "Inativo" limit 1', callback);
-
+	this._conection.query('select idleito from leitos where idsetor = (select idsetor from setor where setor = "'+valor[0].setor+'"and unidade = "Martins") and leitos = "'+valor[0].leito+'" and unidade = "Martins" and status = "Inativo" limit 1', callback);
 }
 
 modelmartins.prototype.buscarleitosnome = function(valor,callback){
@@ -66,7 +65,7 @@ modelmartins.prototype.buscarleitosnome = function(valor,callback){
 
 modelmartins.prototype.buscarleitospacientesporid = function(valor, callback){
 	
-	this._conection.query('select setor, leito from leitokaban where idpaciente = "'+valor+'"', callback);
+	this._conection.query('select setor, leito, acomodacao from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
 modelmartins.prototype.buscarleitospacientespornome = function(valor, callback){
@@ -74,14 +73,14 @@ modelmartins.prototype.buscarleitospacientespornome = function(valor, callback){
 	this._conection.query('select nome from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
-modelmartins.prototype.atualizarleitokaban = function(idpaciente, setor, leito, callback){
+modelmartins.prototype.atualizarleitokaban = function(idpaciente, setor, leito,acomodacao, callback){
 	
-	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'" where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'", acomodacao = "'+acomodacao+'"  where idpaciente = '+ idpaciente, callback);
 }
 
 modelmartins.prototype.buscarleitoativo = function(idsetor, leito, callback){
 
-	this._conection.query('select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leito = "'+leito+'" and status = "Ativo" limit 1', callback);
+	this._conection.query('select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leitos = "'+leito+'" and status = "Ativo" limit 1', callback);
 }
 
 modelmartins.prototype.updateleitos = function(idleito, callback){

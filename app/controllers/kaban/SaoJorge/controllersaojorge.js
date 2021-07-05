@@ -151,121 +151,94 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 	var idpaciente = req.body.idpaciente;
 	var setor = req.body.setor2;
 	var leito = req.body.leito2;
+	var acomodacao = req.body.acomodacao2;
 	var id = req.body.idusuario;
-
-	
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelsaojorge.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
-			modelsaojorge.buscarleitosid(setoresrecuperado, function(error, idleito){
-				modelsaojorge.atualizarleitokaban(idpaciente, setor, leito, function(error, resultado){
+			if(setoresrecuperado[0].acomodacao == null){
+				modelsaojorge.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
 					modelsaojorge.buscarsetoresid(setor, function(error, resultado){
 						modelsaojorge.buscarleitoativo(resultado,leito, function(error, idleitos){
 							modelsaojorge.updateleitos(idleitos, function(error, resultado){
-								if(setoresrecuperado[0].leito == null){
-									if(leito == "Maca"){
+								modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
+									if(acomodacao == "Maca"){
 										modeladmingestao.updateleitossaojorgemacamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
-												});
-											}else{
-												modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
-													});
-												});
-											}
-										});	
+											res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
+										});
 									}else{
 										modeladmingestao.updateleitossaojorgecamamais(setor, function(error, resulta){
-											if(setoresrecuperado[0].setor == null){
-												modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-													res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
+											res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
+										});
+									}
+								});
+							});
+						});
+					});
+				});
+			}
+			if(setoresrecuperado[0].acomodacao == "Cama"){
+				modelsaojorge.buscarleitosid(setoresrecuperado, function(error, idleito){
+					modelsaojorge.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
+						modelsaojorge.buscarsetoresid(setor, function(error, resultado){
+							modelsaojorge.buscarleitoativo(resultado,leito, function(error, idleitos){
+								modelsaojorge.updateleitos(idleitos, function(error, resultado){
+									modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
+										modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
+											if(acomodacao == "Maca"){
+												modeladmingestao.updateleitossaojorgemacamais(setor, function(error, resulta){
+													modeladmingestao.updateleitossaojorgecama(setoresrecuperado[0].setor, function(error, resulta){
+														res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
+													});
 												});
 											}else{
-												modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-													modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
+												modeladmingestao.updateleitossaojorgecamamais(setor, function(error, resulta){
+													modeladmingestao.updateleitossaojorgecama(setoresrecuperado[0].setor, function(error, resulta){
 														res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
 													});
 												});
 											}
-										});	
-									}		
-								}
-								if(setoresrecuperado[0].leito == "Maca"){
-									modeladmingestao.updateleitossaojorgemaca(setoresrecuperado[0].setor, function(error, resulta){
-										if(leito == "Maca"){
-											modeladmingestao.updateleitossaojorgemacamais(setor, function(error, resulta){
-												if(setoresrecuperado[0].setor == null){
-													modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
-													});
-												}else{
-													modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-														modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-															res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
-														});
-													});
-												}
-											});	
-										}else{
-											modeladmingestao.updateleitossaojorgecamamais(setor, function(error, resulta){
-												if(setoresrecuperado[0].setor == null){
-													modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
-													});
-												}else{
-													modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-														modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-															res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
-														});
-													});
-												}
-											});	
-										}
-									});		
-								}
-								if(setoresrecuperado[0].leito == "Cama"){
-									modeladmingestao.updateleitossaojorgecama(setoresrecuperado[0].setor, function(error, resulta){
-										if(leito == "Maca"){
-											modeladmingestao.updateleitossaojorgemacamais(setor, function(error, resulta){
-												if(setoresrecuperado[0].setor == null){
-													modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
-													});
-												}else{
-													modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-														modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-															res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
-														});
-													});
-												}
-											});	
-										}else{
-											modeladmingestao.updateleitossaojorgecamamais(setor, function(error, resulta){
-												if(setoresrecuperado[0].setor == null){
-													modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-														res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
-													});
-												}else{
-													modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-														modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-															res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
-														});
-													});
-												}
-											});	
-										}
-									});			
-								}
+										});
+									});	
+								});
 							});
-						})
-					});	
-				});	
-			});		
+						});
+					});
+				});
+			}
+			if(setoresrecuperado[0].acomodacao == "Maca"){
+				modelsaojorge.buscarleitosid(setoresrecuperado, function(error, idleito){
+					modelsaojorge.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
+						modelsaojorge.buscarsetoresid(setor, function(error, resultado){
+							modelsaojorge.buscarleitoativo(resultado,leito, function(error, idleitos){
+								modelsaojorge.updateleitos(idleitos, function(error, resultado){
+									modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
+										modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
+											if(acomodacao == "Maca"){
+												modeladmingestao.updateleitossaojorgemacamais(setor, function(error, resulta){
+													modeladmingestao.updateleitossaojorgemaca(setoresrecuperado[0].setor, function(error, resulta){
+														res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
+													});
+												});
+											}else{
+												modeladmingestao.updateleitossaojorgecamamais(setor, function(error, resulta){
+													modeladmingestao.updateleitossaojorgemaca(setoresrecuperado[0].setor, function(error, resulta){
+														res.render("kaban/SaoJorge/leitossaojorge", {leito : resultadosetores, id : result});
+													});
+												});
+											}
+										});
+									});	
+								});
+							});
+						});
+					});
+				});
+
+			}
+			
 		});
-	});	
-}
+	});
+}	
 
 module.exports.leitos= function(application, req, res){
 	

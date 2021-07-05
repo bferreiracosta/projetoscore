@@ -144,6 +144,18 @@ module.exports = function(application) {
 		
 	});
 	
+	application.get('/buscaracomodacaopampulha', function(req, res){
+		
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Pampulha.controllerpampulha.buscaracomodacao(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+	
 	application.get('/buscarleitospampulha', function(req, res){
 		
 		if(req.session.loggedin){
