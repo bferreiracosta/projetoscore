@@ -110,7 +110,7 @@ modelroosevelt.prototype.buscarleitos = function(valor, callback){
 
 modelroosevelt.prototype.buscaracomodacao = function(valor, callback){
 
-	this._conection.query('select * from acomodacao inner join setor on acomodacao.idsetor = setor.idsetor inner join leitos on acomodacao.idleito = leitos.idleito where setor.setor = "'+valor.valorsetor+'" and leitos = "'+valor.valorleito+'" and acomodacao.unidade = "Luizote" and leitos.status = "Ativo";', callback);
+	this._conection.query('select * from acomodacao inner join setor on acomodacao.idsetor = setor.idsetor inner join leitos on acomodacao.idleito = leitos.idleito where setor.setor = "'+valor.valorsetor+'" and leitos = "'+valor.valorleito+'" and acomodacao.unidade = "Roosevelt" and leitos.status = "Ativo";', callback);
 
 }
 
