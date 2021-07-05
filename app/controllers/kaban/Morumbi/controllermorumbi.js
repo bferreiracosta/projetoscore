@@ -268,6 +268,17 @@ module.exports.buscarleitos= function(application, req, res){
 	
 }
 
+module.exports.buscaracomodacao= function(application, req, res){
+	
+	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
+	
+	var valorleito = req.query;
+	modelmorumbi.buscaracomodacao(valorleito, function(error, resultadoacomodacao){
+		res.send(resultadoacomodacao);
+	});
+	
+}
+
 module.exports.buscarsetor= function(application, req, res){
 	
 	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);

@@ -269,6 +269,17 @@ module.exports.buscarleitos= function(application, req, res){
 	
 }
 
+module.exports.buscaracomodacao= function(application, req, res){
+	
+	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
+	
+	var valorleito = req.query;
+	modelpampulha.buscaracomodacao(valorleito, function(error, resultadoacomodacao){
+		res.send(resultadoacomodacao);
+	});
+	
+}
+
 module.exports.buscarsetor= function(application, req, res){
 	
 	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);

@@ -269,6 +269,18 @@ module.exports.buscarleitos= function(application, req, res){
 	
 }
 
+module.exports.buscaracomodacao= function(application, req, res){
+	
+	var modelplanalto = new application.app.model.kaban.Planalto.modelplanalto(application);
+	
+	
+	var valorleito = req.query;
+	modelplanalto.buscaracomodacao(valorleito, function(error, resultadoacomodacao){
+		res.send(resultadoacomodacao);
+	});
+	
+}
+
 module.exports.buscarsetor= function(application, req, res){
 	
 	var modelplanalto = new application.app.model.kaban.Planalto.modelplanalto(application);

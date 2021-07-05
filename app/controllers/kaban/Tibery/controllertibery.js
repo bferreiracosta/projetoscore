@@ -269,6 +269,17 @@ module.exports.buscarleitos= function(application, req, res){
 	
 }
 
+module.exports.buscaracomodacao= function(application, req, res){
+	
+	var modelluizote = new application.app.model.kaban.Tibery.modeltibery(application);
+	
+	var valorleito = req.query;
+	modeltibery.buscaracomodacao(valorleito, function(error, resultadoacomodacao){
+		res.send(resultadoacomodacao);
+	});
+	
+}
+
 module.exports.buscarsetor= function(application, req, res){
 	
 	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);

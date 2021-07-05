@@ -268,6 +268,17 @@ module.exports.buscarleitos= function(application, req, res){
 	
 }
 
+module.exports.buscaracomodacao= function(application, req, res){
+	
+	var modelroosevelt = new application.app.model.kaban.Roosevelt.modelroosevelt(application);
+	
+	var valorleito = req.query;
+	modelroosevelt.buscaracomodacao(valorleito, function(error, resultadoacomodacao){
+		res.send(resultadoacomodacao);
+	});
+	
+}
+
 module.exports.buscarsetor= function(application, req, res){
 	
 	var modelroosevelt = new application.app.model.kaban.Roosevelt.modelroosevelt(application);

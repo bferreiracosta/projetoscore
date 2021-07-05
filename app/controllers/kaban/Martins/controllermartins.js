@@ -269,6 +269,17 @@ module.exports.buscarleitos= function(application, req, res){
 	
 }
 
+module.exports.buscaracomodacao= function(application, req, res){
+	
+	var modelmartins = new application.app.model.kaban.Martins.modelmartins(application);
+	
+	var valorleito = req.query;
+	modelmartins.buscaracomodacao(valorleito, function(error, resultadoacomodacao){
+		res.send(resultadoacomodacao);
+	});
+	
+}
+
 module.exports.buscarsetor= function(application, req, res){
 	
 	var modelmartins = new application.app.model.kaban.Martins.modelmartins(application);
