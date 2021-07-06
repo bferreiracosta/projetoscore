@@ -6,7 +6,7 @@ module.exports.cadastrar= function(application, req, res){
 	var unidade = 'Luizote';
 	var id = req.query;
 	
-	
+
 	modeladmin.buscarusuario(id, function(error, result){
 		modelluizote.buscarpacienterelatorio(unidade, function(error, resultado){
 			res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : result});
@@ -30,7 +30,7 @@ module.exports.saveexameluizote= function(application, req, res){
 		modeladmin.buscarusuarioeditavel(id, function(error, result){	
 			modelluizote.addexame(title, start,end,paciente,unidade, function(error, resulta){
 				modelluizote.buscarpaciente(unidade, function(error, resultado){
-					res.render("kaban/Luizote/kabanpacienteluizote", {paciente: resultado, id : result});
+					res.redirect("/kabanpacienteluizote?id=" + result[0].id_usuario);	
 				});
 			});	
 		});
@@ -105,7 +105,7 @@ module.exports.deleteexameluizote= function(application, req, res){
 	modeladmin.buscarusuarioeditavel(id, function(error, result){
 		modelluizote.deleteexameluizote(idevento.id, function(error, resultado){
 			modelluizote.buscarpaciente(unidade, function(error, resultado){
-				res.render("kaban/Luizote/kabanpacienteluizote", {paciente: resultado, id : result});
+				res.redirect("/kabanpacienteluizote?id=" + result[0].id_usuario);	
 			});
 		});
 	});	
@@ -136,7 +136,7 @@ module.exports.updateexameluizote= function(application, req, res){
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelluizote.updateexameluizote(idevento, title, start, paciente, end,  function(error, resultado){
 			modelluizote.buscarexames(function(error, resultado){
-				res.render("kaban/Luizote/exameluizote", {id : result, evento: resultado});
+				res.redirect("/exameluizote?id=" + result[0].id_usuario);	
 			});
 		});
 	});
@@ -163,11 +163,11 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 								modelluizote.buscarleitospacientes(function(error, resultadosetores){
 									if(acomodacao == "Maca"){
 										modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
-											res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+											res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
 										});
 									}else{
 										modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
-											res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+											res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
 										});
 									}
 								});
@@ -187,13 +187,13 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 											if(acomodacao == "Maca"){
 												modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
 													modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
-														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+														res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
 													});
 												});
 											}else{
 												modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
 													modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
-														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+														res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
 													});
 												});
 											}
@@ -216,13 +216,13 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 											if(acomodacao == "Maca"){
 												modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
 													modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+														res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
 													});
 												});
 											}else{
 												modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
 													modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.render("kaban/Luizote/leitosluizote", {leito : resultadosetores, id : result});
+														res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
 													});
 												});
 											}
@@ -713,7 +713,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 										modelluizote.addnewsid(resultdoinsert.insertId,setor,paciente, unidade,function(error, results){
 											modelluizote.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
 												modelluizote.buscarpaciente(unidade, function(error, resultado){
-													res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});				
+													res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);					
 												});
 											});
 										});
@@ -736,7 +736,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 									modelluizote.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
 										modelluizote.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
 											modelluizote.buscarpaciente(unidade, function(error, resultado){
-												res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});				
+												res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);					
 											});
 										});
 									});
@@ -759,7 +759,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 								modelluizote.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
 									modelluizote.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
 										modelluizote.buscarpaciente(unidade, function(error, resultado){
-											res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});				
+											res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);				
 										});
 									});
 								});
@@ -780,7 +780,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 									modelluizote.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
 										modelluizote.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
 											modelluizote.buscarpaciente(unidade, function(error, resultado){
-												res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});				
+												res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);					
 											});
 										});
 									});
@@ -843,7 +843,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelluizote.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelluizote.buscardispositivo(unidade, function(error, resultado){
-									res.render("kaban/Luizote/dispositivoluizote", {dispositivo: resultado, id : result });
+								res.redirect("/dispositivoluizote?id=" + result[0].id_usuario);	
 							});
 						});
 					});	
@@ -852,7 +852,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 						modelluizote.adddispositivo(idpaciente,glasgow, bic, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelluizote.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
 								modelluizote.buscardispositivo(unidade, function(error, resultado){
-									res.render("kaban/Luizote/dispositivoluizote", {dispositivo: resultado, id : result});
+									res.redirect("/dispositivoluizote?id=" + result[0].id_usuario);	
 								});
 							});	
 						});
@@ -871,7 +871,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 						modelluizote.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelcovidluizote.updaterespkaban(idcovid[0].id_paciente,svd, sne, avp, cvc, glasgow, bic,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 								modelluizote.buscardispositivo(unidade, function(error, resultado){
-										res.render("kaban/Luizote/dispositivoluizote", {dispositivo: resultado, id : result });
+									res.redirect("/dispositivoluizote?id=" + result[0].id_usuario);	
 								});
 							});
 						});
@@ -882,7 +882,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 							modelcovidluizote.updaterespkaban(idcovid[0].id_paciente,svd, sne, avp, cvc, glasgow, bic,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 								modelluizote.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
 									modelluizote.buscardispositivo(unidade, function(error, resultado){
-										res.render("kaban/Luizote/dispositivoluizote", {dispositivo: resultado, id : result});
+										res.redirect("/dispositivoluizote?id=" + result[0].id_usuario);	
 									});
 								});	
 							});	
@@ -927,7 +927,7 @@ module.exports.cadastrarfugulin= function(application, req, res){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
 				modelluizote.updatefugulin(idpaciente, mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,data,unidade,  function(error, resulta){
 					modelluizote.buscarfugulin(unidade, function(error, resultado){
-							res.render("kaban/Luizote/fugulinluizote", {fugulin: resultado, id : result });
+						res.redirect("/fugulinluizote?id=" + result[0].id_usuario);	
 					});
 				});
 			});	
@@ -936,7 +936,7 @@ module.exports.cadastrarfugulin= function(application, req, res){
 				modelluizote.addfugulin(idpaciente, setor, nome , mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,data,unidade,  function(error, resulta){
 					modelluizote.updatefugulinstatus(json[0].idfugulin, function(error, resulta){
 						modelluizote.buscarfugulin(unidade, function(error, resultado){
-							res.render("kaban/Luizote/fugulinluizote", {fugulin: resultado, id : result});
+							res.redirect("/fugulinluizote?id=" + result[0].id_usuario);	
 						});
 					});	
 				});
@@ -973,7 +973,7 @@ module.exports.cadastrartiss= function(application, req, res){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
 				modelluizote.updatetiss(idpaciente, atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss ,data,unidade,  function(error, resulta){
 					modelluizote.buscartiss(unidade, function(error, resultado){
-							res.render("kaban/Luizote/tissluizote", {tiss: resultado, id : result });
+						res.redirect("/tissluizote?id=" + result[0].id_usuario);	
 					});
 				});
 			});	
@@ -983,7 +983,7 @@ module.exports.cadastrartiss= function(application, req, res){
 				modelluizote.addtiss(idpaciente, setor, nome, atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss ,data,unidade,  function(error, resulta){
 					modelluizote.updatetissstatus(json[0].idtiss, function(error, resulta){
 						modelluizote.buscartiss(unidade, function(error, resultado){
-							res.render("kaban/Luizote/tissluizote", {tiss: resultado, id : result});
+							res.redirect("/tissluizote?id=" + result[0].id_usuario);	
 						});
 					});	
 				});
@@ -1024,7 +1024,7 @@ module.exports.cadastrarnews= function(application, req, res){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelluizote.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 							modelluizote.buscarnews(unidade, function(error, resultado){
-									res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
+								res.redirect("/newskabanluizote?id=" + result[0].id_usuario);	
 							});
 						});
 					});	
@@ -1033,7 +1033,7 @@ module.exports.cadastrarnews= function(application, req, res){
 						modelluizote.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 							modelluizote.updatenewsstatus(json[0].idnews, function(error, resulta){
 								modelluizote.buscarnews(unidade, function(error, resultado){
-										res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
+									res.redirect("/newskabanluizote?id=" + result[0].id_usuario);	
 								});
 							});	
 						});
@@ -1051,7 +1051,7 @@ module.exports.cadastrarnews= function(application, req, res){
 							modelluizote.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 								modelcovidluizote.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
 									modelluizote.buscarnews(unidade, function(error, resultado){
-											res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
+										res.redirect("/newskabanluizote?id=" + result[0].id_usuario);	
 									});
 								});
 							});
@@ -1062,7 +1062,7 @@ module.exports.cadastrarnews= function(application, req, res){
 								modelluizote.updatenewsstatus(json[0].idnews, function(error, resulta){
 									modelcovidluizote.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
 										modelluizote.buscarnews(unidade, function(error, resultado){
-												res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
+											res.redirect("/newskabanluizote?id=" + result[0].id_usuario);	
 										});
 									});
 								});	
@@ -1132,7 +1132,7 @@ module.exports.update= function(application, req, res){
 												modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 													modelluizote.buscardispositivo(unidade, function(error, result){
 														modelluizote.buscarpaciente(unidade, function(error, resultado){
-															res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+															res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);		
 														});
 													});
 												});
@@ -1155,7 +1155,7 @@ module.exports.update= function(application, req, res){
 												modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 													modelluizote.buscardispositivo(unidade, function(error, result){
 														modelluizote.buscarpaciente(unidade, function(error, resultado){
-															res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+															res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 														});
 													});
 												});
@@ -1177,7 +1177,7 @@ module.exports.update= function(application, req, res){
 											modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 												modelluizote.buscardispositivo(unidade, function(error, result){
 													modelluizote.buscarpaciente(unidade, function(error, resultado){
-														res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+														res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 													});
 												});
 											});
@@ -1199,7 +1199,7 @@ module.exports.update= function(application, req, res){
 												modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 													modelluizote.buscardispositivo(unidade, function(error, result){
 														modelluizote.buscarpaciente(unidade, function(error, resultado){
-															res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+															res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 														});
 													});
 												});
@@ -1222,7 +1222,7 @@ module.exports.update= function(application, req, res){
 										modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 											modelluizote.buscardispositivo(unidade, function(error, result){
 												modelluizote.buscarpaciente(unidade, function(error, resultado){
-													res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+													res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 												});
 											});
 										});
@@ -1242,7 +1242,7 @@ module.exports.update= function(application, req, res){
 											modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 												modelluizote.buscardispositivo(unidade, function(error, result){
 													modelluizote.buscarpaciente(unidade, function(error, resultado){
-														res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+														res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 													});
 												});
 											});
@@ -1263,7 +1263,7 @@ module.exports.update= function(application, req, res){
 											modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 												modelluizote.buscardispositivo(unidade, function(error, result){
 													modelluizote.buscarpaciente(unidade, function(error, resultado){
-														res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+														res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 													});
 												});
 											});
@@ -1284,7 +1284,7 @@ module.exports.update= function(application, req, res){
 											modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 												modelluizote.buscardispositivo(unidade, function(error, result){
 													modelluizote.buscarpaciente(unidade, function(error, resultado){
-														res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+														res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 													});
 												});
 											});
@@ -1307,7 +1307,7 @@ module.exports.update= function(application, req, res){
 											modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 												modelluizote.buscardispositivo(unidade, function(error, result){
 													modelluizote.buscarpaciente(unidade, function(error, resultado){
-														res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+														res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 													});
 												});
 											});
@@ -1329,7 +1329,7 @@ module.exports.update= function(application, req, res){
 												modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 													modelluizote.buscardispositivo(unidade, function(error, result){
 														modelluizote.buscarpaciente(unidade, function(error, resultado){
-															res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+															res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 														});
 													});
 												});
@@ -1352,7 +1352,7 @@ module.exports.update= function(application, req, res){
 												modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 													modelluizote.buscardispositivo(unidade, function(error, result){
 														modelluizote.buscarpaciente(unidade, function(error, resultado){
-															res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+															res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 														});
 													});
 												});
@@ -1375,7 +1375,7 @@ module.exports.update= function(application, req, res){
 												modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 													modelluizote.buscardispositivo(unidade, function(error, result){
 														modelluizote.buscarpaciente(unidade, function(error, resultado){
-															res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+															res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 														});
 													});
 												});
@@ -1399,7 +1399,7 @@ module.exports.update= function(application, req, res){
 											modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 												modelluizote.buscardispositivo(unidade, function(error, result){
 													modelluizote.buscarpaciente(unidade, function(error, resultado){
-														res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+														res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 													});
 												});
 											});
@@ -1421,7 +1421,7 @@ module.exports.update= function(application, req, res){
 												modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 													modelluizote.buscardispositivo(unidade, function(error, result){
 														modelluizote.buscarpaciente(unidade, function(error, resultado){
-															res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+															res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 														});
 													});
 												});
@@ -1444,7 +1444,7 @@ module.exports.update= function(application, req, res){
 												modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 													modelluizote.buscardispositivo(unidade, function(error, result){
 														modelluizote.buscarpaciente(unidade, function(error, resultado){
-															res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+															res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 														});
 													});
 												});
@@ -1467,7 +1467,7 @@ module.exports.update= function(application, req, res){
 												modelluizote.updatedispositivonome(idpaciente,paciente,  function(error, result){
 													modelluizote.buscardispositivo(unidade, function(error, result){
 														modelluizote.buscarpaciente(unidade, function(error, resultado){
-															res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados, dispositivo: result});
+															res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 														});
 													});
 												});
@@ -1523,7 +1523,7 @@ module.exports.baixa= function(application, req, res){
 			
 																	modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelluizote.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
+																			res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 																		});
 																	});
 																	
@@ -1552,7 +1552,7 @@ module.exports.baixa= function(application, req, res){
 																
 																modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelluizote.buscarpaciente(unidade, function(error, resultado){
-																		res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
+																		res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 																	});
 																});
 																
@@ -1581,7 +1581,7 @@ module.exports.baixa= function(application, req, res){
 															
 															modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																modelluizote.buscarpaciente(unidade, function(error, resultado){
-																	res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
+																	res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 																});
 															});
 														
@@ -1608,7 +1608,7 @@ module.exports.baixa= function(application, req, res){
 														
 																modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelluizote.buscarpaciente(unidade, function(error, resultado){
-																		res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
+																		res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 																	});
 																});
 																
@@ -1648,7 +1648,7 @@ module.exports.baixa= function(application, req, res){
 				
 																		modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																			modelluizote.buscarpaciente(unidade, function(error, resultado){
-																				res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
+																				res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 																			});
 																		});
 																		
@@ -1677,7 +1677,7 @@ module.exports.baixa= function(application, req, res){
 																	
 																	modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelluizote.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
+																			res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 																		});
 																	});
 																
@@ -1706,7 +1706,7 @@ module.exports.baixa= function(application, req, res){
 																
 																modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelluizote.buscarpaciente(unidade, function(error, resultado){
-																		res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
+																		res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 																	});
 																});
 																
@@ -1733,7 +1733,7 @@ module.exports.baixa= function(application, req, res){
 															
 																	modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																		modelluizote.buscarpaciente(unidade, function(error, resultado){
-																			res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
+																			res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 																		});
 																	});
 																	
@@ -1771,7 +1771,7 @@ module.exports.baixa= function(application, req, res){
 															modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 																modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
 																	modelluizote.buscarpaciente(unidade, function(error, resultado){
-																		res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
+																		res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 																	});
 																});
 															});
@@ -1795,7 +1795,7 @@ module.exports.baixa= function(application, req, res){
 														modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 															modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
 																modelluizote.buscarpaciente(unidade, function(error, resultado){
-																	res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
+																	res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 																});
 															});
 														});
@@ -1819,7 +1819,7 @@ module.exports.baixa= function(application, req, res){
 													modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 														modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
 															modelluizote.buscarpaciente(unidade, function(error, resultado){
-																res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
+																res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 															});
 														});
 													});
@@ -1841,7 +1841,7 @@ module.exports.baixa= function(application, req, res){
 														modelluizote.baixacentral(idpaciente,baixa, function(error, result){
 															modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
 																modelluizote.buscarpaciente(unidade, function(error, resultado){
-																	res.render("kaban/Luizote/kabanpacienteluizote", {paciente : resultado, id : resultados});
+																	res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
 																});
 															});
 														});
@@ -1909,7 +1909,7 @@ module.exports.updatedispositivokabanluizote= function(application, req, res){
 					modelluizote.updatedispositivodados(idpaciente,glasgow, bic,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
 						modelcovidluizote.updaterespkaban(idcovid[0].id_paciente,vglasgow, bic,azaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
 							modelluizote.buscardispositivo(unidade, function(error, resultado){
-									res.render("kaban/Luizote/dispositivoluizote", {dispositivo: resultado, id : result });
+								res.redirect("/dispositivoluizote?id=" + result[0].id_usuario);	
 							});
 						});
 					});
@@ -1919,7 +1919,7 @@ module.exports.updatedispositivokabanluizote= function(application, req, res){
 				modeladmin.buscarusuarioporid(id, function(error, result){	
 					modelluizote.updatedispositivodados(idpaciente,glasgow, bic,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
 						modelluizote.buscardispositivo(unidade, function(error, resultado){
-								res.render("kaban/Luizote/dispositivoluizote", {dispositivo: resultado, id : result });
+							res.redirect("/dispositivoluizote?id=" + result[0].id_usuario);	
 						});	
 					});
 				});	
@@ -1955,7 +1955,7 @@ module.exports.updatefugulin= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		modelluizote.updatefugulindados(idpaciente, data, mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,unidade,  function(error, result){
 			modelluizote.buscarfugulin(unidade, function(error, resultado){
-				res.render("kaban/Luizote/fugulinluizote", {fugulin : resultado, id : resultados});
+				res.redirect("/fugulinluizote?id=" + resultados[0].id_usuario);	
 			});
 		});
 	});	
@@ -1993,7 +1993,7 @@ module.exports.updatenews= function(application, req, res){
 					modelluizote.updatenewsdados(idpaciente, data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 						modelcovidluizote.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
 							modelluizote.buscarnews(unidade, function(error, resultado){
-									res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
+								res.redirect("/newskabanluizote?id=" + result[0].id_usuario);	
 							});
 						});
 					});
@@ -2003,7 +2003,7 @@ module.exports.updatenews= function(application, req, res){
 				modeladmin.buscarusuarioporid(id, function(error, result){	
 					modelluizote.updatenewsdados(idpaciente, data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 						modelluizote.buscarnews(unidade, function(error, resultado){
-								res.render("kaban/Luizote/newskabanluizote", {news: resultado, id : result });
+							res.redirect("/newskabanluizote?id=" + result[0].id_usuario);	
 						});
 					});
 				});	
@@ -2032,7 +2032,7 @@ module.exports.updatetiss= function(application, req, res){
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
 		modelluizote.updatetissdados(idpaciente, data, atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss,unidade,  function(error, result){
 			modelluizote.buscartiss(unidade, function(error, resultado){
-				res.render("kaban/Luizote/tissluizote", {tiss : resultado, id : resultados});
+				res.redirect("/tissluizote?id=" + resultados[0].id_usuario);	
 			});
 		});
 	});	
