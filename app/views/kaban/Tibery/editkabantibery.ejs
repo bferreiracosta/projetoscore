@@ -71,11 +71,11 @@
 								<label for="setor">Setor</label>
 								<select class="form-control" id="setor" name="setor">
 									<option value="" disabled selected hidden>Setor</option>
-									<option value="Enfermaria" <%=(paciente[j].acomodacao == 'Enfermaria')?'selected':''%>>Enfermaria</option>
-									<option value="Sala de Emergência" <%=(paciente[j].acomodacao == 'Sala de Emergência')?'selected':''%>>Sala de Emergência</option>
-									<option value="Observação" <%=(paciente[j].acomodacao == 'Observação')?'selected':''%>>Observação</option>
+									<option value="Enfermaria" <%=(paciente[j].comodo == 'Enfermaria')?'selected':''%>>Enfermaria</option>
+									<option value="Sala de Emergência" <%=(paciente[j].comodo == 'Sala de Emergência')?'selected':''%>>Sala de Emergência</option>
+									<option value="Observação" <%=(paciente[j].comodo == 'Observação')?'selected':''%>>Observação</option>
 								</select>
-								<input type="hidden" name="setor2" id="setor2"  value="<%=paciente[j].acomodacao %>">
+								<input type="hidden" name="setor2" id="setor2"  value="<%=paciente[j].comodo %>">
 							</div>
 							<div class="form-group">
 								<label for="dieta">Dieta</label>
