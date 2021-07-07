@@ -1510,7 +1510,7 @@ module.exports.baixa= function(application, req, res){
 				if(idpac[0].mental == 'true'){
 					if(idpac[0].covid == 'true'){
 						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modelluizote.baixa(iidpaciente,baixa, destino, alta,data, function(error, result){
+							modelluizote.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 								modelcovidluizote.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 									modelmentalluizote.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 										modelluizote.baixadispositivo(idpaciente,baixa, function(error, result){
