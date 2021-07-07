@@ -267,14 +267,14 @@
                                     <td  id="int"><%=dieta25[zz].dieta25 %></td>   
                                 </tr>
                                 <% } %>	
-                                <% } %>
-                                
+                                <% } %>                               
+                            </tbody>
+                            <tfoot>
                                 <tr> 
                                     <td >Total</td>
                                     <td class="total"></td>   
                                 </tr>
-                               
-                            </tbody>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -450,23 +450,22 @@ function CriaPDF() {
     win.print();                                                            // IMPRIME O CONTEUDO
 }
 var dieta = 0;
-var dieta2 = 0;
+var dieta1 = 0;
 var total = 0;
-var total2 = 0;
+var total1 = 0;
 var resultado = 0;
 $('#dieta tbody tr').each(function(i){
         tr=$(this);
-        dieta=tr.children('td:eq(1)').html();
-        total = (total + parseInt(dieta));
-       
+        dieta= parseInt(tr.children('td:eq(1)').html());
+        total = (total + dieta);
 });
   
-$('#dieta2 tbody tr').each(function(i){
-    tr=$(this);
-        dieta2=tr.children('td:eq(1)').html();
-        total2 = (total2 + parseInt(dieta2));
-       
+$('#dieta1 tbody tr').each(function(i){
+        tr=$(this);
+        dieta1= parseInt(tr.children('td:eq(1)').html());
+        total1 = (total1 + dieta1);
 });
-resultado = total + total2;
+
+resultado = total + total1;
 $('.total').text(resultado);
    </script>
