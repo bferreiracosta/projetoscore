@@ -14,16 +14,11 @@
                 <th><i class="fas fa-edit"></i></th>
                 <th>id</th>
                 <th>Nome</th>
-                <th>Avaliação Atividades Basicas</th>
-                <th>Avaliação Suporte Ventilatorio</th>
-                <th>Avaliação Suporte Cardiovascular</th>
-                <th>Avaliação Suporte Renal</th>
-                <th>Avaliação Suporte Neurologico</th>
-                <th>Avaliação Suporte Metabólico</th>
-                <th>Avaliação Intervenções</th>
+                
+               
                 <th>Resultado tiss</th>
-                <th>Unidade</th>   
-                <th>Data Atualização</th> 
+                <th>Unidade</th>  
+                <th>Data Atualização</th>  
             </tr>
         </thead>
         <tbody>   
@@ -36,16 +31,10 @@
 				</td>
                 <td><label for="">ID: </label><%=tiss[j].idpaciente %></td>
                 <td><label hidden for="">Nome: </label><%=tiss[j].nome %></td>
-                <td><label hidden for="">Dispositivo: </label><%=tiss[j].atividadesbasica %></td>
-                <td><label hidden for="">fluxo_de_o2: </label><%=tiss[j].suporteventilatorio %></td>
-                <td><label hidden>/Noradrenalina: </label><%=tiss[j].suportecardiovascular %></td>
-                <td><label hidden>/Vazão Noradrenalina: </label><%=tiss[j].suporterenal %></td>
-                <td><label hidden>/Adrenalina: </label><%=tiss[j].suporteneurologico %></td>
-                <td><label hidden>/Vazão Adrenalina: </label><%=tiss[j].suportemetabolico %></td>
-                <td><label hidden>/Bicarbonato: </label><%=tiss[j].intervencoes %></td>
+              
                 <td><label hidden>/PEEP: </label><%=tiss[j].tiss %></td>
-                <td><label hidden>/Dormonid: </label><%=tiss[j].unidade %></td> 
-                <td><label hidden>/Data Atualização: </label><%=tiss[j].dataatualizacao %></td>                              
+                <td><label hidden>/Dormonid: </label><%=tiss[j].unidade %></td>      
+                <td><label hidden>/Data Atualização: </label><%=tiss[j].dataatualizacao %></td>                        
             </tr>
             <% } %>	
             <% } %>
@@ -72,7 +61,7 @@
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/plug-ins/1.10.24/i18n/Portuguese-Brasil.json"></script>
+
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
@@ -80,7 +69,7 @@ $(document).ready(function() {
     $('#mytable').DataTable( {
         dom: 'Bfrtip',
         order: ([ 2, 'asc']),
-        "scrollX": true,
+        
         pageLength: 50,
         buttons: [       
             {

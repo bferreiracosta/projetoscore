@@ -950,18 +950,11 @@ module.exports.cadastrartiss= function(application, req, res){
 	var idpaciente = req.body.idpaciente;
 	var nome = req.body.nome;
 	var setor = req.body.setor;
-	var atividades = req.body.atividades2;
-	var ventilatorio = req.body.ventilatorio2;
-	var cardiovascular = req.body.cardiovascular2;
-	var renal = req.body.renal2;
-	var neurologico = req.body.neurologico2;
-	var metabolico = req.body.metabolico2;
-	var intervencoes = req.body.intervencoes2;
 	var tiss = req.body.tiss;
 	var data = req.body.data;
 	var id = req.body.campo;
 	var unidade = 'Planalto';
-
+	console.log(tiss);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelplanalto = new application.app.model.kaban.Planalto.modelplanalto(application);
 	
@@ -971,7 +964,7 @@ module.exports.cadastrartiss= function(application, req, res){
 	
 		if(json[0].dataatualizacao == null){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
-				modelplanalto.updatetiss(idpaciente, atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss ,data,unidade,  function(error, resulta){
+				modelplanalto.updatetiss(idpaciente, tiss ,data,unidade,  function(error, resulta){
 					modelplanalto.buscartiss(unidade, function(error, resultado){
 						res.redirect("/tissplanalto?id=" + result[0].id_usuario);	
 					});
@@ -980,7 +973,7 @@ module.exports.cadastrartiss= function(application, req, res){
 		}else{
 
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
-				modelplanalto.addtiss(idpaciente, setor, nome, atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss ,data,unidade,  function(error, resulta){
+				modelplanalto.addtiss(idpaciente, setor, nome,  tiss ,data,unidade,  function(error, resulta){
 					modelplanalto.updatetissstatus(json[0].idtiss, function(error, resulta){
 						modelplanalto.buscartiss(unidade, function(error, resultado){
 							res.redirect("/tissplanalto?id=" + result[0].id_usuario);	
