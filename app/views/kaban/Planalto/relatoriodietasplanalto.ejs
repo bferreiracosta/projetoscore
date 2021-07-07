@@ -456,15 +456,15 @@ var total2 = 0;
 var resultado = 0;
 $('#dieta tbody tr').each(function(i){
         tr=$(this);
-        dieta=tr.children('td:eq(2)').html();
+        dieta=tr.children('td:eq(1)').html();
         total = (total + parseInt(dieta));
        
 });
   
 $('#dieta2 tbody tr').each(function(i){
     tr=$(this);
-        dieta2=tr.children('td:eq(2)').html();
-        total2 = (tota2l + parseInt(dieta2));
+        dieta2=tr.children('td:eq(1)').html();
+        total2 = (total2 + parseInt(dieta2));
        
 });
 resultado = total + total2;
