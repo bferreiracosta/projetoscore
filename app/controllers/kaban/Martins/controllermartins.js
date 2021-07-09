@@ -834,12 +834,10 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelmartins = new application.app.model.kaban.Martins.modelmartins(application);
 	var modelcovidmartins = new application.app.model.regulacao.modelmartins(application);
-	modelmartins.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == 'false'){
+	modelmartins.buscardispositivoporid(idpaciente, unidade, function(error, resultadoscovid){
+		if(resultadoscovid[0].covid == 'false'){
 			modelmartins.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
+				if(resultados[0].dataatualizacao == null){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelmartins.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelmartins.buscardispositivo(unidade, function(error, resultado){
@@ -850,7 +848,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 				}else{
 					modeladmin.buscarusuarioeditavel(id, function(error, result){	
 						modelmartins.adddispositivo(idpaciente,glasgow, bic, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
-							modelmartins.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
+							modelmartins.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
 								modelmartins.buscardispositivo(unidade, function(error, resultado){
 									res.redirect("/dispositivomartins?id=" + result[0].id_usuario);	
 								});
@@ -864,9 +862,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 		else{
 			modelcovidmartins.buscarpacientepornome(nome, function(error, idcovid){
 			modelmartins.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
+				if(resultados[0].dataatualizacao == null){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelmartins.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelcovidmartins.updaterespkaban(idcovid[0].id_paciente,svd, sne, avp, cvc, glasgow, bic,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
@@ -880,7 +876,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 					modeladmin.buscarusuarioeditavel(id, function(error, result){	
 						modelmartins.adddispositivo(idpaciente, glasgow, bic,nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelcovidmartins.updaterespkaban(idcovid[0].id_paciente,svd, sne, avp, cvc, glasgow, bic,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
-								modelmartins.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
+								modelmartins.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
 									modelmartins.buscardispositivo(unidade, function(error, resultado){
 										res.redirect("/dispositivomartins?id=" + result[0].id_usuario);	
 									});
@@ -920,10 +916,7 @@ module.exports.cadastrarfugulin= function(application, req, res){
 	var modelmartins = new application.app.model.kaban.Martins.modelmartins(application);
 	
 	modelmartins.buscarfugulindataid(idpaciente, unidade, function(error, resultados){
-		var string=JSON.stringify(resultados);
-		var json =  JSON.parse(string);
-
-		if(json[0].dataatualizacao == null){
+		if(resultados[0].dataatualizacao == null){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
 				modelmartins.updatefugulin(idpaciente, mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,data,unidade,  function(error, resulta){
 					modelmartins.buscarfugulin(unidade, function(error, resultado){
@@ -934,7 +927,7 @@ module.exports.cadastrarfugulin= function(application, req, res){
 		}else{
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
 				modelmartins.addfugulin(idpaciente, setor, nome , mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,data,unidade,  function(error, resulta){
-					modelmartins.updatefugulinstatus(json[0].idfugulin, function(error, resulta){
+					modelmartins.updatefugulinstatus(resultados[0].idfugulin, function(error, resulta){
 						modelmartins.buscarfugulin(unidade, function(error, resultado){
 							res.redirect("/fugulinmartins?id=" + result[0].id_usuario);	
 						});
@@ -959,10 +952,8 @@ module.exports.cadastrartiss= function(application, req, res){
 	var modelmartins = new application.app.model.kaban.Martins.modelmartins(application);
 	
 	modelmartins.buscartissdataid(idpaciente, unidade, function(error, resultados){
-		var string=JSON.stringify(resultados);
-		var json =  JSON.parse(string);
-	
-		if(json[0].dataatualizacao == null){
+
+		if(resultados[0].dataatualizacao == null){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
 				modelmartins.updatetiss(idpaciente, tiss ,data,unidade,  function(error, resulta){
 					modelmartins.buscartiss(unidade, function(error, resultado){
@@ -974,7 +965,7 @@ module.exports.cadastrartiss= function(application, req, res){
 
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
 				modelmartins.addtiss(idpaciente, setor, nome,  tiss ,data,unidade,  function(error, resulta){
-					modelmartins.updatetissstatus(json[0].idtiss, function(error, resulta){
+					modelmartins.updatetissstatus(resultados[0].idtiss, function(error, resulta){
 						modelmartins.buscartiss(unidade, function(error, resultado){
 							res.redirect("/tissmartins?id=" + result[0].id_usuario);	
 						});
@@ -1008,12 +999,10 @@ module.exports.cadastrarnews= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelmartins = new application.app.model.kaban.Martins.modelmartins(application);
 	var modelcovidmartins = new application.app.model.regulacao.modelmartins(application);
-	modelmartins.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == 'false'){
+	modelmartins.buscardispositivoporid(idpaciente, unidade, function(error, resultadoscovid){
+		if(resultadoscovid[0].covid == 'false'){
 			modelmartins.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
+				if(resultados[0].dataatualizacao == null){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelmartins.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 							modelmartins.buscarnews(unidade, function(error, resultado){
@@ -1024,7 +1013,7 @@ module.exports.cadastrarnews= function(application, req, res){
 				}else{
 					modeladmin.buscarusuarioeditavel(id, function(error, result){	
 						modelmartins.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-							modelmartins.updatenewsstatus(json[0].idnews, function(error, resulta){
+							modelmartins.updatenewsstatus(resultados[0].idnews, function(error, resulta){
 								modelmartins.buscarnews(unidade, function(error, resultado){
 									res.redirect("/newskabanmartins?id=" + result[0].id_usuario);	
 								});
@@ -1037,9 +1026,7 @@ module.exports.cadastrarnews= function(application, req, res){
 		else{
 			modelcovidmartins.buscarpacientepornome( nome, function(error, idcovid){
 				modelmartins.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-					var string=JSON.stringify(resultados);
-					var json =  JSON.parse(string);
-					if(json[0].dataatualizacao == null){
+					if(resultados[0].dataatualizacao == null){
 						modeladmin.buscarusuarioporid(id, function(error, result){	
 							modelmartins.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 								modelcovidmartins.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
@@ -1052,7 +1039,7 @@ module.exports.cadastrarnews= function(application, req, res){
 					}else{
 						modeladmin.buscarusuarioeditavel(id, function(error, result){	
 							modelmartins.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-								modelmartins.updatenewsstatus(json[0].idnews, function(error, resulta){
+								modelmartins.updatenewsstatus(resultados[0].idnews, function(error, resulta){
 									modelcovidmartins.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
 										modelmartins.buscarnews(unidade, function(error, resultado){
 											res.redirect("/newskabanmartins?id=" + result[0].id_usuario);	

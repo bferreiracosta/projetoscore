@@ -834,12 +834,10 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
 	var modelcovidluizote = new application.app.model.regulacao.modelluizote(application);
-	modelluizote.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == 'false'){
+	modelluizote.buscardispositivoporid(idpaciente, unidade, function(error, resultadoscovid){
+		if(resultadoscovid[0].covid == 'false'){
 			modelluizote.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
+				if(resultados[0].dataatualizacao == null){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelluizote.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelluizote.buscardispositivo(unidade, function(error, resultado){
@@ -850,7 +848,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 				}else{
 					modeladmin.buscarusuarioeditavel(id, function(error, result){	
 						modelluizote.adddispositivo(idpaciente,glasgow, bic, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
-							modelluizote.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
+							modelluizote.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
 								modelluizote.buscardispositivo(unidade, function(error, resultado){
 									res.redirect("/dispositivoluizote?id=" + result[0].id_usuario);	
 								});
@@ -864,9 +862,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 		else{
 			modelcovidluizote.buscarpacientepornome(nome, function(error, idcovid){
 			modelluizote.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
+				if(resultados[0].dataatualizacao == null){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelluizote.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelcovidluizote.updaterespkaban(idcovid[0].id_paciente,svd, sne, avp, cvc, glasgow, bic,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
@@ -880,7 +876,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 					modeladmin.buscarusuarioeditavel(id, function(error, result){	
 						modelluizote.adddispositivo(idpaciente, glasgow, bic,nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelcovidluizote.updaterespkaban(idcovid[0].id_paciente,svd, sne, avp, cvc, glasgow, bic,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
-								modelluizote.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
+								modelluizote.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
 									modelluizote.buscardispositivo(unidade, function(error, resultado){
 										res.redirect("/dispositivoluizote?id=" + result[0].id_usuario);	
 									});
@@ -920,10 +916,7 @@ module.exports.cadastrarfugulin= function(application, req, res){
 	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
 	
 	modelluizote.buscarfugulindataid(idpaciente, unidade, function(error, resultados){
-		var string=JSON.stringify(resultados);
-		var json =  JSON.parse(string);
-
-		if(json[0].dataatualizacao == null){
+		if(resultados[0].dataatualizacao == null){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
 				modelluizote.updatefugulin(idpaciente, mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,data,unidade,  function(error, resulta){
 					modelluizote.buscarfugulin(unidade, function(error, resultado){
@@ -934,7 +927,7 @@ module.exports.cadastrarfugulin= function(application, req, res){
 		}else{
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
 				modelluizote.addfugulin(idpaciente, setor, nome , mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,data,unidade,  function(error, resulta){
-					modelluizote.updatefugulinstatus(json[0].idfugulin, function(error, resulta){
+					modelluizote.updatefugulinstatus(resultados[0].idfugulin, function(error, resulta){
 						modelluizote.buscarfugulin(unidade, function(error, resultado){
 							res.redirect("/fugulinluizote?id=" + result[0].id_usuario);	
 						});
@@ -959,10 +952,8 @@ module.exports.cadastrartiss= function(application, req, res){
 	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
 	
 	modelluizote.buscartissdataid(idpaciente, unidade, function(error, resultados){
-		var string=JSON.stringify(resultados);
-		var json =  JSON.parse(string);
-	
-		if(json[0].dataatualizacao == null){
+
+		if(resultados[0].dataatualizacao == null){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
 				modelluizote.updatetiss(idpaciente, tiss ,data,unidade,  function(error, resulta){
 					modelluizote.buscartiss(unidade, function(error, resultado){
@@ -974,7 +965,7 @@ module.exports.cadastrartiss= function(application, req, res){
 
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
 				modelluizote.addtiss(idpaciente, setor, nome,  tiss ,data,unidade,  function(error, resulta){
-					modelluizote.updatetissstatus(json[0].idtiss, function(error, resulta){
+					modelluizote.updatetissstatus(resultados[0].idtiss, function(error, resulta){
 						modelluizote.buscartiss(unidade, function(error, resultado){
 							res.redirect("/tissluizote?id=" + result[0].id_usuario);	
 						});
@@ -1008,12 +999,10 @@ module.exports.cadastrarnews= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
 	var modelcovidluizote = new application.app.model.regulacao.modelluizote(application);
-	modelluizote.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == 'false'){
+	modelluizote.buscardispositivoporid(idpaciente, unidade, function(error, resultadoscovid){
+		if(resultadoscovid[0].covid == 'false'){
 			modelluizote.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
+				if(resultados[0].dataatualizacao == null){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelluizote.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 							modelluizote.buscarnews(unidade, function(error, resultado){
@@ -1024,7 +1013,7 @@ module.exports.cadastrarnews= function(application, req, res){
 				}else{
 					modeladmin.buscarusuarioeditavel(id, function(error, result){	
 						modelluizote.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-							modelluizote.updatenewsstatus(json[0].idnews, function(error, resulta){
+							modelluizote.updatenewsstatus(resultados[0].idnews, function(error, resulta){
 								modelluizote.buscarnews(unidade, function(error, resultado){
 									res.redirect("/newskabanluizote?id=" + result[0].id_usuario);	
 								});
@@ -1037,9 +1026,7 @@ module.exports.cadastrarnews= function(application, req, res){
 		else{
 			modelcovidluizote.buscarpacientepornome( nome, function(error, idcovid){
 				modelluizote.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-					var string=JSON.stringify(resultados);
-					var json =  JSON.parse(string);
-					if(json[0].dataatualizacao == null){
+					if(resultados[0].dataatualizacao == null){
 						modeladmin.buscarusuarioporid(id, function(error, result){	
 							modelluizote.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 								modelcovidluizote.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
@@ -1052,7 +1039,7 @@ module.exports.cadastrarnews= function(application, req, res){
 					}else{
 						modeladmin.buscarusuarioeditavel(id, function(error, result){	
 							modelluizote.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-								modelluizote.updatenewsstatus(json[0].idnews, function(error, resulta){
+								modelluizote.updatenewsstatus(resultados[0].idnews, function(error, resulta){
 									modelcovidluizote.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
 										modelluizote.buscarnews(unidade, function(error, resultado){
 											res.redirect("/newskabanluizote?id=" + result[0].id_usuario);	

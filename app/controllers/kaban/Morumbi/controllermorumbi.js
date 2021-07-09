@@ -834,12 +834,10 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
 	var modelcovidmorumbi = new application.app.model.regulacao.modelmorumbi(application);
-	modelmorumbi.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == 'false'){
+	modelmorumbi.buscardispositivoporid(idpaciente, unidade, function(error, resultadoscovid){
+		if(resultadoscovid[0].covid == 'false'){
 			modelmorumbi.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
+				if(resultados[0].dataatualizacao == null){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelmorumbi.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelmorumbi.buscardispositivo(unidade, function(error, resultado){
@@ -850,7 +848,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 				}else{
 					modeladmin.buscarusuarioeditavel(id, function(error, result){	
 						modelmorumbi.adddispositivo(idpaciente,glasgow, bic, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
-							modelmorumbi.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
+							modelmorumbi.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
 								modelmorumbi.buscardispositivo(unidade, function(error, resultado){
 									res.redirect("/dispositivomorumbi?id=" + result[0].id_usuario);	
 								});
@@ -864,9 +862,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 		else{
 			modelcovidmorumbi.buscarpacientepornome(nome, function(error, idcovid){
 			modelmorumbi.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
+				if(resultados[0].dataatualizacao == null){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelmorumbi.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelcovidmorumbi.updaterespkaban(idcovid[0].id_paciente,svd, sne, avp, cvc, glasgow, bic,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
@@ -880,7 +876,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 					modeladmin.buscarusuarioeditavel(id, function(error, result){	
 						modelmorumbi.adddispositivo(idpaciente, glasgow, bic,nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelcovidmorumbi.updaterespkaban(idcovid[0].id_paciente,svd, sne, avp, cvc, glasgow, bic,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
-								modelmorumbi.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
+								modelmorumbi.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
 									modelmorumbi.buscardispositivo(unidade, function(error, resultado){
 										res.redirect("/dispositivomorumbi?id=" + result[0].id_usuario);	
 									});
@@ -920,10 +916,7 @@ module.exports.cadastrarfugulin= function(application, req, res){
 	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
 	
 	modelmorumbi.buscarfugulindataid(idpaciente, unidade, function(error, resultados){
-		var string=JSON.stringify(resultados);
-		var json =  JSON.parse(string);
-
-		if(json[0].dataatualizacao == null){
+		if(resultados[0].dataatualizacao == null){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
 				modelmorumbi.updatefugulin(idpaciente, mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,data,unidade,  function(error, resulta){
 					modelmorumbi.buscarfugulin(unidade, function(error, resultado){
@@ -934,7 +927,7 @@ module.exports.cadastrarfugulin= function(application, req, res){
 		}else{
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
 				modelmorumbi.addfugulin(idpaciente, setor, nome , mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,data,unidade,  function(error, resulta){
-					modelmorumbi.updatefugulinstatus(json[0].idfugulin, function(error, resulta){
+					modelmorumbi.updatefugulinstatus(resultados[0].idfugulin, function(error, resulta){
 						modelmorumbi.buscarfugulin(unidade, function(error, resultado){
 							res.redirect("/fugulinmorumbi?id=" + result[0].id_usuario);	
 						});
@@ -959,10 +952,8 @@ module.exports.cadastrartiss= function(application, req, res){
 	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
 	
 	modelmorumbi.buscartissdataid(idpaciente, unidade, function(error, resultados){
-		var string=JSON.stringify(resultados);
-		var json =  JSON.parse(string);
-	
-		if(json[0].dataatualizacao == null){
+
+		if(resultados[0].dataatualizacao == null){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
 				modelmorumbi.updatetiss(idpaciente, tiss ,data,unidade,  function(error, resulta){
 					modelmorumbi.buscartiss(unidade, function(error, resultado){
@@ -974,7 +965,7 @@ module.exports.cadastrartiss= function(application, req, res){
 
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
 				modelmorumbi.addtiss(idpaciente, setor, nome,  tiss ,data,unidade,  function(error, resulta){
-					modelmorumbi.updatetissstatus(json[0].idtiss, function(error, resulta){
+					modelmorumbi.updatetissstatus(resultados[0].idtiss, function(error, resulta){
 						modelmorumbi.buscartiss(unidade, function(error, resultado){
 							res.redirect("/tissmorumbi?id=" + result[0].id_usuario);	
 						});
@@ -985,6 +976,7 @@ module.exports.cadastrartiss= function(application, req, res){
 	})
 	
 }
+
 module.exports.cadastrarnews= function(application, req, res){
 	var nome = req.body.nome;
 	var idpaciente = req.body.idpaciente;
@@ -1007,12 +999,10 @@ module.exports.cadastrarnews= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
 	var modelcovidmorumbi = new application.app.model.regulacao.modelmorumbi(application);
-	modelmorumbi.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == 'false'){
+	modelmorumbi.buscardispositivoporid(idpaciente, unidade, function(error, resultadoscovid){
+		if(resultadoscovid[0].covid == 'false'){
 			modelmorumbi.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
+				if(resultados[0].dataatualizacao == null){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelmorumbi.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 							modelmorumbi.buscarnews(unidade, function(error, resultado){
@@ -1023,7 +1013,7 @@ module.exports.cadastrarnews= function(application, req, res){
 				}else{
 					modeladmin.buscarusuarioeditavel(id, function(error, result){	
 						modelmorumbi.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-							modelmorumbi.updatenewsstatus(json[0].idnews, function(error, resulta){
+							modelmorumbi.updatenewsstatus(resultados[0].idnews, function(error, resulta){
 								modelmorumbi.buscarnews(unidade, function(error, resultado){
 									res.redirect("/newskabanmorumbi?id=" + result[0].id_usuario);	
 								});
@@ -1036,9 +1026,7 @@ module.exports.cadastrarnews= function(application, req, res){
 		else{
 			modelcovidmorumbi.buscarpacientepornome( nome, function(error, idcovid){
 				modelmorumbi.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-					var string=JSON.stringify(resultados);
-					var json =  JSON.parse(string);
-					if(json[0].dataatualizacao == null){
+					if(resultados[0].dataatualizacao == null){
 						modeladmin.buscarusuarioporid(id, function(error, result){	
 							modelmorumbi.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 								modelcovidmorumbi.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
@@ -1051,7 +1039,7 @@ module.exports.cadastrarnews= function(application, req, res){
 					}else{
 						modeladmin.buscarusuarioeditavel(id, function(error, result){	
 							modelmorumbi.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-								modelmorumbi.updatenewsstatus(json[0].idnews, function(error, resulta){
+								modelmorumbi.updatenewsstatus(resultados[0].idnews, function(error, resulta){
 									modelcovidmorumbi.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
 										modelmorumbi.buscarnews(unidade, function(error, resultado){
 											res.redirect("/newskabanmorumbi?id=" + result[0].id_usuario);	
@@ -1066,6 +1054,7 @@ module.exports.cadastrarnews= function(application, req, res){
 		}
 })
 }
+
 
 module.exports.update= function(application, req, res){
 	var idpaciente = req.body.idpaciente;

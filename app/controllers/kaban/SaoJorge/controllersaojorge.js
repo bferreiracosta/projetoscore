@@ -834,12 +834,10 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelsaojorge = new application.app.model.kaban.SaoJorge.modelsaojorge(application);
 	var modelcovidsaojorge = new application.app.model.regulacao.modelsaojorge(application);
-	modelsaojorge.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == 'false'){
+	modelsaojorge.buscardispositivoporid(idpaciente, unidade, function(error, resultadoscovid){
+		if(resultadoscovid[0].covid == 'false'){
 			modelsaojorge.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
+				if(resultados[0].dataatualizacao == null){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelsaojorge.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelsaojorge.buscardispositivo(unidade, function(error, resultado){
@@ -850,7 +848,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 				}else{
 					modeladmin.buscarusuarioeditavel(id, function(error, result){	
 						modelsaojorge.adddispositivo(idpaciente,glasgow, bic, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
-							modelsaojorge.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
+							modelsaojorge.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
 								modelsaojorge.buscardispositivo(unidade, function(error, resultado){
 									res.redirect("/dispositivosaojorge?id=" + result[0].id_usuario);	
 								});
@@ -864,9 +862,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 		else{
 			modelcovidsaojorge.buscarpacientepornome(nome, function(error, idcovid){
 			modelsaojorge.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
+				if(resultados[0].dataatualizacao == null){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelsaojorge.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelcovidsaojorge.updaterespkaban(idcovid[0].id_paciente,svd, sne, avp, cvc, glasgow, bic,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
@@ -880,7 +876,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 					modeladmin.buscarusuarioeditavel(id, function(error, result){	
 						modelsaojorge.adddispositivo(idpaciente, glasgow, bic,nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 							modelcovidsaojorge.updaterespkaban(idcovid[0].id_paciente,svd, sne, avp, cvc, glasgow, bic,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
-								modelsaojorge.updatedispositivostatus(json[0].iddispositivo, function(error, resulta){
+								modelsaojorge.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
 									modelsaojorge.buscardispositivo(unidade, function(error, resultado){
 										res.redirect("/dispositivosaojorge?id=" + result[0].id_usuario);	
 									});
@@ -920,10 +916,7 @@ module.exports.cadastrarfugulin= function(application, req, res){
 	var modelsaojorge = new application.app.model.kaban.SaoJorge.modelsaojorge(application);
 	
 	modelsaojorge.buscarfugulindataid(idpaciente, unidade, function(error, resultados){
-		var string=JSON.stringify(resultados);
-		var json =  JSON.parse(string);
-
-		if(json[0].dataatualizacao == null){
+		if(resultados[0].dataatualizacao == null){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
 				modelsaojorge.updatefugulin(idpaciente, mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,data,unidade,  function(error, resulta){
 					modelsaojorge.buscarfugulin(unidade, function(error, resultado){
@@ -934,7 +927,7 @@ module.exports.cadastrarfugulin= function(application, req, res){
 		}else{
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
 				modelsaojorge.addfugulin(idpaciente, setor, nome , mental2,oxigenacao2,sinaisvitais2,motilidade2,deambulacao2,alimentacao2,cuidado2,eliminacao2,terapeutica2,integridade2,curativo2,tempo2,fugulin,data,unidade,  function(error, resulta){
-					modelsaojorge.updatefugulinstatus(json[0].idfugulin, function(error, resulta){
+					modelsaojorge.updatefugulinstatus(resultados[0].idfugulin, function(error, resulta){
 						modelsaojorge.buscarfugulin(unidade, function(error, resultado){
 							res.redirect("/fugulinsaojorge?id=" + result[0].id_usuario);	
 						});
@@ -953,16 +946,14 @@ module.exports.cadastrartiss= function(application, req, res){
 	var tiss = req.body.tiss;
 	var data = req.body.data;
 	var id = req.body.campo;
-	var unidade = 'Saojorge';
+	var unidade = 'SaoJorge';
 	console.log(tiss);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
-	var modelsaojorge = new application.app.model.kaban.Saojorge.modelsaojorge(application);
+	var modelsaojorge = new application.app.model.kaban.SaoJorge.modelsaojorge(application);
 	
 	modelsaojorge.buscartissdataid(idpaciente, unidade, function(error, resultados){
-		var string=JSON.stringify(resultados);
-		var json =  JSON.parse(string);
-	
-		if(json[0].dataatualizacao == null){
+
+		if(resultados[0].dataatualizacao == null){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
 				modelsaojorge.updatetiss(idpaciente, tiss ,data,unidade,  function(error, resulta){
 					modelsaojorge.buscartiss(unidade, function(error, resultado){
@@ -974,7 +965,7 @@ module.exports.cadastrartiss= function(application, req, res){
 
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
 				modelsaojorge.addtiss(idpaciente, setor, nome,  tiss ,data,unidade,  function(error, resulta){
-					modelsaojorge.updatetissstatus(json[0].idtiss, function(error, resulta){
+					modelsaojorge.updatetissstatus(resultados[0].idtiss, function(error, resulta){
 						modelsaojorge.buscartiss(unidade, function(error, resultado){
 							res.redirect("/tisssaojorge?id=" + result[0].id_usuario);	
 						});
@@ -1008,12 +999,10 @@ module.exports.cadastrarnews= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelsaojorge = new application.app.model.kaban.SaoJorge.modelsaojorge(application);
 	var modelcovidsaojorge = new application.app.model.regulacao.modelsaojorge(application);
-	modelsaojorge.buscardispositivoporid(idpaciente, unidade, function(error, resultados){
-		if(resultados[0].covid == 'false'){
+	modelsaojorge.buscardispositivoporid(idpaciente, unidade, function(error, resultadoscovid){
+		if(resultadoscovid[0].covid == 'false'){
 			modelsaojorge.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-				var string=JSON.stringify(resultados);
-				var json =  JSON.parse(string);
-				if(json[0].dataatualizacao == null){
+				if(resultados[0].dataatualizacao == null){
 					modeladmin.buscarusuarioporid(id, function(error, result){	
 						modelsaojorge.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 							modelsaojorge.buscarnews(unidade, function(error, resultado){
@@ -1024,7 +1013,7 @@ module.exports.cadastrarnews= function(application, req, res){
 				}else{
 					modeladmin.buscarusuarioeditavel(id, function(error, result){	
 						modelsaojorge.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-							modelsaojorge.updatenewsstatus(json[0].idnews, function(error, resulta){
+							modelsaojorge.updatenewsstatus(resultados[0].idnews, function(error, resulta){
 								modelsaojorge.buscarnews(unidade, function(error, resultado){
 									res.redirect("/newskabansaojorge?id=" + result[0].id_usuario);	
 								});
@@ -1037,9 +1026,7 @@ module.exports.cadastrarnews= function(application, req, res){
 		else{
 			modelcovidsaojorge.buscarpacientepornome( nome, function(error, idcovid){
 				modelsaojorge.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-					var string=JSON.stringify(resultados);
-					var json =  JSON.parse(string);
-					if(json[0].dataatualizacao == null){
+					if(resultados[0].dataatualizacao == null){
 						modeladmin.buscarusuarioporid(id, function(error, result){	
 							modelsaojorge.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
 								modelcovidsaojorge.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
@@ -1052,7 +1039,7 @@ module.exports.cadastrarnews= function(application, req, res){
 					}else{
 						modeladmin.buscarusuarioeditavel(id, function(error, result){	
 							modelsaojorge.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-								modelsaojorge.updatenewsstatus(json[0].idnews, function(error, resulta){
+								modelsaojorge.updatenewsstatus(resultados[0].idnews, function(error, resulta){
 									modelcovidsaojorge.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
 										modelsaojorge.buscarnews(unidade, function(error, resultado){
 											res.redirect("/newskabansaojorge?id=" + result[0].id_usuario);	
@@ -1067,6 +1054,7 @@ module.exports.cadastrarnews= function(application, req, res){
 		}
 })
 }
+
 
 module.exports.update= function(application, req, res){
 	var idpaciente = req.body.idpaciente;
