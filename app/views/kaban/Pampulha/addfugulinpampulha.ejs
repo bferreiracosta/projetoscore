@@ -1,0 +1,710 @@
+<%- include('../cabecalhokaban'); %>
+<h2>Cadastrar Fugulin Pampulha</h2>
+
+<% if(id.length > 0) { %>
+	<% for(var i = 0; i < id.length; i++) {%>
+		<a href="fugulinpampulha?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Voltar Fugulin Atualizados</button></a>
+		<br>
+<br>
+<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>"> 
+	<table class="table table-striped"  style="width: 100%;" id="mytable">		
+		<thead>
+			<tr>
+				<th></th>
+				<th>id</th>
+				<th>Nome</th>
+				<th>Avaliação Mental</th>
+				<th>Avaliação Oxigenação</th>
+				<th>Avaliação Sinais Vitais</th>
+				<th>Avaliação Motilidade</th>
+				<th>Avaliação Deambulação</th>
+				<th>Avaliação Alimentação</th>
+				<th>Avaliação Cuidado</th>
+				<th>Avaliação Eliminação</th>
+				<th>Avaliação Terapeutica</th>
+				<th>Avaliação Integridade Tissular</th>
+				<th>Avaliação Curativo</th>
+				<th>Avaliação Tempo Curativo</th>
+				<th>Resultado Fugulin</th>
+				<th>Unidade</th>   
+			</tr>
+		</thead>
+		<tbody>   
+			<% if(fugulin.length > 0) { %>
+				<% for(var j = 0; j < fugulin.length; j++) {%>	
+			<tr>
+				
+				<td>
+                    <a href="" onclick="setaDadosModal2('<%=id[i].id_usuario %>'),setaDadosModal('<%=fugulin[j].idpaciente %>'), setaDadosModal3('<%=fugulin[j].nome %>'), setaDadosModal4('<%=fugulin[j].setor %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModal">Adicionar dispositivo</a>
+                </td>
+				<td><label for="">ID: </label><%=fugulin[j].idpaciente %></td>
+				<td><label hidden for="">Nome: </label><%=fugulin[j].nome %></td>
+				<td><label hidden for="">Dispositivo: </label><%=fugulin[j].mental %></td>
+				<td><label hidden for="">fluxo_de_o2: </label><%=fugulin[j].oxigenacao %></td>
+				<td><label hidden>/Noradrenalina: </label><%=fugulin[j].sinaisvitais %></td>
+				<td><label hidden>/Vazão Noradrenalina: </label><%=fugulin[j].motilidade %></td>
+				<td><label hidden>/Adrenalina: </label><%=fugulin[j].deambulacao %></td>
+				<td><label hidden>/Vazão Adrenalina: </label><%=fugulin[j].alimentacao %></td>
+				<td><label hidden>/Bicarbonato: </label><%=fugulin[j].cuidado %></td>
+				<td><label hidden>/Vazão Bicarbonato: </label><%=fugulin[j].eliminacao %></td>
+				<td><label hidden>/Fio2: </label><%=fugulin[j].terapeutica %></td>
+				<td><label hidden>/Fio2: </label><%=fugulin[j].integridade %></td>
+				<td><label hidden>/Fio2: </label><%=fugulin[j].curativo %></td>
+				<td><label hidden>/Fio2: </label><%=fugulin[j].tempocurativo %></td>
+				<td><label hidden>/PEEP: </label><%=fugulin[j].resultado %></td>
+				<td><label hidden>/Dormonid: </label><%=fugulin[j].unidade %></td>                             
+			</tr>
+			<% } %>	
+			<% } %>
+		</tbody>
+	</table>
+	<br>
+	<br>
+	<br>
+
+	
+	
+<!-- Delete Product Modal-->
+<form id="add-row-form" action="/savefugulinpampulha" method="POST">
+	<div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title" id="myModalLabel">Editar Fugulin pampulha</h2>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+				
+				<div class="modal-body">
+					<input type="hidden" name="campo" id="campo">
+					
+					<div tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+				   <div  role="document">
+					   <div >
+						   <div >
+							<div class="form-group">
+								<input readonly="readonly" type="hidden" name="idpaciente" id="idpaciente" class="form-control" placeholder="" required>
+								<label for="">Paciente</label>
+								<input readonly="readonly" type="text" name="nome" id="nome" class="form-control" >
+								<input readonly="readonly" type="hidden" name="setor" id="setor" class="form-control" >
+							</div>
+							<div class="form-group">
+								<label for="mental">Estado Mental</label>
+								<select class="form-control" id="mental" name="mental" required>
+									<option value="" disabled selected hidden>Estado Mental</option>
+									<option value="Inconsciênte" >Inconsciênte</option>
+									<option value="Períodos de Inconsciência" >Períodos de Inconsciência</option>
+									<option value="Períodos de desorientação no tempo e no espaço"  >Períodos de desorientação no tempo e no espaço</option>
+									<option value="Orientado no tempo e no espaço">Orientado no tempo e no espaço</option>
+								</select>
+								<input type="hidden" name="mental2"  id="mental2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="oxigenacao">Oxigenação</label>
+								<select class="form-control" id="oxigenacao" name="oxigenacao" required>
+									<option value="" disabled selected hidden>Oxigenação</option>
+									<option value="Ventilação mecânica (uso de ventilador a pressão ou a volume)" >Ventilação mecânica (uso de ventilador a pressão ou a volume)</option>
+									<option value="Uso contínuo de máscara ou cateter de oxigênio" >Uso contínuo de máscara ou cateter de oxigênio</option>
+									<option value="Uso intermitente de máscara ou cateter de oxigênio" >Uso intermitente de máscara ou cateter de oxigênio.</option>
+									<option value="Não depende de oxigênio" >Não depende de oxigênio.</option>
+								</select>
+								<input type="hidden" name="oxigenacao2"  id="oxigenacao2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="sinaisvitais">Sinais Vitais</label>
+								<select class="form-control" id="sinaisvitais" name="sinaisvitais" required>
+									<option value="" disabled selected hidden>Sinais Vitais</option>
+									<option value="Contole em intervalos menores ou iguais a 2 horas" >Contole em intervalos menores ou iguais a 2 horas</option>
+									<option value="Controle em intervalos de 4 horas" >Controle em intervalos de 4 horas</option>
+									<option value="Controle em intervalos de 6 horas" >Controle em intervalos de 6 horas</option>
+									<option value="Controle de rotina (8 horas)" >Controle de rotina (8 horas)</option>
+								</select>
+								<input type="hidden" name="sinaisvitais2"  id="sinaisvitais2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="motilidade">Motilidade</label>
+								<select class="form-control" id="motilidade" name="motilidade" required>
+									<option value="" disabled selected hidden>Motilidade</option>
+									<option value="Incapaz de movimentar qualquer segmento corporal. Mudança de decúbito e movimentação passiva programada e realizada pela enfermagem" >Incapaz de movimentar qualquer segmento corporal. Mudança de decúbito e movimentação passiva programada e realizada pela enfermagem</option>
+									<option value="Dificuldade para movimentar segmentos corporais. Mudança de decúbito e movimentação passiva auxiliada pela enfermagem" >Dificuldade para movimentar segmentos corporais. Mudança de decúbito e movimentação passiva auxiliada pela enfermagem</option>
+									<option value="Limitação de movimentos" >Limitação de movimentos</option>
+									<option value="Movimenta todos os segmentos corporais" >Movimenta todos os segmentos corporais</option>
+								</select>
+								<input type="hidden" name="motilidade2"  id="motilidade2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="deambulacao">Deambulação</label>
+								<select class="form-control" id="deambulacao" name="deambulacao" required>
+									<option value="" disabled selected hidden>Deambulação</option>
+									<option value="Restrito ao leito" >Restrito ao leito</option>
+									<option value="Locomoção através de cadeira de rodas" >Locomoção através de cadeira de rodas</option>
+									<option value="Necessita de auxílio para deambular" >Necessita de auxílio para deambular</option>
+									<option value="Ambulante" >Ambulante</option>
+								</select>
+								<input type="hidden" name="deambulacao2"  id="deambulacao2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="alimentacao">Alimentação</label>
+								<select class="form-control" id="alimentacao" name="alimentacao" required>
+									<option value="" disabled selected hidden>Alimentação</option>
+									<option value="Através de cateter central" >Através de cateter central</option>
+									<option value="Através de sonda nasogástrica" >Através de sonda nasogástrica</option>
+									<option value="Por boca, com auxílio" >Por boca, com auxílio</option>
+									<option value="Auto suficiente" >Auto suficiente</option>
+								</select>
+								<input type="hidden" name="alimentacao2"  id="alimentacao2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="cuidado">Cuidado corporal</label>
+								<select class="form-control" id="cuidado" name="cuidado" required>
+									<option value="" disabled selected hidden>Cuidado corporal</option>
+									<option value="Banho no leito, higiêne oral realizada pela enfermagem" >Banho no leito, higiêne oral realizada pela enfermagem</option>
+									<option value="Banho de chuveiro, higiêne oral realizada pela enfermagem" >Banho de chuveiro, higiêne oral realizada pela enfermagem</option>
+									<option value="Auxílio no banho de chuveiroe/ou higiêne oral" >Auxílio no banho de chuveiroe/ou higiêne oral</option>
+									<option value="Auto suficiente" >Auto suficiente</option>
+								</select>
+								<input type="hidden" name="cuidado2"  id="cuidado2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="eliminacao">Eliminação</label>
+								<select class="form-control" id="eliminacao" name="eliminacao" required>
+									<option value="" disabled selected hidden>Eliminação</option>
+									<option value="Evacuação no leito e uso de sonda vesical para controle da diurese" >Evacuação no leito e uso de sonda vesical para controle da diurese</option>
+									<option value="Uso de comadre ou eliminações no leito" >Uso de comadre ou eliminações no leito</option>
+									<option value="Uso de vaso sanitário com auxílio" >Uso de vaso sanitário com auxílio</option>
+									<option value="Auto suficiente" >Auto suficiente</option>
+								</select>
+								<input type="hidden" name="eliminacao2"  id="eliminacao2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="terapeutica">Terapêutica</label>
+								<select class="form-control" id="terapeutica" name="terapeutica" required>
+									<option value="" disabled selected hidden>Terapêutica</option>
+									<option value="Uso de drogas vasoativas para manutenção de P.A" >Uso de drogas vasoativas para manutenção de P.A</option>
+									<option value="E.V. contínuo ou através de sonda nasogástrica" >E.V. contínuo ou através de sonda nasogástrica</option>
+									<option value="E.V. intermitente" >E.V. intermitente</option>
+									<option value="I.M. ou V.O" >I.M. ou V.O</option>
+								</select>
+								<input type="hidden" name="terapeutica2"  id="terapeutica2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="integridade">Integridade Cutânea-mucosa/ Comprometimento tecidual</label>
+								<select class="form-control" id="integridade" name="integridade" required>
+									<option value="" disabled selected hidden>Integridade Cutânea-mucosa/ Comprometimento tecidual</option>
+									<option value="Presença da pele com destruição da derme, epiderme, músculos" >Presença da pele com destruição da derme, epiderme, músculos</option>
+									<option value="Presença de solução de continuidade da pele.Incisão cirúrgica. Ostomias. Drenos" >Presença de solução de continuidade da pele.Incisão cirúrgica. Ostomias. Drenos</option>
+									<option value="Presença de alteração da cor da pele e/ou presença de solução de continuidade da pele envolvendo a epiderme, derme" >Presença de alteração da cor da pele e/ou presença de solução de continuidade da pele envolvendo a epiderme, derme</option>
+									<option value="Pele íntegra" >Pele íntegra</option>
+								</select>
+								<input type="hidden" name="integridade2"  id="integridade2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="curativo">Curativo</label>
+								<select class="form-control" id="curativo" name="curativo" required>
+									<option value="" disabled selected hidden>Curativo</option>
+									<option value="Curativo realizado 3 vezes ao dia ou mais, pela equipe de enfermagem" >Curativo realizado 3 vezes ao dia ou mais, pela equipe de enfermagem</option>
+									<option value="Curativo realizado 2 vezes ao dia, pela equipe de enfermagem" >Curativo realizado 2 vezes ao dia, pela equipe de enfermagem</option>
+									<option value="Curativo realizado 1 vez ao dia, pela equipe de enfermagem" >Curativo realizado 1 vez ao dia, pela equipe de enfermagem</option>
+									<option value="Sem curativo ou limpeza da ferida/incisão cirúrgica, realizada pelo paciente, durante o banho" >Sem curativo ou limpeza da ferida/incisão cirúrgica, realizada pelo paciente, durante o banho</option>
+								</select>
+								<input type="hidden" name="curativo2"  id="curativo2" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="tempo">Tempo utilizado na realização de curativos</label>
+								<select class="form-control" id="tempo" name="tempo" required>
+									<option value="" disabled selected hidden>Tempo utilizado na realização de curativos</option>
+									<option value="Superior a 30 minutos" >Superior a 30 minutos</option>
+									<option value="Entre 15 a 30 minutos" >Entre 15 a 30 minutos</option>
+									<option value="Entre 5 e 15 minutos" >Entre 5 e 15 minutos</option>
+									<option value="Sem curativo ou limpeza da ferida realizada durante o banho" >Sem curativo ou limpeza da ferida realizada durante o banho</option>
+								</select>
+								<input type="hidden" name="tempo2"  id="tempo2" class="form-control"  required>
+							</div>
+							
+							<div  class="form-group">
+								<button onclick="calcular()" type="button" class="btn btn-primary">Somar Fugulin</button>
+							</div>
+							<div>
+								<label for="fugulin">Fugulin</label>
+								<input  type="text" id="fugulin" name="fugulin"  class="form-control" required>
+							</div>
+							<div id="hora" class="form-group">
+								<input  type="hidden" id="data" name="data"  class="form-control">
+							</div>
+						</div>
+							
+							<div >
+								<a href="/addfugulinpampulha?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+								<button type="submit" class="btn btn-primary">Atualizar</button>
+							</div>
+					   </div>
+				   </div>
+			   </div>
+			</div>
+		</div>
+	</div>
+</form>
+<% } %>	
+<% } %>
+			
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.js"></script>
+<script src="https://colorlib.com/polygon/vendors/jquery/dist/jquery.min.js"></script>
+<script src="https://colorlib.com/polygon/vendors/pnotify/dist/pnotify.js"></script>
+<script src="https://colorlib.com/polygon/vendors/pnotify/dist/pnotify.buttons.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<%- include('../../home/footer'); %>
+</body>
+</html>
+<script>
+$(document).ready(function() {
+	$('#mytable').DataTable( {
+		dom: 'Bfrtip',
+		"scrollX": true,
+		order: ([ 3, 'asc']),
+		
+	pageLength: 50,
+	buttons: [       
+		{
+			"extend": "copyHtml5",
+			"text": "COPIAR",
+			header: false
+		},          
+		{
+			"extend": "pdf",
+			"text": "PDF",
+			header: false
+		},
+		{
+			"extend": "excelHtml5",
+			"text": "EXCEL",
+			header: false
+		},
+		{
+			"extend": "print",
+			"text": "IMPRIMIR",
+			header: false
+		}
+	],language: {
+		buttons: {
+			copyTitle: 'Copiado para área de transferência',
+			copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+			copySuccess: {
+				_: '%d linhas copiadas',
+				1: '1 linha copiada'
+			}
+		},
+		"paginate": {
+			"previous": "Anterior",
+			"next": "Próximo"
+		},
+		"search": "Pesquisar:"
+	},
+	select: true
+} );
+} );
+
+
+function setaDadosModal(valor) {
+	document.getElementById('idpaciente').value = valor;
+}
+
+function setaDadosModal2(valor) {
+	document.getElementById('campo').value = valor;
+}
+
+function setaDadosModal3(valor) {
+	document.getElementById('nome').value = valor;
+}
+
+function setaDadosModal4(valor) {
+	document.getElementById('setor').value = valor;
+}
+
+window.onload = function(){
+	$("#mental").on('change', function(e){
+     var mental = document.getElementById('mental').value;
+     document.getElementById('mental2').value = mental;
+});
+$("#oxigenacao").on('change', function(e){
+     var oxigenacao = document.getElementById('oxigenacao').value;
+     document.getElementById('oxigenacao2').value = oxigenacao;
+});
+$("#sinaisvitais").on('change', function(e){
+     var sinaisvitais = document.getElementById('sinaisvitais').value;
+     document.getElementById('sinaisvitais2').value = sinaisvitais;
+});
+$("#motilidade").on('change', function(e){
+     var motilidade = document.getElementById('motilidade').value;
+     document.getElementById('motilidade2').value = motilidade;
+});
+$("#deambulacao").on('change', function(e){
+     var deambulacao = document.getElementById('deambulacao').value;
+     document.getElementById('deambulacao2').value = deambulacao;
+});
+$("#alimentacao").on('change', function(e){
+     var alimentacao = document.getElementById('alimentacao').value;
+     document.getElementById('alimentacao2').value = alimentacao;
+});
+$("#cuidado").on('change', function(e){
+     var cuidado = document.getElementById('cuidado').value;
+     document.getElementById('cuidado2').value = cuidado;
+});
+$("#eliminacao").on('change', function(e){
+     var eliminacao = document.getElementById('eliminacao').value;
+     document.getElementById('eliminacao2').value = eliminacao;
+});
+$("#terapeutica").on('change', function(e){
+     var terapeutica = document.getElementById('terapeutica').value;
+     document.getElementById('terapeutica2').value = terapeutica;
+});
+$("#integridade").on('change', function(e){
+     var integridade = document.getElementById('integridade').value;
+     document.getElementById('integridade2').value = integridade;
+});
+$("#curativo").on('change', function(e){
+     var curativo = document.getElementById('curativo').value;
+     document.getElementById('curativo2').value = curativo;
+});
+$("#tempo").on('change', function(e){
+     var tempo = document.getElementById('tempo').value;
+     document.getElementById('tempo2').value = tempo;
+});
+}
+
+$("#mental").on('change', function(e){
+     var mental = document.getElementById('mental').value;
+     document.getElementById('mental2').value = mental;
+});
+$("#oxigenacao").on('change', function(e){
+     var oxigenacao = document.getElementById('oxigenacao').value;
+     document.getElementById('oxigenacao2').value = oxigenacao;
+});
+$("#sinaisvitais").on('change', function(e){
+     var sinaisvitais = document.getElementById('sinaisvitais').value;
+     document.getElementById('sinaisvitais2').value = sinaisvitais;
+});
+$("#motilidade").on('change', function(e){
+     var motilidade = document.getElementById('motilidade').value;
+     document.getElementById('motilidade2').value = motilidade;
+});
+$("#deambulacao").on('change', function(e){
+     var deambulacao = document.getElementById('deambulacao').value;
+     document.getElementById('deambulacao2').value = deambulacao;
+});
+$("#alimentacao").on('change', function(e){
+     var alimentacao = document.getElementById('alimentacao').value;
+     document.getElementById('alimentacao2').value = alimentacao;
+});
+$("#cuidado").on('change', function(e){
+     var cuidado = document.getElementById('cuidado').value;
+     document.getElementById('cuidado2').value = cuidado;
+});
+$("#eliminacao").on('change', function(e){
+     var eliminacao = document.getElementById('eliminacao').value;
+     document.getElementById('eliminacao2').value = eliminacao;
+});
+$("#terapeutica").on('change', function(e){
+     var terapeutica = document.getElementById('terapeutica').value;
+     document.getElementById('terapeutica2').value = terapeutica;
+});
+$("#integridade").on('change', function(e){
+     var integridade = document.getElementById('integridade').value;
+     document.getElementById('integridade2').value = integridade;
+});
+$("#curativo").on('change', function(e){
+     var curativo = document.getElementById('curativo').value;
+     document.getElementById('curativo2').value = curativo;
+});
+$("#tempo").on('change', function(e){
+     var tempo = document.getElementById('tempo').value;
+     document.getElementById('tempo2').value = tempo;
+});
+
+function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
+function novaHora(){
+	
+	var date = new Date();
+	document.getElementById('data').value = date.getDate() +'-'+ (date.getMonth() + 1) +'-'+ date.getFullYear() +' '+ date.getHours()+':'+date.getMinutes()+':'+date.getSeconds() ;
+}
+novaHora();
+
+
+function calcular(){
+	var resultadomental;
+	var mental = document.getElementById('mental2').value;
+	
+	if(mental == "Inconsciênte"){
+		resultadomental = 4;
+
+	}
+	if(mental == "Períodos de inconsciência"){
+		resultadomental = 3;
+
+	}
+	if(mental == "Períodos de desorientação no tempo e no espaço"){
+		resultadomental	= 2;
+
+	}
+	if(mental == "Orientado no tempo e no espaço"){
+		resultadomental = 1;
+
+	}
+		
+	var resultadooxigenacao;
+	var oxigenacao = document.getElementById('oxigenacao2').value;
+	
+	if(oxigenacao == "Ventilação mecânica (uso de ventilador a pressão ou a volume)"){
+		resultadooxigenacao = 4;
+
+	}
+	if(oxigenacao == "Uso contínuo de máscara ou cateter de oxigênio"){
+		resultadooxigenacao = 3;
+
+	}
+	if(oxigenacao == "Uso intermitente de máscara ou cateter de oxigênio"){
+		resultadooxigenacao	= 2;
+
+	}
+	if(oxigenacao == "Não depende de oxigênio"){
+		resultadooxigenacao = 1;
+
+	}
+
+	var resultadosinaisvitais;
+	var sinaisvitais = document.getElementById('sinaisvitais2').value;
+	
+	if(sinaisvitais == "Contole em intervalos menores ou iguais a 2 horas"){
+		resultadosinaisvitais = 4;
+
+	}
+	if(sinaisvitais == "Controle em intervalos de 4 horas"){
+		resultadosinaisvitais = 3;
+
+	}
+	if(sinaisvitais == "Controle em intervalos de 6 horas"){
+		resultadosinaisvitais	= 2;
+
+	}
+	if(sinaisvitais == "Controle de rotina (8 horas)"){
+		resultadosinaisvitais = 1;
+
+	}
+	var resultadomotilidade;
+	var motilidade = document.getElementById('motilidade2').value;
+	
+	if(motilidade == "Incapaz de movimentar qualquer segmento corporal. Mudança de decúbito e movimentação passiva programada e realizada pela enfermagem"){
+		resultadomotilidade = 4;
+
+	}
+	if(motilidade == "Dificuldade para movimentar segmentos corporais. Mudança de decúbito e movimentação passiva auxiliada pela enfermagem"){
+		resultadomotilidade = 3;
+
+	}
+	if(motilidade == "Limitação de movimentos"){
+		resultadomotilidade	= 2;
+
+	}
+	if(motilidade == "Movimenta todos os segmentos corporais"){
+		resultadomotilidade = 1;
+
+	}
+	var resultadodeambulacao;
+	var deambulacao = document.getElementById('deambulacao2').value;
+	
+	if(deambulacao == "Restrito ao leito"){
+		resultadodeambulacao = 4;
+
+	}
+	if(deambulacao == "Locomoção através de cadeira de rodas"){
+		resultadodeambulacao = 3;
+
+	}
+	if(deambulacao == "Necessita de auxílio para deambular"){
+		resultadodeambulacao	= 2;
+
+	}
+	if(deambulacao == "Ambulante"){
+		resultadodeambulacao = 1;
+
+	}
+	var resultadoalimentacao;
+	var alimentacao = document.getElementById('alimentacao2').value;
+	
+	if(alimentacao == "Através de cateter central"){
+		resultadoalimentacao = 4;
+
+	}
+	if(alimentacao == "Através de sonda nasogástrica"){
+		resultadoalimentacao = 3;
+
+	}
+	if(alimentacao == "Por boca, com auxílio"){
+		resultadoalimentacao	= 2;
+
+	}
+	if(alimentacao == "Auto suficiente"){
+		resultadoalimentacao = 1;
+
+	}
+	var resultadocuidado;
+	var cuidado = document.getElementById('cuidado2').value;
+	
+	if(cuidado == "Banho no leito, higiêne oral realizada pela enfermagem"){
+		resultadocuidado = 4;
+
+	}
+	if(cuidado == "Banho de chuveiro, higiêne oral realizada pela enfermagem"){
+		resultadocuidado = 3;
+
+	}
+	if(cuidado == "Auxílio no banho de chuveiroe/ou higiêne oral"){
+		resultadocuidado	= 2;
+
+	}
+	if(cuidado == "Auto suficiente"){
+		resultadocuidado = 1;
+
+	}
+	var resultadoeliminacao;
+	var eliminacao = document.getElementById('eliminacao2').value;
+	
+	if(eliminacao == "Evacuação no leito e uso de sonda vesical para controle da diurese"){
+		resultadoeliminacao = 4;
+
+	}
+	if(eliminacao == "Uso de comadre ou eliminações no leito"){
+		resultadoeliminacao = 3;
+
+	}
+	if(eliminacao == "Uso de vaso sanitário com auxílio"){
+		resultadoeliminacao	= 2;
+
+	}
+	if(eliminacao == "Auto suficiente"){
+		resultadoeliminacao = 1;
+
+	}
+	var resultadoterapeutica;
+	var terapeutica = document.getElementById('terapeutica2').value;
+	
+	if(terapeutica == "Uso de drogas vasoativas para manutenção de P.A"){
+		resultadoterapeutica = 4;
+	
+	}
+	if(terapeutica == "E.V. contínuo ou através de sonda nasogástrica"){
+		resultadoterapeutica = 3;
+	
+	}
+	if(terapeutica == "E.V. intermitente"){
+		resultadoterapeutica	= 2;
+	
+	}
+	if(terapeutica == "I.M. ou V.O"){
+		resultadoterapeutica = 1;
+	
+	}
+	var resultadointegridade;
+	var integridade = document.getElementById('integridade2').value;
+	
+	if(integridade == "Presença da pele com destruição da derme, epiderme, músculos"){
+		resultadointegridade = 4;
+
+	}
+	if(integridade == "Presença de solução de continuidade da pele.Incisão cirúrgica. Ostomias. Drenos"){
+		resultadointegridade = 3;
+
+	}
+	if(integridade == "Presença de alteração da cor da pele e/ou presença de solução de continuidade da pele envolvendo a epiderme, derme"){
+		resultadointegridade	= 2;
+
+	}
+	if(integridade == "Pele íntegra"){
+		resultadointegridade = 1;
+
+	}
+	var resultadocurativo;
+	var curativo = document.getElementById('curativo2').value;
+	
+	if(curativo == "Curativo realizado 3 vezes ao dia ou mais, pela equipe de enfermagem"){
+		resultadocurativo = 4;
+
+	}
+	if(curativo == "Curativo realizado 2 vezes ao dia, pela equipe de enfermagem"){
+		resultadocurativo = 3;
+
+	}
+	if(curativo == "Curativo realizado 1 vez ao dia, pela equipe de enfermagem"){
+		resultadocurativo	= 2;
+
+	}
+	if(curativo == "Sem curativo ou limpeza da ferida/incisão cirúrgica, realizada pelo paciente, durante o banho"){
+		resultadocurativo = 1;
+
+	}
+	var resultadotempo;
+	var tempo = document.getElementById('tempo2').value;
+	
+	if(tempo == "Superior a 30 minutos"){
+		resultadotempo = 4;
+
+	}
+	if(tempo == "Entre 15 a 30 minutos"){
+		resultadotempo = 3;
+
+	}
+	if(tempo == "Entre 5 e 15 minutos"){
+		resultadotempo	= 2;
+
+	}
+	if(tempo == "Sem curativo ou limpeza da ferida realizada durante o banho"){
+		resultadotempo = 1;
+
+	}
+	
+	var score = resultadomental + resultadooxigenacao + resultadosinaisvitais + resultadomotilidade + resultadodeambulacao + resultadoalimentacao + resultadocuidado+ resultadoeliminacao+ resultadoterapeutica+ resultadointegridade+ resultadocurativo+ resultadotempo;
+	var resultadofinal;
+
+
+	if(score>=12&&score<=17){
+		resultadofinal = "Mínimo";
+	}
+	if(score>=18&&score<=22){
+		resultadofinal = "Intermediários";
+	}
+	
+	if(score>=23&&score<=28){
+		resultadofinal = "Alta Dependência";
+	}
+	
+	if(score>=29&&score<=34){
+		resultadofinal = "Crônicos";
+	}
+	
+	if(score>34){
+		resultadofinal = "Semi Intensivos";
+	}
+	
+	
+	document.getElementById('fugulin').value = resultadofinal;
+	
+}
+
+</script>

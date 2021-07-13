@@ -1,0 +1,168 @@
+<%- include('./cabecalhoob'); %>
+
+<div id="mobile" class="container">
+
+<form action="/savepacienteob" style="padding-left: 1%; padding-right: 1%;" method="post">
+                <h2>Adicionar novo paciente</h2> 
+                <% if(id.length > 0) { %>
+                    <% for(var i = 0; i < id.length; i++) {%>
+                    <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
+                    <p hidden id="idunidade">  <%=id[i].unidade %>  
+						<div>
+							<div class="form-group">
+								<label for="prontuario">Prontuario</label>
+								<input type="text" name="prontuario" class="form-control" placeholder="Prontuario" required>
+							</div>
+							<div class="form-group">
+								<label for="paciente">Nome Paciente</label>
+								<input type="text" name="paciente" class="form-control" placeholder="Nome Paciente" required>
+							</div>
+							<div class="form-group">
+								<label for="motivo">Motivo Atendimento</label>
+								<input type="text" name="motivo" class="form-control" placeholder="Motivo" required>
+							</div>
+							<div class="form-group">
+								<label for="unidade">Unidade de Pré-Natal</label>
+								<input type="text" name="unidade" class="form-control" placeholder="unidade" required>
+							</div>  
+							<div class="form-group">
+								<label for="conduta">Conduta</label>
+								<select class="form-control" id="conduta" name="conduta" required>
+									<option value="" disabled selected hidden>Conduta</option>
+									<option value="observação">Observação</option>
+									<option value="transferência">Solicitado Transferência</option>
+								</select>
+								<input type="hidden" name="conduta2" id="conduta2">
+							</div>
+							<div class="form-group">
+								<label for="destino">Destino Final</label>
+								<select class="form-control" onchange="verificadestino(this.value)" id="destino" name="destino">
+									<option value="" disabled selected hidden>Destino Final</option>
+									<option value="alta">Alta</option>
+									<option value="evasao">Evasão</option>
+									<option value="transferências">Transferência</option>
+								</select>
+								<input type="hidden" name="destino2"   id="destino2" class="form-control">
+								<div class="form-check">
+									<input  type="checkbox" name="hospital" id="ufu"  class="form-check-input" onClick="check1()" value="UFU">
+									<label class="form-check-label"  id="ufu2" for="ufu2">UFU</label>
+									<input  id="ufu3"  type="hidden" name="ufu3">
+								</div>
+								<div class="form-check">
+									<input type="checkbox" name="hospital" id="hmu"  class="form-check-input" onClick="check1()" value="HMU">
+									<label class="form-check-label"  id="hmu2" for="hmu2">HMU</label>
+									<input  id="hmu3"  type="hidden" name="hmu3">
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="dataatendimento" id="dataatendimento"></input>
+							</div>
+						</div>							
+                <div>
+                    <a href="historicoob?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+                    <button type="submit" class="btn btn-success">Salvar</button>
+					<br>
+					<br>
+					<br>
+                </div>
+                <% } %>	
+                <% } %> 
+</form>
+</div>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+<%- include('../home/footer'); %>
+</html>
+
+<script>
+	
+$(function(){
+	$(window).on('resize load', function() {
+			if ($(window).width() <= 768) { 
+				$("#mobile").removeClass("container");
+		}
+			else {
+				$("#mobile").addClass("container");
+		}
+	});
+});
+
+
+$("#conduta").on('change', function(e){
+     var conduta = $(this).val();
+     document.getElementById('conduta2').value = conduta;
+});
+
+$("#destino").on('change', function(e){
+     var destino = $(this).val();
+     document.getElementById('destino2').value = destino;
+});
+
+function verificadestino(value){
+	var input = document.getElementById("ufu");
+	var input2 = document.getElementById("hmu");
+	var label = document.getElementById("ufu2");
+	var label2 = document.getElementById("hmu2");
+	
+  if(value == "transferências"){
+    input.style.display = "inline";
+	input2.style.display = "inline";
+	label.style.display = "inline";
+	label2.style.display = "inline";
+  }else{
+	input.style.display = "none";
+	input2.style.display = "none";
+	label.style.display = "none";
+	label2.style.display = "none";
+	var Pacote_i = "Não Encaminhado";
+	document.getElementById('ufu3').value = Pacote_i;
+	document.getElementById('hmu3').value = Pacote_i;
+  }
+};
+
+function check1(){
+
+var pacote = document.getElementsByName('hospital');
+  for (var i = 0; i < pacote.length; i++){
+	  if ( pacote[i].checked ) {
+		  if(pacote[i].value == "UFU"){
+			  var Pacote_i = "UFU";
+			  document.getElementById('ufu3').value = Pacote_i;
+		  }else if (pacote[i].value == "HMU") {
+			  var Pacote_ii = "HMU";
+			  document.getElementById('hmu3').value = Pacote_ii;
+		  }
+		}
+  	}
+	 var estado = false;
+	for (var i = 0; i < pacote.length; i++) {
+		if ( pacote[i].checked == estado ) {
+			if(pacote[i].value == "UFU"){
+			  var Pacote_i = "Não Encaminhado";
+			  document.getElementById('ufu3').value = Pacote_i;
+		  }else if (pacote[i].value == "HMU") {
+			  var Pacote_ii = "Não Encaminhado";
+			  document.getElementById('hmu3').value = Pacote_ii;
+		  }
+		}
+	}
+}
+
+window.onload = function() {
+  document.getElementById('ufu').style.display = 'none';
+  document.getElementById('hmu').style.display = 'none';
+  document.getElementById('ufu2').style.display = 'none';
+  document.getElementById('hmu2').style.display = 'none';
+};
+
+function novaHora(){
+	
+	var date = new Date();
+	document.getElementById('dataatendimento').value = ("0" + date.getDate()).slice(-2) +'/'+ ("0" + (date.getMonth() + 1)).slice(-2) +'/'+ date.getFullYear();
+}
+novaHora();
+</script>

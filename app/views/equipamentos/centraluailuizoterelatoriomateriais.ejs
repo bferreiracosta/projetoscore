@@ -1,0 +1,123 @@
+<%- include('./cabecalhoequipamentos'); %>
+    <h2>Central Materiais UAI Luizote</h2>
+    
+        <% if(id.length > 0) { %>
+            <% for(var i = 0; i < id.length; i++) {%>
+        <table class="table table-striped" style="width: 100%;" id="mytable">
+            <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
+            <thead>
+            <tr>
+                <th>Equipamentos em uso:</th>
+                <th>Quantidade</th>
+                <th>Equipamentos disponíveis:</th>
+                <th>Quantidade</th>
+                <th>Equipamentos com defeitos:</th>
+                <th>Quantidade</th>
+            </tr>
+            </thead>
+            <tbody>   
+                <% if(dispositivo.length > 0) { %>
+                    <% for(var j = 0; j < dispositivo.length; j++) {%> 
+                <tr>
+                    <td>Ventilador mecânico em uso</td>
+                    <td><%=dispositivo[j].vmu %></td>
+                    <td>Ventilador mecânico disponível</td>
+                    <td><%=dispositivo[j].vmd %></td>
+                    <td>Ventilador mecânico com defeito</td>
+                    <td><%=dispositivo[j].vmde %></td>
+                </tr>
+                <tr>
+                    <td>Monitor em uso</td>
+                    <td><%=dispositivo[j].mu %></td>
+                    <td>Monitor disponível</td>
+                    <td><%=dispositivo[j].md %></td>
+                    <td>Monitor com defeito</td>
+                    <td><%=dispositivo[j].mde %></td>
+                </tr>
+                <tr>
+                    <td>BIC em uso</td>
+                    <td><%=dispositivo[j].bicu %></td>
+                    <td>BIC disponível</td>
+                    <td><%=dispositivo[j].bicd %></td>
+                    <td>BIC com defeito</td>
+                    <td><%=dispositivo[j].bicde %></td>
+                </tr>
+                
+                <p>Data Ultima Atualização: <%=dispositivo[j].dataatualizacao %></p>
+                <p>Hora Ultima Atualização: <%=dispositivo[j].horaatualizacao %></p>
+                <% } %>	
+                <% } %>
+    
+            </tbody>
+        </table>
+        <% } %>	
+        <% } %>
+        <br>
+        <br>
+        <br>
+
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<%- include('../home/footer'); %>
+</body>
+</html>
+<script>
+     $(document).ready(function() {
+        $('#mytable').DataTable( {
+            dom: 'Bfrtip',
+            "scrollX": true,
+           
+            
+        pageLength: 50,
+        buttons: [       
+            {
+                "extend": "copyHtml5",
+                "text": "COPIAR",
+                header: false
+            },          
+            {
+                "extend": "pdf",
+                "text": "PDF",
+                header: false
+            },
+            {
+                "extend": "excelHtml5",
+                "text": "EXCEL",
+                header: false
+            },
+            {
+                "extend": "print",
+                "text": "IMPRIMIR",
+                header: false
+            }
+        ],language: {
+            buttons: {
+                copyTitle: 'Copiado para área de transferência',
+                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+                copySuccess: {
+                    _: '%d linhas copiadas',
+                    1: '1 linha copiada'
+                }
+            },
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Próximo"
+            },
+            "search": "Pesquisar:"
+        },
+        select: true
+    } );
+} );
+</script>

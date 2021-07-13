@@ -1,0 +1,510 @@
+<%- include('../cabecalhokaban'); %>
+
+<div id="mobile" class="container">
+
+<form action="/updatekabanplanalto" style="padding-left: 1%; padding-right: 1%;" method="post">
+				<% if(id.length > 0) { %>
+					<% for(var i = 0; i < id.length; i++) {%>            
+				<h2>Editar Paciente Planalto</h2> 
+				<% if(paciente.length > 0) { %>
+					<% for(var j = 0; j < paciente.length; j++) {%>
+                    <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
+                    <p hidden id="idunidade">  <%=id[i].unidade %>  
+						<div>
+							<div class="form-group">
+								<input type="hidden" name="idpaciente" class="form-control" value="<%=paciente[j].idpaciente %>" required>
+							</div>
+							<div class="form-group">
+								<label for="susfacil">SusFacil</label>
+								<input type="text" name="susfacil" class="form-control" value="<%=paciente[j].susfacil %>" required>
+							</div>
+							<div class="form-group">
+								<label for="prontuario">Prontuario</label>
+								<input type="text" name="prontuario" class="form-control" value="<%=paciente[j].prt %>" required>
+							</div>
+							<div class="form-group">
+								<label for="paciente">Nome Paciente</label>
+								<input type="text" name="paciente" class="form-control" value="<%=paciente[j].nome %>" required>
+							</div>
+							<div class="form-group">
+								<label for="dn">Data de Nascimento</label>
+								<input type="text" id="dn" data-mask="00/00/0000" data-mask-selectonfocus="true" name="dn" class="form-control" value="<%=paciente[j].datanascimento %>" required >
+							</div>
+							<div class="form-group">
+								<label for="dn">Idade</label>
+								<input  type="text" id="idade" name="idade" class="form-control" value="<%=paciente[j].idade %>" >
+							</div>
+							<div class="form-group">
+								<label for="da">Data de Admissão</label>
+								<input type="text" id="da" data-mask="00/00/0000" data-mask-selectonfocus="true" name="da" class="form-control" value="<%=paciente[j].dataentrada %>" required >
+							</div>
+							<div class="form-group">
+								<input readonly="readonly"  type="hidden" id="qtdi" name="qtdi" class="form-control" placeholder="Quantidade de dias Internados" >
+							</div>
+							<div class="form-group">
+								<label for="medico">Medico</label>
+								<input type="text" id="medico" name="medico" class="form-control" value="<%=paciente[j].medico %>">
+							</div>
+							<div class="form-group">
+								<label for="ECF" id="ecf3">ECF</label>
+								<select  onchange="verificaecf(this.value)"  class="form-control" id="ecf2" name="ecf2">
+									<option value="" disabled selected hidden>ECF</option>
+									<option value="0" <%=(paciente[j].ECF == '0')?'selected':''%>>Não aplicado</option>
+									<option value="1" <%=(paciente[j].ECF == '1')?'selected':''%>>1</option>
+									<option value="2" <%=(paciente[j].ECF == '2')?'selected':''%>>2</option>
+									<option value="3" <%=(paciente[j].ECF == '3')?'selected':''%>>3</option>
+									<option value="4" <%=(paciente[j].ECF == '4')?'selected':''%>>4</option>
+									<option value="5" <%=(paciente[j].ECF == '5')?'selected':''%>>5</option>
+									<option value="6" <%=(paciente[j].ECF == '6')?'selected':''%>>6</option>
+									<option value="7" <%=(paciente[j].ECF == '7')?'selected':''%>>7</option>
+									<option value="8" <%=(paciente[j].ECF == '8')?'selected':''%>>8</option>
+									<option value="9" <%=(paciente[j].ECF == '9')?'selected':''%>>9</option>
+									<option value="10"<%=(paciente[j].ECF == '10')?'selected':''%>>10</option>
+								</select>
+								<input type="hidden" id="ecf"  name="ecf" class="form-control"  value="<%=paciente[j].ECF %>">
+							</div>
+							<div class="form-group">
+								<label for="spcit" id="spict2">Spict</label>
+								<input type="text" id="spict" name="spcit" class="form-control" value="<%=paciente[j].spict %>">
+							</div>
+							<div class="form-group">
+								<label for="setor">Setor</label>
+								<select class="form-control" id="setor" name="setor">
+									<option value="" disabled selected hidden>Setor</option>
+									<option value="Enfermaria" <%=(paciente[j].comodo == 'Enfermaria')?'selected':''%>>Enfermaria</option>
+									<option value="Sala de Emergência" <%=(paciente[j].comodo == 'Sala de Emergência')?'selected':''%>>Sala de Emergência</option>
+									<option value="Observação" <%=(paciente[j].comodo == 'Observação')?'selected':''%>>Observação</option>
+								</select>
+								<input type="hidden" name="setor2" id="setor2"  value="<%=paciente[j].comodo %>">
+							</div>
+							<div class="form-group">
+								<label for="dieta">Dieta</label>
+								<select class="form-control" id="dieta" name="dieta" required>
+									<option value="" disabled selected hidden>Dieta</option>
+									<option value="BRANDA" <%=(paciente[j].dieta == 'BRANDA')?'selected':''%>>BRANDA</option>
+									<option value="BRANDA + HEP"<%=(paciente[j].dieta == 'BRANDA + HEP')?'selected':''%>>BRANDA + HEP</option>
+									<option value="BRANDA + LAX"<%=(paciente[j].dieta == 'BRANDA + LAX')?'selected':''%>>BRANDA + LAX</option>
+									<option value="BRANDA + NEF"<%=(paciente[j].dieta == 'BRANDA + NEF')?'selected':''%>>BRANDA + NEF</option>
+									<option value="BRANDA DM"<%=(paciente[j].dieta == 'BRANDA DM')?'selected':''%>>BRANDA DM</option>
+									<option value="IRC"<%=(paciente[j].dieta == 'IRC')?'selected':''%>>IRC</option>
+									<option value="DM"<%=(paciente[j].dieta == 'DM')?'selected':''%>>DM</option>
+									<option value="DM + HEP + NEF"<%=(paciente[j].dieta == 'DM + HEP + NEF')?'selected':''%>>DM + HEP + NEF</option>
+									<option value="DM + LAX"<%=(paciente[j].dieta == 'DM + LAX')?'selected':''%>>DM + LAX</option>
+									<option value="DM + NEF"<%=(paciente[j].dieta == 'DM + NEF')?'selected':''%>>DM + NEF</option>
+									<option value="HPS"<%=(paciente[j].dieta == 'HPS')?'selected':''%>>HPS</option>
+									<option value="HPS + DM"<%=(paciente[j].dieta == 'HPS + DM')?'selected':''%>>HPS + DM</option>
+									<option value="HPS + HEP"<%=(paciente[j].dieta == 'HPS + HEP')?'selected':''%>>HPS + HEP </option>
+									<option value="HPS  + LAX"<%=(paciente[j].dieta == 'HPS  + LAX')?'selected':''%>>HPS  + LAX</option>
+									<option value="HIPOLIPIDICA"<%=(paciente[j].dieta == 'HIPOLIPIDICA')?'selected':''%>>HIPOLIPIDICA</option>
+									<option value="LÍQUIDA"<%=(paciente[j].dieta == 'LÍQUIDA')?'selected':''%>>LÍQUIDA</option>
+									<option value="LIVRE"<%=(paciente[j].dieta == 'LIVRE')?'selected':''%>>LIVRE</option>
+									<option value="LIVRE + LAX"<%=(paciente[j].dieta == 'LIVRE + LAX')?'selected':''%>>LIVRE + LAX</option>
+									<option value="LIVRE POBRE K"<%=(paciente[j].dieta == '"LIVRE POBRE K')?'selected':''%>>LIVRE POBRE K</option>
+									<option value="PASTOSA"<%=(paciente[j].dieta == 'PASTOSA')?'selected':''%>>PASTOSA</option>
+									<option value="PASTOSA + OVO"<%=(paciente[j].dieta == 'PASTOSA + OVO')?'selected':''%>>PASTOSA + OVO</option>
+									<option value="SNE 1.0"<%=(paciente[j].dieta == 'SNE 1.0')?'selected':''%>>SNE 1.0</option>
+									<option value="SNE 1.5"<%=(paciente[j].dieta == 'SNE 1.5')?'selected':''%>>SNE 1.5</option>
+									<option value="DIBEN 1.0"<%=(paciente[j].dieta == 'DIBEN 1.0')?'selected':''%>>DIBEN 1.0</option>
+									<option value="OBSTIPANTE"<%=(paciente[j].dieta == 'OBSTIPANTE')?'selected':''%>>OBSTIPANTE</option>
+									<option value="ZERO"<%=(paciente[j].dieta == 'ZERO')?'selected':''%>>ZERO</option>
+								</select>
+								<input type="hidden" id="dieta2"  name="dieta2" class="form-control" value="<%=paciente[j].dieta %>" >
+							</div>
+							<div class="form-group">
+								<label for="paliativos" id="paliativo2">Paliativos</label>
+								<select class="form-control" id="paliativos" name="paliativos">
+									<option value="" disabled selected hidden>Paliativo</option>
+									<option value="Sim" <%=(paciente[j].paliativo == 'SIM')?'selected':''%> >Sim</option>
+									<option value="Não" <%=(paciente[j].paliativo == 'Não')?'selected':''%>>Não</option>
+								</select>
+								<input type="hidden" name="paliativo" id="paliativo"  value="<%=paciente[j].paliativo %>">
+							</div>
+							<div class="form-group">
+								<label for="diagnostico">Diagnóstico</label>
+								<input type="text" name="diagnostico" class="form-control" value="<%=paciente[j].diagnostico %>" required>
+							</div>
+							<div class="form-group">
+								<label for="especialidade">Especialidade</label>
+								<select class="form-control" id="especialidades" name="especialidades">
+									<option value="" disabled selected hidden>Especialidade</option>
+									<option value="Clinica" <%=(paciente[j].especialidade == 'Clinica')?'selected':''%>>Clinica</option>
+									<option value="Traumatologia" <%=(paciente[j].especialidade == 'Traumatologia')?'selected':''%>>Traumatologia</option>
+									<option value="Pediatria" <%=(paciente[j].especialidade == 'Pediatria')?'selected':''%>>Pediatria</option>
+									<option value="Psiquiatria" <%=(paciente[j].especialidade == 'Psiquiatria')?'selected':''%>>Psiquiatria</option>
+									<option value="Cirurgico" <%=(paciente[j].especialidade == 'Cirurgico')?'selected':''%>>Cirurgico</option>
+								</select> 
+								<input type="hidden" id="especialidade" name="especialidade" class="form-control"  value="<%=paciente[j].especialidade %>" required>
+							</div>
+							<div class="form-group">
+								<label for="observacao">Observação</label>
+								<input type="text" name="observacao" class="form-control" value="<%=paciente[j].observacao %>" required>
+							</div>
+							<div class="form-group">
+								<label for="banho">Banho</label>
+								<select class="form-control" id="banhos" name="banhos">
+									<option value="" disabled selected hidden>Horario Banho</option>
+									<option value="Manhã" <%=(paciente[j].banho == 'Manhã')?'selected':''%>>Manha</option>
+									<option value="Tarde" <%=(paciente[j].banho == 'Tarde')?'selected':''%>>Tarde</option>
+									<option value="Noite" <%=(paciente[j].banho == 'Noite')?'selected':''%>>Noite</option>
+								</select>
+								<input type="hidden" id="banho" name="banho" class="form-control"  value="<%=paciente[j].banho %>" required>
+							</div>
+							<div class="form-group">
+								<label for="mobilidade">Mobilidade</label>
+								<select class="form-control" id="mobilidades" name="mobilidades">
+									<option value="" disabled selected hidden>Mobilidade</option>
+									<option value="Acamado" <%=(paciente[j].mobilidade == 'Acamado')?'selected':''%>>Acamado</option>
+									<option value="Auxílio" <%=(paciente[j].mobilidade == 'Auxílio')?'selected':''%>>Auxílio</option>
+									<option value="Aspersão" <%=(paciente[j].mobilidade == 'Aspersão')?'selected':''%>>Aspersão</option>
+								</select>
+								<input type="hidden" id="mobilidade" name="mobilidade" class="form-control"  value="<%=paciente[j].mobilidade %>" required>
+							</div>
+							<div class="form-group">
+								<label for="pendencias">Pendencias</label>
+								<input type="text" name="pendencias" class="form-control" value="<%=paciente[j].pendencias %>" required>
+							</div>
+							<div class="form-group">
+								<label for="mental">Saude mental  </label>
+								<label class="switch">
+									<input id="mental" type="checkbox" <%=(paciente[j].mental == 'true')?'checked':''%>>
+									<span class="slider round"></span>
+								  </label>
+								  <input type="hidden" id="mental2" name="mental2" class="form-control" placeholder="mental2">
+							</div>
+							<div class="form-group">
+								<label id="labelexame">Unidade de Referência</label>
+								<select  class="form-control" id="exame" name="exame">
+									<option value="" disabled selected hidden>Unidade de Referência</option>
+									<option value="Caps Oeste" <%=(paciente[j].referencia == 'Caps Oeste')?'selected':''%>>Caps Oeste</option>
+									<option value="Caps Leste" <%=(paciente[j].referencia == 'Caps Leste')?'selected':''%>>Caps Leste</option>
+									<option value="Caps Norte" <%=(paciente[j].referencia == 'Caps Norte')?'selected':''%>>Caps Norte</option>
+									<option value="Caps Infantil" <%=(paciente[j].referencia == 'Caps Infantil')?'selected':''%>>Caps Infantil</option>
+									<option value="Caps AD" <%=(paciente[j].referencia == 'Caps AD')?'selected':''%>>Caps AD</option>
+								</select>
+							  </div>
+							  <input type="hidden" id="referencia"  name="referencia" class="form-control" value="<%=paciente[j].referencia %>">
+							  <div class="form-group">
+								<label for="covid">Sindrome Respiratória Aguda Grave  </label>
+								<label class="switch">
+									<input id="covid" type="checkbox" <%=(paciente[j].covid == 'true')?'checked':''%>>
+									<span class="slider round"></span>
+								  </label>
+								  <input type="hidden" id="covid2" name="covid2" class="form-control" placeholder="covid2" >
+							</div>
+							<div class="form-group">
+								<label id="dataexames" for="data">Data Exame</label>
+								<input type="text" name="dataexame"  id="dataexame" class="form-control" placeholder="Data Exame" value="<%=paciente[j].dataexame %>" >
+							</div>
+							<div class="form-group">
+								<label id="exames" for="exame">Exame</label>
+								<select  class="form-control" id="exame3" name="exame3" >
+									<option value="" disabled selected hidden>Exame</option>
+									<option value="Aguardando" <%=(paciente[j].exame == 'Aguardando')?'selected':''%>>Aguardando</option>
+									<option value="Positivo" <%=(paciente[j].exame == 'Positivo')?'selected':''%>>Positivo</option>
+									<option value="Negativo" <%=(paciente[j].exame == 'Negativo')?'selected':''%>>Negativo</option>
+								</select>
+							  </div>
+							  <input  type="hidden" name="exame4" id="exame4" value="<%=paciente[j].exame %>">
+							</div>
+							
+							 <input  type="hidden" id="data" name="data"  class="form-control">
+						 </div>
+						</div>
+						<div>
+							<a href="/kabanpacienteplanalto?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+							<button type="submit" class="btn btn-success">Salvar</button>
+							<br>
+							<br>
+							<br>
+						</div>
+						<% } %>	
+						<% } %> 
+						<% } %>	
+						<% } %> 
+		</form>
+		</div>
+		<!-- Importando o jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+		<!-- Importando o js do bootstrap -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script type="text/javascript">
+		$(function(){
+			$(window).on('resize load', function() {
+		  if ($(window).width() <= 768) { 
+			$("#mobile").removeClass("container");
+		  }
+		  else {
+			$("#mobile").addClass("container");
+		  }
+		});
+		});
+		function pad(s){
+				return (s<10) ? '0' + s :s;
+			}
+		function novaHora(){
+			
+			var date = new Date();
+			document.getElementById('data').value = date.getDate() +'-'+ (date.getMonth() + 1) +'-'+ date.getFullYear() +' '+ date.getHours()+':'+date.getMinutes()+':'+date.getSeconds() ;
+		}
+		novaHora();
+		$("#paliativos").on('change', function(e){
+			 var paliativo = $(this).val();
+			 document.getElementById('paliativo').value = paliativo;
+		});
+		$("#exame3").on('change', function(e){
+			var exame = $(this).val();
+			document.getElementById('exame4').value = exame;
+		});
+		
+		$("#dieta").on('change', function(e){
+			 var dieta = $(this).val();
+			 document.getElementById('dieta2').value = dieta;
+		});
+		
+		$("#ecf2").on('change', function(e){
+			 var ecf = $(this).val();
+			 document.getElementById('ecf').value = ecf;
+		});
+		
+		$("#especialidades").on('change', function(e){
+			 var especialidade = $(this).val();
+			 document.getElementById('especialidade').value = especialidade;
+		});
+		
+		$("#banhos").on('change', function(e){
+			 var banho = $(this).val();
+			 document.getElementById('banho').value = banho;
+		});
+		
+		$("#setor").on('change', function(e){
+			 var setor = $(this).val();
+			 document.getElementById('setor2').value = setor;
+		});
+		
+		$("#mobilidades").on('change', function(e){
+			 var mobilidade = $(this).val();
+			 document.getElementById('mobilidade').value = mobilidade;
+		});
+		
+		$("#mental").on('change', function(e){
+			if ($(this).is(':checked')) {
+				$(this).attr('value', 'true');
+			}
+			else {
+				$(this).attr('value', 'false');
+			}
+			 mental = $(this).val();
+			 document.getElementById('mental2').value = mental;
+		
+			 if(mental == 'true'){
+				 document.getElementById("exame").style.display = 'inline';
+				 document.getElementById("labelexame").style.display = 'inline';
+				 
+			 }
+			 else{
+				document.getElementById("exame").style.display = 'none';
+				document.getElementById("labelexame").style.display = 'none';
+			 }
+			
+		});
+		
+		$("#exame").on('change', function(e){
+			 var exame = $(this).val();
+			 document.getElementById('referencia').value = exame;
+		});
+		
+		$("#covid").on('change', function(e){
+			if ($(this).is(':checked')) {
+				$(this).attr('value', 'true');
+			}
+			else {
+				$(this).attr('value', 'false');
+			}
+			 var covid = $(this).val();
+			 document.getElementById('covid2').value = covid;
+			 if(covid == 'true'){
+				
+		
+				 document.getElementById("dataexames").style.display = 'inline';
+				 document.getElementById("dataexame").style.display = 'inline';
+				 document.getElementById("exame3").style.display = 'inline';
+				 document.getElementById("exames").style.display = 'inline';
+				 
+			 }
+			 else{
+		
+		
+				document.getElementById("dataexames").style.display = 'none';
+				 document.getElementById("dataexame").style.display = 'none';
+				 document.getElementById("exame3").style.display = 'none';
+				 document.getElementById("exames").style.display = 'none';
+			 }
+		});
+		
+		// function getAge(birth) {
+		//   const current = new Date()
+		//   let diff = current.getFullYear() - birth.getFullYear()
+		//   if (
+		//     new Date(current.getFullYear(), current.getMonth(), current.getDate()) <
+		//     new Date(current.getFullYear(), birth.getMonth(), birth.getDate())
+		//   )
+		//     diff--
+		//   return diff
+		// }
+		// const birthField = document.querySelector('#dn')
+		// const ageField = document.querySelector('#idade')
+		// birthField.addEventListener('change', (event) => {
+		//   const date = new Date(event.target.value)
+		//   ageField.value = getAge(date) + ' anos'
+		// })
+		
+		// function difDias(dias){
+		// 	const current = new Date()
+		// 	var timeDiff = Math.abs(current.getTime() - (dias.getTime()));
+		// 	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+		// 	 console.log(diffDays);
+		// 	 return diffDays
+		// }
+		//     const daField = document.querySelector('#da')
+		// 	const idadeField = document.querySelector('#qtdi')
+		// 	daField.addEventListener('change', (event) => {
+		//   	const dias = new Date(event.target.value)
+		// 	idadeField.value = difDias(dias) + ' dia'
+		// })
+		
+		
+		function verificaecf(value){
+			var input = document.getElementById("spict");
+			var label = document.getElementById("spict2");
+			
+		  if(value == 6 || value == 7 || value == 8){
+			input.style.display = "inline";
+			label.style.display = "inline";
+			document.getElementById('paliativos').style.display = 'inline'
+			  document.getElementById('paliativo2').style.display = 'inline'
+		  }else{
+			input.style.display = "none";
+			label.style.display = "none";
+			document.getElementById('paliativos').style.display = 'inline'
+			  document.getElementById('paliativo2').style.display = 'inline'
+			input.value= "Não aplicado"
+		  }
+		  if(value == 9 || value == 10){
+			  var paliativo = 'sim';
+			  document.getElementById('paliativos').style.display = 'none'
+			  document.getElementById('paliativo2').style.display = 'none'
+			  input.value= "Não aplicado"
+			  document.getElementById('paliativo').value = paliativo;
+		  }
+		};
+		function verificaidade(value){
+			var input = document.getElementById("ecf2");
+			var input2 = document.getElementById("ecf3");
+		
+		  if(value < 60 ){
+			input.style.display = "none";
+			input2.style.display = "none";
+			document.getElementById('ecf').value = 0;
+		  }else{
+			input.style.display = "block";
+			input2.style.display = "block";
+		  }
+		};
+		$(document).ready(function(){
+			  $('#dataexame').mask('00/00/0000');
+				  
+			  });
+		window.onload = function() {
+		  
+		$("#leitos").on('change', function(e){
+			 var leito = $(this).val();
+			 document.getElementById('leito').value = leito;
+		});
+		
+		$("#paliativos").on('change', function(e){
+			 var paliativo = $(this).val();
+			 document.getElementById('paliativo').value = paliativo;
+		});
+		
+		$("#ecf2").on('change', function(e){
+			 var ecf = $(this).val();
+			 document.getElementById('ecf').value = ecf;
+		});
+		
+		$("#especialidades").on('change', function(e){
+			 var especialidade = $(this).val();
+			 document.getElementById('especialidade').value = especialidade;
+		});
+		
+		$("#setor").on('change', function(e){
+			 var setor = $(this).val();
+			 document.getElementById('setor2').value = setor;
+		});
+		
+		$("#banhos").on('change', function(e){
+			 var banho = $(this).val();
+			 document.getElementById('banho').value = banho;
+		});
+		
+		$("#mobilidades").on('change', function(e){
+			 var mobilidade = $(this).val();
+			 document.getElementById('mobilidade').value = mobilidade;
+		});
+		
+		};
+		$(function() {
+			selectmental = document.getElementById('mental');
+			if ($(selectmental).is(':checked')) {
+				$(selectmental).attr('value', 'true');
+			}
+			else {
+				$(selectmental).attr('value', 'false');
+			}
+			 mental = $(selectmental).val();
+			 document.getElementById('mental2').value = mental;
+			
+			 if(mental == 'true'){
+				 document.getElementById("exame").style.display = 'inline';
+				 document.getElementById("labelexame").style.display = 'inline';
+				 
+			 }
+			 else{
+				document.getElementById("exame").style.display = 'none';
+				document.getElementById("labelexame").style.display = 'none';
+			 }
+			
+		});
+		$(function() {
+			selectcovid = document.getElementById('covid');
+			if ($(selectcovid).is(':checked')) {
+				$(selectcovid).attr('value', 'true');
+			}
+			else {
+				$(selectcovid).attr('value', 'false');
+			}
+			 var covid = $(selectcovid).val();
+			
+			 document.getElementById('covid2').value = covid;
+			 if(covid == 'true'){
+		
+		
+				 document.getElementById("dataexames").style.display = 'inline';
+				 document.getElementById("dataexame").style.display = 'inline';
+				 document.getElementById("exame3").style.display = 'inline';
+				 document.getElementById("exames").style.display = 'inline';
+				 
+			 }
+			 else{
+		
+				document.getElementById("dataexames").style.display = 'none';
+				 document.getElementById("dataexame").style.display = 'none';
+				 document.getElementById("exame3").style.display = 'none';
+				 document.getElementById("exames").style.display = 'none';
+			 }
+		});
+		</script>
+		<%- include('../../home/footer'); %>
+		</body>
+		</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		
+		<title>ScoreSystem</title>
+		
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- incluindo css -->
+		<link href="/css/style.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.buttons.css"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
+<!--Get your own code at fontawesome.com-->
+
+		<!-- favicon -->
+		<link rel="shortcut icon" href="/images/favicon.ico" />
+	</head>
+
+	<body>
+		
+		<nav class="navbar navbar-default">
+			<div id="nav">
+			  <!-- Brand and toggle get grouped for better mobile display -->
+			  <div class="navbar-header">
+				 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				 <span class="sr-only">Toggle navigation</span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 </button>
+				 <% if(id.length > 0) { %>
+					<% for(var i = 0; i < id.length; i++) {%>
+						<a href="#" data-toggle="modal" data-target="#BaixaModal" id="modulo" ><img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
+						<input type="hidden" name="id" id="id" value="<%=id[i].id_usuario %>">
+			  </a>
+			</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+				
+						<% if(id[i].equipamentos== 1 ){%>
+							<li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planalto</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltomateriais?id=<%=id[i].id_usuario %>">Atualizar Central de Materiais</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais Planalto</a></li>
+								</ul>
+							</li>
+							<li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Luizote</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizotemateriais?id=<%=id[i].id_usuario %>">Atualizar Central de Materiais</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais Luizote</a></li>
+								</ul>
+							</li>
+							<li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Martins</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsmateriais?id=<%=id[i].id_usuario %>">Atualizar Central de Materiais</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais Martins</a></li>
+								</ul>
+							</li>
+							<li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Roosevelt</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltmateriais?id=<%=id[i].id_usuario %>">Atualizar Central de Materiais</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais Roosevelt</a></li>
+								</ul>
+							</li>
+							<li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Morumbi</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbimateriais?id=<%=id[i].id_usuario %>">Atualizar Central de Materiais</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais Morumbi</a></li>
+								</ul>
+							</li>
+							<li class="btn-success">
+								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tibery</a>
+								<ul class="dropdown-menu">
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberymateriais?id=<%=id[i].id_usuario %>">Atualizar Central de Materiais</a></li>
+									<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais Tibery</a></li>
+								</ul>
+							</li>
+						<li class="btn-success">
+							<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">São Jorge</a>
+							<ul class="dropdown-menu">
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgemateriais?id=<%=id[i].id_usuario %>">Atualizar Central de Materiais</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais São Jorge</a></li>
+							</ul>
+						</li>
+						<li class="btn-success">
+							<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pampulha</a>
+							<ul class="dropdown-menu">
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulhamateriais?id=<%=id[i].id_usuario %>">Atualizar Central de Materiais</a></li>
+								<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatoriomateriais?id=<%=id[i].id_usuario %>">Relatorio de Materiais Pampulha</a></li>
+							</ul>
+						</li>
+							<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+						<% } %>
+					<% } %>	
+				<% } %>
+								
+							</ul>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+						</ul>
+					 </div>
+					 <!-- /.navbar-collapse -->
+				   </div>
+				   <!-- /.container-fluid -->
+				   </nav>
+							<!-- Delete Product Modal-->
+		<form id="add-row-form" action="/trocarmodulo" method="POST">
+			<div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h2 class="modal-title" id="myModalLabel">Selecione o modulo</h2>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+									aria-hidden="true">&times;</span></button>
+						</div>
+						<div class="modal-body">
+							<input type="hidden" name="usuario2" id="usuario2" placeholder="Usuário" class="form-control" autocomplete="off" required />
+							<input type="hidden" name="senha2" id="senha2" placeholder="Senha" class="form-control" required />
+							<div class="input-group form-group">
+			
+								<select onChange="update()" id="funcao"  class="form-control form-control-lg"  style="width: 100%;" required>
+									<option></option>
+								</select>
+								<input  type="hidden" name="cargo" id="cargo">
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+							<button type="submit" class="btn btn-success">Entrar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+							<script>
+								
+						   function update() {
+						var select = document.getElementById('funcao');
+						var option = select.options[select.selectedIndex];
+				
+						var opcao = option.value;
+						document.getElementById('cargo').value = opcao;
+					
+					}
+				
+					update();
+						   $("#modulo").click(function(){
+					var id = document.getElementById("id").value;
+					
+					
+					obj = [];
+					$.ajax({
+						type: "GET",
+						data: {id: id},
+						contentType: 'application/json',
+						url: '/modulo',
+						success: function(obj) { 
+								
+							if (obj.length > 0){
+								document.getElementById("usuario2").value=obj[0].usuario;
+								document.getElementById("senha2").value=obj[0].senha; 
+								var option = '<option>Selecione o modulo </option>';
+								if(obj[0].kamban == 1){
+					var Kamban = "Kamban";
+               		option += '<option value="'+Kamban+'">'+Kamban+'</option>';
+				}
+								if(obj[0].scih == 1){
+									var SCIH = "SCIH";
+									   option += '<option value="'+SCIH+'">'+SCIH+'</option>';
+								}
+								if(obj[0].regulacao == 1){
+									var regulacao = "Regulacao Covid";
+									   option += '<option value="'+regulacao+'">'+regulacao+'</option>';
+								}
+								if(obj[0].smh == 1){
+									var smh = "SM Hospitalidade";
+									   option += '<option value="'+smh+'">'+smh+'</option>';
+								}
+								if(obj[0].smu == 1){
+									var smu = "SM Urgência";
+									   option += '<option value="'+smu+'">'+smu+'</option>';
+								}
+								if(obj[0].gestao == 1){
+									var gestao = "Gestão de Leitos";
+									   option += '<option value="'+gestao+'">'+gestao+'</option>';
+								}
+								if(obj[0].equipamentos == 1){
+									var equipamentos = "Central de Equipamentos";
+									   option += '<option value="'+equipamentos+'">'+equipamentos+'</option>';
+								}
+								if(obj[0].obstetricia == 1){
+									var obstetricia = "Obstetricia";
+									   option += '<option value="'+obstetricia+'">'+obstetricia+'</option>';
+								}
+							   
+							}
+							  $('#funcao').html(option).show();
+							}
+					});
+				});
+				$(document).ready(function() {
+								$(".dropdown-toggle").dropdown();
+							});
+							</script>
+							
