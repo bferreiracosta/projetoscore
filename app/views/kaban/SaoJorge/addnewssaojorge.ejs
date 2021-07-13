@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%- include('../cabecalhokaban'); %>
 <h2>Cadastrar NEWS  São Jorge</h2>
 
@@ -396,4 +397,404 @@ function calcular(){
 	
 }
 
+=======
+<%- include('../cabecalhokaban'); %>
+<h2>Cadastrar NEWS  São Jorge</h2>
+
+<% if(id.length > 0) { %>
+	<% for(var i = 0; i < id.length; i++) {%>
+		<a href="newskabansaojorge?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Voltar News Atualizados</button></a>
+		<br>
+<br>
+<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>"> 
+	<table class="table table-striped"  style="width: 100%;" id="mytable">
+                       
+		<thead>
+			<tr>
+				
+				<th></th>
+				<th>id</th>
+				<th>Nome</th>
+				<th>Temperatura</th>
+				<th>PA Sistolica</th>
+				<th>Frequência Cardiaca</th>
+				<th>Frequência Respiratoria</th>
+				<th>Saturação de O2</th>
+				<th>Nivel de Alerta</th>
+				<th>News</th>
+				<th>Data Atualização</th>
+				
+				
+			</tr>
+			</thead>
+			<tbody>    
+				<% if(news.length > 0) { %>
+					<% for(var j = 0; j < news.length; j++) {%>	
+			<tr>
+				<td>
+					<a href="" onclick="setaDadosModal2('<%=id[i].id_usuario %>'),setaDadosModal('<%=news[j].idpaciente %>'), setaDadosModal3('<%=news[j].nome %>'), setaDadosModal4('<%=news[j].setor %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#news">Adicionar dispositivo</a>
+				</td>
+				<td><label hidden for="">/ID: </label><%=news[j].idpaciente %></td>
+				<td><label hidden for="">Nome: </label><%=news[j].nome %></td>
+				<td><label hidden for="">/Temperatura: </label><%=news[j].temp %></td>
+				<td><label hidden for="">/PA Sistolica: </label><%=news[j].sistolica %></td>
+				<td><label hidden for="">/Frequência Cardiaca: </label><%=news[j].fc %></td>
+				<td><label hidden for="">/Frequência Respiratoria: </label><%=news[j].fr %></td>
+				<td><label hidden for="">/Saturação de O2: </label><%=news[j].sat %></td>
+				<td><label hidden for="">/Nivel de Alerta: </label><%=news[j].alerta %></td>
+				<td><label hidden for="">/News: </label><%=news[j].news %></td>
+				<td><label hidden for="">/Data da atualização: </label><%=news[j].dataatualizacao %></td>
+	
+				
+                                
+            </tr>
+            <% } %>	
+            <% } %>
+		</tbody>
+	</table>
+	<br>
+	<br>
+	<br>
+
+	
+<!-- Delete Product Modal-->
+<form id="add-row-form" action="/savenewssaojorge" method="POST">
+	<div class="modal fade" id="news" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title" id="myModalLabel">Cadastrar NEWS</h2>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+
+				<div class="modal-body">
+					<input type="hidden" name="campo" id="campo">
+					
+					<div tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+				   <div  role="document">
+					   <div >
+						   <div >
+							<div class="form-group">
+								<input readonly="readonly" type="hidden" name="idpaciente" id="idpaciente" class="form-control" placeholder="" required>
+								<label for="">Paciente</label>
+								<input readonly="readonly" type="text" name="nome" id="nome" class="form-control" >
+								<input readonly="readonly" type="hidden" name="setor" id="setor" class="form-control" >
+							</div>
+							<div class="form-group">
+								<label for="fr">Frequência Respiratória</label>
+								<input type="number" id="fr" name="fr" class="form-control"  required>
+							</div>
+							<div class="form-group">
+								<label for="sat">Saturação de O2</label>
+								<input type="number" name="sat"  id="sat" class="form-control"  required>
+							</div>
+							<div class="form-group">
+								<label for="o2">Uso de O2</label>
+								<select class="form-control" id="opcao2" name="opcao2" required>
+									<option value="" disabled selected hidden>Uso de O2</option>
+									<option value="sim" >Sim</option>
+									<option value="nao" >Não</option>
+								</select>
+								<input type="hidden" name="o2"  id="uso02" class="form-control"  required>
+							</div>
+							<div class="form-group">
+								<label for="temp">Temperatura</label>
+								<input type="text" name="temp"  id="temp" data-mask="00.0" data-mask-selectonfocus="true" class="form-control"  required>
+							</div>
+							<div class="form-group">
+								<label for="sistolica">PA Sistolica</label>
+								<input type="number" name="sistolica" id="pa" class="form-control"  required>
+							</div>
+							<div class="form-group">
+								<label for="fc">Frequencia Cardiaca</label>
+								<input type="number" name="fc"  id="fc" class="form-control"  required>
+							</div>
+							
+							<div class="form-group">
+								<label for="opcao">Nivel Consciencia</label>
+								<select class="form-control" id="opcao" name="opcao" required>
+									<option value="" disabled selected hidden>Nivel Consciencia</option>
+									<option value="alerta" >Alerta</option>
+									<option value="verbal" >Estimulo Verbal</option>
+									<option value="doloroso" >Estimulo Doloroso</option>
+									<option value="aresponsivo" >Sem Resposta</option>
+								</select>
+								<input  id="ment"  type="hidden" name="covid" >
+							</div>
+							
+							<div  class="form-group">
+								<button onclick="calcular()" type="button" class="btn btn-primary">Somar news</button>
+							</div>
+							<div>
+								<label for="news">News</label>
+								<input  type="text" id="news2" name="news" class="form-control"  required>
+							</div>
+							   <div id="hora" class="form-group">
+								<input  type="hidden" id="data" name="data"  class="form-control">
+							</div>
+							<div id="hora" class="form-group">
+								<input  type="hidden" id="horas" name="horas"  class="form-control">
+								<input  type="hidden" id="datareg" name="datareg"  class="form-control">
+							</div>
+							</div>
+								
+						   <div >
+							   <a href="/newskabansaojorge?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+							   <button type="submit" class="btn btn-primary">Atualizar</button>
+						   </div>
+					   </div>
+				   </div>
+			   </div>
+			</div>
+		</div>
+	</div>
+</form>
+
+<% } %>	
+<% } %>	
+
+			
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.js"></script>
+<script src="https://colorlib.com/polygon/vendors/jquery/dist/jquery.min.js"></script>
+<script src="https://colorlib.com/polygon/vendors/pnotify/dist/pnotify.js"></script>
+<script src="https://colorlib.com/polygon/vendors/pnotify/dist/pnotify.buttons.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<%- include('../../home/footer'); %>
+</body>
+</html>
+<script>
+$(document).ready(function() {
+	$('#mytable').DataTable( {
+		dom: 'Bfrtip',
+		"scrollX": true,
+		order: ([ 3, 'asc']),
+		
+	pageLength: 50,
+	buttons: [       
+		{
+			"extend": "copyHtml5",
+			"text": "COPIAR",
+			header: false
+		},          
+		{
+			"extend": "pdf",
+			"text": "PDF",
+			header: false
+		},
+		{
+			"extend": "excelHtml5",
+			"text": "EXCEL",
+			header: false
+		},
+		{
+			"extend": "print",
+			"text": "IMPRIMIR",
+			header: false
+		}
+	],language: {
+		buttons: {
+			copyTitle: 'Copiado para área de transferência',
+			copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+			copySuccess: {
+				_: '%d linhas copiadas',
+				1: '1 linha copiada'
+			}
+		},
+		"paginate": {
+			"previous": "Anterior",
+			"next": "Próximo"
+		},
+		"search": "Pesquisar:"
+	},
+	select: true
+} );
+} );
+
+
+function setaDadosModal(valor) {
+	document.getElementById('idpaciente').value = valor;
+}
+
+function setaDadosModal2(valor) {
+	document.getElementById('campo').value = valor;
+}
+
+function setaDadosModal3(valor) {
+	document.getElementById('nome').value = valor;
+}
+
+function setaDadosModal4(valor) {
+	document.getElementById('setor').value = valor;
+}
+
+function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
+function novaHora(){
+	
+	var date = new Date();
+	document.getElementById('data').value = date.getDate() +'-'+ (date.getMonth() + 1) +'-'+ date.getFullYear() +' '+ date.getHours()+':'+date.getMinutes()+':'+date.getSeconds() ;
+	document.getElementById('horas').value= [date.getHours(), date.getMinutes()].map(pad).join(':');
+	document.getElementById('datareg').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+}
+novaHora();
+
+$("#opcao").on('change', function(e){
+	var exame = document.getElementById('opcao').value;
+	document.getElementById('ment').value = exame;
+});
+
+$("#opcao2").on('change', function(e){
+     var o2 = document.getElementById('opcao2').value;
+     document.getElementById('uso02').value = o2;
+});
+
+function calcular(){
+	var resultadofr;
+	var fr = document.getElementById('fr').value;
+	
+	if(fr<=8){
+		resultadofr = 3;
+	}
+	if(fr>=9&&fr<=11){
+		resultadofr = 1;
+	}
+	if(fr>=12&&fr<=20){
+		resultadofr	= 0;
+	}
+	if(fr>=21&&fr<=24){
+		resultadofr = 2;
+	}
+	if(fr>=25){
+		resultadofr = 3;
+	}
+	
+	var resultadosat;
+	var sat = document.getElementById('sat').value;
+	
+	if(sat<=91){
+		resultadosat = 3;
+	}
+	if(sat>=92&&sat<=93){
+		resultadosat = 2;
+	}
+	if(sat>=94&&sat<95){
+		resultadosat	= 1;
+	}
+	if(sat>=95){
+		resultadosat = 0;
+	}
+	
+	var resultadoo2;
+	var o2 = document.getElementById('uso02').value;
+	
+	if(o2 == 'sim'){
+		resultadoo2 = 2;
+	}
+	if(o2 == 'nao'){
+		resultadoo2 = 0;
+	}
+	
+	var resultadotemp;
+	var temp = document.getElementById('temp').value;
+
+	if(temp<=35){
+		resultadotemp = 3;
+	}
+	if(temp>=35 &&temp<=36 ||temp>=35.1&&temp<=36.0 ){
+		resultadotemp = 1;
+	}
+	if(temp>=36.1&&temp<=38.0 ||temp>=36 &&temp<=38){
+		resultadotemp	= 0;
+	}
+	if(temp>=38.1&&temp<=39.0 ||temp>=38 &&temp<=39){
+		resultadotemp = 1;
+	}
+	if(temp>=39.1 ||temp>=39 ){
+		resultadotemp = 2;
+	}
+
+	var resultadopa;
+	var pa = document.getElementById('pa').value;
+	
+	if(pa<=90){
+		resultadopa = 3;
+	}
+	if(pa>=91&&pa<=100){
+		resultadopa = 2;
+	}
+	if(pa>=101&&pa<=110){
+		resultadopa	= 1;
+	}
+	if(pa>=111&&pa<=219){
+		resultadopa = 0;
+	}
+	if(pa>=220){
+		resultadopa = 3;
+	}
+
+	
+	var resultadofc;
+	var fc = document.getElementById('fc').value;
+	
+	if(fc<=40){
+		resultadofc = 3;
+	}
+	if(fc>=41&&fc<=50){
+		resultadofc = 1;
+	}
+	if(fc>=51&&fc<=90){
+		resultadofc	= 0;
+	}
+	if(fc>=91&&fc<=110){
+		resultadofc = 1;
+	}
+	if(fc>=111&&fc<=130){
+		resultadofc = 2;
+	}
+	if(fc>=131){
+		resultadofc = 3;
+	}
+
+	
+	var resultadoment;
+	var ment = document.getElementById('opcao').value;
+	
+	if(ment == "alerta"){
+		resultadoment = 0;
+	}
+	if(ment == "verbal"){
+		resultadoment = 3;
+	}
+	if(ment == "doloroso"){
+		resultadoment = 3;
+	}
+	if(ment == "aresponsivo"){
+		resultadoment = 3;
+	}
+	
+	var score = resultadofr + resultadosat + resultadoo2 + resultadotemp + resultadopa + resultadofc + resultadoment;
+	
+	document.getElementById('news2').value = score;
+	
+}
+
+>>>>>>> 17b38d426456f0d2076af807e7cfc404ea34af31
 </script>

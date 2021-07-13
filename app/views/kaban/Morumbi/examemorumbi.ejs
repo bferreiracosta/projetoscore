@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%- include('../cabecalhokaban'); %>
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
@@ -125,3 +126,132 @@
 <%- include('../../home/footer'); %>
 </body>
 </html>
+=======
+<%- include('../cabecalhokaban'); %>
+<% if(id.length > 0) { %>
+    <% for(var i = 0; i < id.length; i++) {%>
+    <h2>Central leito UAI Morumbi</h2>
+    <a href="kabanpacientemorumbi?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Voltar Paciente</button></a>
+        <br>
+        <br>
+      
+        <table class="table table-striped" style="width: 100%;" id="mytable">
+            <input name="usuario" type="hidden" id="usuario" value="<%=id[i].id_usuario %>">
+            <thead>
+                <tr>
+                    <th></th>
+
+                    <th hidden>id</th>
+
+                    <th>Paciente</th>
+                   
+                    <th>Exame</th>
+                   
+                    <th>Horario</th>
+                  
+                </tr>
+            </thead>
+            <tbody>   
+                <% if(evento.length > 0) { %>
+                    <% for(var j = 0; j < evento.length; j++) {%>
+                <tr>
+
+                    <td>
+                        <a href="editexamemorumbi/<%=id[i].id_usuario %>/?id=<%=evento[j].idevento %>" class="btn btn-sm btn-info edit">Editar Exame</a>
+                        <a href="deleteexamemorumbi/<%=id[i].id_usuario %>/?id=<%=evento[j].idevento %>" class="btn btn-sm btn-danger edit">Deletar Exame</a>
+                    </td>
+
+                    <td hidden><%=evento[j].idevento %></td>
+
+                    <td><%=evento[j].paciente %></td>
+                   
+                    <td><%=evento[j].title %></td>
+                   
+                    <td><%=evento[j].start %></td>    
+                    
+                     
+                </tr>
+                <% } %>	
+                <% } %>
+            </tbody>
+        </table>
+    
+        <br>
+        <br>
+        <br>
+        <% } %>	
+        <% } %>
+<!-- Importando o jQuery -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+
+
+
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>   
+ $(document).ready(function() {
+        $('#mytable').DataTable( {
+            dom: 'Bfrtip',
+            order: ([ 4, 'asc']),
+            "scrollX": true,  
+   
+        pageLength: 50,
+        buttons: [       
+            {
+                "extend": "copyHtml5",
+                "text": "COPIAR",
+               
+                footer:true
+            },          
+            {
+                "extend": "pdf",
+                "text": "PDF",
+               
+                footer:true
+            },
+            {
+                "extend": "excelHtml5",
+                "text": "EXCEL",
+               
+                footer:true
+            },
+            {
+                "extend": "print",
+                "text": "IMPRIMIR",
+               
+                footer:true
+            },
+        ],language: {
+            buttons: {
+                copyTitle: 'Copiado para área de transferência',
+                copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+                copySuccess: {
+                    _: '%d linhas copiadas',
+                    1: '1 linha copiada'
+                }
+            },
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Próximo"
+            },
+            "search": "Pesquisar:"
+        },
+        select: true
+    });   
+});
+
+ </script>
+<%- include('../../home/footer'); %>
+</body>
+</html>
+>>>>>>> 17b38d426456f0d2076af807e7cfc404ea34af31

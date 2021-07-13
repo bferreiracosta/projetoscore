@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "scoresystem",
   "version": "1.0.0",
@@ -25,3 +26,32 @@
     "pnotify": "^5.2.0"
   }
 }
+=======
+{
+  "name": "scoresystem",
+  "version": "1.0.0",
+  "description": "ScoreSystem",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Bruno",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bootstrap-calendar": "^0.2.4",
+    "consign": "^0.1.2",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "ejs": "^2.5.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "fullcalendar": "^5.7.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "pnotify": "^5.2.0"
+  }
+}
+>>>>>>> 17b38d426456f0d2076af807e7cfc404ea34af31

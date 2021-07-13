@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%- include('../cabecalhomentalurgencia'); %>
 <div id="mobile" class="container">
 <% if(id.length > 0) { %>
@@ -114,4 +115,122 @@ window.onload = function() {
 	document.getElementById('articulacoes2').value = articulacoes;
 	document.getElementById('matriciado2').value = matriciado;
 }
+=======
+<%- include('../cabecalhomentalurgencia'); %>
+<div id="mobile" class="container">
+<% if(id.length > 0) { %>
+    <% for(var i = 0; i < id.length; i++) {%>
+       
+<form action="/updatecapsmorumbi" style="padding-left: 1%; padding-right: 1%;" method="post">
+	<h2>Editar  paciente</h2> 
+		<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
+		<% if(mental.length > 0) { %>
+			<% for(var j = 0; j < mental.length; j++) {%>
+			<div>
+				<div class="form-group">
+					<input type="hidden" name="id" class="form-control" placeholder="" value="<%=mental[j].id_paciente %>" required>
+				</div>
+				<div class="form-group">
+					<label for="prontuario">Prontuario</label>
+					<input type="text" name="prontuario" class="form-control" value="<%=mental[j].prt %>" required>
+				</div>
+				<div class="form-group">
+					<label for="paciente">Nome Paciente</label>
+					<input type="text" name="paciente" class="form-control" value="<%=mental[j].paciente %>" required>
+				</div>
+
+				<div class="form-group">
+					<label for="vinculo">Vinculado</label>
+					<select  class="form-control" id="vinculo1" name="vinculo1">
+						<option value="" disabled selected hidden>Vinculado</option>
+						<option value="Sim" <%=(mental[j].vinculo == 'Sim')?'selected':''%>>Sim</option>
+						<option value="Nao" <%=(mental[j].vinculo == 'Nao')?'selected':''%>>Não</option>
+					</select>
+					<input type="hidden" name="vinculo2" id="vinculo2" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="motivo">Motivo</label>
+					<input type="text" name="motivo" class="form-control" value="<%=mental[j].motivocaps %>" required>
+				</div>
+				<div class="form-group">
+					<label for="articulacoes">Caso Articulado</label>
+					<select  class="form-control" id="articulacoes1" name="articulacoes1">
+						<option value="" disabled selected hidden>Articulado</option>
+						<option value="Sim" <%=(mental[j].articulacao == 'Sim')?'selected':''%>>Sim</option>
+						<option value="Nao" <%=(mental[j].articulacao == 'Nao')?'selected':''%>>Não</option>
+					</select>
+					<input type="hidden" name="articulacoes2" id="articulacoes2" class="form-control" >
+				</div>
+				<div class="form-group">
+					<label for="articulacoes">Caso Matriciado</label>
+					<select  class="form-control" id="matriciado1" name="articulacoes1">
+						<option value="" disabled selected hidden>Matriciado</option>
+						<option value="Sim" <%=(mental[j].matriciado == 'Sim')?'selected':''%>>Sim</option>
+						<option value="Nao" <%=(mental[j].matriciado == 'Nao')?'selected':''%>>Não</option>
+					</select>
+					<input type="hidden" name="matriciado2" id="matriciado2" class="form-control" >
+				</div>			
+			</div>
+			<% } %>	
+			<% } %> 
+	<div>
+		<a href="/justificarpacientemorumbi?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+		<button type="submit" class="btn btn-success">Salvar</button>
+		<br>
+		<br>
+		<br>
+	</div>
+	<% } %>	
+	<% } %> 
+</form>
+</div>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+<%- include('../../home/footer'); %>
+</html>
+<script>
+	$(function(){
+	$(window).on('resize load', function() {
+  if ($(window).width() <= 768) { 
+    $("#mobile").removeClass("container");
+  }
+  else {
+    $("#mobile").addClass("container");
+  }
+});
+});
+    $("#exame").on('change', function(e){
+     var exame = $(this).val();
+     document.getElementById('referencia').value = exame;
+});
+
+$("#vinculo1").on('change', function(e){
+     var vinculo1 = $(this).val();
+     document.getElementById('vinculo2').value = vinculo1;
+});
+
+$("#articulacoes1").on('change', function(e){
+     var articulacoes1 = $(this).val();
+     document.getElementById('articulacoes2').value = articulacoes1;
+});
+
+$("#matriciado1").on('change', function(e){
+     var matriciado1 = $(this).val();
+     document.getElementById('matriciado2').value = matriciado1;
+});
+
+
+window.onload = function() {
+	var vinculo = document.getElementById('vinculo1').value;
+	var articulacoes = document.getElementById('articulacoes1').value;
+	var matriciado = document.getElementById('matriciado1').value;
+	document.getElementById('vinculo2').value = vinculo;
+	document.getElementById('articulacoes2').value = articulacoes;
+	document.getElementById('matriciado2').value = matriciado;
+}
+>>>>>>> 17b38d426456f0d2076af807e7cfc404ea34af31
 </script>

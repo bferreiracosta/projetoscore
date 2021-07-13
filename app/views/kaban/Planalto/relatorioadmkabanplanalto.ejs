@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%- include('../cabecalhokaban'); %>
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
@@ -231,4 +232,239 @@ return (ano_atual - data_aniversario);
    
 }
        
+=======
+<%- include('../cabecalhokaban'); %>
+<% if(id.length > 0) { %>
+    <% for(var i = 0; i < id.length; i++) {%>
+
+<h2>Relatorio Administrativo Planalto</h2>
+ 
+
+        <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
+        <table class="table table-striped table-bordered " id="mytable">
+            <thead>
+                <tr>
+                    
+                    <th hidden>id</th>
+                    <th>SusFacil</th>
+                    <th>Prontuario</th>
+                    <th>Nome</th>
+                    <th>Data de Nascimento</th>
+                    <th>Idade</th>
+                    <th>Data Admissão</th>
+                    <th>Dias Internados</th>
+                    <th>ECF</th>
+                    <th>Spict</th>
+                    <th>Paliativo</th>
+                    <th>Leito</th>
+                    <th>Diagnóstico</th>
+                    <th>Especialidade</th>
+                    <th>Banho</th>
+                    <th>Mobilidade</th>
+                    <th>Observação</th>
+                    <th>Pendencias</th>
+                    
+                </tr>
+                </thead>
+                <tbody>    
+                    <% if(paciente.length > 0) { %>
+                        <% for(var j = 0; j < paciente.length; j++) {%>
+                            
+                    <tr>
+                        
+                        <td hidden><%=paciente[j].idpaciente %></td>
+                        <td><%=paciente[j].susfacil %></td>
+                        <th><%=paciente[j].prt %></th>
+                        <td><%=paciente[j].nome %></td>
+                        <td><%=paciente[j].datanascimento %></td>
+                        <td></td>
+                        <td><%=paciente[j].dataentrada %></td>
+                        <td></td>
+                        <td><%=paciente[j].setor %></td>
+                        <td><%=paciente[j].ECF %></td>
+                        <td><%=paciente[j].spict %></td>
+                        <td><%=paciente[j].paliativo %></td>
+                        <td><%=paciente[j].diagnostico %></td>
+                        <td><%=paciente[j].especialidade %></td>
+                        <td><%=paciente[j].banho %></td>
+                        <td><%=paciente[j].mobilidade %></td>
+                        <td><%=paciente[j].observacao %></td>
+                        <td><%=paciente[j].pendencias %></td>
+                </tr>
+                <% } %>	
+                <% } %>
+            </tbody>
+        </table>
+        <% } %>	
+        <% } %>
+        <br>
+					<br>
+					<br>
+ 
+
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+var groupColumn = 8;
+$('#mytable').DataTable( { 
+dom: 'Bfrtip',
+"scrollX": true,
+rowGroup: {
+       dataSrc: 'groupColumn'
+   },
+"columnDefs": [
+           { "visible": false, "targets": groupColumn },
+           {"className": "dt-center", "targets": "_all"},
+          
+       ],
+       fixedColumns: true,
+       rowGroup: {
+           dataSrc: groupColumn,
+       },
+       "order": [[ groupColumn, 'asc' ]],
+       pageLength: 50,
+       "drawCallback": function ( settings ) {
+           var api = this.api();
+           var rows = api.rows( {page:'current'} ).nodes();
+           var last=null;
+
+           api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
+               if ( last !== group ) {
+                   $(rows).eq( i ).before(
+                       '<tr class="group" style = "background-color: #ddd !important;text-align: center !important"><td colspan="18" >'+group+'</td></tr>'
+                   );
+
+                   last = group;
+               }
+           } );
+       },
+       buttons: [       
+           {
+               "extend": "copyHtml5",
+               "text": "COPIAR",
+               orientation: 'landscape',
+               pageSize: 'LEGAL',
+              
+           },          
+           {
+               "extend": "pdf",
+               "text": "PDF",
+               orientation: 'landscape',
+               pageSize: 'LEGAL',
+               customize: function(doc) {
+                    //pageMargins [left, top, right, bottom] 
+                    doc.pageMargins = [ 10, 20, 10, 10 ];
+                    doc.defaultStyle.fontSize = 8,
+                    doc.styles.tableBodyEven.alignment = 'center';
+                   doc.styles.tableBodyOdd.alignment = 'center';
+                }, 
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+           },
+           {
+               "extend": "excelHtml5",
+               "text": "EXCEL",
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+               customize: function( xlsx ) {
+               var sheet = xlsx.xl.worksheets['sheet1.xml'];
+               $('c', sheet).attr( 's', '51' );
+
+           },
+           orientation: 'landscape',
+               pageSize: 'LEGAL'
+           },
+           {
+               "extend": "print",
+               "text": "IMPRIMIR", 
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+               customize: function ( win ) {
+                    $(win.document.body)
+                    .css( 'font-size', '12px' );
+
+                $(win.document.body).find( 'table' )
+                    .css( 'font-size', '12px' );
+                },
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
+            }
+           
+       ],language: {
+           buttons: {
+               copyTitle: 'Copiado para área de transferência',
+               copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+               copySuccess: {
+                   _: '%d linhas copiadas',
+                   1: '1 linha copiada'
+               }
+           },
+           "paginate": {
+               "previous": "Anterior",
+               "next": "Próximo"
+           },
+           "search": "Pesquisar:"
+       },
+       select: true
+   } );
+} );
+
+
+$('#mytable tbody tr').each(function(i){
+            tr=$(this);
+            valor=tr.children('td:eq(5)').html();
+            var data2 = valor;
+            // Precisamos quebrar a string para retornar cada parte
+            const dataSplit = data2.split('/');
+            const day = dataSplit[0]; // 30
+            const month = dataSplit[1]; // 03
+            const year = dataSplit[2]; // 2019
+            // Agora podemos inicializar o objeto Date, lembrando que o mês começa em 0, então fazemos -1.
+            data2 = new Date(year, month - 1, day);
+            const now = new Date(); // Data de hoje
+            const diff = Math.abs(now.getTime() - data2.getTime()); // Subtrai uma data pela outra
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
+            // Mostra a diferença em dias
+            tr.children('td:eq(6)').text(days + " dias");
+            idade=tr.children('td:eq(3)').html();
+            var data3 = idade;
+            // Precisamos quebrar a string para retornar cada parte
+            const dataSplits = data3.split('/');
+            const dayss = dataSplits[0]; // 30
+            const months = dataSplits[1]; // 03
+            const years = dataSplits[2]; // 2019
+            // Agora podemos inicializar o objeto Date, lembrando que o mês começa em 0, então fazemos -1.
+            data3 = new Date(years, months - 1, dayss);
+            tr.children('td:eq(4)').text(calcularIdade(data3)+ " anos");
+});
+
+function calcularIdade(aniversario) {
+    var ano_atual = new Date().getFullYear();
+var data_aniversario = new Date(aniversario).getFullYear();;
+// var ano_informado = data_aniversario.split('/')[2];
+return (ano_atual - data_aniversario);
+   
+}
+       
+>>>>>>> 17b38d426456f0d2076af807e7cfc404ea34af31
    </script>

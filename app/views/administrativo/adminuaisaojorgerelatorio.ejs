@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%- include('./cabecalhoadministrativo'); %>
 
 
@@ -83,4 +84,91 @@
 // 	});
 // });
 
+=======
+<%- include('./cabecalhoadministrativo'); %>
+
+
+<div id="mobile" >
+
+<div class="col-md-2 " style="margin-top: -21px; padding-top:10px; padding-bottom:10px; background-color: #c9fac9;">
+<ul class="nav nav-pills nav-stacked" >
+  <li class="nav-item">
+    <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Indicadores</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Usuario</a>
+  </li>
+</ul>
+</div>
+<div class="col-md-10">
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <h2>Indicadores</h2>
+      <form action="">
+        <div class="input-group">
+            <div class="form-outline">
+                <label>Data Inicial: </label><input type="date" name="nome">
+                <label>Data Final: </label><input type="date" name="email">
+                <label>Unidade </label><input type="text" name="email">
+              <label class="form-label" for="form1">Search</label>
+            
+            <button type="button" class="btn btn-primary">
+              <i class="fas fa-search"></i>
+            </button>
+        </div>
+          </div>
+        </div>
+      </form>
+    
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <% if(id.length > 0) { %>
+        <% for(var i = 0; i < id.length; i++) {%>
+   
+    <h2>Usuarios</h2>
+    <table class="table table-striped"  style="width: 100%;" id="mytable">
+                   
+        <thead>
+            <tr>
+                <th hidden>id</th>
+                <th>Usuario</th>
+                <th>Admin</th>
+                <th>Unidade</th>
+                <th>Kaban</th>
+                                
+            </tr>
+            </thead>
+            <tbody>                      
+                <td hidden><%=id[i].id_usuario %></td>
+                <td><%=id[i].usuario %></td>
+                <th><%=id[i].admin %></th>
+                <td><%=id[i].unidade %></td>
+                <td><%=id[i].kaban %></td>
+                    
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+
+    
+    <% } %>	
+    <% } %>
+  </div>
+</div>
+</div>
+
+<script>
+//     $(function(){
+// 	$(window).on('resize load', function() {
+// 			if ($(window).width() <= 768) { 
+// 				$("#mobile").removeClass("container");
+// 		}
+// 			else {
+// 				$("#mobile").addClass("container");
+// 		}
+// 	});
+// });
+
+>>>>>>> 17b38d426456f0d2076af807e7cfc404ea34af31
 </script>

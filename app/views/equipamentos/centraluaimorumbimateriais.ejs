@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%- include('./cabecalhoequipamentos'); %>
 <div id="mobile" class="container">
 
@@ -115,4 +116,123 @@ function novaHora(){
 	document.getElementById('data').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
 }
 novaHora();
+=======
+<%- include('./cabecalhoequipamentos'); %>
+<div id="mobile" class="container">
+
+<form action="/updatedispositivomorumbi" style="padding-left: 1%; padding-right: 1%;" method="post">
+                <h2>Quantidades de Materiais UAI Morumbi</h2> 
+            
+                <% if(id.length > 0) { %>
+                    <% for(var i = 0; i < id.length; i++) {%>
+                    <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
+                   
+                        <% if(dispositivo.length > 0) { %>
+                            <% for(var j = 0; j < dispositivo.length; j++) {%>
+                        <div>
+                            <div class="form-group">
+                                <label for="posto">Equipamentos em uso</label>
+                                <br>
+                            </div>
+                            <div class="form-group">
+                                <label for="posto">Ventilador mecânico:</label>
+                                <input type="number" name="vmu" class="form-control" value="<%=dispositivo[j].vmu %>">
+                            </div>  
+                            <div class="form-group">
+                                <label for="posto">Monitor:</label>
+                                <input type="number" name="mu" class="form-control" value="<%=dispositivo[j].mu %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="posto"> BIC:</label>
+                                <input type="number" name="bicu" class="form-control" value="<%=dispositivo[j].bicu %>">
+                            </div>   
+                            <br>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label for="posto">Equipamentos disponíveis</label>
+                                <br>
+                            </div>
+                            <div class="form-group">
+                                <label for="posto">Ventilador mecânico</label>
+                                <input type="number" name="vmd" class="form-control" value="<%=dispositivo[j].vmd %>">
+                            </div>  
+                            <div class="form-group">
+                                <label for="posto">Monitor:</label>
+                                <input type="number" name="md" class="form-control" value="<%=dispositivo[j].md %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="posto"> BIC:</label>
+                                <input type="number" name="bicd" class="form-control" value="<%=dispositivo[j].bicd %>">
+                            </div>   
+                            <br>              
+                        </div> 
+                        <div>
+                            <div class="form-group">
+                                <label for="posto">Equipamentos com defeitos</label>
+                                <br>
+                            </div>
+                            <div class="form-group">
+                                <label for="posto">Ventilador mecânico</label>
+                                <input type="number" name="vmde" class="form-control" value="<%=dispositivo[j].vmde %>">
+                            </div>  
+                            <div class="form-group">
+                                <label for="posto">Monitor:</label>
+                                <input type="number" name="mde" class="form-control" value="<%=dispositivo[j].mde %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="posto"> BIC:</label>
+                                <input type="number" name="bicde" class="form-control" value="<%=dispositivo[j].bicde %>">
+                            </div>   
+                            <br>              
+                        </div>                    
+                        <div id="hora" class="form-group">
+                            <input  type="hidden" id="horas" name="horas"  class="form-control">
+                            <input  type="hidden" id="data" name="data"  class="form-control">
+                        </div>
+                    
+                <div>
+                    <a href="homeregulacao?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+                <% } %>	
+                <% } %> 
+                <% } %>	
+                <% } %> 
+                <br>
+					<br>
+					<br>
+</form>
+</div>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<%- include('../home/footer'); %>
+</body>
+</html>
+<script>
+    $(function(){
+	$(window).on('resize load', function() {
+  if ($(window).width() <= 768) { 
+    $("#mobile").removeClass("container");
+  }
+  else {
+    $("#mobile").addClass("container");
+  }
+});
+});
+    function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
+function novaHora(){
+	
+	var date = new Date();
+	document.getElementById('horas').value= [date.getHours(), date.getMinutes()].map(pad).join(':');
+	document.getElementById('data').value = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+}
+novaHora();
+>>>>>>> 17b38d426456f0d2076af807e7cfc404ea34af31
 </script>
