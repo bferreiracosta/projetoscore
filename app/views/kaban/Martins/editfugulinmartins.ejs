@@ -38,7 +38,7 @@
 									<option value="Ventilação mecânica (uso de ventilador a pressão ou a volume)" <%=(fugulin[j].oxigenacao == 'Ventilação mecânica (uso de ventilador a pressão ou a volume)')?'selected':''%>>Ventilação mecânica (uso de ventilador a pressão ou a volume)</option>
 									<option value="Uso contínuo de máscara ou cateter de oxigênio" <%=(fugulin[j].oxigenacao == 'Uso contínuo de máscara ou cateter de oxigênio')?'selected':''%>>Uso contínuo de máscara ou cateter de oxigênio</option>
 									<option value="Uso intermitente de máscara ou cateter de oxigênio" <%=(fugulin[j].oxigenacao == 'Uso intermitente de máscara ou cateter de oxigênio')?'selected':''%>>Uso intermitente de máscara ou cateter de oxigênio.</option>
-									<option value="Não depende de oxigênio" <%=(fugulin[j].oxigenacao == 'Não depende de oxigênio')?'selected':''%>>Não depende de oxigênio.</option>
+									<option value="Não depende de oxigênio" <%=(fugulin[j].oxigenacao == 'Não depende de oxigênio')?'selected':''%>>Não depende de oxigênio</option>
 								</select>
 								<input type="hidden" name="oxigenacao2"  id="oxigenacao2" class="form-control" value="<%=fugulin[j].oxigenacao%>">
 							</div>
@@ -80,7 +80,7 @@
 								<select class="form-control" id="alimentacao" name="alimentacao" required>
 									<option value="" disabled selected hidden>Alimentação</option>
 									<option value="Através de cateter central" <%=(fugulin[j].alimentacao == 'Através de cateter central')?'selected':''%>>Através de cateter central</option>
-									<option value="Através de sonda nasogástrica" <%=(fugulin[j].alimentacao == 'través de sonda nasogástrica')?'selected':''%>>Através de sonda nasogástrica</option>
+									<option value="Através de sonda nasogástrica" <%=(fugulin[j].alimentacao == 'Através de sonda nasogástrica')?'selected':''%>>Através de sonda nasogástrica</option>
 									<option value="Por boca, com auxílio" <%=(fugulin[j].alimentacao == 'Por boca, com auxílio')?'selected':''%>>Por boca, com auxílio</option>
 									<option value="Auto suficiente" <%=(fugulin[j].alimentacao == 'Auto suficiente')?'selected':''%>>Auto suficiente</option>
 								</select>
@@ -311,6 +311,7 @@ function pad(s){
 }
 novaHora();
 
+
 function calcular(){
 	var resultadomental;
 	var mental = document.getElementById('mental2').value;
@@ -319,7 +320,7 @@ function calcular(){
 		resultadomental = 4;
 
 	}
-	if(mental == "Períodos de inconsciência"){
+	if(mental == "Períodos de Inconsciência"){
 		resultadomental = 3;
 
 	}
@@ -414,57 +415,57 @@ function calcular(){
 	
 	if(alimentacao == "Através de cateter central"){
 		resultadoalimentacao = 4;
-	
+
 	}
 	if(alimentacao == "Através de sonda nasogástrica"){
 		resultadoalimentacao = 3;
-	
+
 	}
 	if(alimentacao == "Por boca, com auxílio"){
 		resultadoalimentacao	= 2;
-	
+
 	}
 	if(alimentacao == "Auto suficiente"){
 		resultadoalimentacao = 1;
-	
+
 	}
 	var resultadocuidado;
 	var cuidado = document.getElementById('cuidado2').value;
 	
 	if(cuidado == "Banho no leito, higiêne oral realizada pela enfermagem"){
 		resultadocuidado = 4;
-	
+
 	}
 	if(cuidado == "Banho de chuveiro, higiêne oral realizada pela enfermagem"){
 		resultadocuidado = 3;
-	
+
 	}
 	if(cuidado == "Auxílio no banho de chuveiroe/ou higiêne oral"){
 		resultadocuidado	= 2;
-	
+
 	}
 	if(cuidado == "Auto suficiente"){
 		resultadocuidado = 1;
-	
+
 	}
 	var resultadoeliminacao;
 	var eliminacao = document.getElementById('eliminacao2').value;
 	
 	if(eliminacao == "Evacuação no leito e uso de sonda vesical para controle da diurese"){
 		resultadoeliminacao = 4;
-	
+
 	}
 	if(eliminacao == "Uso de comadre ou eliminações no leito"){
 		resultadoeliminacao = 3;
-	
+
 	}
 	if(eliminacao == "Uso de vaso sanitário com auxílio"){
 		resultadoeliminacao	= 2;
-	
+
 	}
 	if(eliminacao == "Auto suficiente"){
 		resultadoeliminacao = 1;
-	
+
 	}
 	var resultadoterapeutica;
 	var terapeutica = document.getElementById('terapeutica2').value;
@@ -490,19 +491,19 @@ function calcular(){
 	
 	if(integridade == "Presença da pele com destruição da derme, epiderme, músculos"){
 		resultadointegridade = 4;
-		
+
 	}
 	if(integridade == "Presença de solução de continuidade da pele.Incisão cirúrgica. Ostomias. Drenos"){
 		resultadointegridade = 3;
-		
+
 	}
 	if(integridade == "Presença de alteração da cor da pele e/ou presença de solução de continuidade da pele envolvendo a epiderme, derme"){
 		resultadointegridade	= 2;
-		
+
 	}
 	if(integridade == "Pele íntegra"){
 		resultadointegridade = 1;
-		
+
 	}
 	var resultadocurativo;
 	var curativo = document.getElementById('curativo2').value;
@@ -542,7 +543,7 @@ function calcular(){
 		resultadotempo = 1;
 
 	}
-	
+	console.log(resultadomental, resultadooxigenacao, resultadosinaisvitais, resultadomotilidade, resultadodeambulacao, resultadoalimentacao, resultadocuidado, resultadoeliminacao, resultadoterapeutica, resultadointegridade, resultadocurativo, resultadotempo)
 	var score = resultadomental + resultadooxigenacao + resultadosinaisvitais + resultadomotilidade + resultadodeambulacao + resultadoalimentacao + resultadocuidado+ resultadoeliminacao+ resultadoterapeutica+ resultadointegridade+ resultadocurativo+ resultadotempo;
 	var resultadofinal;
 
