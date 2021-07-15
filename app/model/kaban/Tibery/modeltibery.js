@@ -473,7 +473,7 @@ modeltibery.prototype.buscardieta5 = function(unidade,callback){
 
 modeltibery.prototype.buscardieta6 = function(unidade,callback){
 
-	this._conection.query('SELECT count(dieta) as dieta6 FROM portal_paciente.kaban where dieta ="IRC" and unidade = "'+unidade+'";', callback);
+	this._conection.query('SELECT count(dieta) as dieta6 FROM portal_paciente.kaban where dieta ="IRC" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
 modeltibery.prototype.buscardieta7 = function(unidade,callback){

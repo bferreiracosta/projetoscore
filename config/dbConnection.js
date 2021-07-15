@@ -1,13 +1,13 @@
 var mysql = require('mysql');
 
-//const pool = mysql.createPool({
+// const pool = mysql.createPool({
 //    connectionLimit: 25,
 //    host : 'localhost',
 //    user : 'root',
 //    password : 'Bflc1989@',
 //  database : 'portal_paciente',
-//
-//});
+
+// });
 
 const pool = mysql.createPool({
      connectionLimit: 25,
