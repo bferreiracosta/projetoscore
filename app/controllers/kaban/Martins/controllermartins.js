@@ -1104,15 +1104,17 @@ module.exports.update= function(application, req, res){
 				if(covid == 'true' && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmartins.update(idpaciente, medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelcovidmartins.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
-								modelmentalmartins.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
-									modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelmartins.buscardispositivo(unidade, function(error, result){
-														modelmartins.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);		
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelcovidmartins.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+									modelmentalmartins.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
+										modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmartins.buscardispositivo(unidade, function(error, result){
+															modelmartins.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);		
+															});
 														});
 													});
 												});
@@ -1127,7 +1129,32 @@ module.exports.update= function(application, req, res){
 				if(covid == 'true' && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelcovidmartins.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelcovidmartins.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+									modelmentalmartins.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
+										modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmartins.buscardispositivo(unidade, function(error, result){
+															modelmartins.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == 'false' && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 								modelmentalmartins.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
 									modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 										modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1147,39 +1174,20 @@ module.exports.update= function(application, req, res){
 						});
 					});	
 				}
-				if(covid == 'false' && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmartins.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
-								modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-									modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-										modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-											modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
-												modelmartins.buscardispositivo(unidade, function(error, result){
-													modelmartins.buscarpaciente(unidade, function(error, resultado){
-														res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
 				if(covid == 'false' && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelcovidmartins.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-								modelmentalmartins.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
-									modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelmartins.buscardispositivo(unidade, function(error, result){
-														modelmartins.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelcovidmartins.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+									modelmentalmartins.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
+										modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmartins.buscardispositivo(unidade, function(error, result){
+															modelmartins.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+															});
 														});
 													});
 												});
@@ -1196,91 +1204,7 @@ module.exports.update= function(application, req, res){
 				if(covid == "false" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){
 						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-								modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-									modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-										modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
-											modelmartins.buscardispositivo(unidade, function(error, result){
-												modelmartins.buscarpaciente(unidade, function(error, resultado){
-													res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == "true" && idpac[0].covid == "true"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelcovidmartins.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
-								modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-									modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-										modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-											modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
-												modelmartins.buscardispositivo(unidade, function(error, result){
-													modelmartins.buscarpaciente(unidade, function(error, resultado){
-														res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == "true" && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelcovidmartins.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
-								modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-									modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-										modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-											modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
-												modelmartins.buscardispositivo(unidade, function(error, result){
-													modelmartins.buscarpaciente(unidade, function(error, resultado){
-														res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == "false" && idpac[0].covid == "true"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelcovidmartins.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-								modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-									modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-										modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-											modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
-												modelmartins.buscardispositivo(unidade, function(error, result){
-													modelmartins.buscarpaciente(unidade, function(error, resultado){
-														res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-			}	
-			if(mental == 'true' && idpac[0].mental == "false" ){
-				if(covid == "false" && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){
-						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmartins.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 								modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 									modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
 										modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
@@ -1301,7 +1225,7 @@ module.exports.update= function(application, req, res){
 				if(covid == "true" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmartins.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 								modelcovidmartins.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
 									modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 										modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1324,7 +1248,7 @@ module.exports.update= function(application, req, res){
 				if(covid == "true" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmartins.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 								modelcovidmartins.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
 									modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 										modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1347,7 +1271,7 @@ module.exports.update= function(application, req, res){
 				if(covid == "false" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmartins.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 								modelcovidmartins.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 									modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 										modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1356,6 +1280,106 @@ module.exports.update= function(application, req, res){
 													modelmartins.buscardispositivo(unidade, function(error, result){
 														modelmartins.buscarpaciente(unidade, function(error, resultado){
 															res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+			}	
+			if(mental == 'true' && idpac[0].mental == "false" ){
+				if(covid == "false" && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){
+						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmartins.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+									modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+										modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+											modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+												modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
+													modelmartins.buscardispositivo(unidade, function(error, result){
+														modelmartins.buscarpaciente(unidade, function(error, resultado){
+															res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "true" && idpac[0].covid == "true"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmartins.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+									modelcovidmartins.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+										modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmartins.buscardispositivo(unidade, function(error, result){
+															modelmartins.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "true" && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmartins.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+									modelcovidmartins.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+										modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmartins.buscardispositivo(unidade, function(error, result){
+															modelmartins.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "false" && idpac[0].covid == "true"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmartins.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+									modelcovidmartins.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+										modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmartins.buscardispositivo(unidade, function(error, result){
+															modelmartins.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+															});
 														});
 													});
 												});
@@ -1372,14 +1396,16 @@ module.exports.update= function(application, req, res){
 				if(covid == "false" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmartins.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-								modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-									modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-										modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-											modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
-												modelmartins.buscardispositivo(unidade, function(error, result){
-													modelmartins.buscarpaciente(unidade, function(error, resultado){
-														res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmartins.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+									modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+										modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+											modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+												modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
+													modelmartins.buscardispositivo(unidade, function(error, result){
+														modelmartins.buscarpaciente(unidade, function(error, resultado){
+															res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+														});
 													});
 												});
 											});
@@ -1393,15 +1419,17 @@ module.exports.update= function(application, req, res){
 				if(covid == "true" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmartins.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-								modelcovidmartins.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
-									modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelmartins.buscardispositivo(unidade, function(error, result){
-														modelmartins.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmartins.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+									modelcovidmartins.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+										modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmartins.buscardispositivo(unidade, function(error, result){
+															modelmartins.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+															});
 														});
 													});
 												});
@@ -1416,15 +1444,17 @@ module.exports.update= function(application, req, res){
 				if(covid == "true" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmartins.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-								modelcovidmartins.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
-									modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelmartins.buscardispositivo(unidade, function(error, result){
-														modelmartins.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmartins.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+									modelcovidmartins.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+										modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmartins.buscardispositivo(unidade, function(error, result){
+															modelmartins.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+															});
 														});
 													});
 												});
@@ -1439,15 +1469,17 @@ module.exports.update= function(application, req, res){
 				if(covid == "false" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmartins.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-								modelcovidmartins.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-									modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelmartins.buscardispositivo(unidade, function(error, result){
-														modelmartins.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+							modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmartins.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+									modelcovidmartins.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+										modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmartins.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmartins.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmartins.buscardispositivo(unidade, function(error, result){
+															modelmartins.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
+															});
 														});
 													});
 												});

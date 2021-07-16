@@ -1105,15 +1105,17 @@ module.exports.update= function(application, req, res){
 				if(covid == 'true' && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmorumbi.update(idpaciente, medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelcovidmorumbi.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
-								modelmentalmorumbi.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
-									modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelmorumbi.buscardispositivo(unidade, function(error, result){
-														modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);		
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelcovidmorumbi.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+									modelmentalmorumbi.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
+										modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmorumbi.buscardispositivo(unidade, function(error, result){
+															modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);		
+															});
 														});
 													});
 												});
@@ -1128,7 +1130,32 @@ module.exports.update= function(application, req, res){
 				if(covid == 'true' && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelcovidmorumbi.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelcovidmorumbi.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+									modelmentalmorumbi.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
+										modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmorumbi.buscardispositivo(unidade, function(error, result){
+															modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == 'false' && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 								modelmentalmorumbi.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
 									modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 										modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1148,39 +1175,20 @@ module.exports.update= function(application, req, res){
 						});
 					});	
 				}
-				if(covid == 'false' && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmorumbi.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
-								modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-									modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-										modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-											modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
-												modelmorumbi.buscardispositivo(unidade, function(error, result){
-													modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-														res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
 				if(covid == 'false' && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-								modelmentalmorumbi.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
-									modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelmorumbi.buscardispositivo(unidade, function(error, result){
-														modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+									modelmentalmorumbi.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
+										modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmorumbi.buscardispositivo(unidade, function(error, result){
+															modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+															});
 														});
 													});
 												});
@@ -1197,91 +1205,7 @@ module.exports.update= function(application, req, res){
 				if(covid == "false" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){
 						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-								modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-									modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-										modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
-											modelmorumbi.buscardispositivo(unidade, function(error, result){
-												modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-													res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == "true" && idpac[0].covid == "true"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelcovidmorumbi.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
-								modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-									modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-										modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-											modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
-												modelmorumbi.buscardispositivo(unidade, function(error, result){
-													modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-														res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == "true" && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelcovidmorumbi.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
-								modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-									modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-										modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-											modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
-												modelmorumbi.buscardispositivo(unidade, function(error, result){
-													modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-														res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == "false" && idpac[0].covid == "true"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-								modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-									modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-										modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-											modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
-												modelmorumbi.buscardispositivo(unidade, function(error, result){
-													modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-														res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-			}	
-			if(mental == 'true' && idpac[0].mental == "false" ){
-				if(covid == "false" && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){
-						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmorumbi.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 								modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 									modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
 										modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
@@ -1302,7 +1226,7 @@ module.exports.update= function(application, req, res){
 				if(covid == "true" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmorumbi.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 								modelcovidmorumbi.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
 									modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 										modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1325,7 +1249,7 @@ module.exports.update= function(application, req, res){
 				if(covid == "true" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmorumbi.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 								modelcovidmorumbi.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
 									modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 										modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1348,7 +1272,7 @@ module.exports.update= function(application, req, res){
 				if(covid == "false" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmorumbi.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 								modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 									modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 										modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1357,6 +1281,106 @@ module.exports.update= function(application, req, res){
 													modelmorumbi.buscardispositivo(unidade, function(error, result){
 														modelmorumbi.buscarpaciente(unidade, function(error, resultado){
 															res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+			}	
+			if(mental == 'true' && idpac[0].mental == "false" ){
+				if(covid == "false" && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){
+						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmorumbi.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+									modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+										modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+											modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+												modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
+													modelmorumbi.buscardispositivo(unidade, function(error, result){
+														modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+															res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "true" && idpac[0].covid == "true"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmorumbi.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+									modelcovidmorumbi.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+										modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmorumbi.buscardispositivo(unidade, function(error, result){
+															modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "true" && idpac[0].covid == "false"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmorumbi.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+									modelcovidmorumbi.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+										modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmorumbi.buscardispositivo(unidade, function(error, result){
+															modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});	
+				}
+				if(covid == "false" && idpac[0].covid == "true"){
+					modeladmin.buscarusuarioporid(id, function(error, resultados){	
+						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmorumbi.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+									modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+										modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmorumbi.buscardispositivo(unidade, function(error, result){
+															modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+															});
 														});
 													});
 												});
@@ -1373,14 +1397,16 @@ module.exports.update= function(application, req, res){
 				if(covid == "false" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-								modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-									modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-										modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-											modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
-												modelmorumbi.buscardispositivo(unidade, function(error, result){
-													modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-														res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+									modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+										modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+											modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+												modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
+													modelmorumbi.buscardispositivo(unidade, function(error, result){
+														modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+															res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+														});
 													});
 												});
 											});
@@ -1394,15 +1420,17 @@ module.exports.update= function(application, req, res){
 				if(covid == "true" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-								modelcovidmorumbi.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
-									modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelmorumbi.buscardispositivo(unidade, function(error, result){
-														modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+									modelcovidmorumbi.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
+										modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmorumbi.buscardispositivo(unidade, function(error, result){
+															modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+															});
 														});
 													});
 												});
@@ -1417,15 +1445,17 @@ module.exports.update= function(application, req, res){
 				if(covid == "true" && idpac[0].covid == "false"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-								modelcovidmorumbi.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
-									modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelmorumbi.buscardispositivo(unidade, function(error, result){
-														modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+									modelcovidmorumbi.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
+										modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmorumbi.buscardispositivo(unidade, function(error, result){
+															modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+															});
 														});
 													});
 												});
@@ -1440,15 +1470,17 @@ module.exports.update= function(application, req, res){
 				if(covid == "false" && idpac[0].covid == "true"){
 					modeladmin.buscarusuarioporid(id, function(error, resultados){	
 						modelmorumbi.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-								modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-									modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelmorumbi.buscardispositivo(unidade, function(error, result){
-														modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+							modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+								modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+									modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+										modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+											modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+												modelmorumbi.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+													modelmorumbi.updatedispositivonome(idpaciente,paciente,  function(error, result){
+														modelmorumbi.buscardispositivo(unidade, function(error, result){
+															modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+															});
 														});
 													});
 												});
@@ -1466,7 +1498,6 @@ module.exports.update= function(application, req, res){
 	})
 })
 }
-
 module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;
 	var id = req.body.campo2;

@@ -85,7 +85,12 @@ modelluizote.prototype.buscarleitoativo = function(idsetor, leito, callback){
 
 modelluizote.prototype.updateleitos = function(idleito, callback){
 
-	this._conection.query('update leitos set status = "Inativo"  where idleito = "'+idleito[0].idleito+'"', callback);
+	this._conection.query('update leitos set nome = "Inativo"  where idleito = "'+idleito[0].idleito+'"', callback);
+}
+
+modelluizote.prototype.updateleitosnome = function(idpaciente, paciente,unidade, callback){
+
+	this._conection.query('update leitokaban set nome = "'+paciente+'"  where idpaciente = "'+idpaciente+'" and unidade = "'+unidade+'"', callback);
 }
 
 modelluizote.prototype.updateleitosativo = function(idleito, callback){

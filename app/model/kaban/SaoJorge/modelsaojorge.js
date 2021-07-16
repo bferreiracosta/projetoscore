@@ -88,6 +88,11 @@ modelsaojorge.prototype.updateleitos = function(idleito, callback){
 	this._conection.query('update leitos set status = "Inativo"  where idleito = "'+idleito[0].idleito+'"', callback);
 }
 
+modelsaojorge.prototype.updateleitosnome = function(idpaciente, paciente,unidade, callback){
+
+	this._conection.query('update leitokaban set nome = "'+paciente+'"  where idpaciente = "'+idpaciente+'" and unidade = "'+unidade+'"', callback);
+}
+
 modelsaojorge.prototype.updateleitosativo = function(idleito, callback){
 
 	this._conection.query('update leitos set status = "Ativo" where idleito = "'+idleito+'"', callback);
