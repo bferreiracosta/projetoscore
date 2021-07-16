@@ -159,7 +159,7 @@ modeltibery.prototype.buscartissid = function(idpaciente, unidade, callback){
 
 modeltibery.prototype.buscarfugulin = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM fugulin dd where setor != "Observação" and  status = "Ativo" and unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY idpaciente', callback);
+	this._conection.query('SELECT * FROM fugulin dd where setor = "Enfermaria" and  status = "Ativo" and unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY idpaciente', callback);
 }
 
 modeltibery.prototype.buscarnews = function(unidade, callback){
