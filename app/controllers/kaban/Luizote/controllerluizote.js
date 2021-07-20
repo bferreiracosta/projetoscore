@@ -161,15 +161,15 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 						modelluizote.buscarleitoativo(resultado,leito, function(error, idleitos){
 							modelluizote.updateleitos(idleitos, function(error, resultado){
 								modelluizote.buscarleitospacientes(function(error, resultadosetores){
-									if(acomodacao == "Maca"){
-										modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
-											res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
-										});
-									}else{
-										modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
-											res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
-										});
-									}
+									// if(acomodacao == "Maca"){
+									// 	modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
+									// 		res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
+									// 	});
+									// }else{
+									// 	modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
+									// 		res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
+									// 	});
+									// }
 								});
 							});
 						});
@@ -184,19 +184,19 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 								modelluizote.updateleitos(idleitos, function(error, resultado){
 									modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 										modelluizote.buscarleitospacientes(function(error, resultadosetores){
-											if(acomodacao == "Maca"){
-												modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
-													});
-												});
-											}else{
-												modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
-													});
-												});
-											}
+											// if(acomodacao == "Maca"){
+											// 	modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
+											// 		modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
+											// 			res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
+											// 		});
+											// 	});
+											// }else{
+											// 	modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
+											// 		modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
+											// 			res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
+											// 		});
+											// 	});
+											// }
 										});
 									});	
 								});
@@ -213,19 +213,19 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 								modelluizote.updateleitos(idleitos, function(error, resultado){
 									modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 										modelluizote.buscarleitospacientes(function(error, resultadosetores){
-											if(acomodacao == "Maca"){
-												modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
-													});
-												});
-											}else{
-												modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
-													});
-												});
-											}
+											// if(acomodacao == "Maca"){
+											// 	modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
+											// 		modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
+											// 			res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
+											// 		});
+											// 	});
+											// }else{
+											// 	modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
+											// 		modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
+											// 			res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
+											// 		});
+											// 	});
+											// }
 										});
 									});	
 								});
@@ -1515,7 +1515,7 @@ module.exports.baixa= function(application, req, res){
 	modelluizote.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 	modelluizote.buscarleitosid(setoresrecuperado, function(error, idleito){
 		if(setoresrecuperado[0].acomodacao == "Maca"){	
-			modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
+			// modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
 	modelluizote.buscarpacienteporid(idpaciente, function(error, idpac){
 		modelcovidluizote.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
 			modelmentalluizote.buscarpacientepornome(idpac[0].nome, function(error, idmental){
@@ -1637,10 +1637,10 @@ module.exports.baixa= function(application, req, res){
 				}	
 			})	
 		})	
-	})
+	// })
 })
 }	if(setoresrecuperado[0].acomodacao == "Cama"){
-	modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
+	// modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
 		modelluizote.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidluizote.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
 				modelmentalluizote.buscarpacientepornome(idpac[0].nome, function(error, idmental){
@@ -1763,7 +1763,7 @@ module.exports.baixa= function(application, req, res){
 				})	
 			})	
 		})
-	})
+	// })
 	}	
 	if(setoresrecuperado[0].acomodacao == null){
 		

@@ -432,7 +432,7 @@ modelluizote.prototype.buscarinternacaodialuizote = function(unidade, callback){
 
 modelluizote.prototype.buscarsetoresluizote = function(callback){
 
-	this._conection.query('SELECT setor, capacidadecamasocupadas, capacidademacasocupadas, capacidade FROM luizote', callback);
+	this._conection.query('select lui.idluizote, lui.setor, lui.capacidade, lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Luizote" and baixa is null and setor = lui.setor and acomodacao="Cama") as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Luizote" and baixa is null and setor = lui.setor and acomodacao="Maca") as qtdmaca,lui.bloqueado, lui.datas, lui.hora  from leitokaban l inner join luizote lui where unidade = "Luizote" and baixa is null group by lui.setor;', callback);
 }
 
 modelluizote.prototype.buscarbanhomanhaluizote = function(callback){
