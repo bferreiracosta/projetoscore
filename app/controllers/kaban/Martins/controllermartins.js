@@ -146,7 +146,6 @@ module.exports.atualizarleitomartins= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelmartins = new application.app.model.kaban.Martins.modelmartins(application);
-	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 
 	var idpaciente = req.body.idpaciente;
 	var setor = req.body.setor2;
@@ -161,22 +160,14 @@ module.exports.atualizarleitomartins= function(application, req, res){
 						modelmartins.buscarleitoativo(resultado,leito, function(error, idleitos){
 							modelmartins.updateleitos(idleitos, function(error, resultado){
 								modelmartins.buscarleitospacientes(function(error, resultadosetores){
-									if(acomodacao == "Maca"){
-										modeladmingestao.updateleitosmartinsmacamais(setor, function(error, resulta){
-											res.redirect("/leitosmartins?id=" + result[0].id_usuario);	
-										});
-									}else{
-										modeladmingestao.updateleitosmartinscamamais(setor, function(error, resulta){
-											res.redirect("/leitosmartins?id=" + result[0].id_usuario);	
-										});
-									}
+									res.redirect("/leitosmartins?id=" + result[0].id_usuario);
 								});
 							});
 						});
 					});
 				});
 			}
-			if(setoresrecuperado[0].acomodacao == "Cama"){
+			else{
 				modelmartins.buscarleitosid(setoresrecuperado, function(error, idleito){
 					modelmartins.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
 						modelmartins.buscarsetoresid(setor, function(error, resultado){
@@ -184,19 +175,7 @@ module.exports.atualizarleitomartins= function(application, req, res){
 								modelmartins.updateleitos(idleitos, function(error, resultado){
 									modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
 										modelmartins.buscarleitospacientes(function(error, resultadosetores){
-											if(acomodacao == "Maca"){
-												modeladmingestao.updateleitosmartinsmacamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosmartinscama(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosmartins?id=" + result[0].id_usuario);	
-													});
-												});
-											}else{
-												modeladmingestao.updateleitosmartinscamamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosmartinscama(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosmartins?id=" + result[0].id_usuario);	
-													});
-												});
-											}
+											res.redirect("/leitosmartins?id=" + result[0].id_usuario);
 										});
 									});	
 								});
@@ -204,38 +183,7 @@ module.exports.atualizarleitomartins= function(application, req, res){
 						});
 					});
 				});
-			}
-			if(setoresrecuperado[0].acomodacao == "Maca"){
-				modelmartins.buscarleitosid(setoresrecuperado, function(error, idleito){
-					modelmartins.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
-						modelmartins.buscarsetoresid(setor, function(error, resultado){
-							modelmartins.buscarleitoativo(resultado,leito, function(error, idleitos){
-								modelmartins.updateleitos(idleitos, function(error, resultado){
-									modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
-										modelmartins.buscarleitospacientes(function(error, resultadosetores){
-											if(acomodacao == "Maca"){
-												modeladmingestao.updateleitosmartinsmacamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosmartinsmaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosmartins?id=" + result[0].id_usuario);	
-													});
-												});
-											}else{
-												modeladmingestao.updateleitosmartinscamamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosmartinsmaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosmartins?id=" + result[0].id_usuario);	
-													});
-												});
-											}
-										});
-									});	
-								});
-							});
-						});
-					});
-				});
-
-			}
-			
+			}			
 		});
 	});
 }	
@@ -1514,15 +1462,14 @@ module.exports.baixa= function(application, req, res){
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	modelmartins.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 	modelmartins.buscarleitosid(setoresrecuperado, function(error, idleito){
-		if(setoresrecuperado[0].acomodacao == "Maca"){	
-			modeladmingestao.updateleitosmartinsmaca(setoresrecuperado[0].setor, function(error, resulta){
+		if(setoresrecuperado[0].acomodacao != null){	
 	modelmartins.buscarpacienteporid(idpaciente, function(error, idpac){
 		modelcovidmartins.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
 			modelmentalmartins.buscarpacientepornome(idpac[0].nome, function(error, idmental){
 				if(idpac[0].mental == 'true'){
 					if(idpac[0].covid == 'true'){
 						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modelmartins.baixa(iidpaciente,baixa, destino, alta,data, function(error, result){
+							modelmartins.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 								modelcovidmartins.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 									modelmentalmartins.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 										modelmartins.baixadispositivo(idpaciente,baixa, function(error, result){
@@ -1637,135 +1584,10 @@ module.exports.baixa= function(application, req, res){
 				}	
 			})	
 		})	
-	})
+	// })
 })
-}	if(setoresrecuperado[0].acomodacao == "Cama"){
-	modeladmingestao.updateleitosmartinscama(setoresrecuperado[0].setor, function(error, resulta){
-		modelmartins.buscarpacienteporid(idpaciente, function(error, idpac){
-			modelcovidmartins.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
-				modelmentalmartins.buscarpacientepornome(idpac[0].nome, function(error, idmental){
-					if(idpac[0].mental == 'true'){
-						if(idpac[0].covid == 'true'){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelmartins.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidmartins.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelmentalmartins.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-											modelmartins.baixadispositivo(idpaciente,baixa, function(error, result){
-												modelmartins.baixatiss(idpaciente,baixa, function(error, result){
-													modelmartins.baixanews(idpaciente,baixa, function(error, result){
-														modelmartins.baixafugulin(idpaciente,baixa, function(error, result){
-															modelmartins.baixacentral(idpaciente,baixa, function(error, result){
-																modelmartins.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	
-				
-																		modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modelmartins.buscarpaciente(unidade, function(error, resultado){
-																				res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
-																			});
-																		});
-																		
-																});
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelmartins.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelmentalmartins.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-										modelmartins.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelmartins.baixatiss(idpaciente,baixa, function(error, result){
-												modelmartins.baixanews(idpaciente,baixa, function(error, result){
-													modelmartins.baixafugulin(idpaciente,baixa, function(error, result){
-														modelmartins.baixacentral(idpaciente,baixa, function(error, result){
-															modelmartins.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																	
-																	modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelmartins.buscarpaciente(unidade, function(error, resultado){
-																			res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
-																		});
-																	});
-																
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-					}
-					else{
-						if(idpac[0].covid == "false"){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelmartins.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelmartins.baixadispositivo(idpaciente,baixa, function(error, result){
-										modelmartins.baixatiss(idpaciente,baixa, function(error, result){
-											modelmartins.baixanews(idpaciente,baixa, function(error, result){
-												modelmartins.baixafugulin(idpaciente,baixa, function(error, result){
-													modelmartins.baixacentral(idpaciente,baixa, function(error, result){
-														modelmartins.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																
-																modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																	modelmartins.buscarpaciente(unidade, function(error, resultado){
-																		res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
-																	});
-																});
-																
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelmartins.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidmartins.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelmartins.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelmartins.baixatiss(idpaciente,baixa, function(error, result){
-												modelmartins.baixanews(idpaciente,baixa, function(error, result){
-													modelmartins.baixafugulin(idpaciente,baixa, function(error, result){
-														modelmartins.baixacentral(idpaciente,baixa, function(error, result){
-															modelmartins.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-															
-																	modelmartins.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelmartins.buscarpaciente(unidade, function(error, resultado){
-																			res.redirect("/kabanpacientemartins?id=" + resultados[0].id_usuario);	
-																		});
-																	});
-																	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-					}	
-				})	
-			})	
-		})
-	})
-	}	
-	if(setoresrecuperado[0].acomodacao == null){
+}
+else{
 		
 		modelmartins.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidmartins.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
@@ -2074,8 +1896,6 @@ module.exports.infouaimartins= function(application, req, res){
 														modelmartins.buscarbanhomanhamartins(function(error, manha){
 															modelmartins.buscarbanhotardemartins(function(error, tarde){
 																modelmartins.buscarbanhonoitemartins(function(error, noite){
-																	modelmartins.buscartransfegomartins(function(error, obst){
-																		modelmartins.buscargomartins(unidade, function(error, obstint){
 																	res.render("kaban/Martins/infouaimartins", {inter : inter,
 																		evasao : evasao,
 																		obito : obito,
@@ -2091,13 +1911,9 @@ module.exports.infouaimartins= function(application, req, res){
 																		manha : manha,
 																		tarde : tarde,
 																		noite : noite,
-																		obst : obst,
-																		obstint : obstint,
 																		id : result});
 																	});
 																});
-															});
-														});
 															});
 														});
 												});

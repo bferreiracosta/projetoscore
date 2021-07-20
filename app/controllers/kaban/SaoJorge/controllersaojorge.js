@@ -146,7 +146,6 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelsaojorge = new application.app.model.kaban.SaoJorge.modelsaojorge(application);
-	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 
 	var idpaciente = req.body.idpaciente;
 	var setor = req.body.setor2;
@@ -161,22 +160,14 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 						modelsaojorge.buscarleitoativo(resultado,leito, function(error, idleitos){
 							modelsaojorge.updateleitos(idleitos, function(error, resultado){
 								modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-									if(acomodacao == "Maca"){
-										modeladmingestao.updateleitossaojorgemacamais(setor, function(error, resulta){
-											res.redirect("/leitossaojorge?id=" + result[0].id_usuario);	
-										});
-									}else{
-										modeladmingestao.updateleitossaojorgecamamais(setor, function(error, resulta){
-											res.redirect("/leitossaojorge?id=" + result[0].id_usuario);	
-										});
-									}
+									res.redirect("/leitossaojorge?id=" + result[0].id_usuario);
 								});
 							});
 						});
 					});
 				});
 			}
-			if(setoresrecuperado[0].acomodacao == "Cama"){
+			else{
 				modelsaojorge.buscarleitosid(setoresrecuperado, function(error, idleito){
 					modelsaojorge.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
 						modelsaojorge.buscarsetoresid(setor, function(error, resultado){
@@ -184,19 +175,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 								modelsaojorge.updateleitos(idleitos, function(error, resultado){
 									modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
 										modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-											if(acomodacao == "Maca"){
-												modeladmingestao.updateleitossaojorgemacamais(setor, function(error, resulta){
-													modeladmingestao.updateleitossaojorgecama(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitossaojorge?id=" + result[0].id_usuario);	
-													});
-												});
-											}else{
-												modeladmingestao.updateleitossaojorgecamamais(setor, function(error, resulta){
-													modeladmingestao.updateleitossaojorgecama(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitossaojorge?id=" + result[0].id_usuario);	
-													});
-												});
-											}
+											res.redirect("/leitossaojorge?id=" + result[0].id_usuario);
 										});
 									});	
 								});
@@ -204,38 +183,7 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 						});
 					});
 				});
-			}
-			if(setoresrecuperado[0].acomodacao == "Maca"){
-				modelsaojorge.buscarleitosid(setoresrecuperado, function(error, idleito){
-					modelsaojorge.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
-						modelsaojorge.buscarsetoresid(setor, function(error, resultado){
-							modelsaojorge.buscarleitoativo(resultado,leito, function(error, idleitos){
-								modelsaojorge.updateleitos(idleitos, function(error, resultado){
-									modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-										modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-											if(acomodacao == "Maca"){
-												modeladmingestao.updateleitossaojorgemacamais(setor, function(error, resulta){
-													modeladmingestao.updateleitossaojorgemaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitossaojorge?id=" + result[0].id_usuario);	
-													});
-												});
-											}else{
-												modeladmingestao.updateleitossaojorgecamamais(setor, function(error, resulta){
-													modeladmingestao.updateleitossaojorgemaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitossaojorge?id=" + result[0].id_usuario);	
-													});
-												});
-											}
-										});
-									});	
-								});
-							});
-						});
-					});
-				});
-
-			}
-			
+			}			
 		});
 	});
 }	
@@ -1055,7 +1003,6 @@ module.exports.cadastrarnews= function(application, req, res){
 })
 }
 
-
 module.exports.update= function(application, req, res){
 	var idpaciente = req.body.idpaciente;
 	var paciente = req.body.paciente;
@@ -1498,6 +1445,7 @@ module.exports.update= function(application, req, res){
 	})
 })
 }
+
 module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;
 	var id = req.body.campo2;
@@ -1514,15 +1462,14 @@ module.exports.baixa= function(application, req, res){
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	modelsaojorge.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 	modelsaojorge.buscarleitosid(setoresrecuperado, function(error, idleito){
-		if(setoresrecuperado[0].acomodacao == "Maca"){	
-			modeladmingestao.updateleitossaojorgemaca(setoresrecuperado[0].setor, function(error, resulta){
+		if(setoresrecuperado[0].acomodacao != null){	
 	modelsaojorge.buscarpacienteporid(idpaciente, function(error, idpac){
 		modelcovidsaojorge.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
 			modelmentalsaojorge.buscarpacientepornome(idpac[0].nome, function(error, idmental){
 				if(idpac[0].mental == 'true'){
 					if(idpac[0].covid == 'true'){
 						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modelsaojorge.baixa(iidpaciente,baixa, destino, alta,data, function(error, result){
+							modelsaojorge.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 								modelcovidsaojorge.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 									modelmentalsaojorge.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 										modelsaojorge.baixadispositivo(idpaciente,baixa, function(error, result){
@@ -1637,135 +1584,10 @@ module.exports.baixa= function(application, req, res){
 				}	
 			})	
 		})	
-	})
+	// })
 })
-}	if(setoresrecuperado[0].acomodacao == "Cama"){
-	modeladmingestao.updateleitossaojorgecama(setoresrecuperado[0].setor, function(error, resulta){
-		modelsaojorge.buscarpacienteporid(idpaciente, function(error, idpac){
-			modelcovidsaojorge.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
-				modelmentalsaojorge.buscarpacientepornome(idpac[0].nome, function(error, idmental){
-					if(idpac[0].mental == 'true'){
-						if(idpac[0].covid == 'true'){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelsaojorge.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidsaojorge.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelmentalsaojorge.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-											modelsaojorge.baixadispositivo(idpaciente,baixa, function(error, result){
-												modelsaojorge.baixatiss(idpaciente,baixa, function(error, result){
-													modelsaojorge.baixanews(idpaciente,baixa, function(error, result){
-														modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
-															modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
-																modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	
-				
-																		modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modelsaojorge.buscarpaciente(unidade, function(error, resultado){
-																				res.redirect("/kabanpacientesaojorge?id=" + resultados[0].id_usuario);	
-																			});
-																		});
-																		
-																});
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelsaojorge.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelmentalsaojorge.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-										modelsaojorge.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelsaojorge.baixatiss(idpaciente,baixa, function(error, result){
-												modelsaojorge.baixanews(idpaciente,baixa, function(error, result){
-													modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
-														modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
-															modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																	
-																	modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelsaojorge.buscarpaciente(unidade, function(error, resultado){
-																			res.redirect("/kabanpacientesaojorge?id=" + resultados[0].id_usuario);	
-																		});
-																	});
-																
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-					}
-					else{
-						if(idpac[0].covid == "false"){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelsaojorge.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelsaojorge.baixadispositivo(idpaciente,baixa, function(error, result){
-										modelsaojorge.baixatiss(idpaciente,baixa, function(error, result){
-											modelsaojorge.baixanews(idpaciente,baixa, function(error, result){
-												modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
-													modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
-														modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																
-																modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																	modelsaojorge.buscarpaciente(unidade, function(error, resultado){
-																		res.redirect("/kabanpacientesaojorge?id=" + resultados[0].id_usuario);	
-																	});
-																});
-																
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelsaojorge.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidsaojorge.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelsaojorge.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelsaojorge.baixatiss(idpaciente,baixa, function(error, result){
-												modelsaojorge.baixanews(idpaciente,baixa, function(error, result){
-													modelsaojorge.baixafugulin(idpaciente,baixa, function(error, result){
-														modelsaojorge.baixacentral(idpaciente,baixa, function(error, result){
-															modelsaojorge.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-															
-																	modelsaojorge.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelsaojorge.buscarpaciente(unidade, function(error, resultado){
-																			res.redirect("/kabanpacientesaojorge?id=" + resultados[0].id_usuario);	
-																		});
-																	});
-																	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-					}	
-				})	
-			})	
-		})
-	})
-	}	
-	if(setoresrecuperado[0].acomodacao == null){
+}
+else{
 		
 		modelsaojorge.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidsaojorge.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	

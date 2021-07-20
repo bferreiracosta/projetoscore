@@ -146,7 +146,6 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelplanalto = new application.app.model.kaban.Planalto.modelplanalto(application);
-	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 
 	var idpaciente = req.body.idpaciente;
 	var setor = req.body.setor2;
@@ -161,22 +160,14 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 						modelplanalto.buscarleitoativo(resultado,leito, function(error, idleitos){
 							modelplanalto.updateleitos(idleitos, function(error, resultado){
 								modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-									if(acomodacao == "Maca"){
-										modeladmingestao.updateleitosplanaltomacamais(setor, function(error, resulta){
-											res.redirect("/leitosplanalto?id=" + result[0].id_usuario);	
-										});
-									}else{
-										modeladmingestao.updateleitosplanaltocamamais(setor, function(error, resulta){
-											res.redirect("/leitosplanalto?id=" + result[0].id_usuario);	
-										});
-									}
+									res.redirect("/leitosplanalto?id=" + result[0].id_usuario);
 								});
 							});
 						});
 					});
 				});
 			}
-			if(setoresrecuperado[0].acomodacao == "Cama"){
+			else{
 				modelplanalto.buscarleitosid(setoresrecuperado, function(error, idleito){
 					modelplanalto.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
 						modelplanalto.buscarsetoresid(setor, function(error, resultado){
@@ -184,19 +175,7 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 								modelplanalto.updateleitos(idleitos, function(error, resultado){
 									modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 										modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-											if(acomodacao == "Maca"){
-												modeladmingestao.updateleitosplanaltomacamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosplanaltocama(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosplanalto?id=" + result[0].id_usuario);	
-													});
-												});
-											}else{
-												modeladmingestao.updateleitosplanaltocamamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosplanaltocama(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosplanalto?id=" + result[0].id_usuario);	
-													});
-												});
-											}
+											res.redirect("/leitosplanalto?id=" + result[0].id_usuario);
 										});
 									});	
 								});
@@ -204,38 +183,7 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 						});
 					});
 				});
-			}
-			if(setoresrecuperado[0].acomodacao == "Maca"){
-				modelplanalto.buscarleitosid(setoresrecuperado, function(error, idleito){
-					modelplanalto.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
-						modelplanalto.buscarsetoresid(setor, function(error, resultado){
-							modelplanalto.buscarleitoativo(resultado,leito, function(error, idleitos){
-								modelplanalto.updateleitos(idleitos, function(error, resultado){
-									modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-										modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-											if(acomodacao == "Maca"){
-												modeladmingestao.updateleitosplanaltomacamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosplanaltomaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosplanalto?id=" + result[0].id_usuario);	
-													});
-												});
-											}else{
-												modeladmingestao.updateleitosplanaltocamamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosplanaltomaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosplanalto?id=" + result[0].id_usuario);	
-													});
-												});
-											}
-										});
-									});	
-								});
-							});
-						});
-					});
-				});
-
-			}
-			
+			}			
 		});
 	});
 }	
@@ -1497,6 +1445,7 @@ module.exports.update= function(application, req, res){
 	})
 })
 }
+
 module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;
 	var id = req.body.campo2;
@@ -1513,15 +1462,14 @@ module.exports.baixa= function(application, req, res){
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	modelplanalto.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 	modelplanalto.buscarleitosid(setoresrecuperado, function(error, idleito){
-		if(setoresrecuperado[0].acomodacao == "Maca"){	
-			modeladmingestao.updateleitosplanaltomaca(setoresrecuperado[0].setor, function(error, resulta){
+		if(setoresrecuperado[0].acomodacao != null){	
 	modelplanalto.buscarpacienteporid(idpaciente, function(error, idpac){
 		modelcovidplanalto.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
 			modelmentalplanalto.buscarpacientepornome(idpac[0].nome, function(error, idmental){
 				if(idpac[0].mental == 'true'){
 					if(idpac[0].covid == 'true'){
 						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modelplanalto.baixa(iidpaciente,baixa, destino, alta,data, function(error, result){
+							modelplanalto.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 								modelcovidplanalto.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 									modelmentalplanalto.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 										modelplanalto.baixadispositivo(idpaciente,baixa, function(error, result){
@@ -1615,6 +1563,8 @@ module.exports.baixa= function(application, req, res){
 												modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
 													modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
 														modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
+															
+														
 																modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
 																	modelplanalto.buscarpaciente(unidade, function(error, resultado){
 																		res.redirect("/kabanpacienteplanalto?id=" + resultados[0].id_usuario);	
@@ -1634,135 +1584,10 @@ module.exports.baixa= function(application, req, res){
 				}	
 			})	
 		})	
-	})
+	// })
 })
-}	if(setoresrecuperado[0].acomodacao == "Cama"){
-	modeladmingestao.updateleitosplanaltocama(setoresrecuperado[0].setor, function(error, resulta){
-		modelplanalto.buscarpacienteporid(idpaciente, function(error, idpac){
-			modelcovidplanalto.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
-				modelmentalplanalto.buscarpacientepornome(idpac[0].nome, function(error, idmental){
-					if(idpac[0].mental == 'true'){
-						if(idpac[0].covid == 'true'){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelplanalto.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidplanalto.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelmentalplanalto.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-											modelplanalto.baixadispositivo(idpaciente,baixa, function(error, result){
-												modelplanalto.baixatiss(idpaciente,baixa, function(error, result){
-													modelplanalto.baixanews(idpaciente,baixa, function(error, result){
-														modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
-															modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
-																modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	
-				
-																		modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modelplanalto.buscarpaciente(unidade, function(error, resultado){
-																				res.redirect("/kabanpacienteplanalto?id=" + resultados[0].id_usuario);	
-																			});
-																		});
-																		
-																});
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelplanalto.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelmentalplanalto.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-										modelplanalto.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelplanalto.baixatiss(idpaciente,baixa, function(error, result){
-												modelplanalto.baixanews(idpaciente,baixa, function(error, result){
-													modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
-														modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
-															modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																	
-																	modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelplanalto.buscarpaciente(unidade, function(error, resultado){
-																			res.redirect("/kabanpacienteplanalto?id=" + resultados[0].id_usuario);	
-																		});
-																	});
-																
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-					}
-					else{
-						if(idpac[0].covid == "false"){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelplanalto.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelplanalto.baixadispositivo(idpaciente,baixa, function(error, result){
-										modelplanalto.baixatiss(idpaciente,baixa, function(error, result){
-											modelplanalto.baixanews(idpaciente,baixa, function(error, result){
-												modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
-													modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
-														modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																
-																modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																	modelplanalto.buscarpaciente(unidade, function(error, resultado){
-																		res.redirect("/kabanpacienteplanalto?id=" + resultados[0].id_usuario);	
-																	});
-																});
-																
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelplanalto.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidplanalto.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelplanalto.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelplanalto.baixatiss(idpaciente,baixa, function(error, result){
-												modelplanalto.baixanews(idpaciente,baixa, function(error, result){
-													modelplanalto.baixafugulin(idpaciente,baixa, function(error, result){
-														modelplanalto.baixacentral(idpaciente,baixa, function(error, result){
-															modelplanalto.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-															
-																	modelplanalto.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelplanalto.buscarpaciente(unidade, function(error, resultado){
-																			res.redirect("/kabanpacienteplanalto?id=" + resultados[0].id_usuario);	
-																		});
-																	});
-																	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-					}	
-				})	
-			})	
-		})
-	})
-	}	
-	if(setoresrecuperado[0].acomodacao == null){
+}
+else{
 		
 		modelplanalto.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidplanalto.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	

@@ -1,5 +1,5 @@
 <%- include('./cabecalhogestao'); %>
-    <h2>Central leito UAI Martins</h2>
+    <h2>Central leito UAI Luizote</h2>
     
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
@@ -23,16 +23,6 @@
                     <th>Quantidade de Macas Ocupadas</th>
                    
                     <th>Quantidade de Macas Vagas</th>
-                   
-                    <th>Quantidade de Berços</th>
-                   
-                    <th>Quantidade de Berços Ocupados</th>
-                   
-                    <th>Quantidade de Berços Vagos</th>
-                   
-                    <th>Quantidade de Macas Parada</th>
-
-                    <th>Quantidade de Macas Parada Vagos</th>
 
                     <th>Leito Bloqueado</th>
 
@@ -53,26 +43,16 @@
                    
                     <td ><%=leito[j].capacidadecamas %></td>
                    
-                    <td  ><%=leito[j].capacidadecamasocupadas %></td>
+                    <td  ><%=leito[j].qtdcama %></td>
                    
                     <td ></td>
                    
                     <td ><%=leito[j].capacidademacas %></td>
                    
-                    <td ><%=leito[j].capacidademacasocupadas %></td>
+                    <td ><%=leito[j].qtdmaca %></td>
                    
                     <td ></td>
                     
-                    <td ><%=leito[j].capacidadebercos %></td>
-                     
-                    <td ><%=leito[j].capacidadebercoocupado %></td>
-                   
-                    <td ></td>
-                    
-                    <td ><%=leito[j].capacidademacasparada %></td>
-
-                    <td ><%=leito[j].capacidademacasparadavaga %></td>
-
                     <td ><%=leito[j].bloqueado %></td>
 
                     <td><%=leito[j].datas %></td>
@@ -108,71 +88,61 @@
                     <td ></td>
                    
                     <td ></td>
-                   
-                    <td ></td>
-                    
-                    <td></td>
-
-                    <td></td>
-
-                    <td></td>
-
-                    <td></td>
 
                     <td></td>
                                
                 </tr>
             </tfoot>
         </table>
-        <form id="add-row-form" action="/editarleitomartins" method="POST">
-            <div class="modal fade" id="DescModal" role="dialog">
-                 <div class="modal-dialog">
-                     <div class="modal-content">
-                         <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                              <h3 class="modal-title">Atualização Setor</h3>
-                         </div>
+        <form id="add-row-form1" action="/editarleitoluizote" method="POST">
+       <div class="modal fade" id="DescModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                         <h3 class="modal-title">Atualização Setor</h3>
+                    </div>
+                   
+                    <div class="modal-body">
+                        <h1 class="setor"></h1>
+                        <input type="hidden" name="setor" id="campo" class="form-control setor2"  >
+                        <label for="paciente">Leito Bloqueado</label>
+						<select class="form-control leito" onchange="verifica(this.value)" id="leito" name="leito" required>
+							<option value="sim" >Sim</option>
+							<option value="nao" >Não</option>
+						</select>
+						<input  id="leitos" class="form-control leitos"  type="hidden" name="leitos">
+                        <div class="form-group">
+                            <label hidden for="posto"> Camas Ocupados</label>
+                            <input  type="hidden" name="capacidadecamasocupadas" id="cama" class="form-control cama"  >
+                        </div>
+                        <div class="form-group">
+                            <label hidden for="posto"> Macas Ocupados</label>
+                            <input type="hidden" name="capacidademacasocupadas" id="maca" class="form-control maca"  >
+                        </div> 
+                        <div class="form-group">
+                            <label hidden for="posto"> Berços Ocupados</label>
+                            <input type="hidden" name="capacidadebercoocupado" id="macaparada" class="form-control macaparada"  >
+                        </div> 
+                        <div class="form-group">
+                            <label hidden for="posto"> Maca PCR</label>
+                            <input type="hidden" name="capacidademacasparadavaga" id="berco" class="form-control berco" >
+                        </div> 
                         
-                         <div class="modal-body">
-                             <h1 class="setor"></h1>
-                             <input type="hidden" name="setor" id="campo" class="form-control setor2"  >
-                             <label for="paciente">Leito Bloqueado</label>
-                             <select class="form-control leito" onchange="verifica(this.value)" id="leito" name="leito" required>
-                                 <option value="sim" >Sim</option>
-                                 <option value="nao" >Não</option>
-                             </select>
-                             <input  id="leitos" class="form-control leitos"  type="hidden" name="leitos">
-                             <div class="form-group">
-                                 <label hidden for="posto"> Camas Ocupados</label>
-                                 <input  type="hidden" name="capacidadecamasocupadas" id="cama" class="form-control cama"  >
-                             </div>
-                             <div class="form-group">
-                                 <label hidden for="posto"> Macas Ocupados</label>
-                                 <input type="hidden" name="capacidademacasocupadas" id="maca" class="form-control maca"  >
-                             </div> 
-                             <div class="form-group">
-                                 <label hidden for="posto"> Berços Ocupados</label>
-                                 <input type="hidden" name="capacidadebercoocupado" id="macaparada" class="form-control macaparada"  >
-                             </div> 
-                             <div class="form-group">
-                                 <label hidden for="posto"> Maca PCR</label>
-                                 <input type="hidden" name="capacidademacasparadavaga" id="berco" class="form-control berco" >
-                             </div> 
-                             
-                         <input  type="hidden" class="form-control idusuario"  name="idusuario" id="idusuario">
-                         <input  type="hidden" class="form-control data"  name="data" id="data">
-                         <input  type="hidden" class="form-control hora"  name="hora" id="hora">
-                         
-                         <div class="modal-footer">
-                             <button type="submit" class="btn btn-success">Atualizar</button>
-                             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                         </div>
-                     </div>
-                     <!-- /.modal-content -->
-                 </div>
-                 <!-- /.modal-dialog-->
-             </div>
-         </form>
+                    <input  type="hidden" class="form-control idusuario"  name="idusuario" id="idusuario">
+                    <input  type="hidden" class="form-control data"  name="data" id="data">
+                    <input  type="hidden" class="form-control hora"  name="hora" id="hora">
+                    
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Atualizar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog-->
+        </div>
+    </form>
         <br>
         <br>
         <br>
@@ -235,13 +205,13 @@ function novaHora(){
 novaHora();
 function verifica(value){
 		
-        if(value == 'sim' ){
-          document.getElementById('leitos').value = "sim";
-  
-      }else{
-          document.getElementById('leitos').value = "nao";
-      }
-  }	
+	  if(value == 'sim' ){
+		document.getElementById('leitos').value = "sim";
+
+    }else{
+        document.getElementById('leitos').value = "nao";
+    }
+}	
  $(document).ready(function() {
         $('#mytable').DataTable( {
             dom: 'Bfrtip',
@@ -463,107 +433,6 @@ function verifica(value){
                 $( api.column( 8 ).footer() ).html(
                   pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
                 );
-                // Total over all pages
-            total = api
-                    .column( 9 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 9, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 9 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 10 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 10, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 10 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                // Total over all pages
-            total = api
-                    .column( 11 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 11, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 11 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                 // Total over all pages
-            total = api
-                    .column( 12 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 12, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 12 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
-                 // Total over all pages
-            total = api
-                    .column( 13 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Total over this page
-                pageTotal = api
-                    .column( 13, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
- 
-                // Update footer
-                $( api.column( 13 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );              
-            
               
             }
             
@@ -575,17 +444,13 @@ $('#mytable tbody tr').each(function(i){
             qtdcamasocupadas = tr.children('td:eq(3)').html();
             qtdmacas=tr.children('td:eq(5)').html();
             qtdmacasocupadas = tr.children('td:eq(6)').html();
-            qtdbercos = tr.children('td:eq(8)').html();
-            qtdbercoscupadas = tr.children('td:eq(9)').html();
             var valorcamasvazias = 0;
             var valormacasvazias = 0;
-            var valorbercosvazios = 0
             valorcamasvazias = qtdcamas - qtdcamasocupadas;
             valormacasvazias = qtdmacas - qtdmacasocupadas;
-            valorbercosvazios = qtdbercos - qtdbercoscupadas;
             tr.children('td:eq(4)').html(valorcamasvazias);
             tr.children('td:eq(7)').html(valormacasvazias);
-            tr.children('td:eq(10)').html(valorbercosvazios);
+  
 
 });
 

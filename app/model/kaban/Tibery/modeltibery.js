@@ -84,7 +84,7 @@ modeltibery.prototype.buscarleitoativo = function(idsetor, leito, callback){
 }
 
 modeltibery.prototype.updateleitos = function(idleito, callback){
-	
+
 	this._conection.query('update leitos set status = "Inativo"  where idleito = "'+idleito[0].idleito+'"', callback);
 }
 
@@ -92,7 +92,6 @@ modeltibery.prototype.updateleitosnome = function(idpaciente, paciente,unidade, 
 
 	this._conection.query('update leitokaban set nome = "'+paciente+'"  where idpaciente = "'+idpaciente+'" and unidade = "'+unidade+'"', callback);
 }
-
 
 modeltibery.prototype.updateleitosativo = function(idleito, callback){
 
@@ -111,7 +110,7 @@ modeltibery.prototype.buscarsetores = function(callback){
 
 modeltibery.prototype.buscarleitos = function(valor, callback){
 
-	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo" and setor.unidade = "Tibery"', callback);
+	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo"  and setor.unidade = "Tibery"', callback);
 
 }
 
@@ -218,7 +217,7 @@ modeltibery.prototype.buscarpacienteporid = function(idpaciente, callback){
 
 modeltibery.prototype.buscarsetor = function(idpaciente, callback){
 
-	this._conection.query('select acomodacao from kaban where idpaciente = ' + idpaciente, callback);
+	this._conection.query('select comodo from kaban where idpaciente = ' + idpaciente, callback);
 }
 
 modeltibery.prototype.cadastrarpaciente = function( paciente, medico, dieta, exame, dataexame, mental, referencia, covid,  setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
@@ -256,14 +255,14 @@ modeltibery.prototype.baixanews = function(idpaciente,baixa, callback){
 	this._conection.query('update news set  baixa = "'+baixa+'" where idpaciente = ' + idpaciente, callback);
 }
 
-modeltibery.prototype.updatedispositivo = function(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade, callback){
+modeltibery.prototype.updatedispositivo = function(idpaciente,glasgow, bic, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade, callback){
 	
-	this._conection.query('update dispositivokaban set glasgow = "'+glasgow+'",bic = "'+bic+'", svd= "'+svd+'",datasvd= "'+datasvd+'",sne= "'+sne+'",datasne= "'+datasne+'",avp= "'+avp+'",dataavp= "'+dataavp+'",cvc= "'+cvc+'",datacvc= "'+datacvc+'",dispositivoventilatorio= "'+dispositivoventilatorio+'",fluxoo2= "'+fluxoo2+'",fio2= "'+fio2+'" ,peep= "'+peep+'",drogas= "'+drogas+'",nora= "'+nora+'",vazaonora= "'+vazaonora+'",adrenalina= "'+adre+'",vazaoadrenalina= "'+vazaoadre+'",bicarbonato= "'+bica+'",vazaobicarbonato= "'+vazaobica+'",sedacao= "'+sedacao+'",dormonid= "'+dormonid3+'",vazaodormonid= "'+vazaoDormonid+'",fentanil= "'+fentanil3+'",vazaofentanil= "'+vazaoFentanil+'",rocuronio= "'+rocuronio3+'",vazaorocuronio= "'+vazaoRocuronio+'",propofol= "'+propofol3+'",vazaopropofol= "'+vazaoPropofol+'",dataatualizacao= STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ) ,unidade= "'+unidade+'" where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update dispositivokaban set glasgow = "'+glasgow+'",bic = "'+bic+'",svd= "'+svd+'",datasvd= "'+datasvd+'",sne= "'+sne+'",datasne= "'+datasne+'",avp= "'+avp+'",dataavp= "'+dataavp+'",cvc= "'+cvc+'",datacvc= "'+datacvc+'",dispositivoventilatorio= "'+dispositivoventilatorio+'",fluxoo2= "'+fluxoo2+'",fio2= "'+fio2+'" ,peep= "'+peep+'",drogas= "'+drogas+'",nora= "'+nora+'",vazaonora= "'+vazaonora+'",adrenalina= "'+adre+'",vazaoadrenalina= "'+vazaoadre+'",bicarbonato= "'+bica+'",vazaobicarbonato= "'+vazaobica+'",sedacao= "'+sedacao+'",dormonid= "'+dormonid3+'",vazaodormonid= "'+vazaoDormonid+'",fentanil= "'+fentanil3+'",vazaofentanil= "'+vazaoFentanil+'",rocuronio= "'+rocuronio3+'",vazaorocuronio= "'+vazaoRocuronio+'",propofol= "'+propofol3+'",vazaopropofol= "'+vazaoPropofol+'",dataatualizacao= STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ) ,unidade= "'+unidade+'" where idpaciente = '+ idpaciente, callback);
 }
 
 modeltibery.prototype.updatedispositivodados = function(idpaciente,glasgow, bic,data, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade, callback){
 
-	this._conection.query('update dispositivokaban set glasgow = "'+glasgow+'",bic = "'+bic+'", dataatualizacao = STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ), svd= "'+svd+'",datasvd= "'+datasvd+'",sne= "'+sne+'",datasne= "'+datasne+'",avp= "'+avp+'",dataavp= "'+dataavp+'",cvc= "'+cvc+'",datacvc= "'+datacvc+'",dispositivoventilatorio= "'+dispositivoventilatorio+'",fluxoo2= "'+fluxoo2+'",fio2= "'+fio2+'" ,peep= "'+peep+'",drogas= "'+drogas+'",nora= "'+nora+'",vazaonora= "'+vazaonora+'",adrenalina= "'+adre+'",vazaoadrenalina= "'+vazaoadre+'",bicarbonato= "'+bica+'",vazaobicarbonato= "'+vazaobica+'",sedacao= "'+sedacao+'",dormonid= "'+dormonid3+'",vazaodormonid= "'+vazaoDormonid+'",fentanil= "'+fentanil3+'",vazaofentanil= "'+vazaoFentanil+'",rocuronio= "'+rocuronio3+'",vazaorocuronio= "'+vazaoRocuronio+'",propofol= "'+propofol3+'",vazaopropofol= "'+vazaoPropofol+'",unidade= "'+unidade+'" where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update dispositivokaban set  glasgow = "'+glasgow+'",bic = "'+bic+'",dataatualizacao = STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ), svd= "'+svd+'",datasvd= "'+datasvd+'",sne= "'+sne+'",datasne= "'+datasne+'",avp= "'+avp+'",dataavp= "'+dataavp+'",cvc= "'+cvc+'",datacvc= "'+datacvc+'",dispositivoventilatorio= "'+dispositivoventilatorio+'",fluxoo2= "'+fluxoo2+'",fio2= "'+fio2+'" ,peep= "'+peep+'",drogas= "'+drogas+'",nora= "'+nora+'",vazaonora= "'+vazaonora+'",adrenalina= "'+adre+'",vazaoadrenalina= "'+vazaoadre+'",bicarbonato= "'+bica+'",vazaobicarbonato= "'+vazaobica+'",sedacao= "'+sedacao+'",dormonid= "'+dormonid3+'",vazaodormonid= "'+vazaoDormonid+'",fentanil= "'+fentanil3+'",vazaofentanil= "'+vazaoFentanil+'",rocuronio= "'+rocuronio3+'",vazaorocuronio= "'+vazaoRocuronio+'",propofol= "'+propofol3+'",vazaopropofol= "'+vazaoPropofol+'",unidade= "'+unidade+'" where idpaciente = '+ idpaciente, callback);
 }
 
 modeltibery.prototype.updatedispositivostatus = function(iddispositivo, callback){
@@ -426,7 +425,6 @@ modeltibery.prototype.buscarobitotibery = function(unidade, callback){
 	this._conection.query('select count(baixa) as Obitos  from kaban where baixa = "Óbito" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
-
 modeltibery.prototype.buscarinternacaodiatibery = function(unidade, callback){
 
 	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
@@ -434,7 +432,7 @@ modeltibery.prototype.buscarinternacaodiatibery = function(unidade, callback){
 
 modeltibery.prototype.buscarsetorestibery = function(callback){
 
-	this._conection.query('SELECT setor, capacidadecamasocupadas, capacidademacasocupadas, capacidade FROM tibery', callback);
+	this._conection.query('select tib.idtibery, tib.setor, tib.capacidade, tib.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Tibery" and baixa is null and setor = tib.setor and acomodacao="Cama") as qtdcama,tib.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Tibery" and baixa is null and setor = tib.setor and acomodacao="Maca") as qtdmaca,tib.bloqueado, tib.datas, tib.hora  from leitokaban l inner join tibery tib where unidade = "Tibery" and baixa is null group by tib.setor;', callback);
 }
 
 modeltibery.prototype.buscarbanhomanhatibery = function(callback){
@@ -479,7 +477,7 @@ modeltibery.prototype.buscardieta5 = function(unidade,callback){
 
 modeltibery.prototype.buscardieta6 = function(unidade,callback){
 
-	this._conection.query('SELECT count(dieta) as dieta6 FROM portal_paciente.kaban where dieta ="IRC" and unidade = "'+unidade+'" and baixa is null;', callback);
+	this._conection.query('SELECT count(dieta) as dieta6 FROM portal_paciente.kaban where dieta ="IRC" and unidade = "'+unidade+'" and baixa is null; ', callback);
 }
 
 modeltibery.prototype.buscardieta7 = function(unidade,callback){
@@ -577,6 +575,9 @@ modeltibery.prototype.buscardieta25 = function(unidade,callback){
 
 	this._conection.query('SELECT count(dieta) as dieta25 FROM portal_paciente.kaban where dieta ="OBSTIPANTE" and unidade = "'+unidade+'" and baixa is null ;', callback);
 }
+
+
+
 module.exports = function(){
 	return modeltibery;
 }

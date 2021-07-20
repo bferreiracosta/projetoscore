@@ -146,7 +146,6 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
-	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 
 	var idpaciente = req.body.idpaciente;
 	var setor = req.body.setor2;
@@ -161,22 +160,14 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 						modelluizote.buscarleitoativo(resultado,leito, function(error, idleitos){
 							modelluizote.updateleitos(idleitos, function(error, resultado){
 								modelluizote.buscarleitospacientes(function(error, resultadosetores){
-									// if(acomodacao == "Maca"){
-									// 	modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
-									// 		res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
-									// 	});
-									// }else{
-									// 	modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
-									// 		res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
-									// 	});
-									// }
+									res.redirect("/leitosluizote?id=" + result[0].id_usuario);
 								});
 							});
 						});
 					});
 				});
 			}
-			if(setoresrecuperado[0].acomodacao == "Cama"){
+			else{
 				modelluizote.buscarleitosid(setoresrecuperado, function(error, idleito){
 					modelluizote.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
 						modelluizote.buscarsetoresid(setor, function(error, resultado){
@@ -184,19 +175,7 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 								modelluizote.updateleitos(idleitos, function(error, resultado){
 									modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
 										modelluizote.buscarleitospacientes(function(error, resultadosetores){
-											// if(acomodacao == "Maca"){
-											// 	modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
-											// 		modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
-											// 			res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
-											// 		});
-											// 	});
-											// }else{
-											// 	modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
-											// 		modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
-											// 			res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
-											// 		});
-											// 	});
-											// }
+											res.redirect("/leitosluizote?id=" + result[0].id_usuario);
 										});
 									});	
 								});
@@ -204,38 +183,7 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 						});
 					});
 				});
-			}
-			if(setoresrecuperado[0].acomodacao == "Maca"){
-				modelluizote.buscarleitosid(setoresrecuperado, function(error, idleito){
-					modelluizote.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
-						modelluizote.buscarsetoresid(setor, function(error, resultado){
-							modelluizote.buscarleitoativo(resultado,leito, function(error, idleitos){
-								modelluizote.updateleitos(idleitos, function(error, resultado){
-									modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
-										modelluizote.buscarleitospacientes(function(error, resultadosetores){
-											// if(acomodacao == "Maca"){
-											// 	modeladmingestao.updateleitosluizotemacamais(setor, function(error, resulta){
-											// 		modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
-											// 			res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
-											// 		});
-											// 	});
-											// }else{
-											// 	modeladmingestao.updateleitosluizotecamamais(setor, function(error, resulta){
-											// 		modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
-											// 			res.redirect("/leitosluizote?id=" + result[0].id_usuario);	
-											// 		});
-											// 	});
-											// }
-										});
-									});	
-								});
-							});
-						});
-					});
-				});
-
-			}
-			
+			}			
 		});
 	});
 }	
@@ -1514,8 +1462,7 @@ module.exports.baixa= function(application, req, res){
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	modelluizote.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 	modelluizote.buscarleitosid(setoresrecuperado, function(error, idleito){
-		if(setoresrecuperado[0].acomodacao == "Maca"){	
-			// modeladmingestao.updateleitosluizotemaca(setoresrecuperado[0].setor, function(error, resulta){
+		if(setoresrecuperado[0].acomodacao != null){	
 	modelluizote.buscarpacienteporid(idpaciente, function(error, idpac){
 		modelcovidluizote.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
 			modelmentalluizote.buscarpacientepornome(idpac[0].nome, function(error, idmental){
@@ -1639,133 +1586,8 @@ module.exports.baixa= function(application, req, res){
 		})	
 	// })
 })
-}	if(setoresrecuperado[0].acomodacao == "Cama"){
-	// modeladmingestao.updateleitosluizotecama(setoresrecuperado[0].setor, function(error, resulta){
-		modelluizote.buscarpacienteporid(idpaciente, function(error, idpac){
-			modelcovidluizote.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
-				modelmentalluizote.buscarpacientepornome(idpac[0].nome, function(error, idmental){
-					if(idpac[0].mental == 'true'){
-						if(idpac[0].covid == 'true'){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelluizote.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidluizote.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelmentalluizote.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-											modelluizote.baixadispositivo(idpaciente,baixa, function(error, result){
-												modelluizote.baixatiss(idpaciente,baixa, function(error, result){
-													modelluizote.baixanews(idpaciente,baixa, function(error, result){
-														modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
-															modelluizote.baixacentral(idpaciente,baixa, function(error, result){
-																modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	
-				
-																		modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modelluizote.buscarpaciente(unidade, function(error, resultado){
-																				res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
-																			});
-																		});
-																		
-																});
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelluizote.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelmentalluizote.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-										modelluizote.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelluizote.baixatiss(idpaciente,baixa, function(error, result){
-												modelluizote.baixanews(idpaciente,baixa, function(error, result){
-													modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
-														modelluizote.baixacentral(idpaciente,baixa, function(error, result){
-															modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																	
-																	modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelluizote.buscarpaciente(unidade, function(error, resultado){
-																			res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
-																		});
-																	});
-																
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-					}
-					else{
-						if(idpac[0].covid == "false"){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelluizote.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelluizote.baixadispositivo(idpaciente,baixa, function(error, result){
-										modelluizote.baixatiss(idpaciente,baixa, function(error, result){
-											modelluizote.baixanews(idpaciente,baixa, function(error, result){
-												modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
-													modelluizote.baixacentral(idpaciente,baixa, function(error, result){
-														modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																
-																modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																	modelluizote.buscarpaciente(unidade, function(error, resultado){
-																		res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
-																	});
-																});
-																
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelluizote.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidluizote.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelluizote.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelluizote.baixatiss(idpaciente,baixa, function(error, result){
-												modelluizote.baixanews(idpaciente,baixa, function(error, result){
-													modelluizote.baixafugulin(idpaciente,baixa, function(error, result){
-														modelluizote.baixacentral(idpaciente,baixa, function(error, result){
-															modelluizote.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-															
-																	modelluizote.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelluizote.buscarpaciente(unidade, function(error, resultado){
-																			res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);	
-																		});
-																	});
-																	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-					}	
-				})	
-			})	
-		})
-	// })
-	}	
-	if(setoresrecuperado[0].acomodacao == null){
+}
+else{
 		
 		modelluizote.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidluizote.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	

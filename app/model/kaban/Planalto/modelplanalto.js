@@ -84,7 +84,7 @@ modelplanalto.prototype.buscarleitoativo = function(idsetor, leito, callback){
 }
 
 modelplanalto.prototype.updateleitos = function(idleito, callback){
-	
+
 	this._conection.query('update leitos set status = "Inativo"  where idleito = "'+idleito[0].idleito+'"', callback);
 }
 
@@ -92,7 +92,6 @@ modelplanalto.prototype.updateleitosnome = function(idpaciente, paciente,unidade
 
 	this._conection.query('update leitokaban set nome = "'+paciente+'"  where idpaciente = "'+idpaciente+'" and unidade = "'+unidade+'"', callback);
 }
-
 
 modelplanalto.prototype.updateleitosativo = function(idleito, callback){
 
@@ -106,12 +105,12 @@ modelplanalto.prototype.buscarsetoresid = function(setor, callback){
 
 modelplanalto.prototype.buscarsetores = function(callback){
 	
-	this._conection.query('select * from setor inner join leitos on setor.idsetor = leitos.idsetor where status != "Inativo" and setor.unidade = "Planalto" group by setor', callback);
+	this._conection.query('select * from setor inner join leitos on setor.idsetor = leitos.idsetor where status != "Inativo" and setor.unidade = "Planalto"  group by setor', callback);
 }
 
 modelplanalto.prototype.buscarleitos = function(valor, callback){
 
-	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo" and setor.unidade = "Planalto"', callback);
+	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo"  and setor.unidade = "Planalto"', callback);
 
 }
 
@@ -218,7 +217,7 @@ modelplanalto.prototype.buscarpacienteporid = function(idpaciente, callback){
 
 modelplanalto.prototype.buscarsetor = function(idpaciente, callback){
 
-	this._conection.query('select acomodacao from kaban where idpaciente = ' + idpaciente, callback);
+	this._conection.query('select comodo from kaban where idpaciente = ' + idpaciente, callback);
 }
 
 modelplanalto.prototype.cadastrarpaciente = function( paciente, medico, dieta, exame, dataexame, mental, referencia, covid,  setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
@@ -263,7 +262,7 @@ modelplanalto.prototype.updatedispositivo = function(idpaciente,glasgow, bic, sv
 
 modelplanalto.prototype.updatedispositivodados = function(idpaciente,glasgow, bic,data, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade, callback){
 
-	this._conection.query('update dispositivokaban setglasgow = "'+glasgow+'",bic = "'+bic+'", dataatualizacao = STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ), svd= "'+svd+'",datasvd= "'+datasvd+'",sne= "'+sne+'",datasne= "'+datasne+'",avp= "'+avp+'",dataavp= "'+dataavp+'",cvc= "'+cvc+'",datacvc= "'+datacvc+'",dispositivoventilatorio= "'+dispositivoventilatorio+'",fluxoo2= "'+fluxoo2+'",fio2= "'+fio2+'" ,peep= "'+peep+'",drogas= "'+drogas+'",nora= "'+nora+'",vazaonora= "'+vazaonora+'",adrenalina= "'+adre+'",vazaoadrenalina= "'+vazaoadre+'",bicarbonato= "'+bica+'",vazaobicarbonato= "'+vazaobica+'",sedacao= "'+sedacao+'",dormonid= "'+dormonid3+'",vazaodormonid= "'+vazaoDormonid+'",fentanil= "'+fentanil3+'",vazaofentanil= "'+vazaoFentanil+'",rocuronio= "'+rocuronio3+'",vazaorocuronio= "'+vazaoRocuronio+'",propofol= "'+propofol3+'",vazaopropofol= "'+vazaoPropofol+'",unidade= "'+unidade+'" where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update dispositivokaban set  glasgow = "'+glasgow+'",bic = "'+bic+'",dataatualizacao = STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ), svd= "'+svd+'",datasvd= "'+datasvd+'",sne= "'+sne+'",datasne= "'+datasne+'",avp= "'+avp+'",dataavp= "'+dataavp+'",cvc= "'+cvc+'",datacvc= "'+datacvc+'",dispositivoventilatorio= "'+dispositivoventilatorio+'",fluxoo2= "'+fluxoo2+'",fio2= "'+fio2+'" ,peep= "'+peep+'",drogas= "'+drogas+'",nora= "'+nora+'",vazaonora= "'+vazaonora+'",adrenalina= "'+adre+'",vazaoadrenalina= "'+vazaoadre+'",bicarbonato= "'+bica+'",vazaobicarbonato= "'+vazaobica+'",sedacao= "'+sedacao+'",dormonid= "'+dormonid3+'",vazaodormonid= "'+vazaoDormonid+'",fentanil= "'+fentanil3+'",vazaofentanil= "'+vazaoFentanil+'",rocuronio= "'+rocuronio3+'",vazaorocuronio= "'+vazaoRocuronio+'",propofol= "'+propofol3+'",vazaopropofol= "'+vazaoPropofol+'",unidade= "'+unidade+'" where idpaciente = '+ idpaciente, callback);
 }
 
 modelplanalto.prototype.updatedispositivostatus = function(iddispositivo, callback){
@@ -272,7 +271,7 @@ modelplanalto.prototype.updatedispositivostatus = function(iddispositivo, callba
 }
 
 modelplanalto.prototype.adddispositivo = function(idpaciente,glasgow, bic,nome,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade, callback){
-
+	
 	this._conection.query('insert dispositivokaban set glasgow = "'+glasgow+'",bic = "'+bic+'",idpaciente = "'+idpaciente+'", nome="'+nome+'", svd= "'+svd+'",datasvd= "'+datasvd+'",sne= "'+sne+'",datasne= "'+datasne+'",avp= "'+avp+'",dataavp= "'+dataavp+'",cvc= "'+cvc+'",datacvc= "'+datacvc+'",dispositivoventilatorio= "'+dispositivoventilatorio+'",fluxoo2= "'+fluxoo2+'",fio2= "'+fio2+'" ,peep= "'+peep+'",drogas= "'+drogas+'",nora= "'+nora+'",vazaonora= "'+vazaonora+'",adrenalina= "'+adre+'",vazaoadrenalina= "'+vazaoadre+'",bicarbonato= "'+bica+'",vazaobicarbonato= "'+vazaobica+'",sedacao= "'+sedacao+'",dormonid= "'+dormonid3+'",vazaodormonid= "'+vazaoDormonid+'",fentanil= "'+fentanil3+'",vazaofentanil= "'+vazaoFentanil+'",rocuronio= "'+rocuronio3+'",vazaorocuronio= "'+vazaoRocuronio+'",propofol= "'+propofol3+'",vazaopropofol= "'+vazaoPropofol+'",dataatualizacao= STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ),unidade= "'+unidade+'", status= "Ativo"', callback);
 }
 
@@ -375,6 +374,7 @@ modelplanalto.prototype.updatenewsnome = function(idpaciente, nome,setor, callba
 	
 	this._conection.query('update news set nome= "'+nome+'", setor= "'+setor+'" where idpaciente = ' + idpaciente, callback);
 }
+
 modelplanalto.prototype.buscarclinicoplanalto = function(unidade, callback){
 
 	this._conection.query('select count(especialidade) as Clinica  from kaban where especialidade = "Clinica" and unidade = "'+unidade+'" and baixa is null;', callback);
@@ -425,7 +425,6 @@ modelplanalto.prototype.buscarobitoplanalto = function(unidade, callback){
 	this._conection.query('select count(baixa) as Obitos  from kaban where baixa = "Óbito" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
-
 modelplanalto.prototype.buscarinternacaodiaplanalto = function(unidade, callback){
 
 	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
@@ -433,7 +432,7 @@ modelplanalto.prototype.buscarinternacaodiaplanalto = function(unidade, callback
 
 modelplanalto.prototype.buscarsetoresplanalto = function(callback){
 
-	this._conection.query('SELECT setor, capacidadecamasocupadas, capacidademacasocupadas, capacidade FROM planalto', callback);
+	this._conection.query('select pla.idplanalto, pla.setor, pla.capacidade, pla.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Planalto" and baixa is null and setor = pla.setor and acomodacao="Cama") as qtdcama,pla.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Planalto" and baixa is null and setor = pla.setor and acomodacao="Maca") as qtdmaca,pla.bloqueado, pla.datas, pla.hora  from leitokaban l inner join planalto pla where unidade = "Planalto" and baixa is null group by pla.setor;', callback);
 }
 
 modelplanalto.prototype.buscarbanhomanhaplanalto = function(callback){
@@ -450,7 +449,6 @@ modelplanalto.prototype.buscarbanhonoiteplanalto = function(callback){
 
 	this._conection.query('SELECT count(banho) as noite from kaban where banho = "Noite"  and baixa is null and unidade = "Planalto";', callback);
 }
-
 
 modelplanalto.prototype.buscardieta1 = function(unidade,callback){
 
@@ -479,7 +477,7 @@ modelplanalto.prototype.buscardieta5 = function(unidade,callback){
 
 modelplanalto.prototype.buscardieta6 = function(unidade,callback){
 
-	this._conection.query('SELECT count(dieta) as dieta6 FROM portal_paciente.kaban where dieta ="IRC" and unidade = "'+unidade+'" and baixa is null;', callback);
+	this._conection.query('SELECT count(dieta) as dieta6 FROM portal_paciente.kaban where dieta ="IRC" and unidade = "'+unidade+'" and baixa is null; ', callback);
 }
 
 modelplanalto.prototype.buscardieta7 = function(unidade,callback){
@@ -577,6 +575,9 @@ modelplanalto.prototype.buscardieta25 = function(unidade,callback){
 
 	this._conection.query('SELECT count(dieta) as dieta25 FROM portal_paciente.kaban where dieta ="OBSTIPANTE" and unidade = "'+unidade+'" and baixa is null ;', callback);
 }
+
+
+
 module.exports = function(){
 	return modelplanalto;
 }

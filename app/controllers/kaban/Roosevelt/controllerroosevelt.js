@@ -146,7 +146,6 @@ module.exports.atualizarleitoroosevelt= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelroosevelt = new application.app.model.kaban.Roosevelt.modelroosevelt(application);
-	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 
 	var idpaciente = req.body.idpaciente;
 	var setor = req.body.setor2;
@@ -161,22 +160,14 @@ module.exports.atualizarleitoroosevelt= function(application, req, res){
 						modelroosevelt.buscarleitoativo(resultado,leito, function(error, idleitos){
 							modelroosevelt.updateleitos(idleitos, function(error, resultado){
 								modelroosevelt.buscarleitospacientes(function(error, resultadosetores){
-									if(acomodacao == "Maca"){
-										modeladmingestao.updateleitosrooseveltmacamais(setor, function(error, resulta){
-											res.redirect("/leitosroosevelt?id=" + result[0].id_usuario);	
-										});
-									}else{
-										modeladmingestao.updateleitosrooseveltcamamais(setor, function(error, resulta){
-											res.redirect("/leitosroosevelt?id=" + result[0].id_usuario);	
-										});
-									}
+									res.redirect("/leitosroosevelt?id=" + result[0].id_usuario);
 								});
 							});
 						});
 					});
 				});
 			}
-			if(setoresrecuperado[0].acomodacao == "Cama"){
+			else{
 				modelroosevelt.buscarleitosid(setoresrecuperado, function(error, idleito){
 					modelroosevelt.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
 						modelroosevelt.buscarsetoresid(setor, function(error, resultado){
@@ -184,19 +175,7 @@ module.exports.atualizarleitoroosevelt= function(application, req, res){
 								modelroosevelt.updateleitos(idleitos, function(error, resultado){
 									modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
 										modelroosevelt.buscarleitospacientes(function(error, resultadosetores){
-											if(acomodacao == "Maca"){
-												modeladmingestao.updateleitosrooseveltmacamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosrooseveltcama(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosroosevelt?id=" + result[0].id_usuario);	
-													});
-												});
-											}else{
-												modeladmingestao.updateleitosrooseveltcamamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosrooseveltcama(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosroosevelt?id=" + result[0].id_usuario);	
-													});
-												});
-											}
+											res.redirect("/leitosroosevelt?id=" + result[0].id_usuario);
 										});
 									});	
 								});
@@ -204,38 +183,7 @@ module.exports.atualizarleitoroosevelt= function(application, req, res){
 						});
 					});
 				});
-			}
-			if(setoresrecuperado[0].acomodacao == "Maca"){
-				modelroosevelt.buscarleitosid(setoresrecuperado, function(error, idleito){
-					modelroosevelt.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
-						modelroosevelt.buscarsetoresid(setor, function(error, resultado){
-							modelroosevelt.buscarleitoativo(resultado,leito, function(error, idleitos){
-								modelroosevelt.updateleitos(idleitos, function(error, resultado){
-									modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
-										modelroosevelt.buscarleitospacientes(function(error, resultadosetores){
-											if(acomodacao == "Maca"){
-												modeladmingestao.updateleitosrooseveltmacamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosrooseveltmaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosroosevelt?id=" + result[0].id_usuario);	
-													});
-												});
-											}else{
-												modeladmingestao.updateleitosrooseveltcamamais(setor, function(error, resulta){
-													modeladmingestao.updateleitosrooseveltmaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitosroosevelt?id=" + result[0].id_usuario);	
-													});
-												});
-											}
-										});
-									});	
-								});
-							});
-						});
-					});
-				});
-
-			}
-			
+			}			
 		});
 	});
 }	
@@ -1055,7 +1003,6 @@ module.exports.cadastrarnews= function(application, req, res){
 })
 }
 
-
 module.exports.update= function(application, req, res){
 	var idpaciente = req.body.idpaciente;
 	var paciente = req.body.paciente;
@@ -1498,6 +1445,7 @@ module.exports.update= function(application, req, res){
 	})
 })
 }
+
 module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;
 	var id = req.body.campo2;
@@ -1514,15 +1462,14 @@ module.exports.baixa= function(application, req, res){
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	modelroosevelt.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 	modelroosevelt.buscarleitosid(setoresrecuperado, function(error, idleito){
-		if(setoresrecuperado[0].acomodacao == "Maca"){	
-			modeladmingestao.updateleitosrooseveltmaca(setoresrecuperado[0].setor, function(error, resulta){
+		if(setoresrecuperado[0].acomodacao != null){	
 	modelroosevelt.buscarpacienteporid(idpaciente, function(error, idpac){
 		modelcovidroosevelt.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
 			modelmentalroosevelt.buscarpacientepornome(idpac[0].nome, function(error, idmental){
 				if(idpac[0].mental == 'true'){
 					if(idpac[0].covid == 'true'){
 						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modelroosevelt.baixa(iidpaciente,baixa, destino, alta,data, function(error, result){
+							modelroosevelt.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 								modelcovidroosevelt.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 									modelmentalroosevelt.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 										modelroosevelt.baixadispositivo(idpaciente,baixa, function(error, result){
@@ -1637,135 +1584,10 @@ module.exports.baixa= function(application, req, res){
 				}	
 			})	
 		})	
-	})
+	// })
 })
-}	if(setoresrecuperado[0].acomodacao == "Cama"){
-	modeladmingestao.updateleitosrooseveltcama(setoresrecuperado[0].setor, function(error, resulta){
-		modelroosevelt.buscarpacienteporid(idpaciente, function(error, idpac){
-			modelcovidroosevelt.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
-				modelmentalroosevelt.buscarpacientepornome(idpac[0].nome, function(error, idmental){
-					if(idpac[0].mental == 'true'){
-						if(idpac[0].covid == 'true'){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelroosevelt.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidroosevelt.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelmentalroosevelt.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-											modelroosevelt.baixadispositivo(idpaciente,baixa, function(error, result){
-												modelroosevelt.baixatiss(idpaciente,baixa, function(error, result){
-													modelroosevelt.baixanews(idpaciente,baixa, function(error, result){
-														modelroosevelt.baixafugulin(idpaciente,baixa, function(error, result){
-															modelroosevelt.baixacentral(idpaciente,baixa, function(error, result){
-																modelroosevelt.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	
-				
-																		modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modelroosevelt.buscarpaciente(unidade, function(error, resultado){
-																				res.redirect("/kabanpacienteroosevelt?id=" + resultados[0].id_usuario);	
-																			});
-																		});
-																		
-																});
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelroosevelt.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelmentalroosevelt.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-										modelroosevelt.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelroosevelt.baixatiss(idpaciente,baixa, function(error, result){
-												modelroosevelt.baixanews(idpaciente,baixa, function(error, result){
-													modelroosevelt.baixafugulin(idpaciente,baixa, function(error, result){
-														modelroosevelt.baixacentral(idpaciente,baixa, function(error, result){
-															modelroosevelt.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																	
-																	modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelroosevelt.buscarpaciente(unidade, function(error, resultado){
-																			res.redirect("/kabanpacienteroosevelt?id=" + resultados[0].id_usuario);	
-																		});
-																	});
-																
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-					}
-					else{
-						if(idpac[0].covid == "false"){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelroosevelt.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelroosevelt.baixadispositivo(idpaciente,baixa, function(error, result){
-										modelroosevelt.baixatiss(idpaciente,baixa, function(error, result){
-											modelroosevelt.baixanews(idpaciente,baixa, function(error, result){
-												modelroosevelt.baixafugulin(idpaciente,baixa, function(error, result){
-													modelroosevelt.baixacentral(idpaciente,baixa, function(error, result){
-														modelroosevelt.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																
-																modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																	modelroosevelt.buscarpaciente(unidade, function(error, resultado){
-																		res.redirect("/kabanpacienteroosevelt?id=" + resultados[0].id_usuario);	
-																	});
-																});
-																
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelroosevelt.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidroosevelt.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelroosevelt.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelroosevelt.baixatiss(idpaciente,baixa, function(error, result){
-												modelroosevelt.baixanews(idpaciente,baixa, function(error, result){
-													modelroosevelt.baixafugulin(idpaciente,baixa, function(error, result){
-														modelroosevelt.baixacentral(idpaciente,baixa, function(error, result){
-															modelroosevelt.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-															
-																	modelroosevelt.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelroosevelt.buscarpaciente(unidade, function(error, resultado){
-																			res.redirect("/kabanpacienteroosevelt?id=" + resultados[0].id_usuario);	
-																		});
-																	});
-																	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-					}	
-				})	
-			})	
-		})
-	})
-	}	
-	if(setoresrecuperado[0].acomodacao == null){
+}
+else{
 		
 		modelroosevelt.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidroosevelt.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	

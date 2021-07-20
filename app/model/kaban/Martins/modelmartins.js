@@ -84,7 +84,7 @@ modelmartins.prototype.buscarleitoativo = function(idsetor, leito, callback){
 }
 
 modelmartins.prototype.updateleitos = function(idleito, callback){
-	
+
 	this._conection.query('update leitos set status = "Inativo"  where idleito = "'+idleito[0].idleito+'"', callback);
 }
 
@@ -92,7 +92,6 @@ modelmartins.prototype.updateleitosnome = function(idpaciente, paciente,unidade,
 
 	this._conection.query('update leitokaban set nome = "'+paciente+'"  where idpaciente = "'+idpaciente+'" and unidade = "'+unidade+'"', callback);
 }
-
 
 modelmartins.prototype.updateleitosativo = function(idleito, callback){
 
@@ -111,7 +110,7 @@ modelmartins.prototype.buscarsetores = function(callback){
 
 modelmartins.prototype.buscarleitos = function(valor, callback){
 
-	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo" and setor.unidade = "Martins"', callback);
+	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo"  and setor.unidade = "Martins"', callback);
 
 }
 
@@ -124,10 +123,6 @@ modelmartins.prototype.buscaracomodacao = function(valor, callback){
 modelmartins.prototype.buscardispositivohora = function(unidade, callback){
 	
 	this._conection.query('SELECT * FROM dispositivokaban dd where unidade = "'+unidade+'" and  status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or unidade = "'+unidade+'" and (dd.dataatualizacao) is null and  baixa is null  GROUP BY idpaciente;', callback);
-}
-
-modelmartins.prototype.buscardispositivoporid = function(idpaciente, unidade, callback){
-	this._conection.query('select * from dispositivokaban where unidade = "'+unidade+'" and idpaciente = "'+idpaciente+'" and status = "Ativo"', callback);
 }
 
 modelmartins.prototype.buscarfugulinhora = function(unidade, callback){
@@ -157,7 +152,6 @@ modelmartins.prototype.buscardispositivoid = function(idpaciente, unidade, callb
 modelmartins.prototype.buscardispositivoporid = function(idpaciente, unidade, callback){
 	this._conection.query('select * from kaban where unidade = "'+unidade+'" and idpaciente = "'+idpaciente+'"', callback);
 }
-
 
 modelmartins.prototype.buscarnewsid = function(idpaciente, unidade, callback){
 
@@ -190,7 +184,7 @@ modelmartins.prototype.historico = function(unidade, callback){
 
 modelmartins.prototype.buscardispositivo = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM dispositivokaban dd where unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null and status = "Ativo" GROUP BY  idpaciente ', callback);
+	this._conection.query('SELECT * FROM dispositivokaban dd where unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null and status = "Ativo" GROUP BY idpaciente ', callback);
 }
 
 modelmartins.prototype.buscardispositivodataid = function(idpaciente, unidade, callback){
@@ -223,7 +217,7 @@ modelmartins.prototype.buscarpacienteporid = function(idpaciente, callback){
 
 modelmartins.prototype.buscarsetor = function(idpaciente, callback){
 
-	this._conection.query('select acomodacao from kaban where idpaciente = ' + idpaciente, callback);
+	this._conection.query('select comodo from kaban where idpaciente = ' + idpaciente, callback);
 }
 
 modelmartins.prototype.cadastrarpaciente = function( paciente, medico, dieta, exame, dataexame, mental, referencia, covid,  setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
@@ -268,7 +262,7 @@ modelmartins.prototype.updatedispositivo = function(idpaciente,glasgow, bic, svd
 
 modelmartins.prototype.updatedispositivodados = function(idpaciente,glasgow, bic,data, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade, callback){
 
-	this._conection.query('update dispositivokaban set glasgow = "'+glasgow+'",bic = "'+bic+'", dataatualizacao =STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ), svd= "'+svd+'",datasvd= "'+datasvd+'",sne= "'+sne+'",datasne= "'+datasne+'",avp= "'+avp+'",dataavp= "'+dataavp+'",cvc= "'+cvc+'",datacvc= "'+datacvc+'",dispositivoventilatorio= "'+dispositivoventilatorio+'",fluxoo2= "'+fluxoo2+'",fio2= "'+fio2+'" ,peep= "'+peep+'",drogas= "'+drogas+'",nora= "'+nora+'",vazaonora= "'+vazaonora+'",adrenalina= "'+adre+'",vazaoadrenalina= "'+vazaoadre+'",bicarbonato= "'+bica+'",vazaobicarbonato= "'+vazaobica+'",sedacao= "'+sedacao+'",dormonid= "'+dormonid3+'",vazaodormonid= "'+vazaoDormonid+'",fentanil= "'+fentanil3+'",vazaofentanil= "'+vazaoFentanil+'",rocuronio= "'+rocuronio3+'",vazaorocuronio= "'+vazaoRocuronio+'",propofol= "'+propofol3+'",vazaopropofol= "'+vazaoPropofol+'",unidade= "'+unidade+'" where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update dispositivokaban set  glasgow = "'+glasgow+'",bic = "'+bic+'",dataatualizacao = STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ), svd= "'+svd+'",datasvd= "'+datasvd+'",sne= "'+sne+'",datasne= "'+datasne+'",avp= "'+avp+'",dataavp= "'+dataavp+'",cvc= "'+cvc+'",datacvc= "'+datacvc+'",dispositivoventilatorio= "'+dispositivoventilatorio+'",fluxoo2= "'+fluxoo2+'",fio2= "'+fio2+'" ,peep= "'+peep+'",drogas= "'+drogas+'",nora= "'+nora+'",vazaonora= "'+vazaonora+'",adrenalina= "'+adre+'",vazaoadrenalina= "'+vazaoadre+'",bicarbonato= "'+bica+'",vazaobicarbonato= "'+vazaobica+'",sedacao= "'+sedacao+'",dormonid= "'+dormonid3+'",vazaodormonid= "'+vazaoDormonid+'",fentanil= "'+fentanil3+'",vazaofentanil= "'+vazaoFentanil+'",rocuronio= "'+rocuronio3+'",vazaorocuronio= "'+vazaoRocuronio+'",propofol= "'+propofol3+'",vazaopropofol= "'+vazaoPropofol+'",unidade= "'+unidade+'" where idpaciente = '+ idpaciente, callback);
 }
 
 modelmartins.prototype.updatedispositivostatus = function(iddispositivo, callback){
@@ -336,7 +330,7 @@ modelmartins.prototype.updatetiss = function(idpaciente, tiss ,data,unidade, cal
 	this._conection.query('update tiss set tiss= "'+tiss+'",dataatualizacao= STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ),unidade= "'+unidade+'", status= "Ativo"  where idpaciente = ' + idpaciente, callback);
 }
 
-modelmartins.prototype.updatetissdados = function(idpaciente, data,atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss ,unidade, callback){
+modelmartins.prototype.updatetissdados = function(idpaciente,data, atividades, ventilatorio, cardiovascular, renal, neurologico, metabolico, intervencoes, tiss ,unidade, callback){
 
 	this._conection.query('update tiss set dataatualizacao = STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ), atividadesbasica= "'+atividades+'",suporteventilatorio= "'+ventilatorio+'",suportecardiovascular= "'+cardiovascular+'",suporterenal= "'+renal+'",suporteneurologico= "'+neurologico+'",suportemetabolico= "'+metabolico+'",intervencoes= "'+intervencoes+'",tiss= "'+tiss+'",unidade= "'+unidade+'" where idpaciente = ' + idpaciente, callback);
 }
@@ -438,7 +432,7 @@ modelmartins.prototype.buscarinternacaodiamartins = function(unidade, callback){
 
 modelmartins.prototype.buscarsetoresmartins = function(callback){
 
-	this._conection.query('SELECT setor, capacidadecamasocupadas, capacidademacasocupadas, capacidade FROM martins', callback);
+	this._conection.query('select mar.idmartins, mar.setor, mar.capacidade, mar.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Martins" and baixa is null and setor = mar.setor and acomodacao="Cama") as qtdcama,mar.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Martins" and baixa is null and setor = mar.setor and acomodacao="Maca") as qtdmaca,mar.bloqueado, mar.datas, mar.hora  from leitokaban l inner join martins mar where unidade = "Martins" and baixa is null group by mar.setor;', callback);
 }
 
 modelmartins.prototype.buscarbanhomanhamartins = function(callback){
@@ -454,16 +448,6 @@ modelmartins.prototype.buscarbanhotardemartins = function(callback){
 modelmartins.prototype.buscarbanhonoitemartins = function(callback){
 
 	this._conection.query('SELECT count(banho) as noite from kaban where banho = "Noite"  and baixa is null and unidade = "Martins";', callback);
-}
-
-modelmartins.prototype.buscartransfegomartins = function(callback){
-
-	this._conection.query('SELECT count(destino) as obst from obstetricia where destino = "transferências" and dataatendimento =(select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
-}
-
-modelmartins.prototype.buscargomartins = function(unidade, callback){
-
-	this._conection.query('select count(especialidade) as obstint  from kaban where especialidade = "Ginecologia/Obstetricia" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
 modelmartins.prototype.buscardieta1 = function(unidade,callback){
@@ -493,7 +477,7 @@ modelmartins.prototype.buscardieta5 = function(unidade,callback){
 
 modelmartins.prototype.buscardieta6 = function(unidade,callback){
 
-	this._conection.query('SELECT count(dieta) as dieta6 FROM portal_paciente.kaban where dieta ="IRC" and unidade = "'+unidade+'" and baixa is null;', callback);
+	this._conection.query('SELECT count(dieta) as dieta6 FROM portal_paciente.kaban where dieta ="IRC" and unidade = "'+unidade+'" and baixa is null; ', callback);
 }
 
 modelmartins.prototype.buscardieta7 = function(unidade,callback){
@@ -591,6 +575,9 @@ modelmartins.prototype.buscardieta25 = function(unidade,callback){
 
 	this._conection.query('SELECT count(dieta) as dieta25 FROM portal_paciente.kaban where dieta ="OBSTIPANTE" and unidade = "'+unidade+'" and baixa is null ;', callback);
 }
+
+
+
 module.exports = function(){
 	return modelmartins;
 }

@@ -82,8 +82,9 @@ modelroosevelt.prototype.buscarleitoativo = function(idsetor, leito, callback){
 
 	this._conection.query('select idleito from leitos where idsetor="'+idsetor[0].idsetor+'" and leitos = "'+leito+'" and status = "Ativo" limit 1', callback);
 }
+
 modelroosevelt.prototype.updateleitos = function(idleito, callback){
-	
+
 	this._conection.query('update leitos set status = "Inativo"  where idleito = "'+idleito[0].idleito+'"', callback);
 }
 
@@ -91,7 +92,6 @@ modelroosevelt.prototype.updateleitosnome = function(idpaciente, paciente,unidad
 
 	this._conection.query('update leitokaban set nome = "'+paciente+'"  where idpaciente = "'+idpaciente+'" and unidade = "'+unidade+'"', callback);
 }
-
 
 modelroosevelt.prototype.updateleitosativo = function(idleito, callback){
 
@@ -110,7 +110,7 @@ modelroosevelt.prototype.buscarsetores = function(callback){
 
 modelroosevelt.prototype.buscarleitos = function(valor, callback){
 
-	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo" and setor.unidade = "Roosevelt"', callback);
+	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo"  and setor.unidade = "Roosevelt"', callback);
 
 }
 
@@ -217,7 +217,7 @@ modelroosevelt.prototype.buscarpacienteporid = function(idpaciente, callback){
 
 modelroosevelt.prototype.buscarsetor = function(idpaciente, callback){
 
-	this._conection.query('select acomodacao from kaban where idpaciente = ' + idpaciente, callback);
+	this._conection.query('select comodo from kaban where idpaciente = ' + idpaciente, callback);
 }
 
 modelroosevelt.prototype.cadastrarpaciente = function( paciente, medico, dieta, exame, dataexame, mental, referencia, covid,  setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
@@ -257,12 +257,12 @@ modelroosevelt.prototype.baixanews = function(idpaciente,baixa, callback){
 
 modelroosevelt.prototype.updatedispositivo = function(idpaciente,glasgow, bic, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade, callback){
 	
-	this._conection.query('update dispositivokaban set glasgow = "'+glasgow+'",bic = "'+bic+'", svd= "'+svd+'",datasvd= "'+datasvd+'",sne= "'+sne+'",datasne= "'+datasne+'",avp= "'+avp+'",dataavp= "'+dataavp+'",cvc= "'+cvc+'",datacvc= "'+datacvc+'",dispositivoventilatorio= "'+dispositivoventilatorio+'",fluxoo2= "'+fluxoo2+'",fio2= "'+fio2+'" ,peep= "'+peep+'",drogas= "'+drogas+'",nora= "'+nora+'",vazaonora= "'+vazaonora+'",adrenalina= "'+adre+'",vazaoadrenalina= "'+vazaoadre+'",bicarbonato= "'+bica+'",vazaobicarbonato= "'+vazaobica+'",sedacao= "'+sedacao+'",dormonid= "'+dormonid3+'",vazaodormonid= "'+vazaoDormonid+'",fentanil= "'+fentanil3+'",vazaofentanil= "'+vazaoFentanil+'",rocuronio= "'+rocuronio3+'",vazaorocuronio= "'+vazaoRocuronio+'",propofol= "'+propofol3+'",vazaopropofol= "'+vazaoPropofol+'",dataatualizacao= STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ) ,unidade= "'+unidade+'" where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update dispositivokaban set glasgow = "'+glasgow+'",bic = "'+bic+'",svd= "'+svd+'",datasvd= "'+datasvd+'",sne= "'+sne+'",datasne= "'+datasne+'",avp= "'+avp+'",dataavp= "'+dataavp+'",cvc= "'+cvc+'",datacvc= "'+datacvc+'",dispositivoventilatorio= "'+dispositivoventilatorio+'",fluxoo2= "'+fluxoo2+'",fio2= "'+fio2+'" ,peep= "'+peep+'",drogas= "'+drogas+'",nora= "'+nora+'",vazaonora= "'+vazaonora+'",adrenalina= "'+adre+'",vazaoadrenalina= "'+vazaoadre+'",bicarbonato= "'+bica+'",vazaobicarbonato= "'+vazaobica+'",sedacao= "'+sedacao+'",dormonid= "'+dormonid3+'",vazaodormonid= "'+vazaoDormonid+'",fentanil= "'+fentanil3+'",vazaofentanil= "'+vazaoFentanil+'",rocuronio= "'+rocuronio3+'",vazaorocuronio= "'+vazaoRocuronio+'",propofol= "'+propofol3+'",vazaopropofol= "'+vazaoPropofol+'",dataatualizacao= STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ) ,unidade= "'+unidade+'" where idpaciente = '+ idpaciente, callback);
 }
 
 modelroosevelt.prototype.updatedispositivodados = function(idpaciente,glasgow, bic,data, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade, callback){
 
-	this._conection.query('update dispositivokaban set glasgow = "'+glasgow+'",bic = "'+bic+'", dataatualizacao = STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ), svd= "'+svd+'",datasvd= "'+datasvd+'",sne= "'+sne+'",datasne= "'+datasne+'",avp= "'+avp+'",dataavp= "'+dataavp+'",cvc= "'+cvc+'",datacvc= "'+datacvc+'",dispositivoventilatorio= "'+dispositivoventilatorio+'",fluxoo2= "'+fluxoo2+'",fio2= "'+fio2+'" ,peep= "'+peep+'",drogas= "'+drogas+'",nora= "'+nora+'",vazaonora= "'+vazaonora+'",adrenalina= "'+adre+'",vazaoadrenalina= "'+vazaoadre+'",bicarbonato= "'+bica+'",vazaobicarbonato= "'+vazaobica+'",sedacao= "'+sedacao+'",dormonid= "'+dormonid3+'",vazaodormonid= "'+vazaoDormonid+'",fentanil= "'+fentanil3+'",vazaofentanil= "'+vazaoFentanil+'",rocuronio= "'+rocuronio3+'",vazaorocuronio= "'+vazaoRocuronio+'",propofol= "'+propofol3+'",vazaopropofol= "'+vazaoPropofol+'",unidade= "'+unidade+'" where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update dispositivokaban set  glasgow = "'+glasgow+'",bic = "'+bic+'",dataatualizacao = STR_TO_DATE( "'+data+'" , "%d-%m-%Y %H:%i:%s" ), svd= "'+svd+'",datasvd= "'+datasvd+'",sne= "'+sne+'",datasne= "'+datasne+'",avp= "'+avp+'",dataavp= "'+dataavp+'",cvc= "'+cvc+'",datacvc= "'+datacvc+'",dispositivoventilatorio= "'+dispositivoventilatorio+'",fluxoo2= "'+fluxoo2+'",fio2= "'+fio2+'" ,peep= "'+peep+'",drogas= "'+drogas+'",nora= "'+nora+'",vazaonora= "'+vazaonora+'",adrenalina= "'+adre+'",vazaoadrenalina= "'+vazaoadre+'",bicarbonato= "'+bica+'",vazaobicarbonato= "'+vazaobica+'",sedacao= "'+sedacao+'",dormonid= "'+dormonid3+'",vazaodormonid= "'+vazaoDormonid+'",fentanil= "'+fentanil3+'",vazaofentanil= "'+vazaoFentanil+'",rocuronio= "'+rocuronio3+'",vazaorocuronio= "'+vazaoRocuronio+'",propofol= "'+propofol3+'",vazaopropofol= "'+vazaoPropofol+'",unidade= "'+unidade+'" where idpaciente = '+ idpaciente, callback);
 }
 
 modelroosevelt.prototype.updatedispositivostatus = function(iddispositivo, callback){
@@ -425,7 +425,6 @@ modelroosevelt.prototype.buscarobitoroosevelt = function(unidade, callback){
 	this._conection.query('select count(baixa) as Obitos  from kaban where baixa = "Óbito" and unidade = "'+unidade+'" and  datasaida = (select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
-
 modelroosevelt.prototype.buscarinternacaodiaroosevelt = function(unidade, callback){
 
 	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
@@ -433,7 +432,7 @@ modelroosevelt.prototype.buscarinternacaodiaroosevelt = function(unidade, callba
 
 modelroosevelt.prototype.buscarsetoresroosevelt = function(callback){
 
-	this._conection.query('SELECT setor, capacidadecamasocupadas, capacidademacasocupadas, capacidade FROM roosevelt', callback);
+	this._conection.query('select roo.idroosevelt, roo.setor, roo.capacidade, roo.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Roosevelt" and baixa is null and setor = roo.setor and acomodacao="Cama") as qtdcama,roo.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Roosevelt" and baixa is null and setor = roo.setor and acomodacao="Maca") as qtdmaca,roo.bloqueado, roo.datas, roo.hora  from leitokaban l inner join roosevelt roo where unidade = "Roosevelt" and baixa is null group by roo.setor;', callback);
 }
 
 modelroosevelt.prototype.buscarbanhomanharoosevelt = function(callback){
@@ -478,7 +477,7 @@ modelroosevelt.prototype.buscardieta5 = function(unidade,callback){
 
 modelroosevelt.prototype.buscardieta6 = function(unidade,callback){
 
-	this._conection.query('SELECT count(dieta) as dieta6 FROM portal_paciente.kaban where dieta ="IRC" and unidade = "'+unidade+'" and baixa is null;', callback);
+	this._conection.query('SELECT count(dieta) as dieta6 FROM portal_paciente.kaban where dieta ="IRC" and unidade = "'+unidade+'" and baixa is null; ', callback);
 }
 
 modelroosevelt.prototype.buscardieta7 = function(unidade,callback){
@@ -576,6 +575,9 @@ modelroosevelt.prototype.buscardieta25 = function(unidade,callback){
 
 	this._conection.query('SELECT count(dieta) as dieta25 FROM portal_paciente.kaban where dieta ="OBSTIPANTE" and unidade = "'+unidade+'" and baixa is null ;', callback);
 }
+
+
+
 module.exports = function(){
 	return modelroosevelt;
 }

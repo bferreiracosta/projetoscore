@@ -146,7 +146,6 @@ module.exports.atualizarleitopampulha= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
-	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 
 	var idpaciente = req.body.idpaciente;
 	var setor = req.body.setor2;
@@ -161,22 +160,14 @@ module.exports.atualizarleitopampulha= function(application, req, res){
 						modelpampulha.buscarleitoativo(resultado,leito, function(error, idleitos){
 							modelpampulha.updateleitos(idleitos, function(error, resultado){
 								modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-									if(acomodacao == "Maca"){
-										modeladmingestao.updateleitospampulhamacamais(setor, function(error, resulta){
-											res.redirect("/leitospampulha?id=" + result[0].id_usuario);	
-										});
-									}else{
-										modeladmingestao.updateleitospampulhacamamais(setor, function(error, resulta){
-											res.redirect("/leitospampulha?id=" + result[0].id_usuario);	
-										});
-									}
+									res.redirect("/leitospampulha?id=" + result[0].id_usuario);
 								});
 							});
 						});
 					});
 				});
 			}
-			if(setoresrecuperado[0].acomodacao == "Cama"){
+			else{
 				modelpampulha.buscarleitosid(setoresrecuperado, function(error, idleito){
 					modelpampulha.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
 						modelpampulha.buscarsetoresid(setor, function(error, resultado){
@@ -184,19 +175,7 @@ module.exports.atualizarleitopampulha= function(application, req, res){
 								modelpampulha.updateleitos(idleitos, function(error, resultado){
 									modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
 										modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-											if(acomodacao == "Maca"){
-												modeladmingestao.updateleitospampulhamacamais(setor, function(error, resulta){
-													modeladmingestao.updateleitospampulhacama(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitospampulha?id=" + result[0].id_usuario);	
-													});
-												});
-											}else{
-												modeladmingestao.updateleitospampulhacamamais(setor, function(error, resulta){
-													modeladmingestao.updateleitospampulhacama(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitospampulha?id=" + result[0].id_usuario);	
-													});
-												});
-											}
+											res.redirect("/leitospampulha?id=" + result[0].id_usuario);
 										});
 									});	
 								});
@@ -204,38 +183,7 @@ module.exports.atualizarleitopampulha= function(application, req, res){
 						});
 					});
 				});
-			}
-			if(setoresrecuperado[0].acomodacao == "Maca"){
-				modelpampulha.buscarleitosid(setoresrecuperado, function(error, idleito){
-					modelpampulha.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
-						modelpampulha.buscarsetoresid(setor, function(error, resultado){
-							modelpampulha.buscarleitoativo(resultado,leito, function(error, idleitos){
-								modelpampulha.updateleitos(idleitos, function(error, resultado){
-									modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
-										modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-											if(acomodacao == "Maca"){
-												modeladmingestao.updateleitospampulhamacamais(setor, function(error, resulta){
-													modeladmingestao.updateleitospampulhamaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitospampulha?id=" + result[0].id_usuario);	
-													});
-												});
-											}else{
-												modeladmingestao.updateleitospampulhacamamais(setor, function(error, resulta){
-													modeladmingestao.updateleitospampulhamaca(setoresrecuperado[0].setor, function(error, resulta){
-														res.redirect("/leitospampulha?id=" + result[0].id_usuario);	
-													});
-												});
-											}
-										});
-									});	
-								});
-							});
-						});
-					});
-				});
-
-			}
-			
+			}			
 		});
 	});
 }	
@@ -1055,7 +1003,6 @@ module.exports.cadastrarnews= function(application, req, res){
 })
 }
 
-
 module.exports.update= function(application, req, res){
 	var idpaciente = req.body.idpaciente;
 	var paciente = req.body.paciente;
@@ -1515,15 +1462,14 @@ module.exports.baixa= function(application, req, res){
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	modelpampulha.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 	modelpampulha.buscarleitosid(setoresrecuperado, function(error, idleito){
-		if(setoresrecuperado[0].acomodacao == "Maca"){	
-			modeladmingestao.updateleitospampulhamaca(setoresrecuperado[0].setor, function(error, resulta){
+		if(setoresrecuperado[0].acomodacao != null){	
 	modelpampulha.buscarpacienteporid(idpaciente, function(error, idpac){
 		modelcovidpampulha.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
 			modelmentalpampulha.buscarpacientepornome(idpac[0].nome, function(error, idmental){
 				if(idpac[0].mental == 'true'){
 					if(idpac[0].covid == 'true'){
 						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modelpampulha.baixa(iidpaciente,baixa, destino, alta,data, function(error, result){
+							modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 								modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
 									modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 										modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
@@ -1638,135 +1584,10 @@ module.exports.baixa= function(application, req, res){
 				}	
 			})	
 		})	
-	})
+	// })
 })
-}	if(setoresrecuperado[0].acomodacao == "Cama"){
-	modeladmingestao.updateleitospampulhacama(setoresrecuperado[0].setor, function(error, resulta){
-		modelpampulha.buscarpacienteporid(idpaciente, function(error, idpac){
-			modelcovidpampulha.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
-				modelmentalpampulha.buscarpacientepornome(idpac[0].nome, function(error, idmental){
-					if(idpac[0].mental == 'true'){
-						if(idpac[0].covid == 'true'){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-											modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
-												modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
-													modelpampulha.baixanews(idpaciente,baixa, function(error, result){
-														modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
-															modelpampulha.baixacentral(idpaciente,baixa, function(error, result){
-																modelpampulha.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	
-				
-																		modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																			modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																				res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-																			});
-																		});
-																		
-																});
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-										modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
-												modelpampulha.baixanews(idpaciente,baixa, function(error, result){
-													modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
-														modelpampulha.baixacentral(idpaciente,baixa, function(error, result){
-															modelpampulha.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-																	
-																	modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																			res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-																		});
-																	});
-																
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-					}
-					else{
-						if(idpac[0].covid == "false"){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
-										modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
-											modelpampulha.baixanews(idpaciente,baixa, function(error, result){
-												modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
-													modelpampulha.baixacentral(idpaciente,baixa, function(error, result){
-														modelpampulha.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																
-																modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																	modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																		res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-																	});
-																});
-																
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
-												modelpampulha.baixanews(idpaciente,baixa, function(error, result){
-													modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
-														modelpampulha.baixacentral(idpaciente,baixa, function(error, result){
-															modelpampulha.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-															
-																	modelpampulha.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																			res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-																		});
-																	});
-																	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-					}	
-				})	
-			})	
-		})
-	})
-	}	
-	if(setoresrecuperado[0].acomodacao == null){
+}
+else{
 		
 		modelpampulha.buscarpacienteporid(idpaciente, function(error, idpac){
 			modelcovidpampulha.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	

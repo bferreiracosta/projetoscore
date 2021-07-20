@@ -5,7 +5,7 @@ function modeladmingestao(application){
 
 modeladmingestao.prototype.buscarleitomartins = function(callback){
 	
-	this._conection.query('select * from martins', callback);
+	this._conection.query('select mar.idmartins, mar.setor, mar.capacidade, mar.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Martins" and baixa is null and setor = mar.setor and acomodacao="Cama") as qtdcama,mar.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Martins" and baixa is null and setor = mar.setor and acomodacao="Maca") as qtdmaca,mar.bloqueado, mar.datas, mar.hora  from leitokaban l inner join martins mar where unidade = "Martins" and baixa is null group by mar.setor;', callback);
 }
 
 modeladmingestao.prototype.updateleitosmartins = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
@@ -35,7 +35,7 @@ modeladmingestao.prototype.updateleitosmartinscamamais = function(setor, callbac
 
 modeladmingestao.prototype.buscarleitoplanalto = function(callback){
 	
-	this._conection.query('select * from planalto  ', callback);
+	this._conection.query('select pla.idplanalto, pla.setor, pla.capacidade, pla.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Planalto" and baixa is null and setor = pla.setor and acomodacao="Cama") as qtdcama,pla.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Planalto" and baixa is null and setor = pla.setor and acomodacao="Maca") as qtdmaca,pla.bloqueado, pla.datas, pla.hora  from leitokaban l inner join planalto pla where unidade = "Planalto" and baixa is null group by pla.setor;', callback);
 }
 
 modeladmingestao.prototype.updateleitosplanalto = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
@@ -94,7 +94,7 @@ modeladmingestao.prototype.updateleitosluizotecamamais = function(setor, callbac
 }
 modeladmingestao.prototype.buscarleitoroosevelt = function(callback){
 	
-	this._conection.query('select * from roosevelt  ', callback);
+	this._conection.query('select roo.idroosevelt, roo.setor, roo.capacidade, roo.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Roosevelt" and baixa is null and setor = roo.setor and acomodacao="Cama") as qtdcama,roo.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Roosevelt" and baixa is null and setor = roo.setor and acomodacao="Maca") as qtdmaca,roo.bloqueado, roo.datas, roo.hora  from leitokaban l inner join roosevelt roo where unidade = "Roosevelt" and baixa is null group by roo.setor;', callback);
 }
 
 modeladmingestao.prototype.updateleitosroosevelt = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
@@ -124,7 +124,7 @@ modeladmingestao.prototype.updateleitosrooseveltcamamais = function(setor, callb
 
 modeladmingestao.prototype.buscarleitotibery = function(callback){
 	
-	this._conection.query('select * from tibery  ', callback);
+	this._conection.query('select tib.idtibery, tib.setor, tib.capacidade, tib.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Tibery" and baixa is null and setor = tib.setor and acomodacao="Cama") as qtdcama,tib.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Tibery" and baixa is null and setor = tib.setor and acomodacao="Maca") as qtdmaca,tib.bloqueado, tib.datas, tib.hora  from leitokaban l inner join tibery tib where unidade = "Tibery" and baixa is null group by tib.setor;', callback);
 }
 
 modeladmingestao.prototype.updateleitostibery = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
@@ -154,7 +154,7 @@ modeladmingestao.prototype.updateleitostiberycamamais = function(setor, callback
 
 modeladmingestao.prototype.buscarleitomorumbi = function(callback){
 	
-	this._conection.query('select * from morumbi  ', callback);
+	this._conection.query('select mor.idmorumbi, mor.setor, mor.capacidade, mor.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Morumbi" and baixa is null and setor = mor.setor and acomodacao="Cama") as qtdcama,mor.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Morumbi" and baixa is null and setor = mor.setor and acomodacao="Maca") as qtdmaca,mor.bloqueado, mor.datas, mor.hora  from leitokaban l inner join morumbi mor where unidade = "Morumbi" and baixa is null group by mor.setor;', callback);
 }
 
 modeladmingestao.prototype.updateleitosmorumbi = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
@@ -184,7 +184,7 @@ modeladmingestao.prototype.updateleitosmorumbicamamais = function(setor, callbac
 
 modeladmingestao.prototype.buscarleitosaojorge = function(callback){
 	
-	this._conection.query('select * from saojorge  ', callback);
+	this._conection.query('select * from saojorge;', callback);
 }
 
 modeladmingestao.prototype.updateleitossaojorge = function(capacidade, setor, data, hora,bloqueado, callback){
@@ -214,7 +214,7 @@ modeladmingestao.prototype.updateleitossaojorgecamamais = function(setor, callba
 
 modeladmingestao.prototype.buscarleitopampulha = function(callback){
 	
-	this._conection.query('select * from pampulha  ', callback);
+	this._conection.query('select * from pampulha', callback);
 }
 
 modeladmingestao.prototype.updateleitospampulha = function(capacidade, setor, data, hora,bloqueado, callback){
