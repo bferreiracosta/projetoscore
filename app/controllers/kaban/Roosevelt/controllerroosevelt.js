@@ -153,28 +153,31 @@ module.exports.atualizarleitoroosevelt= function(application, req, res){
 	var id = req.body.idusuario;
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelroosevelt.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
-			if(setoresrecuperado == ""){
-				modelroosevelt.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
-					modelroosevelt.buscarleitospacientes(function(error, resultadosetores){
-						res.redirect("/leitosroosevelt?id=" + result[0].id_usuario);
-					});	
-				});
-			}
-			else if(nome == "Remover"){
-				modelroosevelt.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+			if(nome == "Remover"){
+				console.log(nome)
+				modelroosevelt.mudarpacienteleito(idleito, function(error,resultado){
 					modelroosevelt.buscarleitospacientes(function(error, resultadosetores){
 						res.redirect("/leitosroosevelt?id=" + result[0].id_usuario);
 					});	
 				})
 			}
 			else{
-				modelroosevelt.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+				if(setoresrecuperado == ""){
 					modelroosevelt.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
 						modelroosevelt.buscarleitospacientes(function(error, resultadosetores){
 							res.redirect("/leitosroosevelt?id=" + result[0].id_usuario);
 						});	
 					});
-				})
+				}
+				else{
+					modelroosevelt.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+						modelroosevelt.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
+							modelroosevelt.buscarleitospacientes(function(error, resultadosetores){
+								res.redirect("/leitosroosevelt?id=" + result[0].id_usuario);
+							});	
+						});
+					})
+				}
 			}
 		});
 	});

@@ -153,28 +153,31 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 	var id = req.body.idusuario;
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelplanalto.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
-			if(setoresrecuperado == ""){
-				modelplanalto.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
-					modelplanalto.buscarleitospacientes(function(error, resultadosetores){
-						res.redirect("/leitosplanalto?id=" + result[0].id_usuario);
-					});	
-				});
-			}
-			else if(nome == "Remover"){
-				modelplanalto.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+			if(nome == "Remover"){
+				console.log(nome)
+				modelplanalto.mudarpacienteleito(idleito, function(error,resultado){
 					modelplanalto.buscarleitospacientes(function(error, resultadosetores){
 						res.redirect("/leitosplanalto?id=" + result[0].id_usuario);
 					});	
 				})
 			}
 			else{
-				modelplanalto.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+				if(setoresrecuperado == ""){
 					modelplanalto.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
 						modelplanalto.buscarleitospacientes(function(error, resultadosetores){
 							res.redirect("/leitosplanalto?id=" + result[0].id_usuario);
 						});	
 					});
-				})
+				}
+				else{
+					modelplanalto.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+						modelplanalto.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
+							modelplanalto.buscarleitospacientes(function(error, resultadosetores){
+								res.redirect("/leitosplanalto?id=" + result[0].id_usuario);
+							});	
+						});
+					})
+				}
 			}
 		});
 	});

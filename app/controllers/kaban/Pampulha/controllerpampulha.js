@@ -153,28 +153,31 @@ module.exports.atualizarleitopampulha= function(application, req, res){
 	var id = req.body.idusuario;
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelpampulha.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
-			if(setoresrecuperado == ""){
-				modelpampulha.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
-					modelpampulha.buscarleitospacientes(function(error, resultadosetores){
-						res.redirect("/leitospampulha?id=" + result[0].id_usuario);
-					});	
-				});
-			}
-			else if(nome == "Remover"){
-				modelpampulha.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+			if(nome == "Remover"){
+				console.log(nome)
+				modelpampulha.mudarpacienteleito(idleito, function(error,resultado){
 					modelpampulha.buscarleitospacientes(function(error, resultadosetores){
 						res.redirect("/leitospampulha?id=" + result[0].id_usuario);
 					});	
 				})
 			}
 			else{
-				modelpampulha.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+				if(setoresrecuperado == ""){
 					modelpampulha.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
 						modelpampulha.buscarleitospacientes(function(error, resultadosetores){
 							res.redirect("/leitospampulha?id=" + result[0].id_usuario);
 						});	
 					});
-				})
+				}
+				else{
+					modelpampulha.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+						modelpampulha.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
+							modelpampulha.buscarleitospacientes(function(error, resultadosetores){
+								res.redirect("/leitospampulha?id=" + result[0].id_usuario);
+							});	
+						});
+					})
+				}
 			}
 		});
 	});

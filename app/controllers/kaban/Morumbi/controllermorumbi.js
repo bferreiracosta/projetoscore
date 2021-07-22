@@ -153,28 +153,31 @@ module.exports.atualizarleitomorumbi= function(application, req, res){
 	var id = req.body.idusuario;
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelmorumbi.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
-			if(setoresrecuperado == ""){
-				modelmorumbi.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
-					modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
-						res.redirect("/leitosmorumbi?id=" + result[0].id_usuario);
-					});	
-				});
-			}
-			else if(nome == "Remover"){
-				modelmorumbi.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+			if(nome == "Remover"){
+				console.log(nome)
+				modelmorumbi.mudarpacienteleito(idleito, function(error,resultado){
 					modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
 						res.redirect("/leitosmorumbi?id=" + result[0].id_usuario);
 					});	
 				})
 			}
 			else{
-				modelmorumbi.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+				if(setoresrecuperado == ""){
 					modelmorumbi.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
 						modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
 							res.redirect("/leitosmorumbi?id=" + result[0].id_usuario);
 						});	
 					});
-				})
+				}
+				else{
+					modelmorumbi.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+						modelmorumbi.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
+							modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
+								res.redirect("/leitosmorumbi?id=" + result[0].id_usuario);
+							});	
+						});
+					})
+				}
 			}
 		});
 	});

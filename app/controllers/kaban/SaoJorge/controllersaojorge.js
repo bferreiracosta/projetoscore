@@ -153,28 +153,31 @@ module.exports.atualizarleitosaojorge= function(application, req, res){
 	var id = req.body.idusuario;
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelsaojorge.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
-			if(setoresrecuperado == ""){
-				modelsaojorge.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
-					modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
-						res.redirect("/leitossaojorge?id=" + result[0].id_usuario);
-					});	
-				});
-			}
-			else if(nome == "Remover"){
-				modelsaojorge.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+			if(nome == "Remover"){
+				console.log(nome)
+				modelsaojorge.mudarpacienteleito(idleito, function(error,resultado){
 					modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
 						res.redirect("/leitossaojorge?id=" + result[0].id_usuario);
 					});	
 				})
 			}
 			else{
-				modelsaojorge.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+				if(setoresrecuperado == ""){
 					modelsaojorge.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
 						modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
 							res.redirect("/leitossaojorge?id=" + result[0].id_usuario);
 						});	
 					});
-				})
+				}
+				else{
+					modelsaojorge.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+						modelsaojorge.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
+							modelsaojorge.buscarleitospacientes(function(error, resultadosetores){
+								res.redirect("/leitossaojorge?id=" + result[0].id_usuario);
+							});	
+						});
+					})
+				}
 			}
 		});
 	});

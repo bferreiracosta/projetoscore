@@ -153,28 +153,31 @@ module.exports.atualizarleitotibery= function(application, req, res){
 	var id = req.body.idusuario;
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modeltibery.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
-			if(setoresrecuperado == ""){
-				modeltibery.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
-					modeltibery.buscarleitospacientes(function(error, resultadosetores){
-						res.redirect("/leitostibery?id=" + result[0].id_usuario);
-					});	
-				});
-			}
-			else if(nome == "Remover"){
-				modeltibery.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+			if(nome == "Remover"){
+				console.log(nome)
+				modeltibery.mudarpacienteleito(idleito, function(error,resultado){
 					modeltibery.buscarleitospacientes(function(error, resultadosetores){
 						res.redirect("/leitostibery?id=" + result[0].id_usuario);
 					});	
 				})
 			}
 			else{
-				modeltibery.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+				if(setoresrecuperado == ""){
 					modeltibery.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
 						modeltibery.buscarleitospacientes(function(error, resultadosetores){
 							res.redirect("/leitostibery?id=" + result[0].id_usuario);
 						});	
 					});
-				})
+				}
+				else{
+					modeltibery.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+						modeltibery.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
+							modeltibery.buscarleitospacientes(function(error, resultadosetores){
+								res.redirect("/leitostibery?id=" + result[0].id_usuario);
+							});	
+						});
+					})
+				}
 			}
 		});
 	});
