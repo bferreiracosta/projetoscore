@@ -23,6 +23,17 @@ module.exports = function(application) {
 		
 	});
 
+	application.get('/cadastrarleitosluizote', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Luizote.controllerluizote.cadastrarleitosluizote(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
 	application.get('/addexameluizote/:idusuario/', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Luizote.controllerluizote.addexameluizote(application, req, res);
@@ -124,10 +135,11 @@ module.exports = function(application) {
 		
 	});
 	
-	application.get('/buscaracomodacaoluizote', function(req, res){
+
+	application.get('/buscarpacientesluizote', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Luizote.controllerluizote.buscaracomodacao(application, req, res);
+			application.app.controllers.kaban.Luizote.controllerluizote.buscarpacientesluizote(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -136,22 +148,11 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/buscarleitosluizote', function(req, res){
-		
-		if(req.session.loggedin){
-			application.app.controllers.kaban.Luizote.controllerluizote.buscarleitos(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
 
-	application.get('/buscarsetorluizote', function(req, res){
+	application.get('/buscaridpacientesluizote', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Luizote.controllerluizote.buscarsetor(application, req, res);
+			application.app.controllers.kaban.Luizote.controllerluizote.buscaridpacientesluizote(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -251,6 +252,17 @@ module.exports = function(application) {
 	application.get('/relatoriokabanluizote', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Luizote.controllerluizote.relatoriokabanluizote(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriosemleitosluizote', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Luizote.controllerluizote.relatoriosemleitosluizote(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";

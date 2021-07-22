@@ -3,14 +3,9 @@
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
 
-<h2>Pacientes Roosevelt</h2>
-<a href="addkabanpacienteroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
-<a href="leitosroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Atualizar Leitos</button></a>
-<a href="calendarioroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-info"  >Calendario Exames</button></a>
-<a href="relatoriovisitasroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-secondary"  >Relatório Visitas</button></a>
-<a href="relatoriodietasroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Relatório Dietas</button></a>
-<a href="infouairoosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a>
-<a href="relatoriosemleitosroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-outline-success"  >Relatório Pacientes sem Leitos</button></a>
+<h2>Pacientes Tibery sem Leitos</h2>
+
+<a href="kabanpacientetibery?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Voltar Pacientes</button></a>
 <br>
 <br>
 <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
@@ -52,10 +47,10 @@
                     
             <tr>
                 <td>
-                    <a href="editkabanroosevelt/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-info edit">Edit</a>
+                    <a href="editkabantibery/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-info edit">Edit</a>
                 </td>
                 <td>
-                    <a href="/addexameroosevelt/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-primary edit">Exames</a>
+                    <a href="/addexametibery/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-primary edit">Exames</a>
                 </td>
                 <td>
                     <a href="" onclick="setaDadosModal('<%=paciente[j].idpaciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#altamodal">Saida</a>
@@ -96,7 +91,7 @@
 <% } %>	
 <% } %>
 <!-- Delete Product Modal-->
-<form id="add-row-form" action="/baixakabanroosevelt" method="POST">
+<form id="add-row-form" action="/baixakabantibery" method="POST">
 <div class="modal fade" id="altamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">

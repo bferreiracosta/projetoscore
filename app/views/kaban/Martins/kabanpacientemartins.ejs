@@ -1,159 +1,162 @@
-<%- include('../cabecalhokaban'); %>
-        <% if(id.length > 0) { %>
-            <% for(var i = 0; i < id.length; i++) {%>
-       
-        <h2>Pacientes Martins</h2>
-        <a href="addkabanpacientemartins?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
-        <a href="leitosmartins?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Atualizar Leitos</button></a>
-        <a href="calendariomartins?id=<%=id[i].id_usuario %>"><button class="btn btn-info"  >Calendario Exames</button></a>
-        <a href="relatoriovisitasmartins?id=<%=id[i].id_usuario %>"><button class="btn btn-secondary"  >Relatório Visitas</button></a>
-        <a href="relatoriodietasmartins?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Relatório Dietas</button></a>
-        <a href="infouaimartins?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a>
-        <br>
-        <br>
-        <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
-         <table class="table table-striped"  style="width: 100%;" id="mytable">
-                       
-            <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th hidden>id</th>
-                    <th>Leito</th>
-                    <th>SusFacil</th>
-                    <th>Prontuario</th>
-                    <th>Nome</th>
-                    <th>Data de Nascimento</th>
-                    <th>Idade</th>
-                    <th>Data Admissão</th>
-                    <th>Dias Internados</th>
-                    <th>Setor</th>
-                    <th>Setor</th>
-                    <th>Medico</th>
-                    <th>Dieta</th>
-                    <th>ECF</th>
-                    <th>Spict</th>
-                    <th>Paliativo</th>
-                    <th>Diagnóstico</th>
-                    <th>Especialidade</th>
-                    <th>Banho</th>
-                    <th>Mobilidade</th>
-                    <th>Observação</th>
-                    <th>Pendencias</th>
-                    
-                </tr>
-                </thead>
-                <tbody>    
-                    <% if(paciente.length > 0) { %>
-                        <% for(var j = 0; j < paciente.length; j++) {%>
-                            
-                    <tr>
-                        <td>
-                            <a href="editkabanmartins/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-info edit">Edit</a>
-                        </td>
-                        <td>
-                            <a href="/addexamemartins/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-primary edit">Exames</a>
-                        </td>
-                        <td>
-                            <a href="" onclick="setaDadosModal('<%=paciente[j].idpaciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#altamodal">Saida</a>
-                        </td>
-                        
-                        <td hidden><%=paciente[j].idpaciente %></td>
-                        <td><%=paciente[j].leito %></td>
-                        <td><%=paciente[j].susfacil %></td>
-                        <th><%=paciente[j].prt %></th>
-                        <td><%=paciente[j].nome %></td>
-                        <td><%=paciente[j].datanascimento %></td>
-                        <td></td>
-                        <td><%=paciente[j].dataentrada %></td>
-                        <td></td>
-                        <td><%=paciente[j].setor %></td>
-                        <td><%=paciente[j].comodo %></td>
-                        <td><%=paciente[j].medico %></td>
-                        <td><%=paciente[j].dieta %></td>
-                        <td><%=paciente[j].ECF %></td>
-                        <td><%=paciente[j].spict %></td>
-                        <td><%=paciente[j].paliativo %></td>
-                        <td><%=paciente[j].diagnostico %></td>
-                        <td><%=paciente[j].especialidade %></td>
-                        <td><%=paciente[j].banho %></td>
-                        <td><%=paciente[j].mobilidade %></td>
-                        <td><%=paciente[j].observacao %></td>
-                        <td><%=paciente[j].pendencias %></td>
-                </tr>
-                <% } %>	
-                <% } %>
-            </tbody>
-        </table>
-        <br>
-        <br>
-        <br>
 
-        
+<%- include('../cabecalhokaban'); %>
+<% if(id.length > 0) { %>
+    <% for(var i = 0; i < id.length; i++) {%>
+
+<h2>Pacientes Martins</h2>
+<a href="addkabanpacientemartins?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
+<a href="leitosmartins?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Atualizar Leitos</button></a>
+<a href="calendariomartins?id=<%=id[i].id_usuario %>"><button class="btn btn-info"  >Calendario Exames</button></a>
+<a href="relatoriovisitasmartins?id=<%=id[i].id_usuario %>"><button class="btn btn-secondary"  >Relatório Visitas</button></a>
+<a href="relatoriodietasmartins?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Relatório Dietas</button></a>
+<a href="infouaimartins?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a>
+<a href="relatoriosemleitosmartins?id=<%=id[i].id_usuario %>"><button class="btn btn-outline-success"  >Relatório Pacientes sem Leitos</button></a>
+<br>
+<br>
+<input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
+ <table class="table table-striped"  style="width: 100%;" id="mytable">
+               
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th hidden>id</th>
+            <th>Leito</th>
+            <th>SusFacil</th>
+            <th>Prontuario</th>
+            <th>Nome</th>
+            <th>Data de Nascimento</th>
+            <th>Idade</th>
+            <th>Data Admissão</th>
+            <th>Dias Internados</th>
+            <th>Setor</th>
+            <th>Setor</th>
+            <th>Medico</th>
+            <th>Dieta</th>
+            <th>ECF</th>
+            <th>Spict</th>
+            <th>Paliativo</th>
+            <th>Diagnóstico</th>
+            <th>Especialidade</th>
+            <th>Banho</th>
+            <th>Mobilidade</th>
+            <th>Observação</th>
+            <th>Pendencias</th>
+            
+        </tr>
+        </thead>
+        <tbody>    
+            <% if(paciente.length > 0) { %>
+                <% for(var j = 0; j < paciente.length; j++) {%>
+                    
+            <tr>
+                <td>
+                    <a href="editkabanmartins/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-info edit">Edit</a>
+                </td>
+                <td>
+                    <a href="/addexamemartins/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-primary edit">Exames</a>
+                </td>
+                <td>
+                    <a href="" onclick="setaDadosModal('<%=paciente[j].idpaciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#altamodal">Saida</a>
+                </td>
+                
+                <td hidden><%=paciente[j].idpaciente %></td>
+                <td><%=paciente[j].leito %></td>
+                <td><%=paciente[j].susfacil %></td>
+                <th><%=paciente[j].prt %></th>
+                <td><%=paciente[j].nome %></td>
+                <td><%=paciente[j].datanascimento %></td>
+                <td></td>
+                <td><%=paciente[j].dataentrada %></td>
+                <td></td>
+                <td><%=paciente[j].setor %></td>
+                <td><%=paciente[j].comodo %></td>
+                <td><%=paciente[j].medico %></td>
+                <td><%=paciente[j].dieta %></td>
+                <td><%=paciente[j].ECF %></td>
+                <td><%=paciente[j].spict %></td>
+                <td><%=paciente[j].paliativo %></td>
+                <td><%=paciente[j].diagnostico %></td>
+                <td><%=paciente[j].especialidade %></td>
+                <td><%=paciente[j].banho %></td>
+                <td><%=paciente[j].mobilidade %></td>
+                <td><%=paciente[j].observacao %></td>
+                <td><%=paciente[j].pendencias %></td>
+        </tr>
         <% } %>	
         <% } %>
-    <!-- Delete Product Modal-->
-    <form id="add-row-form" action="/baixakabanmartins" method="POST">
-        <div class="modal fade" id="altamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="myModalLabel">Baixa Paciente</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <select  class="form-control" onchange="verificadestino(this.value)"  id="baixaselect" name="baixaselect">
-                            <option value="" disabled selected hidden>Exame</option>
-                            <option value="Transferência">Transferência</option>
-                            <option value="Alta">Alta</option>
-                            <option value="Óbito">Óbito</option>
-                            <option value="Evasão">Evasão</option>
-                        </select>
-                        <select  class="form-control"  id="destino" name="destino">
-                            <option value="" disabled selected hidden>Destino</option>
-                            <option value="HMU">HMU</option>
-                            <option value="UFU">UFU</option>
-                            <option value="CIM">CIM</option>
-                            <option value="Anexo HMU">Anexo HMU</option>
-                            <option value="CIP">CIP</option>
-                            <option value="Uai Planalto">Uai Planalto</option>
-                            <option value="Uai Martins">Uai Martins</option>
-                            <option value="Uai Luizote">Uai Luizote</option>
-                            <option value="Uai Roosevelt">Uai Roosevelt</option>
-                            <option value="Uai Pampulha">Uai Pampulha</option>
-                            <option value="Uai São Jorge">Uai São Jorge</option>
-                            <option value="Uai Tibery">Uai Tibery</option>
-                            <option value="Uai Morumbi">Uai Morumbi</option>
-                        </select>
-                        <select  class="form-control"  id="alta" name="alta">
-                            <option value="" disabled selected hidden>Destino</option>
-                            <option value="Alta Domiciliar">Alta Domociliar</option>
-                            <option value="Alta Melhor em Casa">Alta Melhor em Casa</option>
-                        </select>
-                        
-                        <input type="hidden" name="campo" id="campo">
-                        <input type="hidden" name="campo2" id="campo2">
-                        <input type="hidden" name="baixa" id="baixa">
-                        <input type="hidden" name="destino2" id="destino2">
-                        <input type="hidden" name="alta2" id="alta2">
-                      </div>
-                      <input  type="hidden" name="covid" id="covid">
-                      <div id="hora" class="form-group">
-                        <input  type="hidden" id="data" name="data"  class="form-control">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-success">Atualizar</button>
-                    </div>
-                </div>
+    </tbody>
+</table>
+<br>
+<br>
+<br>
+
+
+<% } %>	
+<% } %>
+<!-- Delete Product Modal-->
+<form id="add-row-form" action="/baixakabanmartins" method="POST">
+<div class="modal fade" id="altamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Baixa Paciente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <select  class="form-control" onchange="verificadestino(this.value)"  id="baixaselect" name="baixaselect">
+                    <option value="" disabled selected hidden>Exame</option>
+                    <option value="Transferência">Transferência</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Óbito">Óbito</option>
+                    <option value="Evasão">Evasão</option>
+                </select>
+                <select  class="form-control"  id="destino" name="destino">
+                    <option value="" disabled selected hidden>Destino</option>
+                    <option value="HMU">HMU</option>
+                    <option value="UFU">UFU</option>
+                    <option value="CIM">CIM</option>
+                    <option value="Anexo HMU">Anexo HMU</option>
+                    <option value="CIP">CIP</option>
+                    <option value="Uai Planalto">Uai Planalto</option>
+                    <option value="Uai Martins">Uai Martins</option>
+                    <option value="Uai Luizote">Uai Luizote</option>
+                    <option value="Uai Roosevelt">Uai Roosevelt</option>
+                    <option value="Uai Pampulha">Uai Pampulha</option>
+                    <option value="Uai São Jorge">Uai São Jorge</option>
+                    <option value="Uai Tibery">Uai Tibery</option>
+                    <option value="Uai Morumbi">Uai Morumbi</option>
+                </select>
+                <select  class="form-control"  id="alta" name="alta">
+                    <option value="" disabled selected hidden>Destino</option>
+                    <option value="Alta Domiciliar">Alta Domociliar</option>
+                    <option value="Alta Melhor em Casa">Alta Melhor em Casa</option>
+                </select>
+                
+                <input type="hidden" name="campo" id="campo">
+                <input type="hidden" name="campo2" id="campo2">
+                <input type="hidden" name="baixa" id="baixa">
+                <input type="hidden" name="destino2" id="destino2">
+                <input type="hidden" name="alta2" id="alta2">
+              </div>
+              <input  type="hidden" name="covid" id="covid">
+              <div id="hora" class="form-group">
+                <input  type="hidden" id="data" name="data"  class="form-control">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-success">Atualizar</button>
             </div>
         </div>
-    </form>
+    </div>
+</div>
+</form>
 
-       </div>
+</div>
+        
 <!-- Importando o jQuery -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.js"></script>
@@ -177,212 +180,212 @@
 </body>
 </html>
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 var groupColumn = 12;
 $('#mytable').DataTable( { 
 dom: 'Bfrtip',
 "scrollX": true,
 rowGroup: {
-       dataSrc: 'groupColumn'
-   },
+dataSrc: 'groupColumn'
+},
 "columnDefs": [
-            { type: 'natural', targets: [4] },
-           { "visible": false, "targets": groupColumn },
-           {"className": "dt-center", "targets": "_all"},
-          
-          
-       ],
-       fixedColumns: true,
-       rowGroup: {
-           dataSrc: groupColumn,
-       },
-       "order": [[groupColumn, 'asc' ],[ 4, 'asc' ] ],
-       pageLength: 50,
-       "drawCallback": function ( settings ) {
-           var api = this.api();
-           var rows = api.rows( {page:'current'} ).nodes();
-           var last=null;
+    { type: 'natural', targets: [4] },
+   { "visible": false, "targets": groupColumn },
+   {"className": "dt-center", "targets": "_all"},
+  
+  
+],
+fixedColumns: true,
+rowGroup: {
+   dataSrc: groupColumn,
+},
+"order": [[groupColumn, 'asc' ],[ 4, 'asc' ] ],
+pageLength: 50,
+"drawCallback": function ( settings ) {
+   var api = this.api();
+   var rows = api.rows( {page:'current'} ).nodes();
+   var last=null;
 
-           api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
-               if ( last !== group ) {
-                   $(rows).eq( i ).before(
-                       '<tr class="group" style = "background-color: #ddd !important;text-align: center !important"><td colspan="23" >'+group+'</td></tr>'
-                   );
+   api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
+       if ( last !== group ) {
+           $(rows).eq( i ).before(
+               '<tr class="group" style = "background-color: #ddd !important;text-align: center !important"><td colspan="23" >'+group+'</td></tr>'
+           );
 
-                   last = group;
-               }
-           } );
-       },
-       buttons: [       
-           {
-               "extend": "copyHtml5",
-               "text": "COPIAR",
-               orientation: 'landscape',
-               pageSize: 'LEGAL',
-              
-           },          
-           {
-               "extend": "pdf",
-               "text": "PDF",
-               orientation: 'landscape',
-               pageSize: 'LEGAL',
-               customize: function(doc) {
-                    //pageMargins [left, top, right, bottom] 
-                    doc.pageMargins = [ 10, 20, 10, 10 ];
-                    doc.defaultStyle.fontSize = 8,
-                    doc.styles.tableBodyEven.alignment = 'center';
-                   doc.styles.tableBodyOdd.alignment = 'center';
-                }, 
-               exportOptions: {
-                   grouped_array_index: [groupColumn],
-                   columns: ':visible'
-               },
-           },
-           {
-               "extend": "excelHtml5",
-               "text": "EXCEL",
-               exportOptions: {
-                   grouped_array_index: [groupColumn],
-                   columns: ':visible'
-               },
-               customize: function( xlsx ) {
-               var sheet = xlsx.xl.worksheets['sheet1.xml'];
-               $('c', sheet).attr( 's', '51' );
-
-           },
-           orientation: 'landscape',
-               pageSize: 'LEGAL'
-           },
-           {
-               "extend": "print",
-               "text": "IMPRIMIR", 
-               exportOptions: {
-                   grouped_array_index: [groupColumn],
-                   columns: ':visible'
-               },
-               customize: function ( win ) {
-                    $(win.document.body)
-                    .css( 'font-size', '12px' );
-
-                $(win.document.body).find( 'table' )
-                    .css( 'font-size', '12px' );
-                },
-                orientation: 'landscape',
-                pageSize: 'LEGAL'
-            }
-           
-       ],language: {
-           buttons: {
-               copyTitle: 'Copiado para área de transferência',
-               copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
-               copySuccess: {
-                   _: '%d linhas copiadas',
-                   1: '1 linha copiada'
-               }
-           },
-           "paginate": {
-               "previous": "Anterior",
-               "next": "Próximo"
-           },
-           "search": "Pesquisar:"
-       },
-       select: true
+           last = group;
+       }
    } );
+},
+buttons: [       
+   {
+       "extend": "copyHtml5",
+       "text": "COPIAR",
+       orientation: 'landscape',
+       pageSize: 'LEGAL',
+      
+   },          
+   {
+       "extend": "pdf",
+       "text": "PDF",
+       orientation: 'landscape',
+       pageSize: 'LEGAL',
+       customize: function(doc) {
+            //pageMargins [left, top, right, bottom] 
+            doc.pageMargins = [ 10, 20, 10, 10 ];
+            doc.defaultStyle.fontSize = 8,
+            doc.styles.tableBodyEven.alignment = 'center';
+           doc.styles.tableBodyOdd.alignment = 'center';
+        }, 
+       exportOptions: {
+           grouped_array_index: [groupColumn],
+           columns: ':visible'
+       },
+   },
+   {
+       "extend": "excelHtml5",
+       "text": "EXCEL",
+       exportOptions: {
+           grouped_array_index: [groupColumn],
+           columns: ':visible'
+       },
+       customize: function( xlsx ) {
+       var sheet = xlsx.xl.worksheets['sheet1.xml'];
+       $('c', sheet).attr( 's', '51' );
+
+   },
+   orientation: 'landscape',
+       pageSize: 'LEGAL'
+   },
+   {
+       "extend": "print",
+       "text": "IMPRIMIR", 
+       exportOptions: {
+           grouped_array_index: [groupColumn],
+           columns: ':visible'
+       },
+       customize: function ( win ) {
+            $(win.document.body)
+            .css( 'font-size', '12px' );
+
+        $(win.document.body).find( 'table' )
+            .css( 'font-size', '12px' );
+        },
+        orientation: 'landscape',
+        pageSize: 'LEGAL'
+    }
+   
+],language: {
+   buttons: {
+       copyTitle: 'Copiado para área de transferência',
+       copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+       copySuccess: {
+           _: '%d linhas copiadas',
+           1: '1 linha copiada'
+       }
+   },
+   "paginate": {
+       "previous": "Anterior",
+       "next": "Próximo"
+   },
+   "search": "Pesquisar:"
+},
+select: true
+} );
 } );
 
 
 $('#mytable tbody tr').each(function(i){
-            tr=$(this);
-            valor=tr.children('td:eq(9)').html();
-            var data2 = valor;
-            // Precisamos quebrar a string para retornar cada parte
-            const dataSplit = data2.split('/');
-            const day = dataSplit[0]; // 30
-            const month = dataSplit[1]; // 03
-            const year = dataSplit[2]; // 2019
-            // Agora podemos inicializar o objeto Date, lembrando que o mês começa em 0, então fazemos -1.
-            data2 = new Date(year, month - 1, day);
-            const now = new Date(); // Data de hoje
-            const diff = Math.abs(now.getTime() - data2.getTime()); // Subtrai uma data pela outra
-            const days = Math.ceil(diff / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
-            // Mostra a diferença em dias
-            tr.children('td:eq(10)').text(days + " dias");
-            idade=tr.children('td:eq(7)').html();
-            var data3 = idade;
-            // Precisamos quebrar a string para retornar cada parte
-            const dataSplits = data3.split('/');
-            const dayss = dataSplits[0]; // 30
-            const months = dataSplits[1]; // 03
-            const years = dataSplits[2]; // 2019
-            // Agora podemos inicializar o objeto Date, lembrando que o mês começa em 0, então fazemos -1.
-            data3 = new Date(years, months - 1, dayss);
-            tr.children('td:eq(8)').text(calcularIdade(data3)+ " anos");
+    tr=$(this);
+    valor=tr.children('td:eq(9)').html();
+    var data2 = valor;
+    // Precisamos quebrar a string para retornar cada parte
+    const dataSplit = data2.split('/');
+    const day = dataSplit[0]; // 30
+    const month = dataSplit[1]; // 03
+    const year = dataSplit[2]; // 2019
+    // Agora podemos inicializar o objeto Date, lembrando que o mês começa em 0, então fazemos -1.
+    data2 = new Date(year, month - 1, day);
+    const now = new Date(); // Data de hoje
+    const diff = Math.abs(now.getTime() - data2.getTime()); // Subtrai uma data pela outra
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
+    // Mostra a diferença em dias
+    tr.children('td:eq(10)').text(days + " dias");
+    idade=tr.children('td:eq(7)').html();
+    var data3 = idade;
+    // Precisamos quebrar a string para retornar cada parte
+    const dataSplits = data3.split('/');
+    const dayss = dataSplits[0]; // 30
+    const months = dataSplits[1]; // 03
+    const years = dataSplits[2]; // 2019
+    // Agora podemos inicializar o objeto Date, lembrando que o mês começa em 0, então fazemos -1.
+    data3 = new Date(years, months - 1, dayss);
+    tr.children('td:eq(8)').text(calcularIdade(data3)+ " anos");
 });
 
 function calcularIdade(aniversario) {
-    var ano_atual = new Date().getFullYear();
+var ano_atual = new Date().getFullYear();
 var data_aniversario = new Date(aniversario).getFullYear();;
 // var ano_informado = data_aniversario.split('/')[2];
 return (ano_atual - data_aniversario);
-   
+
 }
 
-    function pad(s){
-            return (s<10) ? '0' + s :s;
-        }
-    function novaHora(){
-        
-        var date = new Date();
-        document.getElementById('data').value = ("0" + date.getDate()).slice(-2) + "/" + (("0" + (date.getMonth() + 1)).slice(-2)) + "/" + date.getFullYear();
-    }
-    novaHora();
-    
-    
-    function setaDadosModal(valor) {
-        document.getElementById('campo').value = valor;
-    }
-    
-    function setaDadosModal2(valor) {
-        document.getElementById('campo2').value = valor;
-    }
-    $("#baixaselect").on('change', function(e){
-        var baixa = $(this).val();
-        document.getElementById('baixa').value = baixa;
-    });
-    $("#destino").on('change', function(e){
-        var destino = $(this).val();
-        document.getElementById('destino2').value = destino;
-    });
-    $("#alta").on('change', function(e){
-        var alta = $(this).val();
-        document.getElementById('alta2').value = alta;
-    });
-    
-    function verificadestino(value){
-	var input = document.getElementById("destino");
-    var input2 = document.getElementById("alta");
-	
-	
-  if(value == "Transferência"){
-    input.style.display = "inline";
-    input2.style.display = "none";
-    document.getElementById('alta2').value = "Paciente Transferido";
-	
-  }else if(value == "Alta"){
-	input.style.display = "none";
-	input2.style.display = "inline";
-    document.getElementById('destino2').value = "Paciente foi de Alta";
-  }else{
-    input.style.display = "none";
-    input2.style.display = "none";
-    document.getElementById('alta2').value = "Não Aplicado";
-    document.getElementById('destino2').value = "Não Aplicado";
-  }
+function pad(s){
+    return (s<10) ? '0' + s :s;
+}
+function novaHora(){
+
+var date = new Date();
+document.getElementById('data').value = ("0" + date.getDate()).slice(-2) + "/" + (("0" + (date.getMonth() + 1)).slice(-2)) + "/" + date.getFullYear();
+}
+novaHora();
+
+
+function setaDadosModal(valor) {
+document.getElementById('campo').value = valor;
+}
+
+function setaDadosModal2(valor) {
+document.getElementById('campo2').value = valor;
+}
+$("#baixaselect").on('change', function(e){
+var baixa = $(this).val();
+document.getElementById('baixa').value = baixa;
+});
+$("#destino").on('change', function(e){
+var destino = $(this).val();
+document.getElementById('destino2').value = destino;
+});
+$("#alta").on('change', function(e){
+var alta = $(this).val();
+document.getElementById('alta2').value = alta;
+});
+
+function verificadestino(value){
+var input = document.getElementById("destino");
+var input2 = document.getElementById("alta");
+
+
+if(value == "Transferência"){
+input.style.display = "inline";
+input2.style.display = "none";
+document.getElementById('alta2').value = "Paciente Transferido";
+
+}else if(value == "Alta"){
+input.style.display = "none";
+input2.style.display = "inline";
+document.getElementById('destino2').value = "Paciente foi de Alta";
+}else{
+input.style.display = "none";
+input2.style.display = "none";
+document.getElementById('alta2').value = "Não Aplicado";
+document.getElementById('destino2').value = "Não Aplicado";
+}
 };
 
 window.onload = function() {
-  document.getElementById('destino').style.display = 'none';
-  document.getElementById('alta').style.display = 'none';
-  
+document.getElementById('destino').style.display = 'none';
+document.getElementById('alta').style.display = 'none';
+
 };
-    </script>
+</script>

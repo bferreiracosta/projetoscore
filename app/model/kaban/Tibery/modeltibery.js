@@ -10,8 +10,14 @@ modeltibery.prototype.buscarpaciente = function(unidade, callback){
 
 modeltibery.prototype.buscarpacienterelatorio = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM portal_paciente.leitokaban inner join kaban on leitokaban.idpaciente = kaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null;', callback);
+	this._conection.query('SELECT * FROM portal_paciente.kaban inner join leitokaban on kaban.idpaciente = leitokaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null;', callback);
 }
+
+modeltibery.prototype.buscarpacientesemleitos = function(unidade, callback){
+	
+	this._conection.query('SELECT * FROM kaban where kaban.unidade = "Tibery" and kaban.baixa is null and idpaciente not in (select idpaciente from leitokaban where idpaciente is not null);', callback);
+}
+
 
 modeltibery.prototype.buscarexames = function(callback){
 	
@@ -40,7 +46,12 @@ modeltibery.prototype.deleteexametibery = function(idevento, callback){
 
 modeltibery.prototype.buscarleitospacientes = function(callback){
 	
-	this._conection.query('select * from leitokaban where baixa is null and unidade = "Tibery"', callback);
+	this._conection.query('SELECT * FROM portal_paciente.leitokaban inner join kaban on leitokaban.idpaciente = kaban.idpaciente where kaban.unidade = "Tibery" and kaban.baixa is null;', callback);
+}
+
+modeltibery.prototype.cadastrarleitostibery = function(callback){
+	
+	this._conection.query('select * from leitokaban where unidade = "Tibery"', callback);
 }
 
 modeltibery.prototype.addcentralid = function(idpaciente,nome, unidade,callback){
@@ -64,8 +75,8 @@ modeltibery.prototype.buscarleitosnome = function(valor,callback){
 }
 
 modeltibery.prototype.buscarleitospacientesporid = function(valor, callback){
-	
-	this._conection.query('select setor, leito, acomodacao from leitokaban where idpaciente = "'+valor+'"', callback);
+
+	this._conection.query('select idleito from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
 modeltibery.prototype.buscarleitospacientespornome = function(valor, callback){
@@ -73,9 +84,14 @@ modeltibery.prototype.buscarleitospacientespornome = function(valor, callback){
 	this._conection.query('select nome from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
-modeltibery.prototype.atualizarleitokaban = function(idpaciente, setor, leito,acomodacao, callback){
+modeltibery.prototype.atualizarleitokaban = function(idleito, idpaciente, nome, callback){
 	
-	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'", acomodacao = "'+acomodacao+'"  where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update leitokaban set idpaciente = "'+idpaciente+'", nome = "'+nome+'"  where idleito = "'+idleito+'"', callback);
+}
+
+modeltibery.prototype.mudarpacienteleito = function(idleito, callback){
+	
+	this._conection.query('update leitokaban set idpaciente = null, nome = null  where idleito = "'+idleito+'"', callback);
 }
 
 modeltibery.prototype.buscarleitoativo = function(idsetor, leito, callback){
@@ -103,21 +119,14 @@ modeltibery.prototype.buscarsetoresid = function(setor, callback){
 	this._conection.query('select idsetor from setor where setor = "'+setor+'"  and unidade = "Tibery"', callback);
 }
 
-modeltibery.prototype.buscarsetores = function(callback){
+modeltibery.prototype.buscarpacientestibery = function(callback){
 	
-	this._conection.query('select * from setor inner join leitos on setor.idsetor = leitos.idsetor where status != "Inativo" and setor.unidade = "Tibery"  group by setor', callback);
+	this._conection.query('select * from kaban where unidade = "Tibery" and baixa is null', callback);
 }
 
-modeltibery.prototype.buscarleitos = function(valor, callback){
-
-	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo"  and setor.unidade = "Tibery"', callback);
-
-}
-
-modeltibery.prototype.buscaracomodacao = function(valor, callback){
-
-	this._conection.query('select * from acomodacao inner join setor on acomodacao.idsetor = setor.idsetor inner join leitos on acomodacao.idleito = leitos.idleito where setor.setor = "'+valor.valorsetor+'" and leitos = "'+valor.valorleito+'" and acomodacao.unidade = "Tibery" and leitos.status = "Ativo";', callback);
-
+modeltibery.prototype.buscarpacientesidtibery = function(valor, callback){
+	
+	this._conection.query('select idpaciente from kaban where unidade = "Tibery" and baixa is null and nome="'+valor.valor+'"', callback);
 }
 
 modeltibery.prototype.buscardispositivohora = function(unidade, callback){
@@ -432,7 +441,7 @@ modeltibery.prototype.buscarinternacaodiatibery = function(unidade, callback){
 
 modeltibery.prototype.buscarsetorestibery = function(callback){
 
-	this._conection.query('select tib.idtibery, tib.setor, tib.capacidade, tib.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Tibery" and baixa is null and setor = tib.setor and acomodacao="Cama") as qtdcama,tib.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Tibery" and baixa is null and setor = tib.setor and acomodacao="Maca") as qtdmaca,tib.bloqueado, tib.datas, tib.hora  from leitokaban l inner join tibery tib where unidade = "Tibery" and baixa is null group by tib.setor;', callback);
+	this._conection.query('select lui.idtibery, lui.setor, lui.capacidade, lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Tibery" and acomodacao="Cama" and nome is not null and setor = lui.setor) as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Tibery" and acomodacao="Maca" and nome is not null and setor = lui.setor) as qtdmaca,lui.bloqueado, lui.datas, lui.hora from tibery lui', callback);
 }
 
 modeltibery.prototype.buscarbanhomanhatibery = function(callback){

@@ -22,9 +22,10 @@ module.exports = function(application) {
 		}
 		
 	});
-	application.get('/relatoriodietasmorumbi', function(req, res){
+
+	application.get('/cadastrarleitosmorumbi', function(req, res){
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Morumbi.controllermorumbi.relatoriodietasmorumbi(application, req, res);
+			application.app.controllers.kaban.Morumbi.controllermorumbi.cadastrarleitosmorumbi(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -33,16 +34,6 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/relatoriovisitasmorumbi', function(req, res){
-		if(req.session.loggedin){
-			application.app.controllers.kaban.Morumbi.controllermorumbi.relatoriovisitasmorumbi(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
 	application.get('/addexamemorumbi/:idusuario/', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Morumbi.controllermorumbi.addexamemorumbi(application, req, res);
@@ -144,22 +135,11 @@ module.exports = function(application) {
 		
 	});
 	
-	application.get('/buscaracomodacaomorumbi', function(req, res){
+
+	application.get('/buscarpacientesmorumbi', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Morumbi.controllermorumbi.buscaracomodacao(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
-	
-	application.get('/buscarleitosmorumbi', function(req, res){
-		
-		if(req.session.loggedin){
-			application.app.controllers.kaban.Morumbi.controllermorumbi.buscarleitos(application, req, res);
+			application.app.controllers.kaban.Morumbi.controllermorumbi.buscarpacientesmorumbi(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -168,10 +148,11 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/buscarsetormorumbi', function(req, res){
+
+	application.get('/buscaridpacientesmorumbi', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Morumbi.controllermorumbi.buscarsetor(application, req, res);
+			application.app.controllers.kaban.Morumbi.controllermorumbi.buscaridpacientesmorumbi(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -234,7 +215,7 @@ module.exports = function(application) {
 		}
 		
 	});
-
+	
 	application.get('/newskabanmorumbi', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Morumbi.controllermorumbi.newsmorumbi(application, req, res);
@@ -271,6 +252,39 @@ module.exports = function(application) {
 	application.get('/relatoriokabanmorumbi', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Morumbi.controllermorumbi.relatoriokabanmorumbi(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriosemleitosmorumbi', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Morumbi.controllermorumbi.relatoriosemleitosmorumbi(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriodietasmorumbi', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Morumbi.controllermorumbi.relatoriodietasmorumbi(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriovisitasmorumbi', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Morumbi.controllermorumbi.relatoriovisitasmorumbi(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -507,6 +521,8 @@ module.exports = function(application) {
 		}
 		
 	});
+
+	
 	application.get('/infouaimorumbi', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Morumbi.controllermorumbi.infouaimorumbi(application, req, res);

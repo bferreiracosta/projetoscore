@@ -3,6 +3,7 @@
     <% for(var i = 0; i < id.length; i++) {%>
     <h2>Central leito UAI Planalto</h2>
     <a href="kabanpacienteplanalto?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Voltar Paciente</button></a>
+    <a href="cadastrarleitosplanalto?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Cadastrar Leitos</button></a>
         <br>
         <br>
       
@@ -11,15 +12,19 @@
             <thead>
                 <tr>
 
-                    <th>ID</th>
-                   
-                    <th>Paciente</th>
-                   
+                    <th hidden>Idleito</th>
+
                     <th>Setor</th>
                    
                     <th>Leito</th>
 
                     <th>Acomodação</th>
+
+                    <th hidden>ID</th>
+                   
+                    <th>Paciente</th>
+                   
+                   
                   
                 </tr>
             </thead>
@@ -27,22 +32,25 @@
                 <% if(leito.length > 0) { %>
                     <% for(var j = 0; j < leito.length; j++) {%>
                 <tr>
+                    <td hidden><%=leito[j].idleito %></td>    
 
-                    <td><%=leito[j].idpaciente %></td>
-                   
-                    <td><%=leito[j].nome %></td>
-                   
                     <td><%=leito[j].setor %></td>    
                     
                     <td><%=leito[j].leito %></td>   
 
                     <td><%=leito[j].acomodacao %></td>   
+
+                    <td hidden><%=leito[j].idpaciente %></td>
+                   
+                    <td><%=leito[j].nome %></td>
+                   
+                    
                 </tr>
                 <% } %>	
                 <% } %>
             </tbody>
         </table>
-        <form id="add-row-form" action="/atualizarleitoplanalto" method="POST">
+        <form id="add-row-form4" action="/atualizarleitoplanalto" method="POST">
        <div class="modal fade" id="DescModal" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -52,34 +60,24 @@
                     </div>
                 
                     <div class="modal-body">
-                                           
+                              
                         <div class="form-group">
-                            <label for="posto"> Nome Paciente</label>
-                            <input type="text" name="nome" id="nome" class="form-control paciente"  >
+                            <label hidden for="posto"> Idleito</label>
+                            <input type="hidden" name="idleito" id="idleito" class="form-control idleito2"  >
                         </div>
                         <div class="form-group">
-                            <input type="hidden" name="idpaciente" id="idpaciente" class="form-control id"  >
-                        </div> 
-                        <div class="form-group">
                             <label for="posto"> Setor</label>
-                            <select name="setor" id="setor" class="form-control setor" required >
+                            <input disabled type="text" name="setor" id="setor" class="form-control setor2"  >
+                        </div>
+                        <div class="form-group">
+                            <label for="posto"> Paciente</label>
+                            <select name="nomeselect" id="nomeselect" class="form-control setor" required >
                                 <option ></option> 
                             </select>
-                            <input type="hidden" name="setor2" id="setor2" class="form-control setor2"  >
+                            <input type="hidden" name="nome" id="nome" class="form-control paciente"  >
                         </div> 
                         <div class="form-group">
-                            <label for="posto"> Leito</label>
-                            <select name="leito" id="leito" class="form-control leito" required>
-                                <option></option>  
-                            </select>
-                            <input type="hidden" name="leito2" id="leito2" class="form-control leito2"  >
-                        </div> 
-                        <div class="form-group">
-                            <label for="posto"> Acomodação</label>
-                            <select name="acomodacao" id="acomodacao" class="form-control leito" required >
-                                <option></option>  
-                            </select>
-                            <input type="hidden" name="acomodacao2" id="acomodacao2" class="form-control acomodacao2"  >
+                            <input type="hidden" name="idpaciente" id="idpaciente" class="form-control id"  >
                         </div> 
                         
                     <input  type="hidden" class="form-control idusuario"  name="idusuario" id="idusuario">
@@ -94,13 +92,14 @@
             <!-- /.modal-dialog-->
         </div>
     </form>
+
         <br>
         <br>
         <br>
         <% } %>	
         <% } %>
 <!-- Importando o jQuery -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
@@ -117,114 +116,70 @@
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>   
+
 $(document).ready(function() {
-    $("input[type=submit]").prop("disabled", true);
  obj = [];
     $.ajax({
         type: "GET",
         data: obj,
         contentType: 'application/json',
-        url: '/buscarsetorplanalto',
+        url: '/buscarpacientesplanalto',
         success: function(obj) {  
             if (obj.length > 0){
-                var option = '<option>Selecione o Leito </option>';
+                var option = '<option>Selecione ou Remova um Leito </option>';
+                option += '<option value="Remover">Remover paciente ou Leitos </option>';
                 for (var i=0;i<obj.length;i++){
-                var setor = obj[i].setor;
-                option += '<option value="'+setor+'">'+setor+'</option>';
+                var nome = obj[i].nome;
+                
+                option += '<option value="'+nome+'">'+nome+'</option>';
             }
-			  $('#setor').html(option).show();
+			  $('#nomeselect').html(option).show();
+
             }
         }
     });
 });
 
-$("#setor").on('change', function(e){
-    var select = document.getElementById("setor");
+$("#nomeselect").on('change', function(e){
+    var select = document.getElementById("nomeselect");
     var opcaoValor = select.options[select.selectedIndex].value;
     data = [];
     $.ajax({
         type: "GET",
         data: { valor: opcaoValor},
         contentType: 'application/json',
-        url: '/buscarleitosplanalto',
+        url: '/buscaridpacientesplanalto',
         success: function(data) {  
             if (data.length > 0){
-                var option = '<option>Selecione o Leito </option>';
-                for (var i=0;i<data.length;i++){
-                var leito = data[i].leitos;
-                option += '<option value="'+leito+'">'+leito+'</option>';
-            }
-			  $('#leito').html(option).show();
+                $('#idpaciente').val(data[0].idpaciente);
             }
         }
     });
 });
 
-$("#leito").on('change', function(e){
-    var select = document.getElementById("setor");
-    var opcaoValor =  select.options[select.selectedIndex].value;
-    var selectleito = document.getElementById("leito");
-    var opcaoValorleito =  selectleito.options[selectleito.selectedIndex].value;
-    dataleito = [];
-    $.ajax({
-        type: "GET",
-        data: { valorleito: opcaoValorleito, valorsetor: opcaoValor},
-        contentType: 'application/json',
-        url: '/buscaracomodacaoplanalto',
-        success: function(dataleito) {  
-            if (dataleito.length > 0){
-                var option = '<option>Selecione a Acomodação </option>';
-                for (var i=0;i<dataleito.length;i++){
-                var acomodacao = dataleito[i].acomodacao;
-                option += '<option value="'+acomodacao+'">'+acomodacao+'</option>';
-            }
-			  $('#acomodacao').html(option).show();
-            }
-        }
-    });
+$("#nomeselect").on('change', function(e){
+	var nome = document.getElementById('nomeselect').value;
+	document.getElementById('nome').value = nome;
 });
 
-$("#setor").on('change', function(e){
-	var setor = document.getElementById('setor').value;
-	document.getElementById('setor2').value = setor;
-});
-
-$("#leito").on('change', function(e){
-	var leito = document.getElementById('leito').value;
-	document.getElementById('leito2').value = leito;
-});
-
-$("#acomodacao").on('change', function(e){
-	var acomodacao = document.getElementById('acomodacao').value;
-	document.getElementById('acomodacao2').value = acomodacao;
-    variavelacomodacao = document.getElementById('acomodacao2').value;
-    if (variavelacomodacao != null) {
-        $("input[type=submit]").prop("disabled", false);
-    }
-});
 
 $('#mytable').on('dblclick', 'tr', function () {
-        var idpaciente = "";
-        var leito = "";
         var setor = "";
-        var nome = "";
+        var idleito = "";
         var idusuario = "";
         
         var tableData = $(this).children("td").map(function()         {
          return $(this).text();
          }).get();
          idusuario = document.getElementById('usuario').value;
-         setor2 =$.trim(tableData[2]);
-         leito2 =$.trim(tableData[3]);
-         nome =$.trim(tableData[1]);
-         idpaciente =$.trim(tableData[0]);
+         setor2 =$.trim(tableData[1]);
+         idleito =$.trim(tableData[0]);
          $('input.setor2').val(setor2);
-         $('input.leito2').val(leito2);
-         $('input.id').val(idpaciente);
-         $('input.paciente').val(nome);
+         $('input.idleito2').val(idleito);
          $('input.idusuario').val(idusuario);
         $('#DescModal').modal("show");
     });
+
 
 
  $(document).ready(function() {

@@ -22,9 +22,10 @@ module.exports = function(application) {
 		}
 		
 	});
-	application.get('/relatoriodietasplanalto', function(req, res){
+
+	application.get('/cadastrarleitosplanalto', function(req, res){
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Planalto.controllerplanalto.relatoriodietasplanalto(application, req, res);
+			application.app.controllers.kaban.Planalto.controllerplanalto.cadastrarleitosplanalto(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -33,16 +34,6 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/relatoriovisitasplanalto', function(req, res){
-		if(req.session.loggedin){
-			application.app.controllers.kaban.Planalto.controllerplanalto.relatoriovisitasplanalto(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
 	application.get('/addexameplanalto/:idusuario/', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Planalto.controllerplanalto.addexameplanalto(application, req, res);
@@ -144,22 +135,11 @@ module.exports = function(application) {
 		
 	});
 	
-	application.get('/buscaracomodacaoplanalto', function(req, res){
+
+	application.get('/buscarpacientesplanalto', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Planalto.controllerplanalto.buscaracomodacao(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
-	
-	application.get('/buscarleitosplanalto', function(req, res){
-		
-		if(req.session.loggedin){
-			application.app.controllers.kaban.Planalto.controllerplanalto.buscarleitos(application, req, res);
+			application.app.controllers.kaban.Planalto.controllerplanalto.buscarpacientesplanalto(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -168,10 +148,11 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/buscarsetorplanalto', function(req, res){
+
+	application.get('/buscaridpacientesplanalto', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Planalto.controllerplanalto.buscarsetor(application, req, res);
+			application.app.controllers.kaban.Planalto.controllerplanalto.buscaridpacientesplanalto(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -234,7 +215,7 @@ module.exports = function(application) {
 		}
 		
 	});
-
+	
 	application.get('/newskabanplanalto', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Planalto.controllerplanalto.newsplanalto(application, req, res);
@@ -271,6 +252,39 @@ module.exports = function(application) {
 	application.get('/relatoriokabanplanalto', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Planalto.controllerplanalto.relatoriokabanplanalto(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriosemleitosplanalto', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Planalto.controllerplanalto.relatoriosemleitosplanalto(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriodietasplanalto', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Planalto.controllerplanalto.relatoriodietasplanalto(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriovisitasplanalto', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Planalto.controllerplanalto.relatoriovisitasplanalto(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -507,6 +521,8 @@ module.exports = function(application) {
 		}
 		
 	});
+
+	
 	application.get('/infouaiplanalto', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Planalto.controllerplanalto.infouaiplanalto(application, req, res);

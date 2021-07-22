@@ -22,9 +22,10 @@ module.exports = function(application) {
 		}
 		
 	});
-	application.get('/relatoriodietassaojorge', function(req, res){
+
+	application.get('/cadastrarleitossaojorge', function(req, res){
 		if(req.session.loggedin){
-			application.app.controllers.kaban.SaoJorge.controllersaojorge.relatoriodietassaojorge(application, req, res);
+			application.app.controllers.kaban.SaoJorge.controllersaojorge.cadastrarleitossaojorge(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -33,16 +34,6 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/relatoriovisitassaojorge', function(req, res){
-		if(req.session.loggedin){
-			application.app.controllers.kaban.SaoJorge.controllersaojorge.relatoriovisitassaojorge(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
 	application.get('/addexamesaojorge/:idusuario/', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.SaoJorge.controllersaojorge.addexamesaojorge(application, req, res);
@@ -143,23 +134,12 @@ module.exports = function(application) {
 		}
 		
 	});
+	
 
-	application.get('/buscaracomodacaosaojorge', function(req, res){
+	application.get('/buscarpacientessaojorge', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.SaoJorge.controllersaojorge.buscaracomodacao(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
-		
-	application.get('/buscarleitossaojorge', function(req, res){
-		
-		if(req.session.loggedin){
-			application.app.controllers.kaban.SaoJorge.controllersaojorge.buscarleitos(application, req, res);
+			application.app.controllers.kaban.SaoJorge.controllersaojorge.buscarpacientessaojorge(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -168,10 +148,11 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/buscarsetorsaojorge', function(req, res){
+
+	application.get('/buscaridpacientessaojorge', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.SaoJorge.controllersaojorge.buscarsetor(application, req, res);
+			application.app.controllers.kaban.SaoJorge.controllersaojorge.buscaridpacientessaojorge(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -234,7 +215,7 @@ module.exports = function(application) {
 		}
 		
 	});
-
+	
 	application.get('/newskabansaojorge', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.SaoJorge.controllersaojorge.newssaojorge(application, req, res);
@@ -271,6 +252,39 @@ module.exports = function(application) {
 	application.get('/relatoriokabansaojorge', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.SaoJorge.controllersaojorge.relatoriokabansaojorge(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriosemleitossaojorge', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.SaoJorge.controllersaojorge.relatoriosemleitossaojorge(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriodietassaojorge', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.SaoJorge.controllersaojorge.relatoriodietassaojorge(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriovisitassaojorge', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.SaoJorge.controllersaojorge.relatoriovisitassaojorge(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -507,6 +521,8 @@ module.exports = function(application) {
 		}
 		
 	});
+
+	
 	application.get('/infouaisaojorge', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.SaoJorge.controllersaojorge.infouaisaojorge(application, req, res);

@@ -22,9 +22,10 @@ module.exports = function(application) {
 		}
 		
 	});
-	application.get('/relatoriodietasroosevelt', function(req, res){
+
+	application.get('/cadastrarleitosroosevelt', function(req, res){
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Roosevelt.controllerroosevelt.relatoriodietasroosevelt(application, req, res);
+			application.app.controllers.kaban.Roosevelt.controllerroosevelt.cadastrarleitosroosevelt(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -33,16 +34,6 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/relatoriovisitasroosevelt', function(req, res){
-		if(req.session.loggedin){
-			application.app.controllers.kaban.Roosevelt.controllerroosevelt.relatoriovisitasroosevelt(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
 	application.get('/addexameroosevelt/:idusuario/', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Roosevelt.controllerroosevelt.addexameroosevelt(application, req, res);
@@ -144,22 +135,11 @@ module.exports = function(application) {
 		
 	});
 	
-	application.get('/buscaracomodacaoroosevelt', function(req, res){
+
+	application.get('/buscarpacientesroosevelt', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Roosevelt.controllerroosevelt.buscaracomodacao(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
-	
-	application.get('/buscarleitosroosevelt', function(req, res){
-		
-		if(req.session.loggedin){
-			application.app.controllers.kaban.Roosevelt.controllerroosevelt.buscarleitos(application, req, res);
+			application.app.controllers.kaban.Roosevelt.controllerroosevelt.buscarpacientesroosevelt(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -168,10 +148,11 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/buscarsetorroosevelt', function(req, res){
+
+	application.get('/buscaridpacientesroosevelt', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Roosevelt.controllerroosevelt.buscarsetor(application, req, res);
+			application.app.controllers.kaban.Roosevelt.controllerroosevelt.buscaridpacientesroosevelt(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -234,7 +215,7 @@ module.exports = function(application) {
 		}
 		
 	});
-
+	
 	application.get('/newskabanroosevelt', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Roosevelt.controllerroosevelt.newsroosevelt(application, req, res);
@@ -271,6 +252,39 @@ module.exports = function(application) {
 	application.get('/relatoriokabanroosevelt', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Roosevelt.controllerroosevelt.relatoriokabanroosevelt(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriosemleitosroosevelt', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Roosevelt.controllerroosevelt.relatoriosemleitosroosevelt(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriodietasroosevelt', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Roosevelt.controllerroosevelt.relatoriodietasroosevelt(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriovisitasroosevelt', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Roosevelt.controllerroosevelt.relatoriovisitasroosevelt(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -507,6 +521,8 @@ module.exports = function(application) {
 		}
 		
 	});
+
+	
 	application.get('/infouairoosevelt', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Roosevelt.controllerroosevelt.infouairoosevelt(application, req, res);

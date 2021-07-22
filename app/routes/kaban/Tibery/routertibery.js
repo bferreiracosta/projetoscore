@@ -22,9 +22,10 @@ module.exports = function(application) {
 		}
 		
 	});
-	application.get('/relatoriodietastibery', function(req, res){
+
+	application.get('/cadastrarleitostibery', function(req, res){
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Tibery.controllertibery.relatoriodietastibery(application, req, res);
+			application.app.controllers.kaban.Tibery.controllertibery.cadastrarleitostibery(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -33,16 +34,6 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/relatoriovisitastibery', function(req, res){
-		if(req.session.loggedin){
-			application.app.controllers.kaban.Tibery.controllertibery.relatoriovisitastibery(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
 	application.get('/addexametibery/:idusuario/', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Tibery.controllertibery.addexametibery(application, req, res);
@@ -144,22 +135,11 @@ module.exports = function(application) {
 		
 	});
 	
-	application.get('/buscaracomodacaotibery', function(req, res){
+
+	application.get('/buscarpacientestibery', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Tibery.controllertibery.buscaracomodacao(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
-	
-	application.get('/buscarleitostibery', function(req, res){
-		
-		if(req.session.loggedin){
-			application.app.controllers.kaban.Tibery.controllertibery.buscarleitos(application, req, res);
+			application.app.controllers.kaban.Tibery.controllertibery.buscarpacientestibery(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -168,10 +148,11 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/buscarsetortibery', function(req, res){
+
+	application.get('/buscaridpacientestibery', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Tibery.controllertibery.buscarsetor(application, req, res);
+			application.app.controllers.kaban.Tibery.controllertibery.buscaridpacientestibery(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -234,7 +215,7 @@ module.exports = function(application) {
 		}
 		
 	});
-
+	
 	application.get('/newskabantibery', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Tibery.controllertibery.newstibery(application, req, res);
@@ -271,6 +252,39 @@ module.exports = function(application) {
 	application.get('/relatoriokabantibery', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Tibery.controllertibery.relatoriokabantibery(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriosemleitostibery', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Tibery.controllertibery.relatoriosemleitostibery(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriodietastibery', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Tibery.controllertibery.relatoriodietastibery(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriovisitastibery', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Tibery.controllertibery.relatoriovisitastibery(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -507,6 +521,8 @@ module.exports = function(application) {
 		}
 		
 	});
+
+	
 	application.get('/infouaitibery', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Tibery.controllertibery.infouaitibery(application, req, res);

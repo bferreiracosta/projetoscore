@@ -10,8 +10,14 @@ modelmorumbi.prototype.buscarpaciente = function(unidade, callback){
 
 modelmorumbi.prototype.buscarpacienterelatorio = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM portal_paciente.leitokaban inner join kaban on leitokaban.idpaciente = kaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null;', callback);
+	this._conection.query('SELECT * FROM portal_paciente.kaban inner join leitokaban on kaban.idpaciente = leitokaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null;', callback);
 }
+
+modelmorumbi.prototype.buscarpacientesemleitos = function(unidade, callback){
+	
+	this._conection.query('SELECT * FROM kaban where kaban.unidade = "Morumbi" and kaban.baixa is null and idpaciente not in (select idpaciente from leitokaban where idpaciente is not null);', callback);
+}
+
 
 modelmorumbi.prototype.buscarexames = function(callback){
 	
@@ -40,7 +46,12 @@ modelmorumbi.prototype.deleteexamemorumbi = function(idevento, callback){
 
 modelmorumbi.prototype.buscarleitospacientes = function(callback){
 	
-	this._conection.query('select * from leitokaban where baixa is null and unidade = "Morumbi"', callback);
+	this._conection.query('SELECT * FROM portal_paciente.leitokaban inner join kaban on leitokaban.idpaciente = kaban.idpaciente where kaban.unidade = "Morumbi" and kaban.baixa is null;', callback);
+}
+
+modelmorumbi.prototype.cadastrarleitosmorumbi = function(callback){
+	
+	this._conection.query('select * from leitokaban where unidade = "Morumbi"', callback);
 }
 
 modelmorumbi.prototype.addcentralid = function(idpaciente,nome, unidade,callback){
@@ -64,8 +75,8 @@ modelmorumbi.prototype.buscarleitosnome = function(valor,callback){
 }
 
 modelmorumbi.prototype.buscarleitospacientesporid = function(valor, callback){
-	
-	this._conection.query('select setor, leito, acomodacao from leitokaban where idpaciente = "'+valor+'"', callback);
+
+	this._conection.query('select idleito from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
 modelmorumbi.prototype.buscarleitospacientespornome = function(valor, callback){
@@ -73,9 +84,14 @@ modelmorumbi.prototype.buscarleitospacientespornome = function(valor, callback){
 	this._conection.query('select nome from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
-modelmorumbi.prototype.atualizarleitokaban = function(idpaciente, setor, leito,acomodacao, callback){
+modelmorumbi.prototype.atualizarleitokaban = function(idleito, idpaciente, nome, callback){
 	
-	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'", acomodacao = "'+acomodacao+'"  where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update leitokaban set idpaciente = "'+idpaciente+'", nome = "'+nome+'"  where idleito = "'+idleito+'"', callback);
+}
+
+modelmorumbi.prototype.mudarpacienteleito = function(idleito, callback){
+	
+	this._conection.query('update leitokaban set idpaciente = null, nome = null  where idleito = "'+idleito+'"', callback);
 }
 
 modelmorumbi.prototype.buscarleitoativo = function(idsetor, leito, callback){
@@ -103,21 +119,14 @@ modelmorumbi.prototype.buscarsetoresid = function(setor, callback){
 	this._conection.query('select idsetor from setor where setor = "'+setor+'"  and unidade = "Morumbi"', callback);
 }
 
-modelmorumbi.prototype.buscarsetores = function(callback){
+modelmorumbi.prototype.buscarpacientesmorumbi = function(callback){
 	
-	this._conection.query('select * from setor inner join leitos on setor.idsetor = leitos.idsetor where status != "Inativo" and setor.unidade = "Morumbi"  group by setor', callback);
+	this._conection.query('select * from kaban where unidade = "Morumbi" and baixa is null', callback);
 }
 
-modelmorumbi.prototype.buscarleitos = function(valor, callback){
-
-	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo"  and setor.unidade = "Morumbi"', callback);
-
-}
-
-modelmorumbi.prototype.buscaracomodacao = function(valor, callback){
-
-	this._conection.query('select * from acomodacao inner join setor on acomodacao.idsetor = setor.idsetor inner join leitos on acomodacao.idleito = leitos.idleito where setor.setor = "'+valor.valorsetor+'" and leitos = "'+valor.valorleito+'" and acomodacao.unidade = "Morumbi" and leitos.status = "Ativo";', callback);
-
+modelmorumbi.prototype.buscarpacientesidmorumbi = function(valor, callback){
+	
+	this._conection.query('select idpaciente from kaban where unidade = "Morumbi" and baixa is null and nome="'+valor.valor+'"', callback);
 }
 
 modelmorumbi.prototype.buscardispositivohora = function(unidade, callback){
@@ -432,7 +441,7 @@ modelmorumbi.prototype.buscarinternacaodiamorumbi = function(unidade, callback){
 
 modelmorumbi.prototype.buscarsetoresmorumbi = function(callback){
 
-	this._conection.query('select morum.idmorumbi, morum.setor, morum.capacidade, morum.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Morumbi" and baixa is null and setor = morum.setor and acomodacao="Cama") as qtdcama,morum.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Morumbi" and baixa is null and setor = morum.setor and acomodacao="Maca") as qtdmaca,morum.bloqueado, morum.datas, morum.hora  from leitokaban l inner join morumbi morum where unidade = "Morumbi" and baixa is null group by morum.setor;', callback);
+	this._conection.query('select lui.idmorumbi, lui.setor, lui.capacidade, lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Cama" and nome is not null and setor = lui.setor) as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Maca" and nome is not null and setor = lui.setor) as qtdmaca,lui.bloqueado, lui.datas, lui.hora from morumbi lui', callback);
 }
 
 modelmorumbi.prototype.buscarbanhomanhamorumbi = function(callback){

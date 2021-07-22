@@ -10,8 +10,14 @@ modelroosevelt.prototype.buscarpaciente = function(unidade, callback){
 
 modelroosevelt.prototype.buscarpacienterelatorio = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM portal_paciente.leitokaban inner join kaban on leitokaban.idpaciente = kaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null;', callback);
+	this._conection.query('SELECT * FROM portal_paciente.kaban inner join leitokaban on kaban.idpaciente = leitokaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null;', callback);
 }
+
+modelroosevelt.prototype.buscarpacientesemleitos = function(unidade, callback){
+	
+	this._conection.query('SELECT * FROM kaban where kaban.unidade = "Roosevelt" and kaban.baixa is null and idpaciente not in (select idpaciente from leitokaban where idpaciente is not null);', callback);
+}
+
 
 modelroosevelt.prototype.buscarexames = function(callback){
 	
@@ -40,7 +46,12 @@ modelroosevelt.prototype.deleteexameroosevelt = function(idevento, callback){
 
 modelroosevelt.prototype.buscarleitospacientes = function(callback){
 	
-	this._conection.query('select * from leitokaban where baixa is null and unidade = "Roosevelt"', callback);
+	this._conection.query('SELECT * FROM portal_paciente.leitokaban inner join kaban on leitokaban.idpaciente = kaban.idpaciente where kaban.unidade = "Roosevelt" and kaban.baixa is null;', callback);
+}
+
+modelroosevelt.prototype.cadastrarleitosroosevelt = function(callback){
+	
+	this._conection.query('select * from leitokaban where unidade = "Roosevelt"', callback);
 }
 
 modelroosevelt.prototype.addcentralid = function(idpaciente,nome, unidade,callback){
@@ -64,8 +75,8 @@ modelroosevelt.prototype.buscarleitosnome = function(valor,callback){
 }
 
 modelroosevelt.prototype.buscarleitospacientesporid = function(valor, callback){
-	
-	this._conection.query('select setor, leito, acomodacao from leitokaban where idpaciente = "'+valor+'"', callback);
+
+	this._conection.query('select idleito from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
 modelroosevelt.prototype.buscarleitospacientespornome = function(valor, callback){
@@ -73,9 +84,14 @@ modelroosevelt.prototype.buscarleitospacientespornome = function(valor, callback
 	this._conection.query('select nome from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
-modelroosevelt.prototype.atualizarleitokaban = function(idpaciente, setor, leito,acomodacao, callback){
+modelroosevelt.prototype.atualizarleitokaban = function(idleito, idpaciente, nome, callback){
 	
-	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'", acomodacao = "'+acomodacao+'"  where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update leitokaban set idpaciente = "'+idpaciente+'", nome = "'+nome+'"  where idleito = "'+idleito+'"', callback);
+}
+
+modelroosevelt.prototype.mudarpacienteleito = function(idleito, callback){
+	
+	this._conection.query('update leitokaban set idpaciente = null, nome = null  where idleito = "'+idleito+'"', callback);
 }
 
 modelroosevelt.prototype.buscarleitoativo = function(idsetor, leito, callback){
@@ -103,21 +119,14 @@ modelroosevelt.prototype.buscarsetoresid = function(setor, callback){
 	this._conection.query('select idsetor from setor where setor = "'+setor+'"  and unidade = "Roosevelt"', callback);
 }
 
-modelroosevelt.prototype.buscarsetores = function(callback){
+modelroosevelt.prototype.buscarpacientesroosevelt = function(callback){
 	
-	this._conection.query('select * from setor inner join leitos on setor.idsetor = leitos.idsetor where status != "Inativo" and setor.unidade = "Roosevelt"  group by setor', callback);
+	this._conection.query('select * from kaban where unidade = "Roosevelt" and baixa is null', callback);
 }
 
-modelroosevelt.prototype.buscarleitos = function(valor, callback){
-
-	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo"  and setor.unidade = "Roosevelt"', callback);
-
-}
-
-modelroosevelt.prototype.buscaracomodacao = function(valor, callback){
-
-	this._conection.query('select * from acomodacao inner join setor on acomodacao.idsetor = setor.idsetor inner join leitos on acomodacao.idleito = leitos.idleito where setor.setor = "'+valor.valorsetor+'" and leitos = "'+valor.valorleito+'" and acomodacao.unidade = "Roosevelt" and leitos.status = "Ativo";', callback);
-
+modelroosevelt.prototype.buscarpacientesidroosevelt = function(valor, callback){
+	
+	this._conection.query('select idpaciente from kaban where unidade = "Roosevelt" and baixa is null and nome="'+valor.valor+'"', callback);
 }
 
 modelroosevelt.prototype.buscardispositivohora = function(unidade, callback){
@@ -432,7 +441,7 @@ modelroosevelt.prototype.buscarinternacaodiaroosevelt = function(unidade, callba
 
 modelroosevelt.prototype.buscarsetoresroosevelt = function(callback){
 
-	this._conection.query('select roo.idroosevelt, roo.setor, roo.capacidade, roo.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Roosevelt" and baixa is null and setor = roo.setor and acomodacao="Cama") as qtdcama,roo.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Roosevelt" and baixa is null and setor = roo.setor and acomodacao="Maca") as qtdmaca,roo.bloqueado, roo.datas, roo.hora  from leitokaban l inner join roosevelt roo where unidade = "Roosevelt" and baixa is null group by roo.setor;', callback);
+	this._conection.query('select lui.idroosevelt, lui.setor, lui.capacidade, lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Roosevelt" and acomodacao="Cama" and nome is not null and setor = lui.setor) as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Roosevelt" and acomodacao="Maca" and nome is not null and setor = lui.setor) as qtdmaca,lui.bloqueado, lui.datas, lui.hora from roosevelt lui', callback);
 }
 
 modelroosevelt.prototype.buscarbanhomanharoosevelt = function(callback){

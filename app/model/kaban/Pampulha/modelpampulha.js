@@ -10,12 +10,18 @@ modelpampulha.prototype.buscarpaciente = function(unidade, callback){
 
 modelpampulha.prototype.buscarpacienterelatorio = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM portal_paciente.leitokaban inner join kaban on leitokaban.idpaciente = kaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null;', callback);
+	this._conection.query('SELECT * FROM portal_paciente.kaban inner join leitokaban on kaban.idpaciente = leitokaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null;', callback);
 }
+
+modelpampulha.prototype.buscarpacientesemleitos = function(unidade, callback){
+	
+	this._conection.query('SELECT * FROM kaban where kaban.unidade = "Luizote" and kaban.baixa is null and idpaciente not in (select idpaciente from leitokaban where idpaciente is not null);', callback);
+}
+
 
 modelpampulha.prototype.buscarexames = function(callback){
 	
-	this._conection.query('select * from evento where title IS NOT NULL and unidade = "Pampulha"', callback);
+	this._conection.query('select * from evento where title IS NOT NULL and unidade = "Luizote"', callback);
 }
 
 modelpampulha.prototype.buscarexamesid = function(idevento, callback){
@@ -40,7 +46,12 @@ modelpampulha.prototype.deleteexamepampulha = function(idevento, callback){
 
 modelpampulha.prototype.buscarleitospacientes = function(callback){
 	
-	this._conection.query('select * from leitokaban where baixa is null and unidade = "Pampulha"', callback);
+	this._conection.query('SELECT * FROM portal_paciente.leitokaban inner join kaban on leitokaban.idpaciente = kaban.idpaciente where kaban.unidade = "Luizote" and kaban.baixa is null;', callback);
+}
+
+modelpampulha.prototype.cadastrarleitospampulha = function(callback){
+	
+	this._conection.query('select * from leitokaban where unidade = "Luizote"', callback);
 }
 
 modelpampulha.prototype.addcentralid = function(idpaciente,nome, unidade,callback){
@@ -55,7 +66,7 @@ modelpampulha.prototype.baixacentral = function(idpaciente,baixa, callback){
 
 modelpampulha.prototype.buscarleitosid = function(valor,callback){
 
-	this._conection.query('select idleito from leitos where idsetor = (select idsetor from setor where setor = "'+valor[0].setor+'"and unidade = "Pampulha") and leitos = "'+valor[0].leito+'" and unidade = "Pampulha" and status = "Inativo" limit 1', callback);
+	this._conection.query('select idleito from leitos where idsetor = (select idsetor from setor where setor = "'+valor[0].setor+'"and unidade = "Luizote") and leitos = "'+valor[0].leito+'" and unidade = "Luizote" and status = "Inativo" limit 1', callback);
 }
 
 modelpampulha.prototype.buscarleitosnome = function(valor,callback){
@@ -64,8 +75,8 @@ modelpampulha.prototype.buscarleitosnome = function(valor,callback){
 }
 
 modelpampulha.prototype.buscarleitospacientesporid = function(valor, callback){
-	
-	this._conection.query('select setor, leito, acomodacao from leitokaban where idpaciente = "'+valor+'"', callback);
+
+	this._conection.query('select idleito from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
 modelpampulha.prototype.buscarleitospacientespornome = function(valor, callback){
@@ -73,9 +84,14 @@ modelpampulha.prototype.buscarleitospacientespornome = function(valor, callback)
 	this._conection.query('select nome from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
-modelpampulha.prototype.atualizarleitokaban = function(idpaciente, setor, leito,acomodacao, callback){
+modelpampulha.prototype.atualizarleitokaban = function(idleito, idpaciente, nome, callback){
 	
-	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'", acomodacao = "'+acomodacao+'"  where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update leitokaban set idpaciente = "'+idpaciente+'", nome = "'+nome+'"  where idleito = "'+idleito+'"', callback);
+}
+
+modelpampulha.prototype.mudarpacienteleito = function(idleito, callback){
+	
+	this._conection.query('update leitokaban set idpaciente = null, nome = null  where idleito = "'+idleito+'"', callback);
 }
 
 modelpampulha.prototype.buscarleitoativo = function(idsetor, leito, callback){
@@ -100,24 +116,17 @@ modelpampulha.prototype.updateleitosativo = function(idleito, callback){
 
 modelpampulha.prototype.buscarsetoresid = function(setor, callback){
 	
-	this._conection.query('select idsetor from setor where setor = "'+setor+'"  and unidade = "Pampulha"', callback);
+	this._conection.query('select idsetor from setor where setor = "'+setor+'"  and unidade = "Luizote"', callback);
 }
 
-modelpampulha.prototype.buscarsetores = function(callback){
+modelpampulha.prototype.buscarpacientespampulha = function(callback){
 	
-	this._conection.query('select * from setor inner join leitos on setor.idsetor = leitos.idsetor where status != "Inativo" and setor.unidade = "Pampulha"  group by setor', callback);
+	this._conection.query('select * from kaban where unidade = "Luizote" and baixa is null', callback);
 }
 
-modelpampulha.prototype.buscarleitos = function(valor, callback){
-
-	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo"  and setor.unidade = "Pampulha"', callback);
-
-}
-
-modelpampulha.prototype.buscaracomodacao = function(valor, callback){
-
-	this._conection.query('select * from acomodacao inner join setor on acomodacao.idsetor = setor.idsetor inner join leitos on acomodacao.idleito = leitos.idleito where setor.setor = "'+valor.valorsetor+'" and leitos = "'+valor.valorleito+'" and acomodacao.unidade = "Pampulha" and leitos.status = "Ativo";', callback);
-
+modelpampulha.prototype.buscarpacientesidpampulha = function(valor, callback){
+	
+	this._conection.query('select idpaciente from kaban where unidade = "Luizote" and baixa is null and nome="'+valor.valor+'"', callback);
 }
 
 modelpampulha.prototype.buscardispositivohora = function(unidade, callback){
@@ -432,22 +441,22 @@ modelpampulha.prototype.buscarinternacaodiapampulha = function(unidade, callback
 
 modelpampulha.prototype.buscarsetorespampulha = function(callback){
 
-	this._conection.query('select pam.idpampulha, pam.setor, pam.capacidade, pam.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Pampulha" and baixa is null and setor = pam.setor and acomodacao="Cama") as qtdcama,pam.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Pampulha" and baixa is null and setor = pam.setor and acomodacao="Maca") as qtdmaca,pam.bloqueado, pam.datas, pam.hora  from leitokaban l inner join pampulha pam where unidade = "Pampulha" and baixa is null group by pam.setor;', callback);
+	this._conection.query('select lui.idpampulha, lui.setor, lui.capacidade, lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Luizote" and acomodacao="Cama" and nome is not null and setor = lui.setor) as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Luizote" and acomodacao="Maca" and nome is not null and setor = lui.setor) as qtdmaca,lui.bloqueado, lui.datas, lui.hora from pampulha lui', callback);
 }
 
 modelpampulha.prototype.buscarbanhomanhapampulha = function(callback){
 
-	this._conection.query('SELECT count(banho) as manha from kaban where banho = "Manhã" and baixa is null and unidade = "Pampulha";', callback);
+	this._conection.query('SELECT count(banho) as manha from kaban where banho = "Manhã" and baixa is null and unidade = "Luizote";', callback);
 }
 
 modelpampulha.prototype.buscarbanhotardepampulha = function(callback){
 
-	this._conection.query('SELECT count(banho) as tarde from kaban where banho = "Tarde"  and baixa is null and unidade = "Pampulha";', callback);
+	this._conection.query('SELECT count(banho) as tarde from kaban where banho = "Tarde"  and baixa is null and unidade = "Luizote";', callback);
 }
 
 modelpampulha.prototype.buscarbanhonoitepampulha = function(callback){
 
-	this._conection.query('SELECT count(banho) as noite from kaban where banho = "Noite"  and baixa is null and unidade = "Pampulha";', callback);
+	this._conection.query('SELECT count(banho) as noite from kaban where banho = "Noite"  and baixa is null and unidade = "Luizote";', callback);
 }
 
 modelpampulha.prototype.buscardieta1 = function(unidade,callback){

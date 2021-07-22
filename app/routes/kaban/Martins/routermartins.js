@@ -22,9 +22,10 @@ module.exports = function(application) {
 		}
 		
 	});
-	application.get('/relatoriodietasmartins', function(req, res){
+
+	application.get('/cadastrarleitosmartins', function(req, res){
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Martins.controllermartins.relatoriodietasmartins(application, req, res);
+			application.app.controllers.kaban.Martins.controllermartins.cadastrarleitosmartins(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -33,16 +34,6 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/relatoriovisitasmartins', function(req, res){
-		if(req.session.loggedin){
-			application.app.controllers.kaban.Martins.controllermartins.relatoriovisitasmartins(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
 	application.get('/addexamemartins/:idusuario/', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Martins.controllermartins.addexamemartins(application, req, res);
@@ -144,22 +135,11 @@ module.exports = function(application) {
 		
 	});
 	
-	application.get('/buscaracomodacaomartins', function(req, res){
+
+	application.get('/buscarpacientesmartins', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Martins.controllermartins.buscaracomodacao(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
-	
-	application.get('/buscarleitosmartins', function(req, res){
-		
-		if(req.session.loggedin){
-			application.app.controllers.kaban.Martins.controllermartins.buscarleitos(application, req, res);
+			application.app.controllers.kaban.Martins.controllermartins.buscarpacientesmartins(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -168,10 +148,11 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/buscarsetormartins', function(req, res){
+
+	application.get('/buscaridpacientesmartins', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Martins.controllermartins.buscarsetor(application, req, res);
+			application.app.controllers.kaban.Martins.controllermartins.buscaridpacientesmartins(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -234,7 +215,7 @@ module.exports = function(application) {
 		}
 		
 	});
-
+	
 	application.get('/newskabanmartins', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Martins.controllermartins.newsmartins(application, req, res);
@@ -271,6 +252,39 @@ module.exports = function(application) {
 	application.get('/relatoriokabanmartins', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Martins.controllermartins.relatoriokabanmartins(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriosemleitosmartins', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Martins.controllermartins.relatoriosemleitosmartins(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriodietasmartins', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Martins.controllermartins.relatoriodietasmartins(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriovisitasmartins', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Martins.controllermartins.relatoriovisitasmartins(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -507,6 +521,8 @@ module.exports = function(application) {
 		}
 		
 	});
+
+	
 	application.get('/infouaimartins', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Martins.controllermartins.infouaimartins(application, req, res);

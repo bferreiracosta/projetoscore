@@ -5,6 +5,9 @@
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
                 <input name="usuario" type="hidden" id="usuario" value="<%=id[i].id_usuario %>">
+                <a href="kabanpacienteluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Voltar Paciente</button></a>
+                <br>
+                <br>
                 <p>
                     <input type="button" class="btn btn-success" value="Criar PDF" id="btnImprimir" onclick="CriaPDF()" />
                 </p>

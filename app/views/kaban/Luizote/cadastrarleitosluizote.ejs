@@ -2,8 +2,7 @@
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
     <h2>Central leito UAI Luizote</h2>
-    <a href="kabanpacienteluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Voltar Paciente</button></a>
-    <a href="cadastrarleitosluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Cadastrar Leitos</button></a>
+    <a href="leitosluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Voltar Leitos</button></a>
         <br>
         <br>
       
@@ -67,14 +66,14 @@
                         </div>
                         <div class="form-group">
                             <label for="posto"> Setor</label>
-                            <input disabled type="text" name="setor" id="setor" class="form-control setor2"  >
+                            <input type="text" name="setor" id="setor" class="form-control setor2"  >
                         </div>
                         <div class="form-group">
                             <label for="posto"> Paciente</label>
                             <select name="nomeselect" id="nomeselect" class="form-control setor" required >
                                 <option ></option> 
                             </select>
-                            <input type="hidden" name="nome" id="nome" class="form-control paciente"  >
+                            <input type="text" name="nome" id="nome" class="form-control paciente"  >
                         </div> 
                         <div class="form-group">
                             <input type="hidden" name="idpaciente" id="idpaciente" class="form-control id"  >
@@ -118,6 +117,7 @@
 <script>   
 
 $(document).ready(function() {
+    $("input[type=submit]").prop("disabled", true);
  obj = [];
     $.ajax({
         type: "GET",
@@ -126,11 +126,9 @@ $(document).ready(function() {
         url: '/buscarpacientesluizote',
         success: function(obj) {  
             if (obj.length > 0){
-                var option = '<option>Selecione ou Remova um Leito </option>';
-                option += '<option value="Remover">Remover paciente ou Leitos </option>';
+                var option = '<option>Selecione o paciente </option>';
                 for (var i=0;i<obj.length;i++){
                 var nome = obj[i].nome;
-                
                 option += '<option value="'+nome+'">'+nome+'</option>';
             }
 			  $('#nomeselect').html(option).show();
@@ -160,6 +158,10 @@ $("#nomeselect").on('change', function(e){
 $("#nomeselect").on('change', function(e){
 	var nome = document.getElementById('nomeselect').value;
 	document.getElementById('nome').value = nome;
+    variavelpaciente = document.getElementById('nome').value;
+    if (variavelpaciente != null) {
+        $("input[type=submit]").prop("disabled", false);
+    }
 });
 
 

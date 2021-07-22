@@ -22,9 +22,10 @@ module.exports = function(application) {
 		}
 		
 	});
-	application.get('/relatoriodietaspampulha', function(req, res){
+
+	application.get('/cadastrarleitospampulha', function(req, res){
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Pampulha.controllerpampulha.relatoriodietaspampulha(application, req, res);
+			application.app.controllers.kaban.Pampulha.controllerpampulha.cadastrarleitospampulha(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -33,16 +34,6 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/relatoriovisitaspampulha', function(req, res){
-		if(req.session.loggedin){
-			application.app.controllers.kaban.Pampulha.controllerpampulha.relatoriovisitaspampulha(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
 	application.get('/addexamepampulha/:idusuario/', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Pampulha.controllerpampulha.addexamepampulha(application, req, res);
@@ -144,22 +135,11 @@ module.exports = function(application) {
 		
 	});
 	
-	application.get('/buscaracomodacaopampulha', function(req, res){
+
+	application.get('/buscarpacientespampulha', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Pampulha.controllerpampulha.buscaracomodacao(application, req, res);
-		}
-		else{
-			var mensage = "Faça login!!";
-			res.render("home/index", {msg : mensage});
-		}
-		
-	});
-	
-	application.get('/buscarleitospampulha', function(req, res){
-		
-		if(req.session.loggedin){
-			application.app.controllers.kaban.Pampulha.controllerpampulha.buscarleitos(application, req, res);
+			application.app.controllers.kaban.Pampulha.controllerpampulha.buscarpacientespampulha(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -168,10 +148,11 @@ module.exports = function(application) {
 		
 	});
 
-	application.get('/buscarsetorpampulha', function(req, res){
+
+	application.get('/buscaridpacientespampulha', function(req, res){
 		
 		if(req.session.loggedin){
-			application.app.controllers.kaban.Pampulha.controllerpampulha.buscarsetor(application, req, res);
+			application.app.controllers.kaban.Pampulha.controllerpampulha.buscaridpacientespampulha(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -234,7 +215,7 @@ module.exports = function(application) {
 		}
 		
 	});
-
+	
 	application.get('/newskabanpampulha', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Pampulha.controllerpampulha.newspampulha(application, req, res);
@@ -271,6 +252,39 @@ module.exports = function(application) {
 	application.get('/relatoriokabanpampulha', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Pampulha.controllerpampulha.relatoriokabanpampulha(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriosemleitospampulha', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Pampulha.controllerpampulha.relatoriosemleitospampulha(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriodietaspampulha', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Pampulha.controllerpampulha.relatoriodietaspampulha(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriovisitaspampulha', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Pampulha.controllerpampulha.relatoriovisitaspampulha(application, req, res);
 		}
 		else{
 			var mensage = "Faça login!!";
@@ -507,6 +521,8 @@ module.exports = function(application) {
 		}
 		
 	});
+
+	
 	application.get('/infouaipampulha', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Pampulha.controllerpampulha.infouaipampulha(application, req, res);

@@ -10,8 +10,14 @@ modelplanalto.prototype.buscarpaciente = function(unidade, callback){
 
 modelplanalto.prototype.buscarpacienterelatorio = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM portal_paciente.leitokaban inner join kaban on leitokaban.idpaciente = kaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null;', callback);
+	this._conection.query('SELECT * FROM portal_paciente.kaban inner join leitokaban on kaban.idpaciente = leitokaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null;', callback);
 }
+
+modelplanalto.prototype.buscarpacientesemleitos = function(unidade, callback){
+	
+	this._conection.query('SELECT * FROM kaban where kaban.unidade = "Planalto" and kaban.baixa is null and idpaciente not in (select idpaciente from leitokaban where idpaciente is not null);', callback);
+}
+
 
 modelplanalto.prototype.buscarexames = function(callback){
 	
@@ -40,7 +46,12 @@ modelplanalto.prototype.deleteexameplanalto = function(idevento, callback){
 
 modelplanalto.prototype.buscarleitospacientes = function(callback){
 	
-	this._conection.query('select * from leitokaban where baixa is null and unidade = "Planalto"', callback);
+	this._conection.query('SELECT * FROM portal_paciente.leitokaban inner join kaban on leitokaban.idpaciente = kaban.idpaciente where kaban.unidade = "Planalto" and kaban.baixa is null;', callback);
+}
+
+modelplanalto.prototype.cadastrarleitosplanalto = function(callback){
+	
+	this._conection.query('select * from leitokaban where unidade = "Planalto"', callback);
 }
 
 modelplanalto.prototype.addcentralid = function(idpaciente,nome, unidade,callback){
@@ -64,8 +75,8 @@ modelplanalto.prototype.buscarleitosnome = function(valor,callback){
 }
 
 modelplanalto.prototype.buscarleitospacientesporid = function(valor, callback){
-	
-	this._conection.query('select setor, leito, acomodacao from leitokaban where idpaciente = "'+valor+'"', callback);
+
+	this._conection.query('select idleito from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
 modelplanalto.prototype.buscarleitospacientespornome = function(valor, callback){
@@ -73,9 +84,14 @@ modelplanalto.prototype.buscarleitospacientespornome = function(valor, callback)
 	this._conection.query('select nome from leitokaban where idpaciente = "'+valor+'"', callback);
 }
 
-modelplanalto.prototype.atualizarleitokaban = function(idpaciente, setor, leito,acomodacao, callback){
+modelplanalto.prototype.atualizarleitokaban = function(idleito, idpaciente, nome, callback){
 	
-	this._conection.query('update leitokaban set setor = "'+setor+'", leito = "'+leito+'", acomodacao = "'+acomodacao+'"  where idpaciente = '+ idpaciente, callback);
+	this._conection.query('update leitokaban set idpaciente = "'+idpaciente+'", nome = "'+nome+'"  where idleito = "'+idleito+'"', callback);
+}
+
+modelplanalto.prototype.mudarpacienteleito = function(idleito, callback){
+	
+	this._conection.query('update leitokaban set idpaciente = null, nome = null  where idleito = "'+idleito+'"', callback);
 }
 
 modelplanalto.prototype.buscarleitoativo = function(idsetor, leito, callback){
@@ -103,21 +119,14 @@ modelplanalto.prototype.buscarsetoresid = function(setor, callback){
 	this._conection.query('select idsetor from setor where setor = "'+setor+'"  and unidade = "Planalto"', callback);
 }
 
-modelplanalto.prototype.buscarsetores = function(callback){
+modelplanalto.prototype.buscarpacientesplanalto = function(callback){
 	
-	this._conection.query('select * from setor inner join leitos on setor.idsetor = leitos.idsetor where status != "Inativo" and setor.unidade = "Planalto"  group by setor', callback);
+	this._conection.query('select * from kaban where unidade = "Planalto" and baixa is null', callback);
 }
 
-modelplanalto.prototype.buscarleitos = function(valor, callback){
-
-	this._conection.query('select * from leitos inner join setor on setor.idsetor = leitos.idsetor where setor = "'+valor.valor+'" and status = "Ativo"  and setor.unidade = "Planalto"', callback);
-
-}
-
-modelplanalto.prototype.buscaracomodacao = function(valor, callback){
-
-	this._conection.query('select * from acomodacao inner join setor on acomodacao.idsetor = setor.idsetor inner join leitos on acomodacao.idleito = leitos.idleito where setor.setor = "'+valor.valorsetor+'" and leitos = "'+valor.valorleito+'" and acomodacao.unidade = "Planalto" and leitos.status = "Ativo";', callback);
-
+modelplanalto.prototype.buscarpacientesidplanalto = function(valor, callback){
+	
+	this._conection.query('select idpaciente from kaban where unidade = "Planalto" and baixa is null and nome="'+valor.valor+'"', callback);
 }
 
 modelplanalto.prototype.buscardispositivohora = function(unidade, callback){
@@ -432,7 +441,7 @@ modelplanalto.prototype.buscarinternacaodiaplanalto = function(unidade, callback
 
 modelplanalto.prototype.buscarsetoresplanalto = function(callback){
 
-	this._conection.query('select pla.idplanalto, pla.setor, pla.capacidade, pla.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Planalto" and baixa is null and setor = pla.setor and acomodacao="Cama") as qtdcama,pla.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Planalto" and baixa is null and setor = pla.setor and acomodacao="Maca") as qtdmaca,pla.bloqueado, pla.datas, pla.hora  from leitokaban l inner join planalto pla where unidade = "Planalto" and baixa is null group by pla.setor;', callback);
+	this._conection.query('select lui.idplanalto, lui.setor, lui.capacidade, lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Planalto" and acomodacao="Cama" and nome is not null and setor = lui.setor) as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Planalto" and acomodacao="Maca" and nome is not null and setor = lui.setor) as qtdmaca,lui.bloqueado, lui.datas, lui.hora from planalto lui', callback);
 }
 
 modelplanalto.prototype.buscarbanhomanhaplanalto = function(callback){

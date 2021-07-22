@@ -148,42 +148,34 @@ module.exports.atualizarleitomorumbi= function(application, req, res){
 	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
 
 	var idpaciente = req.body.idpaciente;
-	var setor = req.body.setor2;
-	var leito = req.body.leito2;
-	var acomodacao = req.body.acomodacao2;
+	var nome = req.body.nome;
+	var idleito = req.body.idleito;
 	var id = req.body.idusuario;
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelmorumbi.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
-			if(setoresrecuperado[0].acomodacao == null){
-				modelmorumbi.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
-					modelmorumbi.buscarsetoresid(setor, function(error, resultado){
-						modelmorumbi.buscarleitoativo(resultado,leito, function(error, idleitos){
-							modelmorumbi.updateleitos(idleitos, function(error, resultado){
-								modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
-									res.redirect("/leitosmorumbi?id=" + result[0].id_usuario);
-								});
-							});
-						});
-					});
+			if(setoresrecuperado == ""){
+				modelmorumbi.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
+					modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
+						res.redirect("/leitosmorumbi?id=" + result[0].id_usuario);
+					});	
 				});
 			}
+			else if(nome == "Remover"){
+				modelmorumbi.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+					modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
+						res.redirect("/leitosmorumbi?id=" + result[0].id_usuario);
+					});	
+				})
+			}
 			else{
-				modelmorumbi.buscarleitosid(setoresrecuperado, function(error, idleito){
-					modelmorumbi.atualizarleitokaban(idpaciente, setor, leito, acomodacao,  function(error, resultado){
-						modelmorumbi.buscarsetoresid(setor, function(error, resultado){
-							modelmorumbi.buscarleitoativo(resultado,leito, function(error, idleitos){
-								modelmorumbi.updateleitos(idleitos, function(error, resultado){
-									modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
-										modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
-											res.redirect("/leitosmorumbi?id=" + result[0].id_usuario);
-										});
-									});	
-								});
-							});
-						});
+				modelmorumbi.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+					modelmorumbi.atualizarleitokaban(idleito, idpaciente,nome,  function(error, resultado){
+						modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
+							res.redirect("/leitosmorumbi?id=" + result[0].id_usuario);
+						});	
 					});
-				});
-			}			
+				})
+			}
 		});
 	});
 }	
@@ -198,44 +190,44 @@ module.exports.leitos= function(application, req, res){
 
 	modeladmin.buscarusuario(id, function(error, result){
 		modelmorumbi.buscarleitospacientes(function(error, resultadosetores){
-			modelmorumbi.buscarsetores(function(error, resultadosetor){
-				res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores,setor : resultadosetor, id : result});
-			});
+			res.render("kaban/Morumbi/leitosmorumbi", {leito : resultadosetores, id : result});
 		});
 	});	
 }
 
-
-module.exports.buscarleitos= function(application, req, res){
+module.exports.cadastrarleitosmorumbi= function(application, req, res){
 	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
+
+	var id = req.query;
 	
-	var valor = req.query;
-	modelmorumbi.buscarleitos(valor, function(error, resultadoleito){
-		res.send(resultadoleito);
-	});
-	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelmorumbi.cadastrarleitosmorumbi(function(error, resultadosetores){
+			res.render("kaban/Morumbi/cadastrarleitosmorumbi", {leito : resultadosetores, id : result});
+		});
+	});	
 }
 
-
-module.exports.buscaracomodacao= function(application, req, res){
-	
-	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
-	
-	var valorleito = req.query;
-	modelmorumbi.buscaracomodacao(valorleito, function(error, resultadoacomodacao){
-		res.send(resultadoacomodacao);
-	});
-	
-}
-
-module.exports.buscarsetor= function(application, req, res){
+module.exports.buscarpacientesmorumbi= function(application, req, res){
 	
 	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
 	
 	
-	modelmorumbi.buscarsetores(function(error, resultadosetor){
+	modelmorumbi.buscarpacientesmorumbi(function(error, resultadosetor){
 		res.send(resultadosetor);
+	});
+	
+}
+
+module.exports.buscaridpacientesmorumbi= function(application, req, res){
+	
+	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
+	var valor = req.query;
+	
+	modelmorumbi.buscarpacientesidmorumbi(valor,function(error, resultadoid){
+		res.send(resultadoid);
 	});
 	
 }
@@ -377,6 +369,21 @@ module.exports.relatoriokabanmorumbi = function(application, req, res){
 	modeladmin.buscarusuario(id, function(error,result){
 		modelmorumbi.buscarpacienterelatorio(unidade, function(error, resultado){
 			res.render("kaban/Morumbi/relatoriokabanmorumbi", {paciente: resultado, id : result});
+		});
+	});
+}
+
+module.exports.relatoriosemleitosmorumbi = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
+	
+
+	var id = req.query;
+	var unidade = 'Morumbi';
+	modeladmin.buscarusuario(id, function(error,result){
+		modelmorumbi.buscarpacientesemleitos(unidade, function(error, resultado){
+			res.render("kaban/Morumbi/relatoriosemleitosmorumbi", {paciente: resultado, id : result});
 		});
 	});
 }
@@ -895,7 +902,6 @@ module.exports.cadastrartiss= function(application, req, res){
 	var data = req.body.data;
 	var id = req.body.campo;
 	var unidade = 'Morumbi';
-	console.log(tiss);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
 	
@@ -1461,239 +1467,192 @@ module.exports.baixa= function(application, req, res){
 	var modelmentalmorumbi = new application.app.model.mentalurgencia.modelmentalmorumbi(application);
 	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	modelmorumbi.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
-	modelmorumbi.buscarleitosid(setoresrecuperado, function(error, idleito){
-		if(setoresrecuperado[0].acomodacao != null){	
-	modelmorumbi.buscarpacienteporid(idpaciente, function(error, idpac){
-		modelcovidmorumbi.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
-			modelmentalmorumbi.buscarpacientepornome(idpac[0].nome, function(error, idmental){
-				if(idpac[0].mental == 'true'){
-					if(idpac[0].covid == 'true'){
-						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-								modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-									modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-										modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
-												modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
-													modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
-														modelmorumbi.baixacentral(idpaciente,baixa, function(error, result){
-															modelmorumbi.buscarleitospacientespornome(idpaciente, function(error, nome){
-																
-			
-																	modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																		modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-																			res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
-																		});
-																	});
-																	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});	
-					}
-					else{
-						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-								modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-									modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
-										modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
-											modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
-												modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
-													modelmorumbi.baixacentral(idpaciente,baixa, function(error, result){
-														modelmorumbi.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-																
-																modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
+		console.log(setoresrecuperado);
+		if(setoresrecuperado != ''){
+			modelmorumbi.buscarpacienteporid(idpaciente, function(error, idpac){
+				modelcovidmorumbi.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+					modelmentalmorumbi.buscarpacientepornome(idpac[0].nome, function(error, idmental){
+						if(idpac[0].mental == 'true'){
+							if(idpac[0].covid == 'true'){
+								modeladmin.buscarusuarioporid(id, function(error, resultados){
+									modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
+										modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+											modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+												modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
+													modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
+														modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
+															modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
+																modelmorumbi.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
 																	modelmorumbi.buscarpaciente(unidade, function(error, resultado){
 																		res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
 																	});
 																});
-																
+															});					
 														});
 													});
 												});
 											});
 										});
 									});
-								});
-							});
-						});	
-					}
-				}
-				else{
-					if(idpac[0].covid == "false"){
-						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-								modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
-									modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
-										modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
-											modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
-												modelmorumbi.baixacentral(idpaciente,baixa, function(error, result){
-													modelmorumbi.buscarleitospacientespornome(idpaciente, function(error, nome){
-														
-															
-															modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-																	res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
-																});
-															});
-														
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});	
-					}
-					else{
-						modeladmin.buscarusuarioporid(id, function(error, resultados){
-							modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-								modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-									modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
-										modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
-											modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
-												modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
-													modelmorumbi.baixacentral(idpaciente,baixa, function(error, result){
-														modelmorumbi.buscarleitospacientespornome(idpaciente, function(error, nome){
-															
-														
-																modelmorumbi.updateleitosativo(idleito[0].idleito, function(error, resultado){
-																	modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-																		res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
-																	});
-																});
-																
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});	
-					}
-				}	
-			})	
-		})	
-	// })
-})
-}
-else{
-		
-		modelmorumbi.buscarpacienteporid(idpaciente, function(error, idpac){
-			modelcovidmorumbi.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
-				modelmentalmorumbi.buscarpacientepornome(idpac[0].nome, function(error, idmental){
-					if(idpac[0].mental == 'true'){
-						if(idpac[0].covid == 'true'){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+								});	
+							}
+							else{
+								modeladmin.buscarusuarioporid(id, function(error, resultados){
+									modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
 										modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 											modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
 												modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
 													modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
 														modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
-															modelmorumbi.baixacentral(idpaciente,baixa, function(error, result){
-																modelmorumbi.buscarleitospacientespornome(idpaciente, function(error, nome){
-																	modelmorumbi.buscarpaciente(unidade, function(error, resultado){
-																		res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
-																	});
-																});
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-										modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
-												modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
-													modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
-														modelmorumbi.baixacentral(idpaciente,baixa, function(error, result){
-															modelmorumbi.buscarleitospacientespornome(idpaciente, function(error, nome){
+															modelmorumbi.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
 																modelmorumbi.buscarpaciente(unidade, function(error, resultado){
 																	res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
 																});
 															});
-														});
+														});		
 													});
 												});
 											});
 										});
 									});
-								});
-							});	
+								});	
+							}
 						}
-					}
-					else{
-						if(idpac[0].covid == "false"){
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
-										modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
-											modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
-												modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
-													modelmorumbi.baixacentral(idpaciente,baixa, function(error, result){
-														modelmorumbi.buscarleitospacientespornome(idpaciente, function(error, nome){
+						else{
+							if(idpac[0].covid == "false"){
+								modeladmin.buscarusuarioporid(id, function(error, resultados){
+									modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
+										modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
+											modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
+												modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
+													modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
+														modelmorumbi.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
 															modelmorumbi.buscarpaciente(unidade, function(error, resultado){
 																res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
 															});
 														});
+													});	
+												});
+											});
+										});
+									});
+								});	
+							}
+							else{
+								modeladmin.buscarusuarioporid(id, function(error, resultados){
+									modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
+										modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+											modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
+												modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
+													modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
+														modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
+															modelmorumbi.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+																modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																	res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+																});
+															});
+														});	
 													});
 												});
 											});
 										});
 									});
-								});
-							});	
-						}
-						else{
-							modeladmin.buscarusuarioporid(id, function(error, resultados){
-								modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-									modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
-											modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
-												modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
-													modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
-														modelmorumbi.baixacentral(idpaciente,baixa, function(error, result){
-															modelmorumbi.buscarleitospacientespornome(idpaciente, function(error, nome){
+								});	
+							}
+						}	
+					})	
+				})	
+			})
+		}
+		else{
+			modelmorumbi.buscarpacienteporid(idpaciente, function(error, idpac){
+				modelcovidmorumbi.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+					modelmentalmorumbi.buscarpacientepornome(idpac[0].nome, function(error, idmental){
+						if(idpac[0].mental == 'true'){
+							if(idpac[0].covid == 'true'){
+								modeladmin.buscarusuarioporid(id, function(error, resultados){
+									modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
+										modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+											modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+												modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
+													modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
+														modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
+															modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
 																modelmorumbi.buscarpaciente(unidade, function(error, resultado){
 																	res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
 																});
-															});
+															});					
 														});
 													});
 												});
 											});
 										});
 									});
-								});
-							});	
+								});	
+							}
+							else{
+								modeladmin.buscarusuarioporid(id, function(error, resultados){
+									modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
+										modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+											modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
+												modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
+													modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
+														modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
+															modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+															});
+														});		
+													});
+												});
+											});
+										});
+									});
+								});	
+							}
 						}
-					}	
+						else{
+							if(idpac[0].covid == "false"){
+								modeladmin.buscarusuarioporid(id, function(error, resultados){
+									modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
+										modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
+											modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
+												modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
+													modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
+														modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+															res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+														});
+													});	
+												});
+											});
+										});
+									});
+								});	
+							}
+							else{
+								modeladmin.buscarusuarioporid(id, function(error, resultados){
+									modelmorumbi.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
+										modelcovidmorumbi.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
+											modelmorumbi.baixadispositivo(idpaciente,baixa, function(error, result){
+												modelmorumbi.baixatiss(idpaciente,baixa, function(error, result){
+													modelmorumbi.baixanews(idpaciente,baixa, function(error, result){
+														modelmorumbi.baixafugulin(idpaciente,baixa, function(error, result){
+															modelmorumbi.buscarpaciente(unidade, function(error, resultado){
+																res.redirect("/kabanpacientemorumbi?id=" + resultados[0].id_usuario);	
+															});
+														});	
+													});
+												});
+											});
+										});
+									});
+								});	
+							}
+						}	
+					})	
 				})	
-			})	
-		})
-	
-	}	
-})
+			})
+		}
+
 })
 }
 
