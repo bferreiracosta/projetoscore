@@ -666,10 +666,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 								modelroosevelt.addfugulinid(resultdoinsert.insertId,setor,paciente,unidade, function(error, results){
 									modelroosevelt.addtissid(resultdoinsert.insertId,setor,paciente,unidade, function(error, results){
 										modelroosevelt.addnewsid(resultdoinsert.insertId,setor,paciente, unidade,function(error, results){
-											modelroosevelt.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
-												modelroosevelt.buscarpaciente(unidade, function(error, resultado){
-													res.redirect("/kabanpacienteroosevelt?id=" + resultados[0].id_usuario);					
-												});
+											modelroosevelt.buscarpaciente(unidade, function(error, resultado){
+												res.redirect("/kabanpacienteroosevelt?id=" + resultados[0].id_usuario);					
 											});
 										});
 									});
@@ -689,10 +687,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 							modelroosevelt.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 								modelroosevelt.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 									modelroosevelt.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
-										modelroosevelt.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
-											modelroosevelt.buscarpaciente(unidade, function(error, resultado){
-												res.redirect("/kabanpacienteroosevelt?id=" + resultados[0].id_usuario);					
-											});
+										modelroosevelt.buscarpaciente(unidade, function(error, resultado){
+											res.redirect("/kabanpacienteroosevelt?id=" + resultados[0].id_usuario);					
 										});
 									});
 								});
@@ -712,10 +708,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 						modelroosevelt.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 							modelroosevelt.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 								modelroosevelt.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
-									modelroosevelt.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
-										modelroosevelt.buscarpaciente(unidade, function(error, resultado){
-											res.redirect("/kabanpacienteroosevelt?id=" + resultados[0].id_usuario);				
-										});
+									modelroosevelt.buscarpaciente(unidade, function(error, resultado){
+										res.redirect("/kabanpacienteroosevelt?id=" + resultados[0].id_usuario);					
 									});
 								});
 							});
@@ -733,10 +727,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 							modelroosevelt.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 								modelroosevelt.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 									modelroosevelt.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
-										modelroosevelt.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
-											modelroosevelt.buscarpaciente(unidade, function(error, resultado){
-												res.redirect("/kabanpacienteroosevelt?id=" + resultados[0].id_usuario);					
-											});
+										modelroosevelt.buscarpaciente(unidade, function(error, resultado){
+											res.redirect("/kabanpacienteroosevelt?id=" + resultados[0].id_usuario);					
 										});
 									});
 								});
@@ -748,6 +740,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 		}
 	}	
 }
+
 
 module.exports.cadastrardispositivo= function(application, req, res){
 	var idpaciente = req.body.idpaciente;

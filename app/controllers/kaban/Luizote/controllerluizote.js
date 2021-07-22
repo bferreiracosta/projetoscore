@@ -667,10 +667,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 								modelluizote.addfugulinid(resultdoinsert.insertId,setor,paciente,unidade, function(error, results){
 									modelluizote.addtissid(resultdoinsert.insertId,setor,paciente,unidade, function(error, results){
 										modelluizote.addnewsid(resultdoinsert.insertId,setor,paciente, unidade,function(error, results){
-											modelluizote.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
-												modelluizote.buscarpaciente(unidade, function(error, resultado){
-													res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);					
-												});
+											modelluizote.buscarpaciente(unidade, function(error, resultado){
+												res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);					
 											});
 										});
 									});
@@ -690,10 +688,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 							modelluizote.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 								modelluizote.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 									modelluizote.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
-										modelluizote.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
-											modelluizote.buscarpaciente(unidade, function(error, resultado){
-												res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);					
-											});
+										modelluizote.buscarpaciente(unidade, function(error, resultado){
+											res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);					
 										});
 									});
 								});
@@ -713,10 +709,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 						modelluizote.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 							modelluizote.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 								modelluizote.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
-									modelluizote.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
-										modelluizote.buscarpaciente(unidade, function(error, resultado){
-											res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);				
-										});
+									modelluizote.buscarpaciente(unidade, function(error, resultado){
+										res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);					
 									});
 								});
 							});
@@ -734,10 +728,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 							modelluizote.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 								modelluizote.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 									modelluizote.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
-										modelluizote.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
-											modelluizote.buscarpaciente(unidade, function(error, resultado){
-												res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);					
-											});
+										modelluizote.buscarpaciente(unidade, function(error, resultado){
+											res.redirect("/kabanpacienteluizote?id=" + resultados[0].id_usuario);					
 										});
 									});
 								});

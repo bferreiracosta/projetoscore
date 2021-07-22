@@ -666,10 +666,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 								modelplanalto.addfugulinid(resultdoinsert.insertId,setor,paciente,unidade, function(error, results){
 									modelplanalto.addtissid(resultdoinsert.insertId,setor,paciente,unidade, function(error, results){
 										modelplanalto.addnewsid(resultdoinsert.insertId,setor,paciente, unidade,function(error, results){
-											modelplanalto.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
-												modelplanalto.buscarpaciente(unidade, function(error, resultado){
-													res.redirect("/kabanpacienteplanalto?id=" + resultados[0].id_usuario);					
-												});
+											modelplanalto.buscarpaciente(unidade, function(error, resultado){
+												res.redirect("/kabanpacienteplanalto?id=" + resultados[0].id_usuario);					
 											});
 										});
 									});
@@ -689,10 +687,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 							modelplanalto.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 								modelplanalto.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 									modelplanalto.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
-										modelplanalto.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
-											modelplanalto.buscarpaciente(unidade, function(error, resultado){
-												res.redirect("/kabanpacienteplanalto?id=" + resultados[0].id_usuario);					
-											});
+										modelplanalto.buscarpaciente(unidade, function(error, resultado){
+											res.redirect("/kabanpacienteplanalto?id=" + resultados[0].id_usuario);					
 										});
 									});
 								});
@@ -712,10 +708,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 						modelplanalto.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 							modelplanalto.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 								modelplanalto.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
-									modelplanalto.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
-										modelplanalto.buscarpaciente(unidade, function(error, resultado){
-											res.redirect("/kabanpacienteplanalto?id=" + resultados[0].id_usuario);				
-										});
+									modelplanalto.buscarpaciente(unidade, function(error, resultado){
+										res.redirect("/kabanpacienteplanalto?id=" + resultados[0].id_usuario);					
 									});
 								});
 							});
@@ -733,10 +727,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 							modelplanalto.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 								modelplanalto.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 									modelplanalto.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
-										modelplanalto.addcentralid(resultdoinsert.insertId,paciente, unidade,function(error, results){
-											modelplanalto.buscarpaciente(unidade, function(error, resultado){
-												res.redirect("/kabanpacienteplanalto?id=" + resultados[0].id_usuario);					
-											});
+										modelplanalto.buscarpaciente(unidade, function(error, resultado){
+											res.redirect("/kabanpacienteplanalto?id=" + resultados[0].id_usuario);					
 										});
 									});
 								});
