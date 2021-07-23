@@ -36,12 +36,12 @@ modelluizote.prototype.baixa = function(idpaciente,baixa,data, callback){
 
 modelluizote.prototype.buscarpaciente = function(unidade, callback){
 	
-	this._conection.query('select * from pacientes where unidade = "'+unidade+'" and baixa is null', callback);
+	this._conection.query('select * from kaban inner join dispositivokaban on dispositivokaban.idpaciente = kaban.idpaciente inner join news on news.idpaciente = kaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null and covid="true" and dispositivokaban.status="Ativo" and news.status="Ativo"', callback);
 }
 
 modelluizote.prototype.historico = function(unidade, callback){
 	
-	this._conection.query('select * from pacientes where unidade = "'+unidade+'"  order by paciente asc', callback);
+	this._conection.query('select * from pacientes p inner join kaban k where p.unidade = "'+unidade+'" and k.unidade= "'+unidade+'" and k.covid="true"  group by p.paciente order by p.paciente asc', callback);
 }
 
 modelluizote.prototype.buscarpacienteid = function(idpaciente, unidade, callback){

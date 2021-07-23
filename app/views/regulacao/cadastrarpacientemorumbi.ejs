@@ -4,7 +4,7 @@
             <% for(var i = 0; i < id.length; i++) {%>
                 
                     <h2>Pacientes Morumbi</h2>
-                    <a href="addpacientemorumbi?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
+                    <!-- <a href="addpacientemorumbi?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a> -->
                     <br>
                     <br>
                     
@@ -12,7 +12,6 @@
                         <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
                         
                         <thead>
-                        <tr>
                             <tr>
                                 <th hidden>id</th>
                                 <th>SusFacil</th>
@@ -26,9 +25,9 @@
                                 <th>Paliativo</th>
                                 <th>ECF</th>
                                 <th>Data Atualização</th>
-                                <th>Ultima Atualização</th>
-                                <th></th>
-                                <th></th>
+                  
+                                <!-- <th></th>
+                                <th></th> -->
                             </tr>
                             </thead>
                             <tbody>    
@@ -39,21 +38,21 @@
                                     <td hidden><%=paciente[j].id_paciente %></td>
                                     <td><%=paciente[j].susfacil %></td>
                                     <th><%=paciente[j].prt %></th>
-                                    <td><%=paciente[j].paciente %></td>
+                                    <td><%=paciente[j].nome %></td>
                                     <td><%=paciente[j].idade %></td>
-                                    <td><%=paciente[j].leito %></td>
+                                    <td><%=paciente[j].comodo %></td>
                                     <td><%=paciente[j].dataexame %></td>
                                     <td><%=paciente[j].exame %></td>
                                     <td><%=paciente[j].news %></td>
                                     <td><%=paciente[j].paliativo %></td>
-                                    <td><%=paciente[j].ecf %></td>
-                                    <td id=""><%=paciente[j].data %></td>
-                                    <td id="time"><%=paciente[j].tempo %></td>
-                                <td><a href="editpacientemorumbi/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
+                                    <td><%=paciente[j].ECF %></td>
+                                    <td id=""><%=paciente[j].dataatualizacao %></td>
+                                  
+                                <!-- <td><a href="editpacientepampulha/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
                                 </td>
                                 <td>
                                     <a href="javascript:void(0);" onclick="setaDadosModal('<%=paciente[j].id_paciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#BaixaModalcovid">Saida</a>
-                                </td>
+                                </td> -->
                             </tr>
                             <% } %>	
                             <% } %>

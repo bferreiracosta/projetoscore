@@ -25,9 +25,8 @@
                     <th>News</th>
                     <th></th>
                     <th>Data Atualização</th>
-                    <th></th>
-                    <th>Hora Atualização</th>
-                    <th></th>
+                    
+                    <!-- <th></th> -->
                 </tr>
                 </thead>
                 <tbody>    
@@ -36,9 +35,9 @@
                     <tr>
                         <td hidden><label hidden for="">/ID: </label><%=paciente[j].id_paciente %></td>
                         <td><label hidden for="">/Susfacil: </label><%=paciente[j].susfacil %></td>
-                        <td><label hidden for="">/Nome: </label><%=paciente[j].paciente %></td>
+                        <td><label hidden for="">/Nome: </label><%=paciente[j].nome %></td>
                         <td><label hidden for="">/Idade: </label><%=paciente[j].idade %></td>
-                        <td><label hidden for="">/Leito: </label><%=paciente[j].leito %></td>
+                        <td><label hidden for="">/Leito: </label><%=paciente[j].comodo %></td>
                         <td><label hidden for="">/Exame: </label><%=paciente[j].exame %></td>
                         <td><label hidden for="">/Temperatura: </label><%=paciente[j].temp %></td>
                         <td><label hidden for="">/PA Sistolica: </label><%=paciente[j].sistolica %></td>
@@ -49,12 +48,11 @@
                         <td><label hidden for="">/News: </label></td>
                         <td><%=paciente[j].news %></td>
                         <td><label hidden for="">/Data da atualização: </label></td>
-                        <td><%=paciente[j].data %></td>
-                        <td><label hidden for="">/Hora da Atualização: </label></td>
-                        <td><%=paciente[j].tempo %></td>
-                        <td>
-                            <a href="editnewsmorumbi/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %>" class="btn btn-sm btn-info edit">Edit</a>
-                        </td>
+                        <td><%=paciente[j].dataatualizacao %></td>
+                        
+                        <!-- <td>
+                            <a href="editnewsluizote/<%=id[i].id_usuario %>/?id=<%=paciente[j].id_paciente %>" class="btn btn-sm btn-info edit">Edit</a>
+                        </td> -->
                     </tr>
                     
                     <% } %>	

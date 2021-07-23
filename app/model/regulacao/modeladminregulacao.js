@@ -39,7 +39,7 @@ modeladminregulacao.prototype.buscarleitoenfermaria = function(callback){
 
 modeladminregulacao.prototype.buscarpacienteenfermaria = function(leito, callback){
 	
-	this._conection.query('select * from pacientes where leito = "'+leito+'" and baixa is null and paliativo != "" and  news != "" and ecf != "" and fr != "" and fc != "" and sistolica!= "" and sat != "" and o2 != "" and temp != "" and dispositivo != ""', callback);
+	this._conection.query('select id_paciente,susfacil, paciente, leito, idade, news, dispositivo, fluxo_de_o2, fio2, peep, glasgow, exame,dataexame, unidade, paliativo,ecf,nora,vazaonora,adrenalina,vazaoadre,bicarbonato,vazaobica,dormonid,vazaoDormonid,fentanil,vazaoFentanil, rocuronio,vazaoRocuronio, propofol,vazaoPropofol, svd, sne, cvc, avp, fr, sat, o2, temp, fc, sistolica, alerta,bic from pacientes p where p.baixa is null and p.leito="Enfermaria" union all select k.idpaciente, k.susfacil, k.nome, k.comodo, k.idade, n.news, d.dispositivoventilatorio, d.fluxoo2, d.fio2, d.peep, d.glasgow, k.exame, k.dataexame, k.unidade, k.paliativo, k.ECF, d.nora, d.vazaonora, d.adrenalina, d.vazaoadrenalina, d.bicarbonato, d.vazaobicarbonato, d.dormonid, d.vazaodormonid, d.fentanil, d.vazaofentanil, d.rocuronio, d.vazaorocuronio, d.propofol, d.vazaopropofol, d.svd, d.sne, d.cvc, d.avp, n.fr, n.sat, n.o2, n.temp, n.fc, n.sistolica, n.alerta, d.bic from kaban k inner join dispositivokaban d on k.idpaciente = d.idpaciente inner join news n on k.idpaciente = n.idpaciente where k.baixa is null and k.covid="true" and d.status = "Ativo" and n.status= "Ativo" and k.comodo="Enfermaria";', callback);
 }
 
 modeladminregulacao.prototype.buscarpacientenull = function(callback){
@@ -50,7 +50,7 @@ modeladminregulacao.prototype.buscarpacientenull = function(callback){
 
 modeladminregulacao.prototype.buscarpacientesaladeemergencia = function(leito, callback){
 	
-	this._conection.query('select * from pacientes where leito = "Sala de Emergência" and baixa is null and paliativo != "" and  news != "" and ecf != "" and fr != "" and fc != "" and sistolica != "" and sat != "" and o2 != "" and temp != "" and dispositivo != ""', callback);
+	this._conection.query('select id_paciente,susfacil, paciente, leito, idade, news, dispositivo, fluxo_de_o2, fio2, peep, glasgow, exame,dataexame, unidade, paliativo,ecf,nora,vazaonora,adrenalina,vazaoadre,bicarbonato,vazaobica,dormonid,vazaoDormonid,fentanil,vazaoFentanil, rocuronio,vazaoRocuronio, propofol,vazaoPropofol, svd, sne, cvc, avp, fr, sat, o2, temp, fc, sistolica, alerta,bic from pacientes p where p.baixa is null and p.leito="Sala de Emergência" union all select k.idpaciente, k.susfacil, k.nome, k.comodo, k.idade, n.news, d.dispositivoventilatorio, d.fluxoo2, d.fio2, d.peep, d.glasgow, k.exame, k.dataexame, k.unidade, k.paliativo, k.ECF, d.nora, d.vazaonora, d.adrenalina, d.vazaoadrenalina, d.bicarbonato, d.vazaobicarbonato, d.dormonid, d.vazaodormonid, d.fentanil, d.vazaofentanil, d.rocuronio, d.vazaorocuronio, d.propofol, d.vazaopropofol, d.svd, d.sne, d.cvc, d.avp, n.fr, n.sat, n.o2, n.temp, n.fc, n.sistolica, n.alerta, d.bic from kaban k inner join dispositivokaban d on k.idpaciente = d.idpaciente inner join news n on k.idpaciente = n.idpaciente where k.baixa is null and k.covid="true" and d.status = "Ativo" and n.status= "Ativo" and k.comodo="Sala de Emergência";', callback);
 }
 
 modeladminregulacao.prototype.buscardispositivomartins = function(callback){
