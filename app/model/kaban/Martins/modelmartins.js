@@ -141,7 +141,7 @@ modelmartins.prototype.buscarfugulinhora = function(unidade, callback){
 
 modelmartins.prototype.buscarnewshora = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM news dd where setor = "Enfermaria" and unidade = "'+unidade+'" and  status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or setor = "Enfermaria" and unidade = "'+unidade+'" and (dd.dataatualizacao) is null and  baixa is null  GROUP BY idpaciente;', callback);
+	this._conection.query('SELECT * FROM news dd inner join kaban k on dd.idpaciente = k.idpaciente where dd.setor = "Enfermaria" and dd.unidade = "'+unidade+'" and dd.status = "Ativo" and dd.baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW() or dd.setor = "Enfermaria" and dd.unidade = "'+unidade+'" and (dd.dataatualizacao) is null and dd.baixa is null or dd.setor = "Sala de Emergência" and dd.unidade = "'+unidade+'" and k.covid = "true" and dd.status = "Ativo" and dd.baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW() or dd.setor = "Sala de Emergência" and dd.unidade = "'+unidade+'" and k.covid = "true" and (dd.dataatualizacao) is null and dd.baixa is null GROUP BY dd.idpaciente;', callback);
 }
 
 modelmartins.prototype.buscartisshora = function(unidade, callback){
@@ -178,7 +178,7 @@ modelmartins.prototype.buscarfugulin = function(unidade, callback){
 
 modelmartins.prototype.buscarnews = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM news dd where setor = "Enfermaria" and  status = "Ativo" and unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY idpaciente ', callback);
+	this._conection.query('SELECT * FROM news dd inner join kaban k on dd.idpaciente = k.idpaciente where dd.setor = "Enfermaria" and  dd.status = "Ativo" and dd.unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and dd.baixa is null or dd.setor = "Sala de Emergência" and dd.unidade = "'+unidade+'" and k.covid = "true" and dd.status = "Ativo" and dd.baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)> NOW() GROUP BY dd.idpaciente ', callback);
 }
 
 modelmartins.prototype.buscartiss = function(unidade, callback){
@@ -439,6 +439,11 @@ modelmartins.prototype.buscarinternacaodiamartins = function(unidade, callback){
 	this._conection.query('select count(nome) as Inernação from kaban where unidade = "'+unidade+'"  and baixa is null and dataentrada =(select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
 }
 
+modelmartins.prototype.buscartransfegomartins = function(callback){
+
+	this._conection.query('SELECT count(destino) as obst from obstetricia where destino = "transferências" and dataatendimento =(select DATE_FORMAT(NOW(), "%d/%m/%Y") as hoje);', callback);
+}
+
 modelmartins.prototype.buscarsetoresmartins = function(callback){
 
 	this._conection.query('select lui.idmartins, lui.setor, lui.capacidade, lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Martins" and acomodacao="Cama" and nome is not null and setor = lui.setor) as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Martins" and acomodacao="Maca" and nome is not null and setor = lui.setor) as qtdmaca,lui.bloqueado, lui.datas, lui.hora from martins lui', callback);
@@ -457,6 +462,11 @@ modelmartins.prototype.buscarbanhotardemartins = function(callback){
 modelmartins.prototype.buscarbanhonoitemartins = function(callback){
 
 	this._conection.query('SELECT count(banho) as noite from kaban where banho = "Noite"  and baixa is null and unidade = "Martins";', callback);
+}
+
+modelmartins.prototype.buscargomartins = function(unidade, callback){
+
+	this._conection.query('select count(especialidade) as obstint  from kaban where especialidade = "Ginecologia/Obstetricia" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
 modelmartins.prototype.buscardieta1 = function(unidade,callback){

@@ -1302,6 +1302,8 @@ module.exports.infouaimartins= function(application, req, res){
 														modelmartins.buscarbanhomanhamartins(function(error, manha){
 															modelmartins.buscarbanhotardemartins(function(error, tarde){
 																modelmartins.buscarbanhonoitemartins(function(error, noite){
+																	modelmartins.buscartransfegomartins(function(error, obst){
+																		modelmartins.buscargomartins(unidade, function(error, obstint){
 																	res.render("kaban/Martins/infouaimartins", {inter : inter,
 																		evasao : evasao,
 																		obito : obito,
@@ -1317,9 +1319,13 @@ module.exports.infouaimartins= function(application, req, res){
 																		manha : manha,
 																		tarde : tarde,
 																		noite : noite,
+																		obst : obst,
+																		obstint : obstint,
 																		id : result});
 																	});
 																});
+															});
+														});
 															});
 														});
 												});

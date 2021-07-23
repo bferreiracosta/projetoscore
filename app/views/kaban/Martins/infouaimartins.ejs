@@ -109,6 +109,22 @@
                         </tr>
                         <% } %>	
                         <% } %>
+                        <% if(obstint.length > 0) { %>
+                            <% for(var s = 0; s < obstint.length; s++) {%>
+                        <tr> 
+                            <td >Quantidade de Pacientes Ginecologia/Obstetrícia</td>
+                            <td ><%=obstint[s].obstint %></td>   
+                        </tr>
+                        <% } %>	
+                        <% } %>
+                        <% if(obst.length > 0) { %>
+                            <% for(var r = 0; r < obst.length; r++) {%>
+                        <tr> 
+                            <td >Quantidade de Transferência Ginecologia/Obstetrícia</td>
+                            <td ><%=obst[r].obst %></td>   
+                        </tr>
+                        <% } %>	
+                        <% } %>
                     </tbody>
                 </table>
             </div>
