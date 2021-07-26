@@ -19,7 +19,8 @@
     "express-session": "^1.17.1",
     "fullcalendar": "^5.7.2",
     "jsonwebtoken": "^8.5.1",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "pm2": "^5.1.0"
   },
   "devDependencies": {
     "pnotify": "^5.2.0"
