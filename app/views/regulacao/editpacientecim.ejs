@@ -81,8 +81,8 @@
 					<div class="form-group">
 						<label for="paliativos" id="paliativo2">Paliativos</label>
                         <select class="form-control" id="paliativos" name="paliativos" placeholder="">
-							<option value="sim" <%=(paciente[j].paliativo == 'sim')?'selected':''%> >Sim</option>
-							<option value="nao" <%=(paciente[j].paliativo == 'nao')?'selected':''%>>Não</option>
+							<option value="Sim" <%=(paciente[j].paliativo == 'Sim')?'selected':''%> >Sim</option>
+							<option value="Não" <%=(paciente[j].paliativo == 'Não')?'selected':''%>>Não</option>
                         </select>
                         <input type="hidden" name="paliativo" id="paliativo">
 					</div>
@@ -205,7 +205,7 @@ function verificaecf(value){
 	label.style.display = "none";
   }
   if(value == 9 || value == 10){
-	  var paliativo = 'sim';
+	  var paliativo = 'Sim';
 	  document.getElementById('paliativos').style.display = 'none'
 	  document.getElementById('paliativo2').style.display = 'none'
 	  document.getElementById('paliativo').value = paliativo;

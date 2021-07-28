@@ -91,8 +91,8 @@
 								<label for="paliativos" id="paliativo2">Paliativos</label>
 								<select class="form-control" id="paliativos" name="paliativos" >
 									<option value="" disabled selected hidden>Paliativo</option>
-									<option value="sim">Sim</option>
-									<option value="nao">Não</option>
+									<option value="Sim">Sim</option>
+									<option value="Não">Não</option>
 								</select>
 								<input type="hidden" name="paliativo" id="paliativo">
 							</div>
@@ -233,7 +233,7 @@ function verificaecf(value){
 	input.value= "Não aplicado"
   }
   if(value == 9 || value == 10){
-	  var paliativo = 'sim';
+	  var paliativo = 'Sim';
 	  document.getElementById('paliativos').style.display = 'none'
 	  document.getElementById('paliativo2').style.display = 'none'
 	  input.value= "Não aplicado"
