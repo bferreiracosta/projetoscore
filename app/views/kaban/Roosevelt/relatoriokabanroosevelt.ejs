@@ -1,7 +1,7 @@
 <%- include('../cabecalhokaban'); %>
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
-                 <table class="table table-striped"  style="width: 100%;" id="mytable">
+        <table class="table table-striped"  style="width: 100%; font-size: 10px; text-align: center;" id="mytable">
                     <caption style="font-size: 25px; text-align: center; ">Kamban Pacientes Roosevelt</caption>
                     <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
                     <thead>
@@ -159,7 +159,7 @@ rowGroup: {
                pageSize: 'LEGAL'
            },
            {
-               "extend": "print",
+            "extend": "print",
                "text": "IMPRIMIR", 
                exportOptions: {
                    grouped_array_index: [groupColumn],
@@ -167,10 +167,10 @@ rowGroup: {
                },
                customize: function ( win ) {
                     $(win.document.body)
-                    .css( 'font-size', '12px' );
+                    .css( 'font-size', '8px' );
 
                 $(win.document.body).find( 'table' )
-                    .css( 'font-size', '12px' );
+                    .css( 'font-size', '8px' );
                 },
                 orientation: 'landscape',
                 pageSize: 'LEGAL'
