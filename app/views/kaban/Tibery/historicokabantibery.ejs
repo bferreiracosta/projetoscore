@@ -26,15 +26,15 @@
                             <% if(paciente.length > 0) { %>
                                 <% for(var j = 0; j < paciente.length; j++) {%> 
                             <tr>
-                                <td hidden><label hidden for="">/ID: </label><%=paciente[j].idpaciente %></td>
-                                <td><label hidden for="">/ID: </label><%=paciente[j].dataentrada %></td>
-                                <td><label hidden for="">/Paciente: </label><%=paciente[j].nome %></td>
-                                <td><label hidden for="">/Susfacil: </label><%=paciente[j].susfacil %></td>
-                                <td><label hidden for="">/Idade: </label><%=paciente[j].idade %></td>
-                                <td><label hidden for="">/Baixa: </label><%=paciente[j].baixa %></td>
-                                <td><label hidden for="">/Alta: </label><%=paciente[j].alta %></td>
-                                <td><label hidden for="">/Destino: </label><%=paciente[j].destino %></td>
-                                <td><label hidden for="">/Baixa: </label><%=paciente[j].datasaida %></td>
+                                <td hidden><%=paciente[j].idpaciente %></td>
+                                <td><%=paciente[j].dataentrada %></td>
+                                <td><%=paciente[j].nome %></td>
+                                <td><%=paciente[j].susfacil %></td>
+                                <td><%=paciente[j].idade %></td>
+                                <td><%=paciente[j].baixa %></td>
+                                <td><%=paciente[j].alta %></td>
+                                <td><%=paciente[j].destino %></td>
+                                <td><%=paciente[j].datasaida %></td>
                             </tr>
                         <% } %>	
                         <% } %>
@@ -61,11 +61,13 @@
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.9/js/dataTables.fixedHeader.min.js"></script>
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
 $(document).ready(function() {
 $('#mytable').DataTable( {
+    fixedHeader: true,
 dom: 'Bfrtip',
 "scrollX": true,
 order: ([ 1, 'desc']),
@@ -75,22 +77,22 @@ order: ([ 1, 'desc']),
             {
                 "extend": "copyHtml5",
                 "text": "COPIAR",
-                header: false
+                header: true
             },          
             {
                 "extend": "pdf",
                 "text": "PDF",
-                header: false
+                header: true
             },
             {
                 "extend": "excelHtml5",
                 "text": "EXCEL",
-                header: false
+                header: true
             },
             {
                 "extend": "print",
                 "text": "IMPRIMIR",
-                header: false
+                header: true
             }
         ],language: {
             buttons: {

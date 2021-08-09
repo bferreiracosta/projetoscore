@@ -151,6 +151,7 @@ module.exports.atualizarleitopampulha= function(application, req, res){
 	var nome = req.body.nome;
 	var idleito = req.body.idleito;
 	var id = req.body.idusuario;
+	console.log(idleito)
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelpampulha.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 			if(nome == "Remover"){
@@ -441,6 +442,13 @@ module.exports.relatoriodietaspampulha = function(application, req, res){
 																									modelpampulha.buscardieta23(unidade,function(error, dieta23){
 																										modelpampulha.buscardieta24(unidade,function(error, dieta24){
 																											modelpampulha.buscardieta25(unidade,function(error, dieta25){
+																												modelpampulha.buscardieta25(unidade,function(error, dieta25){
+																													modelpampulha.buscardieta26(unidade,function(error, dieta26){
+																														modelpampulha.buscardieta27(unidade,function(error, dieta27){
+																															modelpampulha.buscardieta28(unidade,function(error, dieta28){
+																																modelpampulha.buscardieta29(unidade,function(error, dieta29){
+																																	modelpampulha.buscardieta30(unidade,function(error, dieta30){
+																																		modelpampulha.buscardieta31(unidade,function(error, dieta31){
 																												res.render("kaban/Pampulha/relatoriodietaspampulha", {paciente: resultado, id : result,
 																													dieta1 : dieta1,
 																													dieta2 : dieta2,
@@ -467,11 +475,24 @@ module.exports.relatoriodietaspampulha = function(application, req, res){
 																													dieta23 : dieta23,
 																													dieta24 : dieta24,
 																													dieta25 : dieta25,
+																													dieta26 : dieta26,
+																													dieta27 : dieta27,
+																													dieta28 : dieta28,
+																													dieta29 : dieta29,
+																													dieta30 : dieta30,
+																													dieta31 : dieta31,
 																											});
 																										});
 																									});
 																								});
 																							});
+																						});
+																					});
+																				});
+																			});
+																		});
+																	});
+																});
 																						});
 																					});
 																				});
@@ -635,6 +656,22 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var banho = req.body.banho;
 	var mobilidade = req.body.mobilidade;
 	var pendencias = req.body.pendencias;
+	var round = req.body.round;
+	var alta = req.body.alta;
+	var metas = req.body.metas;
+	var agenexames = req.body.agenexames;
+	var descexame = req.body.descexame;
+	var laudo = req.body.laudo;
+	var desclaudo = req.body.desclaudo;
+	var oxigenios = req.body.oxigenios;
+	var casas = req.body.casas;
+	var avespecialistas = req.body.avespecialistas;
+	var descespecialista = req.body.descespecialista;
+	var coletas = req.body.coletas;
+	var resultadolabs = req.body.resultadolabs;
+	var transferencias = req.body.transferencias;
+	var desctransferencia = req.body.desctransferencia;
+	var hemos = req.body.hemos;
 	var mental = req.body.mental2;
 	var referencia = req.body.referencia;
 	var covid = req.body.covid2;
@@ -654,59 +691,13 @@ module.exports.cadastrarpaciente= function(application, req, res){
 
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
-	var modelcovidpampulha = new application.app.model.regulacao.modelpampulha(application);
 	var modelmentalpampulha = new application.app.model.mentalurgencia.modelmentalpampulha(application);
 
 	if(mental == 'true'){
 		
-		if(covid == 'true'){
-		
-			modeladmin.buscarusuarioporid(id, function(error, resultados){
-				modelpampulha.cadastrarpaciente(paciente, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
-					modelmentalpampulha.cadastrarpaciente(prt, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
-						modelcovidpampulha.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
-							modelpampulha.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
-								modelpampulha.addfugulinid(resultdoinsert.insertId,setor,paciente,unidade, function(error, results){
-									modelpampulha.addtissid(resultdoinsert.insertId,setor,paciente,unidade, function(error, results){
-										modelpampulha.addnewsid(resultdoinsert.insertId,setor,paciente, unidade,function(error, results){
-											modelpampulha.buscarpaciente(unidade, function(error, resultado){
-												res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);					
-											});
-										});
-									});
-								});
-							});
-						});
-					});
-				});
-			});	
-		}
-		else{
-		
-			modeladmin.buscarusuarioporid(id, function(error, resultados){
-				modelpampulha.cadastrarpaciente(paciente, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
-					modelmentalpampulha.cadastrarpaciente(prt, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
-						modelpampulha.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
-							modelpampulha.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
-								modelpampulha.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
-									modelpampulha.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
-										modelpampulha.buscarpaciente(unidade, function(error, resultado){
-											res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);					
-										});
-									});
-								});
-							});
-						});
-					});
-				});
-			});	
-		}
-	}
-	else{
-	
-		if(covid == "false"){
-			modeladmin.buscarusuarioporid(id, function(error, resultados){
-				modelpampulha.cadastrarpaciente(paciente, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+		modeladmin.buscarusuarioporid(id, function(error, resultados){
+			modelpampulha.cadastrarpaciente(paciente, round, alta, metas,agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+				modelmentalpampulha.cadastrarpaciente(prt, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 					modelpampulha.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 						modelpampulha.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 							modelpampulha.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -719,31 +710,29 @@ module.exports.cadastrarpaciente= function(application, req, res){
 						});
 					});
 				});
-			});	
-		}
-		else{
-			
-			modeladmin.buscarusuarioporid(id, function(error, resultados){
-				modelpampulha.cadastrarpaciente(paciente, medico,  dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
-					modelcovidpampulha.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
-						modelpampulha.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
-							modelpampulha.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
-								modelpampulha.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
-									modelpampulha.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
-										modelpampulha.buscarpaciente(unidade, function(error, resultado){
-											res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);					
-										});
-									});
+			});
+		});	
+	}
+	else{
+	
+		
+		modeladmin.buscarusuarioporid(id, function(error, resultados){
+			modelpampulha.cadastrarpaciente(paciente, round, alta, metas,agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+				modelpampulha.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
+					modelpampulha.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
+						modelpampulha.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
+							modelpampulha.addnewsid(resultdoinsert.insertId,setor, paciente, unidade,function(error, results){
+								modelpampulha.buscarpaciente(unidade, function(error, resultado){
+									res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);					
 								});
 							});
 						});
 					});
 				});
-			});	
-		}
+			});
+		});	
 	}	
 }
-
 
 module.exports.cadastrardispositivo= function(application, req, res){
 	var idpaciente = req.body.idpaciente;
@@ -778,69 +767,33 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var vazaoPropofol = req.body.vazaoPropofol;
 	var glasgow = req.body.glasgow;
 	var bic = req.body.bic;
-	var profissional = "Enfermeiro";
 	var data = req.body.data;
 	var id = req.body.campo;
 	var unidade = 'Pampulha';
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
-	var modelcovidpampulha = new application.app.model.regulacao.modelpampulha(application);
-	modelpampulha.buscardispositivoporid(idpaciente, unidade, function(error, resultadoscovid){
-		if(resultadoscovid[0].covid == 'false'){
-			modelpampulha.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
-				if(resultados[0].dataatualizacao == null){
-					modeladmin.buscarusuarioporid(id, function(error, result){	
-						modelpampulha.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
-							modelpampulha.buscardispositivo(unidade, function(error, resultado){
-								res.redirect("/dispositivopampulha?id=" + result[0].id_usuario);	
-							});
-						});
-					});	
-				}else{
-					modeladmin.buscarusuarioeditavel(id, function(error, result){	
-						modelpampulha.adddispositivo(idpaciente,glasgow, bic, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
-							modelpampulha.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
-								modelpampulha.buscardispositivo(unidade, function(error, resultado){
-									res.redirect("/dispositivopampulha?id=" + result[0].id_usuario);	
-								});
-							});	
-						});
-					});	
-				}
-			})
-		
-		}
-		else{
-			modelcovidpampulha.buscarpacientepornome(nome, function(error, idcovid){
-			modelpampulha.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
-				if(resultados[0].dataatualizacao == null){
-					modeladmin.buscarusuarioporid(id, function(error, result){	
-						modelpampulha.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
-							modelcovidpampulha.updaterespkaban(idcovid[0].id_paciente,svd, sne, avp, cvc, glasgow, bic,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
-								modelpampulha.buscardispositivo(unidade, function(error, resultado){
-									res.redirect("/dispositivopampulha?id=" + result[0].id_usuario);	
-								});
-							});
-						});
-					});	
-				}else{
-					modeladmin.buscarusuarioeditavel(id, function(error, result){	
-						modelpampulha.adddispositivo(idpaciente, glasgow, bic,nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
-							modelcovidpampulha.updaterespkaban(idcovid[0].id_paciente,svd, sne, avp, cvc, glasgow, bic,vazaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
-								modelpampulha.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
-									modelpampulha.buscardispositivo(unidade, function(error, resultado){
-										res.redirect("/dispositivopampulha?id=" + result[0].id_usuario);	
-									});
-								});	
-							});	
-						});
-					});	
-				}
-			})
-		})
-		}
 	
-})	
+	modelpampulha.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
+		if(resultados[0].dataatualizacao == null){
+			modeladmin.buscarusuarioporid(id, function(error, result){	
+				modelpampulha.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
+					modelpampulha.buscardispositivo(unidade, function(error, resultado){
+						res.redirect("/dispositivopampulha?id=" + result[0].id_usuario);	
+					});
+				});
+			});	
+		}else{
+			modeladmin.buscarusuarioeditavel(id, function(error, result){	
+				modelpampulha.adddispositivo(idpaciente,glasgow, bic, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
+					modelpampulha.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
+						modelpampulha.buscardispositivo(unidade, function(error, resultado){
+							res.redirect("/dispositivopampulha?id=" + result[0].id_usuario);	
+						});
+					});	
+				});
+			});	
+		}
+	})	
 }
 module.exports.cadastrarfugulin= function(application, req, res){
 	var idpaciente = req.body.idpaciente;
@@ -948,60 +901,28 @@ module.exports.cadastrarnews= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
-	var modelcovidpampulha = new application.app.model.regulacao.modelpampulha(application);
 	modelpampulha.buscardispositivoporid(idpaciente, unidade, function(error, resultadoscovid){
-		if(resultadoscovid[0].covid == 'false'){
-			modelpampulha.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-				if(resultados[0].dataatualizacao == null){
-					modeladmin.buscarusuarioporid(id, function(error, result){	
-						modelpampulha.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+		modelpampulha.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
+			if(resultados[0].dataatualizacao == null){
+				modeladmin.buscarusuarioporid(id, function(error, result){	
+					modelpampulha.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+						modelpampulha.buscarnews(unidade, function(error, resultado){
+							res.redirect("/newskabanpampulha?id=" + result[0].id_usuario);	
+						});
+					});
+				});	
+			}else{
+				modeladmin.buscarusuarioeditavel(id, function(error, result){	
+					modelpampulha.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+						modelpampulha.updatenewsstatus(resultados[0].idnews, function(error, resulta){
 							modelpampulha.buscarnews(unidade, function(error, resultado){
 								res.redirect("/newskabanpampulha?id=" + result[0].id_usuario);	
 							});
-						});
-					});	
-				}else{
-					modeladmin.buscarusuarioeditavel(id, function(error, result){	
-						modelpampulha.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-							modelpampulha.updatenewsstatus(resultados[0].idnews, function(error, resulta){
-								modelpampulha.buscarnews(unidade, function(error, resultado){
-									res.redirect("/newskabanpampulha?id=" + result[0].id_usuario);	
-								});
-							});	
-						});
-					});	
-				}
-			})
-		}
-		else{
-			modelcovidpampulha.buscarpacientepornome( nome, function(error, idcovid){
-				modelpampulha.buscarnewsdataid(idpaciente, unidade, function(error, resultados){
-					if(resultados[0].dataatualizacao == null){
-						modeladmin.buscarusuarioporid(id, function(error, result){	
-							modelpampulha.updatenews(idpaciente, setor, news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-								modelcovidpampulha.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
-									modelpampulha.buscarnews(unidade, function(error, resultado){
-										res.redirect("/newskabanpampulha?id=" + result[0].id_usuario);	
-									});
-								});
-							});
 						});	
-					}else{
-						modeladmin.buscarusuarioeditavel(id, function(error, result){	
-							modelpampulha.addnews(idpaciente, setor, nome,news, data, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-								modelpampulha.updatenewsstatus(resultados[0].idnews, function(error, resulta){
-									modelcovidpampulha.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
-										modelpampulha.buscarnews(unidade, function(error, resultado){
-											res.redirect("/newskabanpampulha?id=" + result[0].id_usuario);	
-										});
-									});
-								});	
-							});
-						});	
-					}
-				})
-			})
-		}
+					});
+				});	
+			}
+		})
 })
 }
 
@@ -1024,6 +945,22 @@ module.exports.update= function(application, req, res){
 	var banho = req.body.banho;
 	var mobilidade = req.body.mobilidade;
 	var pendencias = req.body.pendencias;
+	var round = req.body.round;
+	var alta = req.body.alta;
+	var metas = req.body.metas;
+	var agenexames = req.body.agenexames;
+	var descexame = req.body.descexame;
+	var laudo = req.body.laudo;
+	var desclaudo = req.body.desclaudo;
+	var oxigenios = req.body.oxigenios;
+	var casas = req.body.casas;
+	var avespecialistas = req.body.avespecialistas;
+	var descespecialista = req.body.descespecialista;
+	var coletas = req.body.coletas;
+	var resultadolabs = req.body.resultadolabs;
+	var transferencias = req.body.transferencias;
+	var desctransferencia = req.body.desctransferencia;
+	var hemos = req.body.hemos;
 	var mental = req.body.mental2;
 	var referencia = req.body.referencia;
 	var covid = req.body.covid2;
@@ -1044,117 +981,15 @@ module.exports.update= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
-	var modelcovidpampulha = new application.app.model.regulacao.modelpampulha(application);
 	var modelmentalpampulha = new application.app.model.mentalurgencia.modelmentalpampulha(application);
 
 	modelpampulha.buscarpacienteporid(idpaciente, function(error, idpac){
-	modelcovidpampulha.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
 		modelmentalpampulha.buscarpacientepornome(idpac[0].nome, function(error, idmental){	
 			if(mental == 'true' && idpac[0].mental == "true" ){
-				if(covid == 'true' && idpac[0].covid == "true"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente, medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelcovidpampulha.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
-									modelmentalpampulha.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
-										modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-													modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-														modelpampulha.buscardispositivo(unidade, function(error, result){
-															modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);		
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == 'true' && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelcovidpampulha.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
-									modelmentalpampulha.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
-										modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-													modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-														modelpampulha.buscardispositivo(unidade, function(error, result){
-															modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == 'false' && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelmentalpampulha.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
-									modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelpampulha.buscardispositivo(unidade, function(error, result){
-														modelpampulha.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == 'false' && idpac[0].covid == "true"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-									modelmentalpampulha.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
-										modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-													modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-														modelpampulha.buscardispositivo(unidade, function(error, result){
-															modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-			}
-			if(mental == 'false' && idpac[0].mental == "false" ){
-				if(covid == "false" && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+				modeladmin.buscarusuarioporid(id, function(error, resultados){	
+					modelpampulha.update(idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+							modelmentalpampulha.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
 								modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 									modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
 										modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
@@ -1170,22 +1005,20 @@ module.exports.update= function(application, req, res){
 								});
 							});
 						});
-					});	
-				}
-				if(covid == "true" && idpac[0].covid == "true"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelcovidpampulha.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
-									modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelpampulha.buscardispositivo(unidade, function(error, result){
-														modelpampulha.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-														});
-													});
+					});
+				});	
+			}
+			if(mental == 'false' && idpac[0].mental == "false" ){
+				modeladmin.buscarusuarioporid(id, function(error, resultados){
+					modelpampulha.update(idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+							modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+								modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+									modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+										modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
+											modelpampulha.buscardispositivo(unidade, function(error, result){
+												modelpampulha.buscarpaciente(unidade, function(error, resultado){
+													res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
 												});
 											});
 										});
@@ -1193,69 +1026,21 @@ module.exports.update= function(application, req, res){
 								});
 							});
 						});
-					});	
-				}
-				if(covid == "true" && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelcovidpampulha.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
-									modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelpampulha.buscardispositivo(unidade, function(error, result){
-														modelpampulha.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == "false" && idpac[0].covid == "true"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-									modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelpampulha.buscardispositivo(unidade, function(error, result){
-														modelpampulha.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
+					});
+				});	
 			}	
 			if(mental == 'true' && idpac[0].mental == "false" ){
-				if(covid == "false" && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelmentalpampulha.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
-									modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelpampulha.buscardispositivo(unidade, function(error, result){
-														modelpampulha.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-														});
+				modeladmin.buscarusuarioporid(id, function(error, resultados){
+					modelpampulha.update(idpaciente,medico, paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+							modelmentalpampulha.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
+								modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+									modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+										modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+											modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
+												modelpampulha.buscardispositivo(unidade, function(error, result){
+													modelpampulha.buscarpaciente(unidade, function(error, resultado){
+														res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
 													});
 												});
 											});
@@ -1264,98 +1049,21 @@ module.exports.update= function(application, req, res){
 								});
 							});
 						});
-					});	
-				}
-				if(covid == "true" && idpac[0].covid == "true"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelmentalpampulha.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
-									modelcovidpampulha.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
-										modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-													modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-														modelpampulha.buscardispositivo(unidade, function(error, result){
-															modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == "true" && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelmentalpampulha.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
-									modelcovidpampulha.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
-										modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-													modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-														modelpampulha.buscardispositivo(unidade, function(error, result){
-															modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == "false" && idpac[0].covid == "true"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelmentalpampulha.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
-									modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-													modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-														modelpampulha.buscardispositivo(unidade, function(error, result){
-															modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
+					});
+				});	
 			}	
 			if(mental == 'false' && idpac[0].mental == "true" ){
-				if(covid == "false" && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-									modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-										modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-													modelpampulha.buscardispositivo(unidade, function(error, result){
-														modelpampulha.buscarpaciente(unidade, function(error, resultado){
-															res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-														});
+				modeladmin.buscarusuarioporid(id, function(error, resultados){	
+					modelpampulha.update(idpaciente,medico, dieta, paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+						modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
+							modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
+								modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
+									modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
+										modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
+											modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
+												modelpampulha.buscardispositivo(unidade, function(error, result){
+													modelpampulha.buscarpaciente(unidade, function(error, resultado){
+														res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
 													});
 												});
 											});
@@ -1364,88 +1072,12 @@ module.exports.update= function(application, req, res){
 								});
 							});
 						});
-					});	
-				}
-				if(covid == "true" && idpac[0].covid == "true"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-									modelcovidpampulha.update(idcovid[0].id_paciente,dataexame, susfacil,prt,paciente, setor, idade, exame,paliativo, ecf,svd, sne, avp,cvc,spict,  function(error, result){
-										modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-													modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-														modelpampulha.buscardispositivo(unidade, function(error, result){
-															modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == "true" && idpac[0].covid == "false"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-									modelcovidpampulha.cadastrarpaciente(dataexame, susfacil, prt, paciente,setor, idade,exame, unidade,paliativo,ecf,svd, sne, avp,cvc, spict,da, function(error, result){
-										modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-													modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-														modelpampulha.buscardispositivo(unidade, function(error, result){
-															modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
-				if(covid == "false" && idpac[0].covid == "true"){
-					modeladmin.buscarusuarioporid(id, function(error, resultados){	
-						modelpampulha.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
-							modelpampulha.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
-								modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-									modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-										modelpampulha.updatetissnome(idpaciente,paciente,setor,  function(error, result){
-											modelpampulha.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
-												modelpampulha.updatenewsnome(idpaciente,paciente,setor,  function(error, result){
-													modelpampulha.updatedispositivonome(idpaciente,paciente,  function(error, result){
-														modelpampulha.buscardispositivo(unidade, function(error, result){
-															modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-															});
-														});
-													});
-												});
-											});
-										});
-									});
-								});
-							});
-						});
-					});	
-				}
+					});
+				});	
 			}
 			
 		})
 	})
-})
 }
 
 module.exports.baixa= function(application, req, res){
@@ -1456,68 +1088,18 @@ module.exports.baixa= function(application, req, res){
 	var alta = req.body.alta2;
 	var data = req.body.data;
 	var unidade = 'Pampulha';
-	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
-	var modelcovidpampulha = new application.app.model.regulacao.modelpampulha(application);
 	var modelmentalpampulha = new application.app.model.mentalurgencia.modelmentalpampulha(application);
-	var modeladmingestao = new application.app.model.gestao.modeladmingestao(application);
 	modelpampulha.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 		console.log(setoresrecuperado);
 		if(setoresrecuperado != ''){
-			modelpampulha.buscarpacienteporid(idpaciente, function(error, idpac){
-				modelcovidpampulha.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
+			modelpampulha.buscarpacienteporid(idpaciente, function(error, idpac){	
 					modelmentalpampulha.buscarpacientepornome(idpac[0].nome, function(error, idmental){
 						if(idpac[0].mental == 'true'){
-							if(idpac[0].covid == 'true'){
-								modeladmin.buscarusuarioporid(id, function(error, resultados){
-									modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-										modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-											modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-												modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
-													modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
-														modelpampulha.baixanews(idpaciente,baixa, function(error, result){
-															modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
-																modelpampulha.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
-																	modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																		res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-																	});
-																});
-															});					
-														});
-													});
-												});
-											});
-										});
-									});
-								});	
-							}
-							else{
-								modeladmin.buscarusuarioporid(id, function(error, resultados){
-									modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-										modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-											modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
-												modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
-													modelpampulha.baixanews(idpaciente,baixa, function(error, result){
-														modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
-															modelpampulha.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
-																modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																	res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-																});
-															});
-														});		
-													});
-												});
-											});
-										});
-									});
-								});	
-							}
-						}
-						else{
-							if(idpac[0].covid == "false"){
-								modeladmin.buscarusuarioporid(id, function(error, resultados){
-									modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
+									modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 										modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
 											modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
 												modelpampulha.baixanews(idpaciente,baixa, function(error, result){
@@ -1527,89 +1109,44 @@ module.exports.baixa= function(application, req, res){
 																res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
 															});
 														});
-													});	
+													});		
 												});
 											});
 										});
 									});
-								});	
-							}
-							else{
-								modeladmin.buscarusuarioporid(id, function(error, resultados){
-									modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-										modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-											modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
-												modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
-													modelpampulha.baixanews(idpaciente,baixa, function(error, result){
-														modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
-															modelpampulha.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
-																modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																	res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-																});
-															});
-														});	
+								});
+							});	
+						}
+						else{
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
+									modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
+										modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
+											modelpampulha.baixanews(idpaciente,baixa, function(error, result){
+												modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
+													modelpampulha.mudarpacienteleito(setoresrecuperado[0].idleito, function(error,resultado){
+														modelpampulha.buscarpaciente(unidade, function(error, resultado){
+															res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
+														});
 													});
-												});
+												});	
 											});
 										});
 									});
-								});	
-							}
+								});
+							});	
 						}	
 					})	
-				})	
+					
 			})
 		}
 		else{
 			modelpampulha.buscarpacienteporid(idpaciente, function(error, idpac){
-				modelcovidpampulha.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
 					modelmentalpampulha.buscarpacientepornome(idpac[0].nome, function(error, idmental){
 						if(idpac[0].mental == 'true'){
-							if(idpac[0].covid == 'true'){
-								modeladmin.buscarusuarioporid(id, function(error, resultados){
-									modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-										modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-											modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-												modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
-													modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
-														modelpampulha.baixanews(idpaciente,baixa, function(error, result){
-															modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
-																modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																	res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-																});
-															});					
-														});
-													});
-												});
-											});
-										});
-									});
-								});	
-							}
-							else{
-								modeladmin.buscarusuarioporid(id, function(error, resultados){
-									modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-										modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
-											modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
-												modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
-													modelpampulha.baixanews(idpaciente,baixa, function(error, result){
-														modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
-															modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-															});
-														});		
-													});
-												});
-											});
-										});
-									});
-								});	
-							}
-						}
-						else{
-							if(idpac[0].covid == "false"){
-								modeladmin.buscarusuarioporid(id, function(error, resultados){
-									modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
+									modelmentalpampulha.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 										modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
 											modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
 												modelpampulha.baixanews(idpaciente,baixa, function(error, result){
@@ -1617,36 +1154,34 @@ module.exports.baixa= function(application, req, res){
 														modelpampulha.buscarpaciente(unidade, function(error, resultado){
 															res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
 														});
-													});	
+													});		
 												});
 											});
 										});
 									});
-								});	
-							}
-							else{
-								modeladmin.buscarusuarioporid(id, function(error, resultados){
-									modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
-										modelcovidpampulha.baixa(idcovid[0].id_paciente,baixa,data, function(error, result){
-											modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
-												modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
-													modelpampulha.baixanews(idpaciente,baixa, function(error, result){
-														modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
-															modelpampulha.buscarpaciente(unidade, function(error, resultado){
-																res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
-															});
-														});	
+								});
+							});	
+						}
+						else{
+							modeladmin.buscarusuarioporid(id, function(error, resultados){
+								modelpampulha.baixa(idpaciente,baixa, destino, alta,data, function(error, result){
+									modelpampulha.baixadispositivo(idpaciente,baixa, function(error, result){
+										modelpampulha.baixatiss(idpaciente,baixa, function(error, result){
+											modelpampulha.baixanews(idpaciente,baixa, function(error, result){
+												modelpampulha.baixafugulin(idpaciente,baixa, function(error, result){
+													modelpampulha.buscarpaciente(unidade, function(error, resultado){
+														res.redirect("/kabanpacientepampulha?id=" + resultados[0].id_usuario);	
 													});
-												});
+												});	
 											});
 										});
 									});
-								});	
-							}
+								});
+							});	
 						}	
 					})	
 				})	
-			})
+			
 		}
 
 })
@@ -1687,33 +1222,18 @@ module.exports.updatedispositivokabanpampulha= function(application, req, res){
 	var id = req.body.idusuario;
 	var data = req.body.data;
 	var unidade = 'Pampulha';
-	var profissional = "Enfermeiro";
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
-	var modelcovidpampulha = new application.app.model.regulacao.modelpampulha(application);
 	modelpampulha.buscarpacienteporid(idpaciente, function(error, idpac){
-		modelcovidpampulha.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
-			if(idpac[0].covid == 'true'){
-				modeladmin.buscarusuarioporid(id, function(error, result){	
-					modelpampulha.updatedispositivodados(idpaciente,glasgow, bic,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
-						modelcovidpampulha.updaterespkaban(idcovid[0].id_paciente,vglasgow, bic,azaoDormonid,vazaoFentanil,vazaoRocuronio,vazaoPropofol,vazaonora,vazaoadre,vazaobica, profissional, dispositivoventilatorio,fluxoo2, drogas, fio2, peep, sedacao,nora, adre,bica,dormonid3,fentanil3,rocuronio3,propofol3,  function(error, resulta){
-							modelpampulha.buscardispositivo(unidade, function(error, resultado){
-								res.redirect("/dispositivopampulha?id=" + result[0].id_usuario);	
-							});
-						});
-					});
+
+		modeladmin.buscarusuarioporid(id, function(error, result){	
+			modelpampulha.updatedispositivodados(idpaciente,glasgow, bic,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
+				modelpampulha.buscardispositivo(unidade, function(error, resultado){
+					res.redirect("/dispositivopampulha?id=" + result[0].id_usuario);	
 				});	
-			}
-			else{
-				modeladmin.buscarusuarioporid(id, function(error, result){	
-					modelpampulha.updatedispositivodados(idpaciente,glasgow, bic,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
-						modelpampulha.buscardispositivo(unidade, function(error, resultado){
-							res.redirect("/dispositivopampulha?id=" + result[0].id_usuario);	
-						});	
-					});
-				});	
-			}
-		});
+			});
+		});	
+		
 	});
 	
 	
@@ -1764,8 +1284,6 @@ module.exports.updatenews= function(application, req, res){
 	var fr = req.body.fr;
 	var sistolica = req.body.sistolica;
 	var alerta = req.body.covid;
-	var horasreg = req.body.horas;
-	var datareg = req.body.datareg;
 	var data = req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'Pampulha';
@@ -1773,31 +1291,16 @@ module.exports.updatenews= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelpampulha = new application.app.model.kaban.Pampulha.modelpampulha(application);
-	var modelcovidpampulha = new application.app.model.regulacao.modelpampulha(application);
 
 	modelpampulha.buscarpacienteporid(idpaciente, function(error, idpac){
-		modelcovidpampulha.buscarpacientepornome(idpac[0].nome, function(error, idcovid){	
-			if(idpac[0].covid == 'true'){
-				modeladmin.buscarusuarioporid(id, function(error, result){	
-					modelpampulha.updatenewsdados(idpaciente, data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-						modelcovidpampulha.updatenews(idcovid[0].id_paciente,news,horasreg, datareg, fr, sat, temp, o2, sistolica, fc, alerta, function(error, resulta){
-							modelpampulha.buscarnews(unidade, function(error, resultado){
-								res.redirect("/newskabanpampulha?id=" + result[0].id_usuario);	
-							});
-						});
-					});
-				});	
-			}
-			else{
-				modeladmin.buscarusuarioporid(id, function(error, result){	
-					modelpampulha.updatenewsdados(idpaciente, data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
-						modelpampulha.buscarnews(unidade, function(error, resultado){
-							res.redirect("/newskabanpampulha?id=" + result[0].id_usuario);	
-						});
-					});
-				});	
-			}
-		});
+		modeladmin.buscarusuarioporid(id, function(error, result){	
+			modelpampulha.updatenewsdados(idpaciente, data, setor, news, fr, sat, temp, o2, sistolica, fc, alerta, unidade,  function(error, resulta){
+				modelpampulha.buscarnews(unidade, function(error, resultado){
+					res.redirect("/newskabanpampulha?id=" + result[0].id_usuario);	
+				});
+			});
+		});	
+		
 	});	
 }
 

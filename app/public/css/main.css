@@ -5,7 +5,9 @@
 .fc-not-allowed .fc-event { /* override events' custom cursors */
   cursor: not-allowed;
 }
-
+.fixedHeader-floating {
+  overflow: hidden;
+}
 .fc-unselectable {
   -webkit-user-select: none;
      -moz-user-select: none;

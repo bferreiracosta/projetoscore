@@ -442,6 +442,13 @@ module.exports.relatoriodietasmartins = function(application, req, res){
 																									modelmartins.buscardieta23(unidade,function(error, dieta23){
 																										modelmartins.buscardieta24(unidade,function(error, dieta24){
 																											modelmartins.buscardieta25(unidade,function(error, dieta25){
+																												modelmartins.buscardieta25(unidade,function(error, dieta25){
+																													modelmartins.buscardieta26(unidade,function(error, dieta26){
+																														modelmartins.buscardieta27(unidade,function(error, dieta27){
+																															modelmartins.buscardieta28(unidade,function(error, dieta28){
+																																modelmartins.buscardieta29(unidade,function(error, dieta29){
+																																	modelmartins.buscardieta30(unidade,function(error, dieta30){
+																																		modelmartins.buscardieta31(unidade,function(error, dieta31){
 																												res.render("kaban/Martins/relatoriodietasmartins", {paciente: resultado, id : result,
 																													dieta1 : dieta1,
 																													dieta2 : dieta2,
@@ -468,11 +475,24 @@ module.exports.relatoriodietasmartins = function(application, req, res){
 																													dieta23 : dieta23,
 																													dieta24 : dieta24,
 																													dieta25 : dieta25,
+																													dieta26 : dieta26,
+																													dieta27 : dieta27,
+																													dieta28 : dieta28,
+																													dieta29 : dieta29,
+																													dieta30 : dieta30,
+																													dieta31 : dieta31,
 																											});
 																										});
 																									});
 																								});
 																							});
+																						});
+																					});
+																				});
+																			});
+																		});
+																	});
+																});
 																						});
 																					});
 																				});
@@ -636,6 +656,24 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var banho = req.body.banho;
 	var mobilidade = req.body.mobilidade;
 	var pendencias = req.body.pendencias;
+	var round = req.body.round;
+	var alta = req.body.alta;
+	var metas = req.body.metas
+
+
+	var agenexames = req.body.agenexames;
+	var descexame = req.body.descexame;
+	var laudo = req.body.laudo;
+	var desclaudo = req.body.desclaudo;
+	var oxigenios = req.body.oxigenios;
+	var casas = req.body.casas;
+	var avespecialistas = req.body.avespecialistas;
+	var descespecialista = req.body.descespecialista;
+	var coletas = req.body.coletas;
+	var resultadolabs = req.body.resultadolabs;
+	var transferencias = req.body.transferencias;
+	var desctransferencia = req.body.desctransferencia;
+	var hemos = req.body.hemos;
 	var mental = req.body.mental2;
 	var referencia = req.body.referencia;
 	var covid = req.body.covid2;
@@ -660,7 +698,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	if(mental == 'true'){
 		
 		modeladmin.buscarusuarioporid(id, function(error, resultados){
-			modelmartins.cadastrarpaciente(paciente, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+			modelmartins.cadastrarpaciente(paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 				modelmentalmartins.cadastrarpaciente(prt, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 					modelmartins.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 						modelmartins.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -681,7 +719,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	
 		
 		modeladmin.buscarusuarioporid(id, function(error, resultados){
-			modelmartins.cadastrarpaciente(paciente, medico,  dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+			modelmartins.cadastrarpaciente(paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 				modelmartins.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 					modelmartins.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 						modelmartins.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -909,6 +947,22 @@ module.exports.update= function(application, req, res){
 	var banho = req.body.banho;
 	var mobilidade = req.body.mobilidade;
 	var pendencias = req.body.pendencias;
+	var round = req.body.round;
+	var alta = req.body.alta;
+	var metas = req.body.metas;
+	var agenexames = req.body.agenexames;
+	var descexame = req.body.descexame;
+	var laudo = req.body.laudo;
+	var desclaudo = req.body.desclaudo;
+	var oxigenios = req.body.oxigenios;
+	var casas = req.body.casas;
+	var avespecialistas = req.body.avespecialistas;
+	var descespecialista = req.body.descespecialista;
+	var coletas = req.body.coletas;
+	var resultadolabs = req.body.resultadolabs;
+	var transferencias = req.body.transferencias;
+	var desctransferencia = req.body.desctransferencia;
+	var hemos = req.body.hemos;
 	var mental = req.body.mental2;
 	var referencia = req.body.referencia;
 	var covid = req.body.covid2;
@@ -935,7 +989,7 @@ module.exports.update= function(application, req, res){
 		modelmentalmartins.buscarpacientepornome(idpac[0].nome, function(error, idmental){	
 			if(mental == 'true' && idpac[0].mental == "true" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){	
-					modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid, setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modelmartins.update(idpaciente,paciente, round, alta,metas,agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentalmartins.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
 								modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -958,7 +1012,7 @@ module.exports.update= function(application, req, res){
 			}
 			if(mental == 'false' && idpac[0].mental == "false" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){
-					modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modelmartins.update(idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 								modelmartins.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -979,7 +1033,7 @@ module.exports.update= function(application, req, res){
 			}	
 			if(mental == 'true' && idpac[0].mental == "false" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){
-					modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modelmartins.update(idpaciente,medico, paciente, round, alta, metas,agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentalmartins.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 								modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1002,7 +1056,7 @@ module.exports.update= function(application, req, res){
 			}	
 			if(mental == 'false' && idpac[0].mental == "true" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){	
-					modelmartins.update(idpaciente,medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modelmartins.update(idpaciente,medico, dieta, paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modelmartins.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentalmartins.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 								modelmartins.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1027,6 +1081,7 @@ module.exports.update= function(application, req, res){
 		})
 	})
 }
+
 
 module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;

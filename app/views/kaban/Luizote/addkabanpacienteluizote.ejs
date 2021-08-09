@@ -96,11 +96,17 @@
 							<option value="LIVRE + LAX">LIVRE + LAX</option>
 							<option value="LIVRE POBRE K">LIVRE POBRE K</option>
 							<option value="PASTOSA">PASTOSA</option>
+							<option value="PASTOSA DM SEM RESÍDUOS">Pastosa DM sem resíduos</option>
+							<option value="PASTOSA SEM RESÍDUOS">Pastosa sem resíduos</option>
 							<option value="PASTOSA + OVO">PASTOSA + OVO</option>
 							<option value="SNE 1.0">SNE 1.0</option>
 							<option value="SNE 1.5">SNE 1.5</option>
 							<option value="DIBEN 1.0">DIBEN 1.0</option>
 							<option value="OBSTIPANTE">OBSTIPANTE</option>
+							<option value="BRANDA HIPOLIPIDICA">BRANDA HIPOLIPIDICA</option>
+							<option value="HIPOLIPIDICA/HPS">HIPOLIPIDICA/HPS</option>
+							<option value="HIPOLIPIDICA/DM">HIPOLIPIDICA/DM</option>
+							<option value="LIQUIDA SEM RESÍDUOS">LIQUIDA SEM RESÍDUOS</option>
 							<option value="ZERO">ZERO</option>
 						</select>
 						<input type="hidden" id="dieta2"  name="dieta2" class="form-control" >
@@ -155,8 +161,124 @@
                         <input type="hidden" id="mobilidade" name="mobilidade" class="form-control" placeholder="Mobilidade" >
                     </div>
 					<div class="form-group">
-						<label for="pendencias">Pendencias</label>
-                        <input type="text" name="pendencias" class="form-control" placeholder="Pendencias"required >
+						<label for="round">Round</label>
+						<select class="form-control" id="rounds" name="rounds" required>
+                            <option value="" disabled selected hidden>Round</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+                        </select>
+                        <input type="hidden" id="round" name="round" class="form-control" placeholder="round" >
+                    </div>
+					<div class="form-group">
+						<label for="round">Plano de Alta</label>
+						<select class="form-control" id="altas" name="altas" required>
+                            <option value="" disabled selected hidden>Plano de Alta</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+                        </select>
+                        <input type="hidden" id="alta" name="alta" class="form-control" placeholder="alta" >
+                    </div>
+					<div class="form-group">
+						<label id="metas">Meta para o Dia</label>
+						<input type="text" id="metas" name="metas" class="form-control" placeholder="Meta para o Dia" >
+                    </div>
+					<div class="form-group">
+						<label for="round">Pendências</label>
+						<select class="form-control" onchange="verificapendencia(this.value)" id="pendencia" name="pendencia" required>
+							<option value="" disabled selected hidden>Pendências</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+                        </select>
+                        <input type="hidden" id="pendencias" name="pendencias" class="form-control" placeholder="pendencias" >
+                    </div>
+					<div class="form-group">
+						<label id="labelexames">Aguarda Agendamento de Exame</label>
+						<select class="form-control" onchange="verificaagendamentoexame(this.value)" id="agenexame" name="agenexame">
+							<option value="" disabled selected hidden>Agendamento de Exame</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+                        </select>
+                        <input type="hidden" id="agenexames" name="agenexames" class="form-control" placeholder="agenexames" >
+						<label id="labelexamess">Descrição Agendamento de Exame</label>
+						<input type="text" id="descexame" name="descexame" class="form-control" placeholdeagenexamesr="descexame" >
+                    </div>
+					<div class="form-group">
+						<label id="labellaudo">Aguarda Avaliação de Laudo</label>
+						<select class="form-control" onchange="verificalaudoexame(this.value)" id="laudos" name="laudos">
+							<option value="" disabled selected hidden>Avaliação de Laudo</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+                        </select>
+                        <input type="hidden" id="laudo" name="laudo" class="form-control" placeholder="laudo" >
+						<label id="labellaudos">Descrição Avaliação de Laudo</label>
+						<input type="text" id="desclaudo" name="desclaudo" class="form-control" placeholder="desclaudo" >
+                    </div>
+					<div class="form-group">
+						<label id="labeloxigenio">Aguarda OxigenoTerapia</label>
+						<select class="form-control" id="oxigenio" name="oxigenio">
+							<option value="" disabled selected hidden>OxigenoTerapia</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+                        </select>
+                        <input type="hidden" id="oxigenios" name="oxigenios" class="form-control" placeholder="oxigenios" >
+                    </div>
+					<div class="form-group">
+						<label id="labelcasa">Aguarda Melhor em Casa</label>
+						<select class="form-control" id="casa" name="casa">
+							<option value="" disabled selected hidden>Melhor em Casa</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+                        </select>
+                        <input type="hidden" id="casas" name="casas" class="form-control" placeholder="casas" >
+                    </div>
+					<div class="form-group">
+						<label id="labelespecialista">Aguarda Avaliação Especialista</label>
+						<select class="form-control" onchange="verificaespecialista(this.value)" id="avespecialista" name="avespecialista">
+							<option value="" disabled selected hidden>Avaliação Especialista</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+                        </select>
+                        <input type="hidden" id="avespecialistas" name="avespecialistas" class="form-control" placeholder="avespecialistas" >
+						<label id="labelespecialistas">Descrição Pendencia Avaliação Especialista</label>
+						<input type="text" id="descespecialista" name="descespecialista" class="form-control" placeholder="descespecialista" >
+                    </div>
+					<div class="form-group">
+						<label id="labelcoleta">Aguarda Coleta de Exame Laboratorial</label>
+						<select class="form-control" id="coleta" name="coleta">
+							<option value="" disabled selected hidden>Coleta de Exame Laboratorial</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+                        </select>
+                        <input type="hidden" id="coletas" name="coletas" class="form-control" placeholder="coletas" >
+                    </div>
+					<div class="form-group">
+						<label id="labelresultado">Aguarda Resultado de Exame Laboratorial</label>
+						<select class="form-control" id="resultadolab" name="resultadolab">
+							<option value="" disabled selected hidden>Resultado de Exame Laboratorial</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+                        </select>
+                        <input type="hidden" id="resultadolabs" name="resultadolabs" class="form-control" placeholder="resultadolab" >
+                    </div>
+					<div class="form-group">
+						<label id="labeltransferencia">Transferência Agendada</label>
+						<select class="form-control" onchange="verificatransferencia(this.value)" id="transferencia" name="transferencia">
+							<option value="" disabled selected hidden>Transferência Agendada</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+                        </select>
+                        <input type="hidden" id="transferencias" name="transferencias" class="form-control" placeholder="transferencias" >
+						<label id="labeltransferencias">Descrição Transferência Agendada</label>
+						<input type="text" id="desctransferencia" name="desctransferencia" class="form-control" placeholder="desctransferencia" >
+                    </div>
+					<div class="form-group">
+						<label id="labelhemo">Aguarda Hemotransfusão</label>
+						<select class="form-control" id="hemo" name="hemo">
+							<option value="" disabled selected hidden>Hemotransfusão</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+                        </select>
+                        <input type="hidden" id="hemos" name="hemos" class="form-control" placeholder="hemos" >
                     </div>
 					<div class="form-group">
 						<label for="mental">Saude mental  </label>
@@ -274,6 +396,76 @@ $("#mobilidades").on('change', function(e){
      document.getElementById('mobilidade').value = mobilidade;
 });
 
+$("#rounds").on('change', function(e){
+     var rounds = $(this).val();
+     document.getElementById('round').value = rounds;
+});
+
+$("#altas").on('change', function(e){
+     var altas = $(this).val();
+     document.getElementById('alta').value = altas;
+});
+
+$("#pendencia").on('change', function(e){
+     var pendencia = $(this).val();
+     document.getElementById('pendencias').value = pendencia;
+});
+
+$("#agenexame").on('change', function(e){
+     var agenexame = $(this).val();
+     document.getElementById('agenexames').value = agenexame;
+});
+
+
+$("#laudos").on('change', function(e){
+     var laudos = $(this).val();
+     document.getElementById('laudo').value = laudos;
+});
+
+
+$("#oxigenio").on('change', function(e){
+     var oxigenio = $(this).val();
+     document.getElementById('oxigenios').value = oxigenio;
+});
+
+
+$("#casa").on('change', function(e){
+     var casa = $(this).val();
+     document.getElementById('casas').value = casa;
+});
+
+
+$("#avespecialista").on('change', function(e){
+     var avespecialista = $(this).val();
+     document.getElementById('avespecialistas').value = avespecialista;
+});
+
+
+$("#coleta").on('change', function(e){
+     var coleta = $(this).val();
+     document.getElementById('coletas').value = coleta;
+});
+
+
+$("#resultadolab").on('change', function(e){
+     var resultadolab = $(this).val();
+     document.getElementById('resultadolabs').value = resultadolab;
+});
+
+
+$("#transferencia").on('change', function(e){
+     var transferencia = $(this).val();
+     document.getElementById('transferencias').value = transferencia;
+});
+
+
+$("#hemo").on('change', function(e){
+     var hemo = $(this).val();
+     document.getElementById('hemos').value = hemo;
+});
+
+
+
 $("#mental").on('change', function(e){
 	if ($(this).is(':checked')) {
     	$(this).attr('value', 'true');
@@ -295,6 +487,7 @@ $("#mental").on('change', function(e){
 	 }
     
 });
+
 
 $("#exame").on('change', function(e){
      var exame = $(this).val();
@@ -383,6 +576,7 @@ function verificaecf(value){
   }
 };
 function verificaidade(value){
+		
 	var input = document.getElementById("ecf2");
 	var input2 = document.getElementById("ecf3");
 
@@ -396,6 +590,166 @@ function verificaidade(value){
   }
 };
 
+function verificapendencia(value){
+
+var label1 = document.getElementById("labelexames");
+var input1 = document.getElementById("agenexame");
+var input3 = document.getElementById("laudos");
+var label2 = document.getElementById("labellaudo");
+var input5 = document.getElementById("oxigenio");
+var label3 = document.getElementById("labeloxigenio");
+var input6 = document.getElementById("casa");
+var label4 = document.getElementById("labelcasa");
+var input7 = document.getElementById("avespecialista");
+var label5 = document.getElementById("labelespecialista");
+var label6 = document.getElementById("labelcoleta");
+var input9 = document.getElementById("coleta");
+var label7 = document.getElementById("labelresultado");
+var input10 = document.getElementById("resultadolab");
+var label8 = document.getElementById("labeltransferencia");
+var input11 = document.getElementById("transferencia");
+var label9 = document.getElementById("labelhemo");
+var input12 = document.getElementById("hemo");
+var campo1 = document.getElementById("agenexames");
+var campo2 = document.getElementById("descexame");
+var campo3 = document.getElementById("laudo");
+var campo4 = document.getElementById("desclaudo");
+var campo5 = document.getElementById("oxigenios");
+var campo6 = document.getElementById("casas");
+var campo7 = document.getElementById("avespecialistas");
+var campo8 = document.getElementById("descespecialista");
+var campo9 = document.getElementById("coletas");
+var campo10 = document.getElementById("resultadolabs");
+var campo11 = document.getElementById("transferencias");
+var campo12 = document.getElementById("desctransferencia");
+var campo13 = document.getElementById("hemos");
+
+
+
+if(value == "Sim" ){
+input1.style.display = "inline";
+input3.style.display = "inline";
+input5.style.display = "inline";
+input6.style.display = "inline";
+input7.style.display = "inline";
+input9.style.display = "inline";
+input10.style.display = "inline";
+input11.style.display = "inline";
+input12.style.display = "inline";
+label1.style.display = "inline";
+label2.style.display = "inline";
+label3.style.display = "inline";
+label4.style.display = "inline";
+label5.style.display = "inline";
+label6.style.display = "inline";
+label7.style.display = "inline";
+label8.style.display = "inline";
+label9.style.display = "inline";
+campo1.value = "";
+campo2.value = "";
+campo3.value = "";
+campo4.value = "";
+campo5.value = "";
+campo6.value = "";
+campo7.value = "";
+campo8.value = "";
+campo9.value = "";
+campo10.value = "";
+campo11.value = "";
+campo12.value = "";
+campo13.value = "";
+}else{
+input1.style.display = "none";
+input3.style.display = "none";
+input5.style.display = "none";
+input6.style.display = "none";
+input7.style.display = "none";
+input9.style.display = "none";
+input10.style.display = "none";
+input11.style.display = "none";
+input12.style.display = "none";
+label1.style.display = "none";
+label2.style.display = "none";
+label3.style.display = "none";
+label4.style.display = "none";
+label5.style.display = "none";
+label6.style.display = "none";
+label7.style.display = "none";
+label8.style.display = "none";
+label9.style.display = "none";
+campo1.value = "Não";
+campo2.value = "Não";
+campo3.value = "Não";
+campo4.value = "Não";
+campo5.value = "Não";
+campo6.value = "Não";
+campo7.value = "Não";
+campo8.value = "Não";
+campo9.value = "Não";
+campo10.value = "Não";
+campo11.value = "Não";
+campo12.value = "Não";
+campo13.value = "Não";
+
+}
+};
+
+function verificaagendamentoexame(value){
+var input2 = document.getElementById("descexame");
+var label2 = document.getElementById("labelexamess");
+	if(value == "Sim" ){
+		input2.style.display = "inline";
+		label2.style.display = "inline";
+		input2.value = ""
+	}
+	else{
+		input2.style.display = "none";
+		label2.style.display = "none";
+		input2.value = "Não"
+	}
+}
+function verificalaudoexame(value){
+	var input4 = document.getElementById("desclaudo");
+	var label4 = document.getElementById("labellaudos");
+	if(value == "Sim" ){
+		input4.style.display = "inline";
+		label4.style.display = "inline";
+		input4.value = ""
+	}
+	else{
+		input4.style.display = "none";
+		label4.style.display = "none";
+		input4.value = "Não"
+	}
+}
+function verificaespecialista(value){
+	var input8 = document.getElementById("descespecialista");
+	var label8 = document.getElementById("labelespecialistas");
+	if(value == "Sim" ){
+		input8.style.display = "inline";
+		label8.style.display = "inline";
+		input8.value = ""
+	}
+	else{
+		input8.style.display = "none";
+		label8.style.display = "none";
+		input8.value = "Não"
+	}
+}
+function verificatransferencia(value){
+	var input13 = document.getElementById("desctransferencia");
+	var label13 = document.getElementById("labeltransferencias");
+	if(value == "Sim" ){
+		input13.style.display = "inline";
+		label13.style.display = "inline";
+		input13.value = ""
+	}
+	else{
+		input13.style.display = "none";
+		label13.style.display = "none";
+		input13.value = "Não"
+	}
+}
 window.onload = function() {
 		document.getElementById('exame').style.display = 'none';
 		document.getElementById('labelexame').style.display = 'none';
@@ -403,6 +757,35 @@ window.onload = function() {
 		 document.getElementById("dataexame").style.display = 'none';
 		 document.getElementById("exame3").style.display = 'none';
 		 document.getElementById("exames").style.display = 'none';
+		 document.getElementById("labelexames").style.display = 'none';
+		 document.getElementById("labelexamess").style.display = 'none';
+		 document.getElementById("agenexame").style.display = 'none';
+		 document.getElementById("descexame").style.display = 'none';
+		 document.getElementById("laudos").style.display = 'none';
+		 document.getElementById("labellaudo").style.display = 'none';
+		 document.getElementById("labellaudos").style.display = 'none';
+		 document.getElementById("desclaudo").style.display = 'none';
+		 document.getElementById("oxigenio").style.display = 'none';
+		 document.getElementById("labeloxigenio").style.display = 'none';
+		 document.getElementById("casa").style.display = 'none';
+		 document.getElementById("labelcasa").style.display = 'none';
+		 document.getElementById("avespecialista").style.display = 'none';
+		 document.getElementById("labelespecialista").style.display = 'none';
+		 document.getElementById("labelespecialistas").style.display = 'none';
+		 document.getElementById("descespecialista").style.display = 'none';
+		 document.getElementById("labelcoleta").style.display = 'none';
+		 document.getElementById("coleta").style.display = 'none';
+		 document.getElementById("labelresultado").style.display = 'none';
+		 document.getElementById("resultadolab").style.display = 'none';
+		 document.getElementById("labeltransferencia").style.display = 'none';
+		 document.getElementById("labeltransferencias").style.display = 'none';
+		 document.getElementById("transferencia").style.display = 'none';
+		 document.getElementById("labelhemo").style.display = 'none';
+		 document.getElementById("hemo").style.display = 'none';
+		 document.getElementById("desctransferencia").style.display = 'none';
+		 
+		
+
 		 selectmental = document.getElementById('mental');
 
 	if ($(selectmental).is(':checked')) {

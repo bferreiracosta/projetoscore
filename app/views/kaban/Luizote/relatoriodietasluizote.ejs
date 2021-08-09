@@ -167,19 +167,6 @@
                                 </tr>
                                 <% } %>	
                                 <% } %>
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col col-md-6"> 
-                        <table class="table table-bordered" id="dieta1">
-                            <thead>
-                                <tr>
-                                    <th >Dieta</th>
-                                    <th >QTD</th>
-                                </tr>
-                            </thead>
-                            <tbody>  
                                 <% if(dieta15.length > 0) { %>
                                     <% for(var p = 0; p < dieta15.length; p++) {%>
                                 <tr> 
@@ -196,6 +183,19 @@
                                 </tr>
                                 <% } %>	
                                 <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col col-md-6"> 
+                        <table class="table table-bordered" id="dieta1">
+                            <thead>
+                                <tr>
+                                    <th >Dieta</th>
+                                    <th >QTD</th>
+                                </tr>
+                            </thead>
+                            <tbody>  
+                                
                                 <% if(dieta17.length > 0) { %>
                                     <% for(var r = 0; r < dieta17.length; r++) {%>
                                 <tr> 
@@ -267,7 +267,55 @@
                                     <td  id="int"><%=dieta25[zz].dieta25 %></td>   
                                 </tr>
                                 <% } %>	
-                                <% } %>                               
+                                <% } %>     
+                                <% if(dieta26.length > 0) { %>
+                                    <% for(var zz1 = 0; zz1 < dieta26.length; zz1++) {%>
+                                <tr> 
+                                    <td >PASTOSA DM SEM RESÍDUOS</td>
+                                    <td  id="int"><%=dieta26[zz1].dieta26 %></td>   
+                                </tr>
+                                <% } %>	
+                                <% } %>    
+                                <% if(dieta27.length > 0) { %>
+                                    <% for(var zz2 = 0; zz2 < dieta27.length; zz2++) {%>
+                                <tr> 
+                                    <td >PASTOSA SEM RESÍDUOS</td>
+                                    <td  id="int"><%=dieta27[zz2].dieta27 %></td>   
+                                </tr>
+                                <% } %>	
+                                <% } %>    
+                                <% if(dieta28.length > 0) { %>
+                                    <% for(var zz3 = 0; zz3 < dieta28.length; zz3++) {%>
+                                <tr> 
+                                    <td >BRANDA HIPOLIPIDICA</td>
+                                    <td  id="int"><%=dieta28[zz3].dieta28 %></td>   
+                                </tr>
+                                <% } %>	
+                                <% } %>    
+                                <% if(dieta29.length > 0) { %>
+                                    <% for(var zz4 = 0; zz4 < dieta29.length; zz4++) {%>
+                                <tr> 
+                                    <td >HIPOLIPIDICA/HPS</td>
+                                    <td  id="int"><%=dieta29[zz4].dieta29 %></td>   
+                                </tr>
+                                <% } %>	
+                                <% } %>    
+                                <% if(dieta30.length > 0) { %>
+                                    <% for(var zz5 = 0; zz5 < dieta30.length; zz5++) {%>
+                                <tr> 
+                                    <td >HIPOLIPIDICA/DM</td>
+                                    <td  id="int"><%=dieta30[zz5].dieta30 %></td>   
+                                </tr>
+                                <% } %>	
+                                <% } %>    
+                                <% if(dieta31.length > 0) { %>
+                                    <% for(var zz7 = 0; zz7 < dieta31.length; zz7++) {%>
+                                <tr> 
+                                    <td >LIQUIDA SEM RESÍDUOS</td>
+                                    <td  id="int"><%=dieta31[zz7].dieta31 %></td>   
+                                </tr>
+                                <% } %>	
+                                <% } %>                              
                             </tbody>
                             <tfoot>
                                 <tr> 

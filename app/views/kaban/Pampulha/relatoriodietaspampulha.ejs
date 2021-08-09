@@ -46,240 +46,287 @@
         <br>
 					<br>
 					<br>                    
-               <div id="tabela">
-                    <div class="col col-md-6"> 
-                        <table class="table table-bordered" id="dieta">
-                            <thead>
-                                <tr>
-                                    <th >Dieta</th>
-                                    <th >QTD</th>
-                                </tr>
-                            </thead>
-                            <tbody>  
-                                <% if(dieta1.length > 0) { %>
-                                    <% for(var a = 0; a < dieta1.length; a++) {%>
-                                <tr> 
-                                    <td >Branda</td>
-                                    <td  id="int"><%=dieta1[a].dieta1 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta2.length > 0) { %>
-                                    <% for(var b = 0; b < dieta2.length; b++) {%>
-                                <tr> 
-                                    <td >BRANDA + HEP</td>
-                                    <td  id="int"><%=dieta2[b].dieta2 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta3.length > 0) { %>
-                                    <% for(var c = 0; c < dieta3.length; c++) {%>
-                                <tr> 
-                                    <td >BRANDA + LAX</td>
-                                    <td  id="int"><%=dieta3[c].dieta3 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta4.length > 0) { %>
-                                    <% for(var d = 0; d < dieta4.length; d++) {%>
-                                <tr> 
-                                    <td >BRANDA + NEF</td>
-                                    <td  id="int"><%=dieta4[d].dieta4 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta5.length > 0) { %>
-                                    <% for(var e = 0; e < dieta5.length; e++) {%>
-                                <tr> 
-                                    <td >BRANDA DM</td>
-                                    <td  id="int"><%=dieta5[e].dieta5 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta6.length > 0) { %>
-                                    <% for(var f = 0; f < dieta6.length; f++) {%>
-                                <tr> 
-                                    <td >IRC</td>
-                                    <td  id="int"><%=dieta6[f].dieta6 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta7.length > 0) { %>
-                                    <% for(var g = 0; g < dieta7.length; g++) {%>
-                                <tr> 
-                                    <td >DM</td>
-                                    <td  id="int"><%=dieta7[g].dieta7 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta8.length > 0) { %>
-                                    <% for(var h = 0; h < dieta8.length; h++) {%>
-                                <tr> 
-                                    <td >DM + HEP + NEF</td>
-                                    <td  id="int"><%=dieta8[h].dieta8 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta9.length > 0) { %>
-                                    <% for(var i = 0; i < dieta9.length; i++) {%>
-                                <tr> 
-                                    <td >DM + LAX</td>
-                                    <td  id="int"><%=dieta9[i].dieta9 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta10.length > 0) { %>
-                                    <% for(var k = 0; k < dieta10.length; k++) {%>
-                                <tr> 
-                                    <td >DM + NEF</td>
-                                    <td  id="int"><%=dieta10[k].dieta10 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta11.length > 0) { %>
-                                    <% for(var l = 0; l < dieta11.length; l++) {%>
-                                <tr> 
-                                    <td >HPS</td>
-                                    <td  id="int"><%=dieta11[l].dieta11 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta12.length > 0) { %>
-                                    <% for(var m = 0; m < dieta12.length; m++) {%>
-                                <tr> 
-                                    <td >HPS + DM</td>
-                                    <td  id="int"><%=dieta12[m].dieta12 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta13.length > 0) { %>
-                                    <% for(var n = 0; n < dieta13.length; n++) {%>
-                                <tr> 
-                                    <td >HPS + HEP</td>
-                                    <td  id="int"><%=dieta13[n].dieta13 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta14.length > 0) { %>
-                                    <% for(var o = 0; o < dieta14.length; o++) {%>
-                                <tr> 
-                                    <td >HPS  + LAX</td>
-                                    <td  id="int"><%=dieta14[o].dieta14 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                
-                            </tbody>
-                        </table>
+                    <div id="tabela">
+                        <div class="col col-md-6"> 
+                            <table class="table table-bordered" id="dieta">
+                                <thead>
+                                    <tr>
+                                        <th >Dieta</th>
+                                        <th >QTD</th>
+                                    </tr>
+                                </thead>
+                                <tbody>  
+                                    <% if(dieta1.length > 0) { %>
+                                        <% for(var a = 0; a < dieta1.length; a++) {%>
+                                    <tr> 
+                                        <td >Branda</td>
+                                        <td  id="int"><%=dieta1[a].dieta1 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta2.length > 0) { %>
+                                        <% for(var b = 0; b < dieta2.length; b++) {%>
+                                    <tr> 
+                                        <td >BRANDA + HEP</td>
+                                        <td  id="int"><%=dieta2[b].dieta2 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta3.length > 0) { %>
+                                        <% for(var c = 0; c < dieta3.length; c++) {%>
+                                    <tr> 
+                                        <td >BRANDA + LAX</td>
+                                        <td  id="int"><%=dieta3[c].dieta3 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta4.length > 0) { %>
+                                        <% for(var d = 0; d < dieta4.length; d++) {%>
+                                    <tr> 
+                                        <td >BRANDA + NEF</td>
+                                        <td  id="int"><%=dieta4[d].dieta4 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta5.length > 0) { %>
+                                        <% for(var e = 0; e < dieta5.length; e++) {%>
+                                    <tr> 
+                                        <td >BRANDA DM</td>
+                                        <td  id="int"><%=dieta5[e].dieta5 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta6.length > 0) { %>
+                                        <% for(var f = 0; f < dieta6.length; f++) {%>
+                                    <tr> 
+                                        <td >IRC</td>
+                                        <td  id="int"><%=dieta6[f].dieta6 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta7.length > 0) { %>
+                                        <% for(var g = 0; g < dieta7.length; g++) {%>
+                                    <tr> 
+                                        <td >DM</td>
+                                        <td  id="int"><%=dieta7[g].dieta7 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta8.length > 0) { %>
+                                        <% for(var h = 0; h < dieta8.length; h++) {%>
+                                    <tr> 
+                                        <td >DM + HEP + NEF</td>
+                                        <td  id="int"><%=dieta8[h].dieta8 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta9.length > 0) { %>
+                                        <% for(var i = 0; i < dieta9.length; i++) {%>
+                                    <tr> 
+                                        <td >DM + LAX</td>
+                                        <td  id="int"><%=dieta9[i].dieta9 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta10.length > 0) { %>
+                                        <% for(var k = 0; k < dieta10.length; k++) {%>
+                                    <tr> 
+                                        <td >DM + NEF</td>
+                                        <td  id="int"><%=dieta10[k].dieta10 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta11.length > 0) { %>
+                                        <% for(var l = 0; l < dieta11.length; l++) {%>
+                                    <tr> 
+                                        <td >HPS</td>
+                                        <td  id="int"><%=dieta11[l].dieta11 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta12.length > 0) { %>
+                                        <% for(var m = 0; m < dieta12.length; m++) {%>
+                                    <tr> 
+                                        <td >HPS + DM</td>
+                                        <td  id="int"><%=dieta12[m].dieta12 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta13.length > 0) { %>
+                                        <% for(var n = 0; n < dieta13.length; n++) {%>
+                                    <tr> 
+                                        <td >HPS + HEP</td>
+                                        <td  id="int"><%=dieta13[n].dieta13 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta14.length > 0) { %>
+                                        <% for(var o = 0; o < dieta14.length; o++) {%>
+                                    <tr> 
+                                        <td >HPS  + LAX</td>
+                                        <td  id="int"><%=dieta14[o].dieta14 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta15.length > 0) { %>
+                                        <% for(var p = 0; p < dieta15.length; p++) {%>
+                                    <tr> 
+                                        <td >HIPOLIPIDICA</td>
+                                        <td  id="int"><%=dieta15[p].dieta15 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta16.length > 0) { %>
+                                        <% for(var q = 0; q < dieta16.length; q++) {%>
+                                    <tr> 
+                                        <td >LÍQUIDA</td>
+                                        <td  id="int"><%=dieta16[q].dieta16 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col col-md-6"> 
+                            <table class="table table-bordered" id="dieta1">
+                                <thead>
+                                    <tr>
+                                        <th >Dieta</th>
+                                        <th >QTD</th>
+                                    </tr>
+                                </thead>
+                                <tbody>  
+                                    
+                                    <% if(dieta17.length > 0) { %>
+                                        <% for(var r = 0; r < dieta17.length; r++) {%>
+                                    <tr> 
+                                        <td >LIVRE</td>
+                                        <td  id="int"><%=dieta17[r].dieta17 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta18.length > 0) { %>
+                                        <% for(var s = 0; s < dieta18.length; s++) {%>
+                                    <tr> 
+                                        <td >LIVRE + LAX</td>
+                                        <td  id="int"><%=dieta18[s].dieta18 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta19.length > 0) { %>
+                                        <% for(var t = 0; t < dieta19.length; t++) {%>
+                                    <tr> 
+                                        <td >LIVRE POBRE K</td>
+                                        <td  id="int"><%=dieta19[t].dieta19 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta20.length > 0) { %>
+                                        <% for(var u = 0; u < dieta20.length; u++) {%>
+                                    <tr> 
+                                        <td >PASTOSA</td>
+                                        <td  id="int"><%=dieta20[u].dieta20 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta21.length > 0) { %>
+                                        <% for(var w = 0; w < dieta21.length; w++) {%>
+                                    <tr> 
+                                        <td >PASTOSA + OVO</td>
+                                        <td  id="int"><%=dieta21[w].dieta21 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta22.length > 0) { %>
+                                        <% for(var x = 0; x < dieta22.length; x++) {%>
+                                    <tr> 
+                                        <td >SNE 1.0</td>
+                                        <td  id="int"><%=dieta22[x].dieta22 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta23.length > 0) { %>
+                                        <% for(var y = 0; y < dieta23.length; y++) {%>
+                                    <tr> 
+                                        <td >SNE 1.5</td>
+                                        <td  id="int"><%=dieta23[y].dieta23 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta24.length > 0) { %>
+                                        <% for(var z = 0; z < dieta24.length; z++) {%>
+                                    <tr> 
+                                        <td >DIBEN 1.0</td>
+                                        <td  id="int"><%=dieta24[z].dieta24 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>
+                                    <% if(dieta25.length > 0) { %>
+                                        <% for(var zz = 0; zz < dieta25.length; zz++) {%>
+                                    <tr> 
+                                        <td >OBSTIPANTE</td>
+                                        <td  id="int"><%=dieta25[zz].dieta25 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>     
+                                    <% if(dieta26.length > 0) { %>
+                                        <% for(var zz1 = 0; zz1 < dieta26.length; zz1++) {%>
+                                    <tr> 
+                                        <td >PASTOSA DM SEM RESÍDUOS</td>
+                                        <td  id="int"><%=dieta26[zz1].dieta26 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>    
+                                    <% if(dieta27.length > 0) { %>
+                                        <% for(var zz2 = 0; zz2 < dieta27.length; zz2++) {%>
+                                    <tr> 
+                                        <td >PASTOSA SEM RESÍDUOS</td>
+                                        <td  id="int"><%=dieta27[zz2].dieta27 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>    
+                                    <% if(dieta28.length > 0) { %>
+                                        <% for(var zz3 = 0; zz3 < dieta28.length; zz3++) {%>
+                                    <tr> 
+                                        <td >BRANDA HIPOLIPIDICA</td>
+                                        <td  id="int"><%=dieta28[zz3].dieta28 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>    
+                                    <% if(dieta29.length > 0) { %>
+                                        <% for(var zz4 = 0; zz4 < dieta29.length; zz4++) {%>
+                                    <tr> 
+                                        <td >HIPOLIPIDICA/HPS</td>
+                                        <td  id="int"><%=dieta29[zz4].dieta29 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>    
+                                    <% if(dieta30.length > 0) { %>
+                                        <% for(var zz5 = 0; zz5 < dieta30.length; zz5++) {%>
+                                    <tr> 
+                                        <td >HIPOLIPIDICA/DM</td>
+                                        <td  id="int"><%=dieta30[zz5].dieta30 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>    
+                                    <% if(dieta31.length > 0) { %>
+                                        <% for(var zz7 = 0; zz7 < dieta31.length; zz7++) {%>
+                                    <tr> 
+                                        <td >LIQUIDA SEM RESÍDUOS</td>
+                                        <td  id="int"><%=dieta31[zz7].dieta31 %></td>   
+                                    </tr>
+                                    <% } %>	
+                                    <% } %>                              
+                                </tbody>
+                                <tfoot>
+                                    <tr> 
+                                        <td >Total</td>
+                                        <td class="total"></td>   
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
                     </div>
-                    <div class="col col-md-6"> 
-                        <table class="table table-bordered" id="dieta1">
-                            <thead>
-                                <tr>
-                                    <th >Dieta</th>
-                                    <th >QTD</th>
-                                </tr>
-                            </thead>
-                            <tbody>  
-                                <% if(dieta15.length > 0) { %>
-                                    <% for(var p = 0; p < dieta15.length; p++) {%>
-                                <tr> 
-                                    <td >HIPOLIPIDICA</td>
-                                    <td  id="int"><%=dieta15[p].dieta15 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta16.length > 0) { %>
-                                    <% for(var q = 0; q < dieta16.length; q++) {%>
-                                <tr> 
-                                    <td >LÍQUIDA</td>
-                                    <td  id="int"><%=dieta16[q].dieta16 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta17.length > 0) { %>
-                                    <% for(var r = 0; r < dieta17.length; r++) {%>
-                                <tr> 
-                                    <td >LIVRE</td>
-                                    <td  id="int"><%=dieta17[r].dieta17 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta18.length > 0) { %>
-                                    <% for(var s = 0; s < dieta18.length; s++) {%>
-                                <tr> 
-                                    <td >LIVRE + LAX</td>
-                                    <td  id="int"><%=dieta18[s].dieta18 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta19.length > 0) { %>
-                                    <% for(var t = 0; t < dieta19.length; t++) {%>
-                                <tr> 
-                                    <td >LIVRE POBRE K</td>
-                                    <td  id="int"><%=dieta19[t].dieta19 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta20.length > 0) { %>
-                                    <% for(var u = 0; u < dieta20.length; u++) {%>
-                                <tr> 
-                                    <td >PASTOSA</td>
-                                    <td  id="int"><%=dieta20[u].dieta20 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta21.length > 0) { %>
-                                    <% for(var w = 0; w < dieta21.length; w++) {%>
-                                <tr> 
-                                    <td >PASTOSA + OVO</td>
-                                    <td  id="int"><%=dieta21[w].dieta21 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta22.length > 0) { %>
-                                    <% for(var x = 0; x < dieta22.length; x++) {%>
-                                <tr> 
-                                    <td >SNE 1.0</td>
-                                    <td  id="int"><%=dieta22[x].dieta22 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta23.length > 0) { %>
-                                    <% for(var y = 0; y < dieta23.length; y++) {%>
-                                <tr> 
-                                    <td >SNE 1.5</td>
-                                    <td  id="int"><%=dieta23[y].dieta23 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta24.length > 0) { %>
-                                    <% for(var z = 0; z < dieta24.length; z++) {%>
-                                <tr> 
-                                    <td >DIBEN 1.0</td>
-                                    <td  id="int"><%=dieta24[z].dieta24 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>
-                                <% if(dieta25.length > 0) { %>
-                                    <% for(var zz = 0; zz < dieta25.length; zz++) {%>
-                                <tr> 
-                                    <td >OBSTIPANTE</td>
-                                    <td  id="int"><%=dieta25[zz].dieta25 %></td>   
-                                </tr>
-                                <% } %>	
-                                <% } %>                               
-                            </tbody>
-                            <tfoot>
-                                <tr> 
-                                    <td >Total</td>
-                                    <td class="total"></td>   
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>
-            
     
 
 <!-- Importando o jQuery -->

@@ -229,14 +229,14 @@ modelsaojorge.prototype.buscarsetor = function(idpaciente, callback){
 	this._conection.query('select comodo from kaban where idpaciente = ' + idpaciente, callback);
 }
 
-modelsaojorge.prototype.cadastrarpaciente = function( paciente, medico, dieta, exame, dataexame, mental, referencia, covid,  setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
+modelsaojorge.prototype.cadastrarpaciente = function( paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios, casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
 	
-	this._conection.query('insert into kaban set medico = "'+medico+'", dieta = "'+dieta+'", exame = "'+exame+'", dataexame = "'+dataexame+'",mental = "'+mental+'", referencia = "'+referencia+'", covid = "'+covid+'", nome = "'+paciente+'", comodo = "'+setor+'", susfacil = "'+susfacil+'",prt = "'+prt+'", datanascimento = "'+dn+'", idade = "'+idade+'", dataentrada = "'+da+'", qtddiasinternados = "'+qtdi+'" , ECF = "'+ecf+'", spict="'+spict+'" , paliativo = "'+paliativo+'" , diagnostico = "'+diagnostico+'" ,especialidade = "'+especialidade+'" ,observacao = "'+observacao+'" , banho = "'+banho+'" , pendencias = "'+pendencias+'" ,mobilidade = "'+mobilidade+'", unidade = "'+unidade+'"',callback);
+	this._conection.query('insert into kaban set round = "'+round+'", planoalta = "'+alta+'", metas = "'+metas+'", agenexames = "'+agenexames+'", laudo = "'+laudo+'", descexame = "'+descexame+'", desclaudo = "'+desclaudo+'", oxigenios = "'+oxigenios+'", casas = "'+casas+'", avespecialistas = "'+avespecialistas+'", descespecialista = "'+descespecialista+'", coleta = "'+coletas+'", resultadolabs = "'+resultadolabs+'", transferencias = "'+transferencias+'", desctransferencia = "'+desctransferencia+'", hemos = "'+hemos+'", medico = "'+medico+'", dieta = "'+dieta+'", exame = "'+exame+'", dataexame = "'+dataexame+'",mental = "'+mental+'", referencia = "'+referencia+'", covid = "'+covid+'", nome = "'+paciente+'", comodo = "'+setor+'", susfacil = "'+susfacil+'",prt = "'+prt+'", datanascimento = "'+dn+'", idade = "'+idade+'", dataentrada = "'+da+'", qtddiasinternados = "'+qtdi+'" , ECF = "'+ecf+'", spict="'+spict+'" , paliativo = "'+paliativo+'" , diagnostico = "'+diagnostico+'" ,especialidade = "'+especialidade+'" ,observacao = "'+observacao+'" , banho = "'+banho+'" , pendencias = "'+pendencias+'" ,mobilidade = "'+mobilidade+'", unidade = "'+unidade+'"',callback);
 }
 
-modelsaojorge.prototype.update = function(idpaciente, medico, dieta, dataexame, exame, mental, referencia, covid,  setor, paciente,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
+modelsaojorge.prototype.update = function(idpaciente, paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, callback){
 	
-	this._conection.query('update kaban set medico = "'+medico+'", dieta = "'+dieta+'", dataexame="'+dataexame+'", exame="'+exame+'", mental = "'+mental+'", referencia = "'+referencia+'", covid = "'+covid+'",  nome = "'+paciente+'", comodo = "'+setor+'", susfacil = "'+susfacil+'",prt = "'+prt+'", datanascimento = "'+dn+'", idade = "'+idade+'", dataentrada = "'+da+'", qtddiasinternados = "'+qtdi+'" , ECF = "'+ecf+'", spict="'+spict+'" ,  paliativo = "'+paliativo+'" , diagnostico = "'+diagnostico+'" ,especialidade = "'+especialidade+'" ,observacao = "'+observacao+'" , banho = "'+banho+'" , pendencias = "'+pendencias+'" ,mobilidade = "'+mobilidade+'", unidade = "'+unidade+'" where idpaciente = ' + idpaciente, callback);
+	this._conection.query('update kaban set round = "'+round+'", planoalta = "'+alta+'", metas = "'+metas+'", agenexames = "'+agenexames+'", laudo = "'+laudo+'", descexame = "'+descexame+'", desclaudo = "'+desclaudo+'", oxigenios = "'+oxigenios+'", casas = "'+casas+'", avespecialistas = "'+avespecialistas+'", descespecialista = "'+descespecialista+'", coleta = "'+coletas+'", resultadolabs = "'+resultadolabs+'", transferencias = "'+transferencias+'", desctransferencia = "'+desctransferencia+'", hemos = "'+hemos+'", medico = "'+medico+'", dieta = "'+dieta+'", dataexame="'+dataexame+'", exame="'+exame+'", mental = "'+mental+'", referencia = "'+referencia+'", covid = "'+covid+'",  nome = "'+paciente+'", comodo = "'+setor+'", susfacil = "'+susfacil+'",prt = "'+prt+'", datanascimento = "'+dn+'", idade = "'+idade+'", dataentrada = "'+da+'", qtddiasinternados = "'+qtdi+'" , ECF = "'+ecf+'", spict="'+spict+'" ,  paliativo = "'+paliativo+'" , diagnostico = "'+diagnostico+'" ,especialidade = "'+especialidade+'" ,observacao = "'+observacao+'" , banho = "'+banho+'" , pendencias = "'+pendencias+'" ,mobilidade = "'+mobilidade+'", unidade = "'+unidade+'" where idpaciente = ' + idpaciente, callback);
 }
 
 modelsaojorge.prototype.baixa = function(idpaciente,baixa, destino, alta,data, callback){
@@ -585,7 +585,35 @@ modelsaojorge.prototype.buscardieta25 = function(unidade,callback){
 	this._conection.query('SELECT count(dieta) as dieta25 FROM portal_paciente.kaban where dieta ="OBSTIPANTE" and unidade = "'+unidade+'" and baixa is null ;', callback);
 }
 
+modelsaojorge.prototype.buscardieta26 = function(unidade,callback){
 
+	this._conection.query('SELECT count(dieta) as dieta26 FROM portal_paciente.kaban where dieta ="PASTOSA DM SEM RESÍDUOS" and unidade = "'+unidade+'" and baixa is null ;', callback);
+}
+
+modelsaojorge.prototype.buscardieta27 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta27 FROM portal_paciente.kaban where dieta ="PASTOSA SEM RESÍDUOS" and unidade = "'+unidade+'" and baixa is null ;', callback);
+}
+
+modelsaojorge.prototype.buscardieta28 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta28 FROM portal_paciente.kaban where dieta ="BRANDA HIPOLIPIDICA" and unidade = "'+unidade+'" and baixa is null ;', callback);
+}
+
+modelsaojorge.prototype.buscardieta29 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta29 FROM portal_paciente.kaban where dieta ="HIPOLIPIDICA/HPS" and unidade = "'+unidade+'" and baixa is null ;', callback);
+}
+
+modelsaojorge.prototype.buscardieta30 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta30 FROM portal_paciente.kaban where dieta ="HIPOLIPIDICA/DM" and unidade = "'+unidade+'" and baixa is null ;', callback);
+}
+
+modelsaojorge.prototype.buscardieta31 = function(unidade,callback){
+
+	this._conection.query('SELECT count(dieta) as dieta31 FROM portal_paciente.kaban where dieta ="LIQUIDA SEM RESÍDUOS" and unidade = "'+unidade+'" and baixa is null ;', callback);
+}
 
 module.exports = function(){
 	return modelsaojorge;
