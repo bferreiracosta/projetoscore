@@ -3,15 +3,15 @@ function modelad(application){
 	this._conection = conection();
 }
 
-modelad.prototype.cadastrarpaciente = function(prt,data, paciente,motivo,unidade, conduta, destino, ufu, hmu, callback){
+modelad.prototype.cadastrarpaciente = function(prt,data, paciente,motivo,unidade, conduta, destino, ufu,vagazero, vagazero1, vagaaceita, vagaaceita1, hmu, callback){
 	
-	this._conection.query('insert into obstetricia set conduta="'+conduta+'",ufu="'+ufu+'",destino="'+destino+'",hmu="'+hmu+'", dataatendimento="'+data+'", prt = "'+prt+'", nome = "'+paciente+'", motivo = "'+motivo+'", unidade = "'+unidade+'"', callback);
+	this._conection.query('insert into obstetricia set vagazero="'+vagazero+'",vagazero1="'+vagazero1+'",vagaaceita="'+vagaaceita+'",vagaaceita1="'+vagaaceita1+'", conduta="'+conduta+'",ufu="'+ufu+'",destino="'+destino+'",hmu="'+hmu+'", dataatendimento="'+data+'", prt = "'+prt+'", nome = "'+paciente+'", motivo = "'+motivo+'", unidade = "'+unidade+'"', callback);
 }
 
 
-modelad.prototype.update = function(idpaciente, prt, paciente,motivo,unidade, conduta, destino, ufu, hmu, callback){
+modelad.prototype.update = function(idpaciente, prt, paciente,motivo,unidade, conduta, destino, ufu, vagazero, vagazero1, vagaaceita, vagaaceita1,hmu, callback){
 	
-	this._conection.query('update obstetricia set conduta="'+conduta+'",ufu="'+ufu+'",destino="'+destino+'",hmu="'+hmu+'", prt = "'+prt+'", nome = "'+paciente+'", motivo = "'+motivo+'", unidade = "'+unidade+'"  where idpaciente = ' + idpaciente, callback);
+	this._conection.query('update obstetricia set vagazero="'+vagazero+'",vagazero1="'+vagazero1+'",vagaaceita="'+vagaaceita+'",vagaaceita1="'+vagaaceita1+'", conduta="'+conduta+'",ufu="'+ufu+'",destino="'+destino+'",hmu="'+hmu+'", prt = "'+prt+'", nome = "'+paciente+'", motivo = "'+motivo+'", unidade = "'+unidade+'"  where idpaciente = ' + idpaciente, callback);
 }
 
 

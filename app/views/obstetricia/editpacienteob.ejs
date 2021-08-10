@@ -50,11 +50,19 @@
 						<input  type="checkbox" name="hospital" id="ufu"  class="form-check-input" onClick="check1()" value="UFU" <%=(obstetricia[j].ufu == 'UFU')?'checked':''%>>
 						<label class="form-check-label"  id="ufu2" for="ufu2">UFU</label>
 						<input  id="ufu3"  type="hidden" name="ufu3">
+						<label class="form-check-label"  id="zero" for="zero"> ---  Vaga Zero</label>
+						<input  id="vagazero"  type="text" name="vagazero" placeholder="Sim ou Não"  >
+						<label class="form-check-label"  id="aceito" for="aceito"> ---  Vaga Aceita</label>
+						<input  id="vagaaceita"  type="text" name="vagaaceita" placeholder="Sim ou Não"  >
 					</div>
 					<div class="form-check">
 						<input type="checkbox" name="hospital" id="hmu"  class="form-check-input" onClick="check1()" value="HMU" <%=(obstetricia[j].hmu == 'HMU')?'checked':''%>>
 						<label class="form-check-label"  id="hmu2" for="hmu2">HMU</label>
 						<input  id="hmu3"  type="hidden" name="hmu3">
+						<label class="form-check-label"  id="zero1" for="zero1"> ---  Vaga Zero</label>
+						<input  id="vagazero1"  type="text" name="vagazero1" placeholder="Sim ou Não"  >
+						<label class="form-check-label"  id="aceito1" for="aceito1"> ---  Vaga Aceita</label>
+						<input  id="vagaaceita1"  type="text" name="vagaaceita1" placeholder="Sim ou Não"  >
 					</div>
 				</div>
 			</div>
@@ -105,52 +113,109 @@
 	
 	function verificadestino(value){
 		var input = document.getElementById("ufu");
-		var input2 = document.getElementById("hmu");
-		var label = document.getElementById("ufu2");
-		var label2 = document.getElementById("hmu2");
-		
-	  if(value == "transferências"){
-		input.style.display = "inline";
-		input2.style.display = "inline";
-		label.style.display = "inline";
-		label2.style.display = "inline";
-	  }else{
-		input.style.display = "none";
-		input2.style.display = "none";
-		label.style.display = "none";
-		label2.style.display = "none";
-		var Pacote_i = "Não Encaminhado";
+	var input2 = document.getElementById("hmu");
+	var label = document.getElementById("ufu2");
+	var label2 = document.getElementById("hmu2");
+	var input3 = document.getElementById("zero");
+	var label3 = document.getElementById("vagazero");
+	var input4 = document.getElementById("aceito");
+	var label4 = document.getElementById("vagaaceita");
+	var input5 = document.getElementById("zero1");
+	var label5 = document.getElementById("vagazero1");
+	var input6 = document.getElementById("aceito1");
+	var label6 = document.getElementById("vagaaceita1");
+	
+  if(value == "transferências"){
+    input.style.display = "inline";
+	input2.style.display = "inline";
+	label.style.display = "inline";
+	label2.style.display = "inline";
+  }else{
+	input.style.display = "none";
+	input2.style.display = "none";
+	label.style.display = "none";
+	label2.style.display = "none";
+	input3.value="none"
+	label3.value="none"
+	input4.value="none"
+	label4.value="none"
+	input5.value="none"
+	label5.value="none"
+	input6.value="none"
+	label6.value="none"
+	var Pacote_i = "Não Encaminhado";
 	document.getElementById('ufu3').value = Pacote_i;
 	document.getElementById('hmu3').value = Pacote_i;
-	  }
+  }
 	};
 	
 	function check1(){
 	
-	var pacote = document.getElementsByName('hospital');
-	  for (var i = 0; i < pacote.length; i++){
-		  if ( pacote[i].checked ) {
-			  if(pacote[i].value == "UFU"){
-				  var Pacote_i = "UFU";
-				  document.getElementById('ufu3').value = Pacote_i;
-			  }else if (pacote[i].value == "HMU") {
-				  var Pacote_ii = "HMU";
-				  document.getElementById('hmu3').value = Pacote_ii;
-			  }
-			}
+		var input = document.getElementById("zero");
+	var label = document.getElementById("vagazero");
+	var input1 = document.getElementById("aceito");
+	var label1 = document.getElementById("vagaaceita");
+	var input2 = document.getElementById("zero1");
+	var label2 = document.getElementById("vagazero1");
+	var input3 = document.getElementById("aceito1");
+	var label3 = document.getElementById("vagaaceita1");
+
+var pacote = document.getElementsByName('hospital');
+  for (var i = 0; i < pacote.length; i++){
+	  if ( pacote[i].checked ) {
+		if(pacote[i].value == "UFU"){
+			  var Pacote_i = "UFU";
+			  input.style.display="inline"
+			  label.style.display="inline"
+			  input1.style.display="inline"
+			  label1.style.display="inline"
+			  input.value=""
+			  label.value=""
+			  input1.value=""
+			  label1.value=""
+			  document.getElementById('ufu3').value = Pacote_i;
+		  }else if (pacote[i].value == "HMU") {
+			  var Pacote_ii = "HMU";
+			  input2.style.display="inline"
+			  label2.style.display="inline"
+			  input3.style.display="inline"
+			  label3.style.display="inline"
+			  input2.value=""
+			  label2.value=""
+			  input3.value=""
+			  label3.value=""
+			  document.getElementById('hmu3').value = Pacote_ii;
 		  }
-		 var estado = false;
-		for (var i = 0; i < pacote.length; i++) {
-			if ( pacote[i].checked == estado ) {
-				if(pacote[i].value == "UFU"){
-				  var Pacote_i = "Não Encaminhado";
-				  document.getElementById('ufu3').value = Pacote_i;
-			  }else if (pacote[i].value == "HMU") {
-				  var Pacote_ii = "Não Encaminhado";
-				  document.getElementById('hmu3').value = Pacote_ii;
-			  }
-			}
 		}
+  	}
+	 var estado = false;
+	for (var i = 0; i < pacote.length; i++) {
+		if ( pacote[i].checked == estado ) {
+			if(pacote[i].value == "UFU"){
+			  var Pacote_i = "Não Encaminhado";
+			  input.style.display="none"
+			  label.style.display="none"
+			  input1.style.display="none"
+			  label1.style.display="none"
+			  input.value="none"
+			  label.value="none"
+			  input1.value="none"
+			  label1.value="none"
+			  document.getElementById('ufu3').value = Pacote_i;
+		  }else if (pacote[i].value == "HMU") {
+			  var Pacote_ii = "Não Encaminhado";
+			  input2.style.display="none"
+			  label2.style.display="none"
+			  input3.style.display="none"
+			  label3.style.display="none"
+			  input2.value="none"
+			  label2.value="none"
+			  input3.value="none"
+			  label3.value="none"
+			  document.getElementById('hmu3').value = Pacote_ii;
+		  }
+		}
+	}
 	}
 	
 	window.onload = function() {
@@ -158,7 +223,14 @@
 	  document.getElementById('hmu').style.display = 'none';
 	  document.getElementById('ufu2').style.display = 'none';
 	  document.getElementById('hmu2').style.display = 'none';
-		
+	  document.getElementById("zero").style.display = 'none';
+  document.getElementById("vagazero").style.display = 'none';
+  document.getElementById("aceito").style.display = 'none';
+  document.getElementById("vagaaceita").style.display = 'none';
+  document.getElementById("zero1").style.display = 'none';
+  document.getElementById("vagazero1").style.display = 'none';
+  document.getElementById("aceito1").style.display = 'none';
+  document.getElementById("vagaaceita1").style.display = 'none';
 	  var destino = document.getElementById("destino").value;
 	  document.getElementById('destino2').value = destino;
 	  verificadestino(destino);
@@ -168,31 +240,69 @@
 
 	  check1();
 
-	function check1(){
-	
-	var pacote = document.getElementsByName('hospital');
-	  for (var i = 0; i < pacote.length; i++){
-		  if ( pacote[i].checked ) {
-			  if(pacote[i].value == "UFU"){
-				  var Pacote_i = "UFU";
-				  document.getElementById('ufu3').value = Pacote_i;
-			  }else if (pacote[i].value == "HMU") {
-				  var Pacote_ii = "HMU";
-				  document.getElementById('hmu3').value = Pacote_ii;
-			  }
-			}
+	  var input = document.getElementById("zero");
+	var label = document.getElementById("vagazero");
+	var input1 = document.getElementById("aceito");
+	var label1 = document.getElementById("vagaaceita");
+	var input2 = document.getElementById("zero1");
+	var label2 = document.getElementById("vagazero1");
+	var input3 = document.getElementById("aceito1");
+	var label3 = document.getElementById("vagaaceita1");
+
+var pacote = document.getElementsByName('hospital');
+  for (var i = 0; i < pacote.length; i++){
+	  if ( pacote[i].checked ) {
+		if(pacote[i].value == "UFU"){
+			  var Pacote_i = "UFU";
+			  input.style.display="inline"
+			  label.style.display="inline"
+			  input1.style.display="inline"
+			  label1.style.display="inline"
+			  input.value=""
+			  label.value=""
+			  input1.value=""
+			  label1.value=""
+			  document.getElementById('ufu3').value = Pacote_i;
+		  }else if (pacote[i].value == "HMU") {
+			  var Pacote_ii = "HMU";
+			  input2.style.display="inline"
+			  label2.style.display="inline"
+			  input3.style.display="inline"
+			  label3.style.display="inline"
+			  input2.value=""
+			  label2.value=""
+			  input3.value=""
+			  label3.value=""
+			  document.getElementById('hmu3').value = Pacote_ii;
 		  }
-		 var estado = false;
-		for (var i = 0; i < pacote.length; i++) {
-			if ( pacote[i].checked == estado ) {
-				if(pacote[i].value == "UFU"){
-				  var Pacote_i = "Não Encaminhado";
-				  document.getElementById('ufu3').value = Pacote_i;
-			  }else if (pacote[i].value == "HMU") {
-				  var Pacote_ii = "Não Encaminhado";
-				  document.getElementById('hmu3').value = Pacote_ii;
-			  }
-			}
+		}
+  	}
+	 var estado = false;
+	for (var i = 0; i < pacote.length; i++) {
+		if ( pacote[i].checked == estado ) {
+			if(pacote[i].value == "UFU"){
+			  var Pacote_i = "Não Encaminhado";
+			  input.style.display="none"
+			  label.style.display="none"
+			  input1.style.display="none"
+			  label1.style.display="none"
+			  input.value="none"
+			  label.value="none"
+			  input1.value="none"
+			  label1.value="none"
+			  document.getElementById('ufu3').value = Pacote_i;
+		  }else if (pacote[i].value == "HMU") {
+			  var Pacote_ii = "Não Encaminhado";
+			  input2.style.display="none"
+			  label2.style.display="none"
+			  input3.style.display="none"
+			  label3.style.display="none"
+			  input2.value="none"
+			  label2.value="none"
+			  input3.value="none"
+			  label3.value="none"
+			  document.getElementById('hmu3').value = Pacote_ii;
+		  }
 		}
 	}
 	};

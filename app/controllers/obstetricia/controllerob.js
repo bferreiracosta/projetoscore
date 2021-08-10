@@ -37,13 +37,17 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var destino = req.body.destino2;
 	var ufu = req.body.ufu3;
 	var hmu =  req.body.hmu3;
+	var vagazero = req.body.vagazero;
+	var vagaaceita =  req.body.vagaaceita;
+	var vagazero1 = req.body.vagazero1;
+	var vagaaceita1 =  req.body.vagaaceita1;
 	var id = req.body.idusuario;
 
 	var modelob = new application.app.model.obstetricia.modelob(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){
-		modelob.cadastrarpaciente(prt,data, paciente,motivo,unidade, conduta, destino, ufu, hmu, function(error, result){
+		modelob.cadastrarpaciente(prt,data, paciente,motivo,unidade, conduta, destino, ufu, vagazero, vagazero1, vagaaceita, vagaaceita1, hmu, function(error, result){
 			modelob.buscarpaciente(function(error, resultado){
 				res.render("obstetricia/historicoob", {obstetricia : resultado, id : resultados});
 			});
@@ -61,12 +65,16 @@ module.exports.update= function(application, req, res){
 	var destino = req.body.destino2;
 	var ufu = req.body.ufu3;
 	var hmu =  req.body.hmu3;
+	var vagazero = req.body.vagazero;
+	var vagaaceita =  req.body.vagaaceita;
+	var vagazero1 = req.body.vagazero1;
+	var vagaaceita1 =  req.body.vagaaceita1;
 	var id = req.body.idusuario;
 	var modelob = new application.app.model.obstetricia.modelob(application);
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modelob.update(idpaciente, prt, paciente,motivo,unidade, conduta, destino, ufu, hmu,  function(error, result){
+		modelob.update(idpaciente, prt, paciente,motivo,unidade, conduta, destino, ufu,vagazero, vagazero1, vagaaceita, vagaaceita1, hmu,  function(error, result){
 			modelob.buscarpaciente( function(error, resultado){
 				res.render("obstetricia/historicoob", {obstetricia : resultado, id : resultados});
 			});

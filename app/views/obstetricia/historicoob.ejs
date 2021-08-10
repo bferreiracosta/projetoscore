@@ -10,6 +10,7 @@
             <thead>
                 <tr>
                     <th hidden>id</th>
+                    <th></th>
                     <th>Data Admissão</th>
                     <th>Nome</th>
                     <th>Prontuario</th>
@@ -18,8 +19,12 @@
                     <th>Conduta</th>
                     <th>Destino</th>
                     <th>UFU</th>
+                    <th>Vaga Aceita UFU</th>
+                    <th>Vaga Zero UFU</th>
                     <th>HMU</th>
-                    <th></th>
+                    <th>Vaga Aceita HMU</th>
+                    <th>Vaga Zero HMU</th>
+                    
                 </tr>
                 </thead>
                 <tbody>   
@@ -27,6 +32,9 @@
                         <% for(var j = 0; j < obstetricia.length; j++) {%> 
                     <tr>
                         <td hidden><%=obstetricia[j].idpaciente %></td>
+                        <td>
+                            <a href="editpacienteob/<%=id[i].id_usuario %>/?id=<%=obstetricia[j].idpaciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
+                        </td>
                         <td><%=obstetricia[j].dataatendimento %></td>
                         <td><%=obstetricia[j].nome %></td>
                         <td><%=obstetricia[j].prt %></td>
@@ -35,10 +43,12 @@
                         <td><%=obstetricia[j].conduta %></td>
                         <td><%=obstetricia[j].destino %></td>
                         <td><%=obstetricia[j].ufu %></td>
+                        <td><%=obstetricia[j].vagaaceita %></td>
+                        <td><%=obstetricia[j].vagazero %></td>
                         <td><%=obstetricia[j].hmu %></td>
-                    <td>
-                        <a href="editpacienteob/<%=id[i].id_usuario %>/?id=<%=obstetricia[j].idpaciente %> %>" class="btn btn-sm btn-info edit">Edit</a>
-                    </td>
+                        <td><%=obstetricia[j].vagaaceita1 %></td>
+                        <td><%=obstetricia[j].vagazero1 %></td>
+                    
                 </tr>
                 <% } %>	
                 <% } %>
@@ -73,8 +83,8 @@ $(document).ready(function() {
 $('#mytable').DataTable( {
 dom: 'Bfrtip',
 "scrollX": true,
-order: ([ 1, 'desc']),
-"columnDefs" : [{"targets":1, "type":"date-eu"}],
+order: ([ 2, 'desc']),
+"columnDefs" : [{"targets":2, "type":"date-eu"}],
         pageLength: 50,
         buttons: [       
             {
