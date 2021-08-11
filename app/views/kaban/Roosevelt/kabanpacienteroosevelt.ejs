@@ -68,13 +68,13 @@
                     
             <tr>
                 <td>
-                    <a href="editkabanroosevelt/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-info edit">Edit</a>
+                    <a href="editkabanroosevelt/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-info edit"><i class="fas fa-pencil-alt"></i></a>
                 </td>
                 <td>
-                    <a href="/addexameroosevelt/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-primary edit">Exames</a>
+                    <a href="/addexameroosevelt/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-primary edit"><i class="fas fa-diagnoses"></i></a>
                 </td>
                 <td>
-                    <a href="" onclick="setaDadosModal('<%=paciente[j].idpaciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#altamodal">Saida</a>
+                    <a href="" onclick="setaDadosModal('<%=paciente[j].idpaciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#altamodal"><i class="fas fa-door-open"></i></a>
                 </td>
                 
                 <td hidden><%=paciente[j].idpaciente %></td>
@@ -245,7 +245,7 @@ pageLength: 50,
    api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
        if ( last !== group ) {
            $(rows).eq( i ).before(
-               '<tr class="group" style = "background-color: #ddd !important;text-align: center !important"><td colspan="40" >'+group+'</td></tr>'
+               '<tr class="group" style = "background-color: #ddd !important;text-align: left !important"><td colspan="40" >'+group+'</td></tr>'
            );
 
            last = group;
