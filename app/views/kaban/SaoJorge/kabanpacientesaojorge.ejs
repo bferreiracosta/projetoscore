@@ -11,6 +11,7 @@
 <a href="relatoriodietassaojorge?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Relatório Dietas</button></a>
 <a href="infouaisaojorge?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a>
 <a href="relatoriosemleitossaojorge?id=<%=id[i].id_usuario %>"><button class="btn btn-outline-success"  >Relatório Pacientes sem Leitos</button></a>
+<a href="relatoriopendenciassaojorge?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Relatório Pendências</button></a>
 <br>
 <br>
 <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
@@ -18,9 +19,9 @@
                
     <thead>
         <tr>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Editar Paciente</th>
+            <th>Marcar Exame</th>
+            <th>Saida Paciente</th>
             <th hidden>id</th>
             <th>Leito</th>
             <th>SusFacil</th>
@@ -45,20 +46,6 @@
             <th>Round</th>
             <th>Plano de Alta</th>
             <th>Metas do dia</th>
-            <th>Pendências</th>
-            <th>Pendência Agendamento Exames</th>
-            <th>Descrição Pendência Agendamento de Exames</th>
-            <th>Pendência Laudo de Exame</th>
-            <th>Descrição Pendência Laudo de Exame</th>
-            <th>Aguarda OxigenioDomiciliar</th>
-            <th>Aguarda Melhor em Casa</th>
-            <th>Aguarda Avaliação Especialista</th>
-            <th>Descrição Pendência Avaliação Especialista</th>
-            <th>Aguarda coleta de Exame Laboratorial</th>
-            <th>Aguarda Resultado Laboratorial</th>
-            <th>Transferência Agendada</th>
-            <th>Descrição Transferência Agendada</th>
-            <th>Aguarda Hemotransfusão</th>
             
         </tr>
         </thead>
@@ -100,21 +87,7 @@
                 <td><%=paciente[j].observacao %></td>
                 <td><%=paciente[j].round %></td>
                 <td><%=paciente[j].planoalta %></td>
-                <td><%=paciente[j].metas %></td>
-                <td><%=paciente[j].pendencias %></td>
-                <td><%=paciente[j].agenexames %></td>
-                <td><%=paciente[j].descexame %></td>
-                <td><%=paciente[j].laudo %></td>
-                <td><%=paciente[j].desclaudo %></td>
-                <td><%=paciente[j].oxigenios %></td>
-                <td><%=paciente[j].casas %></td>
-                <td><%=paciente[j].avespecialistas %></td>
-                <td><%=paciente[j].descespecialista %></td>
-                <td><%=paciente[j].coleta %></td>
-                <td><%=paciente[j].resultadolabs %></td>
-                <td><%=paciente[j].transferencias %></td>
-                <td><%=paciente[j].desctransferencia %></td>
-                <td><%=paciente[j].hemos %></td>
+                <td><%=paciente[j].metas %></td>                  
             
         </tr>
         <% } %>	

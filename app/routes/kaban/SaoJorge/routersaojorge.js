@@ -11,7 +11,16 @@ module.exports = function(application) {
 		}
 		
 	});
-
+	application.get('/relatoriopendenciassaojorge', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.SaoJorge.controllersaojorge.relatoriopendencias(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
 	application.get('/leitossaojorge', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.SaoJorge.controllersaojorge.leitos(application, req, res);

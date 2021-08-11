@@ -11,7 +11,16 @@ module.exports = function(application) {
 		}
 		
 	});
-
+	application.get('/relatoriopendenciasmorumbi', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Morumbi.controllermorumbi.relatoriopendencias(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
 	application.get('/leitosmorumbi', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Morumbi.controllermorumbi.leitos(application, req, res);

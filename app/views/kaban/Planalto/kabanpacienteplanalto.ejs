@@ -11,6 +11,7 @@
 <a href="relatoriodietasplanalto?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Relatório Dietas</button></a>
 <a href="infouaiplanalto?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a>
 <a href="relatoriosemleitosplanalto?id=<%=id[i].id_usuario %>"><button class="btn btn-outline-success"  >Relatório Pacientes sem Leitos</button></a>
+<a href="relatoriopendenciasplanalto?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Relatório Pendências</button></a>
 <br>
 <br>
 <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
@@ -18,47 +19,33 @@
                
     <thead>
         <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th hidden>id</th>
-            <th>Leito</th>
-            <th>SusFacil</th>
-            <th>Prontuário</th>
-            <th>Nome</th>
-            <th>Data de Nascimento</th>
-            <th>Idade</th>
-            <th>Data Admissão</th>
-            <th>Dias Internados</th>
-            <th>Setor</th>
-            <th>Setor</th>
-            <th>Medico</th>
-            <th>Dieta</th>
-            <th>ECF</th>
-            <th>Spict</th>
-            <th>Paliativo</th>
-            <th>Diagnóstico</th>
-            <th>Especialidade</th>
-            <th>Banho</th>
-            <th>Mobilidade</th>
-            <th>Observação</th>
-            <th>Round</th>
-            <th>Plano de Alta</th>
-            <th>Metas do dia</th>
-            <th>Pendências</th>
-            <th>Pendência Agendamento Exames</th>
-            <th>Descrição Pendência Agendamento de Exames</th>
-            <th>Pendência Laudo de Exame</th>
-            <th>Descrição Pendência Laudo de Exame</th>
-            <th>Aguarda OxigenioDomiciliar</th>
-            <th>Aguarda Melhor em Casa</th>
-            <th>Aguarda Avaliação Especialista</th>
-            <th>Descrição Pendência Avaliação Especialista</th>
-            <th>Aguarda coleta de Exame Laboratorial</th>
-            <th>Aguarda Resultado Laboratorial</th>
-            <th>Transferência Agendada</th>
-            <th>Descrição Transferência Agendada</th>
-            <th>Aguarda Hemotransfusão</th>
+            <th>Editar Paciente</th>
+                    <th>Marcar Exame</th>
+                    <th>Saida Paciente</th>
+                    <th hidden>id</th>
+                    <th>Leito</th>
+                    <th>SusFacil</th>
+                    <th>Prontuário</th>
+                    <th>Nome</th>
+                    <th>Data de Nascimento</th>
+                    <th>Idade</th>
+                    <th>Data Admissão</th>
+                    <th>Dias Internados</th>
+                    <th>Setor</th>
+                    <th>Setor</th>
+                    <th>Medico</th>
+                    <th>Dieta</th>
+                    <th>ECF</th>
+                    <th>Spict</th>
+                    <th>Paliativo</th>
+                    <th>Diagnóstico</th>
+                    <th>Especialidade</th>
+                    <th>Banho</th>
+                    <th>Mobilidade</th>
+                    <th>Observação</th>
+                    <th>Round</th>
+                    <th>Plano de Alta</th>
+                    <th>Metas do dia</th>
             
         </tr>
         </thead>
@@ -78,43 +65,29 @@
                 </td>
                 
                 <td hidden><%=paciente[j].idpaciente %></td>
-                        <td><%=paciente[j].leito %></td>
-                        <td><%=paciente[j].susfacil %></td>
-                        <th><%=paciente[j].prt %></th>
-                        <td><%=paciente[j].nome %></td>
-                        <td><%=paciente[j].datanascimento %></td>
-                        <td></td>
-                        <td><%=paciente[j].dataentrada %></td>
-                        <td></td>
-                        <td><%=paciente[j].setor %></td>
-                        <td><%=paciente[j].comodo %></td>
-                        <td><%=paciente[j].medico %></td>
-                        <td><%=paciente[j].dieta %></td>
-                        <td><%=paciente[j].ECF %></td>
-                        <td><%=paciente[j].spict %></td>
-                        <td><%=paciente[j].paliativo %></td>
-                        <td><%=paciente[j].diagnostico %></td>
-                        <td><%=paciente[j].especialidade %></td>
-                        <td><%=paciente[j].banho %></td>
-                        <td><%=paciente[j].mobilidade %></td>
-                        <td><%=paciente[j].observacao %></td>
-                        <td><%=paciente[j].round %></td>
-                        <td><%=paciente[j].planoalta %></td>
-                        <td><%=paciente[j].metas %></td>
-                        <td><%=paciente[j].pendencias %></td>
-                        <td><%=paciente[j].agenexames %></td>
-                        <td><%=paciente[j].descexame %></td>
-                        <td><%=paciente[j].laudo %></td>
-                        <td><%=paciente[j].desclaudo %></td>
-                        <td><%=paciente[j].oxigenios %></td>
-                        <td><%=paciente[j].casas %></td>
-                        <td><%=paciente[j].avespecialistas %></td>
-                        <td><%=paciente[j].descespecialista %></td>
-                        <td><%=paciente[j].coleta %></td>
-                        <td><%=paciente[j].resultadolabs %></td>
-                        <td><%=paciente[j].transferencias %></td>
-                        <td><%=paciente[j].desctransferencia %></td>
-                        <td><%=paciente[j].hemos %></td>
+                <td><%=paciente[j].leito %></td>
+                <td><%=paciente[j].susfacil %></td>
+                <th><%=paciente[j].prt %></th>
+                <td><%=paciente[j].nome %></td>
+                <td><%=paciente[j].datanascimento %></td>
+                <td></td>
+                <td><%=paciente[j].dataentrada %></td>
+                <td></td>
+                <td><%=paciente[j].setor %></td>
+                <td><%=paciente[j].comodo %></td>
+                <td><%=paciente[j].medico %></td>
+                <td><%=paciente[j].dieta %></td>
+                <td><%=paciente[j].ECF %></td>
+                <td><%=paciente[j].spict %></td>
+                <td><%=paciente[j].paliativo %></td>
+                <td><%=paciente[j].diagnostico %></td>
+                <td><%=paciente[j].especialidade %></td>
+                <td><%=paciente[j].banho %></td>
+                <td><%=paciente[j].mobilidade %></td>
+                <td><%=paciente[j].observacao %></td>
+                <td><%=paciente[j].round %></td>
+                <td><%=paciente[j].planoalta %></td>
+                <td><%=paciente[j].metas %></td>                  
             
         </tr>
         <% } %>	

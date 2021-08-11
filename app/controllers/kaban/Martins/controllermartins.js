@@ -13,7 +13,21 @@ module.exports.cadastrar= function(application, req, res){
 		});
 	});	
 }
+module.exports.relatoriopendencias= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelmartins = new application.app.model.kaban.Martins.modelmartins(application);
 
+	var unidade = 'Martins';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelmartins.buscarpacienterelatorio(unidade, function(error, resultado){
+			res.render("kaban/Martins/relatoriopendenciasmartins", {paciente : resultado, id : result});
+		});
+	});	
+}
 module.exports.saveexamemartins= function(application, req, res){
 	var title = req.body.title;
 	var start = req.body.dataformatada;

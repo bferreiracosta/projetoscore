@@ -13,7 +13,21 @@ module.exports.cadastrar= function(application, req, res){
 		});
 	});	
 }
+module.exports.relatoriopendencias= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelroosevelt = new application.app.model.kaban.Roosevelt.modelroosevelt(application);
 
+	var unidade = 'Roosevelt';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelroosevelt.buscarpacienterelatorio(unidade, function(error, resultado){
+			res.render("kaban/Roosevelt/relatoriopendenciasroosevelt", {paciente : resultado, id : result});
+		});
+	});	
+}
 module.exports.saveexameroosevelt= function(application, req, res){
 	var title = req.body.title;
 	var start = req.body.dataformatada;

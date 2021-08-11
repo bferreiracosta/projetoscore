@@ -11,7 +11,16 @@ module.exports = function(application) {
 		}
 		
 	});
-
+	application.get('/relatoriopendenciasplanalto', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Planalto.controllerplanalto.relatoriopendencias(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
 	application.get('/leitosplanalto', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Planalto.controllerplanalto.leitos(application, req, res);

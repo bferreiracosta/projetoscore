@@ -11,7 +11,16 @@ module.exports = function(application) {
 		}
 		
 	});
-
+	application.get('/relatoriopendenciaspampulha', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Pampulha.controllerpampulha.relatoriopendencias(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
 	application.get('/leitospampulha', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Pampulha.controllerpampulha.leitos(application, req, res);

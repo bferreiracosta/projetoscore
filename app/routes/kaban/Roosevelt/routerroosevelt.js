@@ -11,7 +11,16 @@ module.exports = function(application) {
 		}
 		
 	});
-
+	application.get('/relatoriopendenciasroosevelt', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Roosevelt.controllerroosevelt.relatoriopendencias(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
 	application.get('/leitosroosevelt', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Roosevelt.controllerroosevelt.leitos(application, req, res);
