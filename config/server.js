@@ -26,7 +26,9 @@ app.use(session({
 app.use(express.static('./app/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
-consign()
+consign({
+	verbose: process.env.APP_DEBUG === 'false',
+})
 	.include('app/routes')
 	.then('config/dbConnection.js')
 	.then('app/model')
