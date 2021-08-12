@@ -5,7 +5,7 @@
         <a href="kabanpacientemartins?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Voltar Kamban Paciente</button></a>
         <br><br>
         <table class="table table-striped"  style="width: 100%;" id="mytable">
-            <caption style="font-size: 25px; text-align: center; ">Visitas Pacientes Martins</caption>
+            <caption style="font-size: 25px; text-align: center; ">Visitas Pacientes Planalto</caption>
             <thead>
                 <tr>
                     <th hidden>id</th>
@@ -14,7 +14,19 @@
                     <th>Setor</th>
                     <th>Data de Nascimento</th>
                     <th>Idade</th>
-                    <th>Observação</th>                                
+                    <th>Observação</th>     
+                    <th></th>   
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>   
+                    <th></th>                     
                 </tr>
                 </thead>
                 <tbody>    
@@ -28,7 +40,19 @@
                         <td><%=paciente[j].setor %></td>
                         <td><%=paciente[j].datanascimento %></td>
                         <td></td>
-                        <td>                         </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                 </tr>
                 <% } %>	
                 <% } %>
@@ -103,14 +127,13 @@ buttons: [
        "extend": "pdf",
        "text": "PDF",
        orientation: 'landscape',
-       pageSize: 'LEGAL',
-       customize: function(doc) {
-            //pageMargins [left, top, right, bottom] 
-            doc.pageMargins = [ 10, 20, 10, 10 ];
-            doc.defaultStyle.fontSize = 8,
-            doc.styles.tableBodyEven.alignment = 'center';
-           doc.styles.tableBodyOdd.alignment = 'center';
-        }, 
+       pageSize: 'a4',
+    //    customize: function(doc) {
+    //         doc.pageMargins = [ 10, 20, 10, 10 ];
+    //         doc.defaultStyle.fontSize = 8,
+    //         doc.styles.tableBodyEven.alignment = 'center';
+    //        doc.styles.tableBodyOdd.alignment = 'center';
+    //     }, 
        exportOptions: {
            grouped_array_index: [groupColumn],
            columns: ':visible'
