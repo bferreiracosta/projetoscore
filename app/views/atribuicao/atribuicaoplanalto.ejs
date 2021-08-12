@@ -2,146 +2,317 @@
 <div class="container">
   <h2>Escala de Atribuição Planalto</h2>
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Manha</a></li>
-    <li><a data-toggle="tab" href="#menu1">Tarde</a></li>
-    <li><a data-toggle="tab" href="#menu2">SN1</a></li>
-    <li><a data-toggle="tab" href="#menu3">SN2</a></li>
+    <li><a style="color: inherit;" data-toggle="tab" href="#nova">Nova Escala</a></li>
+    <li class="active"><a style="color: inherit;" data-toggle="tab" href="#home">Manha</a></li>
+    <li><a style="color: inherit;" data-toggle="tab" href="#menu1">Tarde</a></li>
+    <li><a style="color: inherit;" data-toggle="tab" href="#menu2">SN1</a></li>
+    <li><a style="color: inherit;" data-toggle="tab" href="#menu3">SN2</a></li>
   </ul>
   <div class="tab-content">
+    <div id="nova" class="tab-pane fade">
+      
+      <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="date">    <button class="btn btn-danger"><i class="far fa-save"></i></button> <button type="button" class="btn btn-success" onclick="createPDF();"><i class="fas fa-download"></i></button></span></h4>
+      <div id="mobile" >
+        <table class="table table-bordered table-dark display" style="width: 100%; border: 1px solid black;" id="mytable">
+          <thead>
+            <tr style="border: 1px solid black; height: 35px;" class="bg-primary">
+              <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logoprefeitura.jpg"></th>
+              <th colspan="3" scope="col" style="text-align: center;">07/06/2021 – SEGUNDA – Turno</th>
+              <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logospdm.jpg"></th>
+              <th hidden></th>
+              <th hidden></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border: 1px solid black; height: 35px;">
+              <td style="text-align: center; font-size: medium; background: darkblue; color: white;" colspan="6"> Escala de Atribuição Planalto</td>
+              <td hidden ></td>
+              <td hidden></td>
+              <td hidden ></td>
+              <td hidden></td>
+            </tr>
+            <tr style="border: 1px solid black; height: 35px;" class="bg-primary">
+              <td scope="col">Enfermaria</td>
+              <td scope="col">Referência Azul</td>
+              <td scope="col">Referência Bordo</td>
+              <td scope="col">Sala de Emergência</td>
+              <td scope="col">Classificação de Risco</td>
+            </tr>
+            <tr style="background-color:#a5a1a1!important;border: 1px solid black; height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"  scope="col"></td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col" class="bg-primary">Transporte</td>
+              <td  scope="col" class="bg-primary">Medicação</td>
+              <td  scope="col"></td>
+              <td  scope="col" class="bg-primary">CME</td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col" class="bg-primary">Traumatologia</td>
+              <td  scope="col"></td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col" class="bg-primary">Fast Track</td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col" class="bg-primary">Maqueiro</td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col" class="bg-primary">Sala Amarela</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+            </tr>
+            <tr style="border: 1px solid black;">
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" class="bg-primary"s colspan="4" style="text-align:center">Escala de Parada</td>
+              <td  scope="col"></td>
+              <td hidden></td>
+              <td hidden></td>
+              <td hidden></td>
+      
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;"  class="bg-primary">
+              <td  scope="col">Função</td>
+              <td  scope="col">Funcionário</td>
+              <td  scope="col">Substituição</td>
+              <td  scope="col">Elemento</td>
+              <td  scope="col">Pediatria</td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Monitorização</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#ff6105 !important;">Laranja</td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Anotação</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#ff0505 !important;">Vermelho</td>
+              <td  scope="col"></td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Compressão</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#051eff !important;">Azul</td>
+              <td  scope="col"></td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Ventilação</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#08af3a !important;">Verde</td>
+              <td  scope="col" class="bg-primary">Enfermeiro Preposto</td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Medicação</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#e6ff05 !important;">Amarelo</td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+            </tr>
+            <tr style="border: 1px solid black;">
+              <td colspan="5"  scope="col"></td>
+              <td hidden></td>
+              <td hidden></td>
+              <td hidden></td>
+              <td hidden></td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Folgas Enfermeiros</td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col">Folgas Tec Enf</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+            </tr>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col">Atestados/Férias</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <br>
+       
+      </div>
+          </div>
     <div id="home" class="tab-pane fade in active">
       
-<h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="date">    <button class="btn btn-info"><i class="fas fa-search"></i></button> <button type="button" class="btn btn-success" onclick="createPDF();"><i class="fas fa-download"></i></button></span></h4>
+<h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="date">    <button class="btn btn-info"><i class="fas fa-search"></i></button> <button class="btn btn-danger"><i class="far fa-save"></i></button> <button type="button" class="btn btn-success" onclick="createPDFmanha();"><i class="fas fa-download"></i></button></span></h4>
 <div id="mobile" >
   <table class="table table-bordered table-dark display" style="width: 100%; border: 1px solid black;" id="mytable">
     <thead>
-      <tr style="border: 1px solid black;" class="bg-primary">
+      <tr style="border: 1px solid black; height: 35px;" class="bg-primary">
         <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logoprefeitura.jpg"></th>
-        <th colspan="3" scope="col" style="text-align: center;">07/06/2021 – SEGUNDA – MANHA</th>
+        <th colspan="3" scope="col" style="text-align: center;">07/06/2021 – SEGUNDA – Manha</th>
         <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logospdm.jpg"></th>
         <th hidden></th>
         <th hidden></th>
       </tr>
     </thead>
     <tbody>
-      <tr style="border: 1px solid black;">
+      <tr style="border: 1px solid black; height: 35px;">
         <td style="text-align: center; font-size: medium; background: darkblue; color: white;" colspan="6"> Escala de Atribuição Planalto</td>
         <td hidden ></td>
         <td hidden></td>
         <td hidden ></td>
         <td hidden></td>
       </tr>
-      <tr style="border: 1px solid black;" class="bg-primary">
+      <tr style="border: 1px solid black; height: 35px;" class="bg-primary">
         <td scope="col">Enfermaria</td>
         <td scope="col">Referência Azul</td>
         <td scope="col">Referência Bordo</td>
         <td scope="col">Sala de Emergência</td>
         <td scope="col">Classificação de Risco</td>
       </tr>
-      <tr style="background-color:#a5a1a1!important;border: 1px solid black;">
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col"  scope="col">Teste</td>
+      <tr style="background-color:#a5a1a1!important;border: 1px solid black; height: 35px;">
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col"></td>
         <td  scope="col" class="bg-primary">Transporte</td>
         <td  scope="col" class="bg-primary">Medicação</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
         <td  scope="col" class="bg-primary">CME</td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+        <td  scope="col"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
         <td  scope="col" class="bg-primary">Traumatologia</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col"></td>
         <td  scope="col" class="bg-primary">Fast Track</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+        <td  scope="col"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
         <td  scope="col" class="bg-primary">Maqueiro</td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
         <td  scope="col" class="bg-primary">Sala Amarela</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
       </tr>
       <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
+      <tr style="border: 1px solid black;height: 35px;">
         <td  scope="col" class="bg-primary"s colspan="4" style="text-align:center">Escala de Parada</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
         <td hidden></td>
         <td hidden></td>
         <td hidden></td>
 
       </tr>
-      <tr style="border: 1px solid black;"  class="bg-primary">
+      <tr style="border: 1px solid black;height: 35px;"  class="bg-primary">
         <td  scope="col">Função</td>
         <td  scope="col">Funcionário</td>
         <td  scope="col">Substituição</td>
         <td  scope="col">Elemento</td>
         <td  scope="col">Pediatria</td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col" style="background-color:#a5a1a1!important;">Monitorização</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
         <td  scope="col" style="background-color:#ff6105 !important;">Laranja</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col" style="background-color:#a5a1a1!important;">Anotação</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
         <td  scope="col" style="background-color:#ff0505 !important;">Vermelho</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col" style="background-color:#a5a1a1!important;">Compressão</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
         <td  scope="col" style="background-color:#051eff !important;">Azul</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col" style="background-color:#a5a1a1!important;">Ventilação</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
         <td  scope="col" style="background-color:#08af3a !important;">Verde</td>
         <td  scope="col" class="bg-primary">Enfermeiro Preposto</td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col" style="background-color:#a5a1a1!important;">Medicação</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
         <td  scope="col" style="background-color:#e6ff05 !important;">Amarelo</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
       </tr>
       <tr style="border: 1px solid black;">
         <td colspan="5"  scope="col"></td>
@@ -150,26 +321,26 @@
         <td hidden></td>
         <td hidden></td>
       </tr>
-      <tr style="border: 1px solid black;">
+      <tr style="border: 1px solid black;height: 35px;">
         <td  scope="col" style="background-color:#a5a1a1!important;">Folgas Enfermeiros</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
       </tr>
-      <tr style="border: 1px solid black;">
+      <tr style="border: 1px solid black;height: 35px;">
         <td  scope="col">Folgas Tec Enf</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
+      <tr style="border: 1px solid black;height: 35px;">
         <td  scope="col">Atestados/Férias</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
       </tr>
     </tbody>
   </table>
@@ -180,11 +351,11 @@
     </div>
     <div id="menu1" class="tab-pane fade">
       
-<h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="date">    <button class="btn btn-info"><i class="fas fa-search"></i></button> <button type="button" class="btn btn-success" onclick="createPDF();"><i class="fas fa-download"></i></button></span></h4>
+<h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="date">    <button class="btn btn-info"><i class="fas fa-search"></i></button> <button class="btn btn-danger"><i class="far fa-save"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFtarde();"><i class="fas fa-download"></i></button></span></h4>
 <div id="mobile" >
   <table class="table table-bordered table-dark display" style="width: 100%; border: 1px solid black;" id="mytable">
     <thead>
-      <tr style="border: 1px solid black;" class="bg-primary">
+      <tr style="border: 1px solid black; height: 35px;" class="bg-primary">
         <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logoprefeitura.jpg"></th>
         <th colspan="3" scope="col" style="text-align: center;">07/06/2021 – SEGUNDA – Tarde</th>
         <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logospdm.jpg"></th>
@@ -193,125 +364,125 @@
       </tr>
     </thead>
     <tbody>
-      <tr style="border: 1px solid black;">
+      <tr style="border: 1px solid black; height: 35px;">
         <td style="text-align: center; font-size: medium; background: darkblue; color: white;" colspan="6"> Escala de Atribuição Planalto</td>
         <td hidden ></td>
         <td hidden></td>
         <td hidden ></td>
         <td hidden></td>
       </tr>
-      <tr style="border: 1px solid black;" class="bg-primary">
+      <tr style="border: 1px solid black; height: 35px;" class="bg-primary">
         <td scope="col">Enfermaria</td>
         <td scope="col">Referência Azul</td>
         <td scope="col">Referência Bordo</td>
         <td scope="col">Sala de Emergência</td>
         <td scope="col">Classificação de Risco</td>
       </tr>
-      <tr style="background-color:#a5a1a1!important;border: 1px solid black;">
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col"  scope="col">Teste</td>
+      <tr style="background-color:#a5a1a1!important;border: 1px solid black; height: 35px;">
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col"></td>
         <td  scope="col" class="bg-primary">Transporte</td>
         <td  scope="col" class="bg-primary">Medicação</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
         <td  scope="col" class="bg-primary">CME</td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+        <td  scope="col"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
         <td  scope="col" class="bg-primary">Traumatologia</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col"></td>
         <td  scope="col" class="bg-primary">Fast Track</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+        <td  scope="col"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
         <td  scope="col" class="bg-primary">Maqueiro</td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
         <td  scope="col" class="bg-primary">Sala Amarela</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
       </tr>
       <tr style="border: 1px solid black;">
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
+      <tr style="border: 1px solid black;height: 35px;">
         <td  scope="col" class="bg-primary"s colspan="4" style="text-align:center">Escala de Parada</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
         <td hidden></td>
         <td hidden></td>
         <td hidden></td>
 
       </tr>
-      <tr style="border: 1px solid black;"  class="bg-primary">
+      <tr style="border: 1px solid black;height: 35px;"  class="bg-primary">
         <td  scope="col">Função</td>
         <td  scope="col">Funcionário</td>
         <td  scope="col">Substituição</td>
         <td  scope="col">Elemento</td>
         <td  scope="col">Pediatria</td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col" style="background-color:#a5a1a1!important;">Monitorização</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
         <td  scope="col" style="background-color:#ff6105 !important;">Laranja</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col" style="background-color:#a5a1a1!important;">Anotação</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
         <td  scope="col" style="background-color:#ff0505 !important;">Vermelho</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col" style="background-color:#a5a1a1!important;">Compressão</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
         <td  scope="col" style="background-color:#051eff !important;">Azul</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col" style="background-color:#a5a1a1!important;">Ventilação</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
         <td  scope="col" style="background-color:#08af3a !important;">Verde</td>
         <td  scope="col" class="bg-primary">Enfermeiro Preposto</td>
       </tr>
-      <tr style="border: 1px solid black;">
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+      <tr style="border: 1px solid black;height: 35px;">
+        <td  scope="col" style="background-color:#a5a1a1!important;">Medicação</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
         <td  scope="col" style="background-color:#e6ff05 !important;">Amarelo</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
       </tr>
       <tr style="border: 1px solid black;">
         <td colspan="5"  scope="col"></td>
@@ -320,26 +491,26 @@
         <td hidden></td>
         <td hidden></td>
       </tr>
-      <tr style="border: 1px solid black;">
+      <tr style="border: 1px solid black;height: 35px;">
         <td  scope="col" style="background-color:#a5a1a1!important;">Folgas Enfermeiros</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-        <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+        <td  scope="col" style="background-color:#a5a1a1!important;"></td>
       </tr>
-      <tr style="border: 1px solid black;">
+      <tr style="border: 1px solid black;height: 35px;">
         <td  scope="col">Folgas Tec Enf</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
       </tr>
-      <tr style="border: 1px solid black;">
+      <tr style="border: 1px solid black;height: 35px;">
         <td  scope="col">Atestados/Férias</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
-        <td  scope="col">Teste</td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
+        <td  scope="col"></td>
       </tr>
     </tbody>
   </table>
@@ -350,11 +521,11 @@
     </div>
     <div id="menu2" class="tab-pane fade">
       
-      <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="date">    <button class="btn btn-info"><i class="fas fa-search"></i></button> <button type="button" class="btn btn-success" onclick="createPDF();"><i class="fas fa-download"></i></button></span></h4>
+      <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="date">    <button class="btn btn-info"><i class="fas fa-search"></i></button> <button class="btn btn-danger"><i class="far fa-save"></i></button> <button type="button" class="btn btn-success" onclick="createPDFsn1();"><i class="fas fa-download"></i></button></span></h4>
       <div id="mobile" >
         <table class="table table-bordered table-dark display" style="width: 100%; border: 1px solid black;" id="mytable">
           <thead>
-            <tr style="border: 1px solid black;" class="bg-primary">
+            <tr style="border: 1px solid black; height: 35px;" class="bg-primary">
               <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logoprefeitura.jpg"></th>
               <th colspan="3" scope="col" style="text-align: center;">07/06/2021 – SEGUNDA – SN1</th>
               <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logospdm.jpg"></th>
@@ -363,125 +534,125 @@
             </tr>
           </thead>
           <tbody>
-            <tr style="border: 1px solid black;">
+            <tr style="border: 1px solid black; height: 35px;">
               <td style="text-align: center; font-size: medium; background: darkblue; color: white;" colspan="6"> Escala de Atribuição Planalto</td>
               <td hidden ></td>
               <td hidden></td>
               <td hidden ></td>
               <td hidden></td>
             </tr>
-            <tr style="border: 1px solid black;" class="bg-primary">
+            <tr style="border: 1px solid black; height: 35px;" class="bg-primary">
               <td scope="col">Enfermaria</td>
               <td scope="col">Referência Azul</td>
               <td scope="col">Referência Bordo</td>
               <td scope="col">Sala de Emergência</td>
               <td scope="col">Classificação de Risco</td>
             </tr>
-            <tr style="background-color:#a5a1a1!important;border: 1px solid black;">
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col"  scope="col">Teste</td>
+            <tr style="background-color:#a5a1a1!important;border: 1px solid black; height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
               <td  scope="col" class="bg-primary">Transporte</td>
               <td  scope="col" class="bg-primary">Medicação</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
               <td  scope="col" class="bg-primary">CME</td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
               <td  scope="col" class="bg-primary">Traumatologia</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
               <td  scope="col" class="bg-primary">Fast Track</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
               <td  scope="col" class="bg-primary">Maqueiro</td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
               <td  scope="col" class="bg-primary">Sala Amarela</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
             </tr>
             <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
+            <tr style="border: 1px solid black;height: 35px;">
               <td  scope="col" class="bg-primary"s colspan="4" style="text-align:center">Escala de Parada</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
               <td hidden></td>
               <td hidden></td>
               <td hidden></td>
       
             </tr>
-            <tr style="border: 1px solid black;"  class="bg-primary">
+            <tr style="border: 1px solid black;height: 35px;"  class="bg-primary">
               <td  scope="col">Função</td>
               <td  scope="col">Funcionário</td>
               <td  scope="col">Substituição</td>
               <td  scope="col">Elemento</td>
               <td  scope="col">Pediatria</td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Monitorização</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
               <td  scope="col" style="background-color:#ff6105 !important;">Laranja</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Anotação</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
               <td  scope="col" style="background-color:#ff0505 !important;">Vermelho</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Compressão</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
               <td  scope="col" style="background-color:#051eff !important;">Azul</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Ventilação</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
               <td  scope="col" style="background-color:#08af3a !important;">Verde</td>
               <td  scope="col" class="bg-primary">Enfermeiro Preposto</td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Medicação</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
               <td  scope="col" style="background-color:#e6ff05 !important;">Amarelo</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
             </tr>
             <tr style="border: 1px solid black;">
               <td colspan="5"  scope="col"></td>
@@ -490,26 +661,26 @@
               <td hidden></td>
               <td hidden></td>
             </tr>
-            <tr style="border: 1px solid black;">
+            <tr style="border: 1px solid black;height: 35px;">
               <td  scope="col" style="background-color:#a5a1a1!important;">Folgas Enfermeiros</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
             </tr>
-            <tr style="border: 1px solid black;">
+            <tr style="border: 1px solid black;height: 35px;">
               <td  scope="col">Folgas Tec Enf</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
+            <tr style="border: 1px solid black;height: 35px;">
               <td  scope="col">Atestados/Férias</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
             </tr>
           </tbody>
         </table>
@@ -520,11 +691,11 @@
     </div>
     <div id="menu3" class="tab-pane fade">
       
-      <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="date">    <button class="btn btn-info"><i class="fas fa-search"></i></button> <button type="button" class="btn btn-success" onclick="createPDF();"><i class="fas fa-download"></i></button></span></h4>
+      <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="date">    <button class="btn btn-info"><i class="fas fa-search"></i></button> <button class="btn btn-danger"><i class="far fa-save"></i></button> <button type="button" class="btn btn-success" onclick="createPDFsn2();"><i class="fas fa-download"></i></button></span></h4>
       <div id="mobile" >
         <table class="table table-bordered table-dark display" style="width: 100%; border: 1px solid black;" id="mytable">
           <thead>
-            <tr style="border: 1px solid black;" class="bg-primary">
+            <tr style="border: 1px solid black; height: 35px;" class="bg-primary">
               <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logoprefeitura.jpg"></th>
               <th colspan="3" scope="col" style="text-align: center;">07/06/2021 – SEGUNDA – SN2</th>
               <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logospdm.jpg"></th>
@@ -533,125 +704,125 @@
             </tr>
           </thead>
           <tbody>
-            <tr style="border: 1px solid black;">
+            <tr style="border: 1px solid black; height: 35px;">
               <td style="text-align: center; font-size: medium; background: darkblue; color: white;" colspan="6"> Escala de Atribuição Planalto</td>
               <td hidden ></td>
               <td hidden></td>
               <td hidden ></td>
               <td hidden></td>
             </tr>
-            <tr style="border: 1px solid black;" class="bg-primary">
+            <tr style="border: 1px solid black; height: 35px;" class="bg-primary">
               <td scope="col">Enfermaria</td>
               <td scope="col">Referência Azul</td>
               <td scope="col">Referência Bordo</td>
               <td scope="col">Sala de Emergência</td>
               <td scope="col">Classificação de Risco</td>
             </tr>
-            <tr style="background-color:#a5a1a1!important;border: 1px solid black;">
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col"  scope="col">Teste</td>
+            <tr style="background-color:#a5a1a1!important;border: 1px solid black; height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
               <td  scope="col" class="bg-primary">Transporte</td>
               <td  scope="col" class="bg-primary">Medicação</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
               <td  scope="col" class="bg-primary">CME</td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
               <td  scope="col" class="bg-primary">Traumatologia</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
               <td  scope="col" class="bg-primary">Fast Track</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
               <td  scope="col" class="bg-primary">Maqueiro</td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
               <td  scope="col" class="bg-primary">Sala Amarela</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
             </tr>
             <tr style="border: 1px solid black;">
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
+            <tr style="border: 1px solid black;height: 35px;">
               <td  scope="col" class="bg-primary"s colspan="4" style="text-align:center">Escala de Parada</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
               <td hidden></td>
               <td hidden></td>
               <td hidden></td>
       
             </tr>
-            <tr style="border: 1px solid black;"  class="bg-primary">
+            <tr style="border: 1px solid black;height: 35px;"  class="bg-primary">
               <td  scope="col">Função</td>
               <td  scope="col">Funcionário</td>
               <td  scope="col">Substituição</td>
               <td  scope="col">Elemento</td>
               <td  scope="col">Pediatria</td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Monitorização</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
               <td  scope="col" style="background-color:#ff6105 !important;">Laranja</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Anotação</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
               <td  scope="col" style="background-color:#ff0505 !important;">Vermelho</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Compressão</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
               <td  scope="col" style="background-color:#051eff !important;">Azul</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Ventilação</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
               <td  scope="col" style="background-color:#08af3a !important;">Verde</td>
               <td  scope="col" class="bg-primary">Enfermeiro Preposto</td>
             </tr>
-            <tr style="border: 1px solid black;">
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+            <tr style="border: 1px solid black;height: 35px;">
+              <td  scope="col" style="background-color:#a5a1a1!important;">Medicação</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
               <td  scope="col" style="background-color:#e6ff05 !important;">Amarelo</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
             </tr>
             <tr style="border: 1px solid black;">
               <td colspan="5"  scope="col"></td>
@@ -660,26 +831,26 @@
               <td hidden></td>
               <td hidden></td>
             </tr>
-            <tr style="border: 1px solid black;">
+            <tr style="border: 1px solid black;height: 35px;">
               <td  scope="col" style="background-color:#a5a1a1!important;">Folgas Enfermeiros</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
-              <td  scope="col" style="background-color:#a5a1a1!important;">Teste</td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
+              <td  scope="col" style="background-color:#a5a1a1!important;"></td>
             </tr>
-            <tr style="border: 1px solid black;">
+            <tr style="border: 1px solid black;height: 35px;">
               <td  scope="col">Folgas Tec Enf</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
             </tr>
-            <tr style="border: 1px solid black;">
+            <tr style="border: 1px solid black;height: 35px;">
               <td  scope="col">Atestados/Férias</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
-              <td  scope="col">Teste</td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
+              <td  scope="col"></td>
             </tr>
           </tbody>
         </table>
@@ -749,7 +920,215 @@
                     }
 
                     pdf.setPage(i+1);
-                    pdf.addImage(canvasDataURL, 'jpeg', 20, 20, 1310, 691);
+                    pdf.addImage(canvasDataURL, 'png', 20, 20, 1310, 691);
+                }
+
+                pdf.save(config.fileName);
+            }
+        });
+    };
+})(jQuery);
+
+(function($){
+    $.fn.createPdfmanha = function(parametros) {
+        
+        var config = {              
+            'fileName':'html-to-pdf'
+        };
+        
+        if (parametros){
+            $.extend(config, parametros);
+        }                            
+
+        var quotes = document.getElementById($(this).attr('id'));
+
+        html2canvas(quotes, {
+            onrendered: function(canvas) {
+                var pdf = new jsPDF('l', 'pt', 'a4');
+
+                for (var i = 0; i <= quotes.clientHeight/1080; i++) {
+                    var srcImg  = canvas;
+                    var sX      = 0;
+                    var sY      = 980*i;
+                    var sWidth  = 1500;
+                    var sHeight = 1080;
+                    var dX      = 0;
+                    var dY      = 0;
+                    var dWidth  = 900;
+                    var dHeight = 980;
+
+                    window.onePageCanvas = document.createElement("canvas");
+                    onePageCanvas.setAttribute('width', 1400);
+                    onePageCanvas.setAttribute('height', 1080);
+                    var ctx = onePageCanvas.getContext('2d');
+                    ctx.drawImage(srcImg,sX,sY,sWidth,sHeight,dX,dY,dWidth,dHeight);
+
+                    var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
+                    var width         = onePageCanvas.width;
+                    var height        = onePageCanvas.clientHeight;
+
+                    if (i > 0) {
+                        pdf.addPage(512, 691);
+                    }
+
+                    pdf.setPage(i+1);
+                    pdf.addImage(canvasDataURL, 'png', 20, 20, 1310, 691);
+                }
+
+                pdf.save(config.fileName);
+            }
+        });
+    };
+})(jQuery);
+
+(function($){
+    $.fn.createPdftarde = function(parametros) {
+        
+        var config = {              
+            'fileName':'html-to-pdf'
+        };
+        
+        if (parametros){
+            $.extend(config, parametros);
+        }                            
+
+        var quotes = document.getElementById($(this).attr('id'));
+
+        html2canvas(quotes, {
+            onrendered: function(canvas) {
+                var pdf = new jsPDF('l', 'pt', 'a4');
+
+                for (var i = 0; i <= quotes.clientHeight/1080; i++) {
+                    var srcImg  = canvas;
+                    var sX      = 0;
+                    var sY      = 980*i;
+                    var sWidth  = 1500;
+                    var sHeight = 1080;
+                    var dX      = 0;
+                    var dY      = 0;
+                    var dWidth  = 900;
+                    var dHeight = 980;
+
+                    window.onePageCanvas = document.createElement("canvas");
+                    onePageCanvas.setAttribute('width', 1400);
+                    onePageCanvas.setAttribute('height', 1080);
+                    var ctx = onePageCanvas.getContext('2d');
+                    ctx.drawImage(srcImg,sX,sY,sWidth,sHeight,dX,dY,dWidth,dHeight);
+
+                    var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
+                    var width         = onePageCanvas.width;
+                    var height        = onePageCanvas.clientHeight;
+
+                    if (i > 0) {
+                        pdf.addPage(512, 691);
+                    }
+
+                    pdf.setPage(i+1);
+                    pdf.addImage(canvasDataURL, 'png', 20, 20, 1310, 691);
+                }
+
+                pdf.save(config.fileName);
+            }
+        });
+    };
+})(jQuery);
+
+(function($){
+    $.fn.createPdfsn1 = function(parametros) {
+        
+        var config = {              
+            'fileName':'html-to-pdf'
+        };
+        
+        if (parametros){
+            $.extend(config, parametros);
+        }                            
+
+        var quotes = document.getElementById($(this).attr('id'));
+
+        html2canvas(quotes, {
+            onrendered: function(canvas) {
+                var pdf = new jsPDF('l', 'pt', 'a4');
+
+                for (var i = 0; i <= quotes.clientHeight/1080; i++) {
+                    var srcImg  = canvas;
+                    var sX      = 0;
+                    var sY      = 980*i;
+                    var sWidth  = 1500;
+                    var sHeight = 1080;
+                    var dX      = 0;
+                    var dY      = 0;
+                    var dWidth  = 900;
+                    var dHeight = 980;
+
+                    window.onePageCanvas = document.createElement("canvas");
+                    onePageCanvas.setAttribute('width', 1400);
+                    onePageCanvas.setAttribute('height', 1080);
+                    var ctx = onePageCanvas.getContext('2d');
+                    ctx.drawImage(srcImg,sX,sY,sWidth,sHeight,dX,dY,dWidth,dHeight);
+
+                    var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
+                    var width         = onePageCanvas.width;
+                    var height        = onePageCanvas.clientHeight;
+
+                    if (i > 0) {
+                        pdf.addPage(512, 691);
+                    }
+
+                    pdf.setPage(i+1);
+                    pdf.addImage(canvasDataURL, 'png', 20, 20, 1310, 691);
+                }
+
+                pdf.save(config.fileName);
+            }
+        });
+    };
+})(jQuery);
+
+(function($){
+    $.fn.createPdfsn2 = function(parametros) {
+        
+        var config = {              
+            'fileName':'html-to-pdf'
+        };
+        
+        if (parametros){
+            $.extend(config, parametros);
+        }                            
+
+        var quotes = document.getElementById($(this).attr('id'));
+
+        html2canvas(quotes, {
+            onrendered: function(canvas) {
+                var pdf = new jsPDF('l', 'pt', 'a4');
+
+                for (var i = 0; i <= quotes.clientHeight/1080; i++) {
+                    var srcImg  = canvas;
+                    var sX      = 0;
+                    var sY      = 980*i;
+                    var sWidth  = 1500;
+                    var sHeight = 1080;
+                    var dX      = 0;
+                    var dY      = 0;
+                    var dWidth  = 900;
+                    var dHeight = 980;
+
+                    window.onePageCanvas = document.createElement("canvas");
+                    onePageCanvas.setAttribute('width', 1400);
+                    onePageCanvas.setAttribute('height', 1080);
+                    var ctx = onePageCanvas.getContext('2d');
+                    ctx.drawImage(srcImg,sX,sY,sWidth,sHeight,dX,dY,dWidth,dHeight);
+
+                    var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
+                    var width         = onePageCanvas.width;
+                    var height        = onePageCanvas.clientHeight;
+
+                    if (i > 0) {
+                        pdf.addPage(512, 691);
+                    }
+
+                    pdf.setPage(i+1);
+                    pdf.addImage(canvasDataURL, 'png', 20, 20, 1310, 691);
                 }
 
                 pdf.save(config.fileName);
@@ -760,8 +1139,32 @@
  
 
 function createPDF() {
-    $('#mobile').createPdf({
-        'fileName' : 'ScoreSystem'
+    $('#nova').createPdf({
+        'fileName' : 'ScoreSystem - Atribuição nova'
+    });
+}
+
+function createPDFmanha() {
+    $('#home').createPdfmanha({
+        'fileName' : 'ScoreSystem - Atribuição Manha'
+    });
+}
+
+function createPDFtarde() {
+    $('#menu1').createPdftarde({
+        'fileName' : 'ScoreSystem - Atribuição Tarde'
+    });
+}
+
+function createPDFsn1() {
+    $('#menu2').createPdfsn1({
+        'fileName' : 'ScoreSystem - Atribuição SN1'
+    });
+}
+
+function createPDFsn2() {
+    $('#menu3').createPdfsn2({
+        'fileName' : 'ScoreSystem - Atribuição SN2'
     });
 }
 </script>
