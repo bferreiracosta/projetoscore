@@ -26,7 +26,24 @@
                     <th></th>
                     <th></th>
                     <th></th>   
-                    <th></th>                     
+                    <th></th>   
+                    <th></th>  
+                    <th></th>  
+                    <th></th>  
+                    <th></th>  
+                    <th></th>  
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>                    
                 </tr>
                 </thead>
                 <tbody>    
@@ -39,6 +56,23 @@
                         <td><%=paciente[j].nome %></td>
                         <td><%=paciente[j].setor %></td>
                         <td><%=paciente[j].datanascimento %></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -108,7 +142,7 @@ pageLength: 50,
    api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
        if ( last !== group ) {
            $(rows).eq( i ).before(
-               '<tr class="group" style = "background-color: #ddd !important;text-align: center !important"><td colspan="18" >'+group+'</td></tr>'
+               '<tr class="group" style = "background-color: #ddd !important;text-align: center !important"><td colspan="35" >'+group+'</td></tr>'
            );
 
            last = group;
