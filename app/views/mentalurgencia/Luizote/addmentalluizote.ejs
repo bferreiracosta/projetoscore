@@ -20,7 +20,7 @@
 		
 							<div class="form-group">
 								<label for="Idade">Idade</label>
-								<input type="text" name="idade" class="form-control" placeholder="Idade" required>
+								<input type="text" onchange="verificaidade(this.value)" name="idade" class="form-control" placeholder="Idade" required>
 							</div>
 							<div class="form-group">
 								<label for="diagonostico">Diagnóstico</label>
@@ -81,4 +81,16 @@ function novaHora(){
 	document.getElementById('dataa').value = ("0" + date.getDate()).slice(-2) +'/'+ ("0" + (date.getMonth() + 1)).slice(-2) +'/'+ date.getFullYear();
 }
 novaHora();
+function verificaidade(value){
+		
+		var input = document.getElementById("exame");
+	
+	
+	  if(value < 18 ){
+		
+		document.getElementById('exame').value = 'Caps Infantil';
+		$('#exame').attr('disabled', 'disabled');
+		document.getElementById('referencia').value = 'Caps Infantil';
+	  }
+	};
 </script>
