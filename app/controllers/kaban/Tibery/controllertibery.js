@@ -28,6 +28,21 @@ module.exports.relatoriopendencias= function(application, req, res){
 		});
 	});	
 }
+module.exports.relatorioplanoalta= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modeltibery = new application.app.model.kaban.Tibery.modeltibery(application);
+
+	var unidade = 'Tibery';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modeltibery.buscarpacienterelatorio(unidade, function(error, resultado){
+			res.render("kaban/Tibery/relatorioplanoaltatibery", {paciente : resultado, id : result});
+		});
+	});	
+}
 module.exports.saveexametibery= function(application, req, res){
 	var title = req.body.title;
 	var start = req.body.dataformatada;

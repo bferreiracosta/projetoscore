@@ -23,6 +23,18 @@ module.exports = function(application) {
 		
 	});
 
+	application.get('/relatorioplanoaltaluizote', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Luizote.controllerluizote.relatorioplanoalta(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+
 	application.get('/leitosluizote', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Luizote.controllerluizote.leitos(application, req, res);

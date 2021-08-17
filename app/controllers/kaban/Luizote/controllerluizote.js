@@ -30,6 +30,22 @@ module.exports.relatoriopendencias= function(application, req, res){
 	});	
 }
 
+module.exports.relatorioplanoalta= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscarpacienterelatorio(unidade, function(error, resultado){
+			res.render("kaban/Luizote/relatorioplanoaltaluizote", {paciente : resultado, id : result});
+		});
+	});	
+}
+
 module.exports.saveexameluizote= function(application, req, res){
 	var title = req.body.title;
 	var start = req.body.dataformatada;

@@ -28,6 +28,21 @@ module.exports.relatoriopendencias= function(application, req, res){
 		});
 	});	
 }
+module.exports.relatorioplanoalta= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelsaojorge = new application.app.model.kaban.SaoJorge.modelsaojorge(application);
+
+	var unidade = 'SaoJorge';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelsaojorge.buscarpacienterelatorio(unidade, function(error, resultado){
+			res.render("kaban/SaoJorge/relatorioplanoaltasaojorge", {paciente : resultado, id : result});
+		});
+	});	
+}
 module.exports.saveexamesaojorge= function(application, req, res){
 	var title = req.body.title;
 	var start = req.body.dataformatada;

@@ -21,6 +21,17 @@ module.exports = function(application) {
 		}
 		
 	});
+	application.get('/relatorioplanoaltatibery', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Tibery.controllertibery.relatorioplanoalta(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
 	application.get('/leitostibery', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Tibery.controllertibery.leitos(application, req, res);

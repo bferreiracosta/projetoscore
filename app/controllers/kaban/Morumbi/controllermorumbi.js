@@ -28,6 +28,23 @@ module.exports.relatoriopendencias= function(application, req, res){
 		});
 	});	
 }
+
+module.exports.relatorioplanoalta= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
+
+	var unidade = 'Morumbi';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelmorumbi.buscarpacienterelatorio(unidade, function(error, resultado){
+			res.render("kaban/Morumbi/relatorioplanoaltamorumbi", {paciente : resultado, id : result});
+		});
+	});	
+}
+
 module.exports.saveexamemorumbi= function(application, req, res){
 	var title = req.body.title;
 	var start = req.body.dataformatada;

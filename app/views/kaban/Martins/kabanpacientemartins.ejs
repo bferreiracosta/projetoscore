@@ -12,6 +12,7 @@
 <a href="infouaimartins?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a>
 <a href="relatoriosemleitosmartins?id=<%=id[i].id_usuario %>"><button class="btn btn-outline-success"  >Relatório Pacientes sem Leitos</button></a>
 <a href="relatoriopendenciasmartins?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Relatório Pendências</button></a>
+<a href="relatorioplanoaltamartins?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Relatório Plano de Alta</button></a>
 <br>
 <br>
 <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
@@ -43,9 +44,7 @@
             <th>Banho</th>
             <th>Mobilidade</th>
             <th>Observação</th>
-            <th>Round</th>
-            <th>Plano de Alta</th>
-            <th>Metas do dia</th>
+     
             
         </tr>
         </thead>
@@ -85,9 +84,7 @@
                 <td><%=paciente[j].banho %></td>
                 <td><%=paciente[j].mobilidade %></td>
                 <td><%=paciente[j].observacao %></td>
-                <td><%=paciente[j].round %></td>
-                <td><%=paciente[j].planoalta %></td>
-                <td><%=paciente[j].metas %></td>                
+     
             
         </tr>
         <% } %>	

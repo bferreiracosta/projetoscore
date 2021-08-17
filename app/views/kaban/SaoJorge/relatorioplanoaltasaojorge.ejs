@@ -1,0 +1,189 @@
+
+<%- include('../cabecalhokaban'); %>
+        <% if(id.length > 0) { %>
+            <% for(var i = 0; i < id.length; i++) {%>
+       
+        <h2>Pacientes São Jorge</h2>
+        <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
+        <a href="kabanpacientesaojorge?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Voltar Kamban Paciente</button></a>
+        <br>
+        <br>
+        <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
+        <table class="table table-striped"  style="width: 100%; font-size: 10px; text-align: center;" id="mytable">
+                       
+            <thead>
+                <tr>
+                    <th hidden>id</th>
+                    <th>Prontuário</th>
+                    <th>Nome</th>
+                    <th>Setor</th>
+                    <th>Round</th>
+                    <th>Plano de Alta</th>
+                    <th>Metas do dia</th>
+                    
+                </tr>
+                </thead>
+                <tbody>    
+                    <% if(paciente.length > 0) { %>
+                        <% for(var j = 0; j < paciente.length; j++) {%>
+                            
+                    <tr>
+                        <td hidden><%=paciente[j].idpaciente %></td>
+                        <th><%=paciente[j].prt %></th>
+                        <td><%=paciente[j].nome %></td>
+                        <td><%=paciente[j].setor %></td>
+                        <td><%=paciente[j].round %></td>
+                        <td><%=paciente[j].planoalta %></td>
+                        <td><%=paciente[j].metas %></td>  
+                    
+                </tr>
+                <% } %>	
+                <% } %>
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <br>
+
+        
+        <% } %>	
+        <% } %>
+                
+<!-- Importando o jQuery -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.js"></script>
+<script src="https://colorlib.com/polygon/vendors/jquery/dist/jquery.min.js"></script>
+<script src="https://colorlib.com/polygon/vendors/pnotify/dist/pnotify.js"></script>
+<script src="https://colorlib.com/polygon/vendors/pnotify/dist/pnotify.buttons.js"></script> -->
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" ></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.25/sorting/natural.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.9/js/dataTables.fixedHeader.min.js"></script>
+
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<%- include('../../home/footer'); %>
+</body>
+</html>
+<script>
+    $(document).ready(function() {
+var groupColumn = 3;
+$('#mytable').DataTable( { 
+dom: 'Bfrtip',
+fixedHeader: true,
+"scrollX": true,
+rowGroup: {
+       dataSrc: 'groupColumn'
+   },
+"columnDefs": [
+
+           { "visible": false, "targets": groupColumn },
+           {"className": "dt-center", "targets": "_all"},
+          
+          
+       ],
+       fixedColumns: true,
+       rowGroup: {
+           dataSrc: groupColumn,
+       },
+       "order": [[groupColumn, 'asc' ],[ 2, 'asc' ] ],
+       pageLength: 50,
+       "drawCallback": function ( settings ) {
+           var api = this.api();
+           var rows = api.rows( {page:'current'} ).nodes();
+           var last=null;
+
+           api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
+               if ( last !== group ) {
+                   $(rows).eq( i ).before(
+                       '<tr class="group" style = "background-color: #ddd !important;text-align: center !important"><td colspan="40" >'+group+'</td></tr>'
+                   );
+
+                   last = group;
+               }
+           } );
+       },
+       buttons: [       
+           {
+               "extend": "copyHtml5",
+               "text": "COPIAR",
+               orientation: 'landscape',
+               pageSize: 'LEGAL',
+              
+           },          
+           {
+               "extend": "pdf",
+               "text": "PDF",
+               orientation: 'landscape',
+               pageSize: 'LEGAL',
+               customize: function(doc) {
+                    //pageMargins [left, top, right, bottom] 
+                    doc.pageMargins = [ 10, 20, 10, 10 ];
+                    doc.defaultStyle.fontSize = 8,
+                    doc.styles.tableBodyEven.alignment = 'center';
+                   doc.styles.tableBodyOdd.alignment = 'center';
+                }, 
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+           },
+           {
+               "extend": "excelHtml5",
+               "text": "EXCEL",
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+               customize: function( xlsx ) {
+               var sheet = xlsx.xl.worksheets['sheet1.xml'];
+               $('c', sheet).attr( 's', '51' );
+
+           },
+           orientation: 'landscape',
+               pageSize: 'LEGAL'
+           },
+           {
+               "extend": "print",
+               "text": "IMPRIMIR", 
+               exportOptions: {
+                   grouped_array_index: [groupColumn],
+                   columns: ':visible'
+               },
+               customize: function ( win ) {
+                    $(win.document.body)
+                    .css( 'font-size', '12px' );
+
+                $(win.document.body).find( 'table' )
+                    .css( 'font-size', '12px' );
+                },
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
+            }
+           
+       ],language: {
+           buttons: {
+               copyTitle: 'Copiado para área de transferência',
+               copyKeys: 'Appuyez sur <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> pour copier les données du tableau à votre presse-papiers. <br><br>Pour annuler, cliquez sur ce message ou appuyez sur Echap.',
+               copySuccess: {
+                   _: '%d linhas copiadas',
+                   1: '1 linha copiada'
+               }
+           },
+           "paginate": {
+               "previous": "Anterior",
+               "next": "Próximo"
+           },
+           "search": "Pesquisar:"
+       },
+       select: true
+   } );
+} );
+    </script>

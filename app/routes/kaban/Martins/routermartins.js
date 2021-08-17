@@ -21,6 +21,18 @@ module.exports = function(application) {
 		}
 		
 	});
+
+	application.get('/relatorioplanoaltamartins', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Martins.controllermartins.relatorioplanoalta(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
 	application.get('/leitosmartins', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Martins.controllermartins.leitos(application, req, res);

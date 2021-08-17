@@ -21,6 +21,17 @@ module.exports = function(application) {
 		}
 		
 	});
+	application.get('/relatorioplanoaltasaojorge', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.SaoJorge.controllersaojorge.relatorioplanoalta(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
 	application.get('/leitossaojorge', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.SaoJorge.controllersaojorge.leitos(application, req, res);
