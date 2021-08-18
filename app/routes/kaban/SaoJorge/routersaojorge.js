@@ -32,6 +32,30 @@ module.exports = function(application) {
 		
 	});
 
+	application.get('/relatoriocovidsaojorge', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.SaoJorge.controllersaojorge.relatoriocovidsaojorge(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+
+	application.get('/relatoriomentalsaojorge', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.SaoJorge.controllersaojorge.relatoriomentalsaojorge(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+
 	application.get('/leitossaojorge', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.SaoJorge.controllersaojorge.leitos(application, req, res);

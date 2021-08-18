@@ -28,7 +28,7 @@
                     <th>Banho</th>
                     <th>Mobilidade</th>
                     <th>Observação</th>
-                    <th>Pendencias</th>
+                    
                     
                 </tr>
                 </thead>
@@ -55,7 +55,7 @@
                         <td><%=paciente[j].banho %></td>
                         <td><%=paciente[j].mobilidade %></td>
                         <td><%=paciente[j].observacao %></td>
-                        <td><%=paciente[j].pendencias %></td>
+                        
                 </tr>
                 <% } %>	
                 <% } %>
@@ -81,6 +81,7 @@
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.9/js/dataTables.fixedHeader.min.js"></script>
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
@@ -88,6 +89,7 @@
 var groupColumn = 8;
 $('#mytable').DataTable( { 
 dom: 'Bfrtip',
+fixedHeader: true,
 "scrollX": true,
 rowGroup: {
        dataSrc: 'groupColumn'

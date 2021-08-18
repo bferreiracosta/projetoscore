@@ -33,6 +33,28 @@ module.exports = function(application) {
 		
 	});
 
+	application.get('/relatoriocovidmorumbi', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Morumbi.controllermorumbi.relatoriocovidmorumbi(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriomentalmorumbi', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Morumbi.controllermorumbi.relatoriomentalmorumbi(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
 	application.get('/leitosmorumbi', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Morumbi.controllermorumbi.leitos(application, req, res);

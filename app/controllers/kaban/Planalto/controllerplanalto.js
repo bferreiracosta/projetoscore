@@ -43,6 +43,36 @@ module.exports.relatorioplanoalta= function(application, req, res){
 		});
 	});	
 }
+module.exports.relatoriocovidplanalto= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelplanalto = new application.app.model.kaban.Planalto.modelplanalto(application);
+
+	var unidade = 'Planalto';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelplanalto.buscarpacienterelatoriocovid(unidade, function(error, resultado){
+			res.render("kaban/Planalto/relatoriocovidplanalto", {paciente : resultado, id : result});
+		});
+	});	
+}
+module.exports.relatoriomentalplanalto= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelplanalto = new application.app.model.kaban.Planalto.modelplanalto(application);
+
+	var unidade = 'Planalto';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelplanalto.buscarpacienterelatoriomental(unidade, function(error, resultado){
+			res.render("kaban/Planalto/relatoriomentalplanalto", {paciente : resultado, id : result});
+		});
+	});	
+}
 module.exports.saveexameplanalto= function(application, req, res){
 	var title = req.body.title;
 	var start = req.body.dataformatada;

@@ -13,6 +13,15 @@ modelroosevelt.prototype.buscarpacienterelatorio = function(unidade, callback){
 	this._conection.query('SELECT * FROM portal_paciente.kaban inner join leitokaban on kaban.idpaciente = leitokaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null;', callback);
 }
 
+modelroosevelt.prototype.buscarpacienterelatoriocovid = function(unidade, callback){
+	
+	this._conection.query('SELECT * FROM portal_paciente.kaban inner join leitokaban on kaban.idpaciente = leitokaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null and kaban.covid="true";', callback);
+}
+modelroosevelt.prototype.buscarpacienterelatoriomental = function(unidade, callback){
+	
+	this._conection.query('SELECT * FROM portal_paciente.kaban inner join leitokaban on kaban.idpaciente = leitokaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null and kaban.mental="true";', callback);
+}
+
 modelroosevelt.prototype.buscarpacientesemleitos = function(unidade, callback){
 	
 	this._conection.query('SELECT * FROM kaban where kaban.unidade = "Roosevelt" and kaban.baixa is null and idpaciente not in (select idpaciente from leitokaban where idpaciente is not null);', callback);

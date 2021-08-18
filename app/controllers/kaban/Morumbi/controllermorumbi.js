@@ -45,6 +45,38 @@ module.exports.relatorioplanoalta= function(application, req, res){
 	});	
 }
 
+module.exports.relatoriocovidmorumbi= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
+
+	var unidade = 'Morumbi';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelmorumbi.buscarpacienterelatoriocovid(unidade, function(error, resultado){
+			res.render("kaban/Morumbi/relatoriocovidmorumbi", {paciente : resultado, id : result});
+		});
+	});	
+}
+
+module.exports.relatoriomentalmorumbi= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelmorumbi = new application.app.model.kaban.Morumbi.modelmorumbi(application);
+
+	var unidade = 'Morumbi';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelmorumbi.buscarpacienterelatoriomental(unidade, function(error, resultado){
+			res.render("kaban/Morumbi/relatoriomentalmorumbi", {paciente : resultado, id : result});
+		});
+	});	
+}
+
 module.exports.saveexamemorumbi= function(application, req, res){
 	var title = req.body.title;
 	var start = req.body.dataformatada;

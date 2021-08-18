@@ -33,6 +33,26 @@ module.exports = function(application) {
 		
 	});
 
+	application.get('/relatoriocovidpampulha', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Pampulha.controllerpampulha.relatoriocovidpampulha(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+	application.get('/relatoriomentalpampulha', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Pampulha.controllerpampulha.relatoriomentalpampulha(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
 	application.get('/leitospampulha', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Pampulha.controllerpampulha.leitos(application, req, res);

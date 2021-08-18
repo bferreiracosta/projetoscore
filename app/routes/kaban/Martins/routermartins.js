@@ -33,6 +33,28 @@ module.exports = function(application) {
 		
 	});
 
+	application.get('/relatoriocovidmartins', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Martins.controllermartins.relatoriocovidmartins(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriomentalmartins', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Martins.controllermartins.relatoriomentalmartins(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
 	application.get('/leitosmartins', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Martins.controllermartins.leitos(application, req, res);

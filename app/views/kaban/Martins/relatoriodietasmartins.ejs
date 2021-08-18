@@ -342,6 +342,7 @@
 <script src="https://cdn.datatables.net/plug-ins/1.10.25/sorting/natural.js"></script>
 <script src="/js/buttons.print.min.js"></script>
 <script src="/js/dataTables.buttons.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.9/js/dataTables.fixedHeader.min.js"></script>
 <!-- Importando o js do bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
@@ -349,6 +350,7 @@
 var groupColumn = 4;
 $('#mytable').DataTable( { 
 dom: 'Bfrtip',
+fixedHeader: true,
 "scrollX": true,
 rowGroup: {
        dataSrc: 'groupColumn'

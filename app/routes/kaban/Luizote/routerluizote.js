@@ -33,6 +33,28 @@ module.exports = function(application) {
 		}
 		
 	});
+	application.get('/relatoriocovidluizote', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Luizote.controllerluizote.relatoriocovidluizote(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriomentalluizote', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Luizote.controllerluizote.relatoriomentalluizote(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
 
 
 	application.get('/leitosluizote', function(req, res){

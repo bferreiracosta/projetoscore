@@ -46,6 +46,38 @@ module.exports.relatorioplanoalta= function(application, req, res){
 	});	
 }
 
+module.exports.relatoriocovidluizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscarpacienterelatoriocovid(unidade, function(error, resultado){
+			res.render("kaban/Luizote/relatoriocovidluizote", {paciente : resultado, id : result});
+		});
+	});	
+}
+
+module.exports.relatoriomentalluizote= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
+
+	var unidade = 'Luizote';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelluizote.buscarpacienterelatoriomental(unidade, function(error, resultado){
+			res.render("kaban/Luizote/relatoriomentalluizote", {paciente : resultado, id : result});
+		});
+	});	
+}
+
 module.exports.saveexameluizote= function(application, req, res){
 	var title = req.body.title;
 	var start = req.body.dataformatada;

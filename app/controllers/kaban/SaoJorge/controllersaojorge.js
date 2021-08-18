@@ -43,6 +43,36 @@ module.exports.relatorioplanoalta= function(application, req, res){
 		});
 	});	
 }
+module.exports.relatoriocovidsaojorge= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelsaojorge = new application.app.model.kaban.SaoJorge.modelsaojorge(application);
+
+	var unidade = 'SaoJorge';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelsaojorge.buscarpacienterelatoriocovid(unidade, function(error, resultado){
+			res.render("kaban/SaoJorge/relatoriocovidsaojorge", {paciente : resultado, id : result});
+		});
+	});	
+}
+module.exports.relatoriomentalsaojorge= function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelsaojorge = new application.app.model.kaban.SaoJorge.modelsaojorge(application);
+
+	var unidade = 'SaoJorge';
+	var id = req.query;
+	
+
+	modeladmin.buscarusuario(id, function(error, result){
+		modelsaojorge.buscarpacienterelatoriomental(unidade, function(error, resultado){
+			res.render("kaban/SaoJorge/relatoriomentalsaojorge", {paciente : resultado, id : result});
+		});
+	});	
+}
 module.exports.saveexamesaojorge= function(application, req, res){
 	var title = req.body.title;
 	var start = req.body.dataformatada;

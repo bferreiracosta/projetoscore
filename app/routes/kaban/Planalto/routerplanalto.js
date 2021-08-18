@@ -33,6 +33,28 @@ module.exports = function(application) {
 		
 	});
 
+	application.get('/relatoriocovidplanalto', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Planalto.controllerplanalto.relatoriocovidplanalto(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
+	application.get('/relatoriomentalplanalto', function(req, res){
+		if(req.session.loggedin){
+			application.app.controllers.kaban.Planalto.controllerplanalto.relatoriomentalplanalto(application, req, res);
+		}
+		else{
+			var mensage = "Faça login!!";
+			res.render("home/index", {msg : mensage});
+		}
+		
+	});
+
 	application.get('/leitosplanalto', function(req, res){
 		if(req.session.loggedin){
 			application.app.controllers.kaban.Planalto.controllerplanalto.leitos(application, req, res);
