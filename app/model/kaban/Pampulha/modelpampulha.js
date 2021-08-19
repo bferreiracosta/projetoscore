@@ -150,7 +150,7 @@ modelpampulha.prototype.buscarfugulinhora = function(unidade, callback){
 
 modelpampulha.prototype.buscarnewshora = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM news dd where setor = "Enfermaria" and unidade = "'+unidade+'" and  status = "Ativo" and  baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW()  or setor = "Enfermaria" and unidade = "'+unidade+'" and (dd.dataatualizacao) is null and  baixa is null  GROUP BY idpaciente;', callback);
+	this._conection.query('SELECT * FROM news dd inner join kaban k on dd.idpaciente = k.idpaciente where dd.setor = "Enfermaria" and dd.unidade = "'+unidade+'" and dd.status = "Ativo" and dd.baixa is null and date_add(dd.dataatualizacao, INTERVAL 1 DAY)< NOW() or dd.setor = "Enfermaria" and dd.unidade = "'+unidade+'" and (dd.dataatualizacao) is null and dd.baixa is null GROUP BY dd.idpaciente;', callback);
 }
 
 modelpampulha.prototype.buscartisshora = function(unidade, callback){
@@ -187,7 +187,7 @@ modelpampulha.prototype.buscarfugulin = function(unidade, callback){
 
 modelpampulha.prototype.buscarnews = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM news dd where setor = "Enfermaria" and  status = "Ativo" and unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and baixa is null GROUP BY idpaciente ', callback);
+	this._conection.query('SELECT * FROM news dd inner join kaban k on dd.idpaciente = k.idpaciente where dd.setor = "Enfermaria" and  dd.status = "Ativo" and dd.unidade = "'+unidade+'" and  date_add(dd.dataatualizacao, INTERVAL 1 DAY) > NOW() and dd.baixa is null GROUP BY dd.idpaciente  ', callback);
 }
 
 modelpampulha.prototype.buscartiss = function(unidade, callback){
