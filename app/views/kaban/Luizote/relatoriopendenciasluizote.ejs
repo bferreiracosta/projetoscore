@@ -14,6 +14,7 @@
             <thead>
                 <tr>
                     <th hidden>id</th>
+                    <th>Leito</th>
                     <th>Prontuário</th>
                     <th>Nome</th>
                     <th>Setor</th>
@@ -40,6 +41,7 @@
                             
                     <tr>
                         <td hidden><%=paciente[j].idpaciente %></td>
+                        <td><%=paciente[j].leito %></td>
                         <th><%=paciente[j].prt %></th>
                         <td><%=paciente[j].nome %></td>
                         <td><%=paciente[j].setor %></td>
@@ -96,7 +98,7 @@
 </html>
 <script>
     $(document).ready(function() {
-var groupColumn = 3;
+var groupColumn = 4;
 $('#mytable').DataTable( { 
 dom: 'Bfrtip',
 fixedHeader: true,
@@ -105,7 +107,7 @@ rowGroup: {
        dataSrc: 'groupColumn'
    },
 "columnDefs": [
-
+{ type: 'natural', targets: [1] },
            { "visible": false, "targets": groupColumn },
            {"className": "dt-center", "targets": "_all"},
           
@@ -115,7 +117,7 @@ rowGroup: {
        rowGroup: {
            dataSrc: groupColumn,
        },
-       "order": [[groupColumn, 'asc' ],[ 2, 'asc' ] ],
+       "order": [[groupColumn, 'asc' ],[ 1, 'asc' ] ],
        pageLength: 50,
        "drawCallback": function ( settings ) {
            var api = this.api();

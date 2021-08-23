@@ -11,5 +11,17 @@ module.exports = function(application){
 	application.get('/buscarescalaplanalto', function(req, res){
 		application.app.controllers.atribuicao.atribuicaoplanalto.buscarescalaplanalto(application, req, res);
 		});
+
+	application.post('/editarescalaplanalto', function(req, res){
+		application.app.controllers.atribuicao.atribuicaoplanalto.editarescalaplanalto(application, req, res);
+		});
+
+	application.post('/adicionandoescalafolgaplanalto', function(req, res){
+		application.app.controllers.atribuicao.atribuicaoplanalto.adicionandoescalafolga(application, req, res);
+		});
+
+	application.post('/updateescalaparadaplanalto', function(req, res){
+		application.app.controllers.atribuicao.atribuicaoplanalto.updateescalaparadaplanalto(application, req, res);
+		});
 }
 

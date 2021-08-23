@@ -632,19 +632,19 @@ label6.style.display = "inline";
 label7.style.display = "inline";
 label8.style.display = "inline";
 label9.style.display = "inline";
-campo1.value = "";
-campo2.value = "";
-campo3.value = "";
-campo4.value = "";
-campo5.value = "";
-campo6.value = "";
-campo7.value = "";
-campo8.value = "";
-campo9.value = "";
-campo10.value = "";
-campo11.value = "";
-campo12.value = "";
-campo13.value = "";
+// campo1.value = "";
+// campo2.value = "";
+// campo3.value = "";
+// campo4.value = "";
+// campo5.value = "";
+// campo6.value = "";
+// campo7.value = "";
+// campo8.value = "";
+// campo9.value = "";
+// campo10.value = "";
+// campo11.value = "";
+// campo12.value = "";
+// campo13.value = "";
 }else{
 input1.style.display = "none";
 input3.style.display = "none";
@@ -664,19 +664,19 @@ label6.style.display = "none";
 label7.style.display = "none";
 label8.style.display = "none";
 label9.style.display = "none";
-campo1.value = "Não";
-campo2.value = "Não";
-campo3.value = "Não";
-campo4.value = "Não";
-campo5.value = "Não";
-campo6.value = "Não";
-campo7.value = "Não";
-campo8.value = "Não";
-campo9.value = "Não";
-campo10.value = "Não";
-campo11.value = "Não";
-campo12.value = "Não";
-campo13.value = "Não";
+// campo1.value = "Não";
+// campo2.value = "Não";
+// campo3.value = "Não";
+// campo4.value = "Não";
+// campo5.value = "Não";
+// campo6.value = "Não";
+// campo7.value = "Não";
+// campo8.value = "Não";
+// campo9.value = "Não";
+// campo10.value = "Não";
+// campo11.value = "Não";
+// campo12.value = "Não";
+// campo13.value = "Não";
 
 }
 };
@@ -687,12 +687,12 @@ var label2 = document.getElementById("labelexamess");
 	if(value == "Sim" ){
 		input2.style.display = "inline";
 		label2.style.display = "inline";
-		input2.value = ""
+		
 	}
 	else{
 		input2.style.display = "none";
 		label2.style.display = "none";
-		input2.value = "Não"
+	
 	}
 }
 function verificalaudoexame(value){
@@ -701,12 +701,12 @@ function verificalaudoexame(value){
 	if(value == "Sim" ){
 		input4.style.display = "inline";
 		label4.style.display = "inline";
-		input4.value = ""
+		// input4.value = ""
 	}
 	else{
 		input4.style.display = "none";
 		label4.style.display = "none";
-		input4.value = "Não"
+		// input4.value = "Não"
 	}
 }
 function verificaespecialista(value){
@@ -715,12 +715,12 @@ function verificaespecialista(value){
 	if(value == "Sim" ){
 		input8.style.display = "inline";
 		label8.style.display = "inline";
-		input8.value = ""
+		// input8.value = ""
 	}
 	else{
 		input8.style.display = "none";
 		label8.style.display = "none";
-		input8.value = "Não"
+		// input8.value = "Não"
 	}
 }
 function verificatransferencia(value){
@@ -729,12 +729,12 @@ function verificatransferencia(value){
 	if(value == "Sim" ){
 		input13.style.display = "inline";
 		label13.style.display = "inline";
-		input13.value = ""
+		// input13.value = ""
 	}
 	else{
 		input13.style.display = "none";
 		label13.style.display = "none";
-		input13.value = "Não"
+		// input13.value = "Não"
 	}
 }
 
@@ -805,7 +805,8 @@ $("#mobilidades").on('change', function(e){
 		verificapendencia(pendencia);
 		var transferencia = document.getElementById("desctransferencia").value;
 		verificatransferencia(transferencia);
-		var agenexame = document.getElementById("descexame").value;
+		var agenexame = document.getElementById("agenexames").value;
+		console.log(agenexame)
 		verificaagendamentoexame(agenexame);
 		var laudo = document.getElementById("desclaudo").value;
 		verificalaudoexame(laudo);
