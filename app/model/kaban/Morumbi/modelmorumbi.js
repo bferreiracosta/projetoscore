@@ -15,7 +15,7 @@ modelmorumbi.prototype.buscarpacienterelatorio = function(unidade, callback){
 
 modelmorumbi.prototype.buscarpacienterelatoriocovid = function(unidade, callback){
 	
-	this._conection.query('SELECT * FROM portal_paciente.kaban inner join leitokaban on kaban.idpaciente = leitokaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null and kaban.covid="true";', callback);
+	this._conection.query('SELECT * FROM portal_paciente.kaban inner join leitokaban on kaban.idpaciente = leitokaban.idpaciente inner join dispositivokaban on kaban.idpaciente = dispositivokaban.idpaciente where kaban.unidade = "'+unidade+'" and kaban.baixa is null and kaban.covid="true" and dispositivokaban.status="Ativo";', callback);
 }
 modelmorumbi.prototype.buscarpacienterelatoriomental = function(unidade, callback){
 	

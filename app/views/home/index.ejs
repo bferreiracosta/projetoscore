@@ -278,6 +278,10 @@ $("#login").click(function(){
 					var obstetricia = "Obstetricia";
                		option += '<option value="'+obstetricia+'">'+obstetricia+'</option>';
 				}
+				if(obj[0].escala == 1){
+					var escala = "Escala";
+               		option += '<option value="'+escala+'">'+escala+'</option>';
+				}
                
             }
 			  $('#funcao').html(option).show();

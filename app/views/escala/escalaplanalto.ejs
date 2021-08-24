@@ -1,0 +1,242 @@
+<%- include('./cabecalhoescala'); %>
+<% if(id.length > 0) { %>
+   <% for(var i = 0; i < id.length; i++) {%>
+
+<!--  
+      <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">    
+      <button onclick="adicionaLinha('tbl')">Adicionar</button>
+      <table id="tbl" border="1">
+      <tr>
+        <td>Produto</td>
+        <td>Valor</td>
+        <td>Acao</td>
+      </tr>
+      </table>         -->
+
+  <h2>Escala de Folga Planalto</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a style="color: inherit;"  data-toggle="tab" href="#home">Manhã</a></li>
+    <li><a style="color: inherit;"  data-toggle="tab" href="#menu1">Tarde</a></li>
+    <li><a style="color: inherit;"  data-toggle="tab" href="#menu2">SN1</a></li>
+    <li><a style="color: inherit;"  data-toggle="tab" href="#menu3">SN2</a></li>
+  </ul>
+  <div class="tab-content">
+   <div>
+      <% if ( msg.length > 0 ) { %>
+         <h3 id="msg" style="color: red;"><%= msg %> </h3>
+        <% } %>
+   </div>
+    <div id="home" class="tab-pane fade in active">
+      
+<h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="text" id="datasmanha" value="" required> <input type="hidden" value="Manhã" id="turnomanha"> <input type="hidden" value='<%=id[i].unidade %>' id="unidademanha">   
+   <button class="btn btn-info" id="pesquisarmanha"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFmanha();"><i class="fas fa-download"></i></button>  <button type="button" id="editmanha" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')" ><i class="fas fa-edit"></i></button></span></h4>
+<div class="html-content" id="mobile" >
+  <table class="table table-bordered table-dark display" style="width: 100%; " id="tablemanha">
+    <thead>
+      <tr style="border: none; height: 35px;" class="bg-primary">
+        <th scope="col" colspan="4"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logoprefeitura.jpg"></th>
+        <th colspan="23" scope="col" style="text-align: center;" id="dataturno">Data</th>
+        <th scope="col" colspan="12"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logospdm.jpg"></th>
+        <th hidden></th>
+        <th hidden></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr style="border: none; height: 35px;">
+        <td style="text-align: center; font-size: medium; background: darkblue; color: white;" colspan="39"> Escala de Folga Planalto</td>
+        <td hidden ></td>
+        <td hidden></td>
+        <td hidden ></td>
+        <td hidden></td>
+      </tr>
+      <tr style="border: none; height: 35px;">
+        <td> Vinculo</td>
+        <td> Matricula</td>
+        <td> Nome Completo</td>
+        <td> Cat</td>
+        <td> Coren</td>
+        <td> C.H Mensal</td>
+        <td colspan="2">Horario</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">16/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">17/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">18/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">19/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">20/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">21/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">22/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">23/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">24/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">25/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">26/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">27/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">28/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">29/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">30/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">31/08</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">01/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">02/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">03/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">04/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">05/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">06/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">07/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">08/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">09/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">10/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">11/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">12/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">13/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">14/09</td>
+        <td class="feriado" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;">15/09</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+ 
+</div>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      
+      
+  <br>
+  <br>
+ 
+</div>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      
+      
+       
+      </div>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      
+      
+       
+      </div>
+    </div>
+  </div>
+
+  <% } %> 
+  <% } %>
+ <%- include('../home/footer'); %> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/canvas2image@1.0.5/canvas2image.min.js"></script>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
+  
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    //Funcao adiciona uma nova linha na tabela
+    function adicionaLinha(idTabela) {
+
+        var tabela = document.getElementById(idTabela);
+        var numeroLinhas = tabela.rows.length;
+        var linha = tabela.insertRow(numeroLinhas);
+        var celula1 = linha.insertCell(0);
+        var celula2 = linha.insertCell(1);   
+        var celula3 = linha.insertCell(2); 
+        celula1.innerHTML = 'produto '+ Math.floor((Math.random() * 100) + 1); 
+        celula2.innerHTML =  Math.floor((Math.random() * 100) + 1); 
+        celula3.innerHTML =  "<button onclick='removeLinha(this)'>Remover</button>";
+    }
+    
+    // funcao remove uma linha da tabela
+    function removeLinha(linha) {
+      var i=linha.parentNode.parentNode.rowIndex;
+      document.getElementById('tbl').deleteRow(i);
+    }  
+$(document).ready(function() {
+
+ obj = [];
+    $.ajax({
+        type: "GET",
+        data: obj,
+        contentType: 'application/json',
+        url: '/burcarferiado',
+        success: function(obj) {  
+          $('#tablemanha tbody tr:eq(1)').each(function(i){
+            tr=$(this);
+            var objeto = JSON.parse(obj);
+              for(var i=0; i< objeto.length; i++ ){
+                 var feriado = objeto[i].dias;
+                 var j = 7;
+                 var colunas = document.getElementById('tablemanha').rows[3].cells.length
+                
+                for(j ; j< colunas ; j++){
+                    valor=tr.children('td:eq('+j+')').html();
+                    if(feriado === valor){
+                      tr.children('td:eq('+j+')').addClass('fundoIdade');
+                      colorirTable(j)
+                      
+                    }
+                }
+                
+              }   
+              
+          });
+          function colorirTable(valor){
+            var count = valor + 1;
+            $('#tablemanha tbody tr:eq(2)').each(function(i){
+            tr=$(this);
+            tr.children('td:eq('+count+')').addClass('fundoIdade');
+            
+          });
+          }
+          
+          
+          
+        }
+        
+    });
+});
+          
+</script> 
