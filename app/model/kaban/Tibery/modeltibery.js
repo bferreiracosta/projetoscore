@@ -451,7 +451,7 @@ modeltibery.prototype.buscarinternacaodiatibery = function(unidade, callback){
 
 modeltibery.prototype.buscarsetorestibery = function(callback){
 
-	this._conection.query('select lui.idtibery, lui.setor, lui.capacidade, lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Tibery" and acomodacao="Cama" and nome is not null and setor = lui.setor) as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Tibery" and acomodacao="Maca" and nome is not null and setor = lui.setor) as qtdmaca,lui.bloqueado, lui.datas, lui.hora from tibery lui', callback);
+	this._conection.query('select tib.idtibery, tib.setor, tib.capacidade, tib.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Tibery" and acomodacao="Cama" and nome is not null and setor = tib.setor) as qtdcama,tib.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Tibery" and acomodacao="Maca" and nome is not null and setor = tib.setor) as qtdmaca,tib.capacidadecadeiras,(select count(acomodacao) from leitokaban where unidade = "Tibery" and acomodacao="Cadeira" and nome is not null and setor = tib.setor) as qtdcadeira, tib.bloqueado, tib.datas, tib.hora from tibery tib', callback);
 }
 
 modeltibery.prototype.buscarbanhomanhatibery = function(callback){

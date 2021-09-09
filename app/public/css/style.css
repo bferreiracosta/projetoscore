@@ -4,6 +4,24 @@
 	margin-top: 15px;
 }
 
+.tablemanha {
+    border:solid 1px;
+    width:100%
+}
+
+.tablemanha td {
+    border:solid 1px;
+}
+
+.tablemanha .celulaEmEdicao {
+    padding: 0;
+}
+
+.tablemanha .celulaEmEdicao input[type=text]{
+    width:100%;
+    border:0;
+    background-color:rgb(255,253,210);
+}
 /* tr.group,
 tr.group:hover {
     background-color: #ddd !important;
@@ -219,6 +237,12 @@ tr.group:hover {
 }
 .form-entrar {
 	padding-top: 10px;
+}
+.tabelasemana{
+	background-color:#7b7b7c!important;
+}
+.sumirtd{
+	display: none;
 }
 
 .fundoIdade{

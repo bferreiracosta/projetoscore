@@ -1,5 +1,5 @@
 <%- include('./cabecalhogestao'); %>
-    <h2>Central leito UAI Planalto</h2>
+    <h2>Central leito UAI Martins</h2>
     
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
@@ -23,6 +23,12 @@
                     <th>Quantidade de Macas Ocupadas</th>
                    
                     <th>Quantidade de Macas Vagas</th>
+
+                    <th>Quantidade de Cadeiras</th>
+                   
+                    <th>Quantidade de Cadeiras Ocupadas</th>
+                   
+                    <th>Quantidade de Cadeiras Vagas</th>
 
                     <th>Leito Bloqueado</th>
 
@@ -50,6 +56,12 @@
                     <td ><%=leito[j].capacidademacas %></td>
                    
                     <td ><%=leito[j].qtdmaca %></td>
+                   
+                    <td ></td>
+
+                    <td ><%=leito[j].capacidadecadeiras %></td>
+                   
+                    <td ><%=leito[j].qtdcadeira %></td>
                    
                     <td ></td>
                     
@@ -90,11 +102,17 @@
                     <td ></td>
 
                     <td></td>
+
+                    <td ></td>
+                   
+                    <td ></td>
+
+                    <td></td>
                                
                 </tr>
             </tfoot>
         </table>
-        <form id="add-row-form1" action="/editarleitoplanalto" method="POST">
+        <form id="add-row-form1" action="/editarleitomartins" method="POST">
        <div class="modal fade" id="DescModal" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -433,6 +451,44 @@ function verifica(value){
                 $( api.column( 8 ).footer() ).html(
                   pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
                 );
+                total = api
+                    .column( 9 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 9, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 9 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                total = api
+                    .column( 10 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 10, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 10 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
               
             }
             
@@ -444,12 +500,18 @@ $('#mytable tbody tr').each(function(i){
             qtdcamasocupadas = tr.children('td:eq(3)').html();
             qtdmacas=tr.children('td:eq(5)').html();
             qtdmacasocupadas = tr.children('td:eq(6)').html();
+            qtdcadeira=tr.children('td:eq(8)').html();
+            qtdcadeirasocupadas = tr.children('td:eq(9)').html();
             var valorcamasvazias = 0;
             var valormacasvazias = 0;
+            var valorcadeirasvazia = 0;
             valorcamasvazias = qtdcamas - qtdcamasocupadas;
             valormacasvazias = qtdmacas - qtdmacasocupadas;
+            valorcadeirasvazia = qtdcadeira - qtdcadeirasocupadas;
             tr.children('td:eq(4)').html(valorcamasvazias);
             tr.children('td:eq(7)').html(valormacasvazias);
+            tr.children('td:eq(10)').html(valorcadeirasvazia);
+  
   
 
 });

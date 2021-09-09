@@ -450,7 +450,7 @@ modelmorumbi.prototype.buscarinternacaodiamorumbi = function(unidade, callback){
 
 modelmorumbi.prototype.buscarsetoresmorumbi = function(callback){
 
-	this._conection.query('select lui.idmorumbi, lui.setor, lui.capacidade, lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Cama" and nome is not null and setor = lui.setor) as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Maca" and nome is not null and setor = lui.setor) as qtdmaca,lui.bloqueado, lui.datas, lui.hora from morumbi lui', callback);
+	this._conection.query('select mor.idmorumbi, mor.setor, mor.capacidade, mor.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Cama" and nome is not null and setor = mor.setor) as qtdcama,mor.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Maca" and nome is not null and setor = mor.setor) as qtdmaca,mor.capacidadecadeiras,(select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Cadeira" and nome is not null and setor = mor.setor) as qtdcadeira, mor.bloqueado, mor.datas, mor.hora from morumbi mor', callback);
 }
 
 modelmorumbi.prototype.buscarbanhomanhamorumbi = function(callback){

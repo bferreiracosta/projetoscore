@@ -136,6 +136,7 @@
                                 <th >Capacidade</th>
                                 <th hidden >Camas Ocupadas</th>
                                 <th  hidden>Macas Ocupadas</th>
+                                <th  hidden>Cadeiras Ocupadas</th>
                                 <td>Total</td> 
                             </tr>
                         </thead>
@@ -147,6 +148,7 @@
                                 <td><%=setor[n].capacidade %></td> 
                                 <td hidden><%=setor[n].qtdcama %></td>   
                                 <td hidden><%=setor[n].qtdmaca %></td> 
+                                <td hidden><%=setor[n].qtdcadeira %></td> 
                                 <td class="somatoria"></td> 
                             </tr>
                             <% } %>	
@@ -158,6 +160,7 @@
                                 <td class="capacidade"></td> 
                                 <td hidden class="cama"></td>   
                                 <td hidden class="maca"></td> 
+                                <td hidden class="cadeira"></td> 
                                 <td class="soma"></td>  
                             </tr>
                             
@@ -242,24 +245,28 @@
     $(function(){
       var total = 0;
       var total2 = 0;
+      var total3 = 0;
       var totalcapacidade = 0;
       var soma = 0;
       $('#ocupacao tbody tr').each(function(i){
             tr=$(this);
             camas=tr.children('td:eq(2)').html();
             macas =tr.children('td:eq(3)').html();
+            cadeiras =tr.children('td:eq(4)').html();
             capacidade =tr.children('td:eq(1)').html();
            
-            somatoria = parseInt(camas) + parseInt(macas);
-            tr.children('td:eq(4)').html(somatoria);
+            somatoria = parseInt(camas) + parseInt(macas) + parseInt(cadeiras);
+            tr.children('td:eq(5)').html(somatoria);
             total = (total + parseInt(camas));
             total2 = (total2 + parseInt(macas));
+            total3 = (total3 + parseInt(cadeiras));
             totalcapacidade = (totalcapacidade + parseInt(capacidade));
-            soma = total + total2;
+            soma = total + total2 + total3;
       });
       $('.total').text('Total pacientes');
       $('.cama').text(total );
       $('.maca').text(total2 );
+      $('.cadeira').text(total3 );
       $('.soma').text(soma );
       $('.capacidade').text(totalcapacidade);
       

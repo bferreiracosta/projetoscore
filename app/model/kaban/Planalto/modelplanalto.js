@@ -449,7 +449,7 @@ modelplanalto.prototype.buscarinternacaodiaplanalto = function(unidade, callback
 
 modelplanalto.prototype.buscarsetoresplanalto = function(callback){
 
-	this._conection.query('select lui.idplanalto, lui.setor, lui.capacidade, lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Planalto" and acomodacao="Cama" and nome is not null and setor = lui.setor) as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Planalto" and acomodacao="Maca" and nome is not null and setor = lui.setor) as qtdmaca,lui.bloqueado, lui.datas, lui.hora from planalto lui', callback);
+	this._conection.query('select pla.idplanalto, pla.setor, pla.capacidade, pla.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Planalto" and acomodacao="Cama" and nome is not null and setor = pla.setor) as qtdcama,pla.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Planalto" and acomodacao="Maca" and nome is not null and setor = pla.setor) as qtdmaca,pla.capacidadecadeiras,(select count(acomodacao) from leitokaban where unidade = "Planalto" and acomodacao="Cadeira" and nome is not null and setor = pla.setor) as qtdcadeira, pla.bloqueado, pla.datas, pla.hora from planalto pla', callback);
 }
 
 modelplanalto.prototype.buscarbanhomanhaplanalto = function(callback){

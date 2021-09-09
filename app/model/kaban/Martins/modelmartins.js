@@ -456,7 +456,7 @@ modelmartins.prototype.buscartransfegomartins = function(callback){
 
 modelmartins.prototype.buscarsetoresmartins = function(callback){
 
-	this._conection.query('select lui.idmartins, lui.setor, lui.capacidade, lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Martins" and acomodacao="Cama" and nome is not null and setor = lui.setor) as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Martins" and acomodacao="Maca" and nome is not null and setor = lui.setor) as qtdmaca,lui.bloqueado, lui.datas, lui.hora from martins lui', callback);
+	this._conection.query('select mar.idmartins, mar.setor, mar.capacidade, mar.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Martins" and acomodacao="Cama" and nome is not null and setor = mar.setor) as qtdcama,mar.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Martins" and acomodacao="Maca" and nome is not null and setor = mar.setor) as qtdmaca,mar.capacidadecadeiras,(select count(acomodacao) from leitokaban where unidade = "Martins" and acomodacao="Cadeira" and nome is not null and setor = mar.setor) as qtdcadeira, mar.bloqueado, mar.datas, mar.hora from martins mar', callback);
 }
 
 modelmartins.prototype.buscarbanhomanhamartins = function(callback){

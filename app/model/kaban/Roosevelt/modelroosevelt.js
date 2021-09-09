@@ -451,7 +451,7 @@ modelroosevelt.prototype.buscarinternacaodiaroosevelt = function(unidade, callba
 
 modelroosevelt.prototype.buscarsetoresroosevelt = function(callback){
 
-	this._conection.query('select lui.idroosevelt, lui.setor, lui.capacidade, lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Roosevelt" and acomodacao="Cama" and nome is not null and setor = lui.setor) as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Roosevelt" and acomodacao="Maca" and nome is not null and setor = lui.setor) as qtdmaca,lui.bloqueado, lui.datas, lui.hora from roosevelt lui', callback);
+	this._conection.query('select roo.idroosevelt, roo.setor, roo.capacidade, roo.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Roosevelt" and acomodacao="Cama" and nome is not null and setor = roo.setor) as qtdcama,roo.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Roosevelt" and acomodacao="Maca" and nome is not null and setor = roo.setor) as qtdmaca,roo.capacidadecadeiras,(select count(acomodacao) from leitokaban where unidade = "Roosevelt" and acomodacao="Cadeira" and nome is not null and setor = roo.setor) as qtdcadeira, roo.bloqueado, roo.datas, roo.hora from roosevelt roo', callback);
 }
 
 modelroosevelt.prototype.buscarbanhomanharoosevelt = function(callback){
