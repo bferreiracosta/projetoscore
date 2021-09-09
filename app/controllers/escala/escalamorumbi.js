@@ -198,7 +198,6 @@ module.exports.validarescala = function(application, req, res){
 	var datefinal = req.body.datafinal;
 	var dateano = req.body.dataano;
 	var turno = req.body.turno;
-	console.log(unidade, turno, dateinicial, datefinal, dateano, rt, supervisao, cida,)
 	modelescalamorumbi.buscarregraescalaunicamorumbi(unidade, turno, dateinicial, datefinal,function(error, resultado){
 
 		if(resultado != null || resultado != ""){
