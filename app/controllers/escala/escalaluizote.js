@@ -237,7 +237,6 @@ module.exports.validarescala = function(application, req, res){
 	var datefinal = req.body.datafinal;
 	var dateano = req.body.dataano;
 	var turno = req.body.turno;
-	console.log(unidade, turno, dateinicial, datefinal, dateano, rt, supervisao, cida,)
 	modelescalaluizote.buscarregraescalaunicaluizote(unidade, turno, dateinicial, datefinal,function(error, resultado){
 
 		if(resultado != null || resultado != ""){
@@ -290,7 +289,6 @@ module.exports.criarescalaluizote = function(application, req, res){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelescalaluizote.criarescalaluizote(unidade, turno, dateinicial, datefinal, function(error, resultdoinsert){
 					modelescalaluizote.buscafuncionario(turno, function(error, resultado2){
-						console.log(resultado2)
 							for(var i = 0; i< resultado2.length; i++){
 								modelescalaluizote.criarfolga(resultado2[i].idfuncionariosluizote,resultdoinsert.insertId, function(error, resultado3){})
 							}
