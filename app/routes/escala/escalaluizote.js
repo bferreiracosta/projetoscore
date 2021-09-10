@@ -7,7 +7,7 @@ module.exports = function(application){
 		});
 	
 	application.get('/burcarferiado', function(req, res){
-		fs.readFile('/home/bruno/Área de Trabalho/Sites/ProjetoSCIH - Original/app/routes/escala/Feriados', (err, resultado) => {
+		fs.readFile('/app/routes/escala/Feriados', (err, resultado) => {
 			if (err) throw err;
 
 			res.send(resultado);
