@@ -225,12 +225,10 @@ module.exports.criarescalaplanalto = function(application, req, res){
 				modelescalaplanalto.criarescalaplanalto(unidade, turno, dateinicial, datefinal, function(error, resultdoinsert){
 					modelescalaplanalto.buscafuncionario(turno, function(error, resultado2){
 						for(var i = 0; i< resultado2.length; i++){
-							modelescalaplanalto.criarfolga(resultado2[i].idfuncionariosplanalto,resultdoinsert.insertId, function(error, resultado3){
-								console.log(resultado3)
-							})
+							modelescalaplanalto.criarfolga(resultado2[i].idfuncionariosplanalto,resultdoinsert.insertId, function(error, resultado3){})
 						}
-						res.redirect("/escalaplanalto?id=" + result[0].id_usuario);	
-					})
+					res.redirect("/escalaplanalto?id=" + result[0].id_usuario);	
+				})
 				})
 			});
 		}else{
