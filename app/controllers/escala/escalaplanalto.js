@@ -223,9 +223,9 @@ module.exports.criarescalaplanalto = function(application, req, res){
 		if(resultado == null || resultado == ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelescalaplanalto.criarescalaplanalto(unidade, turno, dateinicial, datefinal, function(error, resultdoinsert){
-					modelescalaplanalto.buscafuncionario(turno, async function(error, resultado2){
+					modelescalaplanalto.buscafuncionario(turno, function(error, resultado2){
 						// for(var i = 0; i< resultado2.length; i++){
-						  await modelescalaplanalto.criarfolga(resultado2,resultdoinsert.insertId,turno, function(error, resultado3){})
+						  modelescalaplanalto.criarfolga(resultado2,resultdoinsert.insertId,turno, function(error, resultado3){})
 						// }
 					res.redirect("/escalaplanalto?id=" + result[0].id_usuario);	
 				})
