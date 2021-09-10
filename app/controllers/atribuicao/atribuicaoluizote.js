@@ -268,6 +268,8 @@ module.exports.editarescalaluizote = function(application, req, res){
 	var enf11 = req.body.enf11;
 	var enf12 = req.body.enf12;
 	var enf13 = req.body.enf13;
+	console.log(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
+		,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21,tecenf22, enf2, enf3, enf4, enf5, enf6 ,enf7 ,enf8 ,enf9 ,enf10 ,enf11 ,enf12 ,enf13 , enfcme,teccme)
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelatriluizote.updateescalaluizote(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
 			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21,tecenf22, enf2, enf3, enf4, enf5, enf6 ,enf7 ,enf8 ,enf9 ,enf10 ,enf11 ,enf12 ,enf13 , enfcme,teccme,function(error, resultado){

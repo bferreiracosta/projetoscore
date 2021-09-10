@@ -98,7 +98,7 @@ module.exports.adicionandoescalafolga = function(application, req, res){
 
 	var date = req.body.dataparada;
 	var turno = req.body.turnoparada;
-	var campo = req.body.unidadeparadas;
+	var campo = req.body.unidadeparada;
 	if(campo==1){
 		var unidade = "Planalto";
 	}else 

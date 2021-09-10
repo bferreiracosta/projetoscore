@@ -8,12 +8,14 @@ modelescalaplanalto.prototype.buscafuncionario = function(turno, callback){
 	this._conection.query('select idfuncionariosplanalto from funcionariosplanalto where turno = "'+turno+'"', callback);
 }
 
-modelescalaplanalto.prototype.criarfolga = function(funcionarios, escala, callback){
+modelescalaplanalto.prototype.criarfolga =  function(funcionarios, escala, callback){
+	try {
+		this._conection.query('insert into folgaplanalto (idfuncionarios, idescala) values('+funcionarios+', '+escala+')', callback);
+	} catch (error) {
+		console.log(error);
+	}
 
-	this._conection.query('insert into folgaplanalto set idfuncionarios="'+funcionarios+'", idescala="'+escala+'", folga1="",folga2="",folga3="",folga4="",folga5="",folga6="",folga7="",folga8="",folga9="",folga10="",folga11="",folga12="",folga13="",folga14="",folga15="",folga16="",folga17="",folga18="",folga19="",folga20="",folga21="",folga22="",folga23="",folga24="",folga25="",folga26="",folga27="",folga28="",folga29="",folga30="",folga31=""', callback);
-	
 }
-
 modelescalaplanalto.prototype.updateferias = function(idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, callback){
 
 	this._conection.query('update folgaplanalto set situacao = "'+inputsituacao+'", dateiniciosituacao = "'+dateinicialsituacao+'", datefinalsituacao = "'+datefinalsituacao+'" where idfolgaplanalto = "'+idfuncionario+'"', callback);

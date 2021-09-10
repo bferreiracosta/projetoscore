@@ -1567,6 +1567,7 @@ $( "#target1" ).click(function() {
    var datastarde = document.getElementById("datastarde").value;
    var datassn1 = document.getElementById("datassn1").value;
    var datassn2 = document.getElementById("datassn2").value;
+   console.log(datasmanha)
    if(datasmanha != "" || datastarde != "" || datassn1 != "" || datassn2 != ""){
       if(datasmanha != "" ){
          var turno = document.getElementById("turnomanha").value;
@@ -1678,7 +1679,7 @@ $( "#target1" ).click(function() {
             document.getElementById("atestado1").value = data[0].atestado1;
             document.getElementById("atestado2").value = data[0].atestado2;
             document.getElementById("atestado3").value = data[0].atestado3;
-            document.getElementById("atestado4").value = data[0].atestado4;      
+            document.getElementById("atestado4").value = data[0].atestado4;    
                    
       }
    })
@@ -1696,6 +1697,7 @@ $( "#target2" ).click(function() {
    var datastarde = document.getElementById("datastarde").value;
    var datassn1 = document.getElementById("datassn1").value;
    var datassn2 = document.getElementById("datassn2").value;
+   console.log(datasmanha)
    if(datasmanha != "" || datastarde != "" || datassn1 != "" || datassn2 != ""){
       if(datasmanha != "" ){
          var turno = document.getElementById("turnomanha").value;
@@ -1719,7 +1721,7 @@ $( "#target2" ).click(function() {
             document.getElementById("ventilacao1").value = data[0].ventilacao1;
             document.getElementById("ventilacao2").value = data[0].ventilacao2;
             document.getElementById("medicacao1").value = data[0].medicacao1;
-            document.getElementById("medicacao2").value = data[0].medicacao2;      
+            document.getElementById("medicacao2").value = data[0].medicacao2;        
       }
    })
       $('#DescModal2').modal("show");
@@ -1773,10 +1775,10 @@ $( "#target2" ).click(function() {
             document.getElementById("ventilacao1").value = data[0].ventilacao1;
             document.getElementById("ventilacao2").value = data[0].ventilacao2;
             document.getElementById("medicacao1").value = data[0].medicacao1;
-            document.getElementById("medicacao2").value = data[0].medicacao2;       
+            document.getElementById("medicacao2").value = data[0].medicacao2;     
       }
    })
-   $('#DescModal2').modal("show");
+      $('#DescModal2').modal("show");
       }else if(datassn2 != "" ){
          var turno = document.getElementById("turnosn2").value;
       var unidade = document.getElementById("unidadesn2").value;
