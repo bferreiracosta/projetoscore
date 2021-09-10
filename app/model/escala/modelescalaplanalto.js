@@ -8,7 +8,7 @@ modelescalaplanalto.prototype.buscafuncionario = function(turno, callback){
 	this._conection.query('select idfuncionariosplanalto from funcionariosplanalto where turno = "'+turno+'"', callback);
 }
 
-modelescalaplanalto.prototype.criarfolga = async function(funcionarios, escala,turno, callback){
+modelescalaplanalto.prototype.criarfolga = function(funcionarios, escala,turno, callback){
 
 	var sql = "insert into folgaplanalto (idfuncionarios,idescala) VALUES ?";
 	if(turno == "Manhã"){
@@ -168,7 +168,7 @@ modelescalaplanalto.prototype.criarfolga = async function(funcionarios, escala,t
 		];
 	}
 
-	await this._conection.query(sql, [values], callback);
+	this._conection.query(sql, [values], callback);
 	
 
 }
