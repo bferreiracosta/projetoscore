@@ -10,7 +10,7 @@ var mysql = require('mysql');
 // });
 
 const pool = mysql.createPool({
-     connectionLimit: 25,
+     connectionLimit: 1000,
      host : 'portal-paciente.mysql.uhserver.com',
      user : 'portal_paciente',
      password : 'Bflc1989@',
