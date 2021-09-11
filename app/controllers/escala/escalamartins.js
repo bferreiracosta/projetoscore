@@ -250,10 +250,10 @@ module.exports.criarescalamartins = function(application, req, res){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelescalamartins.criarescalamartins(unidade, turno, dateinicial, datefinal, function(error, resultdoinsert){
 					modelescalamartins.buscafuncionario(turno, function(error, resultado2){
-							for(var i = 0; i< resultado2.length; i++){
-								modelescalamartins.criarfolga(resultado2[i].idfuncionariosmartins,resultdoinsert.insertId, function(error, resultado3){})
-							}
-						res.redirect("/escalamartins?id=" + result[0].id_usuario);	
+			// for(var i = 0; i< resultado2.length; i++){
+				modelescalamartins.criarfolga(resultado2,resultdoinsert.insertId, turno, function(error, resultado3){})
+				// }
+			res.redirect("/escalamartins?id=" + result[0].id_usuario);	
 					})
 				})
 			});

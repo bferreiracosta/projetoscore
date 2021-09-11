@@ -289,10 +289,10 @@ module.exports.criarescalaluizote = function(application, req, res){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelescalaluizote.criarescalaluizote(unidade, turno, dateinicial, datefinal, function(error, resultdoinsert){
 					modelescalaluizote.buscafuncionario(turno, function(error, resultado2){
-							for(var i = 0; i< resultado2.length; i++){
-								modelescalaluizote.criarfolga(resultado2[i].idfuncionariosluizote,resultdoinsert.insertId, function(error, resultado3){})
-							}
-						res.redirect("/escalaluizote?id=" + result[0].id_usuario);	
+							// for(var i = 0; i< resultado2.length; i++){
+								modelescalaluizote.criarfolga(resultado2,resultdoinsert.insertId, turno, function(error, resultado3){})
+								// }
+							res.redirect("/escalaluizote?id=" + result[0].id_usuario);		
 					})
 				})
 			});

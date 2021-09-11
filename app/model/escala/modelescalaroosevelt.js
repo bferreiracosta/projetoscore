@@ -8,10 +8,167 @@ modelescalaroosevelt.prototype.buscafuncionario = function(turno, callback){
 	this._conection.query('select idfuncionariosroosevelt from funcionariosroosevelt where turno = "'+turno+'"', callback);
 }
 
-modelescalaroosevelt.prototype.criarfolga = function(funcionarios, escala, callback){
+modelescalaroosevelt.prototype.criarfolga =  function(funcionarios, escala, turno, callback){
+	var sql = "insert into folgaroosevelt (idfuncionarios,idescala) VALUES ?";
+	if(turno == "Manhã"){
+		var values = [
+			[funcionarios[0].idfuncionariosroosevelt, escala],
+			[funcionarios[1].idfuncionariosroosevelt, escala],
+			[funcionarios[2].idfuncionariosroosevelt, escala],
+			[funcionarios[3].idfuncionariosroosevelt, escala],
+			[funcionarios[4].idfuncionariosroosevelt, escala],
+			[funcionarios[5].idfuncionariosroosevelt, escala],
+			[funcionarios[6].idfuncionariosroosevelt, escala],
+			[funcionarios[7].idfuncionariosroosevelt, escala],
+			[funcionarios[8].idfuncionariosroosevelt, escala],
+			[funcionarios[9].idfuncionariosroosevelt, escala],
+			[funcionarios[10].idfuncionariosroosevelt, escala],
+			[funcionarios[11].idfuncionariosroosevelt, escala],
+			[funcionarios[12].idfuncionariosroosevelt, escala],
+			[funcionarios[13].idfuncionariosroosevelt, escala],
+			[funcionarios[14].idfuncionariosroosevelt, escala],
+			[funcionarios[15].idfuncionariosroosevelt, escala],
+			[funcionarios[16].idfuncionariosroosevelt, escala],
+			[funcionarios[17].idfuncionariosroosevelt, escala],
+			[funcionarios[18].idfuncionariosroosevelt, escala],
+			[funcionarios[19].idfuncionariosroosevelt, escala],
+			[funcionarios[20].idfuncionariosroosevelt, escala],
+			[funcionarios[21].idfuncionariosroosevelt, escala],
+			[funcionarios[22].idfuncionariosroosevelt, escala],
+			[funcionarios[23].idfuncionariosroosevelt, escala],
+			[funcionarios[24].idfuncionariosroosevelt, escala],
+			[funcionarios[25].idfuncionariosroosevelt, escala],
+			[funcionarios[26].idfuncionariosroosevelt, escala],
+			[funcionarios[27].idfuncionariosroosevelt, escala],
+			[funcionarios[28].idfuncionariosroosevelt, escala],
+			[funcionarios[29].idfuncionariosroosevelt, escala],
+			[funcionarios[30].idfuncionariosroosevelt, escala],
+			[funcionarios[31].idfuncionariosroosevelt, escala],
+			[funcionarios[32].idfuncionariosroosevelt, escala],
+			[funcionarios[33].idfuncionariosroosevelt, escala],
 
-	this._conection.query('insert into folgaroosevelt set idfuncionarios="'+funcionarios+'", idescala="'+escala+'", folga1="",folga2="",folga3="",folga4="",folga5="",folga6="",folga7="",folga8="",folga9="",folga10="",folga11="",folga12="",folga13="",folga14="",folga15="",folga16="",folga17="",folga18="",folga19="",folga20="",folga21="",folga22="",folga23="",folga24="",folga25="",folga26="",folga27="",folga28="",folga29="",folga30="",folga31=""', callback);
+		];
+	}
+	if(turno == "Tarde"){
+		var values = [
+			[funcionarios[0].idfuncionariosroosevelt, escala],
+			[funcionarios[1].idfuncionariosroosevelt, escala],
+			[funcionarios[2].idfuncionariosroosevelt, escala],
+			[funcionarios[3].idfuncionariosroosevelt, escala],
+			[funcionarios[4].idfuncionariosroosevelt, escala],
+			[funcionarios[5].idfuncionariosroosevelt, escala],
+			[funcionarios[6].idfuncionariosroosevelt, escala],
+			[funcionarios[7].idfuncionariosroosevelt, escala],
+			[funcionarios[8].idfuncionariosroosevelt, escala],
+			[funcionarios[9].idfuncionariosroosevelt, escala],
+			[funcionarios[10].idfuncionariosroosevelt, escala],
+			[funcionarios[11].idfuncionariosroosevelt, escala],
+			[funcionarios[12].idfuncionariosroosevelt, escala],
+			[funcionarios[13].idfuncionariosroosevelt, escala],
+			[funcionarios[14].idfuncionariosroosevelt, escala],
+			[funcionarios[15].idfuncionariosroosevelt, escala],
+			[funcionarios[16].idfuncionariosroosevelt, escala],
+			[funcionarios[17].idfuncionariosroosevelt, escala],
+			[funcionarios[18].idfuncionariosroosevelt, escala],
+			[funcionarios[19].idfuncionariosroosevelt, escala],
+			[funcionarios[20].idfuncionariosroosevelt, escala],
+			[funcionarios[21].idfuncionariosroosevelt, escala],
+			[funcionarios[22].idfuncionariosroosevelt, escala],
+			[funcionarios[23].idfuncionariosroosevelt, escala],
+			[funcionarios[24].idfuncionariosroosevelt, escala],
+			[funcionarios[25].idfuncionariosroosevelt, escala],
+			[funcionarios[26].idfuncionariosroosevelt, escala],
+			[funcionarios[27].idfuncionariosroosevelt, escala],
+			[funcionarios[28].idfuncionariosroosevelt, escala],
+			[funcionarios[29].idfuncionariosroosevelt, escala],
+
+		];
+	}
+	if(turno == "SN1"){
+		var values = [
+			[funcionarios[0].idfuncionariosroosevelt, escala],
+			[funcionarios[1].idfuncionariosroosevelt, escala],
+			[funcionarios[2].idfuncionariosroosevelt, escala],
+			[funcionarios[3].idfuncionariosroosevelt, escala],
+			[funcionarios[4].idfuncionariosroosevelt, escala],
+			[funcionarios[5].idfuncionariosroosevelt, escala],
+			[funcionarios[6].idfuncionariosroosevelt, escala],
+			[funcionarios[7].idfuncionariosroosevelt, escala],
+			[funcionarios[8].idfuncionariosroosevelt, escala],
+			[funcionarios[9].idfuncionariosroosevelt, escala],
+			[funcionarios[10].idfuncionariosroosevelt, escala],
+			[funcionarios[11].idfuncionariosroosevelt, escala],
+			[funcionarios[12].idfuncionariosroosevelt, escala],
+			[funcionarios[13].idfuncionariosroosevelt, escala],
+			[funcionarios[14].idfuncionariosroosevelt, escala],
+			[funcionarios[15].idfuncionariosroosevelt, escala],
+			[funcionarios[16].idfuncionariosroosevelt, escala],
+			[funcionarios[17].idfuncionariosroosevelt, escala],
+			[funcionarios[18].idfuncionariosroosevelt, escala],
+			[funcionarios[19].idfuncionariosroosevelt, escala],
+			[funcionarios[20].idfuncionariosroosevelt, escala],
+			[funcionarios[21].idfuncionariosroosevelt, escala],
+			[funcionarios[22].idfuncionariosroosevelt, escala],
+			[funcionarios[23].idfuncionariosroosevelt, escala],
+			[funcionarios[24].idfuncionariosroosevelt, escala],
+			[funcionarios[25].idfuncionariosroosevelt, escala],
+			[funcionarios[26].idfuncionariosroosevelt, escala],
+			[funcionarios[27].idfuncionariosroosevelt, escala],
+			[funcionarios[28].idfuncionariosroosevelt, escala],
+			[funcionarios[29].idfuncionariosroosevelt, escala],
+
+		];
+	}
+	if(turno == "SN2"){
+		var values = [
+			[funcionarios[0].idfuncionariosroosevelt, escala],
+			[funcionarios[1].idfuncionariosroosevelt, escala],
+			[funcionarios[2].idfuncionariosroosevelt, escala],
+			[funcionarios[3].idfuncionariosroosevelt, escala],
+			[funcionarios[4].idfuncionariosroosevelt, escala],
+			[funcionarios[5].idfuncionariosroosevelt, escala],
+			[funcionarios[6].idfuncionariosroosevelt, escala],
+			[funcionarios[7].idfuncionariosroosevelt, escala],
+			[funcionarios[8].idfuncionariosroosevelt, escala],
+			[funcionarios[9].idfuncionariosroosevelt, escala],
+			[funcionarios[10].idfuncionariosroosevelt, escala],
+			[funcionarios[11].idfuncionariosroosevelt, escala],
+			[funcionarios[12].idfuncionariosroosevelt, escala],
+			[funcionarios[13].idfuncionariosroosevelt, escala],
+			[funcionarios[14].idfuncionariosroosevelt, escala],
+			[funcionarios[15].idfuncionariosroosevelt, escala],
+			[funcionarios[16].idfuncionariosroosevelt, escala],
+			[funcionarios[17].idfuncionariosroosevelt, escala],
+			[funcionarios[18].idfuncionariosroosevelt, escala],
+			[funcionarios[19].idfuncionariosroosevelt, escala],
+			[funcionarios[20].idfuncionariosroosevelt, escala],
+			[funcionarios[21].idfuncionariosroosevelt, escala],
+			[funcionarios[22].idfuncionariosroosevelt, escala],
+			[funcionarios[23].idfuncionariosroosevelt, escala],
+			[funcionarios[24].idfuncionariosroosevelt, escala],
+			[funcionarios[25].idfuncionariosroosevelt, escala],
+			[funcionarios[26].idfuncionariosroosevelt, escala],
+			[funcionarios[27].idfuncionariosroosevelt, escala],
+			[funcionarios[28].idfuncionariosroosevelt, escala],
+			[funcionarios[29].idfuncionariosroosevelt, escala],
 	
+		];
+	}
+
+		if(turno == "Maqueiro"){
+			var values = [
+				[funcionarios[0].idfuncionariosroosevelt, escala],
+				[funcionarios[1].idfuncionariosroosevelt, escala],
+				[funcionarios[2].idfuncionariosroosevelt, escala],
+				[funcionarios[3].idfuncionariosroosevelt, escala],
+				[funcionarios[4].idfuncionariosroosevelt, escala],
+				[funcionarios[5].idfuncionariosroosevelt, escala],
+				[funcionarios[6].idfuncionariosroosevelt, escala],
+				[funcionarios[7].idfuncionariosroosevelt, escala],
+			];
+}
+	this._conection.query(sql, [values], callback);	
+
 }
 
 modelescalaroosevelt.prototype.updateferias = function(idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, callback){

@@ -8,10 +8,189 @@ modelescalaluizote.prototype.buscafuncionario = function(turno, callback){
 	this._conection.query('select idfuncionariosluizote from funcionariosluizote where turno = "'+turno+'"', callback);
 }
 
-modelescalaluizote.prototype.criarfolga = function(funcionarios, escala, callback){
+modelescalaluizote.prototype.criarfolga =  function(funcionarios, escala, turno, callback){
+	var sql = "insert into folgaluizote (idfuncionarios,idescala) VALUES ?";
+	if(turno == "Manhã"){
+		var values = [
+			[funcionarios[0].idfuncionariosluizote, escala],
+			[funcionarios[1].idfuncionariosluizote, escala],
+			[funcionarios[2].idfuncionariosluizote, escala],
+			[funcionarios[3].idfuncionariosluizote, escala],
+			[funcionarios[4].idfuncionariosluizote, escala],
+			[funcionarios[5].idfuncionariosluizote, escala],
+			[funcionarios[6].idfuncionariosluizote, escala],
+			[funcionarios[7].idfuncionariosluizote, escala],
+			[funcionarios[8].idfuncionariosluizote, escala],
+			[funcionarios[9].idfuncionariosluizote, escala],
+			[funcionarios[10].idfuncionariosluizote, escala],
+			[funcionarios[11].idfuncionariosluizote, escala],
+			[funcionarios[12].idfuncionariosluizote, escala],
+			[funcionarios[13].idfuncionariosluizote, escala],
+			[funcionarios[14].idfuncionariosluizote, escala],
+			[funcionarios[15].idfuncionariosluizote, escala],
+			[funcionarios[16].idfuncionariosluizote, escala],
+			[funcionarios[17].idfuncionariosluizote, escala],
+			[funcionarios[18].idfuncionariosluizote, escala],
+			[funcionarios[19].idfuncionariosluizote, escala],
+			[funcionarios[20].idfuncionariosluizote, escala],
+			[funcionarios[21].idfuncionariosluizote, escala],
+			[funcionarios[22].idfuncionariosluizote, escala],
+			[funcionarios[23].idfuncionariosluizote, escala],
+			[funcionarios[24].idfuncionariosluizote, escala],
+			[funcionarios[25].idfuncionariosluizote, escala],
+			[funcionarios[26].idfuncionariosluizote, escala],
+			[funcionarios[27].idfuncionariosluizote, escala],
+			[funcionarios[28].idfuncionariosluizote, escala],
+			[funcionarios[29].idfuncionariosluizote, escala],
+			[funcionarios[30].idfuncionariosluizote, escala],
+			[funcionarios[31].idfuncionariosluizote, escala],
+			[funcionarios[32].idfuncionariosluizote, escala],
+			[funcionarios[33].idfuncionariosluizote, escala],
+			[funcionarios[34].idfuncionariosluizote, escala],
+			[funcionarios[35].idfuncionariosluizote, escala],
+		];
+	}
+	if(turno == "Tarde"){
+		var values = [
+			[funcionarios[0].idfuncionariosluizote, escala],
+			[funcionarios[1].idfuncionariosluizote, escala],
+			[funcionarios[2].idfuncionariosluizote, escala],
+			[funcionarios[3].idfuncionariosluizote, escala],
+			[funcionarios[4].idfuncionariosluizote, escala],
+			[funcionarios[5].idfuncionariosluizote, escala],
+			[funcionarios[6].idfuncionariosluizote, escala],
+			[funcionarios[7].idfuncionariosluizote, escala],
+			[funcionarios[8].idfuncionariosluizote, escala],
+			[funcionarios[9].idfuncionariosluizote, escala],
+			[funcionarios[10].idfuncionariosluizote, escala],
+			[funcionarios[11].idfuncionariosluizote, escala],
+			[funcionarios[12].idfuncionariosluizote, escala],
+			[funcionarios[13].idfuncionariosluizote, escala],
+			[funcionarios[14].idfuncionariosluizote, escala],
+			[funcionarios[15].idfuncionariosluizote, escala],
+			[funcionarios[16].idfuncionariosluizote, escala],
+			[funcionarios[17].idfuncionariosluizote, escala],
+			[funcionarios[18].idfuncionariosluizote, escala],
+			[funcionarios[19].idfuncionariosluizote, escala],
+			[funcionarios[20].idfuncionariosluizote, escala],
+			[funcionarios[21].idfuncionariosluizote, escala],
+			[funcionarios[22].idfuncionariosluizote, escala],
+			[funcionarios[23].idfuncionariosluizote, escala],
+			[funcionarios[24].idfuncionariosluizote, escala],
+			[funcionarios[25].idfuncionariosluizote, escala],
+			[funcionarios[26].idfuncionariosluizote, escala],
+			[funcionarios[27].idfuncionariosluizote, escala],
+			[funcionarios[28].idfuncionariosluizote, escala],
+			[funcionarios[29].idfuncionariosluizote, escala],
+			[funcionarios[30].idfuncionariosluizote, escala],
+			[funcionarios[31].idfuncionariosluizote, escala],
+			[funcionarios[32].idfuncionariosluizote, escala],
+			[funcionarios[33].idfuncionariosluizote, escala],
+		];
+	}
+	if(turno == "SN1"){
+		var values = [
+			[funcionarios[0].idfuncionariosluizote, escala],
+			[funcionarios[1].idfuncionariosluizote, escala],
+			[funcionarios[2].idfuncionariosluizote, escala],
+			[funcionarios[3].idfuncionariosluizote, escala],
+			[funcionarios[4].idfuncionariosluizote, escala],
+			[funcionarios[5].idfuncionariosluizote, escala],
+			[funcionarios[6].idfuncionariosluizote, escala],
+			[funcionarios[7].idfuncionariosluizote, escala],
+			[funcionarios[8].idfuncionariosluizote, escala],
+			[funcionarios[9].idfuncionariosluizote, escala],
+			[funcionarios[10].idfuncionariosluizote, escala],
+			[funcionarios[11].idfuncionariosluizote, escala],
+			[funcionarios[12].idfuncionariosluizote, escala],
+			[funcionarios[13].idfuncionariosluizote, escala],
+			[funcionarios[14].idfuncionariosluizote, escala],
+			[funcionarios[15].idfuncionariosluizote, escala],
+			[funcionarios[16].idfuncionariosluizote, escala],
+			[funcionarios[17].idfuncionariosluizote, escala],
+			[funcionarios[18].idfuncionariosluizote, escala],
+			[funcionarios[19].idfuncionariosluizote, escala],
+			[funcionarios[20].idfuncionariosluizote, escala],
+			[funcionarios[21].idfuncionariosluizote, escala],
+			[funcionarios[22].idfuncionariosluizote, escala],
+			[funcionarios[23].idfuncionariosluizote, escala],
+			[funcionarios[24].idfuncionariosluizote, escala],
+			[funcionarios[25].idfuncionariosluizote, escala],
+			[funcionarios[26].idfuncionariosluizote, escala],
+			[funcionarios[27].idfuncionariosluizote, escala],
+			[funcionarios[28].idfuncionariosluizote, escala],
+			[funcionarios[29].idfuncionariosluizote, escala],
+			[funcionarios[30].idfuncionariosluizote, escala],
+			[funcionarios[31].idfuncionariosluizote, escala],
+			[funcionarios[32].idfuncionariosluizote, escala],
+			[funcionarios[33].idfuncionariosluizote, escala],
+		];
+	}
+	if(turno == "SN2"){
+		var values = [
+			[funcionarios[0].idfuncionariosluizote, escala],
+			[funcionarios[1].idfuncionariosluizote, escala],
+			[funcionarios[2].idfuncionariosluizote, escala],
+			[funcionarios[3].idfuncionariosluizote, escala],
+			[funcionarios[4].idfuncionariosluizote, escala],
+			[funcionarios[5].idfuncionariosluizote, escala],
+			[funcionarios[6].idfuncionariosluizote, escala],
+			[funcionarios[7].idfuncionariosluizote, escala],
+			[funcionarios[8].idfuncionariosluizote, escala],
+			[funcionarios[9].idfuncionariosluizote, escala],
+			[funcionarios[10].idfuncionariosluizote, escala],
+			[funcionarios[11].idfuncionariosluizote, escala],
+			[funcionarios[12].idfuncionariosluizote, escala],
+			[funcionarios[13].idfuncionariosluizote, escala],
+			[funcionarios[14].idfuncionariosluizote, escala],
+			[funcionarios[15].idfuncionariosluizote, escala],
+			[funcionarios[16].idfuncionariosluizote, escala],
+			[funcionarios[17].idfuncionariosluizote, escala],
+			[funcionarios[18].idfuncionariosluizote, escala],
+			[funcionarios[19].idfuncionariosluizote, escala],
+			[funcionarios[20].idfuncionariosluizote, escala],
+			[funcionarios[21].idfuncionariosluizote, escala],
+			[funcionarios[22].idfuncionariosluizote, escala],
+			[funcionarios[23].idfuncionariosluizote, escala],
+			[funcionarios[24].idfuncionariosluizote, escala],
+			[funcionarios[25].idfuncionariosluizote, escala],
+			[funcionarios[26].idfuncionariosluizote, escala],
+			[funcionarios[27].idfuncionariosluizote, escala],
+			[funcionarios[28].idfuncionariosluizote, escala],
+			[funcionarios[29].idfuncionariosluizote, escala],
+			[funcionarios[30].idfuncionariosluizote, escala],
+			[funcionarios[31].idfuncionariosluizote, escala],
+			[funcionarios[32].idfuncionariosluizote, escala],
+			[funcionarios[33].idfuncionariosluizote, escala],
+		];
+	}
 
-	this._conection.query('insert into folgaluizote set idfuncionarios="'+funcionarios+'", idescala="'+escala+'", folga1="",folga2="",folga3="",folga4="",folga5="",folga6="",folga7="",folga8="",folga9="",folga10="",folga11="",folga12="",folga13="",folga14="",folga15="",folga16="",folga17="",folga18="",folga19="",folga20="",folga21="",folga22="",folga23="",folga24="",folga25="",folga26="",folga27="",folga28="",folga29="",folga30="",folga31=""', callback);
-	
+		if(turno == "Maqueiro"){
+			var values = [
+				[funcionarios[0].idfuncionariosluizote, escala],
+				[funcionarios[1].idfuncionariosluizote, escala],
+				[funcionarios[2].idfuncionariosluizote, escala],
+				[funcionarios[3].idfuncionariosluizote, escala],
+				[funcionarios[4].idfuncionariosluizote, escala],
+				[funcionarios[5].idfuncionariosluizote, escala],
+				[funcionarios[6].idfuncionariosluizote, escala],
+				[funcionarios[7].idfuncionariosluizote, escala],
+			];
+}
+
+		if(turno == "Sala de Gesso/Sutura/Centro Ortopedico"){
+			var values = [
+				[funcionarios[0].idfuncionariosluizote, escala],
+				[funcionarios[1].idfuncionariosluizote, escala],
+				[funcionarios[2].idfuncionariosluizote, escala],
+				[funcionarios[3].idfuncionariosluizote, escala],
+				[funcionarios[4].idfuncionariosluizote, escala],
+				[funcionarios[5].idfuncionariosluizote, escala],
+
+			];
+		}
+	this._conection.query(sql, [values], callback);	
+
 }
 
 modelescalaluizote.prototype.updateferias = function(idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, callback){

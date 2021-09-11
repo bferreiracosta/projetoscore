@@ -250,10 +250,10 @@ module.exports.criarescalamorumbi = function(application, req, res){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelescalamorumbi.criarescalamorumbi(unidade, turno, dateinicial, datefinal, function(error, resultdoinsert){
 					modelescalamorumbi.buscafuncionario(turno, function(error, resultado2){
-							for(var i = 0; i< resultado2.length; i++){
-								modelescalamorumbi.criarfolga(resultado2[i].idfuncionariosmorumbi,resultdoinsert.insertId, function(error, resultado3){})
-							}
-						res.redirect("/escalamorumbi?id=" + result[0].id_usuario);	
+				// for(var i = 0; i< resultado2.length; i++){
+					modelescalamorumbi.criarfolga(resultado2,resultdoinsert.insertId, turno, function(error, resultado3){})
+					// }
+				res.redirect("/escalamorumbi?id=" + result[0].id_usuario);	
 					})
 				})
 			});

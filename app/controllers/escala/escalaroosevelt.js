@@ -251,10 +251,10 @@ module.exports.criarescalaroosevelt = function(application, req, res){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelescalaroosevelt.criarescalaroosevelt(unidade, turno, dateinicial, datefinal, function(error, resultdoinsert){
 					modelescalaroosevelt.buscafuncionario(turno, function(error, resultado2){
-							for(var i = 0; i< resultado2.length; i++){
-								modelescalaroosevelt.criarfolga(resultado2[i].idfuncionariosroosevelt,resultdoinsert.insertId, function(error, resultado3){})
-							}
-						res.redirect("/escalaroosevelt?id=" + result[0].id_usuario);	
+	// for(var i = 0; i< resultado2.length; i++){
+		modelescalaroosevelt.criarfolga(resultado2,resultdoinsert.insertId, turno, function(error, resultado3){})
+		// }
+	res.redirect("/escalaroosevelt?id=" + result[0].id_usuario);		
 					})
 				})
 			});

@@ -8,10 +8,141 @@ modelescalamorumbi.prototype.buscafuncionario = function(turno, callback){
 	this._conection.query('select idfuncionariosmorumbi from funcionariosmorumbi where turno = "'+turno+'"', callback);
 }
 
-modelescalamorumbi.prototype.criarfolga = function(funcionarios, escala, callback){
+modelescalamorumbi.prototype.criarfolga =  function(funcionarios, escala, turno, callback){
+	var sql = "insert into folgamorumbi (idfuncionarios,idescala) VALUES ?";
+	if(turno == "Manhã"){
+		var values = [
+			[funcionarios[0].idfuncionariosmorumbi, escala],
+			[funcionarios[1].idfuncionariosmorumbi, escala],
+			[funcionarios[2].idfuncionariosmorumbi, escala],
+			[funcionarios[3].idfuncionariosmorumbi, escala],
+			[funcionarios[4].idfuncionariosmorumbi, escala],
+			[funcionarios[5].idfuncionariosmorumbi, escala],
+			[funcionarios[6].idfuncionariosmorumbi, escala],
+			[funcionarios[7].idfuncionariosmorumbi, escala],
+			[funcionarios[8].idfuncionariosmorumbi, escala],
+			[funcionarios[9].idfuncionariosmorumbi, escala],
+			[funcionarios[10].idfuncionariosmorumbi, escala],
+			[funcionarios[11].idfuncionariosmorumbi, escala],
+			[funcionarios[12].idfuncionariosmorumbi, escala],
+			[funcionarios[13].idfuncionariosmorumbi, escala],
+			[funcionarios[14].idfuncionariosmorumbi, escala],
+			[funcionarios[15].idfuncionariosmorumbi, escala],
+			[funcionarios[16].idfuncionariosmorumbi, escala],
+			[funcionarios[17].idfuncionariosmorumbi, escala],
+			[funcionarios[18].idfuncionariosmorumbi, escala],
+			[funcionarios[19].idfuncionariosmorumbi, escala],
+			[funcionarios[20].idfuncionariosmorumbi, escala],
+			[funcionarios[21].idfuncionariosmorumbi, escala],
+			[funcionarios[22].idfuncionariosmorumbi, escala],
+			[funcionarios[23].idfuncionariosmorumbi, escala],
+			[funcionarios[24].idfuncionariosmorumbi, escala],
+			[funcionarios[25].idfuncionariosmorumbi, escala],
 
-	this._conection.query('insert into folgamorumbi set idfuncionarios="'+funcionarios+'", idescala="'+escala+'", folga1="",folga2="",folga3="",folga4="",folga5="",folga6="",folga7="",folga8="",folga9="",folga10="",folga11="",folga12="",folga13="",folga14="",folga15="",folga16="",folga17="",folga18="",folga19="",folga20="",folga21="",folga22="",folga23="",folga24="",folga25="",folga26="",folga27="",folga28="",folga29="",folga30="",folga31=""', callback);
-	
+		];
+	}
+	if(turno == "Tarde"){
+		var values = [
+			[funcionarios[0].idfuncionariosmorumbi, escala],
+			[funcionarios[1].idfuncionariosmorumbi, escala],
+			[funcionarios[2].idfuncionariosmorumbi, escala],
+			[funcionarios[3].idfuncionariosmorumbi, escala],
+			[funcionarios[4].idfuncionariosmorumbi, escala],
+			[funcionarios[5].idfuncionariosmorumbi, escala],
+			[funcionarios[6].idfuncionariosmorumbi, escala],
+			[funcionarios[7].idfuncionariosmorumbi, escala],
+			[funcionarios[8].idfuncionariosmorumbi, escala],
+			[funcionarios[9].idfuncionariosmorumbi, escala],
+			[funcionarios[10].idfuncionariosmorumbi, escala],
+			[funcionarios[11].idfuncionariosmorumbi, escala],
+			[funcionarios[12].idfuncionariosmorumbi, escala],
+			[funcionarios[13].idfuncionariosmorumbi, escala],
+			[funcionarios[14].idfuncionariosmorumbi, escala],
+			[funcionarios[15].idfuncionariosmorumbi, escala],
+			[funcionarios[16].idfuncionariosmorumbi, escala],
+			[funcionarios[17].idfuncionariosmorumbi, escala],
+			[funcionarios[18].idfuncionariosmorumbi, escala],
+			[funcionarios[19].idfuncionariosmorumbi, escala],
+			[funcionarios[20].idfuncionariosmorumbi, escala],
+			[funcionarios[21].idfuncionariosmorumbi, escala],
+			[funcionarios[22].idfuncionariosmorumbi, escala],
+			[funcionarios[23].idfuncionariosmorumbi, escala],
+
+		];
+	}
+	if(turno == "SN1"){
+		var values = [
+			[funcionarios[0].idfuncionariosmorumbi, escala],
+			[funcionarios[1].idfuncionariosmorumbi, escala],
+			[funcionarios[2].idfuncionariosmorumbi, escala],
+			[funcionarios[3].idfuncionariosmorumbi, escala],
+			[funcionarios[4].idfuncionariosmorumbi, escala],
+			[funcionarios[5].idfuncionariosmorumbi, escala],
+			[funcionarios[6].idfuncionariosmorumbi, escala],
+			[funcionarios[7].idfuncionariosmorumbi, escala],
+			[funcionarios[8].idfuncionariosmorumbi, escala],
+			[funcionarios[9].idfuncionariosmorumbi, escala],
+			[funcionarios[10].idfuncionariosmorumbi, escala],
+			[funcionarios[11].idfuncionariosmorumbi, escala],
+			[funcionarios[12].idfuncionariosmorumbi, escala],
+			[funcionarios[13].idfuncionariosmorumbi, escala],
+			[funcionarios[14].idfuncionariosmorumbi, escala],
+			[funcionarios[15].idfuncionariosmorumbi, escala],
+			[funcionarios[16].idfuncionariosmorumbi, escala],
+			[funcionarios[17].idfuncionariosmorumbi, escala],
+			[funcionarios[18].idfuncionariosmorumbi, escala],
+			[funcionarios[19].idfuncionariosmorumbi, escala],
+			[funcionarios[20].idfuncionariosmorumbi, escala],
+			[funcionarios[21].idfuncionariosmorumbi, escala],
+			[funcionarios[22].idfuncionariosmorumbi, escala],
+			[funcionarios[23].idfuncionariosmorumbi, escala],
+
+		];
+	}
+	if(turno == "SN2"){
+		var values = [
+			[funcionarios[0].idfuncionariosmorumbi, escala],
+			[funcionarios[1].idfuncionariosmorumbi, escala],
+			[funcionarios[2].idfuncionariosmorumbi, escala],
+			[funcionarios[3].idfuncionariosmorumbi, escala],
+			[funcionarios[4].idfuncionariosmorumbi, escala],
+			[funcionarios[5].idfuncionariosmorumbi, escala],
+			[funcionarios[6].idfuncionariosmorumbi, escala],
+			[funcionarios[7].idfuncionariosmorumbi, escala],
+			[funcionarios[8].idfuncionariosmorumbi, escala],
+			[funcionarios[9].idfuncionariosmorumbi, escala],
+			[funcionarios[10].idfuncionariosmorumbi, escala],
+			[funcionarios[11].idfuncionariosmorumbi, escala],
+			[funcionarios[12].idfuncionariosmorumbi, escala],
+			[funcionarios[13].idfuncionariosmorumbi, escala],
+			[funcionarios[14].idfuncionariosmorumbi, escala],
+			[funcionarios[15].idfuncionariosmorumbi, escala],
+			[funcionarios[16].idfuncionariosmorumbi, escala],
+			[funcionarios[17].idfuncionariosmorumbi, escala],
+			[funcionarios[18].idfuncionariosmorumbi, escala],
+			[funcionarios[19].idfuncionariosmorumbi, escala],
+			[funcionarios[20].idfuncionariosmorumbi, escala],
+			[funcionarios[21].idfuncionariosmorumbi, escala],
+			[funcionarios[22].idfuncionariosmorumbi, escala],
+			[funcionarios[23].idfuncionariosmorumbi, escala],
+
+		];
+	}
+
+		if(turno == "Maqueiro"){
+			var values = [
+				[funcionarios[0].idfuncionariosmorumbi, escala],
+				[funcionarios[1].idfuncionariosmorumbi, escala],
+				[funcionarios[2].idfuncionariosmorumbi, escala],
+				[funcionarios[3].idfuncionariosmorumbi, escala],
+				[funcionarios[4].idfuncionariosmorumbi, escala],
+				[funcionarios[5].idfuncionariosmorumbi, escala],
+				[funcionarios[6].idfuncionariosmorumbi, escala],
+				[funcionarios[7].idfuncionariosmorumbi, escala],
+			];
+}
+	this._conection.query(sql, [values], callback);	
+
 }
 
 modelescalamorumbi.prototype.updateferias = function(idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, callback){

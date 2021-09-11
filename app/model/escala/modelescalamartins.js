@@ -8,10 +8,168 @@ modelescalamartins.prototype.buscafuncionario = function(turno, callback){
 	this._conection.query('select idfuncionariosmartins from funcionariosmartins where turno = "'+turno+'"', callback);
 }
 
-modelescalamartins.prototype.criarfolga = function(funcionarios, escala, callback){
+modelescalamartins.prototype.criarfolga =  function(funcionarios, escala, turno, callback){
+	var sql = "insert into folgamartins (idfuncionarios,idescala) VALUES ?";
+	if(turno == "Manhã"){
+		var values = [
+			[funcionarios[0].idfuncionariosmartins, escala],
+			[funcionarios[1].idfuncionariosmartins, escala],
+			[funcionarios[2].idfuncionariosmartins, escala],
+			[funcionarios[3].idfuncionariosmartins, escala],
+			[funcionarios[4].idfuncionariosmartins, escala],
+			[funcionarios[5].idfuncionariosmartins, escala],
+			[funcionarios[6].idfuncionariosmartins, escala],
+			[funcionarios[7].idfuncionariosmartins, escala],
+			[funcionarios[8].idfuncionariosmartins, escala],
+			[funcionarios[9].idfuncionariosmartins, escala],
+			[funcionarios[10].idfuncionariosmartins, escala],
+			[funcionarios[11].idfuncionariosmartins, escala],
+			[funcionarios[12].idfuncionariosmartins, escala],
+			[funcionarios[13].idfuncionariosmartins, escala],
+			[funcionarios[14].idfuncionariosmartins, escala],
+			[funcionarios[15].idfuncionariosmartins, escala],
+			[funcionarios[16].idfuncionariosmartins, escala],
+			[funcionarios[17].idfuncionariosmartins, escala],
+			[funcionarios[18].idfuncionariosmartins, escala],
+			[funcionarios[19].idfuncionariosmartins, escala],
+			[funcionarios[20].idfuncionariosmartins, escala],
+			[funcionarios[21].idfuncionariosmartins, escala],
+			[funcionarios[22].idfuncionariosmartins, escala],
+			[funcionarios[23].idfuncionariosmartins, escala],
+			[funcionarios[24].idfuncionariosmartins, escala],
+			[funcionarios[25].idfuncionariosmartins, escala],
+			[funcionarios[26].idfuncionariosmartins, escala],
+			[funcionarios[27].idfuncionariosmartins, escala],
+			[funcionarios[28].idfuncionariosmartins, escala],
+			[funcionarios[29].idfuncionariosmartins, escala],
+			[funcionarios[30].idfuncionariosmartins, escala],
+			[funcionarios[31].idfuncionariosmartins, escala],
+			[funcionarios[32].idfuncionariosmartins, escala],
+		];
+	}
+	if(turno == "Tarde"){
+		var values = [
+			[funcionarios[0].idfuncionariosmartins, escala],
+			[funcionarios[1].idfuncionariosmartins, escala],
+			[funcionarios[2].idfuncionariosmartins, escala],
+			[funcionarios[3].idfuncionariosmartins, escala],
+			[funcionarios[4].idfuncionariosmartins, escala],
+			[funcionarios[5].idfuncionariosmartins, escala],
+			[funcionarios[6].idfuncionariosmartins, escala],
+			[funcionarios[7].idfuncionariosmartins, escala],
+			[funcionarios[8].idfuncionariosmartins, escala],
+			[funcionarios[9].idfuncionariosmartins, escala],
+			[funcionarios[10].idfuncionariosmartins, escala],
+			[funcionarios[11].idfuncionariosmartins, escala],
+			[funcionarios[12].idfuncionariosmartins, escala],
+			[funcionarios[13].idfuncionariosmartins, escala],
+			[funcionarios[14].idfuncionariosmartins, escala],
+			[funcionarios[15].idfuncionariosmartins, escala],
+			[funcionarios[16].idfuncionariosmartins, escala],
+			[funcionarios[17].idfuncionariosmartins, escala],
+			[funcionarios[18].idfuncionariosmartins, escala],
+			[funcionarios[19].idfuncionariosmartins, escala],
+			[funcionarios[20].idfuncionariosmartins, escala],
+			[funcionarios[21].idfuncionariosmartins, escala],
+			[funcionarios[22].idfuncionariosmartins, escala],
+			[funcionarios[23].idfuncionariosmartins, escala],
+			[funcionarios[24].idfuncionariosmartins, escala],
+			[funcionarios[25].idfuncionariosmartins, escala],
+			[funcionarios[26].idfuncionariosmartins, escala],
+			[funcionarios[27].idfuncionariosmartins, escala],
+			[funcionarios[28].idfuncionariosmartins, escala],
+			[funcionarios[29].idfuncionariosmartins, escala],
+			[funcionarios[30].idfuncionariosmartins, escala],
 
-	this._conection.query('insert into folgamartins set idfuncionarios="'+funcionarios+'", idescala="'+escala+'", folga1="",folga2="",folga3="",folga4="",folga5="",folga6="",folga7="",folga8="",folga9="",folga10="",folga11="",folga12="",folga13="",folga14="",folga15="",folga16="",folga17="",folga18="",folga19="",folga20="",folga21="",folga22="",folga23="",folga24="",folga25="",folga26="",folga27="",folga28="",folga29="",folga30="",folga31=""', callback);
-	
+		];
+	}
+	if(turno == "SN1"){
+		var values = [
+			[funcionarios[0].idfuncionariosmartins, escala],
+			[funcionarios[1].idfuncionariosmartins, escala],
+			[funcionarios[2].idfuncionariosmartins, escala],
+			[funcionarios[3].idfuncionariosmartins, escala],
+			[funcionarios[4].idfuncionariosmartins, escala],
+			[funcionarios[5].idfuncionariosmartins, escala],
+			[funcionarios[6].idfuncionariosmartins, escala],
+			[funcionarios[7].idfuncionariosmartins, escala],
+			[funcionarios[8].idfuncionariosmartins, escala],
+			[funcionarios[9].idfuncionariosmartins, escala],
+			[funcionarios[10].idfuncionariosmartins, escala],
+			[funcionarios[11].idfuncionariosmartins, escala],
+			[funcionarios[12].idfuncionariosmartins, escala],
+			[funcionarios[13].idfuncionariosmartins, escala],
+			[funcionarios[14].idfuncionariosmartins, escala],
+			[funcionarios[15].idfuncionariosmartins, escala],
+			[funcionarios[16].idfuncionariosmartins, escala],
+			[funcionarios[17].idfuncionariosmartins, escala],
+			[funcionarios[18].idfuncionariosmartins, escala],
+			[funcionarios[19].idfuncionariosmartins, escala],
+			[funcionarios[20].idfuncionariosmartins, escala],
+			[funcionarios[21].idfuncionariosmartins, escala],
+			[funcionarios[22].idfuncionariosmartins, escala],
+			[funcionarios[23].idfuncionariosmartins, escala],
+			[funcionarios[24].idfuncionariosmartins, escala],
+			[funcionarios[25].idfuncionariosmartins, escala],
+			[funcionarios[26].idfuncionariosmartins, escala],
+			[funcionarios[27].idfuncionariosmartins, escala],
+			[funcionarios[28].idfuncionariosmartins, escala],
+			[funcionarios[29].idfuncionariosmartins, escala],
+			[funcionarios[30].idfuncionariosmartins, escala],
+
+		];
+	}
+	if(turno == "SN2"){
+		var values = [
+			[funcionarios[0].idfuncionariosmartins, escala],
+			[funcionarios[1].idfuncionariosmartins, escala],
+			[funcionarios[2].idfuncionariosmartins, escala],
+			[funcionarios[3].idfuncionariosmartins, escala],
+			[funcionarios[4].idfuncionariosmartins, escala],
+			[funcionarios[5].idfuncionariosmartins, escala],
+			[funcionarios[6].idfuncionariosmartins, escala],
+			[funcionarios[7].idfuncionariosmartins, escala],
+			[funcionarios[8].idfuncionariosmartins, escala],
+			[funcionarios[9].idfuncionariosmartins, escala],
+			[funcionarios[10].idfuncionariosmartins, escala],
+			[funcionarios[11].idfuncionariosmartins, escala],
+			[funcionarios[12].idfuncionariosmartins, escala],
+			[funcionarios[13].idfuncionariosmartins, escala],
+			[funcionarios[14].idfuncionariosmartins, escala],
+			[funcionarios[15].idfuncionariosmartins, escala],
+			[funcionarios[16].idfuncionariosmartins, escala],
+			[funcionarios[17].idfuncionariosmartins, escala],
+			[funcionarios[18].idfuncionariosmartins, escala],
+			[funcionarios[19].idfuncionariosmartins, escala],
+			[funcionarios[20].idfuncionariosmartins, escala],
+			[funcionarios[21].idfuncionariosmartins, escala],
+			[funcionarios[22].idfuncionariosmartins, escala],
+			[funcionarios[23].idfuncionariosmartins, escala],
+			[funcionarios[24].idfuncionariosmartins, escala],
+			[funcionarios[25].idfuncionariosmartins, escala],
+			[funcionarios[26].idfuncionariosmartins, escala],
+			[funcionarios[27].idfuncionariosmartins, escala],
+			[funcionarios[28].idfuncionariosmartins, escala],
+			[funcionarios[29].idfuncionariosmartins, escala],
+			[funcionarios[30].idfuncionariosmartins, escala],
+
+		];
+	}
+
+		if(turno == "Maqueiro"){
+			var values = [
+				[funcionarios[0].idfuncionariosmartins, escala],
+				[funcionarios[1].idfuncionariosmartins, escala],
+				[funcionarios[2].idfuncionariosmartins, escala],
+				[funcionarios[3].idfuncionariosmartins, escala],
+				[funcionarios[4].idfuncionariosmartins, escala],
+				[funcionarios[5].idfuncionariosmartins, escala],
+				[funcionarios[6].idfuncionariosmartins, escala],
+				[funcionarios[7].idfuncionariosmartins, escala],
+			];
+}
+	this._conection.query(sql, [values], callback);	
+
 }
 
 modelescalamartins.prototype.updateferias = function(idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, callback){

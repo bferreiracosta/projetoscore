@@ -250,10 +250,10 @@ module.exports.criarescalatibery = function(application, req, res){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelescalatibery.criarescalatibery(unidade, turno, dateinicial, datefinal, function(error, resultdoinsert){
 					modelescalatibery.buscafuncionario(turno, function(error, resultado2){
-							for(var i = 0; i< resultado2.length; i++){
-								modelescalatibery.criarfolga(resultado2[i].idfuncionariostibery,resultdoinsert.insertId, function(error, resultado3){})
-							}
-						res.redirect("/escalatibery?id=" + result[0].id_usuario);	
+			// for(var i = 0; i< resultado2.length; i++){
+				modelescalatibery.criarfolga(resultado2,resultdoinsert.insertId, turno, function(error, resultado3){})
+				// }
+			res.redirect("/escalatibery?id=" + result[0].id_usuario);	
 					})
 				})
 			});
