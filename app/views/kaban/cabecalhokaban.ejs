@@ -257,6 +257,75 @@
 							 <li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li> -->
 							 <li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li> 
 							 <% } %>
+							 <% if(id[i].admin== 3){%>
+								<li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Planalto</a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacienteplanalto?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+	
+										<li class="btn-success"><a class="btn   btn-sm" href="/exameplanalto?id=<%=id[i].id_usuario %>">Lista de Exames</a></li>
+									
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanplanalto?id=<%=id[i].id_usuario %>">Relatório</a></li>
+	
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Luizote</a>
+									<ul class="dropdown-menu">
+										
+										<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacienteluizote?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+	
+										<li class="btn-success"><a class="btn   btn-sm" href="/exameluizote?id=<%=id[i].id_usuario %>">Lista de Exames</a></li>
+	
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanluizote?id=<%=id[i].id_usuario %>">Relatório</a></li>
+	
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Martins</a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacientemartins?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+	
+										<li class="btn-success"><a class="btn   btn-sm" href="/examemartins?id=<%=id[i].id_usuario %>">Lista de Exames</a></li>					
+									
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanmartins?id=<%=id[i].id_usuario %>">Relatório</a></li>
+	
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Roosevelt</a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacienteroosevelt?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+	
+										<li class="btn-success"><a class="btn   btn-sm" href="/exameroosevelt?id=<%=id[i].id_usuario %>">Lista de Exames</a></li>
+									
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanroosevelt?id=<%=id[i].id_usuario %>">Relatório</a></li>
+	
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Tibery</a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacientetibery?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+	
+										<li class="btn-success"><a class="btn   btn-sm" href="/exametibery?id=<%=id[i].id_usuario %>">Lista de Exames</a></li>
+									
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabantibery?id=<%=id[i].id_usuario %>">Relatório</a></li>
+	
+									</ul>
+								 </li>
+								 <li class="btn-success">
+									<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Uai Morumbi</a>
+									<ul class="dropdown-menu">
+										<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacientemorumbi?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+	
+										<li class="btn-success"><a class="btn   btn-sm" href="/examemorumbi?id=<%=id[i].id_usuario %>">Lista de Exames</a></li>
+									
+										<li class="btn-success"><a class="btn   btn-sm" href="/relatoriokabanmorumbi?id=<%=id[i].id_usuario %>">Relatório</a></li>
+									</ul>
+								 </li>
+								 <li class="btn-success"><a class="btn   btn-sm" href="/sair">Sair</a></li> 
+								 <% } %>
 						<% if(id[i].enfermeiro==1){%>
 							<% if(id[i].unidade==1){%>
 								<li class="btn-success"><a class="btn   btn-sm" href="/kabanpacienteplanalto?id=<%=id[i].id_usuario %>">Pacientes</a></li>

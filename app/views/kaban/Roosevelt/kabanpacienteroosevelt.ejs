@@ -3,18 +3,29 @@
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
 
-<h2>Pacientes Roosevelt</h2>
-<a href="addkabanpacienteroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
-<a href="leitosroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Atualizar Leitos</button></a>
-<a href="calendarioroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-info"  >Calendario Exames</button></a>
-<a href="relatoriovisitasroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-secondary"  >Relatório Visitas</button></a>
-<a href="relatoriodietasroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Relatório Dietas</button></a>
-<a href="infouairoosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a>
-<a href="relatoriosemleitosroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-outline-success"  >Relatório Pacientes sem Leitos</button></a>
-<a href="relatoriopendenciasroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Relatório Pendências</button></a>
-<a href="relatorioplanoaltaroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Relatório Plano de Alta</button></a>
-<br>
-<br>
+        <% if(id[i].admin== 3) { %>
+            <h2>Pacientes Roosevelt</h2>
+            <a href="addkabanpacienteroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
+            <a href="calendarioroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-info"  >Calendario Exames</button></a>
+            <a href="relatoriodietasroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Relatório Dietas</button></a>
+            <a href="infouairoosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a>
+            <br>
+            <br>
+            <% }else { %>	
+                <h2>Pacientes Roosevelt</h2>
+                <a href="addkabanpacienteroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
+                <a href="leitosroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Atualizar Leitos</button></a>
+                <a href="calendarioroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-info"  >Calendario Exames</button></a>
+                <a href="relatoriovisitasroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-secondary"  >Relatório Visitas</button></a>
+                <a href="relatoriodietasroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Relatório Dietas</button></a>
+                <a href="infouairoosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a>
+                <a href="relatoriosemleitosroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-outline-success"  >Relatório Pacientes sem Leitos</button></a>
+                <a href="relatoriopendenciasroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Relatório Pendências</button></a>
+                <a href="relatorioplanoaltaroosevelt?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Relatório Plano de Altas</button></a>
+                <br>
+                <br>
+
+                <% } %>	
 <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
 <table class="table table-striped"  style="width: 100%; font-size: 10px; text-align: left;" id="mytable">
                        

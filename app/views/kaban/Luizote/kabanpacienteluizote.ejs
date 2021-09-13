@@ -2,19 +2,29 @@
 <%- include('../cabecalhokaban'); %>
         <% if(id.length > 0) { %>
             <% for(var i = 0; i < id.length; i++) {%>
-       
-        <h2>Pacientes Luizote</h2>
-        <a href="addkabanpacienteluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
-        <a href="leitosluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Atualizar Leitos</button></a>
-        <a href="calendarioluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-info"  >Calendario Exames</button></a>
-        <a href="relatoriovisitasluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-secondary"  >Relatório Visitas</button></a>
-        <a href="relatoriodietasluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Relatório Dietas</button></a>
-        <a href="infouailuizote?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a>
-        <a href="relatoriosemleitosluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-outline-success"  >Relatório Pacientes sem Leitos</button></a>
-        <a href="relatoriopendenciasluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Relatório Pendências</button></a>
-        <a href="relatorioplanoaltaluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Relatório Plano de Altas</button></a>
-        <br>
-        <br>
+                <% if(id[i].admin== 3) { %>
+                    <h2>Pacientes Luizote</h2>
+                    <a href="addkabanpacienteluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
+                    <a href="calendarioluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-info"  >Calendario Exames</button></a>
+                    <a href="relatoriodietasluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Relatório Dietas</button></a>
+                    <a href="infouailuizote?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a>
+                    <br>
+                    <br>
+                    <% }else { %>	
+                        <h2>Pacientes Luizote</h2>
+                        <a href="addkabanpacienteluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Adicionar Paciente</button></a>
+                        <a href="leitosluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Atualizar Leitos</button></a>
+                        <a href="calendarioluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-info"  >Calendario Exames</button></a>
+                        <a href="relatoriovisitasluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-secondary"  >Relatório Visitas</button></a>
+                        <a href="relatoriodietasluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-warning"  >Relatório Dietas</button></a>
+                        <a href="infouailuizote?id=<%=id[i].id_usuario %>"><button class="btn btn-primary"  >Relatório Info</button></a>
+                        <a href="relatoriosemleitosluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-outline-success"  >Relatório Pacientes sem Leitos</button></a>
+                        <a href="relatoriopendenciasluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-danger"  >Relatório Pendências</button></a>
+                        <a href="relatorioplanoaltaluizote?id=<%=id[i].id_usuario %>"><button class="btn btn-success"  >Relatório Plano de Altas</button></a>
+                        <br>
+                        <br>
+
+                        <% } %>	
         <input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
         <table class="table table-striped"  style="width: 100%; font-size: 10px; text-align: left;" id="mytable">
                        
