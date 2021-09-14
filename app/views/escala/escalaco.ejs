@@ -1,0 +1,2007 @@
+<%- include('./cabecalhoescala'); %>
+<% if(id.length > 0) { %>
+   <% for(var i = 0; i < id.length; i++) {%>
+      <button onclick="setaDadosModal('<%=id[i].unidade %>'),setaDadosModal2('<%=id[i].id_usuario%>')" class="btn btn-success" id="target">
+        Adicionar Escala
+      </button>
+      <input type="hidden" name="nomeid" value='<%=id[i].nome %>' id="idnome">   
+  <h2>Escala de Folga Centro Oftamológico</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a style="color: inherit;" onclick="IsEmpty();"  data-toggle="tab" href="#home">Escala Enfermagem</a></li>
+    <li><a style="color: inherit;" onclick="IsEmpty();"  data-toggle="tab" href="#menu1">Escala Multi</a></li>
+  </ul>
+  <div class="tab-content">
+   <div>
+      <% if ( msg.length > 0 ) { %>
+         <h3 id="msg" style="color: red;"><%= msg %> </h3>
+        <% } %>
+   </div>
+    <div id="home" class="tab-pane fade in active">
+      <h4 style="padding-left: 1%;" for="data" > Selecione Mês Inicial<span>    
+        <select  id="pesquisadateinicial" name="pesquisadateinicial">
+        <option value="" disabled selected hidden>Selecione o Mês Inicial</option>
+        <option value="Janeiro">Janeiro</option>
+        <option value="Fevereiro">Fevereiro</option>
+        <option value="Março">Março</option>
+        <option value="Abril">Abril</option>
+        <option value="Maio">Maio</option>
+        <option value="Junho">Junho</option>
+        <option value="Julho">Julho</option>
+        <option value="Agosto">Agosto</option>
+        <option value="Setembro">Setembro</option>
+        <option value="Outubro">Outubro</option>
+        <option value="Novembro">Novembro</option>
+        <option value="Dezembro">Dezembro</option>
+        </select>
+        <input type="hidden" id="inputdateinicial" name="inputdateinicial" class="form-control" >
+        <label style="font-weight: normal;" for="data" > Selecione Mês Final</label>
+          <select  id="pesquisadatefinal" name="pesquisadatefinal">
+          <option value="" disabled selected hidden>Selecione o Mês Final</option>
+          </select>
+          <input type="hidden" id="inputdatefinal" name="inputdatefinal" class="form-control" >
+          <label style="font-weight: normal;" for="data" > Selecione Ano Vigência</label>
+          <select  id="pesquisaano" name="pesquisaano">
+          <option value="" disabled selected hidden>Selecione Ano Vigência</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          </select>
+        <input type="hidden" id="inputano" name="inputano" class="form-control" >
+        <input type="hidden" value="Enfermagem" id="turnomanha"> <input type="hidden" value='<%=id[i].unidade %>' id="unidademanha">   
+        <input type="hidden" name="idusuario" value='<%=id[i].id_usuario %>' id="idusuario">   
+        <button class="btn btn-info" id="pesquisarmanha"><i class="fas fa-search"></i></button>  
+        <button type="button" class="btn btn-success" onclick="createPDFmanha();"><i class="fas fa-download"></i></button>
+        <button onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')" class="btn btn-info" id="target1">
+          Validar Escala
+         </button></span></h4>
+        <div class="html-content" id="mobile" >
+          <table class="table table-bordered table-dark display" style="width: 100%; " id="tablemanha">
+            <thead>
+              <tr style="border: none; height: 18px;" class="bg-primary">
+                <th scope="col" colspan="4"  ><img width="100" height="65px" style="position: relative;top: 50%;left: 30%;" src="/images/logospdm.jpg"></th>
+                <th scope="col" colspan="8" style="text-align: center;">Uai Centro Oftamológico</th>
+                <th scope="col" style="border: none;" colspan="12"> <img width="100" height="65px" style="position: relative;top: 50%;left: 30%;" src="/images/logoprefeitura.jpg"></th>
+                <th scope="col" colspan="16" id="dataturno"  style="text-align: center;border: none;"  ></th>
+              </tr>
+              <tr style="border: none; height: 18px;" class="bg-primary">
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+              </tr>
+            </thead>
+            <tbody>
+        
+              <tr  style="border: none; height: 18px;">
+                <td colspan="40" style="text-align: center; font-size: 12px; background: darkblue; color: white;"> Escala de Folga Centro Oftamológico</td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+              </tr>
+              <tr style="border: none; height: 18px;position: sticky;top: 0;">
+                <td  style="background: rgb(255, 255, 255);  font-size: small"> id</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> Vinculo</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> Matricula</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> Nome Completo</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small; width: 80px;"> Cat</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> Coren</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> C.H</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> H.Inicio</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> H.Final</td>
+                <td class="feriado" id="campo1" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo2" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo3" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo4" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo5" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo6" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo7" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo8" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo9" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo10" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo11" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo12" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo13" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo14" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo15" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo16" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo17" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo18" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo19" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo20" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo21" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo22" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo23" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo24" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo25" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo26" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo27" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo28" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo29" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo30" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+                <td class="feriado" id="campo31" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)"></td>
+              </tr>
+        
+                 </tbody>
+                 <tfoot>
+                    <tr style="border: none; height: 18px;" class="bg-primary">
+                      <th scope="col" colspan="4"  ><img width="100" height="65px" style="position: relative;top: 50%;left: 30%;" src="/images/logospdm.jpg"></th>
+                      <th scope="col" colspan="8" style="text-align: center;">Uai Centro Oftamológico</th>
+                      <th scope="col" style="border: none;" colspan="12"> <img width="100" height="65px" style="position: relative;top: 50%;left: 30%;" src="/images/logoprefeitura.jpg"></th>
+                      <th scope="col" colspan="16" id="dataturno"  style="text-align: center;border: none;"  ></th>
+                    </tr>
+                    <tr style="border: none; height: 18px;" class="bg-primary">
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                    </tr>
+                    <tr  style="border: none; height: 18px;">
+                      <td colspan="40" style="text-align: center; font-size: 12px; background: darkblue; color: white;"> Escala de Folga Centro Oftamológico</td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                    </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                 </tfoot>
+          </table>
+          <br>
+          <br>
+         
+        </div>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h4 style="padding-left: 1%;" for="data" > Selecione Mês Inicial<span>    
+        <select  id="pesquisadateinicialtarde" name="pesquisadateinicialtarde">
+        <option value="" disabled selected hidden>Selecione o Mês Inicial</option>
+        <option value="Janeiro">Janeiro</option>
+        <option value="Fevereiro">Fevereiro</option>
+        <option value="Março">Março</option>
+        <option value="Abril">Abril</option>
+        <option value="Maio">Maio</option>
+        <option value="Junho">Junho</option>
+        <option value="Julho">Julho</option>
+        <option value="Agosto">Agosto</option>
+        <option value="Setembro">Setembro</option>
+        <option value="Outubro">Outubro</option>
+        <option value="Novembro">Novembro</option>
+        <option value="Dezembro">Dezembro</option>
+        </select>
+        <input type="hidden" id="inputdateinicialtarde" name="inputdateinicial" class="form-control" >
+        <label style="font-weight: normal;" for="data" > Selecione Mês Final</label>
+          <select  id="pesquisadatefinaltarde" name="pesquisadatefinaltarde">
+          <option value="" disabled selected hidden>Selecione o Mês Final</option>
+          </select>
+          <input type="hidden" id="inputdatefinaltarde" name="inputdatefinal" class="form-control" >
+          <label style="font-weight: normal;" for="data" > Selecione Ano Vigência</label>
+          <select  id="pesquisaanotarde" name="pesquisaanotarde">
+          <option value="" disabled selected hidden>Selecione Ano Vigência</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          </select>
+        <input type="hidden" id="inputanotarde" name="inputano" class="form-control" >
+        <input type="hidden" value="Multi" id="turnotarde"> <input type="hidden" value='<%=id[i].unidade %>' id="unidadetarde">   
+        <input type="hidden" name="idusuario" value='<%=id[i].id_usuario %>' id="idusuariotarde">   
+        <button class="btn btn-info" id="pesquisartarde"><i class="fas fa-search"></i></button>  
+        <button type="button" class="btn btn-success" onclick="createPDFtarde();"><i class="fas fa-download"></i></button>
+        <button onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')" class="btn btn-info" id="target2">
+          Validar Escala
+         </button></span></h4>
+        <div class="html-content" id="mobiletarde" >
+          <table class="table table-bordered table-dark display" style="width: 100%; " id="tabletarde">
+            <thead>
+              <tr style="border: none; height: 18px;" class="bg-primary">
+                <th scope="col" colspan="4"  ><img width="100" height="65px" style="position: relative;top: 50%;left: 30%;" src="/images/logospdm.jpg"></th>
+                <th scope="col" colspan="8" style="text-align: center;">Uai Centro Oftamológico</th>
+                <th scope="col" style="border: none;" colspan="12"> <img width="100" height="65px" style="position: relative;top: 50%;left: 30%;" src="/images/logoprefeitura.jpg"></th>
+                <th scope="col" colspan="16" id="dataturnotarde"  style="text-align: center;border: none;"  ></th>
+              </tr>
+              <tr style="border: none; height: 18px;" class="bg-primary">
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+                <th style="display: none;"></th>
+              </tr>
+            </thead>
+            <tbody>
+        
+              <tr style="border: none; height: 18px;">
+                <td colspan="40" style="text-align: center; font-size: 12px; background: darkblue; color: white;"> Escala de Folga Centro Oftamológico</td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+              </tr>
+              <tr style="border: none; height: 18px; position: sticky;top: 0;">
+                <td  style="background: rgb(255, 255, 255);  font-size: small"> id</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> Vinculo</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> Matricula</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> Nome Completo</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small; width: 80px;"> Cat</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> Coren</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> C.H</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> H.Inicio</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small"> H.Final</td>
+                <td class="feriado" id="campo1tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">16/08</td>
+                <td class="feriado" id="campo2tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">17/08</td>
+                <td class="feriado" id="campo3tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">18/08</td>
+                <td class="feriado" id="campo4tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">19/08</td>
+                <td class="feriado" id="campo5tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">20/08</td>
+                <td class="feriado" id="campo6tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">21/08</td>
+                <td class="feriado" id="campo7tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">22/08</td>
+                <td class="feriado" id="campo8tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">23/08</td>
+                <td class="feriado" id="campo9tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">24/08</td>
+                <td class="feriado" id="campo10tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">25/08</td>
+                <td class="feriado" id="campo11tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">26/08</td>
+                <td class="feriado" id="campo12tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">27/08</td>
+                <td class="feriado" id="campo13tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">28/08</td>
+                <td class="feriado" id="campo14tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">29/08</td>
+                <td class="feriado" id="campo15tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">30/08</td>
+                <td class="feriado" id="campo16tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">31/08</td>
+                <td class="feriado" id="campo17tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">01/09</td>
+                <td class="feriado" id="campo18tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">02/09</td>
+                <td class="feriado" id="campo19tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">03/09</td>
+                <td class="feriado" id="campo20tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">04/09</td>
+                <td class="feriado" id="campo21tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">05/09</td>
+                <td class="feriado" id="campo22tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">06/09</td>
+                <td class="feriado" id="campo23tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">07/09</td>
+                <td class="feriado" id="campo24tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">08/09</td>
+                <td class="feriado" id="campo25tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">09/09</td>
+                <td class="feriado" id="campo26tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">10/09</td>
+                <td class="feriado" id="campo27tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">11/09</td>
+                <td class="feriado" id="campo28tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">12/09</td>
+                <td class="feriado" id="campo29tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">13/09</td>
+                <td class="feriado" id="campo30tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">14/09</td>
+                <td class="feriado" id="campo31tarde" style="font-size: smaller;width: 30px;padding: 0;text-align: center;margin: 0;background: rgb(255, 255, 255)">15/09</td>
+              </tr>
+        
+                 </tbody>
+                                <tfoot>
+                    <tr style="border: none; height: 18px;" class="bg-primary">
+                      <th scope="col" colspan="4"  ><img width="100" height="65px" style="position: relative;top: 50%;left: 30%;" src="/images/logospdm.jpg"></th>
+                      <th scope="col" colspan="8" style="text-align: center;">Uai Centro Oftamológico</th>
+                      <th scope="col" style="border: none;" colspan="12"> <img width="100" height="65px" style="position: relative;top: 50%;left: 30%;" src="/images/logoprefeitura.jpg"></th>
+                      <th scope="col" colspan="16" id="dataturno"  style="text-align: center;border: none;"  ></th>
+                    </tr>
+                    <tr style="border: none; height: 18px;" class="bg-primary">
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                      <th style="display: none;"></th>
+                    </tr>
+                    <tr  style="border: none; height: 18px;">
+                      <td colspan="40" style="text-align: center; font-size: 12px; background: darkblue; color: white;"> Escala de Folga Centro Oftamológico</td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;"></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                      <td style="background: rgb(255, 255, 255);  font-size: 12px;display: none;" ></td>
+                    </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                   <tr>
+                    <td colspan="40" style="background: rgb(255, 255, 255);  font-size: 12px;" ></td>
+                   </tr>
+                 </tfoot>
+          </table>
+          <br>
+          <br>
+         
+        </div>
+    </div>
+  <form id="add-row-form2" action="/validarescalaco" method="post">
+    <div class="modal fade" id="DescModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="myModalLabel">Validação de Escala</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                  aria-hidden="true">&times;</span></button>
+                      </div>
+                      <div class="modal-body">
+                       <div>
+                          <input  type="hidden" name="uni" id="uni">
+                          <input  type="hidden" name="idusuario1" id="idusuariomodal1">
+                          <div class="form-group">
+                            <label for="susfacil">Data Inicia Escala</label>
+                            <input type="text" name="datainicial" readonly=“true” class="form-control datainicial" >
+                         </div>
+                         <div class="form-group">
+                          <label for="susfacil">Data Final Escala</label>
+                          <input type="text" name="datafinal" readonly=“true” class="form-control datafinal" >
+                       </div>
+                       <div class="form-group">
+                        <label for="susfacil">Data Ano Escala</label>
+                        <input type="text" name="dataano" readonly=“true” class="form-control dataano" >
+                     </div>
+                     <div class="form-group">
+                      <label for="susfacil">Turno Escala</label>
+                      <input type="text" name="turno" readonly=“true” class="form-control turno" >
+                   </div>
+
+                   <div id="divrt" class="form-group">
+                    <div class="form-group">
+                      <label for="rt">Validação RT Unidade  </label>
+                        <label class="switch">
+                        <input id="rt" class="rt" type="checkbox">
+                        <span class="slider round"></span>
+                        </label>
+                        <input type="hidden" id="rt2" name="rt" class="form-control" >
+                              </div>
+                 </div>
+                  <div id="divsupervisao" class="form-group">
+                    <div class="form-group">
+                      <label for="supervisao">Validação Supervisao  </label>
+                        <label class="switch">
+                        <input id="supervisao" class="supervisao" type="checkbox">
+                        <span class="slider round"></span>
+                        </label>
+                        <input type="hidden" id="supervisao2" name="supervisao" class="form-control" >
+                              </div>
+                    </div>        
+                  <div id="divcida" class="form-group">
+                    <div class="form-group">
+                      <label for="cida">Validação Cida Gomes  </label>
+                         <label class="switch">
+                        <input id="cida" class="cida" type="checkbox">
+                        <span class="slider round"></span>
+                        </label>
+                        <input type="hidden" id="cida2" name="cida" class="form-control">
+                              </div>
+                   </div>
+                 </div>
+                         </div>
+         
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                          <button type="submit" class="btn btn-success">Atualizar</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+    </div>
+      </form>
+  <form id="add-row-form1" action="/criarescalaco" method="post">
+    <div class="modal fade" id="DescModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="myModalLabel">Criando nova escala de Atribuição</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                  aria-hidden="true">&times;</span></button>
+                      </div>
+                      <div class="modal-body">
+                       <div>
+                          <input  type="hidden" name="campo" id="campo">
+                          <input  type="hidden" name="idusuario" id="idusuariomodal">
+                          <div class="form-group">
+                            <label for="susfacil">Escala</label>
+                            <select  class="form-control" id="selectturno" name="selectturno">
+                               <option value="" disabled selected hidden>Selecione a Escala</option>
+                               <option value="Enfermagem">Enfermagem</option>
+                               <option value="Multi">Multi</option>
+                            </select>
+                           </div>
+                            <input type="hidden" readonly=“true”  id="turno" name="turno" class="form-control" >
+                         </div>
+                          <div class="form-group">
+                             <label for="susfacil">Mês Inicial</label>
+                             <select  class="form-control" id="selectdateinicial" name="selectdateinicial">
+                                <option value="" disabled selected hidden>Selecione o Mês Inicial</option>
+                                <option value="Janeiro">Janeiro</option>
+                                <option value="Fevereiro">Fevereiro</option>
+                                <option value="Março">Março</option>
+                                <option value="Abril">Abril</option>
+                                <option value="Maio">Maio</option>
+                                <option value="Junho">Junho</option>
+                                <option value="Julho">Julho</option>
+                                <option value="Agosto">Agosto</option>
+                                <option value="Setembro">Setembro</option>
+                                <option value="Outubro">Outubro</option>
+                                <option value="Novembro">Novembro</option>
+                                <option value="Dezembro">Dezembro</option>
+                             </select>
+                            </div>
+                             <input type="hidden" id="dateinicial" name="dateinicial" class="form-control" >
+        
+                          <div class="form-group">
+                            <label for="susfacil">Mês Final</label>
+                            <select  class="form-control" id="selectdatefinal" name="selectdatefinal">
+                               <option value="" disabled selected hidden>Selecione o Mês Inicial</option>
+                               <option value="Janeiro">Janeiro</option>
+                               <option value="Fevereiro">Fevereiro</option>
+                               <option value="Março">Março</option>
+                               <option value="Abril">Abril</option>
+                               <option value="Maio">Maio</option>
+                               <option value="Junho">Junho</option>
+                               <option value="Julho">Julho</option>
+                               <option value="Agosto">Agosto</option>
+                               <option value="Setembro">Setembro</option>
+                               <option value="Outubro">Outubro</option>
+                               <option value="Novembro">Novembro</option>
+                               <option value="Dezembro">Dezembro</option>
+                            </select>
+                           </div>
+                            <input type="hidden" id="datefinal" name="datefinal" class="form-control" >
+                         </div>
+         
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                          <button type="submit" class="btn btn-success">Atualizar</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+    </div>
+      </form>
+      <form id="add-row-form2" action="/updateferiasco" method="post">
+        <div class="modal fade" id="DescModalsituacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title" id="myModalLabel">Alterando Status Colaborador</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                      aria-hidden="true">&times;</span></button>
+                          </div>
+                          <div class="modal-body">
+                           <div>
+                              <input  type="hidden" name="campo" class="id">
+                              <input  type="hidden" name="idusuario" class="idusuario">
+                              <h4 class="nome"></h4>
+                              <div class="form-group">
+                                <label for="susfacil">Situação</label>
+                                <select  class="form-control" id="selecsituacao" name="selecsituacao">
+                                   <option value="" disabled selected hidden>Selecione a Situação do Colaborador</option>
+                                   <option value="Cobertura de Gestação/Licença Maternidade">Cobertura de Gestação/Licença Maternidade</option>
+                                   <option value="Férias">Férias</option>
+                                   <option value="Afastamento Pericia Medica">Afastamento Pericia Medica</option>
+                                </select>
+                               </div>
+                                <input type="hidden" readonly=“true”  id="inputsituacao" name="inputsituacao" class="form-control" >
+                             </div>
+                              <div class="form-group">
+                                 <label for="susfacil">Dia Inicial</label>
+                                 <input type="text" id="dateinicialsituacao" name="dateinicialsituacao" class="form-control" >
+            
+                              <div class="form-group">
+                                <label for="susfacil">Dia Final</label>
+                                <input type="text" id="datefinalsituacao" name="datefinalsituacao" class="form-control" >
+                             </div>
+             
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                              <button type="submit" class="btn btn-success">Atualizar</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+        </div>
+          </form>
+  <% } %> 
+  <% } %>
+ <%- include('../home/footer'); %> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/canvas2image@1.0.5/canvas2image.min.js"></script>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
+
+  
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+
+function IsEmpty() {
+var datamanha =document.getElementById("inputdateinicial").value;
+var datatarde =document.getElementById("inputdateinicialtarde").value;
+var datamanhafinal =document.getElementById("inputdatefinal").value;
+var datatardefinal =document.getElementById("inputdatefinaltarde").value;
+var datamanhaano =document.getElementById("inputano").value;
+var datatardeano =document.getElementById("inputanotarde").value;
+
+if (datamanha != "" ) {
+  document.getElementById("inputdateinicial").value = "";
+  document.getElementById("inputdatefinal").value= "";
+  document.getElementById("inputano").value= "";
+  document.getElementById("pesquisadateinicial").value= "";
+  document.getElementById("pesquisadatefinal").value= "";
+  document.getElementById("pesquisaano").value= "";
+  var d = document.getElementsByClassName("reservas");
+  while (d.length)   d[0].parentElement.removeChild(d[0]);
+  $('.rt').prop('checked', false);
+  $('.supervisao').prop('checked', false);
+  $('.cida').prop('checked', false);
+   document.getElementById('tablemanha').style.display = 'none'
+   
+  
+}
+else if(datatarde != "" ){
+  document.getElementById("inputdateinicialtarde").value = "";
+  document.getElementById("inputdatefinaltarde").value= "";
+  document.getElementById("inputanotarde").value= "";
+  document.getElementById("pesquisadateinicialtarde").value= "";
+  document.getElementById("pesquisadatefinaltarde").value= "";
+  document.getElementById("pesquisaanotarde").value= "";
+  var dtarde = document.getElementsByClassName("reservastarde");
+  while (dtarde.length)   dtarde[0].parentElement.removeChild(dtarde[0]);
+  $('.rt').prop('checked', false);
+  $('.supervisao').prop('checked', false);
+  $('.cida').prop('checked', false);
+   document.getElementById('tabletarde').style.display = 'none'
+}
+}
+  $('#tablemanha').on('dblclick', 'tr', function () {
+        var id = "";
+        var nome = "";
+        var idusuario = "";
+        
+        var tableData = $(this).children("td").map(function()         {
+         return $(this).text();
+         }).get();
+         idusuario = document.getElementById('idusuario').value;
+         id =$.trim(tableData[0]);
+         nome =$.trim(tableData[3]);
+         $('h4.nome').text(nome);
+         $('input.id').val(id);
+         $('input.idusuario').val(idusuario);
+        $('#DescModalsituacao').modal("show");
+    });
+  $(function () {
+    $('#tablemanha').on('click', 'td.editavel', function () {
+      
+        var conteudoOriginal = $(this).text();
+        
+        $(this).addClass("celulaEmEdicao");
+        $(this).html("<input type='text'   value='" + conteudoOriginal + "' size='1' />");
+        $(this).children().first().focus();
+
+        $(this).children().first().keypress(function (e) {
+            if (e.which == 13) {
+                var novoConteudo = $(this).val();
+                var coluna = $(this).closest("td").index();
+                
+                var objTr = $(this).parent('td').parent('tr');
+                var idfinal= objTr.find('td:eq(0)').text();
+                var idusuario = document.getElementById("idusuario").value;
+                objeto = [];
+
+                
+                $.ajax({
+                  type: "GET",
+                  data: {novoConteudo, idfinal, coluna, idusuario },
+                  contentType: 'application/json',
+                  url: '/updateescalaco',
+                  success: function(objeto) {  
+                    
+                    
+                  }
+                });
+                $(this).parent().text(novoConteudo);
+                $(this).parent().removeClass("celulaEmEdicao");
+
+            }
+        });
+
+	$(this).children().first().blur(function(){
+		$(this).parent().text(conteudoOriginal);
+		$(this).parent().removeClass("celulaEmEdicao");
+	});
+    });
+});
+$('#tabletarde').on('dblclick', 'tr', function () {
+        var idtarde = "";
+        var nometarde = "";
+        var idusuariotarde = "";
+        
+        var tableDatatarde = $(this).children("td").map(function()         {
+         return $(this).text();
+         }).get();
+         idusuariotarde = document.getElementById('idusuario').value;
+         idtarde =$.trim(tableDatatarde[0]);
+         nometarde =$.trim(tableDatatarde[3]);
+         $('h4.nome').text(nometarde);
+         $('input.id').val(idtarde);
+         $('input.idusuario').val(idusuariotarde);
+        $('#DescModalsituacao').modal("show");
+    });
+  $(function () {
+    $('#tabletarde').on('click', 'td.editavel', function () {
+      
+        var conteudoOriginaltarde = $(this).text();
+        
+        $(this).addClass("celulaEmEdicao");
+        $(this).html("<input type='text'   value='" + conteudoOriginaltarde + "' size='1' />");
+        $(this).children().first().focus();
+
+        $(this).children().first().keypress(function (e) {
+            if (e.which == 13) {
+                var novoConteudotarde = $(this).val();
+                var colunatarde = $(this).closest("td").index();
+                var objTr = $(this).parent('td').parent('tr');
+                var idfinaltarde= objTr.find('td:eq(0)').text();
+                var idusuariotarde = document.getElementById("idusuario").value;
+                objetotarde = [];
+
+                $.ajax({
+                  type: "GET",
+                  data: {novoConteudotarde, idfinaltarde, colunatarde, idusuariotarde },
+                  contentType: 'application/json',
+                  url: '/updateescalacotarde',
+                  success: function(objetotarde) {  
+                    
+                    
+                  }
+                });
+                $(this).parent().text(novoConteudotarde);
+                $(this).parent().removeClass("celulaEmEdicao");
+
+            }
+        });
+
+	$(this).children().first().blur(function(){
+		$(this).parent().text(conteudoOriginaltarde);
+		$(this).parent().removeClass("celulaEmEdicao");
+	});
+    });
+});
+
+function setaDadosModal(valor) {
+
+document.getElementById('campo').value = valor;
+}
+function setaDadosModal2(valor) {
+
+document.getElementById('idusuariomodal').value = valor;
+}
+
+function setaDadosModal3(valor) {
+
+document.getElementById('uni').value = valor;
+}
+function setaDadosModal4(valor) {
+
+document.getElementById('idusuariomodal1').value = valor;
+}
+
+$('#dateinicialsituacao').mask('00/00/0000');
+$('#datefinalsituacao').mask('00/00/0000');
+
+$("#selecsituacao").on('change', function(e){
+     var selecsituacao = $(this).val();
+     document.getElementById('inputsituacao').value = selecsituacao;
+});
+
+$("#selectdateinicial").on('change', function(e){
+  if($(this).val() == "Janeiro"){
+      var option = '<option value="Fevereiro">Fevereiro</option>';
+      var inputdatefinal = "Fevereiro";
+      document.getElementById('datefinal').value = inputdatefinal;
+      $('#selectdatefinal').html(option).show();
+    }
+    if($(this).val() == "Fevereiro"){
+      var option = '<option value="Março">Março</option>';
+      var inputdatefinal = "Março";
+      document.getElementById('datefinal').value = inputdatefinal;
+      $('#selectdatefinal').html(option).show();
+    }
+    if($(this).val() == "Março"){
+      var option = '<option value="Abril">Abril</option>';
+      var inputdatefinal = "Abril";
+      document.getElementById('datefinal').value = inputdatefinal;
+      $('#selectdatefinal').html(option).show();
+    }
+    if($(this).val() == "Abril"){
+      var option = '<option value="Maio">Maio</option>';
+      var inputdatefinal = "Maio";
+      document.getElementById('datefinal').value = inputdatefinal;
+      $('#selectdatefinal').html(option).show();
+    }
+    if($(this).val() == "Maio"){
+      var option = '<option value="Junho">Junho</option>';
+      var inputdatefinal = "Junho";
+      document.getElementById('datefinal').value = inputdatefinal;
+      $('#selectdatefinal').html(option).show();
+    }
+    if($(this).val() == "Junho"){
+      var option = '<option value="Julho">Julho</option>';
+      var inputdatefinal = "Julho";
+      document.getElementById('datefinal').value = inputdatefinal;
+      $('#selectdatefinal').html(option).show();
+    }
+    if($(this).val() == "Julho"){
+      var option = '<option value="Agosto">Agosto</option>';
+      var inputdatefinal = "Agosto";
+      document.getElementById('datefinal').value = inputdatefinal;
+      $('#selectdatefinal').html(option).show();
+    }
+    if($(this).val() == "Agosto"){
+      var option = '<option value="Setembro">Setembro</option>';
+      var inputdatefinal = "Setembro";
+      document.getElementById('datefinal').value = inputdatefinal;
+      $('#selectdatefinal').html(option).show();
+    }
+    if($(this).val() == "Setembro"){
+      var option = '<option value="Outubro">Outubro</option>';
+      var inputdatefinal = "Outubro";
+      document.getElementById('datefinal').value = inputdatefinal;
+      $('#selectdatefinal').html(option).show();
+    }
+    if($(this).val() == "Outubro"){
+      var option = '<option value="Novembro">Novembro</option>';
+      var inputdatefinal = "Novembro";
+      document.getElementById('datefinal').value = inputdatefinal;
+      $('#selectdatefinal').html(option).show();
+    }
+    if($(this).val() == "Novembro"){
+      var option = '<option value="Dezembro">Dezembro</option>';
+      var inputdatefinal = "Dezembro";
+      document.getElementById('datefinal').value = inputdatefinal;
+      $('#selectdatefinal').html(option).show();
+    }
+    if($(this).val() == "Dezembro"){
+      var option = '<option value="Janeiro">Janeiro</option>';
+      var inputdatefinal = "Janeiro";
+      document.getElementById('datefinal').value = inputdatefinal;
+      $('#selectdatefinal').html(option).show();
+    }
+     var dateinicial = $(this).val();
+     document.getElementById('dateinicial').value = dateinicial;
+});
+
+$("#selectdatefinal").on('change', function(e){
+     var datefinal = $(this).val();
+     document.getElementById('datefinal').value = datefinal;
+});
+
+$("#selectturno").on('change', function(e){
+     var turno = $(this).val();
+     document.getElementById('turno').value = turno;
+});
+$("#pesquisadateinicial").on('change', function(e){
+  document.getElementById("pesquisarmanha").disabled = false;
+  var d = document.getElementsByClassName("reservas");
+  while (d.length)   d[0].parentElement.removeChild(d[0]);
+    if($(this).val() == "Janeiro"){
+      var option = '<option value="Fevereiro">Fevereiro</option>';
+      var inputdatefinal = "Fevereiro";
+      document.getElementById('inputdatefinal').value = inputdatefinal;
+      $('#pesquisadatefinal').html(option).show();
+    }
+    if($(this).val() == "Fevereiro"){
+      var option = '<option value="Março">Março</option>';
+      var inputdatefinal = "Março";
+      document.getElementById('inputdatefinal').value = inputdatefinal;
+      $('#pesquisadatefinal').html(option).show();
+    }
+    if($(this).val() == "Março"){
+      var option = '<option value="Abril">Abril</option>';
+      var inputdatefinal = "Abril";
+      document.getElementById('inputdatefinal').value = inputdatefinal;
+      $('#pesquisadatefinal').html(option).show();
+    }
+    if($(this).val() == "Abril"){
+      var option = '<option value="Maio">Maio</option>';
+      var inputdatefinal = "Maio";
+      document.getElementById('inputdatefinal').value = inputdatefinal;
+      $('#pesquisadatefinal').html(option).show();
+    }
+    if($(this).val() == "Maio"){
+      var option = '<option value="Junho">Junho</option>';
+      var inputdatefinal = "Junho";
+      document.getElementById('inputdatefinal').value = inputdatefinal;
+      $('#pesquisadatefinal').html(option).show();
+    }
+    if($(this).val() == "Junho"){
+      var option = '<option value="Julho">Julho</option>';
+      var inputdatefinal = "Julho";
+      document.getElementById('inputdatefinal').value = inputdatefinal;
+      $('#pesquisadatefinal').html(option).show();
+    }
+    if($(this).val() == "Julho"){
+      var option = '<option value="Agosto">Agosto</option>';
+      var inputdatefinal = "Agosto";
+      document.getElementById('inputdatefinal').value = inputdatefinal;
+      $('#pesquisadatefinal').html(option).show();
+    }
+    if($(this).val() == "Agosto"){
+      var option = '<option value="Setembro">Setembro</option>';
+      var inputdatefinal = "Setembro";
+      document.getElementById('inputdatefinal').value = inputdatefinal;
+      $('#pesquisadatefinal').html(option).show();
+    }
+    if($(this).val() == "Setembro"){
+      var option = '<option value="Outubro">Outubro</option>';
+      var inputdatefinal = "Outubro";
+      document.getElementById('inputdatefinal').value = inputdatefinal;
+      $('#pesquisadatefinal').html(option).show();
+    }
+    if($(this).val() == "Outubro"){
+      var option = '<option value="Novembro">Novembro</option>';
+      var inputdatefinal = "Novembro";
+      document.getElementById('inputdatefinal').value = inputdatefinal;
+      $('#pesquisadatefinal').html(option).show();
+    }
+    if($(this).val() == "Novembro"){
+      var option = '<option value="Dezembro">Dezembro</option>';
+      var inputdatefinal = "Dezembro";
+      document.getElementById('inputdatefinal').value = inputdatefinal;
+      $('#pesquisadatefinal').html(option).show();
+    }
+    if($(this).val() == "Dezembro"){
+      var option = '<option value="Janeiro">Janeiro</option>';
+      var inputdatefinal = "Janeiro";
+      document.getElementById('inputdatefinal').value = inputdatefinal;
+      $('#pesquisadatefinal').html(option).show();
+    }
+     var inputdateinicial = $(this).val();
+     document.getElementById('inputdateinicial').value = inputdateinicial;
+     descolorirTable();
+     document.getElementById('tablemanha').style.display = 'none'
+});
+$("#pesquisaano").on('change', function(e){
+     var inputano = $(this).val();
+     document.getElementById('inputano').value = inputano;
+});
+$("#pesquisadateinicialtarde").on('change', function(e){
+  document.getElementById("pesquisartarde").disabled = false;
+  var d = document.getElementsByClassName("reservas");
+  while (d.length)   d[0].parentElement.removeChild(d[0]);
+  if($(this).val() == "Janeiro"){
+      var option = '<option value="Fevereiro">Fevereiro</option>';
+      var inputdatefinaltarde = "Fevereiro";
+      document.getElementById('inputdatefinaltarde').value = inputdatefinaltarde;
+      $('#pesquisadatefinaltarde').html(option).show();
+    }
+    if($(this).val() == "Fevereiro"){
+      var option = '<option value="Março">Março</option>';
+      var inputdatefinaltarde = "Março";
+      document.getElementById('inputdatefinaltarde').value = inputdatefinaltarde;
+      $('#pesquisadatefinaltarde').html(option).show();
+    }
+    if($(this).val() == "Março"){
+      var option = '<option value="Abril">Abril</option>';
+      var inputdatefinaltarde = "Abril";
+      document.getElementById('inputdatefinaltarde').value = inputdatefinaltarde;
+      $('#pesquisadatefinaltarde').html(option).show();
+    }
+    if($(this).val() == "Abril"){
+      var option = '<option value="Maio">Maio</option>';
+      var inputdatefinaltarde = "Maio";
+      document.getElementById('inputdatefinaltarde').value = inputdatefinaltarde;
+      $('#pesquisadatefinaltarde').html(option).show();
+    }
+    if($(this).val() == "Maio"){
+      var option = '<option value="Junho">Junho</option>';
+      var inputdatefinaltarde = "Junho";
+      document.getElementById('inputdatefinaltarde').value = inputdatefinaltarde;
+      $('#pesquisadatefinaltarde').html(option).show();
+    }
+    if($(this).val() == "Junho"){
+      var option = '<option value="Julho">Julho</option>';
+      var inputdatefinaltarde = "Julho";
+      document.getElementById('inputdatefinaltarde').value = inputdatefinaltarde;
+      $('#pesquisadatefinaltarde').html(option).show();
+    }
+    if($(this).val() == "Julho"){
+      var option = '<option value="Agosto">Agosto</option>';
+      var inputdatefinaltarde = "Agosto";
+      document.getElementById('inputdatefinaltarde').value = inputdatefinaltarde;
+      $('#pesquisadatefinaltarde').html(option).show();
+    }
+    if($(this).val() == "Agosto"){
+      var option = '<option value="Setembro">Setembro</option>';
+      var inputdatefinaltarde = "Setembro";
+      document.getElementById('inputdatefinaltarde').value = inputdatefinaltarde;
+      $('#pesquisadatefinaltarde').html(option).show();
+    }
+    if($(this).val() == "Setembro"){
+      var option = '<option value="Outubro">Outubro</option>';
+      var inputdatefinaltarde = "Outubro";
+      document.getElementById('inputdatefinaltarde').value = inputdatefinaltarde;
+      $('#pesquisadatefinaltarde').html(option).show();
+    }
+    if($(this).val() == "Outubro"){
+      var option = '<option value="Novembro">Novembro</option>';
+      var inputdatefinaltarde = "Novembro";
+      document.getElementById('inputdatefinaltarde').value = inputdatefinaltarde;
+      $('#pesquisadatefinaltarde').html(option).show();
+    }
+    if($(this).val() == "Novembro"){
+      var option = '<option value="Dezembro">Dezembro</option>';
+      var inputdatefinaltarde = "Dezembro";
+      document.getElementById('inputdatefinaltarde').value = inputdatefinaltarde;
+      $('#pesquisadatefinaltarde').html(option).show();
+    }
+    if($(this).val() == "Dezembro"){
+      var option = '<option value="Janeiro">Janeiro</option>';
+      var inputdatefinaltarde = "Janeiro";
+      document.getElementById('inputdatefinaltarde').value = inputdatefinaltarde;
+      $('#pesquisadatefinaltarde').html(option).show();
+    }
+     var inputdateinicialtarde = $(this).val();
+     document.getElementById('inputdateinicialtarde').value = inputdateinicialtarde;
+     descolorirTable();
+     document.getElementById('tabletarde').style.display = 'none'
+});
+$("#pesquisaanotarde").on('change', function(e){
+     var inputanotarde = $(this).val();
+     document.getElementById('inputanotarde').value = inputanotarde;
+});
+
+
+$( "#target" ).click(function() {
+  $('#DescModal').modal("show");
+});
+
+$( "#target1" ).click(function() {
+  var nome = document.getElementById("idnome").value;
+if(nome  == "rt"){
+  document.getElementById("divrt").style.display = 'block';
+}
+else{
+  document.getElementById("divrt").style.display = 'none';
+}
+if(nome  == "supervisao"){
+  document.getElementById("divsupervisao").style.display = 'block';
+}
+else{
+  document.getElementById("divsupervisao").style.display = 'none';
+}
+if(nome  == "cida"){
+  document.getElementById("divcida").style.display = 'block';
+}
+else{
+  document.getElementById("divcida").style.display = 'none';
+}
+if(nome  == "Administrador"){
+  document.getElementById("divcida").style.display = 'block';
+  document.getElementById("divrt").style.display = 'block';
+  document.getElementById("divsupervisao").style.display = 'block';
+}
+
+  var datamanha =document.getElementById("inputdateinicial").value;
+var datatarde =document.getElementById("inputdateinicialtarde").value;
+var datamanhafinal =document.getElementById("inputdatefinal").value;
+var datatardefinal =document.getElementById("inputdatefinaltarde").value;
+var datamanhaano =document.getElementById("inputano").value;
+var datatardeano =document.getElementById("inputanotarde").value;
+var turnomanha = document.getElementById("turnomanha").value;
+var turnotarde = document.getElementById("turnotarde").value;
+
+if (datamanha != "" ) {
+  $('input.datainicial').val(datamanha);
+  $('input.datafinal').val(datamanhafinal);
+  $('input.dataano').val(datamanhaano);
+  $('input.turno').val(turnomanha);
+}
+else if(datatarde != "" ){
+  $('input.datainicial').val(datatarde);
+  $('input.datafinal').val(datatardefinal);
+  $('input.dataano').val(datatardeano);
+  $('input.turno').val(turnotarde);
+}
+  $('#DescModal2').modal("show");
+});
+
+$( "#target2" ).click(function() {
+  var nome = document.getElementById("idnome").value;
+if(nome  == "rt"){
+  document.getElementById("divrt").style.display = 'block';
+}
+else{
+  document.getElementById("divrt").style.display = 'none';
+}
+if(nome  == "supervisao"){
+  document.getElementById("divsupervisao").style.display = 'block';
+}
+else{
+  document.getElementById("divsupervisao").style.display = 'none';
+}
+if(nome  == "cida"){
+  document.getElementById("divcida").style.display = 'block';
+}
+else{
+  document.getElementById("divcida").style.display = 'none';
+}
+if(nome  == "Administrador"){
+  document.getElementById("divcida").style.display = 'block';
+  document.getElementById("divrt").style.display = 'block';
+  document.getElementById("divsupervisao").style.display = 'block';
+}
+
+  var datamanha =document.getElementById("inputdateinicial").value;
+var datatarde =document.getElementById("inputdateinicialtarde").value;
+var datamanhafinal =document.getElementById("inputdatefinal").value;
+var datatardefinal =document.getElementById("inputdatefinaltarde").value;
+var datamanhaano =document.getElementById("inputano").value;
+var datatardeano =document.getElementById("inputanotarde").value;
+var turnomanha = document.getElementById("turnomanha").value;
+var turnotarde = document.getElementById("turnotarde").value;
+
+if (datamanha != "" ) {
+  $('input.datainicial').val(datamanha);
+  $('input.datafinal').val(datamanhafinal);
+  $('input.dataano').val(datamanhaano);
+  $('input.turno').val(turnomanha);
+}
+else if(datatarde != "" ){
+  $('input.datainicial').val(datatarde);
+  $('input.datafinal').val(datatardefinal);
+  $('input.dataano').val(datatardeano);
+  $('input.turno').val(turnotarde);
+}
+  $('#DescModal2').modal("show");
+});
+
+
+$("#rt").on('change', function(e){
+  if ($(this).is(':checked')) {
+    	$(this).attr('value', 'true');
+	}
+	else {
+		$(this).attr('value', 'false');
+	}
+     var rt = $(this).val();
+     document.getElementById('rt2').value = rt;
+});
+$("#supervisao").on('change', function(e){
+  if ($(this).is(':checked')) {
+    	$(this).attr('value', 'true');
+	}
+	else {
+		$(this).attr('value', 'false');
+	}
+     var supervisao = $(this).val();
+     document.getElementById('supervisao2').value = supervisao;
+});
+$("#cida").on('change', function(e){
+  if ($(this).is(':checked')) {
+    	$(this).attr('value', 'true');
+	}
+	else {
+		$(this).attr('value', 'false');
+	}
+     var cida = $(this).val();
+
+     document.getElementById('cida2').value = cida;
+});
+    function colorirTable(numero){
+    $('#tablemanha tbody tr').each(function(i){
+      $('tr').find('td:eq('+numero+')').addClass('tabelasemana');             
+    });
+    }
+    function descolorirTable(){
+      $('#tablemanha tbody tr').each(function(i){
+        $('tr').find('td').removeClass('tabelasemana');   
+        $('tr').find('td').removeClass('sumirtd');         
+      });
+    }
+    function colorirTabletarde(numero){
+      $('#tabletarde tbody tr').each(function(i){
+        $('tr').find('td:eq('+numero+')').addClass('tabelasemana');             
+      });
+    }
+    function descolorirTabletarde(){
+      $('#tabletarde tbody tr').each(function(i){
+        $('tr').find('td').removeClass('tabelasemana');   
+        $('tr').find('td').removeClass('sumirtd');         
+      });
+    }
+
+
+window.onload = function() {
+   document.getElementById('tablemanha').style.display = 'none'
+   document.getElementById('tabletarde').style.display = 'none'
+   document.getElementById('divrt').style.display = 'none'
+   document.getElementById('divsupervisao').style.display = 'none'
+   document.getElementById('divcida').style.display = 'none'
+   document.getElementById("target1").disabled = true;
+   document.getElementById("target2").disabled = true;
+
+}
+
+$("#pesquisarmanha").on('click', function(e){
+    var datainicial = document.getElementById("inputdateinicial").value;
+    var datafinal = document.getElementById("inputdatefinal").value;
+    if(datainicial == "" || datafinal == ""){
+       alert("Digite uma data")
+    }
+    else{
+      document.getElementById("target1").disabled = false;
+      document.getElementById("pesquisarmanha").disabled = true;
+      var turno = document.getElementById("turnomanha").value;
+    var unidade = document.getElementById("unidademanha").value;
+    var ano = document.getElementById("inputano").value;
+    document.getElementById("dataturno").innerHTML=datainicial+ '/' + datafinal + " " + turno + " " + ano ;
+    data = [];
+      $.ajax({
+          type: "GET",
+          data: {datainicial, datafinal,  turno, unidade },
+          contentType: 'application/json',
+          url: '/buscarescalamensalco',
+          success: function(data) {  
+            if(data == ""){
+              alert("Data sem escala adicionada")
+            }
+            else{
+              if(data[0].rt == 'true'){
+                $('.rt').prop('checked', true);
+                $("#rt").attr('value', 'true');
+                var rt = $("#rt").val();
+                document.getElementById('rt2').value = rt;
+              }
+              else{
+                $("#rt").attr('value', 'false');
+                var rt = $("#rt").val();
+                document.getElementById('rt2').value = rt;
+              }
+              if(data[0].supervisao == 'true'){
+                $('.supervisao').prop('checked', true);
+                $("#supervisao").attr('value', 'true');
+                var supervisao = $("#supervisao").val();
+                document.getElementById('supervisao2').value = supervisao;
+              }
+              else{
+                $("#supervisao").attr('value', 'false');
+                var supervisao = $("#supervisao").val();
+                document.getElementById('supervisao2').value = supervisao;
+              }
+              if(data[0].cida== 'true'){
+                $('.cida').prop('checked', true);
+                $("#cida").attr('value', 'true');
+                $("#tablemanha").off("click");
+                $("#tablemanha").off("dblclick");
+                var cida = $("#cida").val();
+                document.getElementById('cida2').value = cida;
+              }
+              else{
+                $("#cida").attr('value', 'false');
+                var cida = $("#cida").val();
+                document.getElementById('cida2').value = cida;
+              }
+              if(datainicial == "Janeiro"){
+                  var mesinicial = '01'
+              }else if(datainicial == "Fevereiro"){
+                  var mesinicial = '02'
+              }else if(datainicial == "Março"){
+                  var mesinicial = '03'
+              }else if(datainicial == "Abril"){
+                  var mesinicial = '04'
+              }else if(datainicial == "Maio"){
+                  var mesinicial = '05'
+              }else if(datainicial == "Junho"){
+                  var mesinicial = '06'
+              }else if(datainicial == "Julho"){
+                  var mesinicial = '07'
+              }else if(datainicial == "Agosto"){
+                  var mesinicial = '08'
+              }else if(datainicial == "Setembro"){
+                  var mesinicial = '09'
+              }else if(datainicial == "Outubro"){
+                  var mesinicial = '10'
+              }else if(datainicial == "Novembro"){
+                  var mesinicial = '11'
+              }else if(datainicial == "Dezembro"){
+                  var mesinicial = '12'
+              }
+              if(datafinal == "Janeiro"){
+                  var mesfinal = '01'
+              }else if(datafinal == "Fevereiro"){
+                  var mesfinal = '02'
+              }else if(datafinal == "Março"){
+                  var mesfinal = '03'
+              }else if(datafinal == "Abril"){
+                  var mesfinal = '04'
+              }else if(datafinal == "Maio"){
+                  var mesfinal = '05'
+              }else if(datafinal == "Junho"){
+                  var mesfinal = '06'
+              }else if(datafinal == "Julho"){
+                  var mesfinal = '07'
+              }else if(datafinal == "Agosto"){
+                  var mesfinal = '08'
+              }else if(datafinal == "Setembro"){
+                  var mesfinal = '09'
+              }else if(datafinal == "Outubro"){
+                  var mesfinal = '10'
+              }else if(datafinal == "Novembro"){
+                  var mesfinal = '11'
+              }else if(datafinal == "Dezembro"){
+                  var mesfinal = '12'
+              }
+
+              document.getElementById("campo1").innerHTML= "16/" + mesinicial;
+              document.getElementById("campo2").innerHTML= "17/" + mesinicial;
+              document.getElementById("campo3").innerHTML= "18/" + mesinicial;
+              document.getElementById("campo4").innerHTML= "19/" + mesinicial;
+              document.getElementById("campo5").innerHTML= "20/" + mesinicial;
+              document.getElementById("campo6").innerHTML= "21/" + mesinicial;
+              document.getElementById("campo7").innerHTML= "22/" + mesinicial;
+              document.getElementById("campo8").innerHTML= "23/" + mesinicial;
+              document.getElementById("campo9").innerHTML= "24/" + mesinicial;
+              document.getElementById("campo10").innerHTML= "25/" + mesinicial;
+              document.getElementById("campo11").innerHTML= "26/" + mesinicial;
+              document.getElementById("campo12").innerHTML= "27/" + mesinicial;
+              document.getElementById("campo13").innerHTML= "28/" + mesinicial;
+              document.getElementById("campo14").innerHTML= "29/" + mesinicial;
+              document.getElementById("campo15").innerHTML= "30/" + mesinicial;
+              document.getElementById("campo16").innerHTML= "31/" + mesinicial;
+              document.getElementById("campo17").innerHTML= "01/" + mesfinal;
+              document.getElementById("campo18").innerHTML= "02/" + mesfinal;
+              document.getElementById("campo19").innerHTML= "03/" + mesfinal;
+              document.getElementById("campo20").innerHTML= "04/" + mesfinal;
+              document.getElementById("campo21").innerHTML= "05/" + mesfinal;
+              document.getElementById("campo22").innerHTML= "06/" + mesfinal;
+              document.getElementById("campo23").innerHTML= "07/" + mesfinal;
+              document.getElementById("campo24").innerHTML= "08/" + mesfinal;
+              document.getElementById("campo25").innerHTML= "09/" + mesfinal;
+              document.getElementById("campo26").innerHTML= "10/" + mesfinal;
+              document.getElementById("campo27").innerHTML= "11/" + mesfinal;
+              document.getElementById("campo28").innerHTML= "12/" + mesfinal;
+              document.getElementById("campo29").innerHTML= "13/" + mesfinal;
+              document.getElementById("campo30").innerHTML= "14/" + mesfinal;
+              document.getElementById("campo31").innerHTML= "15/" + mesfinal;
+              
+              document.getElementById('tablemanha').style.display = 'table'
+            }
+            obj =[];
+    $.ajax({
+        type: "GET",
+        data: obj,
+        contentType: 'application/json',
+        url: '/burcarferiado',
+        success: function(obj) {  
+          $('#tablemanha tbody tr:eq(1)').each(function(i){
+            tr=$(this);
+            var objeto = JSON.parse(obj);
+              for(var i=0; i< objeto.length; i++ ){
+                 var feriado = 0;
+                 feriado = objeto[i].dias;
+                 var j = 9;
+                 var colunas = document.getElementById('tablemanha').rows[2].cells.length;
+                
+                 var valor = 0;
+                for(j ; j< colunas ; j++){
+                  valor=tr.children('td:eq('+j+')').html();
+                  var coluna = j;
+                  if(feriado == valor){
+                  colorirTable(coluna)
+                  }
+                } 
+                if (ano%400 == 0 || ano%4==0 && ano%100!=0){
+                    var calcular_bissexto="É bissexto";
+                }
+                else{
+                    var calcular_bissexto="Não é bissexto";
+                }
+                var a = 9;
+                for(a ; a< colunas ; a++){
+                  valor=tr.children('td:eq('+a+')').html();
+
+                  if(valor === '29/02'){
+                    // $('table tbody tr').find('td:eq(21)').style='visibility: hidden';  
+                    $('table tbody tr').find('td:eq(22)').addClass('sumirtd');      
+                  }
+                  if(valor === '30/02'){
+                    $('table tbody tr').find('td:eq(23)').addClass('sumirtd');    
+                  }
+                  if(valor === '31/02'){
+                    $('table tbody tr').find('td:eq(24)').addClass('sumirtd');  
+                  }
+                } 
+                var b =7;
+                for(b ; b< colunas ; b++){
+                  valor=tr.children('td:eq('+b+')').html();
+                  if(datainicial == "Abril" && valor === '31/04'){
+                    $('table tbody tr').find('td:eq(24)').addClass('sumirtd');  
+                  }
+                  if(datainicial == "Junho" && valor === '31/06'){
+                    $('table tbody tr').find('td:eq(24)').addClass('sumirtd'); 
+                  }
+                  if(datainicial == "Setembro" && valor === '31/09'){
+                    $('table tbody tr').find('td:eq(24)').addClass('sumirtd'); 
+                  }
+                  if(datainicial == "Novembro" && valor === '31/11'){
+                    $('table tbody tr').find('td:eq(24)').addClass('sumirtd'); 
+                  }
+                  
+                } 
+                
+              }   
+          });
+        }
+    });
+    $('#tablemanha tbody tr:eq(1)').each(function(i){
+      tr=$(this);
+      var colunas = document.getElementById('tablemanha').rows[2].cells.length;
+      
+      var valor = 0;
+      var j = 9;
+      for(j ; j< colunas ; j++){
+        valor=tr.children('td:eq('+j+')').html();
+        var coluna = j; 
+        var Minha_data = 0;
+        Minha_data = moment(valor, "DD-MM").format('dddd');
+      
+        if(Minha_data == "Saturday" || Minha_data == "Sunday"){
+       
+              colorirTable(coluna)
+        }
+      } 
+    });
+        }
+    })
+    
+    
+    }
+  });
+
+$("#pesquisartarde").on('click', function(e){
+    var datainicialtarde = document.getElementById("inputdateinicialtarde").value;
+    var datafinaltarde = document.getElementById("inputdatefinaltarde").value;
+    console.log(datainicialtarde, datafinaltarde)
+    if(datainicialtarde == "" || datafinaltarde == ""){
+       alert("Digite uma data")
+    }
+    else{
+      document.getElementById("target2").disabled = false;
+      document.getElementById("pesquisartarde").disabled = true;
+      var turno = document.getElementById("turnotarde").value;
+    var unidade = document.getElementById("unidadetarde").value;
+    var anotarde = document.getElementById("inputanotarde").value;
+    document.getElementById("dataturnotarde").innerHTML=datainicialtarde+ '/' + datafinaltarde + " " + turno + " " + anotarde ;
+    data = [];
+      $.ajax({
+          type: "GET",
+          data: {datainicialtarde, datafinaltarde,  turno, unidade },
+          contentType: 'application/json',
+          url: '/buscarescalamensalcomulti',
+          success: function(data) {  
+            if(data == ""){
+              alert("Data sem escala adicionada")
+            }
+            else{
+              if(data[0].rt == 'true'){
+                $('.rt').prop('checked', true);
+                $("#rt").attr('value', 'true');
+                var rt = $("#rt").val();
+                document.getElementById('rt2').value = rt;
+              }
+              else{
+                $("#rt").attr('value', 'false');
+                var rt = $("#rt").val();
+                document.getElementById('rt2').value = rt;
+              }
+              if(data[0].supervisao == 'true'){
+                $('.supervisao').prop('checked', true);
+                $("#supervisao").attr('value', 'true');
+                var supervisao = $("#supervisao").val();
+                document.getElementById('supervisao2').value = supervisao;
+              }
+              else{
+                $("#supervisao").attr('value', 'false');
+                var supervisao = $("#supervisao").val();
+                document.getElementById('supervisao2').value = supervisao;
+              }
+              if(data[0].cida== 'true'){
+                $('.cida').prop('checked', true);
+                $("#cida").attr('value', 'true');
+                $("#tabletarde").off("click");
+                $("#tabletarde").off("dblclick");
+                var cida = $("#cida").val();
+                document.getElementById('cida2').value = cida;
+              }
+              else{
+                $("#cida").attr('value', 'false');
+                var cida = $("#cida").val();
+                document.getElementById('cida2').value = cida;
+              }
+              if(datainicialtarde == "Janeiro"){
+                  var mesinicial = '01'
+              }else if(datainicialtarde == "Fevereiro"){
+                  var mesinicial = '02'
+              }else if(datainicialtarde == "Março"){
+                  var mesinicial = '03'
+              }else if(datainicialtarde == "Abril"){
+                  var mesinicial = '04'
+              }else if(datainicialtarde == "Maio"){
+                  var mesinicial = '05'
+              }else if(datainicialtarde == "Junho"){
+                  var mesinicial = '06'
+              }else if(datainicialtarde == "Julho"){
+                  var mesinicial = '07'
+              }else if(datainicialtarde == "Agosto"){
+                  var mesinicial = '08'
+              }else if(datainicialtarde == "Setembro"){
+                  var mesinicial = '09'
+              }else if(datainicialtarde == "Outubro"){
+                  var mesinicial = '10'
+              }else if(datainicialtarde == "Novembro"){
+                  var mesinicial = '11'
+              }else if(datainicialtarde == "Dezembro"){
+                  var mesinicial = '12'
+              }
+              if(datafinaltarde == "Janeiro"){
+                  var mesfinal = '01'
+              }else if(datafinaltarde == "Fevereiro"){
+                  var mesfinal = '02'
+              }else if(datafinaltarde == "Março"){
+                  var mesfinal = '03'
+              }else if(datafinaltarde == "Abril"){
+                  var mesfinal = '04'
+              }else if(datafinaltarde == "Maio"){
+                  var mesfinal = '05'
+              }else if(datafinaltarde == "Junho"){
+                  var mesfinal = '06'
+              }else if(datafinaltarde == "Julho"){
+                  var mesfinal = '07'
+              }else if(datafinaltarde == "Agosto"){
+                  var mesfinal = '08'
+              }else if(datafinaltarde == "Setembro"){
+                  var mesfinal = '09'
+              }else if(datafinaltarde == "Outubro"){
+                  var mesfinal = '10'
+              }else if(datafinaltarde == "Novembro"){
+                  var mesfinal = '11'
+              }else if(datafinaltarde == "Dezembro"){
+                  var mesfinal = '12'
+              }
+
+              document.getElementById("campo1tarde").innerHTML= "16/" + mesinicial;
+              document.getElementById("campo2tarde").innerHTML= "17/" + mesinicial;
+              document.getElementById("campo3tarde").innerHTML= "18/" + mesinicial;
+              document.getElementById("campo4tarde").innerHTML= "19/" + mesinicial;
+              document.getElementById("campo5tarde").innerHTML= "20/" + mesinicial;
+              document.getElementById("campo6tarde").innerHTML= "21/" + mesinicial;
+              document.getElementById("campo7tarde").innerHTML= "22/" + mesinicial;
+              document.getElementById("campo8tarde").innerHTML= "23/" + mesinicial;
+              document.getElementById("campo9tarde").innerHTML= "24/" + mesinicial;
+              document.getElementById("campo10tarde").innerHTML= "25/" + mesinicial;
+              document.getElementById("campo11tarde").innerHTML= "26/" + mesinicial;
+              document.getElementById("campo12tarde").innerHTML= "27/" + mesinicial;
+              document.getElementById("campo13tarde").innerHTML= "28/" + mesinicial;
+              document.getElementById("campo14tarde").innerHTML= "29/" + mesinicial;
+              document.getElementById("campo15tarde").innerHTML= "30/" + mesinicial;
+              document.getElementById("campo16tarde").innerHTML= "31/" + mesinicial;
+              document.getElementById("campo17tarde").innerHTML= "01/" + mesfinal;
+              document.getElementById("campo18tarde").innerHTML= "02/" + mesfinal;
+              document.getElementById("campo19tarde").innerHTML= "03/" + mesfinal;
+              document.getElementById("campo20tarde").innerHTML= "04/" + mesfinal;
+              document.getElementById("campo21tarde").innerHTML= "05/" + mesfinal;
+              document.getElementById("campo22tarde").innerHTML= "06/" + mesfinal;
+              document.getElementById("campo23tarde").innerHTML= "07/" + mesfinal;
+              document.getElementById("campo24tarde").innerHTML= "08/" + mesfinal;
+              document.getElementById("campo25tarde").innerHTML= "09/" + mesfinal;
+              document.getElementById("campo26tarde").innerHTML= "10/" + mesfinal;
+              document.getElementById("campo27tarde").innerHTML= "11/" + mesfinal;
+              document.getElementById("campo28tarde").innerHTML= "12/" + mesfinal;
+              document.getElementById("campo29tarde").innerHTML= "13/" + mesfinal;
+              document.getElementById("campo30tarde").innerHTML= "14/" + mesfinal;
+              document.getElementById("campo31tarde").innerHTML= "15/" + mesfinal;
+              
+              document.getElementById('tabletarde').style.display = 'table'
+            }
+            obj = [];
+$.ajax({
+    type: "GET",
+    data: obj,
+    contentType: 'application/json',
+    url: '/burcarferiado',
+    success: function(obj) {  
+      $('#tabletarde tbody tr:eq(1)').each(function(i){
+        tr=$(this);
+        var objeto = JSON.parse(obj);
+          for(var i=0; i< objeto.length; i++ ){
+             var feriado = 0;
+             feriado = objeto[i].dias;
+             var j = 7;
+             var colunas = document.getElementById('tabletarde').rows[2].cells.length;
+             var valor = 0;
+            for(j ; j< colunas ; j++){
+              valor=tr.children('td:eq('+j+')').html();
+              var coluna = j;
+              
+              if(feriado == valor){
+               
+              colorirTabletarde(coluna)
+              }
+            } 
+            if (anotarde%400 == 0 || anotarde%4==0 && anotarde%100!=0){
+                var calcular_bissexto="É bissexto";
+            }
+            else{
+                var calcular_bissexto="Não é bissexto";
+            }
+            var a = 9;
+                for(a ; a< colunas ; a++){
+                  valor=tr.children('td:eq('+a+')').html();
+
+                  if(valor === '29/02'){
+                    // $('table tbody tr').find('td:eq(21)').style='visibility: hidden';  
+                    $('table tbody tr').find('td:eq(22)').addClass('sumirtd');      
+                  }
+                  if(valor === '30/02'){
+                    $('table tbody tr').find('td:eq(23)').addClass('sumirtd');    
+                  }
+                  if(valor === '31/02'){
+                    $('table tbody tr').find('td:eq(24)').addClass('sumirtd');  
+                  }
+                } 
+                var b =7;
+                for(b ; b< colunas ; b++){
+                  valor=tr.children('td:eq('+b+')').html();
+                  if(datainicialtarde == "Abril" && valor === '31/04'){
+                    $('table tbody tr').find('td:eq(24)').addClass('sumirtd');  
+                  }
+                  if(datainicialtarde == "Junho" && valor === '31/06'){
+                    $('table tbody tr').find('td:eq(24)').addClass('sumirtd'); 
+                  }
+                  if(datainicialtarde == "Setembro" && valor === '31/09'){
+                    $('table tbody tr').find('td:eq(24)').addClass('sumirtd'); 
+                  }
+                  if(datainicialtarde == "Novembro" && valor === '31/11'){
+                    $('table tbody tr').find('td:eq(24)').addClass('sumirtd'); 
+                  }
+                  
+                } 
+            
+          }   
+      });
+    }
+});
+$('#tabletarde tbody tr:eq(1)').each(function(i){
+  tr=$(this);
+  var colunas = document.getElementById('tabletarde').rows[2].cells.length;
+  var valor = 0;
+  var j = 9;
+  for(j ; j< colunas ; j++){
+    valor=tr.children('td:eq('+j+')').html();
+    var coluna = j; 
+    var Minha_data = 0;
+    Minha_data = moment(valor, "DD-MM").format('dddd');
+ 
+    if(Minha_data == "Saturday" || Minha_data == "Sunday"){
+     
+      colorirTabletarde(coluna)
+    }
+  } 
+});
+        }
+    })
+}
+});
+</script>
