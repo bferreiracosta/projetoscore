@@ -1908,6 +1908,11 @@ $("#pesquisarmanha").on('click', function(e){
 
 });
 $("#pesquisartarde").on('click', function(e){
+   var datas = document.getElementById("datastarde").value;
+    if(datas == ""){
+       alert("Digite uma data")
+    }
+    else{
     var datas = document.getElementById("datastarde").value;
     var turno = document.getElementById("turnotarde").value;
     var unidade = document.getElementById("unidadetarde").value;
@@ -1985,8 +1990,14 @@ $("#pesquisartarde").on('click', function(e){
             
         },  
     });
+   }
 });
 $("#pesquisarsn1").on('click', function(e){
+   var datas = document.getElementById("datassn1").value;
+    if(datas == ""){
+       alert("Digite uma data")
+    }
+    else{
     var datas = document.getElementById("datassn1").value;
     var turno = document.getElementById("turnosn1").value;
     var unidade = document.getElementById("unidadesn1").value;
@@ -2064,8 +2075,14 @@ $("#pesquisarsn1").on('click', function(e){
             
         },  
     });
+   }
 });
 $("#pesquisarsn2").on('click', function(e){
+   var datas = document.getElementById("datassn2").value;
+    if(datas == ""){
+       alert("Digite uma data")
+    }
+    else{
     var datas = document.getElementById("datassn2").value;
     var turno = document.getElementById("turnosn2").value;
     var unidade = document.getElementById("unidadesn2").value;
@@ -2143,6 +2160,7 @@ $("#pesquisarsn2").on('click', function(e){
             
         },  
     });
+   }
 });
 
 //Create PDf from HTML...

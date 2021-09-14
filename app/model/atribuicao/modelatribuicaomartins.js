@@ -30,7 +30,7 @@ modelatribuicaomartins.prototype.buscarescalamartins = function(valor, callback)
 	var data = valor.datas;
 	var turno = valor.turno;
 	if(valor.unidade=1){
-		var unidade = "martins"
+		var unidade = "Martins"
 	}
 
 	this._conection.query('select * from atribuicaomartins where date = "'+data+'" and turno = "'+turno+'" and unidade = "'+unidade+'"', callback);
@@ -39,7 +39,7 @@ modelatribuicaomartins.prototype.buscarescalamartins = function(valor, callback)
 modelatribuicaomartins.prototype.buscarregraescalaunicamartins = function(data, turno, unidade, callback){
 
 	if(unidade=1){
-		var setor = "martins"
+		var setor = "Martins"
 	}
 
 	this._conection.query('select * from atribuicaomartins where date = "'+data+'" and turno = "'+turno+'" and unidade = "'+setor+'"', callback);

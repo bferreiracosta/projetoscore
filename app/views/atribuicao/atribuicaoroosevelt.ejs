@@ -2209,6 +2209,11 @@ $("#pesquisarmanha").on('click', function(e){
 
 });
 $("#pesquisartarde").on('click', function(e){
+   var datas = document.getElementById("datastarde").value;
+    if(datas == ""){
+       alert("Digite uma data")
+    }
+    else{
     var datas = document.getElementById("datastarde").value;
     var turno = document.getElementById("turnotarde").value;
     var unidade = document.getElementById("unidadetarde").value;
@@ -2218,7 +2223,11 @@ $("#pesquisartarde").on('click', function(e){
         data: { datas: datas, turno, unidade },
         contentType: 'application/json',
         url: '/buscarescalaroosevelt',
-        success: function(data) {  
+             success: function(data) {  
+         if(data == ""){
+            alert("Data sem escala adicionada")
+         }
+         else{
 
             document.getElementById("dataturnotarde").innerHTML=data[0].date + "  " + data[0].turno ;
             document.getElementById("enf1tarde").innerHTML = data[0].enf1;
@@ -2293,11 +2302,17 @@ $("#pesquisartarde").on('click', function(e){
             document.getElementById("parada10tarde").innerHTML = data[0].medicacao2;    
             document.getElementById("enfprepostotarde").innerHTML = data[0].enfpreposto;
             document.getElementById('tabletarde').style.display = 'table'
-   
+         }
         }
     });
+   }
 });
 $("#pesquisarsn1").on('click', function(e){
+   var datas = document.getElementById("datassn1").value;
+    if(datas == ""){
+       alert("Digite uma data")
+    }
+    else{
     var datas = document.getElementById("datassn1").value;
     var turno = document.getElementById("turnosn1").value;
     var unidade = document.getElementById("unidadesn1").value;
@@ -2307,7 +2322,11 @@ $("#pesquisarsn1").on('click', function(e){
         data: { datas: datas, turno, unidade },
         contentType: 'application/json',
         url: '/buscarescalaroosevelt',
-        success: function(data) {  
+             success: function(data) {  
+         if(data == ""){
+            alert("Data sem escala adicionada")
+         }
+         else{
 
             document.getElementById("dataturnosn1").innerHTML=data[0].date + "  " + data[0].turno ;
             document.getElementById("enf1sn1").innerHTML = data[0].enf1;
@@ -2382,11 +2401,17 @@ $("#pesquisarsn1").on('click', function(e){
             document.getElementById("parada10sn1").innerHTML = data[0].medicacao2;    
             document.getElementById("enfprepostosn1").innerHTML = data[0].enfpreposto;
             document.getElementById('tablesn1').style.display = 'table'
-
+         }
         }
     });
+   }
 });
 $("#pesquisarsn2").on('click', function(e){
+   var datas = document.getElementById("datassn2").value;
+    if(datas == ""){
+       alert("Digite uma data")
+    }
+    else{
     var datas = document.getElementById("datassn2").value;
     var turno = document.getElementById("turnosn2").value;
     var unidade = document.getElementById("unidadesn2").value;
@@ -2396,7 +2421,11 @@ $("#pesquisarsn2").on('click', function(e){
         data: { datas: datas, turno, unidade },
         contentType: 'application/json',
         url: '/buscarescalaroosevelt',
-        success: function(data) {  
+             success: function(data) {  
+         if(data == ""){
+            alert("Data sem escala adicionada")
+         }
+         else{
 
             document.getElementById("dataturnosn2").innerHTML=data[0].date + "  " + data[0].turno ;
             document.getElementById("enf1sn2").innerHTML = data[0].enf1;
@@ -2471,9 +2500,10 @@ $("#pesquisarsn2").on('click', function(e){
             document.getElementById("parada10sn2").innerHTML = data[0].medicacao2;    
             document.getElementById("enfprepostosn2").innerHTML = data[0].enfpreposto;
             document.getElementById('tablesn2').style.display = 'table'
-
+         }
         }
     });
+   }
 });
 
 //Create PDf from HTML...
