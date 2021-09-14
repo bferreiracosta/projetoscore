@@ -17,32 +17,61 @@ modelatribuicaoroosevelt.prototype.updateescalaroosevelt = function(campo, date,
 
 modelatribuicaoroosevelt.prototype.adicionandoescalafolga = function(unidade, date, turno, enfermeiro1, enfermeiro2, enfermeiro3, enfermeiro4, tecnico1, tecnico2, tecnico3, tecnico4, atestado1,atestado2, atestado3, atestado4, callback){
 	
-	this._conection.query('update atribuicaoroosevelt set enfermeiro1="'+enfermeiro1+'", enfermeiro2="'+enfermeiro2+'", enfermeiro3="'+enfermeiro3+'", enfermeiro4="'+enfermeiro4+'", tecnico1="'+tecnico1+'", tecnico2="'+tecnico2+'", tecnico3="'+tecnico3+'", tecnico4="'+tecnico4+'", atestado1="'+atestado1+'",atestado2="'+atestado2+'", atestado3="'+atestado3+'", atestado4="'+atestado4+'" where unidade="'+unidade+'" and date="'+date+'"and turno="'+turno+'"', callback);
+	this._conection.query('update atribuicaoroosevelt set enfermeiro1="'+enfermeiro1+'", enfermeiro2="'+enfermeiro2+'", enfermeiro3="'+enfermeiro3+'", enfermeiro4="'+enfermeiro4+'", tecnico1="'+tecnico1+'", tecnico2="'+tecnico2+'", tecnico3="'+tecnico3+'", tecnico4="'+tecnico4+'", atestado1="'+atestado1+'",atestado2="'+atestado2+'", atestado3="'+atestado3+'", atestado4="'+atestado4+'" where unidade="Roosevelt" and date="'+date+'"and turno="'+turno+'"', callback);
 }
 
 modelatribuicaoroosevelt.prototype.updateescalaparadaroosevelt = function(unidade, date, turno, monitorizacao1, monitorizacao2, anotacao1, anotacao2, compressao1, compressao2, ventilacao1, ventilacao2, medicacao1, medicacao2, callback){
 	
-	this._conection.query('update atribuicaoroosevelt set monitorizacao1="'+monitorizacao1+'", monitorizacao2="'+monitorizacao2+'", anotacao1="'+anotacao1+'", anotacao2="'+anotacao2+'", compressao1="'+compressao1+'", compressao2="'+compressao2+'", ventilacao1="'+ventilacao1+'", ventilacao2="'+ventilacao2+'", medicacao1="'+medicacao1+'",medicacao2="'+medicacao2+'" where unidade="'+unidade+'" and date="'+date+'"and turno="'+turno+'"', callback);
+	this._conection.query('update atribuicaoroosevelt set monitorizacao1="'+monitorizacao1+'", monitorizacao2="'+monitorizacao2+'", anotacao1="'+anotacao1+'", anotacao2="'+anotacao2+'", compressao1="'+compressao1+'", compressao2="'+compressao2+'", ventilacao1="'+ventilacao1+'", ventilacao2="'+ventilacao2+'", medicacao1="'+medicacao1+'",medicacao2="'+medicacao2+'" where unidade="Roosevelt" and date="'+date+'"and turno="'+turno+'"', callback);
 }
 
 
 modelatribuicaoroosevelt.prototype.buscarescalaroosevelt = function(valor, callback){
 	var data = valor.datas;
 	var turno = valor.turno;
-	if(valor.unidade=1){
-		var unidade = "Roosevelt"
+	if(valor.unidade==1){
+		var setor = "Planalto"
+	}
+	if(valor.unidade==2){
+		var setor = "Luizote"
+	}
+	if(valor.unidade==3){
+		var setor = "Martins"
+	}
+	if(valor.unidade==4){
+		var setor = "Roosevelt"
+	}
+	if(valor.unidade==6){
+		var setor = "Tibery"
+	}
+	if(valor.unidade==5){
+		var setor = "Morumbi"
 	}
 
-	this._conection.query('select * from atribuicaoroosevelt where date = "'+data+'" and turno = "'+turno+'" and unidade = "'+unidade+'"', callback);
+	this._conection.query('select * from atribuicaoroosevelt where date = "'+data+'" and turno = "'+turno+'" and unidade = "Roosevelt"', callback);
 }
 
 modelatribuicaoroosevelt.prototype.buscarregraescalaunicaroosevelt = function(data, turno, unidade, callback){
-
-	if(unidade=1){
+	if(unidade==1){
+		var setor = "Planalto"
+	}
+	if(unidade==2){
+		var setor = "Luizote"
+	}
+	if(unidade==3){
+		var setor = "Martins"
+	}
+	if(unidade==4){
 		var setor = "Roosevelt"
 	}
+	if(unidade==6){
+		var setor = "Tibery"
+	}
+	if(unidade==5){
+		var setor = "Morumbi"
+	}
 
-	this._conection.query('select * from atribuicaoroosevelt where date = "'+data+'" and turno = "'+turno+'" and unidade = "'+setor+'"', callback);
+	this._conection.query('select * from atribuicaoroosevelt where date = "'+data+'" and turno = "'+turno+'" and unidade = "Roosevelt"', callback);
 }
 
 module.exports = function(){
