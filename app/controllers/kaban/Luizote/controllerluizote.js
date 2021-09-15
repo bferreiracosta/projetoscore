@@ -215,11 +215,9 @@ module.exports.atualizarleitoluizote= function(application, req, res){
 	var nome = req.body.nome;
 	var idleito = req.body.idleito;
 	var id = req.body.idusuario;
-	console.log(idleito)
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelluizote.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 			if(nome == "Remover"){
-				console.log(nome)
 				modelluizote.mudarpacienteleito(idleito, function(error,resultado){
 					modelluizote.buscarleitospacientes(function(error, resultadosetores){
 						res.redirect("/leitosluizote?id=" + result[0].id_usuario);
@@ -1156,7 +1154,6 @@ module.exports.baixa= function(application, req, res){
 	var modelluizote = new application.app.model.kaban.Luizote.modelluizote(application);
 	var modelmentalluizote = new application.app.model.mentalurgencia.modelmentalluizote(application);
 	modelluizote.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
-		console.log(setoresrecuperado);
 		if(setoresrecuperado != ''){
 			modelluizote.buscarpacienteporid(idpaciente, function(error, idpac){	
 					modelmentalluizote.buscarpacientepornome(idpac[0].nome, function(error, idmental){

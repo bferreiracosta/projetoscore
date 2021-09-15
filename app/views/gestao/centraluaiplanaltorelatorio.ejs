@@ -30,6 +30,12 @@
                    
                     <th>Quantidade de Cadeiras Vagas</th>
 
+                    <th>Quantidade de Berços</th>
+                   
+                    <th>Quantidade de Berços Ocupadas</th>
+                   
+                    <th>Quantidade de Berços Vagas</th>
+
                     <th>Leito Bloqueado</th>
 
                     <th>Data Atualização</th>
@@ -62,6 +68,13 @@
                     <td ><%=leito[j].capacidadecadeiras %></td>
                    
                     <td ><%=leito[j].qtdcadeira %></td>
+                   
+                    <td ></td>
+
+
+                    <td ><%=leito[j].capacidadebercos %></td>
+                   
+                    <td ><%=leito[j].qtdbercos %></td>
                    
                     <td ></td>
                     
@@ -234,7 +247,7 @@ function verifica(value){
         $('#mytable').DataTable( {
             dom: 'Bfrtip',
             order:false,
-            "scrollX": true,  
+            
    
         pageLength: 50,
         buttons: [       
@@ -489,8 +502,145 @@ function verifica(value){
                 $( api.column( 10 ).footer() ).html(
                   pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
                 );
-              
+
+                total = api
+                    .column( 11 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 11, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 11 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+
+                total = api
+                    .column( 12 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 12, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 12 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+
+                total = api
+                    .column( 13 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 13, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 13 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                
+                total = api
+                    .column( 14 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 14, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 14 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                total = api
+                    .column( 15 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 15, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 15 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                total = api
+                    .column( 16 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 16, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 16 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
+                total = api
+                    .column( 17 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Total over this page
+                pageTotal = api
+                    .column( 17, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+ 
+                // Update footer
+                $( api.column( 17 ).footer() ).html(
+                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                );
             }
+
             
     } );
 } );
@@ -502,15 +652,20 @@ $('#mytable tbody tr').each(function(i){
             qtdmacasocupadas = tr.children('td:eq(6)').html();
             qtdcadeira=tr.children('td:eq(8)').html();
             qtdcadeirasocupadas = tr.children('td:eq(9)').html();
+            qtdcbercos=tr.children('td:eq(11)').html();
+            qtdbercosocupadas = tr.children('td:eq(12)').html();
             var valorcamasvazias = 0;
             var valormacasvazias = 0;
             var valorcadeirasvazia = 0;
+            var valorcbercosvazia = 0;
             valorcamasvazias = qtdcamas - qtdcamasocupadas;
             valormacasvazias = qtdmacas - qtdmacasocupadas;
             valorcadeirasvazia = qtdcadeira - qtdcadeirasocupadas;
+            valorcbercosvazia = qtdcbercos - qtdbercosocupadas;
             tr.children('td:eq(4)').html(valorcamasvazias);
             tr.children('td:eq(7)').html(valormacasvazias);
             tr.children('td:eq(10)').html(valorcadeirasvazia);
+            tr.children('td:eq(13)').html(valorcbercosvazia);
   
   
 
