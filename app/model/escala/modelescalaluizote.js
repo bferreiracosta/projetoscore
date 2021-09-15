@@ -901,7 +901,7 @@ modelescalaluizote.prototype.buscarescalaSN2setor6 = function(valor, callback){
 
 modelescalaluizote.prototype.buscarescalaSN2setor7 = function(valor, callback){
 
-	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Luizote" and func.setor="Apoio" order by func.categoria asc', callback);
+	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Luizote" and func.setor="Apoio" ORDER BY field(func.categoria, "Enf", "Tec", "Aux")', callback);
 }
 
 modelescalaluizote.prototype.buscarescalaSN2setor8 = function(valor, callback){
