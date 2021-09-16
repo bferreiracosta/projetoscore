@@ -231,7 +231,7 @@
       
       <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="text" id="datastarde"> <input type="hidden" value="Tarde" id="turnotarde"> <input type="hidden" value='<%=id[i].unidade %>' id="unidadetarde">   
          <button class="btn btn-info" id="pesquisartarde"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFmanha();"><i class="fas fa-download"></i></button>   <button type="button" id="edittarde" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')"><i class="fas fa-edit"></i></button></span></h4>
-      <div class="html-content" id="mobile" >
+      <div class="html-contenttarde" id="mobile" >
         <table class="table table-bordered table-dark display" style="width: 100%; " id="tabletarde">
           <thead>
             <tr style="border: none; height: 35px;" class="bg-primary">
@@ -431,7 +431,7 @@
       
       <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="text" id="datassn1"> <input type="hidden" value="SN1" id="turnosn1"> <input type="hidden" value='<%=id[i].unidade %>' id="unidadesn1">   
          <button class="btn btn-info" id="pesquisarsn1"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFmanha();"><i class="fas fa-download"></i></button>   <button type="button" id="editsn1" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')"><i class="fas fa-edit"></i></button></span></h4>
-      <div class="html-content" id="mobile" >
+      <div class="html-contentsn1" id="mobile" >
         <table class="table table-bordered table-dark display" style="width: 100%; " id="tablesn1">
           <thead>
             <tr style="border: none; height: 35px;" class="bg-primary">
@@ -631,7 +631,7 @@
       
       <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="text" id="datassn2"> <input type="hidden" value="SN2" id="turnosn2"> <input type="hidden" value='<%=id[i].unidade %>' id="unidadesn2">   
          <button class="btn btn-info" id="pesquisarsn2"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFmanha();"><i class="fas fa-download"></i></button>  <button type="button" id="editsn2" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')"><i class="fas fa-edit"></i></button></span></h4>
-      <div class="html-content" id="mobile" >
+      <div class="html-contentsn2" id="mobile" >
         <table class="table table-bordered table-dark display" style="width: 100%; " id="tablesn2">
           <thead>
             <tr style="border: none; height: 35px;" class="bg-primary">
@@ -2505,7 +2505,6 @@ $("#pesquisarsn2").on('click', function(e){
     });
    }
 });
-
 //Create PDf from HTML...
 function createPDFmanha() {
     var HTML_Width = $(".html-content").width();
@@ -2531,184 +2530,75 @@ function createPDFmanha() {
     });
 }
 
-(function($){
-    $.fn.createPdftarde = function(parametros) {
-        
-        var config = {              
-            'fileName':'html-to-pdf'
-        };
-        
-        if (parametros){
-            $.extend(config, parametros);
-        }                            
-
-        var quotes = document.getElementById($(this).attr('id'));
-
-        html2canvas(quotes, {
-            onrendered: function(canvas) {
-                var pdf = new jsPDF('l', 'pt', 'a4');
-
-                for (var i = 0; i <= quotes.clientHeight/1080; i++) {
-                    var srcImg  = canvas;
-                    var sX      = 0;
-                    var sY      = 980*i;
-                    var sWidth  = 1500;
-                    var sHeight = 1080;
-                    var dX      = 0;
-                    var dY      = 0;
-                    var dWidth  = 900;
-                    var dHeight = 980;
-
-                    window.onePageCanvas = document.createElement("canvas");
-                    onePageCanvas.setAttribute('width', 1400);
-                    onePageCanvas.setAttribute('height', 1080);
-                    var ctx = onePageCanvas.getContext('2d');
-                    ctx.drawImage(srcImg,sX,sY,sWidth,sHeight,dX,dY,dWidth,dHeight);
-
-                    var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
-                    var width         = onePageCanvas.width;
-                    var height        = onePageCanvas.clientHeight;
-
-                    if (i > 0) {
-                        pdf.addPage(512, 691);
-                    }
-
-                    pdf.setPage(i+1);
-                    pdf.addImage(canvasDataURL, 'png', 20, 20, 1310, 691);
-                }
-
-                pdf.save(config.fileName);
-            }
-        });
-    };
-})(jQuery);
-
-(function($){
-    $.fn.createPdfsn1 = function(parametros) {
-        
-        var config = {              
-            'fileName':'html-to-pdf'
-        };
-        
-        if (parametros){
-            $.extend(config, parametros);
-        }                            
-
-        var quotes = document.getElementById($(this).attr('id'));
-
-        html2canvas(quotes, {
-            onrendered: function(canvas) {
-                var pdf = new jsPDF('l', 'pt', 'a4');
-
-                for (var i = 0; i <= quotes.clientHeight/1080; i++) {
-                    var srcImg  = canvas;
-                    var sX      = 0;
-                    var sY      = 980*i;
-                    var sWidth  = 1500;
-                    var sHeight = 1080;
-                    var dX      = 0;
-                    var dY      = 0;
-                    var dWidth  = 900;
-                    var dHeight = 980;
-
-                    window.onePageCanvas = document.createElement("canvas");
-                    onePageCanvas.setAttribute('width', 1400);
-                    onePageCanvas.setAttribute('height', 1080);
-                    var ctx = onePageCanvas.getContext('2d');
-                    ctx.drawImage(srcImg,sX,sY,sWidth,sHeight,dX,dY,dWidth,dHeight);
-
-                    var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
-                    var width         = onePageCanvas.width;
-                    var height        = onePageCanvas.clientHeight;
-
-                    if (i > 0) {
-                        pdf.addPage(512, 691);
-                    }
-
-                    pdf.setPage(i+1);
-                    pdf.addImage(canvasDataURL, 'png', 20, 20, 1310, 691);
-                }
-
-                pdf.save(config.fileName);
-            }
-        });
-    };
-})(jQuery);
-
-(function($){
-    $.fn.createPdfsn2 = function(parametros) {
-        
-        var config = {              
-            'fileName':'html-to-pdf'
-        };
-        
-        if (parametros){
-            $.extend(config, parametros);
-        }                            
-
-        var quotes = document.getElementById($(this).attr('id'));
-
-        html2canvas(quotes, {
-            onrendered: function(canvas) {
-                var pdf = new jsPDF('l', 'pt', 'a4');
-
-                for (var i = 0; i <= quotes.clientHeight/1080; i++) {
-                    var srcImg  = canvas;
-                    var sX      = 0;
-                    var sY      = 980*i;
-                    var sWidth  = 1500;
-                    var sHeight = 1080;
-                    var dX      = 0;
-                    var dY      = 0;
-                    var dWidth  = 900;
-                    var dHeight = 980;
-
-                    window.onePageCanvas = document.createElement("canvas");
-                    onePageCanvas.setAttribute('width', 1400);
-                    onePageCanvas.setAttribute('height', 1080);
-                    var ctx = onePageCanvas.getContext('2d');
-                    ctx.drawImage(srcImg,sX,sY,sWidth,sHeight,dX,dY,dWidth,dHeight);
-
-                    var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
-                    var width         = onePageCanvas.width;
-                    var height        = onePageCanvas.clientHeight;
-
-                    if (i > 0) {
-                        pdf.addPage(512, 691);
-                    }
-
-                    pdf.setPage(i+1);
-                    pdf.addImage(canvasDataURL, 'png', 20, 20, 1310, 691);
-                }
-
-                pdf.save(config.fileName);
-            }
-        });
-    };
-})(jQuery);
- 
-
-// function createPDFmanha() {
-//     $('#home').createPdfmanha({
-//         'fileName' : 'ScoreSystem - Atribuição Manha'
-//     });
-// }
-
 function createPDFtarde() {
-    $('#menu1').createPdftarde({
-        'fileName' : 'ScoreSystem - Atribuição Tarde'
+    var HTML_Width = $(".html-contenttarde").width();
+    var HTML_Height = $(".html-contenttarde").height();
+    var top_left_margin = 15;
+    var PDF_Width = (HTML_Width)  + (top_left_margin * 2);
+    var PDF_Height = (PDF_Width) + (top_left_margin * 2);
+    var canvas_image_width = HTML_Width;
+    var canvas_image_height = HTML_Height;
+
+    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+
+    html2canvas($(".html-contenttarde")[0]).then(function (canvas) {
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+        var pdf = new jsPDF('l', 'pt', [PDF_Width, PDF_Height]);
+        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+        for (var i = 1; i <= totalPDFPages; i++) { 
+            pdf.addPage(PDF_Width, PDF_Height);
+            pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+        }
+        pdf.save("ScoreSystem Escala Atribuição Tarde");
+        
     });
 }
 
 function createPDFsn1() {
-    $('#menu2').createPdfsn1({
-        'fileName' : 'ScoreSystem - Atribuição SN1'
+    var HTML_Width = $(".html-contentsn1").width();
+    var HTML_Height = $(".html-contentsn1").height();
+    var top_left_margin = 15;
+    var PDF_Width = (HTML_Width)  + (top_left_margin * 2);
+    var PDF_Height = (PDF_Width) + (top_left_margin * 2);
+    var canvas_image_width = HTML_Width;
+    var canvas_image_height = HTML_Height;
+
+    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+
+    html2canvas($(".html-contentsn1")[0]).then(function (canvas) {
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+        var pdf = new jsPDF('l', 'pt', [PDF_Width, PDF_Height]);
+        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+        for (var i = 1; i <= totalPDFPages; i++) { 
+            pdf.addPage(PDF_Width, PDF_Height);
+            pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+        }
+        pdf.save("ScoreSystem Escala Atribuição SN1");
+        
     });
 }
 
 function createPDFsn2() {
-    $('#menu3').createPdfsn2({
-        'fileName' : 'ScoreSystem - Atribuição SN2'
+    var HTML_Width = $(".html-contentsn2").width();
+    var HTML_Height = $(".html-contentsn2").height();
+    var top_left_margin = 15;
+    var PDF_Width = (HTML_Width)  + (top_left_margin * 2);
+    var PDF_Height = (PDF_Width) + (top_left_margin * 2);
+    var canvas_image_width = HTML_Width;
+    var canvas_image_height = HTML_Height;
+
+    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+
+    html2canvas($(".html-contentsn2")[0]).then(function (canvas) {
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+        var pdf = new jsPDF('l', 'pt', [PDF_Width, PDF_Height]);
+        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+        for (var i = 1; i <= totalPDFPages; i++) { 
+            pdf.addPage(PDF_Width, PDF_Height);
+            pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+        }
+        pdf.save("ScoreSystem Escala Atribuição SN2");
+        
     });
 }
 </script>
