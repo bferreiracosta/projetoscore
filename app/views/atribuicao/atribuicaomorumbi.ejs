@@ -215,8 +215,8 @@
     <div id="menu1" class="tab-pane fade">
       
       <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="text" id="datastarde"> <input type="hidden" value="Tarde" id="turnotarde"> <input type="hidden" value='<%=id[i].unidade %>' id="unidadetarde">   
-         <button class="btn btn-info" id="pesquisartarde"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFmanha();"><i class="fas fa-download"></i></button>   <button type="button" id="edittarde" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')"><i class="fas fa-edit"></i></button></span></h4>
-      <div class="html-contenttarde" id="mobile" >
+         <button class="btn btn-info" id="pesquisartarde"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFtarde();"><i class="fas fa-download"></i></button>   <button type="button" id="edittarde" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')"><i class="fas fa-edit"></i></button></span></h4>
+      <div class="html-contenttarde" id="mobiletarde">
         <table class="table table-bordered table-dark display" style="width: 100%; " id="tabletarde">
           <thead>
             <tr style="border: none; height: 35px;" class="bg-primary">
@@ -400,8 +400,8 @@
     <div id="menu2" class="tab-pane fade">
       
       <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="text" id="datassn1"> <input type="hidden" value="SN1" id="turnosn1"> <input type="hidden" value='<%=id[i].unidade %>' id="unidadesn1">   
-         <button class="btn btn-info" id="pesquisarsn1"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFmanha();"><i class="fas fa-download"></i></button>   <button type="button" id="editsn1" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')"><i class="fas fa-edit"></i></button></span></h4>
-      <div class="html-contentsn1" id="mobile" >
+         <button class="btn btn-info" id="pesquisarsn1"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFsn1();"><i class="fas fa-download"></i></button>   <button type="button" id="editsn1" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')"><i class="fas fa-edit"></i></button></span></h4>
+      <div class="html-contentsn1" id="mobilesn1" >
         <table class="table table-bordered table-dark display" style="width: 100%; " id="tablesn1">
           <thead>
             <tr style="border: none; height: 35px;" class="bg-primary">
@@ -585,8 +585,8 @@
     <div id="menu3" class="tab-pane fade">
       
       <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="text" id="datassn2"> <input type="hidden" value="SN2" id="turnosn2"> <input type="hidden" value='<%=id[i].unidade %>' id="unidadesn2">   
-         <button class="btn btn-info" id="pesquisarsn2"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFmanha();"><i class="fas fa-download"></i></button>  <button type="button" id="editsn2" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')"><i class="fas fa-edit"></i></button></span></h4>
-      <div class="html-contentsn2" id="mobile" >
+         <button class="btn btn-info" id="pesquisarsn2"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFsn2();"><i class="fas fa-download"></i></button>  <button type="button" id="editsn2" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')"><i class="fas fa-edit"></i></button></span></h4>
+      <div class="html-contentsn2" id="mobilesn2" >
         <table class="table table-bordered table-dark display" style="width: 100%; " id="tablesn2">
           <thead>
             <tr style="border: none; height: 35px;" class="bg-primary">
@@ -2292,8 +2292,8 @@ $("#pesquisarsn2").on('click', function(e){
  });
 //Create PDf from HTML...
 function createPDFmanha() {
-    var HTML_Width = $(".html-content").width();
-    var HTML_Height = $(".html-content").height();
+    var HTML_Width = $("#mobile").width();
+    var HTML_Height = $("#mobile").height();
     var top_left_margin = 15;
     var PDF_Width = (HTML_Width)  + (top_left_margin * 2);
     var PDF_Height = (PDF_Width) + (top_left_margin * 2);
@@ -2302,7 +2302,7 @@ function createPDFmanha() {
 
     var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
 
-    html2canvas($(".html-content")[0]).then(function (canvas) {
+    html2canvas($("#mobile")[0]).then(function (canvas) {
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
         var pdf = new jsPDF('l', 'pt', [PDF_Width, PDF_Height]);
         pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
@@ -2316,8 +2316,8 @@ function createPDFmanha() {
 }
 
 function createPDFtarde() {
-    var HTML_Width = $(".html-contenttarde").width();
-    var HTML_Height = $(".html-contenttarde").height();
+    var HTML_Width = $("#mobiletarde").width();
+    var HTML_Height = $("#mobiletarde").height();
     var top_left_margin = 15;
     var PDF_Width = (HTML_Width)  + (top_left_margin * 2);
     var PDF_Height = (PDF_Width) + (top_left_margin * 2);
@@ -2326,7 +2326,7 @@ function createPDFtarde() {
 
     var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
 
-    html2canvas($(".html-contenttarde")[0]).then(function (canvas) {
+    html2canvas($("#mobiletarde")[0]).then(function (canvas) {
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
         var pdf = new jsPDF('l', 'pt', [PDF_Width, PDF_Height]);
         pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
@@ -2340,8 +2340,8 @@ function createPDFtarde() {
 }
 
 function createPDFsn1() {
-    var HTML_Width = $(".html-contentsn1").width();
-    var HTML_Height = $(".html-contentsn1").height();
+    var HTML_Width = $("#mobilesn1").width();
+    var HTML_Height = $("#mobilesn1").height();
     var top_left_margin = 15;
     var PDF_Width = (HTML_Width)  + (top_left_margin * 2);
     var PDF_Height = (PDF_Width) + (top_left_margin * 2);
@@ -2350,7 +2350,7 @@ function createPDFsn1() {
 
     var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
 
-    html2canvas($(".html-contentsn1")[0]).then(function (canvas) {
+    html2canvas($("#mobilesn1")[0]).then(function (canvas) {
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
         var pdf = new jsPDF('l', 'pt', [PDF_Width, PDF_Height]);
         pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
@@ -2364,8 +2364,8 @@ function createPDFsn1() {
 }
 
 function createPDFsn2() {
-    var HTML_Width = $(".html-contentsn2").width();
-    var HTML_Height = $(".html-contentsn2").height();
+    var HTML_Width = $("#mobilesn2").width();
+    var HTML_Height = $("#mobilesn2").height();
     var top_left_margin = 15;
     var PDF_Width = (HTML_Width)  + (top_left_margin * 2);
     var PDF_Height = (PDF_Width) + (top_left_margin * 2);
@@ -2374,7 +2374,7 @@ function createPDFsn2() {
 
     var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
 
-    html2canvas($(".html-contentsn2")[0]).then(function (canvas) {
+    html2canvas($("#mobilesn2")[0]).then(function (canvas) {
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
         var pdf = new jsPDF('l', 'pt', [PDF_Width, PDF_Height]);
         pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
