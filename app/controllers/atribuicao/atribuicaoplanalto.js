@@ -68,13 +68,12 @@ module.exports.adicionarescalaplanalto = function(application, req, res){
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
-	var enf5 = req.body.enf5;
 	var enf6 = req.body.enf6;
 	modelatriplanalto.buscarregraescalaunicaplanalto(date, turno, unidade,function(error, resultado){
 		if(resultado == null || resultado==""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelatriplanalto.adicionarescalaplanalto(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21,tecenf22, enf2, enf3, enf4, enf5, enf6 , enfcme,function(error, resultado){
+					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21,tecenf22, enf2, enf3, enf4, enf6 , enfcme,function(error, resultado){
 						res.redirect("/atribuicaoplanalto?id=" + result[0].id_usuario);	
 				})
 			});
@@ -264,11 +263,11 @@ module.exports.editarescalaplanalto = function(application, req, res){
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
-	var enf5 = req.body.enf5;
 	var enf6 = req.body.enf6;
+	console.log(enf6)
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelatriplanalto.updateescalaplanalto(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21,tecenf22, enf2, enf3, enf4, enf5, enf6 , enfcme,function(error, resultado){
+			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21,tecenf22, enf2, enf3, enf4, enf6 , enfcme,function(error, resultado){
 				res.redirect("/atribuicaoplanalto?id=" + result[0].id_usuario);	
 		})
 	});

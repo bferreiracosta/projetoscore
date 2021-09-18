@@ -864,10 +864,6 @@
                            <input type="text" name="enf4" class="form-control"  >
                         </div>
                         <div class="form-group">
-                           <label for="tecenf">Classificação de Risco</label>
-                           <input type="text" name="enf5" class="form-control"  >
-                        </div>
-                        <div class="form-group">
                            <label for="tecenf">Tec Enf Transporte</label>
                            <input type="text" name="tecenf12" class="form-control"  >
                         </div>
@@ -1032,10 +1028,6 @@
                                <input type="text" id="enf4edit" name="enf4" class="form-control"  >
                             </div>
                             <div class="form-group">
-                               <label for="tecenf">Classificação de Risco</label>
-                               <input type="text" id="enf5edit" name="enf5" class="form-control"  >
-                            </div>
-                            <div class="form-group">
                                <label for="tecenf">Tec Enf Transporte</label>
                                <input type="text" id="tecenf12edit" name="tecenf12" class="form-control"  >
                             </div>
@@ -1065,7 +1057,7 @@
                             </div>
                             <div class="form-group">
                                <label for="tecenf">Enfermeiro Fast Track</label>
-                               <input type="text" id="enf6edit" name="enf6" class="form-control"  >
+                               <input type="text" id="enf5edit" name="enf6" class="form-control"  >
                             </div>
                             <div class="form-group">
                                <label for="tecenf">Tec Enf Fast Track</label>
@@ -1643,8 +1635,7 @@ $( "#editmanha" ).click(function() {
             document.getElementById("enf2edit").value = data[0].enf2;
             document.getElementById("enf3edit").value = data[0].enf3;
             document.getElementById("enf4edit").value = data[0].enf4;
-            document.getElementById("enf5edit").value = data[0].enf2;
-            document.getElementById("enf6edit").value = data[0].enf2;
+            document.getElementById("enf5edit").value = data[0].enf6;
             document.getElementById("tempoedit").value = data[0].date;
             document.getElementById("turnoedit").value = data[0].turno;
             document.getElementById("selectturnoedit").value = data[0].turno;
@@ -1701,7 +1692,6 @@ $( "#edittarde" ).click(function() {
             document.getElementById("enf3edit").value = data[0].enf3;
             document.getElementById("enf4edit").value = data[0].enf4;
             document.getElementById("enf5edit").value = data[0].enf2;
-            document.getElementById("enf6edit").value = data[0].enf2;
             document.getElementById("tempoedit").value = data[0].date;
             document.getElementById("turnoedit").value = data[0].turno;
             document.getElementById("selectturnoedit").value = data[0].turno;
@@ -1758,7 +1748,6 @@ $( "#editsn1" ).click(function() {
             document.getElementById("enf3edit").value = data[0].enf3;
             document.getElementById("enf4edit").value = data[0].enf4;
             document.getElementById("enf5edit").value = data[0].enf2;
-            document.getElementById("enf6edit").value = data[0].enf2;
             document.getElementById("tempoedit").value = data[0].date;
             document.getElementById("turnoedit").value = data[0].turno;
             document.getElementById("selectturnoedit").value = data[0].turno;
@@ -1815,7 +1804,6 @@ $( "#editsn2" ).click(function() {
             document.getElementById("enf3edit").value = data[0].enf3;
             document.getElementById("enf4edit").value = data[0].enf4;
             document.getElementById("enf5edit").value = data[0].enf2;
-            document.getElementById("enf6edit").value = data[0].enf2;
             document.getElementById("tempoedit").value = data[0].date;
             document.getElementById("turnoedit").value = data[0].turno;
             document.getElementById("selectturnoedit").value = data[0].turno;
@@ -1874,13 +1862,12 @@ $("#pesquisarmanha").on('click', function(e){
             console.log(data)
             document.getElementById("dataturno").innerHTML=data[0].date + "  " + data[0].turno ;
             document.getElementById("enf1").innerHTML = data[0].enf1;
-            document.getElementById("enf1").innerHTML = data[0].enf1;
             document.getElementById("enf2").innerHTML = data[0].enf2;
             document.getElementById("enf3").innerHTML = data[0].enf3;
             document.getElementById("enf4").innerHTML = data[0].enf4;
             document.getElementById("enf5").innerHTML = data[0].enf2;
             document.getElementById("enf6").innerHTML = data[0].enf2;
-            document.getElementById("enf7").innerHTML = data[0].enf5;
+            document.getElementById("enf7").innerHTML = data[0].enf6;
             document.getElementById("enf8").innerHTML = data[0].enf2;
             document.getElementById("enf9").innerHTML = data[0].enf3;
             document.getElementById("enf10").innerHTML = data[0].enf2;
@@ -1967,13 +1954,12 @@ $("#pesquisartarde").on('click', function(e){
          console.log(data)
             document.getElementById("dataturnotarde").innerHTML=data[0].date + "  " + data[0].turno ;
             document.getElementById("enf1tarde").innerHTML = data[0].enf1;
-            document.getElementById("enf1tarde").innerHTML = data[0].enf1;
             document.getElementById("enf2tarde").innerHTML = data[0].enf2;
             document.getElementById("enf3tarde").innerHTML = data[0].enf3;
             document.getElementById("enf4tarde").innerHTML = data[0].enf4;
             document.getElementById("enf5tarde").innerHTML = data[0].enf2;
             document.getElementById("enf6tarde").innerHTML = data[0].enf2;
-            document.getElementById("enf7tarde").innerHTML = data[0].enf5;
+            document.getElementById("enf7tarde").innerHTML = data[0].enf6;
             document.getElementById("enf8tarde").innerHTML = data[0].enf2;
             document.getElementById("enf9tarde").innerHTML = data[0].enf3;
             document.getElementById("enf10tarde").innerHTML = data[0].enf2;
@@ -2055,13 +2041,12 @@ $("#pesquisarsn1").on('click', function(e){
          console.log(data)
             document.getElementById("dataturnosn1").innerHTML=data[0].date + "  " + data[0].turno ;
             document.getElementById("enf1sn1").innerHTML = data[0].enf1;
-            document.getElementById("enf1sn1").innerHTML = data[0].enf1;
             document.getElementById("enf2sn1").innerHTML = data[0].enf2;
             document.getElementById("enf3sn1").innerHTML = data[0].enf3;
             document.getElementById("enf4sn1").innerHTML = data[0].enf4;
             document.getElementById("enf5sn1").innerHTML = data[0].enf2;
             document.getElementById("enf6sn1").innerHTML = data[0].enf2;
-            document.getElementById("enf7sn1").innerHTML = data[0].enf5;
+            document.getElementById("enf7sn1").innerHTML = data[0].enf6;
             document.getElementById("enf8sn1").innerHTML = data[0].enf2;
             document.getElementById("enf9sn1").innerHTML = data[0].enf3;
             document.getElementById("enf10sn1").innerHTML = data[0].enf2;
@@ -2143,13 +2128,12 @@ $("#pesquisarsn2").on('click', function(e){
          console.log(data)
             document.getElementById("dataturnosn2").innerHTML=data[0].date + "  " + data[0].turno ;
             document.getElementById("enf1sn2").innerHTML = data[0].enf1;
-            document.getElementById("enf1sn2").innerHTML = data[0].enf1;
             document.getElementById("enf2sn2").innerHTML = data[0].enf2;
             document.getElementById("enf3sn2").innerHTML = data[0].enf3;
             document.getElementById("enf4sn2").innerHTML = data[0].enf4;
             document.getElementById("enf5sn2").innerHTML = data[0].enf2;
             document.getElementById("enf6sn2").innerHTML = data[0].enf2;
-            document.getElementById("enf7sn2").innerHTML = data[0].enf5;
+            document.getElementById("enf7sn2").innerHTML = data[0].enf6;
             document.getElementById("enf8sn2").innerHTML = data[0].enf2;
             document.getElementById("enf9sn2").innerHTML = data[0].enf3;
             document.getElementById("enf10sn2").innerHTML = data[0].enf2;
