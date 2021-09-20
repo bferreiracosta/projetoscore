@@ -55,12 +55,18 @@ module.exports.adicionarescalaroosevelt = function(application, req, res){
 	var tecenf24 = req.body.tecenf24;
 	var tecenf25 = req.body.tecenf25;
 	var tecenf26 = req.body.tecenf26;
+	var tecenf27 = req.body.tecenf27;
+	var tecenf28 = req.body.tecenf28;
+	var tecenf29 = req.body.tecenf29;
+	var tecenf30 = req.body.tecenf30;
+	var tecenf31 = req.body.tecenf31;
+	var tecenf32 = req.body.tecenf32;
+	var tecenf33 = req.body.tecenf33;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
 	var enf5 = req.body.enf5;
 	var enf6 = req.body.enf6;
-	var enf18 = req.body.enf18;
 	var enf7 = req.body.enf7;
 	var enf8 = req.body.enf8;
 	var enf9 = req.body.enf9;
@@ -70,13 +76,11 @@ module.exports.adicionarescalaroosevelt = function(application, req, res){
 	var enf13 = req.body.enf13;
 	var enf14 = req.body.enf14;
 	var enf15 = req.body.enf15;
-	var enf16 = req.body.enf16;
-	var enf17 = req.body.enf17;
 	modelatriroosevelt.buscarregraescalaunicaroosevelt(date, turno, unidade,function(error, resultado){
 		if(resultado == null || resultado == ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelatriroosevelt.adicionarescalaroosevelt(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21,tecenf22, tecenf23,tecenf24,tecenf25,tecenf26, enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10 ,enf11 ,enf12 ,enf13 ,enf14 ,enf15 ,enf16 ,enf17 ,enf18 , enfcme, teccme, function(error, resultado){
+					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21,tecenf22, tecenf23,tecenf24,tecenf25,tecenf26,tecenf27,tecenf28,tecenf29,tecenf30,tecenf31,tecenf32,tecenf33, enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10 ,enf11 ,enf12 ,enf13 ,enf14 ,enf15 , enfcme, teccme, function(error, resultado){
 						res.redirect("/atribuicaoroosevelt?id=" + result[0].id_usuario);	
 				})
 			});
@@ -223,12 +227,18 @@ module.exports.editarescalaroosevelt = function(application, req, res){
 	var tecenf24 = req.body.tecenf24;
 	var tecenf25 = req.body.tecenf25;
 	var tecenf26 = req.body.tecenf26;
+	var tecenf27 = req.body.tecenf27;
+	var tecenf28 = req.body.tecenf28;
+	var tecenf29 = req.body.tecenf29;
+	var tecenf30 = req.body.tecenf30;
+	var tecenf31 = req.body.tecenf31;
+	var tecenf32 = req.body.tecenf32;
+	var tecenf33 = req.body.tecenf33;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
 	var enf5 = req.body.enf5;
 	var enf6 = req.body.enf6;
-	var enf18 = req.body.enf18;
 	var enf7 = req.body.enf7;
 	var enf8 = req.body.enf8;
 	var enf9 = req.body.enf9;
@@ -238,11 +248,9 @@ module.exports.editarescalaroosevelt = function(application, req, res){
 	var enf13 = req.body.enf13;
 	var enf14 = req.body.enf14;
 	var enf15 = req.body.enf15;
-	var enf16 = req.body.enf16;
-	var enf17 = req.body.enf17;
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelatriroosevelt.updateescalaroosevelt(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21,tecenf22, tecenf23,tecenf24,tecenf25,tecenf26, enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10 ,enf11 ,enf12 ,enf13 ,enf14 ,enf15 ,enf16 ,enf17 ,enf18 , enfcme, teccme, function(error, resultado){
+			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21,tecenf22, tecenf23,tecenf24,tecenf25,tecenf26,tecenf27,tecenf28,tecenf29,tecenf30,tecenf31,tecenf32,tecenf33, enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10 ,enf11 ,enf12 ,enf13 ,enf14 ,enf15 , enfcme, teccme, function(error, resultado){
 				res.redirect("/atribuicaoroosevelt?id=" + result[0].id_usuario);	
 		})
 	});
