@@ -131,30 +131,38 @@
 					var Kamban = "Kamban";
                		option += '<option value="'+Kamban+'">'+Kamban+'</option>';
 				}
-						if(obj[0].scih == 1){
-							var SCIH = "SCIH";
-							   option += '<option value="'+SCIH+'">'+SCIH+'</option>';
-						}
-						if(obj[0].smh == 1){
-							var smh = "SM Hospitalidade";
-							   option += '<option value="'+smh+'">'+smh+'</option>';
-						}
-						if(obj[0].smu == 1){
-							var smu = "SM Urgência";
-							   option += '<option value="'+smu+'">'+smu+'</option>';
-						}
-						if(obj[0].gestao == 1){
-							var gestao = "Gestão de Leitos";
-							   option += '<option value="'+gestao+'">'+gestao+'</option>';
-						}
-						if(obj[0].equipamentos == 1){
-							var equipamentos = "Central de Equipamentos";
-							   option += '<option value="'+equipamentos+'">'+equipamentos+'</option>';
-						}
-						if(obj[0].obstetricia == 1){
-							var obstetricia = "Obstetricia";
-							   option += '<option value="'+obstetricia+'">'+obstetricia+'</option>';
-						}
+				if(obj[0].atribuicao == 1){
+					var atribuicao = "Escala Atribuição";
+               		option += '<option value="'+atribuicao+'">'+atribuicao+'</option>';
+				}
+				if(obj[0].scih == 1){
+					var SCIH = "SCIH";
+               		option += '<option value="'+SCIH+'">'+SCIH+'</option>';
+				}
+				if(obj[0].smh == 1){
+					var smh = "SM Hospitalidade";
+               		option += '<option value="'+smh+'">'+smh+'</option>';
+				}
+				if(obj[0].smu == 1){
+					var smu = "SM Urgência";
+               		option += '<option value="'+smu+'">'+smu+'</option>';
+				}
+				if(obj[0].gestao == 1){
+					var gestao = "Gestão de Leitos";
+               		option += '<option value="'+gestao+'">'+gestao+'</option>';
+				}
+				if(obj[0].equipamentos == 1){
+					var equipamentos = "Central de Equipamentos";
+               		option += '<option value="'+equipamentos+'">'+equipamentos+'</option>';
+				}
+				if(obj[0].obstetricia == 1){
+					var obstetricia = "Obstetricia";
+               		option += '<option value="'+obstetricia+'">'+obstetricia+'</option>';
+				}
+				if(obj[0].escala == 1){
+					var escala = "Escala";
+               		option += '<option value="'+escala+'">'+escala+'</option>';
+				}
 					   
 					}
 					  $('#funcao').html(option).show();

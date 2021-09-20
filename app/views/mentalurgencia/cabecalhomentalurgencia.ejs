@@ -5,23 +5,23 @@
 		<meta charset="UTF-8">
 
 		
-		<title>ScoreSystem</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<!-- incluindo css -->
 		<link href="/css/style.css" rel="stylesheet">
-		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.css"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.buttons.css"/>
-	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
+<!--Get your own code at fontawesome.com-->
 
-		<!--Fontawesome CDN-->
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 		<!-- favicon -->
 		<link rel="shortcut icon" href="/images/favicon.ico" />
+	
+
 	</head>
 
 		<body>
@@ -794,30 +794,38 @@
 					var Kamban = "Kamban";
                		option += '<option value="'+Kamban+'">'+Kamban+'</option>';
 				}
-							if(obj[0].scih == 1){
-								var SCIH = "SCIH";
-								   option += '<option value="'+SCIH+'">'+SCIH+'</option>';
-							}
-							if(obj[0].smh == 1){
-								var smh = "SM Hospitalidade";
-								   option += '<option value="'+smh+'">'+smh+'</option>';
-							}
-							if(obj[0].smu == 1){
-								var smu = "SM Urgência";
-								   option += '<option value="'+smu+'">'+smu+'</option>';
-							}
-							if(obj[0].gestao == 1){
-								var gestao = "Gestão de Leitos";
-								   option += '<option value="'+gestao+'">'+gestao+'</option>';
-							}
-							if(obj[0].equipamentos == 1){
-								var equipamentos = "Central de Equipamentos";
-								   option += '<option value="'+equipamentos+'">'+equipamentos+'</option>';
-							}
-							if(obj[0].obstetricia == 1){
-								var obstetricia = "Obstetricia";
-								   option += '<option value="'+obstetricia+'">'+obstetricia+'</option>';
-							}
+				if(obj[0].atribuicao == 1){
+					var atribuicao = "Escala Atribuição";
+               		option += '<option value="'+atribuicao+'">'+atribuicao+'</option>';
+				}
+				if(obj[0].scih == 1){
+					var SCIH = "SCIH";
+               		option += '<option value="'+SCIH+'">'+SCIH+'</option>';
+				}
+				if(obj[0].smh == 1){
+					var smh = "SM Hospitalidade";
+               		option += '<option value="'+smh+'">'+smh+'</option>';
+				}
+				if(obj[0].smu == 1){
+					var smu = "SM Urgência";
+               		option += '<option value="'+smu+'">'+smu+'</option>';
+				}
+				if(obj[0].gestao == 1){
+					var gestao = "Gestão de Leitos";
+               		option += '<option value="'+gestao+'">'+gestao+'</option>';
+				}
+				if(obj[0].equipamentos == 1){
+					var equipamentos = "Central de Equipamentos";
+               		option += '<option value="'+equipamentos+'">'+equipamentos+'</option>';
+				}
+				if(obj[0].obstetricia == 1){
+					var obstetricia = "Obstetricia";
+               		option += '<option value="'+obstetricia+'">'+obstetricia+'</option>';
+				}
+				if(obj[0].escala == 1){
+					var escala = "Escala";
+               		option += '<option value="'+escala+'">'+escala+'</option>';
+				}
 						   
 						}
 						  $('#funcao').html(option).show();
