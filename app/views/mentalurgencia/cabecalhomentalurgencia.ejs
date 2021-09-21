@@ -784,7 +784,7 @@
 					data: {id: id},
 					contentType: 'application/json',
 					url: '/modulo',
-					info: function(obj) { 
+					   success: function(obj) { 
 					
 						if (obj.length > 0){
 							document.getElementById("usuario2").value=obj[0].usuario;

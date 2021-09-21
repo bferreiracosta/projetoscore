@@ -23,7 +23,6 @@
     margin-top: 14px;
 	color: white;
 	background-color: #194988;
-	border: none;
 }
 		</style>
 	</head>
@@ -176,7 +175,7 @@
         data: {id: id},
         contentType: 'application/json',
         url: '/modulo',
-        info: function(obj) { 
+       success: function(obj) { 
 		
             if (obj.length > 0){
 				document.getElementById("usuario2").value=obj[0].usuario;

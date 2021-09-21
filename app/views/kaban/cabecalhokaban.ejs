@@ -830,53 +830,53 @@
 	update();
 		   $("#modulo").click(function(){
 	var id = document.getElementById("id").value;
-
 	
-	obj = [];
+	
+	data = [];
     $.ajax({
         type: "GET",
         data: {id: id},
         contentType: 'application/json',
         url: '/modulo',
-        info: function(obj) { 
-		
-            if (obj.length > 0){
-				document.getElementById("usuario2").value=obj[0].usuario;
-				document.getElementById("senha2").value=obj[0].senha; 
+        success: function(data) { 
+			console.log(data)
+            if (data.length > 0){
+				document.getElementById("usuario2").value=data[0].usuario;
+				document.getElementById("senha2").value=data[0].senha; 
                 var option = '<option>Selecione o modulo </option>';
-				if(obj[0].kamban == 1){
+				if(data[0].kamban == 1){
 					var Kamban = "Kamban";
                		option += '<option value="'+Kamban+'">'+Kamban+'</option>';
 				}
-				if(obj[0].atribuicao == 1){
+				if(data[0].atribuicao == 1){
 					var atribuicao = "Escala Atribuição";
                		option += '<option value="'+atribuicao+'">'+atribuicao+'</option>';
 				}
-				if(obj[0].scih == 1){
+				if(data[0].scih == 1){
 					var SCIH = "SCIH";
                		option += '<option value="'+SCIH+'">'+SCIH+'</option>';
 				}
-				if(obj[0].smh == 1){
+				if(data[0].smh == 1){
 					var smh = "SM Hospitalidade";
                		option += '<option value="'+smh+'">'+smh+'</option>';
 				}
-				if(obj[0].smu == 1){
+				if(data[0].smu == 1){
 					var smu = "SM Urgência";
                		option += '<option value="'+smu+'">'+smu+'</option>';
 				}
-				if(obj[0].gestao == 1){
+				if(data[0].gestao == 1){
 					var gestao = "Gestão de Leitos";
                		option += '<option value="'+gestao+'">'+gestao+'</option>';
 				}
-				if(obj[0].equipamentos == 1){
+				if(data[0].equipamentos == 1){
 					var equipamentos = "Central de Equipamentos";
                		option += '<option value="'+equipamentos+'">'+equipamentos+'</option>';
 				}
-				if(obj[0].obstetricia == 1){
+				if(data[0].obstetricia == 1){
 					var obstetricia = "Obstetricia";
                		option += '<option value="'+obstetricia+'">'+obstetricia+'</option>';
 				}
-				if(obj[0].escala == 1){
+				if(data[0].escala == 1){
 					var escala = "Escala";
                		option += '<option value="'+escala+'">'+escala+'</option>';
 				}
