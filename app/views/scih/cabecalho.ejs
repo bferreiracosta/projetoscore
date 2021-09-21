@@ -14,6 +14,18 @@
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 		<!-- favicon -->
 		<link rel="shortcut icon" href="images/favicon.ico" />
+
+		<style>
+			button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin-top: 14px;
+	color: white;
+	background-color: #194988;
+	border: none;
+}
+		</style>
 	</head>
 
 	<body onload="myFunction()">
@@ -31,87 +43,9 @@
 					<% for(var i = 0; i < id.length; i++) {%>
 						<a href="#" data-toggle="modal" data-target="#BaixaModal" id="modulo" ><img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
 						<input type="hidden" name="id" id="id" value="<%=id[i].id_usuario %>">
-				 
-						<% if(id[i].id_usuario==1 || id[i].id_usuario==8 || id[i].usuario== 'ivia'){%>
-				<div class="navbar-header">
-					<select name="uai"  class="selectpicker" id="uai">
-						<option value="Planalto">Planalto</option>
-						<option value="Luizote">Luizote</option>
-						<option value="Roosevelt">Roosevelt</option>
-						<option value="Martins">Martins</option>
-						<option value="Morumbi">Morumbi</option>
-						<option value="Tibery">Tibery</option>
-					</select>
-				</div>
 				<% } %>
 				<% } %>
-				<% } %>
-				<% if(id.length > 0) { %>
-					<% for(var i = 0; i < id.length; i++) {%>
-						<% if(id[i].unidade==1){%>
-				<div class="navbar-header">
-					<select name="uai" selected  class="selectpicker" id="uai">
-						<option value="Planalto">Planalto</option>
-					</select>
-				</div>
-				<% } %>
-				<% } %>
-				<% } %>
-				<% if(id.length > 0) { %>
-					<% for(var i = 0; i < id.length; i++) {%>
-						<% if(id[i].unidade==2){%>
-				<div class="navbar-header">
-					<select name="uai" selected  class="selectpicker" id="uai">
-						<option value="Luizote">Luizote</option>
-					</select>
-				</div>
-				<% } %>
-				<% } %>
-				<% } %>
-				<% if(id.length > 0) { %>
-					<% for(var i = 0; i < id.length; i++) {%>
-						<% if(id[i].unidade==3){%>
-				<div class="navbar-header">
-					<select name="uai" selected  class="selectpicker" id="uai">
-						<option value="Martins">Martins</option>
-					</select>
-				</div>
-				<% } %>
-				<% } %>
-				<% } %>
-				<% if(id.length > 0) { %>
-					<% for(var i = 0; i < id.length; i++) {%>
-						<% if(id[i].unidade==4){%>
-				<div class="navbar-header">
-					<select name="uai" selected  class="selectpicker" id="uai">
-						<option value="Roosevelt">Roosevelt</option>
-					</select>
-				</div>
-				<% } %>
-				<% } %>
-				<% } %>
-				<% if(id.length > 0) { %>
-					<% for(var i = 0; i < id.length; i++) {%>
-						<% if(id[i].unidade==5){%>
-				<div class="navbar-header">
-					<select name="uai" selected  class="selectpicker" id="uai">
-						<option value="Morumbi">Morumbi</option>
-					</select>
-				</div>
-				<% } %>
-				<% } %>
-				<% } %>
-				<% if(id.length > 0) { %>
-					<% for(var i = 0; i < id.length; i++) {%>
-						<% if(id[i].unidade==6){%>
-				<div class="navbar-header">
-					<select name="uai" selected  class="selectpicker" id="uai">
-						<option value="Tibery">Tibery</option>
-					</select>
-				</div>
-				<% } %>
-				<% } %>
-				<% } %>
+
 			  </div>
 
 				 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -119,6 +53,51 @@
 					<ul class="nav navbar-nav navbar-right">
 						<% if(id.length > 0) { %>
 							<% for(var i = 0; i < id.length; i++) {%>
+								<% if(id[i].id_usuario==1 || id[i].id_usuario==8 || id[i].usuario== 'ivia'){%>
+										<select name="uai"  class="selectpicker" id="uai">
+											<option value="Planalto">Planalto</option>
+											<option value="Luizote">Luizote</option>
+											<option value="Roosevelt">Roosevelt</option>
+											<option value="Martins">Martins</option>
+											<option value="Morumbi">Morumbi</option>
+											<option value="Tibery">Tibery</option>
+										</select>
+									<% } %>
+											<% if(id[i].unidade==1){%>
+									
+										<select name="uai" selected  class="selectpicker" id="uai">
+											<option value="Planalto">Planalto</option>
+										</select>
+									<% } %>
+											<% if(id[i].unidade==2){%>
+									
+										<select name="uai" selected  class="selectpicker" id="uai">
+											<option value="Luizote">Luizote</option>
+										</select>
+									<% } %>
+											<% if(id[i].unidade==3){%>
+									
+										<select name="uai" selected  class="selectpicker" id="uai">
+											<option value="Martins">Martins</option>
+										</select>
+									<% } %>
+											<% if(id[i].unidade==4){%>
+										<select name="uai" selected  class="selectpicker" id="uai">
+											<option value="Roosevelt">Roosevelt</option>
+										</select>
+								
+									<% } %>
+											<% if(id[i].unidade==5){%>
+										<select name="uai" selected  class="selectpicker" id="uai">
+											<option value="Morumbi">Morumbi</option>
+										</select>
+									<% } %>
+											<% if(id[i].unidade==6){%>
+										<select name="uai" selected  class="selectpicker" id="uai">
+											<option value="Tibery">Tibery</option>
+										</select>
+									<% } %>
+								  
 								<% if(id[i].autorizacao==1){%>
 									<li class="btn-info"><a class="btn  btn-sm" href="obito?id=<%=id[i].id_usuario %>">Obito</a> </li>
 									<li class="btn-info"><a class="btn  btn-sm" href="rouparia?id=<%=id[i].id_usuario %>">Rouparia</a> </li>
