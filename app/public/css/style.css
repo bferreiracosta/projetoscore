@@ -621,6 +621,7 @@ tr.group:hover {
     background-color:  #011485!important;
     white-space: nowrap;
 }
+
 .dropdown-menu>li>a {
     display: block;
     padding: 7px 20px!important;
