@@ -99,7 +99,7 @@ tr.group:hover {
     }
 }
 .btn-success1 {
-    color: #000;
+    color: rgb(255, 255, 255)!important;;
     background-color: #194988;
     border-color: #194988;
 }
@@ -173,12 +173,12 @@ tr.group:hover {
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a {
-    color: black!important;
+    color: rgb(255, 255, 255)!important;
     background-color:  #194988!important;
 }
 
 .navbar-default .nav-pills>.open>a, .navbar-default .nav-pills>.open>a:focus, .navbar-default .nav-pills>.open>a {
-    color: black!important;
+    color: rgb(255, 255, 255)!important;
     background-color:  #194988!important;
 }
 .navbar-nav>li>a {
@@ -233,7 +233,7 @@ tr.group:hover {
     clear: both;
     font-weight: 400;
     line-height: 1.42857143;
-    color: black!important;
+    color: rgb(255, 255, 255)!important;
     background-color:  #194988!important;
     white-space: nowrap;
 }
@@ -567,12 +567,12 @@ tr.group:hover {
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a {
-    color: black!important;
+    color: rgb(255, 255, 255)!important;
     background-color:  #194988!important;
 }
 
 .navbar-default .nav-pills>.open>a, .navbar-default .nav-pills>.open>a:focus, .navbar-default .nav-pills>.open>a {
-    color: black!important;
+    color: rgb(255, 255, 255)!important;
     background-color:  #194988!important;
 }
 .navbar-nav>li>a {
@@ -627,7 +627,7 @@ tr.group:hover {
     clear: both;
     font-weight: 400;
     line-height: 1.42857143;
-    color: black!important;
+    color: white!important;
     background-color:  #194988!important;
     white-space: nowrap;
 }
