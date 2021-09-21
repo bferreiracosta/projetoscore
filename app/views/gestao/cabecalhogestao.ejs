@@ -48,15 +48,15 @@
 					<ul class="nav navbar-nav navbar-right">
 			
 						<% if(id[i].gestao== 1){%>
-							<li class="btn-success"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
-							<li class="btn-success"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
-							<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
-							<li class="btn-success"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
-							<li class="btn-success"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
-							<li class="btn-success"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
-							<li class="btn-success"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
-							<li class="btn-success"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>
-							<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+							<li class="btn-info"><a class="btn   btn-sm" href="/centraluaiplanaltorelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Planalto</a></li>
+							<li class="btn-info"><a class="btn   btn-sm" href="/centraluailuizoterelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Luizote</a></li>
+							<li class="btn-info"><a class="btn   btn-sm" href="/centraluaimartinsrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Martins</a></li>
+							<li class="btn-info"><a class="btn   btn-sm" href="/centraluairooseveltrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Roosevelt</a></li>
+							<li class="btn-info"><a class="btn   btn-sm" href="/centraluaimorumbirelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Morumbi</a></li>
+							<li class="btn-info"><a class="btn   btn-sm" href="/centraluaitiberyrelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Tibery</a></li>
+							<li class="btn-info"><a class="btn   btn-sm" href="/centraluaisaojorgerelatorio?id=<%=id[i].id_usuario %>">Central de Leitos São Jorge</a></li>
+							<li class="btn-info"><a class="btn   btn-sm" href="/centraluaipampulharelatorio?id=<%=id[i].id_usuario %>">Central de Leitos Pampulha</a></li>
+							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
 					<% } %>	
 				<% } %>
@@ -94,7 +94,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-							<button type="submit" class="btn btn-success">Entrar</button>
+							<button type="submit" class="btn btn-info">Entrar</button>
 						</div>
 					</div>
 				</div>
@@ -124,7 +124,7 @@
         data: {id: id},
         contentType: 'application/json',
         url: '/modulo',
-        success: function(obj) { 
+        info: function(obj) { 
 	
             if (obj.length > 0){
 				document.getElementById("usuario2").value=obj[0].usuario;

@@ -120,13 +120,13 @@
 						<% if(id.length > 0) { %>
 							<% for(var i = 0; i < id.length; i++) {%>
 								<% if(id[i].autorizacao==1){%>
-									<li class="btn-success"><a class="btn  btn-sm" href="obito?id=<%=id[i].id_usuario %>">Obito</a> </li>
-									<li class="btn-success"><a class="btn  btn-sm" href="rouparia?id=<%=id[i].id_usuario %>">Rouparia</a> </li>
-									<li class="btn-success"><a class="btn  btn-sm" href="isolamento?id=<%=id[i].id_usuario %>">Isolamento</a> </li>
-									<li class="btn-success"><a class="btn  btn-sm" href="sepse?id=<%=id[i].id_usuario %>">Sepse</a> </li>
-									<li class="btn-success"><a class="btn  btn-sm" href="indicador?id=<%=id[i].id_usuario %>">Indicador</a> </li>
-									<li class="btn-success"><a class="btn  btn-sm" href="lixo?id=<%=id[i].id_usuario %>">Lixo Hospitalar</a> </li>
-									<li class="btn-success"><a class="btn  btn-sm" href="/sair">Sair</a> </li>
+									<li class="btn-info"><a class="btn  btn-sm" href="obito?id=<%=id[i].id_usuario %>">Obito</a> </li>
+									<li class="btn-info"><a class="btn  btn-sm" href="rouparia?id=<%=id[i].id_usuario %>">Rouparia</a> </li>
+									<li class="btn-info"><a class="btn  btn-sm" href="isolamento?id=<%=id[i].id_usuario %>">Isolamento</a> </li>
+									<li class="btn-info"><a class="btn  btn-sm" href="sepse?id=<%=id[i].id_usuario %>">Sepse</a> </li>
+									<li class="btn-info"><a class="btn  btn-sm" href="indicador?id=<%=id[i].id_usuario %>">Indicador</a> </li>
+									<li class="btn-info"><a class="btn  btn-sm" href="lixo?id=<%=id[i].id_usuario %>">Lixo Hospitalar</a> </li>
+									<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a> </li>
 						<% } %>
 							<% } %>	
 								<% } %>
@@ -163,7 +163,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-								<button type="submit" class="btn btn-success">Entrar</button>
+								<button type="submit" class="btn btn-info">Entrar</button>
 							</div>
 						</div>
 					</div>
@@ -197,7 +197,7 @@
         data: {id: id},
         contentType: 'application/json',
         url: '/modulo',
-        success: function(obj) { 
+        info: function(obj) { 
 		
             if (obj.length > 0){
 				document.getElementById("usuario2").value=obj[0].usuario;
