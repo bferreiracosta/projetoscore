@@ -807,6 +807,10 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var dataavp = req.body.dataavp;
 	var cvc = req.body.cvc3;
 	var datacvc = req.body.datacvc;
+	var gtt = req.body.gtt3;
+	var datagtt = req.body.datagtt;
+	var sng = req.body.sng3;
+	var datasng = req.body.datasng;
 	var dispositivoventilatorio = req.body.dispositivo2;
 	var fluxoo2 = req.body.o2;
 	var fio2 = req.body.fio2;
@@ -838,7 +842,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	modelpampulha.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 		if(resultados[0].dataatualizacao == null){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
-				modelpampulha.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
+				modelpampulha.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,gtt,datagtt,sng,datasng,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 					modelpampulha.buscardispositivo(unidade, function(error, resultado){
 						res.redirect("/dispositivopampulha?id=" + result[0].id_usuario);	
 					});
@@ -846,7 +850,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 			});	
 		}else{
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
-				modelpampulha.adddispositivo(idpaciente,glasgow, bic, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
+				modelpampulha.adddispositivo(idpaciente,glasgow, bic, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,gtt,datagtt,sng,datasng,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 					modelpampulha.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
 						modelpampulha.buscardispositivo(unidade, function(error, resultado){
 							res.redirect("/dispositivopampulha?id=" + result[0].id_usuario);	
@@ -1259,6 +1263,10 @@ module.exports.updatedispositivokabanpampulha= function(application, req, res){
 	var dataavp = req.body.dataavp;
 	var cvc = req.body.cvc3;
 	var datacvc = req.body.datacvc;
+	var gtt = req.body.gtt3;
+	var datagtt = req.body.datagtt;
+	var sng = req.body.sng3;
+	var datasng = req.body.datasng;
 	var dispositivoventilatorio = req.body.dispositivo2;
 	var fluxoo2 = req.body.o2;
 	var fio2 = req.body.o2;
@@ -1289,7 +1297,7 @@ module.exports.updatedispositivokabanpampulha= function(application, req, res){
 	modelpampulha.buscarpacienteporid(idpaciente, function(error, idpac){
 
 		modeladmin.buscarusuarioporid(id, function(error, result){	
-			modelpampulha.updatedispositivodados(idpaciente,glasgow, bic,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
+			modelpampulha.updatedispositivodados(idpaciente,glasgow, bic,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,gtt,datagtt,sng,datasng,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
 				modelpampulha.buscardispositivo(unidade, function(error, resultado){
 					res.redirect("/dispositivopampulha?id=" + result[0].id_usuario);	
 				});	

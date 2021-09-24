@@ -804,6 +804,10 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	var dataavp = req.body.dataavp;
 	var cvc = req.body.cvc3;
 	var datacvc = req.body.datacvc;
+	var gtt = req.body.gtt3;
+	var datagtt = req.body.datagtt;
+	var sng = req.body.sng3;
+	var datasng = req.body.datasng;
 	var dispositivoventilatorio = req.body.dispositivo2;
 	var fluxoo2 = req.body.o2;
 	var fio2 = req.body.fio2;
@@ -835,7 +839,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 	modelplanalto.buscardispositivodataid(idpaciente, unidade, function(error, resultados){
 		if(resultados[0].dataatualizacao == null){
 			modeladmin.buscarusuarioporid(id, function(error, result){	
-				modelplanalto.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
+				modelplanalto.updatedispositivo(idpaciente, glasgow, bic,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,gtt,datagtt,sng,datasng,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 					modelplanalto.buscardispositivo(unidade, function(error, resultado){
 						res.redirect("/dispositivoplanalto?id=" + result[0].id_usuario);	
 					});
@@ -843,7 +847,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 			});	
 		}else{
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
-				modelplanalto.adddispositivo(idpaciente,glasgow, bic, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
+				modelplanalto.adddispositivo(idpaciente,glasgow, bic, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,gtt,datagtt,sng,datasng,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 					modelplanalto.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
 						modelplanalto.buscardispositivo(unidade, function(error, resultado){
 							res.redirect("/dispositivoplanalto?id=" + result[0].id_usuario);	
@@ -1256,6 +1260,10 @@ module.exports.updatedispositivokabanplanalto= function(application, req, res){
 	var dataavp = req.body.dataavp;
 	var cvc = req.body.cvc3;
 	var datacvc = req.body.datacvc;
+	var gtt = req.body.gtt3;
+	var datagtt = req.body.datagtt;
+	var sng = req.body.sng3;
+	var datasng = req.body.datasng;
 	var dispositivoventilatorio = req.body.dispositivo2;
 	var fluxoo2 = req.body.o2;
 	var fio2 = req.body.o2;
@@ -1286,7 +1294,7 @@ module.exports.updatedispositivokabanplanalto= function(application, req, res){
 	modelplanalto.buscarpacienteporid(idpaciente, function(error, idpac){
 
 		modeladmin.buscarusuarioporid(id, function(error, result){	
-			modelplanalto.updatedispositivodados(idpaciente,glasgow, bic,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
+			modelplanalto.updatedispositivodados(idpaciente,glasgow, bic,data,svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,gtt,datagtt,sng,datasng,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,unidade,  function(error, resulta){
 				modelplanalto.buscardispositivo(unidade, function(error, resultado){
 					res.redirect("/dispositivoplanalto?id=" + result[0].id_usuario);	
 				});	

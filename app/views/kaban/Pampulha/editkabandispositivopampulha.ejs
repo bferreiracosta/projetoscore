@@ -48,6 +48,20 @@
 							<label class="form-check-label"  id="datacvc" for="datacvc"> ---  Data CVC</label>
 							<input  id="datacvc2"  type="text" name="datacvc" value="<%=dispositivo[j].datacvc%>" >
 						</div>
+						<div class="form-check">
+							<input type="checkbox" name="dispositivo" id="gtt"  class="form-check-input" onClick="check2()" value="gtt"<%=(dispositivo[j].gtt == 'GTT')?'checked':''%>>
+							<label class="form-check-label"  id="gtt2" for="Propofol2">GTT</label>
+							<input  id="gtt3"  type="hidden" name="gtt3">
+							<label class="form-check-label"  id="datagtt" for="datacvc"> ---  Data GTT</label>
+							<input  id="datagtt2"  type="text" name="datagtt" value="<%=dispositivo[j].datagtt%>" >
+						</div>
+						<div class="form-check">
+							<input type="checkbox" name="dispositivo" id="sng"  class="form-check-input" onClick="check2()" value="sng"<%=(dispositivo[j].sng == 'SNG')?'checked':''%>>
+							<label class="form-check-label"  id="sng2" for="Propofol2">SNG</label>
+							<input  id="sng3"  type="hidden" name="sng3">
+							<label class="form-check-label"  id="datasng" for="datasng"> ---  Data SNG</label>
+							<input  id="datasng2"  type="text" name="datasng" value="<%=dispositivo[j].datasng%>"  >
+						</div>
 					</div>
 					<div class="form-group">
 						<label for="paciente">Dispositivo Ventilatório</label>
@@ -209,75 +223,103 @@ $('#datasvd2').mask('00/00/0000');
 $('#datasne2').mask('00/00/0000');
 $('#dataavp2').mask('00/00/0000');
 $('#datacvc2').mask('00/00/0000');
+$('#datagtt').mask('00/00/0000');
+$('#datasng2').mask('00/00/0000');
 
 function check2(){
 
-	var input9 = document.getElementById("datasvd2");
-	var input10 = document.getElementById("datasne2");
-	var input11 = document.getElementById("dataavp2");
-	var input12 = document.getElementById("datacvc2");
-	var label5 = document.getElementById("datasvd");
-	var label6 = document.getElementById("datasne");
-	var label7 = document.getElementById("datacvc");
-	var label8 = document.getElementById("dataavp");
+var input9 = document.getElementById("datasvd2");
+var input10 = document.getElementById("datasne2");
+var input11 = document.getElementById("dataavp2");
+var input12 = document.getElementById("datacvc2");
+var input13 = document.getElementById("datagtt2");
+var input14 = document.getElementById("datasng2");
+var label5 = document.getElementById("datasvd");
+var label6 = document.getElementById("datasne");
+var label7 = document.getElementById("datacvc");
+var label8 = document.getElementById("dataavp");
+var label9 = document.getElementById("datagtt");
+var label10 = document.getElementById("datasng");
 
 var pacote = document.getElementsByName('dispositivo');
-  for (var i = 0; i < pacote.length; i++){
-	  if ( pacote[i].checked ) {
-		  if(pacote[i].value == "svd"){
-			input9.style.display = "inline"
-			label5.style.display = "inline";
-			  var Pacote_i = "SVD";
-			  document.getElementById('svd3').value = Pacote_i;
-		  }else if (pacote[i].value == "sne") {
-			input10.style.display = "inline"
-			label6.style.display = "inline";
-			  var Pacote_ii = "SNE";
-			  document.getElementById('sne3').value = Pacote_ii;
-		  }else if (pacote[i].value == "avp") {
-			input11.style.display = "inline"
-			label8.style.display = "inline";
-			  var Pacote_iii = "AVP";
-			  document.getElementById('avp3').value = Pacote_iii;
-		  }else if (pacote[i].value == "cvc") {
-			input12.style.display = "inline"
-			label7.style.display = "inline";
-			  var Pacote_iiii = "CVC";
-			  document.getElementById('cvc3').value = Pacote_iiii;
-		  }
-		}
-  	}
-	 
-	 var estado = false;
-	for (var i = 0; i < pacote.length; i++) {
-		if ( pacote[i].checked == estado ) {
-		  if(pacote[i].value == "svd"){
-			input9.style.display = "none"
-			label5.style.display = "none";
-			input9.value = "Não Aplicado"
-			  var Pacote_i = "Não Aplicado";
-			  document.getElementById('svd3').value = Pacote_i;
-		  }else if (pacote[i].value == "sne") {
-			input10.style.display = "none"
-			label6.style.display = "none";
-			input10.value = "Não Aplicado"
-			  var Pacote_ii = "Não Aplicado";
-			  document.getElementById('sne3').value = Pacote_ii;
-		  }else if (pacote[i].value == "avp") {
-			input11.style.display = "none"
-			label8.style.display = "none";
-			input11.value = "Não Aplicado"
-			  var Pacote_iii = "Não Aplicado";
-			  document.getElementById('avp3').value = Pacote_iii;
-		  }else if (pacote[i].value == "cvc") {
-			input12.style.display = "none"
-			label7.style.display = "none";
-			input12.value = "Não Aplicado"
-			  var Pacote_iiii = "Não Aplicado";
-			  document.getElementById('cvc3').value = Pacote_iiii;
-		  }
-		}
+for (var i = 0; i < pacote.length; i++){
+  if ( pacote[i].checked ) {
+	  if(pacote[i].value == "svd"){
+		input9.style.display = "inline"
+		label5.style.display = "inline";
+		  var Pacote_i = "SVD";
+		  document.getElementById('svd3').value = Pacote_i;
+	  }else if (pacote[i].value == "sne") {
+		input10.style.display = "inline"
+		label6.style.display = "inline";
+		  var Pacote_ii = "SNE";
+		  document.getElementById('sne3').value = Pacote_ii;
+	  }else if (pacote[i].value == "avp") {
+		input11.style.display = "inline"
+		label8.style.display = "inline";
+		  var Pacote_iii = "AVP";
+		  document.getElementById('avp3').value = Pacote_iii;
+	  }else if (pacote[i].value == "cvc") {
+		input12.style.display = "inline"
+		label7.style.display = "inline";
+		  var Pacote_iiii = "CVC";
+		  document.getElementById('cvc3').value = Pacote_iiii;
+	}else if (pacote[i].value == "gtt") {
+	input13.style.display = "inline"
+	label9.style.display = "inline";
+		var Pacote_iiiii = "GTT";
+		document.getElementById('gtt3').value = Pacote_iiiii;
+	}else if (pacote[i].value == "sng") {
+	input14.style.display = "inline"
+	label10.style.display = "inline";
+		var Pacote_iiiiii = "SNG";
+		document.getElementById('sng3').value = Pacote_iiiiii;
+	  }
 	}
+  }
+ 
+ var estado = false;
+for (var i = 0; i < pacote.length; i++) {
+	if ( pacote[i].checked == estado ) {
+	  if(pacote[i].value == "svd"){
+		input9.style.display = "none"
+		label5.style.display = "none";
+		input9.value = "Não Aplicado"
+		  var Pacote_i = "Não Aplicado";
+		  document.getElementById('svd3').value = Pacote_i;
+	  }else if (pacote[i].value == "sne") {
+		input10.style.display = "none"
+		label6.style.display = "none";
+		input10.value = "Não Aplicado"
+		  var Pacote_ii = "Não Aplicado";
+		  document.getElementById('sne3').value = Pacote_ii;
+	  }else if (pacote[i].value == "avp") {
+		input11.style.display = "none"
+		label8.style.display = "none";
+		input11.value = "Não Aplicado"
+		  var Pacote_iii = "Não Aplicado";
+		  document.getElementById('avp3').value = Pacote_iii;
+	  }else if (pacote[i].value == "cvc") {
+		input12.style.display = "none"
+		label7.style.display = "none";
+		input12.value = "Não Aplicado"
+		  var Pacote_iiii = "Não Aplicado";
+		  document.getElementById('cvc3').value = Pacote_iiii;
+	}else if (pacote[i].value == "gtt") {
+	input13.style.display = "none"
+	label9.style.display = "none";
+	input13.value = "Não Aplicado"
+		var Pacote_iiiii = "Não Aplicado";
+		document.getElementById('gtt3').value = Pacote_iiiii;
+	}else if (pacote[i].value == "sng") {
+	input14.style.display = "none"
+	label10.style.display = "none";
+	input14.value = "Não Aplicado"
+		var Pacote_iiiiii = "Não Aplicado";
+		document.getElementById('sng3').value = Pacote_iiiiii;
+	  }
+	}
+}
 }
 	
 	$("#droga").on('change', function(f){
@@ -520,6 +562,10 @@ var pacote = document.getElementsByName('dispositivo');
 		document.getElementById("datasne2").style.display ='none';
 		document.getElementById("datacvc2").style.display ='none';
 		document.getElementById("dataavp2").style.display ='none';
+		document.getElementById("datagtt").style.display ='none';
+		document.getElementById("datagtt2").style.display ='none';
+		document.getElementById("datasng2").style.display ='none';
+		document.getElementById("datasng2").style.display ='none';
 		document.getElementById("glasgow").style.display ='none';
 		document.getElementById("glasgowlabel").style.display ='none';
 	  var dispositivo = document.getElementById("dispositivo").value;
