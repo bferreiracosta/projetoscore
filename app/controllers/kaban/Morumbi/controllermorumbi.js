@@ -850,7 +850,7 @@ module.exports.cadastrardispositivo= function(application, req, res){
 			});	
 		}else{
 			modeladmin.buscarusuarioeditavel(id, function(error, result){	
-				modelmorumbi.adddispositivo(idpaciente,glasgow, bic, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,gtt,datagtt,sng,datasng,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
+				modelmorumbi.adddispositivo(idpaciente,nome,glasgow, bic, nome, svd,datasvd,sne,datasne,avp,dataavp,cvc,datacvc,gtt,datagtt,sng,datasng,dispositivoventilatorio,fluxoo2,fio2,peep,drogas,nora,vazaonora,adre,vazaoadre,bica,vazaobica,sedacao,dormonid3,vazaoDormonid,fentanil3,vazaoFentanil,rocuronio3,vazaoRocuronio,propofol3,vazaoPropofol,data,unidade,  function(error, resulta){
 					modelmorumbi.updatedispositivostatus(resultados[0].iddispositivo, function(error, resulta){
 						modelmorumbi.buscardispositivo(unidade, function(error, resultado){
 							res.redirect("/dispositivomorumbi?id=" + result[0].id_usuario);	
