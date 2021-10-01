@@ -8,7 +8,7 @@ module.exports.escalacc = function(application, req, res){
 		res.render("escala/escalacc", {id : result,  msg: ''});
 	});
 }
-module.exports.updateescalacc = function(application, req, res){
+module.exports.updateescalacctarde = function(application, req, res){
 	
 
 	var modelescalacc = new application.app.model.escala.modelescalacc(application);
@@ -16,7 +16,7 @@ module.exports.updateescalacc = function(application, req, res){
 
 
 
-		modelescalacc.updateescalacc(valor, function(error, resultdoinsert){
+		modelescalacc.updateescalacctarde(valor, function(error, resultdoinsert){
 			res.send(resultdoinsert);
 		})
 	
@@ -137,3 +137,84 @@ module.exports.buscarescalamensalccmulti = function(application, req, res){
 		
 	
 }
+
+module.exports.buscarescalamanhasetor1cc = function(application, req, res){
+	
+
+	var modelescalacc = new application.app.model.escala.modelescalacc(application);
+
+	var valor = req.query;
+
+	
+	modelescalacc.buscarescalamanhasetor1cc(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+
+module.exports.buscarescalamanhasetor2cc = function(application, req, res){
+	
+
+	var modelescalacc = new application.app.model.escala.modelescalacc(application);
+
+	var valor = req.query;
+
+	
+	modelescalacc.buscarescalamanhasetor2cc(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+
+module.exports.buscarescalamanhasetor3cc = function(application, req, res){
+	
+
+	var modelescalacc = new application.app.model.escala.modelescalacc(application);
+
+	var valor = req.query;
+
+	
+	modelescalacc.buscarescalamanhasetor3cc(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+
+module.exports.buscarescalamanhasetor4cc = function(application, req, res){
+	
+
+	var modelescalacc = new application.app.model.escala.modelescalacc(application);
+
+	var valor = req.query;
+
+	
+	modelescalacc.buscarescalamanhasetor4cc(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+
+module.exports.buscarescalamanhasetor5cc = function(application, req, res){
+	
+
+	var modelescalacc = new application.app.model.escala.modelescalacc(application);
+
+	var valor = req.query;
+
+	
+	modelescalacc.buscarescalamanhasetor5cc(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+

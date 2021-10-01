@@ -5,12 +5,12 @@ function modelescalacapsnorte(application){
 
 modelescalacapsnorte.prototype.buscafuncionario = function(turno, callback){
 	
-	this._conection.query('select idfuncionarioscapsnorte from funcionarioscapsnorte where turno = "'+turno+'"', callback);
+	this._conection.query('select idfuncionarioscapsnorte from funcionarioscapsnorte where equipe = "'+turno+'"', callback);
 }
 
 modelescalacapsnorte.prototype.criarfolga =  function(funcionarios, escala, turno, callback){
 	var sql = "insert into folgacapsnorte (idfuncionarios,idescala) VALUES ?";
-	if(turno == "Manhã"){
+	if(turno == "Enfermagem"){
 		var values = [
 			[funcionarios[0].idfuncionarioscapsnorte, escala],
 			[funcionarios[1].idfuncionarioscapsnorte, escala],
@@ -23,172 +23,28 @@ modelescalacapsnorte.prototype.criarfolga =  function(funcionarios, escala, turn
 			[funcionarios[8].idfuncionarioscapsnorte, escala],
 			[funcionarios[9].idfuncionarioscapsnorte, escala],
 			[funcionarios[10].idfuncionarioscapsnorte, escala],
-			[funcionarios[11].idfuncionarioscapsnorte, escala],
-			[funcionarios[12].idfuncionarioscapsnorte, escala],
-			[funcionarios[13].idfuncionarioscapsnorte, escala],
-			[funcionarios[14].idfuncionarioscapsnorte, escala],
-			[funcionarios[15].idfuncionarioscapsnorte, escala],
-			[funcionarios[16].idfuncionarioscapsnorte, escala],
-			[funcionarios[17].idfuncionarioscapsnorte, escala],
-			[funcionarios[18].idfuncionarioscapsnorte, escala],
-			[funcionarios[19].idfuncionarioscapsnorte, escala],
-			[funcionarios[20].idfuncionarioscapsnorte, escala],
-			[funcionarios[21].idfuncionarioscapsnorte, escala],
-			[funcionarios[22].idfuncionarioscapsnorte, escala],
-			[funcionarios[23].idfuncionarioscapsnorte, escala],
-			[funcionarios[24].idfuncionarioscapsnorte, escala],
-			[funcionarios[25].idfuncionarioscapsnorte, escala],
-			[funcionarios[26].idfuncionarioscapsnorte, escala],
-			[funcionarios[27].idfuncionarioscapsnorte, escala],
-			[funcionarios[28].idfuncionarioscapsnorte, escala],
-			[funcionarios[29].idfuncionarioscapsnorte, escala],
-			[funcionarios[30].idfuncionarioscapsnorte, escala],
-			[funcionarios[31].idfuncionarioscapsnorte, escala],
-			[funcionarios[32].idfuncionarioscapsnorte, escala],
-			[funcionarios[33].idfuncionarioscapsnorte, escala],
-			[funcionarios[34].idfuncionarioscapsnorte, escala],
-			[funcionarios[35].idfuncionarioscapsnorte, escala],
-		];
-	}
-	if(turno == "Tarde"){
-		var values = [
-			[funcionarios[0].idfuncionarioscapsnorte, escala],
-			[funcionarios[1].idfuncionarioscapsnorte, escala],
-			[funcionarios[2].idfuncionarioscapsnorte, escala],
-			[funcionarios[3].idfuncionarioscapsnorte, escala],
-			[funcionarios[4].idfuncionarioscapsnorte, escala],
-			[funcionarios[5].idfuncionarioscapsnorte, escala],
-			[funcionarios[6].idfuncionarioscapsnorte, escala],
-			[funcionarios[7].idfuncionarioscapsnorte, escala],
-			[funcionarios[8].idfuncionarioscapsnorte, escala],
-			[funcionarios[9].idfuncionarioscapsnorte, escala],
-			[funcionarios[10].idfuncionarioscapsnorte, escala],
-			[funcionarios[11].idfuncionarioscapsnorte, escala],
-			[funcionarios[12].idfuncionarioscapsnorte, escala],
-			[funcionarios[13].idfuncionarioscapsnorte, escala],
-			[funcionarios[14].idfuncionarioscapsnorte, escala],
-			[funcionarios[15].idfuncionarioscapsnorte, escala],
-			[funcionarios[16].idfuncionarioscapsnorte, escala],
-			[funcionarios[17].idfuncionarioscapsnorte, escala],
-			[funcionarios[18].idfuncionarioscapsnorte, escala],
-			[funcionarios[19].idfuncionarioscapsnorte, escala],
-			[funcionarios[20].idfuncionarioscapsnorte, escala],
-			[funcionarios[21].idfuncionarioscapsnorte, escala],
-			[funcionarios[22].idfuncionarioscapsnorte, escala],
-			[funcionarios[23].idfuncionarioscapsnorte, escala],
-			[funcionarios[24].idfuncionarioscapsnorte, escala],
-			[funcionarios[25].idfuncionarioscapsnorte, escala],
-			[funcionarios[26].idfuncionarioscapsnorte, escala],
-			[funcionarios[27].idfuncionarioscapsnorte, escala],
-			[funcionarios[28].idfuncionarioscapsnorte, escala],
-			[funcionarios[29].idfuncionarioscapsnorte, escala],
-			[funcionarios[30].idfuncionarioscapsnorte, escala],
-			[funcionarios[31].idfuncionarioscapsnorte, escala],
-			[funcionarios[32].idfuncionarioscapsnorte, escala],
-			[funcionarios[33].idfuncionarioscapsnorte, escala],
-		];
-	}
-	if(turno == "SN1"){
-		var values = [
-			[funcionarios[0].idfuncionarioscapsnorte, escala],
-			[funcionarios[1].idfuncionarioscapsnorte, escala],
-			[funcionarios[2].idfuncionarioscapsnorte, escala],
-			[funcionarios[3].idfuncionarioscapsnorte, escala],
-			[funcionarios[4].idfuncionarioscapsnorte, escala],
-			[funcionarios[5].idfuncionarioscapsnorte, escala],
-			[funcionarios[6].idfuncionarioscapsnorte, escala],
-			[funcionarios[7].idfuncionarioscapsnorte, escala],
-			[funcionarios[8].idfuncionarioscapsnorte, escala],
-			[funcionarios[9].idfuncionarioscapsnorte, escala],
-			[funcionarios[10].idfuncionarioscapsnorte, escala],
-			[funcionarios[11].idfuncionarioscapsnorte, escala],
-			[funcionarios[12].idfuncionarioscapsnorte, escala],
-			[funcionarios[13].idfuncionarioscapsnorte, escala],
-			[funcionarios[14].idfuncionarioscapsnorte, escala],
-			[funcionarios[15].idfuncionarioscapsnorte, escala],
-			[funcionarios[16].idfuncionarioscapsnorte, escala],
-			[funcionarios[17].idfuncionarioscapsnorte, escala],
-			[funcionarios[18].idfuncionarioscapsnorte, escala],
-			[funcionarios[19].idfuncionarioscapsnorte, escala],
-			[funcionarios[20].idfuncionarioscapsnorte, escala],
-			[funcionarios[21].idfuncionarioscapsnorte, escala],
-			[funcionarios[22].idfuncionarioscapsnorte, escala],
-			[funcionarios[23].idfuncionarioscapsnorte, escala],
-			[funcionarios[24].idfuncionarioscapsnorte, escala],
-			[funcionarios[25].idfuncionarioscapsnorte, escala],
-			[funcionarios[26].idfuncionarioscapsnorte, escala],
-			[funcionarios[27].idfuncionarioscapsnorte, escala],
-			[funcionarios[28].idfuncionarioscapsnorte, escala],
-			[funcionarios[29].idfuncionarioscapsnorte, escala],
-			[funcionarios[30].idfuncionarioscapsnorte, escala],
-			[funcionarios[31].idfuncionarioscapsnorte, escala],
-			[funcionarios[32].idfuncionarioscapsnorte, escala],
-			[funcionarios[33].idfuncionarioscapsnorte, escala],
-		];
-	}
-	if(turno == "SN2"){
-		var values = [
-			[funcionarios[0].idfuncionarioscapsnorte, escala],
-			[funcionarios[1].idfuncionarioscapsnorte, escala],
-			[funcionarios[2].idfuncionarioscapsnorte, escala],
-			[funcionarios[3].idfuncionarioscapsnorte, escala],
-			[funcionarios[4].idfuncionarioscapsnorte, escala],
-			[funcionarios[5].idfuncionarioscapsnorte, escala],
-			[funcionarios[6].idfuncionarioscapsnorte, escala],
-			[funcionarios[7].idfuncionarioscapsnorte, escala],
-			[funcionarios[8].idfuncionarioscapsnorte, escala],
-			[funcionarios[9].idfuncionarioscapsnorte, escala],
-			[funcionarios[10].idfuncionarioscapsnorte, escala],
-			[funcionarios[11].idfuncionarioscapsnorte, escala],
-			[funcionarios[12].idfuncionarioscapsnorte, escala],
-			[funcionarios[13].idfuncionarioscapsnorte, escala],
-			[funcionarios[14].idfuncionarioscapsnorte, escala],
-			[funcionarios[15].idfuncionarioscapsnorte, escala],
-			[funcionarios[16].idfuncionarioscapsnorte, escala],
-			[funcionarios[17].idfuncionarioscapsnorte, escala],
-			[funcionarios[18].idfuncionarioscapsnorte, escala],
-			[funcionarios[19].idfuncionarioscapsnorte, escala],
-			[funcionarios[20].idfuncionarioscapsnorte, escala],
-			[funcionarios[21].idfuncionarioscapsnorte, escala],
-			[funcionarios[22].idfuncionarioscapsnorte, escala],
-			[funcionarios[23].idfuncionarioscapsnorte, escala],
-			[funcionarios[24].idfuncionarioscapsnorte, escala],
-			[funcionarios[25].idfuncionarioscapsnorte, escala],
-			[funcionarios[26].idfuncionarioscapsnorte, escala],
-			[funcionarios[27].idfuncionarioscapsnorte, escala],
-			[funcionarios[28].idfuncionarioscapsnorte, escala],
-			[funcionarios[29].idfuncionarioscapsnorte, escala],
-			[funcionarios[30].idfuncionarioscapsnorte, escala],
-			[funcionarios[31].idfuncionarioscapsnorte, escala],
-			[funcionarios[32].idfuncionarioscapsnorte, escala],
-			[funcionarios[33].idfuncionarioscapsnorte, escala],
-		];
-	}
 
-		if(turno == "Maqueiro"){
-			var values = [
-				[funcionarios[0].idfuncionarioscapsnorte, escala],
-				[funcionarios[1].idfuncionarioscapsnorte, escala],
-				[funcionarios[2].idfuncionarioscapsnorte, escala],
-				[funcionarios[3].idfuncionarioscapsnorte, escala],
-				[funcionarios[4].idfuncionarioscapsnorte, escala],
-				[funcionarios[5].idfuncionarioscapsnorte, escala],
-				[funcionarios[6].idfuncionarioscapsnorte, escala],
-				[funcionarios[7].idfuncionarioscapsnorte, escala],
-			];
-}
-
-		if(turno == "Sala de Gesso/Sutura/Centro Ortopedico"){
-			var values = [
-				[funcionarios[0].idfuncionarioscapsnorte, escala],
-				[funcionarios[1].idfuncionarioscapsnorte, escala],
-				[funcionarios[2].idfuncionarioscapsnorte, escala],
-				[funcionarios[3].idfuncionarioscapsnorte, escala],
-				[funcionarios[4].idfuncionarioscapsnorte, escala],
-				[funcionarios[5].idfuncionarioscapsnorte, escala],
-
-			];
-		}
+		];
+	}
+	if(turno == "Multi"){
+		var values = [
+			[funcionarios[0].idfuncionarioscapsnorte, escala],
+			[funcionarios[1].idfuncionarioscapsnorte, escala],
+			[funcionarios[2].idfuncionarioscapsnorte, escala],
+			[funcionarios[3].idfuncionarioscapsnorte, escala],
+			[funcionarios[4].idfuncionarioscapsnorte, escala],
+			[funcionarios[5].idfuncionarioscapsnorte, escala],
+			[funcionarios[6].idfuncionarioscapsnorte, escala],
+			[funcionarios[7].idfuncionarioscapsnorte, escala],
+			[funcionarios[8].idfuncionarioscapsnorte, escala],
+			[funcionarios[9].idfuncionarioscapsnorte, escala],
+			[funcionarios[10].idfuncionarioscapsnorte, escala],
+			[funcionarios[11].idfuncionarioscapsnorte, escala],
+			[funcionarios[12].idfuncionarioscapsnorte, escala],
+			[funcionarios[13].idfuncionarioscapsnorte, escala],
+		];
+	}
+	
 	this._conection.query(sql, [values], callback);	
 
 }
@@ -283,7 +139,7 @@ modelescalacapsnorte.prototype.buscarregraescalaunicacapsnorte = function(campo,
 
 
 
-	this._conection.query('select * from escalacapsnorte where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Luizote"', callback);
+	this._conection.query('select * from escalacapsnorte where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps Norte"', callback);
 }
 
 modelescalacapsnorte.prototype.buscarescalamensalcapsnorte = function(valor, callback){
@@ -291,8 +147,68 @@ modelescalacapsnorte.prototype.buscarescalamensalcapsnorte = function(valor, cal
 }
 
 modelescalacapsnorte.prototype.buscarescalamensalcapsnortemulti = function(valor, callback){
-	console.log(valor)
-	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps Norte"', callback);
+
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps Norte"', callback);
+}
+
+modelescalacapsnorte.prototype.buscarescalamanhasetor1 = function(valor, callback){
+
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "Enfermagem" and esc.unidade = "Caps Norte" and func.turno="Enfermeiro RT" and func.equipe = "Enfermagem"', callback);
+}
+
+modelescalacapsnorte.prototype.buscarescalamanhasetor2 = function(valor, callback){
+
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "Enfermagem" and esc.unidade = "Caps Norte" and func.turno="Manhã" and func.equipe = "Enfermagem"', callback);
+}
+
+modelescalacapsnorte.prototype.buscarescalamanhasetor3 = function(valor, callback){
+
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "Enfermagem" and esc.unidade = "Caps Norte" and func.turno="Tarde" and func.equipe = "Enfermagem"', callback);
+}
+
+modelescalacapsnorte.prototype.buscarescalamanhasetor4 = function(valor, callback){
+
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "Enfermagem" and esc.unidade = "Caps Norte" and func.turno="SN1" and func.equipe = "Enfermagem"', callback);
+}
+
+modelescalacapsnorte.prototype.buscarescalamanhasetor5 = function(valor, callback){
+
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "Enfermagem" and esc.unidade = "Caps Norte" and func.turno="SN2" and func.equipe = "Enfermagem"', callback);
+}
+
+modelescalacapsnorte.prototype.buscarescalamanhasetor6 = function(valor, callback){
+
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "Multi" and esc.unidade = "Caps Norte" and func.turno="Manhã" and func.equipe = "Multi" and func.setor = "Psicologia"', callback);
+}
+
+modelescalacapsnorte.prototype.buscarescalamanhasetor7 = function(valor, callback){
+
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "Multi" and esc.unidade = "Caps Norte" and func.turno="Tarde" and func.equipe = "Multi" and func.setor = "Psicologia"', callback);
+}
+
+modelescalacapsnorte.prototype.buscarescalamanhasetor8 = function(valor, callback){
+
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "Multi" and esc.unidade = "Caps Norte" and func.turno="Manhã" and func.equipe = "Multi" and func.setor = "Assistente Social"', callback);
+}
+
+modelescalacapsnorte.prototype.buscarescalamanhasetor9 = function(valor, callback){
+
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "Multi" and esc.unidade = "Caps Norte" and func.turno="Tarde" and func.equipe = "Multi" and func.setor = "Assistente Social"', callback);
+}
+
+modelescalacapsnorte.prototype.buscarescalamanhasetor10 = function(valor, callback){
+
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "Multi" and esc.unidade = "Caps Norte" and func.turno="Manhã" and func.equipe = "Multi" and func.setor = "Médico"', callback);
+}
+
+modelescalacapsnorte.prototype.buscarescalamanhasetor11 = function(valor, callback){
+
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "Multi" and esc.unidade = "Caps Norte" and func.turno="Tarde" and func.equipe = "Multi" and func.setor = "Médico"', callback);
+}
+
+modelescalacapsnorte.prototype.buscarescalamanhasetor12 = function(valor, callback){
+
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "Multi" and esc.unidade = "Caps Norte" and func.turno="Manhã" and func.equipe = "Multi" and func.setor = "Gerente"', callback);
 }
 module.exports = function(){
 	return modelescalacapsnorte;

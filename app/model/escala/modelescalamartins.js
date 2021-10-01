@@ -45,6 +45,7 @@ modelescalamartins.prototype.criarfolga =  function(funcionarios, escala, turno,
 			[funcionarios[30].idfuncionariosmartins, escala],
 			[funcionarios[31].idfuncionariosmartins, escala],
 			[funcionarios[32].idfuncionariosmartins, escala],
+			[funcionarios[33].idfuncionariosmartins, escala],
 		];
 	}
 	if(turno == "Tarde"){
@@ -80,6 +81,7 @@ modelescalamartins.prototype.criarfolga =  function(funcionarios, escala, turno,
 			[funcionarios[28].idfuncionariosmartins, escala],
 			[funcionarios[29].idfuncionariosmartins, escala],
 			[funcionarios[30].idfuncionariosmartins, escala],
+			[funcionarios[32].idfuncionariosmartins, escala],
 
 		];
 	}

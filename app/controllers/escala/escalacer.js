@@ -8,7 +8,7 @@ module.exports.escalacer = function(application, req, res){
 		res.render("escala/escalacer", {id : result,  msg: ''});
 	});
 }
-module.exports.updateescalacer = function(application, req, res){
+module.exports.updateescalacertarde = function(application, req, res){
 	
 
 	var modelescalacer = new application.app.model.escala.modelescalacer(application);
@@ -16,7 +16,7 @@ module.exports.updateescalacer = function(application, req, res){
 
 
 
-		modelescalacer.updateescalacer(valor, function(error, resultdoinsert){
+		modelescalacer.updateescalacertarde(valor, function(error, resultdoinsert){
 			res.send(resultdoinsert);
 		})
 	
@@ -137,3 +137,36 @@ module.exports.buscarescalamensalcermulti = function(application, req, res){
 		
 	
 }
+
+module.exports.buscarescalamanhasetor1cer = function(application, req, res){
+	
+
+	var modelescalacer = new application.app.model.escala.modelescalacer(application);
+
+	var valor = req.query;
+
+	
+	modelescalacer.buscarescalamanhasetor1cer(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+
+module.exports.buscarescalamanhasetor2cer = function(application, req, res){
+	
+
+	var modelescalacer = new application.app.model.escala.modelescalacer(application);
+
+	var valor = req.query;
+
+	
+	modelescalacer.buscarescalamanhasetor2cer(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+

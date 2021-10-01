@@ -36,6 +36,21 @@ module.exports = function(application){
 	application.get('/buscarescalamensalccmulti', function(req, res){
 		application.app.controllers.escala.escalacc.buscarescalamensalccmulti(application, req, res);
 		});
-		
+	application.get('/buscarescalamanhasetor1cc', function(req, res){
+		application.app.controllers.escala.escalacc.buscarescalamanhasetor1cc(application, req, res);
+		});
+	application.get('/buscarescalamanhasetor2cc', function(req, res){
+		application.app.controllers.escala.escalacc.buscarescalamanhasetor2cc(application, req, res);
+		});
+	application.get('/buscarescalamanhasetor3cc', function(req, res){
+		application.app.controllers.escala.escalacc.buscarescalamanhasetor3cc(application, req, res);
+		});
+	application.get('/buscarescalamanhasetor4cc', function(req, res){
+		application.app.controllers.escala.escalacc.buscarescalamanhasetor4cc(application, req, res);
+		});
+	application.get('/buscarescalamanhasetor5cc', function(req, res){
+		application.app.controllers.escala.escalacc.buscarescalamanhasetor5cc(application, req, res);
+		});
+				
 }
 

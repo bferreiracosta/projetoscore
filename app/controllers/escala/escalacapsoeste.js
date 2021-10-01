@@ -22,6 +22,20 @@ module.exports.updateescalacapsoeste = function(application, req, res){
 	
 }
 
+module.exports.updateescalacapsoestetarde = function(application, req, res){
+	
+
+	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
+	var valor =  req.query;
+
+
+
+		modelescalacapsoeste.updateescalacapsoestetarde(valor, function(error, resultdoinsert){
+			res.send(resultdoinsert);
+		})
+	
+}
+
 module.exports.updateferias = function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
@@ -131,6 +145,188 @@ module.exports.buscarescalamensalcapsoestemulti = function(application, req, res
 
 	
 	modelescalacapsoeste.buscarescalamensalcapsoestemulti(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+
+module.exports.buscarescalamanhasetor1 = function(application, req, res){
+	
+
+	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
+
+	var valor = req.query;
+
+	
+	modelescalacapsoeste.buscarescalamanhasetor1(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+
+module.exports.buscarescalamanhasetor2 = function(application, req, res){
+	
+
+	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
+
+	var valor = req.query;
+
+	
+	modelescalacapsoeste.buscarescalamanhasetor2(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+module.exports.buscarescalamanhasetor3 = function(application, req, res){
+	
+
+	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
+
+	var valor = req.query;
+
+	
+	modelescalacapsoeste.buscarescalamanhasetor3(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+module.exports.buscarescalamanhasetor4 = function(application, req, res){
+	
+
+	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
+
+	var valor = req.query;
+
+	
+	modelescalacapsoeste.buscarescalamanhasetor4(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+module.exports.buscarescalamanhasetor5 = function(application, req, res){
+	
+
+	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
+
+	var valor = req.query;
+
+	
+	modelescalacapsoeste.buscarescalamanhasetor5(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+module.exports.buscarescalamanhasetor6 = function(application, req, res){
+	
+
+	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
+
+	var valor = req.query;
+
+	
+	modelescalacapsoeste.buscarescalamanhasetor6(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+module.exports.buscarescalamanhasetor7 = function(application, req, res){
+	
+
+	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
+
+	var valor = req.query;
+
+	
+	modelescalacapsoeste.buscarescalamanhasetor7(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+module.exports.buscarescalamanhasetor8 = function(application, req, res){
+	
+
+	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
+
+	var valor = req.query;
+
+	
+	modelescalacapsoeste.buscarescalamanhasetor8(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+module.exports.buscarescalamanhasetor9 = function(application, req, res){
+	
+
+	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
+
+	var valor = req.query;
+
+	
+	modelescalacapsoeste.buscarescalamanhasetor9(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+module.exports.buscarescalamanhasetor10 = function(application, req, res){
+	
+
+	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
+
+	var valor = req.query;
+
+	
+	modelescalacapsoeste.buscarescalamanhasetor10(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+module.exports.buscarescalamanhasetor11 = function(application, req, res){
+	
+
+	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
+
+	var valor = req.query;
+
+	
+	modelescalacapsoeste.buscarescalamanhasetor11(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}
+module.exports.buscarescalamanhasetor12 = function(application, req, res){
+	
+
+	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
+
+	var valor = req.query;
+
+	
+	modelescalacapsoeste.buscarescalamanhasetor12(valor,function(error, resultado){
 
 			res.send(resultado);
 		})

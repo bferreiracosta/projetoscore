@@ -36,6 +36,12 @@ module.exports = function(application){
 	application.get('/buscarescalamensalcermulti', function(req, res){
 		application.app.controllers.escala.escalacer.buscarescalamensalcermulti(application, req, res);
 		});
+	application.get('/buscarescalamanhasetor1cer', function(req, res){
+		application.app.controllers.escala.escalacer.buscarescalamanhasetor1cer(application, req, res);
+		});
+	application.get('/buscarescalamanhasetor2cer', function(req, res){
+		application.app.controllers.escala.escalacer.buscarescalamanhasetor2cer(application, req, res);
+		});
 		
 }
 

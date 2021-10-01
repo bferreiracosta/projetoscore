@@ -5,12 +5,11 @@ function modelescalacc(application){
 
 modelescalacc.prototype.buscafuncionario = function(turno, callback){
 	
-	this._conection.query('select idfuncionarioscc from funcionarioscc where turno = "'+turno+'"', callback);
+	this._conection.query('select idfuncionarioscc from funcionarioscc where turno = "Diurno"', callback);
 }
 
 modelescalacc.prototype.criarfolga =  function(funcionarios, escala, turno, callback){
 	var sql = "insert into folgacc (idfuncionarios,idescala) VALUES ?";
-	if(turno == "Manhã"){
 		var values = [
 			[funcionarios[0].idfuncionarioscc, escala],
 			[funcionarios[1].idfuncionarioscc, escala],
@@ -19,176 +18,7 @@ modelescalacc.prototype.criarfolga =  function(funcionarios, escala, turno, call
 			[funcionarios[4].idfuncionarioscc, escala],
 			[funcionarios[5].idfuncionarioscc, escala],
 			[funcionarios[6].idfuncionarioscc, escala],
-			[funcionarios[7].idfuncionarioscc, escala],
-			[funcionarios[8].idfuncionarioscc, escala],
-			[funcionarios[9].idfuncionarioscc, escala],
-			[funcionarios[10].idfuncionarioscc, escala],
-			[funcionarios[11].idfuncionarioscc, escala],
-			[funcionarios[12].idfuncionarioscc, escala],
-			[funcionarios[13].idfuncionarioscc, escala],
-			[funcionarios[14].idfuncionarioscc, escala],
-			[funcionarios[15].idfuncionarioscc, escala],
-			[funcionarios[16].idfuncionarioscc, escala],
-			[funcionarios[17].idfuncionarioscc, escala],
-			[funcionarios[18].idfuncionarioscc, escala],
-			[funcionarios[19].idfuncionarioscc, escala],
-			[funcionarios[20].idfuncionarioscc, escala],
-			[funcionarios[21].idfuncionarioscc, escala],
-			[funcionarios[22].idfuncionarioscc, escala],
-			[funcionarios[23].idfuncionarioscc, escala],
-			[funcionarios[24].idfuncionarioscc, escala],
-			[funcionarios[25].idfuncionarioscc, escala],
-			[funcionarios[26].idfuncionarioscc, escala],
-			[funcionarios[27].idfuncionarioscc, escala],
-			[funcionarios[28].idfuncionarioscc, escala],
-			[funcionarios[29].idfuncionarioscc, escala],
-			[funcionarios[30].idfuncionarioscc, escala],
-			[funcionarios[31].idfuncionarioscc, escala],
-			[funcionarios[32].idfuncionarioscc, escala],
-			[funcionarios[33].idfuncionarioscc, escala],
-			[funcionarios[34].idfuncionarioscc, escala],
-			[funcionarios[35].idfuncionarioscc, escala],
-		];
-	}
-	if(turno == "Tarde"){
-		var values = [
-			[funcionarios[0].idfuncionarioscc, escala],
-			[funcionarios[1].idfuncionarioscc, escala],
-			[funcionarios[2].idfuncionarioscc, escala],
-			[funcionarios[3].idfuncionarioscc, escala],
-			[funcionarios[4].idfuncionarioscc, escala],
-			[funcionarios[5].idfuncionarioscc, escala],
-			[funcionarios[6].idfuncionarioscc, escala],
-			[funcionarios[7].idfuncionarioscc, escala],
-			[funcionarios[8].idfuncionarioscc, escala],
-			[funcionarios[9].idfuncionarioscc, escala],
-			[funcionarios[10].idfuncionarioscc, escala],
-			[funcionarios[11].idfuncionarioscc, escala],
-			[funcionarios[12].idfuncionarioscc, escala],
-			[funcionarios[13].idfuncionarioscc, escala],
-			[funcionarios[14].idfuncionarioscc, escala],
-			[funcionarios[15].idfuncionarioscc, escala],
-			[funcionarios[16].idfuncionarioscc, escala],
-			[funcionarios[17].idfuncionarioscc, escala],
-			[funcionarios[18].idfuncionarioscc, escala],
-			[funcionarios[19].idfuncionarioscc, escala],
-			[funcionarios[20].idfuncionarioscc, escala],
-			[funcionarios[21].idfuncionarioscc, escala],
-			[funcionarios[22].idfuncionarioscc, escala],
-			[funcionarios[23].idfuncionarioscc, escala],
-			[funcionarios[24].idfuncionarioscc, escala],
-			[funcionarios[25].idfuncionarioscc, escala],
-			[funcionarios[26].idfuncionarioscc, escala],
-			[funcionarios[27].idfuncionarioscc, escala],
-			[funcionarios[28].idfuncionarioscc, escala],
-			[funcionarios[29].idfuncionarioscc, escala],
-			[funcionarios[30].idfuncionarioscc, escala],
-			[funcionarios[31].idfuncionarioscc, escala],
-			[funcionarios[32].idfuncionarioscc, escala],
-			[funcionarios[33].idfuncionarioscc, escala],
-		];
-	}
-	if(turno == "SN1"){
-		var values = [
-			[funcionarios[0].idfuncionarioscc, escala],
-			[funcionarios[1].idfuncionarioscc, escala],
-			[funcionarios[2].idfuncionarioscc, escala],
-			[funcionarios[3].idfuncionarioscc, escala],
-			[funcionarios[4].idfuncionarioscc, escala],
-			[funcionarios[5].idfuncionarioscc, escala],
-			[funcionarios[6].idfuncionarioscc, escala],
-			[funcionarios[7].idfuncionarioscc, escala],
-			[funcionarios[8].idfuncionarioscc, escala],
-			[funcionarios[9].idfuncionarioscc, escala],
-			[funcionarios[10].idfuncionarioscc, escala],
-			[funcionarios[11].idfuncionarioscc, escala],
-			[funcionarios[12].idfuncionarioscc, escala],
-			[funcionarios[13].idfuncionarioscc, escala],
-			[funcionarios[14].idfuncionarioscc, escala],
-			[funcionarios[15].idfuncionarioscc, escala],
-			[funcionarios[16].idfuncionarioscc, escala],
-			[funcionarios[17].idfuncionarioscc, escala],
-			[funcionarios[18].idfuncionarioscc, escala],
-			[funcionarios[19].idfuncionarioscc, escala],
-			[funcionarios[20].idfuncionarioscc, escala],
-			[funcionarios[21].idfuncionarioscc, escala],
-			[funcionarios[22].idfuncionarioscc, escala],
-			[funcionarios[23].idfuncionarioscc, escala],
-			[funcionarios[24].idfuncionarioscc, escala],
-			[funcionarios[25].idfuncionarioscc, escala],
-			[funcionarios[26].idfuncionarioscc, escala],
-			[funcionarios[27].idfuncionarioscc, escala],
-			[funcionarios[28].idfuncionarioscc, escala],
-			[funcionarios[29].idfuncionarioscc, escala],
-			[funcionarios[30].idfuncionarioscc, escala],
-			[funcionarios[31].idfuncionarioscc, escala],
-			[funcionarios[32].idfuncionarioscc, escala],
-			[funcionarios[33].idfuncionarioscc, escala],
-		];
-	}
-	if(turno == "SN2"){
-		var values = [
-			[funcionarios[0].idfuncionarioscc, escala],
-			[funcionarios[1].idfuncionarioscc, escala],
-			[funcionarios[2].idfuncionarioscc, escala],
-			[funcionarios[3].idfuncionarioscc, escala],
-			[funcionarios[4].idfuncionarioscc, escala],
-			[funcionarios[5].idfuncionarioscc, escala],
-			[funcionarios[6].idfuncionarioscc, escala],
-			[funcionarios[7].idfuncionarioscc, escala],
-			[funcionarios[8].idfuncionarioscc, escala],
-			[funcionarios[9].idfuncionarioscc, escala],
-			[funcionarios[10].idfuncionarioscc, escala],
-			[funcionarios[11].idfuncionarioscc, escala],
-			[funcionarios[12].idfuncionarioscc, escala],
-			[funcionarios[13].idfuncionarioscc, escala],
-			[funcionarios[14].idfuncionarioscc, escala],
-			[funcionarios[15].idfuncionarioscc, escala],
-			[funcionarios[16].idfuncionarioscc, escala],
-			[funcionarios[17].idfuncionarioscc, escala],
-			[funcionarios[18].idfuncionarioscc, escala],
-			[funcionarios[19].idfuncionarioscc, escala],
-			[funcionarios[20].idfuncionarioscc, escala],
-			[funcionarios[21].idfuncionarioscc, escala],
-			[funcionarios[22].idfuncionarioscc, escala],
-			[funcionarios[23].idfuncionarioscc, escala],
-			[funcionarios[24].idfuncionarioscc, escala],
-			[funcionarios[25].idfuncionarioscc, escala],
-			[funcionarios[26].idfuncionarioscc, escala],
-			[funcionarios[27].idfuncionarioscc, escala],
-			[funcionarios[28].idfuncionarioscc, escala],
-			[funcionarios[29].idfuncionarioscc, escala],
-			[funcionarios[30].idfuncionarioscc, escala],
-			[funcionarios[31].idfuncionarioscc, escala],
-			[funcionarios[32].idfuncionarioscc, escala],
-			[funcionarios[33].idfuncionarioscc, escala],
-		];
-	}
-
-		if(turno == "Maqueiro"){
-			var values = [
-				[funcionarios[0].idfuncionarioscc, escala],
-				[funcionarios[1].idfuncionarioscc, escala],
-				[funcionarios[2].idfuncionarioscc, escala],
-				[funcionarios[3].idfuncionarioscc, escala],
-				[funcionarios[4].idfuncionarioscc, escala],
-				[funcionarios[5].idfuncionarioscc, escala],
-				[funcionarios[6].idfuncionarioscc, escala],
-				[funcionarios[7].idfuncionarioscc, escala],
-			];
-}
-
-		if(turno == "Sala de Gesso/Sutura/Centro Ortopedico"){
-			var values = [
-				[funcionarios[0].idfuncionarioscc, escala],
-				[funcionarios[1].idfuncionarioscc, escala],
-				[funcionarios[2].idfuncionarioscc, escala],
-				[funcionarios[3].idfuncionarioscc, escala],
-				[funcionarios[4].idfuncionarioscc, escala],
-				[funcionarios[5].idfuncionarioscc, escala],
-
-			];
-		}
+		]
 	this._conection.query(sql, [values], callback);	
 
 }
@@ -287,12 +117,37 @@ modelescalacc.prototype.buscarregraescalaunicacc = function(campo, turno, datein
 }
 
 modelescalacc.prototype.buscarescalamensalcc = function(valor, callback){
-	this._conection.query('select * from folgacc f inner join funcionarioscc func on f.idfuncionarios=func.idfuncionarioscc inner join escalacc esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Centro de Convivência"', callback);
+	this._conection.query('select * from folgacc f inner join funcionarioscc func on f.idfuncionarios=func.idfuncionarioscc inner join escalacc esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.unidade = "Centro de Convivência"', callback);
 }
 
 modelescalacc.prototype.buscarescalamensalccmulti = function(valor, callback){
 	console.log(valor)
-	this._conection.query('select * from folgacc f inner join funcionarioscc func on f.idfuncionarios=func.idfuncionarioscc inner join escalacc esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Centro de Convivência"', callback);
+	this._conection.query('select * from folgacc f inner join funcionarioscc func on f.idfuncionarios=func.idfuncionarioscc inner join escalacc esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.unidade = "Centro de Convivência"', callback);
+}
+
+modelescalacc.prototype.buscarescalamanhasetor1cc = function(valor, callback){
+
+	this._conection.query('select * from folgacc f inner join funcionarioscc func on f.idfuncionarios=func.idfuncionarioscc inner join escalacc esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and func.turno = "Diurno" and esc.unidade = "Centro de Convivência" and func.setor = "Assistente de Serviço Gerais"', callback);
+}
+
+modelescalacc.prototype.buscarescalamanhasetor2cc = function(valor, callback){
+
+	this._conection.query('select * from folgacc f inner join funcionarioscc func on f.idfuncionarios=func.idfuncionarioscc inner join escalacc esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and func.turno = "Diurno" and esc.unidade = "Centro de Convivência" and func.setor = "Administrativo"', callback);
+}
+
+modelescalacc.prototype.buscarescalamanhasetor3cc = function(valor, callback){
+
+	this._conection.query('select * from folgacc f inner join funcionarioscc func on f.idfuncionarios=func.idfuncionarioscc inner join escalacc esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and func.turno = "Diurno" and esc.unidade = "Centro de Convivência" and func.setor = "Assistente Social"', callback);
+}
+
+modelescalacc.prototype.buscarescalamanhasetor4cc = function(valor, callback){
+
+	this._conection.query('select * from folgacc f inner join funcionarioscc func on f.idfuncionarios=func.idfuncionarioscc inner join escalacc esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and func.turno = "Diurno" and esc.unidade = "Centro de Convivência" and func.setor = "Psicologo"', callback);
+}
+
+modelescalacc.prototype.buscarescalamanhasetor5cc = function(valor, callback){
+
+	this._conection.query('select * from folgacc f inner join funcionarioscc func on f.idfuncionarios=func.idfuncionarioscc inner join escalacc esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and func.turno = "Diurno" and esc.unidade = "Centro de Convivência" and func.setor = "Gerente"', callback);
 }
 module.exports = function(){
 	return modelescalacc;
