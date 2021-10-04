@@ -48,6 +48,7 @@ modelescalaluizote.prototype.criarfolga =  function(funcionarios, escala, turno,
 			[funcionarios[33].idfuncionariosluizote, escala],
 			[funcionarios[34].idfuncionariosluizote, escala],
 			[funcionarios[35].idfuncionariosluizote, escala],
+			[funcionarios[36].idfuncionariosluizote, escala],
 		];
 	}
 	if(turno == "Tarde"){
@@ -86,6 +87,7 @@ modelescalaluizote.prototype.criarfolga =  function(funcionarios, escala, turno,
 			[funcionarios[31].idfuncionariosluizote, escala],
 			[funcionarios[32].idfuncionariosluizote, escala],
 			[funcionarios[33].idfuncionariosluizote, escala],
+			[funcionarios[34].idfuncionariosluizote, escala],
 		];
 	}
 	if(turno == "SN1"){
@@ -122,8 +124,6 @@ modelescalaluizote.prototype.criarfolga =  function(funcionarios, escala, turno,
 			[funcionarios[29].idfuncionariosluizote, escala],
 			[funcionarios[30].idfuncionariosluizote, escala],
 			[funcionarios[31].idfuncionariosluizote, escala],
-			[funcionarios[32].idfuncionariosluizote, escala],
-			[funcionarios[33].idfuncionariosluizote, escala],
 		];
 	}
 	if(turno == "SN2"){
@@ -160,8 +160,6 @@ modelescalaluizote.prototype.criarfolga =  function(funcionarios, escala, turno,
 			[funcionarios[29].idfuncionariosluizote, escala],
 			[funcionarios[30].idfuncionariosluizote, escala],
 			[funcionarios[31].idfuncionariosluizote, escala],
-			[funcionarios[32].idfuncionariosluizote, escala],
-			[funcionarios[33].idfuncionariosluizote, escala],
 		];
 	}
 
@@ -449,12 +447,12 @@ modelescalaluizote.prototype.buscarescalacentroluizotemanha= function(valor, cal
 
 	console.log(valor)
 
-	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.turno = "'+valor.turnos+'" and esc.unidade = "Luizote" and func.setor = "'+valor.setor1+'"', callback);
+	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  func.setor = "'+valor.turnos+'" and esc.unidade = "Luizote" and func.turno = "'+valor.setor1+'"', callback);
 }
 
 modelescalaluizote.prototype.buscarescalacentroluizotetarde = function(valor, callback){
 
-	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnos2+'" and esc.unidade = "Luizote" and func.setor = "'+valor.setor2+'"', callback);
+	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and func.setor = "'+valor.turnos2+'" and esc.unidade = "Luizote" and func.turno = "'+valor.setor2+'"', callback);
 }
 modelescalaluizote.prototype.buscarescalaluizote = function(valor, callback){
 	var datainicial = valor.datainicial;
