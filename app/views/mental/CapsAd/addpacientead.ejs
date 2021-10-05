@@ -17,11 +17,6 @@
 								<label for="paciente">Nome Paciente</label>
 								<input type="text" name="paciente" class="form-control" placeholder="Nome Paciente" required>
 							</div>
-		
-							<div class="form-group">
-								<label for="Idade">Idade</label>
-								<input type="text" name="idade" id="idade" class="form-control" placeholder="Idade" required>
-							</div>
 							<div class="form-group">
 								<label for="diagonostico">Diagnóstico</label>
 								<input type="text" name="diagnostico" class="form-control" placeholder="Diagnóstico" required>
@@ -48,6 +43,35 @@
 								</select>
 							  </div>
 							  <input type="hidden" id="tratamento"  name="tratamento" class="form-control">
+							  <div class="form-group">
+								<label for="exame">Sexo</label>
+								<select  class="form-control" id="sexoselect" name="sexoselect">
+									<option value="" disabled selected hidden></option>
+									<option value="Masculino">Masculino</option>
+									<option value="Feminino">Feminino</option>
+								</select>
+							  </div>
+							  <input type="hidden" id="sexo"  name="sexo" class="form-control">
+							  <div class="form-group">
+								<label for="exame">Idade</label>
+								<select  class="form-control" id="idadeselect" name="idadeselect">
+									<option value="" disabled selected hidden></option>
+									<option value="Entre 19 e 59 anos">Entre 19 e 59 anos</option>
+									<option value="Maior que 60 anos">Maior que 60 anos</option>
+									<option value="Menor que 18 anos">Menor que 18 anos</option>
+									<option value="Menor que 12 anos">Menor que 12 anos</option>
+								</select>
+							  </div>
+							  <input type="hidden" id="idade"  name="idade" class="form-control">
+							  <div class="form-group">
+								<label for="exame">INTERNAÇÃO HOSPITALAR (ENFERMARIA DE	PSIQUIATRIA) RECENTE?(TEMPO < 30 DIAS)</label>
+								<select  class="form-control" id="selectinternacao" name="selectinternacao">
+									<option value="" disabled selected hidden></option>
+									<option value="Sim">Sim</option>
+									<option value="Não">Não</option>
+								</select>
+							  </div>
+							  <input type="hidden" id="internacao"  name="internacao" class="form-control">
 							  <div class="form-group">
 								<label for="exame">RISCO PARA COMPORTAMENTO SUICIDA</label>
 								<select  class="form-control" id="riscoSelect" name="riscoSelect">
@@ -83,6 +107,20 @@
 							  </div>
 							  <input type="hidden" id="comportamento"  name="comportamento" class="form-control">
 							  <div class="form-group">
+								<label for="exame">ALTERAÇÕES DO JUÍZO CRÍTICO E SENSOPERCEPÇÃO</label>
+								<select  class="form-control" id="juizoselect" name="juizoselect">
+									<option value="" disabled selected hidden></option>
+									<option value="AUSENTE">AUSENTE</option>
+									<option value="PERDA DE CONEXÃO COM A REALIDADE (DELÍRIOS) SEM A PRESENÇA DE ALTERAÇÕESDA SENSOPERCEPÇÃO (ALUCINAÇÕES)">PERDA DE CONEXÃO COM A REALIDADE (DELÍRIOS) SEM A PRESENÇA DE ALTERAÇÕESDA SENSOPERCEPÇÃO (ALUCINAÇÕES)</option>
+									<option value="ALTERAÇÕES DA SENSOPERCEPÇÃO	(ALUCINAÇÕES) SEM PERDA DE CONEXÃO COM A REALIDADE (DELÍRIOS)">ALTERAÇÕES DA SENSOPERCEPÇÃO	(ALUCINAÇÕES) SEM PERDA DE CONEXÃO COM A REALIDADE (DELÍRIOS)</option>
+									<option value="PERDA DE CONEXÃO COM A REALIDADE	(DELÍRIOS) COM A PRESENÇA DE ALTERAÇÕES DA SENSOPERCEPÇÃO (ALUCINAÇÕES)">PERDA DE CONEXÃO COM A REALIDADE	(DELÍRIOS) COM A PRESENÇA DE ALTERAÇÕES DA SENSOPERCEPÇÃO (ALUCINAÇÕES)</option>
+									<option value="DELÍRIOS RELACIONADOS À PESSOAS	ESPECÍFICAS, PORÉM FORA DO CÍRCULO DE CONVIVÊNCIA COM OU SEM ALTERAÇÃO DA SENSOPERCEPÇÃO">DELÍRIOS RELACIONADOS À PESSOAS	ESPECÍFICAS, PORÉM FORA DO CÍRCULO DE CONVIVÊNCIA COM OU SEM ALTERAÇÃO DA SENSOPERCEPÇÃO</option>
+									<option value="DELÍRIOS RELACIONADOS À PESSOAS ESPECÍFICAS, QUE FAZEM PARTE DO CÍRCULO DE CONVIVÊNCIA COM OU SEM ALTERAÇÃO DA SENSOPERCEPÇÃO">DELÍRIOS RELACIONADOS À PESSOAS ESPECÍFICAS, QUE FAZEM PARTE DO CÍRCULO DE CONVIVÊNCIA COM OU SEM ALTERAÇÃO DA SENSOPERCEPÇÃO</option>
+									<option value="FLUTUAÇÃO DO NÍVEL DE CONSCIÊNCIA, PENSAMENTO DESORGANIZADO, COM OU SEM ALTERAÇÕES DE SENSOPERCEPÇÃO (ALUCINAÇÕES)">FLUTUAÇÃO DO NÍVEL DE CONSCIÊNCIA, PENSAMENTO DESORGANIZADO, COM OU SEM ALTERAÇÕES DE SENSOPERCEPÇÃO (ALUCINAÇÕES)</option>
+								</select>
+							  </div>
+							  <input type="hidden" id="juizo"  name="juizo" class="form-control">
+							  <div class="form-group">
 								<label for="exame">COMPORTAMENTO DE EXPOSIÇÃO À RISCOS OU AUTOLESIVOS</label>
 								<select  class="form-control" id="exposicaoSelect" name="exposicaoSelect">
 									<option value="" disabled selected hidden></option>
@@ -100,7 +138,7 @@
 								<label for="exame">AUTONEGLIGENCIA GRAVE</label>
 								<select  class="form-control" id="autonegligenciaSelect" name="autonegligenciaSelect">
 									<option value="" disabled selected hidden></option>
-									<option value="AUSENTE">AUSENTE</option>
+									<option value="AUTOCUIDADO PRESERVADO">AUTOCUIDADO PRESERVADO</option>
 									<option value="PERDA PARCIAL DO AUTOCUIDADO (HABITOS DE HIGIENE)">PERDA PARCIAL DO AUTOCUIDADO (HABITOS DE HIGIENE)</option>
 									<option value="PERDA MODERADA DO AUTOCUIDADO (HABITOS DE HIGIENE)">PERDA MODERADA DO AUTOCUIDADO (HABITOS DE HIGIENE)</option>
 									<option value="PERDA IMPORTANTE DO AUTOCUIDADO (HABITOS DE HIGIENE E ALIMENTAÇÃO)">PERDA IMPORTANTE DO AUTOCUIDADO (HABITOS DE HIGIENE E ALIMENTAÇÃO)</option>
@@ -113,7 +151,7 @@
 								<label for="exame">USO DE SUBSTÂNCIAS PSICOATIVAS</label>
 								<select  class="form-control" id="dependenciaSelect" name="dependenciaSelect">
 									<option value="" disabled selected hidden></option>
-									<option value="AUSENTE">AUSENTE</option>
+									<option value="NÃO FAZ USO">NÃO FAZ USO</option>
 									<option value="USO CASUAL">USO CASUAL</option>
 									<option value="USO NOCIVO">USO NOCIVO</option>
 									<option value="DEPENDÊNCIA SEM SINAIS DE ABSTINÊNCIA">DEPENDÊNCIA SEM SINAIS DE ABSTINÊNCIA</option>
@@ -124,7 +162,7 @@
 							  </div>
 							  <input type="hidden" id="dependencia"  name="dependencia" class="form-control">
 							  <div class="form-group">
-								<label for="exame">ESQUEMA TERAPÊUTICO</label>
+								<label for="exame">ESQUEMA TERAPÊUTICO MEDICAMENTOSO</label>
 								<select  class="form-control" id="terapeuticoSelect" name="terapeuticoSelect">
 									<option value="" disabled selected hidden></option>
 									<option value="MANTIDO O QUE ESTÁ EM USO">MANTIDO O QUE ESTÁ EM USO</option>
@@ -139,8 +177,8 @@
 								<label for="exame">SOCIAL</label>
 								<select  class="form-control" id="socialSelect" name="socialSelect">
 									<option value="" disabled selected hidden></option>
-									<option value="AUSENTE">AUSENTE</option>
-									<option value="SEM SUPORTE FAMILIAR">SEM SUPORTE FAMILIAR</option>
+									<option value="SUPORTE FAMILIAR ADEQUADO">SUPORTE FAMILIAR ADEQUADO</option>
+									<option value="SUPORTE FAMILIAR FRÁGIL">SUPORTE FAMILIAR FRÁGIL</option>
 									<option value="EXPOSIÇÃO MORAL EM MAIOR DE 18 ANOS">EXPOSIÇÃO MORAL EM MAIOR DE 18 ANOS</option>
 									<option value="CONFLITO NA COMUNIDADE">CONFLITO NA COMUNIDADE</option>
 									<option value="EXPOSIÇÃO MORAL EM MENOR DE 18 ANOS">EXPOSIÇÃO MORAL EM MENOR DE 18 ANOS</option>
@@ -199,6 +237,22 @@ $("#tratamentoSelect").on('change', function(e){
      var tratamento = $(this).val();
      document.getElementById('tratamento').value = tratamento;
 });
+$("#sexoselect").on('change', function(e){
+     var sexo = $(this).val();
+     document.getElementById('sexo').value = sexo;
+});
+$("#idadeselect").on('change', function(e){
+     var idade = $(this).val();
+     document.getElementById('idade').value = idade;
+});
+$("#selectinternacao").on('change', function(e){
+     var internacao = $(this).val();
+     document.getElementById('internacao').value = internacao;
+});
+$("#juizoselect").on('change', function(e){
+     var juizo = $(this).val();
+     document.getElementById('juizo').value = juizo;
+});
 $("#riscoSelect").on('change', function(e){
      var risco = $(this).val();
      document.getElementById('risco').value = risco;
@@ -243,6 +297,9 @@ novaHora();
 function calcular(){
 	var tratamento = document.getElementById('tratamento').value;
 	var risco = document.getElementById('risco').value;
+	var idade = document.getElementById('idade').value;
+	var internacao = document.getElementById('internacao').value;
+	var juizo = document.getElementById('juizo').value;
 	var comportamento = document.getElementById('comportamento').value;
 	var exposicao = document.getElementById('exposicao').value;
 	var autonegligencia = document.getElementById('autonegligencia').value;
@@ -252,6 +309,9 @@ function calcular(){
 	var idade = document.getElementById('idade').value;
 	var numtra;
 	var numrisc;
+	var numjuizo;
+	var numidade;
+	var numinter;
 	var numcom;
 	var numexp;
 	var numal;
@@ -267,6 +327,24 @@ function calcular(){
 	}
 	if(tratamento == "NÃO – CIVILMENTE INCAPAZ COM AUTORIZAÇÃO DO RESPONSÁVEL LEGAL"){
 		numtra = 0
+	}
+	if(idade == "Entre 19 e 59 anos"){
+		numidade = 1;
+	}
+	if(idade == "Maior que 60 anos"){
+		numidade = 2
+	}
+	if(idade == "Menor que 18 anos"){
+		numidade = 3
+	}
+	if(idade == "Menor que 12 anos"){
+		numidade = 4
+	}
+	if(internacao == "Sim"){
+		numinter = 4;
+	}
+	if(internacao == "Não"){
+		numinter = 2
 	}
 	if(risco == "AUSENTE"){
 		numrisc = 0;
@@ -288,6 +366,27 @@ function calcular(){
 	}
 	if(risco == "RISCO ALTO COM TENTATIVA ANTERIOR"){
 		numrisc = "Excludente";
+	}
+	if(juizo == "AUSENTE"){
+		numjuizo = 0;
+	}
+	if(juizo == "PERDA DE CONEXÃO COM A REALIDADE (DELÍRIOS) SEM A PRESENÇA DE ALTERAÇÕES DA SENSOPERCEPÇÃO (ALUCINAÇÕES)"){
+		numjuizo = 2;
+	}
+	if(juizo == "ALTERAÇÕES DA SENSOPERCEPÇÃO (ALUCINAÇÕES) SEM PERDA DE CONEXÃO COM A REALIDADE (DELÍRIOS)"){
+		numjuizo = 2;
+	}
+	if(juizo == "PERDA DE CONEXÃO COM A REALIDADE (DELÍRIOS) COM A PRESENÇA DE ALTERAÇÕES DA SENSOPERCEPÇÃO (ALUCINAÇÕES)"){
+		numjuizo = 4;
+	}
+	if(juizo == "DELÍRIOS RELACIONADOS À PESSOAS ESPECÍFICAS, PORÉM FORA DO CÍRCULO DE CONVIVÊNCIA COM OU SEM ALTERAÇÃO DA SENSOPERCEPÇÃO"){
+		numjuizo = 6;
+	}
+	if(juizo == "DELÍRIOS RELACIONADOS À PESSOAS ESPECÍFICAS, QUE FAZEM PARTE DO CÍRCULO DE CONVIVÊNCIA COM OU SEM ALTERAÇÃO DA SENSOPERCEPÇÃO"){
+		numjuizo = 8;
+	}
+	if(juizo == "FLUTUAÇÃO DO NÍVEL DE CONSCIÊNCIA,PENSAMENTO DESORGANIZADO, COM OU SEM ALTERAÇÕES DE SENSOPERCEPÇÃO (ALUCINAÇÕES)"){
+		numjuizo = "Excludente";
 	}
 	if(comportamento == "AUSENTE"){
 		numcom = 0;
@@ -349,7 +448,7 @@ function calcular(){
 	if(exposicao == "PRESENÇA DE AUTOLESÃO NÃO INTENCIONAL POR ALTERAÇÃO DO JUÍZO CRÍTICO"){
 		numexp = "Excludente";
 	}
-	if(autonegligencia == "AUSENTE"){
+	if(autonegligencia == "AUTOCUIDADO PRESERVADO"){
 		numal = 0;
 	}
 	if(autonegligencia == "PERDA PARCIAL DO AUTOCUIDADO (HABITOS DE HIGIENE)"){
@@ -367,7 +466,7 @@ function calcular(){
 	if(autonegligencia == "DESNUTRIÇÃO E INAPETÊNCIA, COM SITUAÇÃO CLÍNICA COMPROMETIDA"){
 		numal = "Excludente";
 	}
-	if(dependencia == "AUSENTE"){
+	if(dependencia == "NÃO FAZ USO"){
 		numdep = 0;
 	}
 	if(dependencia == "USO CASUAL"){
@@ -403,10 +502,10 @@ function calcular(){
 	if(terapeutico == "INÍCIO DE CLOZAPINA"){
 		numter = 4;
 	}
-	if(social == "AUSENTE"){
+	if(social == "SUPORTE FAMILIAR ADEQUADO"){
 		numsoc = 0;
 	}
-	if(social == "SEM SUPORTE FAMILIAR"){
+	if(social == "SUPORTE FAMILIAR FRÁGIL"){
 		numsoc = 3;
 	}
 	if(social == "EXPOSIÇÃO MORAL EM MAIOR DE 18 ANOS"){
@@ -421,28 +520,19 @@ function calcular(){
 	if(social == "SITUAÇÃO DE RUA"){
 		numsoc = 12;
 	}
-	if(idade >= 19 && idade <=59){
-		numida = 1;
-	}
-	if(idade >= 60){
-		numida = 2;
-	}
-	if(idade >= 12 && idade <=18){
-		numida = 3;
-	}
-	if(idade < 12){
-		numida = 4;
-	}
-	if(numtra == "Excludente" || numrisc== "Excludente" ||numcom== "Excludente" ||numexp== "Excludente" ||numal== "Excludente" ||numdep== "Excludente" ||numter== "Excludente" ||numsoc== "Excludente" ||numida== "Excludente"){
+
+	if(numtra == "Excludente" || numrisc== "Excludente" ||numcom== "Excludente" ||numexp== "Excludente" ||numal== "Excludente" ||numdep== "Excludente" ||numter== "Excludente" ||numsoc== "Excludente" ||numjuizo== "Excludente"){
 		document.getElementById('soma').value = "Excludente";
 		alert("Encaminha para Urgência");
 		document.getElementById("classificado").style.display = 'inline';
 	}else{
 		var soma;
 	
-	soma = numtra+numrisc+numcom+numexp+numal+numdep+numter+numsoc+numida
+	soma = numtra+numrisc+numcom+numexp+numal+numdep+numter+numsoc+numidade+numjuizo
+	console.log(numidade)
 	document.getElementById('soma').value = soma;
 	document.getElementById("classificado").style.display = 'inline';
+	alert(soma)
 	}
 	
 	      

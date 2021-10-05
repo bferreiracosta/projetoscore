@@ -88,6 +88,8 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var idade = req.body.idade;
 	var diagnostico = req.body.diagnostico;
 	var referencia = req.body.referencia;
+	var internacao = req.body.internacao;
+	var juizo = req.body.juizo;
 	var data =  req.body.data;
 	var id = req.body.idusuario;
 	var unidade = 'AD';
@@ -117,7 +119,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	});	
 	}else{
 		modeladmin.buscarusuarioporid(id, function(error, resultados){
-			modelad.cadastrarpaciente(dataatu, horas,prt,paciente, idade,diagnostico,referencia,unidade,data,tratamento,risco,comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma, function(error, result){
+			modelad.cadastrarpaciente(dataatu, horas,prt,paciente, idade,diagnostico,referencia,unidade,data,tratamento,risco, internacao, juizo, comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma, function(error, result){
 				modelad.buscarpaciente(unidade, function(error, resultado){
 					res.render("mental/CapsAd/cadastrarpacientead", {mental : resultado, id : resultados});
 				});
@@ -138,6 +140,8 @@ module.exports.update= function(application, req, res){
 	var unidade = 'AD';
 	var tratamento = req.body.tratamento
 	var risco= req.body.risco
+	var internacao = req.body.internacao;
+	var juizo = req.body.juizo;
 	var comportamento= req.body.comportamento
 	var exposicao= req.body.exposicao
 	var autonegligencia= req.body.autonegligencia
@@ -151,7 +155,7 @@ module.exports.update= function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 
 	modeladmin.buscarusuarioporid(id, function(error, resultados){	
-		modelad.update(idpaciente,dataatu, horas,prt,paciente, idade,diagnostico,referencia,unidade,tratamento,risco,comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma,  function(error, result){
+		modelad.update(idpaciente,dataatu, horas,prt,paciente, idade,diagnostico,referencia,unidade,tratamento,risco, internacao, juizo, comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma,  function(error, result){
 			modelad.buscarpaciente(unidade, function(error, resultado){
 				res.render("mental/CapsAd/cadastrarpacientead", {mental : resultado, id : resultados});
 			});
