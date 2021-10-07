@@ -78,7 +78,7 @@ module.exports.historico= function(application, req, res){
 	
 	modeladmin.buscarusuario(id, function(error, result){
 		modeloeste.historico(unidade, function(error, resultado){
-			res.render("mental/CapsOeste/historicoad", {mental : resultado, id : result});
+			res.render("mental/CapsOeste/historicooeste", {mental : resultado, id : result});
 		});
 	});		
 }
@@ -118,6 +118,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 		});
 	});	
 	}else{
+		console.log(dataatu, horas,prt,paciente, idade,diagnostico,referencia,unidade,data,tratamento,risco, internacao, juizo, comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma)
 		modeladmin.buscarusuarioporid(id, function(error, resultados){
 			modeloeste.cadastrarpaciente(dataatu, horas,prt,paciente, idade,diagnostico,referencia,unidade,data,tratamento,risco, internacao, juizo, comportamento,exposicao,autonegligencia,dependencia,terapeutico,social,soma, function(error, result){
 				modeloeste.buscarpaciente(unidade, function(error, resultado){
