@@ -28,7 +28,7 @@ module.exports.central= function(application, req, res){
 	
 	modeladmin.buscarusuario(id, function(error, result){
 		modeloeste.buscarleito(function(error, resultado){
-			res.render("mental/CapsOeste/centralad", {leito : resultado, id : result});
+			res.render("mental/CapsOeste/centraloeste", {leito : resultado, id : result});
 		});
 	});	
 }
