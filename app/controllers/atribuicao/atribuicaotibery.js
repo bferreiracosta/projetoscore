@@ -65,16 +65,24 @@ module.exports.adicionarescalatibery = function(application, req, res){
 	var tecenf19 = req.body.tecenf19;
 	var tecenf20 = req.body.tecenf20;
 	var tecenf21 = req.body.tecenf21;
+	var tecenf22 = req.body.tecenf22;
+	var tecenf23 = req.body.tecenf23;
+	var tecenf24 = req.body.tecenf24;
+	var tecenf25 = req.body.tecenf25;
+	var tecenf26 = req.body.tecenf26;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
 	var enf5 = req.body.enf5;
 	var enf6 = req.body.enf6;
+	var enf7 = req.body.enf7;
+	var enf8 = req.body.enf8;
+	var enf9 = req.body.enf9;
 	modelatritibery.buscarregraescalaunicatibery(date, turno, unidade,function(error, resultado){
 		if(resultado == null || resultado==""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelatritibery.adicionarescalatibery(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21, enf2, enf3, enf4, enf5, enf6 , enfcme, tecenfcme, function(error, resultado){
+					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21,tecenf22,tecenf23,tecenf24, tecenf25,tecenf26,enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enfcme, tecenfcme, function(error, resultado){
 						res.redirect("/atribuicaotibery?id=" + result[0].id_usuario);	
 				})
 			});
@@ -261,14 +269,22 @@ module.exports.editarescalatibery = function(application, req, res){
 	var tecenf19 = req.body.tecenf19;
 	var tecenf20 = req.body.tecenf20;
 	var tecenf21 = req.body.tecenf21;
+	var tecenf22 = req.body.tecenf22;
+	var tecenf23 = req.body.tecenf23;
+	var tecenf24 = req.body.tecenf24;
+	var tecenf25 = req.body.tecenf25;
+	var tecenf26 = req.body.tecenf26;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
 	var enf5 = req.body.enf5;
 	var enf6 = req.body.enf6;
+	var enf7 = req.body.enf7;
+	var enf8 = req.body.enf8;
+	var enf9 = req.body.enf9;
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelatritibery.updateescalatibery(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21, enf2, enf3, enf4, enf5, enf6 , enfcme, tecenfcme,function(error, resultado){
+			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20,tecenf21,tecenf22,tecenf23,tecenf24,tecenf25,tecenf26, enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 , enfcme, tecenfcme,function(error, resultado){
 				res.redirect("/atribuicaotibery?id=" + result[0].id_usuario);	
 		})
 	});
