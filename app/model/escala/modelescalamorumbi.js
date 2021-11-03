@@ -174,39 +174,79 @@ modelescalamorumbi.prototype.validarescala = function(unidade, turno, dateinicia
 	this._conection.query('update escalamorumbi set dateano="'+dateano+'",rt="'+rt+'",supervisao="'+supervisao+'",cida="'+cida+'" where  unidade="Morumbi" and turno="'+turno+'" and dateinicial="'+dateinicial+'" and datefinal="'+datefinal+'"', callback);
 }
 
-modelescalamorumbi.prototype.updateescalamorumbi = function(valor, callback){
+modelescalamorumbi.prototype.buscarsituacaomorumbi = function(valor, callback){
 
-	if(valor.coluna ==9){var folga1 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga1 = "'+folga1+'"  where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==10){var folga2 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga2 = "'+folga2+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==11){var folga3 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga3 = "'+folga3+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==12){var folga4 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga4 = "'+folga4+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==13){var folga5 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga5 = "'+folga5+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==14){var folga6 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga6 = "'+folga6+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==15){var folga7 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga7 = "'+folga7+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==16){var folga8 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga8 = "'+folga8+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==17){var folga9 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga9 = "'+folga9+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==18){var folga10 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga10 = "'+folga10+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==19){var folga11 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga11 = "'+folga11+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==20){var folga12 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga12 = "'+folga12+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==21){var folga13 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga13 = "'+folga13+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==22){var folga14 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga14 = "'+folga14+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==23){var folga15 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga15 = "'+folga15+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==24){var folga16 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga16 = "'+folga16+'" Where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==25){var folga17 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga17 = "'+folga17+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==26){var folga18 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga18 = "'+folga18+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==27){var folga19 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga19 = "'+folga19+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==28){var folga20 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga20 = "'+folga20+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==29){var folga21 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga21 = "'+folga21+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==30){var folga22 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga22 = "'+folga22+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==31){var folga23 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga23 = "'+folga23+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==32){var folga24 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga24 = "'+folga24+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==33){var folga25 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga25 = "'+folga25+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==34){var folga26 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga26 = "'+folga26+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==35){var folga27 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga27 = "'+folga27+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==36){var folga28 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga28 = "'+folga28+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==37){var folga29 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga29 = "'+folga29+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==38){var folga30 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga30 = "'+folga30+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
-	if(valor.coluna ==39){var folga31 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga31 = "'+folga31+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	this._conection.query('select situacao from folgamorumbi where idfolgamorumbi = "'+valor.idfinal+'"', callback )
+}
+
+modelescalamorumbi.prototype.updateescalamorumbi = function(valor,ferias, callback){
+	if( ferias == null){
+		if(valor.coluna ==9){var folga1 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga1 = "'+folga1+'"  where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==10){var folga2 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga2 = "'+folga2+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==11){var folga3 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga3 = "'+folga3+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==12){var folga4 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga4 = "'+folga4+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==13){var folga5 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga5 = "'+folga5+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==14){var folga6 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga6 = "'+folga6+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==15){var folga7 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga7 = "'+folga7+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==16){var folga8 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga8 = "'+folga8+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==17){var folga9 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga9 = "'+folga9+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==18){var folga10 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga10 = "'+folga10+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==19){var folga11 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga11 = "'+folga11+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==20){var folga12 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga12 = "'+folga12+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==21){var folga13 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga13 = "'+folga13+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==22){var folga14 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga14 = "'+folga14+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==23){var folga15 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga15 = "'+folga15+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==24){var folga16 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga16 = "'+folga16+'" Where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==25){var folga17 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga17 = "'+folga17+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==26){var folga18 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga18 = "'+folga18+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==27){var folga19 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga19 = "'+folga19+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==28){var folga20 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga20 = "'+folga20+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==29){var folga21 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga21 = "'+folga21+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==30){var folga22 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga22 = "'+folga22+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==31){var folga23 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga23 = "'+folga23+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==32){var folga24 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga24 = "'+folga24+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==33){var folga25 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga25 = "'+folga25+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==34){var folga26 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga26 = "'+folga26+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==35){var folga27 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga27 = "'+folga27+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==36){var folga28 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga28 = "'+folga28+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==37){var folga29 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga29 = "'+folga29+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==38){var folga30 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga30 = "'+folga30+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+		if(valor.coluna ==39){var folga31 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga31 = "'+folga31+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	}
+	else{
+		if(valor.coluna ==8){var folga1 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga1 = "'+folga1+'"  where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==9){var folga2 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga2 = "'+folga2+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==10){var folga3 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga3 = "'+folga3+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==11){var folga4 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga4 = "'+folga4+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==12){var folga5 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga5 = "'+folga5+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==13){var folga6 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga6 = "'+folga6+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==14){var folga7 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga7 = "'+folga7+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==15){var folga8 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga8 = "'+folga8+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==16){var folga9 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga9 = "'+folga9+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==17){var folga10 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga10 = "'+folga10+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==18){var folga11 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga11 = "'+folga11+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==19){var folga12 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga12 = "'+folga12+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==20){var folga13 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga13 = "'+folga13+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==21){var folga14 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga14 = "'+folga14+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==22){var folga15 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga15 = "'+folga15+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==23){var folga16 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga16 = "'+folga16+'" Where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==24){var folga17 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga17 = "'+folga17+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==25){var folga18 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga18 = "'+folga18+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==26){var folga19 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga19 = "'+folga19+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==27){var folga20 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga20 = "'+folga20+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==28){var folga21 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga21 = "'+folga21+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==29){var folga22 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga22 = "'+folga22+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==30){var folga23 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga23 = "'+folga23+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==31){var folga24 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga24 = "'+folga24+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==32){var folga25 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga25 = "'+folga25+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==33){var folga26 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga26 = "'+folga26+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==34){var folga27 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga27 = "'+folga27+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==35){var folga28 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga28 = "'+folga28+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==36){var folga29 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga29 = "'+folga29+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==37){var folga30 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga30 = "'+folga30+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	if(valor.coluna ==38){var folga31 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga31 = "'+folga31+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
+	}
+	
 	
 }
 modelescalamorumbi.prototype.updateescalamorumbitarde = function(valor, callback){

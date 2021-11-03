@@ -14,11 +14,12 @@ module.exports.updateescalamorumbi = function(application, req, res){
 	var modelescalamorumbi = new application.app.model.escala.modelescalamorumbi(application);
 	var valor =  req.query;
 
-
-
-		modelescalamorumbi.updateescalamorumbi(valor, function(error, resultdoinsert){
+	
+	modelescalamorumbi.buscarsituacaomorumbi(valor, function(error, resultado){
+		modelescalamorumbi.updateescalamorumbi(valor,resultado, function(error, resultdoinsert){
 			res.send(resultdoinsert);
 		})
+	})
 	
 }
 

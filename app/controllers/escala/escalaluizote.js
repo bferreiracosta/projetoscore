@@ -14,11 +14,12 @@ module.exports.updateescalaluizote = function(application, req, res){
 	var modelescalaluizote = new application.app.model.escala.modelescalaluizote(application);
 	var valor =  req.query;
 
-
-
-		modelescalaluizote.updateescalaluizote(valor, function(error, resultdoinsert){
+	
+	modelescalaluizote.buscarsituacaoluizote(valor, function(error, resultado){
+		modelescalaluizote.updateescalaluizote(valor,resultado, function(error, resultdoinsert){
 			res.send(resultdoinsert);
 		})
+	})
 	
 }
 

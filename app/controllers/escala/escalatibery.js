@@ -14,11 +14,12 @@ module.exports.updateescalatibery = function(application, req, res){
 	var modelescalatibery = new application.app.model.escala.modelescalatibery(application);
 	var valor =  req.query;
 
-
-
-		modelescalatibery.updateescalatibery(valor, function(error, resultdoinsert){
+	
+	modelescalatibery.buscarsituacaotibery(valor, function(error, resultado){
+		modelescalatibery.updateescalatibery(valor,resultado, function(error, resultdoinsert){
 			res.send(resultdoinsert);
 		})
+	})
 	
 }
 module.exports.updateescalatiberymaq = function(application, req, res){
@@ -81,7 +82,7 @@ module.exports.updateescalatiberytarde = function(application, req, res){
 	var modelescalatibery = new application.app.model.escala.modelescalatibery(application);
 	var valor =  req.query;
 
-
+	console.log(valor)
 		modelescalatibery.updateescalatiberytarde(valor, function(error, resultdoinsert){
 			res.send(resultdoinsert);
 		})

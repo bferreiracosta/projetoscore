@@ -14,11 +14,12 @@ module.exports.updateescalaplanalto = function(application, req, res){
 	var modelescalaplanalto = new application.app.model.escala.modelescalaplanalto(application);
 	var valor =  req.query;
 
-
-
-		modelescalaplanalto.updateescalaplanalto(valor, function(error, resultdoinsert){
+	
+	modelescalaplanalto.buscarsituacaoplanalto(valor, function(error, resultado){
+		modelescalaplanalto.updateescalaplanalto(valor,resultado, function(error, resultdoinsert){
 			res.send(resultdoinsert);
 		})
+	})
 	
 }
 module.exports.updateescalaplanaltomaq = function(application, req, res){

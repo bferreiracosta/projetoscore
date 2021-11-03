@@ -14,11 +14,12 @@ module.exports.updateescalaroosevelt = function(application, req, res){
 	var modelescalaroosevelt = new application.app.model.escala.modelescalaroosevelt(application);
 	var valor =  req.query;
 
-
-
-		modelescalaroosevelt.updateescalaroosevelt(valor, function(error, resultdoinsert){
+	
+	modelescalaroosevelt.buscarsituacaoroosevelt(valor, function(error, resultado){
+		modelescalaroosevelt.updateescalaroosevelt(valor,resultado, function(error, resultdoinsert){
 			res.send(resultdoinsert);
 		})
+	})
 	
 }
 

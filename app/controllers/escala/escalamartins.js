@@ -14,11 +14,12 @@ module.exports.updateescalamartins = function(application, req, res){
 	var modelescalamartins = new application.app.model.escala.modelescalamartins(application);
 	var valor =  req.query;
 
-
-
-		modelescalamartins.updateescalamartins(valor, function(error, resultdoinsert){
+	
+	modelescalamartins.buscarsituacaomartins(valor, function(error, resultado){
+		modelescalamartins.updateescalamartins(valor,resultado, function(error, resultdoinsert){
 			res.send(resultdoinsert);
 		})
+	})
 	
 }
 
