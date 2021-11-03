@@ -205,11 +205,12 @@ modelescalamartins.prototype.validarescala = function(unidade, turno, dateinicia
 
 modelescalamartins.prototype.buscarsituacaomartins = function(valor, callback){
 
-	this._conection.query('select situacao from folgamartins where idfolgamartins = "'+valor.idfinal+'"', callback )
+	this._conection.query('select situacao,dateiniciosituacao from folgamartins where idfolgamartins = "'+valor.idfinal+'"', callback )
 }
 
 modelescalamartins.prototype.updateescalamartins = function(valor,ferias, callback){
-	if( ferias == null){
+	console.log(ferias, new Date(ferias[0].dateiniciosituacao) > 16/11/2021)
+	if( ferias[0].situacao == null || new Date(ferias[0].dateiniciosituacao) > 16/11/2021){
 		if(valor.coluna ==9){var folga1 = valor.novoConteudo;this._conection.query('update folgamartins set folga1 = "'+folga1+'"  where idfolgamartins = "'+valor.idfinal+'"', callback);}
 		if(valor.coluna ==10){var folga2 = valor.novoConteudo;this._conection.query('update folgamartins set folga2 = "'+folga2+'" where idfolgamartins = "'+valor.idfinal+'"', callback);}
 		if(valor.coluna ==11){var folga3 = valor.novoConteudo;this._conection.query('update folgamartins set folga3 = "'+folga3+'" where idfolgamartins = "'+valor.idfinal+'"', callback);}

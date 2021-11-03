@@ -176,11 +176,12 @@ modelescalamorumbi.prototype.validarescala = function(unidade, turno, dateinicia
 
 modelescalamorumbi.prototype.buscarsituacaomorumbi = function(valor, callback){
 
-	this._conection.query('select situacao from folgamorumbi where idfolgamorumbi = "'+valor.idfinal+'"', callback )
+	this._conection.query('select situacao,dateiniciosituacao from folgamorumbi where idfolgamorumbi = "'+valor.idfinal+'"', callback )
 }
 
 modelescalamorumbi.prototype.updateescalamorumbi = function(valor,ferias, callback){
-	if( ferias == null){
+	console.log(ferias, new Date(ferias[0].dateiniciosituacao) > 16/11/2021)
+	if( ferias[0].situacao == null || new Date(ferias[0].dateiniciosituacao) > 16/11/2021){
 		if(valor.coluna ==9){var folga1 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga1 = "'+folga1+'"  where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
 		if(valor.coluna ==10){var folga2 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga2 = "'+folga2+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}
 		if(valor.coluna ==11){var folga3 = valor.novoConteudo;this._conection.query('update folgamorumbi set folga3 = "'+folga3+'" where idfolgamorumbi = "'+valor.idfinal+'"', callback);}

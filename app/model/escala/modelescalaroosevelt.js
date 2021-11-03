@@ -202,11 +202,12 @@ modelescalaroosevelt.prototype.validarescala = function(unidade, turno, dateinic
 
 modelescalaroosevelt.prototype.buscarsituacaoroosevelt = function(valor, callback){
 
-	this._conection.query('select situacao from folgaroosevelt where idfolgaroosevelt = "'+valor.idfinal+'"', callback )
+	this._conection.query('select situacao,dateiniciosituacao from folgaroosevelt where idfolgaroosevelt = "'+valor.idfinal+'"', callback )
 }
 
 modelescalaroosevelt.prototype.updateescalaroosevelt = function(valor,ferias, callback){
-	if( ferias == null){
+	console.log(ferias, new Date(ferias[0].dateiniciosituacao) > 16/11/2021)
+	if( ferias[0].situacao == null || new Date(ferias[0].dateiniciosituacao) > 16/11/2021){
 		if(valor.coluna ==9){var folga1 = valor.novoConteudo;this._conection.query('update folgaroosevelt set folga1 = "'+folga1+'"  where idfolgaroosevelt = "'+valor.idfinal+'"', callback);}
 		if(valor.coluna ==10){var folga2 = valor.novoConteudo;this._conection.query('update folgaroosevelt set folga2 = "'+folga2+'" where idfolgaroosevelt = "'+valor.idfinal+'"', callback);}
 		if(valor.coluna ==11){var folga3 = valor.novoConteudo;this._conection.query('update folgaroosevelt set folga3 = "'+folga3+'" where idfolgaroosevelt = "'+valor.idfinal+'"', callback);}
