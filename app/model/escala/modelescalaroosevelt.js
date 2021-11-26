@@ -45,8 +45,6 @@ modelescalaroosevelt.prototype.criarfolga =  function(funcionarios, escala, turn
 			[funcionarios[30].idfuncionariosroosevelt, escala],
 			[funcionarios[31].idfuncionariosroosevelt, escala],
 			[funcionarios[32].idfuncionariosroosevelt, escala],
-			[funcionarios[33].idfuncionariosroosevelt, escala],
-
 		];
 	}
 	if(turno == "Tarde"){
@@ -113,9 +111,6 @@ modelescalaroosevelt.prototype.criarfolga =  function(funcionarios, escala, turn
 			[funcionarios[24].idfuncionariosroosevelt, escala],
 			[funcionarios[25].idfuncionariosroosevelt, escala],
 			[funcionarios[26].idfuncionariosroosevelt, escala],
-			[funcionarios[27].idfuncionariosroosevelt, escala],
-			[funcionarios[28].idfuncionariosroosevelt, escala],
-			[funcionarios[29].idfuncionariosroosevelt, escala],
 
 		];
 	}
@@ -147,11 +142,7 @@ modelescalaroosevelt.prototype.criarfolga =  function(funcionarios, escala, turn
 			[funcionarios[23].idfuncionariosroosevelt, escala],
 			[funcionarios[24].idfuncionariosroosevelt, escala],
 			[funcionarios[25].idfuncionariosroosevelt, escala],
-			[funcionarios[26].idfuncionariosroosevelt, escala],
-			[funcionarios[27].idfuncionariosroosevelt, escala],
-			[funcionarios[28].idfuncionariosroosevelt, escala],
-			[funcionarios[29].idfuncionariosroosevelt, escala],
-	
+			[funcionarios[26].idfuncionariosroosevelt, escala],	
 		];
 	}
 
