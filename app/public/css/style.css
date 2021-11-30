@@ -240,13 +240,28 @@ tr.group:hover {
 .form-entrar {
 	padding-top: 10px;
 }
-.tabelasemana{
+.tabelasemanamanha{
+	background-color:#7b7b7c!important;
+}
+.tabelasemanatarde{
+	background-color:#7b7b7c!important;
+}
+.tabelasemanasn1{
+	background-color:#7b7b7c!important;
+}
+.tabelasemanasn2{
+	background-color:#7b7b7c!important;
+}
+.tabelasemanamaq{
+	background-color:#7b7b7c!important;
+}
+.tabelasemanafolga{
 	background-color:#7b7b7c!important;
 }
 .sumirtd{
 	display: none;
 }
-
+.modal .modalfolga { width: 90%; } 
 .fundoIdade{
 	background-color:#8b79f1;
 }

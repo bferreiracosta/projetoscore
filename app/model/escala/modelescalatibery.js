@@ -38,7 +38,7 @@ modelescalatibery.prototype.criarfolga =  function(funcionarios, escala, turno, 
 			[funcionarios[23].idfuncionariostibery, escala],
 			[funcionarios[24].idfuncionariostibery, escala],
 			[funcionarios[25].idfuncionariostibery, escala],
-			[funcionarios[26].idfuncionariostibery, escala],	
+			[funcionarios[26].idfuncionariostibery, escala],
 		];
 	}
 	if(turno == "Tarde"){
@@ -67,8 +67,7 @@ modelescalatibery.prototype.criarfolga =  function(funcionarios, escala, turno, 
 			[funcionarios[21].idfuncionariostibery, escala],
 			[funcionarios[22].idfuncionariostibery, escala],
 			[funcionarios[23].idfuncionariostibery, escala],
-			[funcionarios[24].idfuncionariostibery, escala]
-
+			[funcionarios[24].idfuncionariostibery, escala],
 		];
 	}
 	if(turno == "SN1"){
@@ -97,8 +96,7 @@ modelescalatibery.prototype.criarfolga =  function(funcionarios, escala, turno, 
 			[funcionarios[21].idfuncionariostibery, escala],
 			[funcionarios[22].idfuncionariostibery, escala],
 			[funcionarios[23].idfuncionariostibery, escala],
-			[funcionarios[24].idfuncionariostibery, escala]
-	
+			[funcionarios[24].idfuncionariostibery, escala],
 		];
 	}
 	if(turno == "SN2"){
@@ -129,7 +127,6 @@ modelescalatibery.prototype.criarfolga =  function(funcionarios, escala, turno, 
 			[funcionarios[23].idfuncionariostibery, escala],
 			[funcionarios[24].idfuncionariostibery, escala],
 			[funcionarios[25].idfuncionariostibery, escala],
-
 		];
 	}
 
@@ -148,9 +145,9 @@ modelescalatibery.prototype.criarfolga =  function(funcionarios, escala, turno, 
 	this._conection.query(sql, [values], callback);	
 
 }
-modelescalatibery.prototype.updateferias = function(idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, callback){
+modelescalatibery.prototype.updateferias = function(valor, callback){
 
-	this._conection.query('update folgatibery set situacao = "'+inputsituacao+'", dateiniciosituacao = "'+dateinicialsituacao+'", datefinalsituacao = "'+datefinalsituacao+'" where idfolgatibery = "'+idfuncionario+'"', callback);
+	this._conection.query('update folgatibery set folga1="'+valor.folga1+'",folga2="'+valor.folga2+'",folga3="'+valor.folga3+'",folga4="'+valor.folga4+'",folga5="'+valor.folga5+'",folga6="'+valor.folga6+'",folga7="'+valor.folga7+'",folga8="'+valor.folga8+'",folga9="'+valor.folga9+'",folga10="'+valor.folga10+'",folga11="'+valor.folga11+'",folga12="'+valor.folga12+'",folga13="'+valor.folga13+'",folga14="'+valor.folga14+'",folga15="'+valor.folga15+'",folga16="'+valor.folga16+'",folga17="'+valor.folga17+'",folga18="'+valor.folga18+'",folga19="'+valor.folga19+'",folga20="'+valor.folga20+'",folga21="'+valor.folga21+'",folga22="'+valor.folga22+'",folga23="'+valor.folga23+'",folga24="'+valor.folga24+'",folga25="'+valor.folga25+'",folga26="'+valor.folga26+'",folga27="'+valor.folga27+'",folga28="'+valor.folga28+'",folga29="'+valor.folga29+'",folga30="'+valor.folga30+'",folga31="'+valor.folga31+'", situacao = "'+valor.inputsituacao+'", dateiniciosituacao = "'+valor.dateinicialsituacao+'", datefinalsituacao = "'+valor.datefinalsituacao+'" where idfolgatibery = "'+valor.idfuncionario+'"', callback);
 }
 modelescalatibery.prototype.updateferiastarde = function(idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, callback){
 
@@ -167,14 +164,14 @@ modelescalatibery.prototype.updateferiasSN2 = function(idfuncionario, inputsitua
 	this._conection.query('update folgatibery set situacao = "'+inputsituacao+'", dateiniciosituacao = "'+dateinicialsituacao+'", datefinalsituacao = "'+datefinalsituacao+'" where idfolgatibery = "'+idfuncionario+'"', callback);
 }
 
-modelescalatibery.prototype.criarescalatibery = function(unidade, turno, dateinicial, datefinal, callback){
+modelescalatibery.prototype.criarescalatibery = function(unidade, turno, dateinicial, datefinal, ano, callback){
 	
-	this._conection.query('insert into escalatibery set unidade="Tibery", turno="'+turno+'", dateinicial="'+dateinicial+'", datefinal="'+datefinal+'",rt="false",supervisao="false",cida="false"', callback);
+	this._conection.query('insert into escalatibery set unidade="Tibery", turno="'+turno+'", dateinicial="'+dateinicial+'", datefinal="'+datefinal+'", dateano= "'+ano+'",rt="false",supervisao="false",cida="false"', callback);
 }
 
-modelescalatibery.prototype.validarescala = function(unidade, turno, dateinicial, datefinal, dateano, rt, supervisao, cida, callback){
+modelescalatibery.prototype.validarescala = function(unidade, turno, dateinicial, datefinal, rt, supervisao, cida, callback){
 	
-	this._conection.query('update escalatibery set dateano="'+dateano+'",rt="'+rt+'",supervisao="'+supervisao+'",cida="'+cida+'" where  unidade="Tibery" and turno="'+turno+'" and dateinicial="'+dateinicial+'" and datefinal="'+datefinal+'"', callback);
+	this._conection.query('update escalatibery set rt="'+rt+'",supervisao="'+supervisao+'",cida="'+cida+'" where  unidade="Tibery" and turno="'+turno+'" and dateinicial="'+dateinicial+'" and datefinal="'+datefinal+'"', callback);
 }
 
 modelescalatibery.prototype.buscarsituacaotibery = function(valor, callback){
@@ -253,41 +250,6 @@ modelescalatibery.prototype.updateescalatibery = function(valor,ferias, callback
 	
 	
 }
-modelescalatibery.prototype.updateescalatiberytarde = function(valor, callback){
-
-	if(valor.colunatarde ==9){var folga1 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga1 = "'+folga1+'"  where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==10){var folga2 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga2 = "'+folga2+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==11){var folga3 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga3 = "'+folga3+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==12){var folga4 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga4 = "'+folga4+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==13){var folga5 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga5 = "'+folga5+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==14){var folga6 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga6 = "'+folga6+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==15){var folga7 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga7 = "'+folga7+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==16){var folga8 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga8 = "'+folga8+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==17){var folga9 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga9 = "'+folga9+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==18){var folga10 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga10 = "'+folga10+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==19){var folga11 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga11 = "'+folga11+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==20){var folga12 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga12 = "'+folga12+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==21){var folga13 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga13 = "'+folga13+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==22){var folga14 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga14 = "'+folga14+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==23){var folga15 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga15 = "'+folga15+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==24){var folga16 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga16 = "'+folga16+'" Where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==25){var folga17 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga17 = "'+folga17+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==26){var folga18 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga18 = "'+folga18+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==27){var folga19 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga19 = "'+folga19+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==28){var folga20 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga20 = "'+folga20+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==29){var folga21 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga21 = "'+folga21+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==30){var folga22 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga22 = "'+folga22+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==31){var folga23 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga23 = "'+folga23+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==32){var folga24 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga24 = "'+folga24+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==33){var folga25 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga25 = "'+folga25+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==34){var folga26 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga26 = "'+folga26+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==35){var folga27 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga27 = "'+folga27+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==36){var folga28 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga28 = "'+folga28+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==37){var folga29 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga29 = "'+folga29+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==38){var folga30 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga30 = "'+folga30+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	if(valor.colunatarde ==39){var folga31 = valor.novoConteudotarde;this._conection.query('update folgatibery set folga31 = "'+folga31+'" where idfolgatibery = "'+valor.idfinaltarde+'"', callback);}
-	
-}
 modelescalatibery.prototype.updateescalatiberySN1 = function(valor, callback){
 
 	if(valor.colunaSN1 ==9){var folga1 = valor.novoConteudoSN1;this._conection.query('update folgatibery set folga1 = "'+folga1+'"  where idfolgatibery = "'+valor.idfinalSN1+'"', callback);}
@@ -358,6 +320,7 @@ modelescalatibery.prototype.updateescalatiberySN2 = function(valor, callback){
 	if(valor.colunaSN2 ==39){var folga31 = valor.novoConteudoSN2;this._conection.query('update folgatibery set folga31 = "'+folga31+'" where idfolgatibery = "'+valor.idfinalSN2+'"', callback);}
 	
 }
+
 modelescalatibery.prototype.updateescalatiberymaq = function(valor, callback){
 
 	if(valor.coluna ==8){var folga1 = valor.novoConteudo;this._conection.query('update folgatibery set folga1 = "'+folga1+'"  where idfolgatibery = "'+valor.idfinal+'"', callback);}
@@ -393,17 +356,6 @@ modelescalatibery.prototype.updateescalatiberymaq = function(valor, callback){
 	if(valor.coluna ==38){var folga31 = valor.novoConteudo;this._conection.query('update folgatibery set folga31 = "'+folga31+'" where idfolgatibery = "'+valor.idfinal+'"', callback);}
 	
 }
-modelescalatibery.prototype.buscarescalamaqtiberydiurno = function(valor, callback){
-
-
-
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and func.categoria = "'+valor.categoria+'" and esc.unidade = "Tibery" and func.setor = "'+valor.setor1+'"', callback);
-}
-
-modelescalatibery.prototype.buscarescalamaqtiberynoturno = function(valor, callback){
-
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and func.categoria = "'+valor.categoria+'" and esc.unidade = "Tibery" and func.setor = "'+valor.setor2+'"', callback);
-}
 modelescalatibery.prototype.buscarescalatibery = function(valor, callback){
 	var datainicial = valor.datainicial;
     var datafinal = valor.datafinal;
@@ -421,483 +373,30 @@ modelescalatibery.prototype.buscarregraescalaunicatibery = function(campo, turno
 
 modelescalatibery.prototype.buscarescalamensaltibery = function(valor, callback){
 
-
-
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery"', callback);
+	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" order by func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf", func.nome;', callback);
 }
 
 modelescalatibery.prototype.buscarescalamensaltiberytarde = function(valor, callback){
 
+	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" order by func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf", func.nome;', callback);
+}
 
+modelescalatibery.prototype.buscarescalamensaltiberysn1 = function(valor, callback){
 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery"', callback);
+	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" order by func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf", func.nome;', callback);
+}
+
+modelescalatibery.prototype.buscarescalamensaltiberysn2 = function(valor, callback){
+
+	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" order by func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf", func.nome;', callback);
+}
+
+modelescalatibery.prototype.buscarescalamensaltiberymaq = function(valor, callback){
+
+	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" order by func.nome', callback);
 }
 
 
-modelescalatibery.prototype.buscarescalatardesetor1 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="Enfermeiro RT"', callback);
-}
-
-modelescalatibery.prototype.buscarescalatardesetor2 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="SCIH" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalatardesetor3 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="Acolhimento com Classificação" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalatardesetor4 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="Sala de Emergência" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalatardesetor5 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="Equipe de Referência Azul" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalatardesetor6 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="Equipe de Referência Bordô" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalatardesetor7 = function(valor, callback){
-
-
-
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="Apoio" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalatardesetor8 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="Sala de Gesso/Sutura" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalatardesetor9 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="Pediatria" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalatardesetor10 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="Enfermaria" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalatardesetor11 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="CME" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalatardesetor12 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="Transporte" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalatardesetor13 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="Contigência" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalatardesetor14 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialtarde+'" and  esc.datefinal = "'+valor.datafinaltarde+'" and esc.turno = "'+valor.turnotarde+'" and esc.unidade = "Tibery" and func.setor="Folguista" order by func.categoria asc', callback);
-}
-modelescalatibery.prototype.buscarescalamanhasetor1 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="Enfermeiro RT"', callback);
-}
-
-modelescalatibery.prototype.buscarescalamanhasetor2 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="SCIH" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalamanhasetor3 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="Acolhimento com Classificação" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalamanhasetor4 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="Sala de Emergência" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalamanhasetor5 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="Equipe de Referência Azul" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalamanhasetor6 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="Equipe de Referência Bordô" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalamanhasetor7 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="Apoio" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalamanhasetor8 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="Sala de Gesso/Sutura" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalamanhasetor9 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="Pediatria" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalamanhasetor10 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="Enfermaria" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalamanhasetor11 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="CME" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalamanhasetor12 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="Transporte" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalamanhasetor13 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="Contigência" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalamanhasetor14 = function(valor, callback){
-
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" and func.setor="Folguista" order by func.categoria asc', callback);
-}
-modelescalatibery.prototype.buscarescalamensaltiberySN1 = function(valor, callback){
-
-
-  
-
-
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery"', callback);
-}
-
-
-modelescalatibery.prototype.buscarescalaSN1setor1 = function(valor, callback){
-
-
-  
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="Enfermeiro RT"', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN1setor2 = function(valor, callback){
-
-
-  
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="SCIH" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN1setor3 = function(valor, callback){
-
-
-  
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="Acolhimento com Classificação" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN1setor4 = function(valor, callback){
-
-
-  
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="Sala de Emergência" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN1setor5 = function(valor, callback){
-
-
-  
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="Equipe de Referência Azul" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN1setor6 = function(valor, callback){
-
-
-  
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="Equipe de Referência Bordô" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN1setor7 = function(valor, callback){
-
-
-  
-
-
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="Apoio" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN1setor8 = function(valor, callback){
-
-
-  
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="Sala de Gesso/Sutura" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN1setor9 = function(valor, callback){
-
-
-  
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="Pediatria" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN1setor10 = function(valor, callback){
-
-
-  
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="Enfermaria" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN1setor11 = function(valor, callback){
-
-
-  
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="CME" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN1setor12 = function(valor, callback){
-
-
-  
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="Transporte" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN1setor13 = function(valor, callback){
-
-
-  
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="Contigência" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN1setor14 = function(valor, callback){
-
-
-  
-
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN1+'" and  esc.datefinal = "'+valor.datafinalSN1+'" and esc.turno = "'+valor.turnoSN1+'" and esc.unidade = "Tibery" and func.setor="Folguista" order by func.categoria asc', callback);
-}
-modelescalatibery.prototype.buscarescalamensaltiberySN2 = function(valor, callback){
-
-
-  
- 
-
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery"', callback);
-}
-
-
-modelescalatibery.prototype.buscarescalaSN2setor1 = function(valor, callback){
-
-
-  
- 
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="Enfermeiro RT"', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN2setor2 = function(valor, callback){
-
-
-  
- 
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="SCIH" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN2setor3 = function(valor, callback){
-
-
-  
- 
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="Acolhimento com Classificação" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN2setor4 = function(valor, callback){
-
-
-  
- 
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="Sala de Emergência" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN2setor5 = function(valor, callback){
-
-
-  
- 
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="Equipe de Referência Azul" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN2setor6 = function(valor, callback){
-
-
-  
- 
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="Equipe de Referência Bordô" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN2setor7 = function(valor, callback){
-
-
-  
- 
-
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="Apoio" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN2setor8 = function(valor, callback){
-
-
-  
- 
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="Sala de Gesso/Sutura" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN2setor9 = function(valor, callback){
-
-
-  
- 
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="Pediatria" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN2setor10 = function(valor, callback){
-
-
-  
- 
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="Enfermaria" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN2setor11 = function(valor, callback){
-
-
-  
- 
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="CME" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN2setor12 = function(valor, callback){
-
-
-  
- 
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="Transporte" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN2setor13 = function(valor, callback){
-
-
-  
- 
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="Contigência" order by func.categoria asc', callback);
-}
-
-modelescalatibery.prototype.buscarescalaSN2setor14 = function(valor, callback){
-
-
-  
- 
- 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicialSN2+'" and  esc.datefinal = "'+valor.datafinalSN2+'" and esc.turno = "'+valor.turnoSN2+'" and esc.unidade = "Tibery" and func.setor="Folguista" order by func.categoria asc', callback);
-}
 module.exports = function(){
 	return modelescalatibery;
 }
