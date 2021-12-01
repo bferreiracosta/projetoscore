@@ -449,7 +449,7 @@ modelluizote.prototype.buscarinternacaodialuizote = function(unidade, callback){
 
 modelluizote.prototype.buscarsetoresluizote = function(callback){
 
-	this._conection.query('select lui.idluizote, lui.setor, lui.capacidade, lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Luizote" and acomodacao="Cama" and nome is not null and setor = lui.setor) as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Luizote" and acomodacao="Maca" and nome is not null and setor = lui.setor) as qtdmaca,lui.capacidadecadeiras,(select count(acomodacao) from leitokaban where unidade = "Luizote" and acomodacao="Cadeira" and nome is not null and setor = lui.setor) as qtdcadeira, lui.bloqueado, lui.datas, lui.hora from luizote lui', callback);
+	this._conection.query('select lui.idluizote, lui.setor, lui.capacidade,lui.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Planalto" and acomodacao="Cama" and nome is not null and setor = lui.setor) as qtdcama,lui.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Planalto" and acomodacao="Maca" and nome is not null and setor = lui.setor) as qtdmaca,lui.capacidadecadeiras,(select count(acomodacao) from leitokaban where unidade = "Planalto" and acomodacao="Cadeira" and nome is not null and setor = lui.setor) as qtdcadeira, lui.capacidadebercos,(select count(acomodacao) from leitokaban where unidade = "Planalto" and acomodacao="Berço" and nome is not null and setor = lui.setor) as qtdbercos, lui.bloqueado, lui.datas, lui.hora from luizote lui', callback);
 }
 
 modelluizote.prototype.buscarbanhomanhaluizote = function(callback){
