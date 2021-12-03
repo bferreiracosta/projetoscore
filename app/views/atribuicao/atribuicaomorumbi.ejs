@@ -14,6 +14,9 @@
  <button onclick="setaDadosModal5('<%=id[i].id_usuario%>')" class="btn btn-info" id="target1">
    Adicionar Folga de Escala
  </button>
+ <button onclick="setaDadosModal7('<%=id[i].id_usuario%>')" class="btn btn-warning" id="target3">
+   Adicionar Descanso Noturno
+ </button>
   <h2>Escala de Atribuição Morumbi</h2>
   <ul class="nav nav-tabs">
     <li class="active"><a style="color: inherit;" onclick="IsEmpty();" data-toggle="tab" href="#home">Manhã</a></li>
@@ -51,11 +54,11 @@
         <td hidden></td>
       </tr>
       <tr style="border: none; height: 35px;" class="bg-primary">
-        <td scope="col">Sala de Emergência Geral</td>
-        <td scope="col">Enfermaria não Covid</td>
-        <td scope="col">Classificação PS</td>
-        <td scope="col">Sala Amarela Não Covid</td>
-        <td scope="col">Sala de Emergência Covid</td>
+        <td scope="col">Enfermaria</td>
+        <td scope="col">Triagem</td>
+        <td scope="col">Exame Covid</td>
+        <td scope="col">Sala de Emergência Clinica</td>
+        <td scope="col">Sala de Estabilização</td>
       </tr>
       <tr style="border: none; background-color:#a5a1a1!important; height: 35px;">
         <td  scope="col" id="enf1">1</td>
@@ -66,70 +69,63 @@
       </tr>
       <tr style="border: none; height: 35px;">
          <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf1">1</td>
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf4">1</td>
-         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf6">1</td>
          <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf7">1</td>
          <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf8">1</td>
+         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf10">1</td>
       </tr>
       <tr style="border: none; height: 35px;">
          <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf2">2</td>
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf5">2</td>
-         <td  scope="col"  class="bg-primary">Transporte</td>
-         <td  scope="col"  class="bg-primary">Medicação</td>
+         <td  scope="col"  class="bg-primary">Pediatria</td>
+         <td  scope="col"  class="bg-primary">CME</td>
          <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf9">2</td>
+         <td  scope="col"  class="bg-primary">Preposto</td>
       </tr>
       <tr style="border: none; height: 35px;">
          <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf3">3</td>
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf6">3</td>
          <td  scope="col" id="enf6" style="background-color:#a5a1a1!important;">1</td>
-         <td  scope="col" id="enf7" style="background-color:#a5a1a1!important;">1</td>
-         <td  scope="col"  class="bg-primary">Teste Covid</td>
-      </tr>
-      <tr style="border: none; height: 35px;">
-         <td  scope="col"  class="bg-primary">Referência Azul</td>
-         <td  scope="col"  class="bg-primary">Referência Bordo</td>
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf10">1</td>
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf11">1</td>
-         <td  scope="col" id="enf8" style="background-color:#a5a1a1!important;">1</td>
-      </tr>
-      <tr style="border: none; height: 35px;">
-         <td  scope="col" id="enf9" style="background-color:#a5a1a1!important;">1</td>
-         <td  scope="col" id="enf10" style="background-color:#a5a1a1!important;">1</td>
-         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf12">2</td>
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf13">1</td>
-      </tr>
-      <tr style="border: none; height: 35px;">
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf14">1</td>
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf15">1</td>
-         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-         <td  scope="col"  class="bg-primary">Estabilização Covid</td>
-         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-      </tr>
-      <tr style="border: none; height: 35px;">
-         <td  scope="col"  class="bg-primary">Anexo/Pediatria</td>
-         <td  scope="col"  class="bg-primary">CME</td>
-         <td  scope="col"  class="bg-primary">Maqueiros</td>
-         <td  scope="col" id="enf11" style="background-color:#a5a1a1!important;">1</td>
-         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-      </tr>
-      <tr style="border: none; height: 35px;">
-         <td  scope="col" id="enf12" style="background-color:#a5a1a1!important;">1</td>
          <td  scope="col" id="enfcme" style="background-color:#a5a1a1!important;">1</td>
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq1">1</td>
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf16">1</td>
+         <td  scope="col"  class="bg-primary">Apoio Clinica</td>
+         <td  scope="col" id="enfpreposto" style="background-color:#a5a1a1!important;">1</td>
+      </tr>
+      <tr style="border: none; height: 35px;">
+         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf4">1</td>
+         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf11">1</td>
+         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenfcme">1</td>
+         <td  scope="col" id="enf7" style="background-color:#a5a1a1!important;">1</td>
          <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
       </tr>
       <tr style="border: none; height: 35px;">
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf18">1</td>
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="teccme">1</td>
+         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf5">2</td>
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+         <td  scope="col"  class="bg-primary">Transporte</td>
+         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf12">2</td>
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+      </tr>
+      <tr style="border: none; height: 35px;">
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+         <td  scope="col"  class="bg-primary">Maqueiro</td>
+         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf15">2</td>
+         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf13">2</td>
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+      </tr>
+      <tr style="border: none; height: 35px;">
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq1">2</td>
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf14">2</td>
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+      </tr>
+      <tr style="border: none; height: 35px;">
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
          <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq2">2</td>
-         <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf17">2</td>
-         <td  scope="col"  class="bg-primary">Enfermaria Covid</td>
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
       </tr>
       <tr style="border: none;height: 35px;">
          <td  scope="col"  class="bg-primary"s colspan="4" style="text-align:center">Escala de Parada</td>
-         <td  scope="col" id="enf13" style="background-color:#a5a1a1!important;">1</td>
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
         <td hidden></td>
         <td hidden></td>
         <td hidden></td>
@@ -140,14 +136,14 @@
          <td  scope="col" >Funcionário</td>
          <td  scope="col" >Substituição</td>
          <td  scope="col" >Elemento</td>
-         <td style="text-align: center;color: black; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf19">2</td>
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
       </tr>
       <tr style="border: none;height: 35px;">
          <td  scope="col"  style="background-color:#a5a1a1!important;">Monitorização</td>
          <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada1">1</td>
          <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada2">1</td>
          <td  scope="col"  style="background-color:#ff6105 !important;">Laranja</td>
-         <td style="text-align: center; color: black; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf20">3</td>
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
       </tr>
       <tr style="border: none;height: 35px;">
          <td  scope="col"  style="background-color:#a5a1a1!important;">Anotação</td>
@@ -168,14 +164,14 @@
          <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada7">4</td>
          <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada8">4</td>
          <td  scope="col"  style="background-color:#08af3a !important;">Verde</td>
-         <td  scope="col"  class="bg-primary">Enfermeiro Preposto</td>
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
       </tr>
       <tr style="border: none;height: 35px;">
          <td  scope="col"  style="background-color:#a5a1a1!important;">Medicação</td>
          <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada9">5</td>
          <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada10">5</td>
          <td  scope="col"  style="background-color:#e6ff05 !important;">Amarelo</td>
-         <td  scope="col" id="enfpreposto" style="background-color:#a5a1a1!important;">1</td>
+         <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
       </tr>
       <tr style="border: none;text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;">
         <td colspan="5"  scope="col" ></td>
@@ -228,168 +224,161 @@
             </tr>
           </thead>
           <tbody>
-            <tr style="border: none; height: 35px;">
-               <td style="text-align: center; font-size: medium; background: darkblue; color: white;" colspan="6"> Escala de Atribuição Morumbi</td>
-               <td hidden ></td>
-               <td hidden></td>
-               <td hidden ></td>
-               <td hidden></td>
-             </tr>
-             <tr style="border: none; height: 35px;" class="bg-primary">
-               <td scope="col">Sala de Emergência Geral</td>
-               <td scope="col">Enfermaria não Covid</td>
-               <td scope="col">Classificação PS</td>
-               <td scope="col">Sala Amarela Não Covid</td>
-               <td scope="col">Sala de Emergência Covid</td>
-             </tr>
-             <tr style="border: none; background-color:#a5a1a1!important; height: 35px;">
-               <td  scope="col" id="enf1tarde">1</td>
-                <td  scope="col" id="enf2tarde">1</td>
-                <td  scope="col" id="enf3tarde">1</td>
-                <td  scope="col" id="enf4tarde">1</td>
-                <td  scope="col" id="enf5tarde">1</td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf1tarde">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf4tarde">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf7tarde">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf8tarde">1</td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf2tarde">2</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf5tarde">2</td>
-                <td  scope="col"  class="bg-primary">Transporte</td>
-                <td  scope="col"  class="bg-primary">Medicação</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf9tarde">2</td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf3tarde">3</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf6tarde">3</td>
-                <td  scope="col" id="enf6tarde" style="background-color:#a5a1a1!important;">1</td>
-                <td  scope="col" id="enf7tarde" style="background-color:#a5a1a1!important;">1</td>
-                <td  scope="col"  class="bg-primary">Teste Covid</td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td  scope="col"  class="bg-primary">Referência Azul</td>
-                <td  scope="col"  class="bg-primary">Referência Bordo</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf10tarde">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf11tarde">1</td>
-                <td  scope="col" id="enf8tarde" style="background-color:#a5a1a1!important;">1</td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td  scope="col" id="enf9tarde" style="background-color:#a5a1a1!important;">1</td>
-                <td  scope="col" id="enf10tarde" style="background-color:#a5a1a1!important;">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf12tarde">2</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf13tarde">1</td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf14tarde">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf15tarde">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-                <td  scope="col"  class="bg-primary">Estabilização Covid</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td  scope="col"  class="bg-primary">Anexo/Pediatria</td>
-                <td  scope="col"  class="bg-primary">CME</td>
-                <td  scope="col"  class="bg-primary">Maqueiros</td>
-                <td  scope="col" id="enf11tarde" style="background-color:#a5a1a1!important;">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td  scope="col" id="enf12tarde" style="background-color:#a5a1a1!important;">1</td>
-                <td  scope="col" id="enfcmetarde" style="background-color:#a5a1a1!important;">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq1tarde">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf16tarde">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf18tarde">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="teccmetarde">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq2tarde">2</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf17tarde">2</td>
-                <td  scope="col"  class="bg-primary">Enfermaria Covid</td>
-             </tr>
-             <tr style="border: none;height: 35px;">
-                <td  scope="col"  class="bg-primary"s colspan="4" style="text-align:center">Escala de Parada</td>
-                <td  scope="col" id="enf13tarde" style="background-color:#a5a1a1!important;">1</td>
-               <td hidden></td>
-               <td hidden></td>
-               <td hidden></td>
-       
-             </tr>
-             <tr style="border: none;height: 35px;"  class="bg-primary">
-                <td  scope="col" >Função</td>
-                <td  scope="col" >Funcionário</td>
-                <td  scope="col" >Substituição</td>
-                <td  scope="col" >Elemento</td>
-                <td style="text-align: center;color: black; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf19tarde">2</td>
-             </tr>
-             <tr style="border: none;height: 35px;">
-                <td  scope="col"  style="background-color:#a5a1a1!important;">Monitorização</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada1tarde">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada2tarde">1</td>
-                <td  scope="col"  style="background-color:#ff6105 !important;">Laranja</td>
-                <td style="text-align: center; color: black; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf20tarde">3</td>
-             </tr>
-             <tr style="border: none;height: 35px;">
-                <td  scope="col"  style="background-color:#a5a1a1!important;">Anotação</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada3tarde">2</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada4tarde">2</td>
-                <td  scope="col"  style="background-color:#ff0505 !important;">Vermelho</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-             </tr>
-             <tr style="border: none;height: 35px;">
-                <td  scope="col"  style="background-color:#a5a1a1!important;">Compressão</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada5tarde">3</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada6tarde">3</td>
-                <td  scope="col"  style="background-color:#051eff !important;">Azul</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-             </tr>
-             <tr style="border: none;height: 35px;">
-                <td  scope="col"  style="background-color:#a5a1a1!important;">Ventilação</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada7tarde">4</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada8tarde">4</td>
-                <td  scope="col"  style="background-color:#08af3a !important;">Verde</td>
-                <td  scope="col"  class="bg-primary">Enfermeiro Preposto</td>
-             </tr>
-             <tr style="border: none;height: 35px;">
-                <td  scope="col"  style="background-color:#a5a1a1!important;">Medicação</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada9tarde">5</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada10tarde">5</td>
-                <td  scope="col"  style="background-color:#e6ff05 !important;">Amarelo</td>
-                <td  scope="col" id="enfprepostotarde" style="background-color:#a5a1a1!important;">1</td>
-             </tr>
-             <tr style="border: none;text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;">
-               <td colspan="5"  scope="col" ></td>
-               <td hidden></td>
-               <td hidden></td>
-               <td hidden></td>
-               <td hidden></td>
-             </tr>
-             <tr style="border: none;height: 35px;">
-                <td  scope="col"  style="background-color:#a5a1a1!important;">Folgas Enfermeiros</td>
-                <td  scope="col" id="folga1tarde" style="background-color:#a5a1a1!important;">1</td>
-                <td  scope="col" id="folga2tarde" style="background-color:#a5a1a1!important;">2</td>
-                <td  scope="col" id="folga3tarde" style="background-color:#a5a1a1!important;">3</td>
-                <td  scope="col" id="folga4tarde" style="background-color:#a5a1a1!important;">4</td>
-             </tr>
-         <tr style="border: none;height: 35px;">
-                      <td style="background: rgb(255, 255, 255); color: black;" scope="col" >Folgas Tec Enf</td>
-                      <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga5tarde">1</td>
-                      <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga6tarde">2</td>
-                      <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga7tarde">3</td>
-                      <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga8tarde">4</td>
-                   </tr>
-                   <tr style="border: none;height: 35px;">
-                      <td  style="background: rgb(255, 255, 255); color: black;" scope="col" >Atestados/Férias</td>
-                      <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga9tarde">1</td>
-                      <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga10tarde">2</td>
-                      <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga11tarde">3</td>
-                      <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga12tarde">4</td>
-                   </tr>
+          <tr style="border: none; height: 35px;">
+            <td style="text-align: center; font-size: medium; background: darkblue; color: white;" colspan="6"> Escala de Atribuição Morumbi</td>
+            <td hidden ></td>
+            <td hidden></td>
+            <td hidden ></td>
+            <td hidden></td>
+          </tr>
+          <tr style="border: none; height: 35px;" class="bg-primary">
+            <td scope="col">Enfermaria</td>
+            <td scope="col">Triagem</td>
+            <td scope="col">Exame Covid</td>
+            <td scope="col">Sala de Emergência Clinica</td>
+            <td scope="col">Sala de Estabilização</td>
+          </tr>
+          <tr style="border: none; background-color:#a5a1a1!important; height: 35px;">
+            <td  scope="col" id="enf1tarde">1</td>
+             <td  scope="col" id="enf2tarde">1</td>
+             <td  scope="col" id="enf3tarde">1</td>
+             <td  scope="col" id="enf4tarde">1</td>
+             <td  scope="col" id="enf5tarde">1</td>
+          </tr>
+          <tr style="border: none; height: 35px;">
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf1tarde">1</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf6tarde">1</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf7tarde">1</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf8tarde">1</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf10tarde">1</td>
+          </tr>
+          <tr style="border: none; height: 35px;">
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf2tarde">2</td>
+             <td  scope="col"  class="bg-primary">Pediatria</td>
+             <td  scope="col"  class="bg-primary">CME</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf9tarde">2</td>
+             <td  scope="col"  class="bg-primary">Preposto</td>
+          </tr>
+          <tr style="border: none; height: 35px;">
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf3tarde">3</td>
+             <td  scope="col" id="enf6tarde" style="background-color:#a5a1a1!important;">1</td>
+             <td  scope="col" id="enfcmetarde" style="background-color:#a5a1a1!important;">1</td>
+             <td  scope="col"  class="bg-primary">Apoio Clinica</td>
+             <td  scope="col" id="enfprepostotarde" style="background-color:#a5a1a1!important;">1</td>
+          </tr>
+          <tr style="border: none; height: 35px;">
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf4tarde">1</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf11tarde">1</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenfcmetarde">1</td>
+             <td  scope="col" id="enf7tarde" style="background-color:#a5a1a1!important;">1</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+          </tr>
+          <tr style="border: none; height: 35px;">
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf5tarde">2</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+             <td  scope="col"  class="bg-primary">Transporte</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf12tarde">2</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+          </tr>
+          <tr style="border: none; height: 35px;">
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+             <td  scope="col"  class="bg-primary">Maqueiro</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf15tarde">2</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf13tarde">2</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+          </tr>
+          <tr style="border: none; height: 35px;">
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq1tarde">2</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf14tarde">2</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+          </tr>
+          <tr style="border: none; height: 35px;">
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq2tarde">2</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+          </tr>
+          <tr style="border: none;height: 35px;">
+             <td  scope="col"  class="bg-primary"s colspan="4" style="text-align:center">Escala de Parada</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+            <td hidden></td>
+            <td hidden></td>
+            <td hidden></td>
+    
+          </tr>
+          <tr style="border: none;height: 35px;"  class="bg-primary">
+             <td  scope="col" >Função</td>
+             <td  scope="col" >Funcionário</td>
+             <td  scope="col" >Substituição</td>
+             <td  scope="col" >Elemento</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+          </tr>
+          <tr style="border: none;height: 35px;">
+             <td  scope="col"  style="background-color:#a5a1a1!important;">Monitorização</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada1tarde">1</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada2tarde">1</td>
+             <td  scope="col"  style="background-color:#ff6105 !important;">Laranja</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+          </tr>
+          <tr style="border: none;height: 35px;">
+             <td  scope="col"  style="background-color:#a5a1a1!important;">Anotação</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada3tarde">2</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada4tarde">2</td>
+             <td  scope="col"  style="background-color:#ff0505 !important;">Vermelho</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+          </tr>
+          <tr style="border: none;height: 35px;">
+             <td  scope="col"  style="background-color:#a5a1a1!important;">Compressão</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada5tarde">3</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada6tarde">3</td>
+             <td  scope="col"  style="background-color:#051eff !important;">Azul</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+          </tr>
+          <tr style="border: none;height: 35px;">
+             <td  scope="col"  style="background-color:#a5a1a1!important;">Ventilação</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada7tarde">4</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada8tarde">4</td>
+             <td  scope="col"  style="background-color:#08af3a !important;">Verde</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+          </tr>
+          <tr style="border: none;height: 35px;">
+             <td  scope="col"  style="background-color:#a5a1a1!important;">Medicação</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada9tarde">5</td>
+             <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada10tarde">5</td>
+             <td  scope="col"  style="background-color:#e6ff05 !important;">Amarelo</td>
+             <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+          </tr>
+          <tr style="border: none;text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;">
+            <td colspan="5"  scope="col" ></td>
+            <td hidden></td>
+            <td hidden></td>
+            <td hidden></td>
+            <td hidden></td>
+          </tr>
+          <tr style="border: none;height: 35px;">
+             <td  scope="col"  style="background-color:#a5a1a1!important;">Folgas Enfermeiros</td>
+             <td  scope="col" id="folga1tarde" style="background-color:#a5a1a1!important;">1</td>
+             <td  scope="col" id="folga2tarde" style="background-color:#a5a1a1!important;">2</td>
+             <td  scope="col" id="folga3tarde" style="background-color:#a5a1a1!important;">3</td>
+             <td  scope="col" id="folga4tarde" style="background-color:#a5a1a1!important;">4</td>
+          </tr>
+      <tr style="border: none;height: 35px;">
+                   <td style="background: rgb(255, 255, 255); color: black;" scope="col" >Folgas Tec Enf</td>
+                   <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga5tarde">1</td>
+                   <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga6tarde">2</td>
+                   <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga7tarde">3</td>
+                   <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga8tarde">4</td>
+                </tr>
+                <tr style="border: none;height: 35px;">
+                   <td  style="background: rgb(255, 255, 255); color: black;" scope="col" >Atestados/Férias</td>
+                   <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga9tarde">1</td>
+                   <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga10tarde">2</td>
+                   <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga11tarde">3</td>
+                   <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="folga12tarde">4</td>
+                </tr>
           </tbody>
   </table>
   <br>
@@ -421,11 +410,11 @@
                <td hidden></td>
              </tr>
              <tr style="border: none; height: 35px;" class="bg-primary">
-               <td scope="col">Sala de Emergência Geral</td>
-               <td scope="col">Enfermaria não Covid</td>
-               <td scope="col">Classificação PS</td>
-               <td scope="col">Sala Amarela Não Covid</td>
-               <td scope="col">Sala de Emergência Covid</td>
+               <td scope="col">Enfermaria</td>
+               <td scope="col">Triagem</td>
+               <td scope="col">Exame Covid</td>
+               <td scope="col">Sala de Emergência Clinica</td>
+               <td scope="col">Sala de Estabilização</td>
              </tr>
              <tr style="border: none; background-color:#a5a1a1!important; height: 35px;">
                <td  scope="col" id="enf1sn1">1</td>
@@ -436,70 +425,63 @@
              </tr>
              <tr style="border: none; height: 35px;">
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf1sn1">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf4sn1">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf6sn1">1</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf7sn1">1</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf8sn1">1</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf10sn1">1</td>
              </tr>
              <tr style="border: none; height: 35px;">
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf2sn1">2</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf5sn1">2</td>
-                <td  scope="col"  class="bg-primary">Transporte</td>
-                <td  scope="col"  class="bg-primary">Medicação</td>
+                <td  scope="col"  class="bg-primary">Pediatria</td>
+                <td  scope="col"  class="bg-primary">CME</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf9sn1">2</td>
+                <td  scope="col"  class="bg-primary">Preposto</td>
              </tr>
              <tr style="border: none; height: 35px;">
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf3sn1">3</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf6sn1">3</td>
                 <td  scope="col" id="enf6sn1" style="background-color:#a5a1a1!important;">1</td>
-                <td  scope="col" id="enf7sn1" style="background-color:#a5a1a1!important;">1</td>
-                <td  scope="col"  class="bg-primary">Teste Covid</td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td  scope="col"  class="bg-primary">Referência Azul</td>
-                <td  scope="col"  class="bg-primary">Referência Bordo</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf10sn1">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf11sn1">1</td>
-                <td  scope="col" id="enf8sn1" style="background-color:#a5a1a1!important;">1</td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td  scope="col" id="enf9sn1" style="background-color:#a5a1a1!important;">1</td>
-                <td  scope="col" id="enf10sn1" style="background-color:#a5a1a1!important;">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf12sn1">2</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf13sn1">1</td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf14sn1">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf15sn1">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-                <td  scope="col"  class="bg-primary">Estabilização Covid</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td  scope="col"  class="bg-primary">Anexo/Pediatria</td>
-                <td  scope="col"  class="bg-primary">CME</td>
-                <td  scope="col"  class="bg-primary">Maqueiros</td>
-                <td  scope="col" id="enf11sn1" style="background-color:#a5a1a1!important;">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td  scope="col" id="enf12sn1" style="background-color:#a5a1a1!important;">1</td>
                 <td  scope="col" id="enfcmesn1" style="background-color:#a5a1a1!important;">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq1sn1">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf16sn1">1</td>
+                <td  scope="col"  class="bg-primary">Apoio Clinica</td>
+                <td  scope="col" id="enfprepostosn1" style="background-color:#a5a1a1!important;">1</td>
+             </tr>
+             <tr style="border: none; height: 35px;">
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf4sn1">1</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf11sn1">1</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenfcmesn1">1</td>
+                <td  scope="col" id="enf7sn1" style="background-color:#a5a1a1!important;">1</td>
                 <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
              </tr>
              <tr style="border: none; height: 35px;">
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf18sn1">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="teccmesn1">1</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf5sn1">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td  scope="col"  class="bg-primary">Transporte</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf12sn1">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+             </tr>
+             <tr style="border: none; height: 35px;">
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td  scope="col"  class="bg-primary">Maqueiro</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf15sn1">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf13sn1">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+             </tr>
+             <tr style="border: none; height: 35px;">
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq1sn1">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf14sn1">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+             </tr>
+             <tr style="border: none; height: 35px;">
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq2sn1">2</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf17sn1">2</td>
-                <td  scope="col"  class="bg-primary">Enfermaria Covid</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
              </tr>
              <tr style="border: none;height: 35px;">
                 <td  scope="col"  class="bg-primary"s colspan="4" style="text-align:center">Escala de Parada</td>
-                <td  scope="col" id="enf13sn1" style="background-color:#a5a1a1!important;">1</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
                <td hidden></td>
                <td hidden></td>
                <td hidden></td>
@@ -510,14 +492,14 @@
                 <td  scope="col" >Funcionário</td>
                 <td  scope="col" >Substituição</td>
                 <td  scope="col" >Elemento</td>
-                <td style="text-align: center;color: black; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf19sn1">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
              </tr>
              <tr style="border: none;height: 35px;">
                 <td  scope="col"  style="background-color:#a5a1a1!important;">Monitorização</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada1sn1">1</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada2sn1">1</td>
                 <td  scope="col"  style="background-color:#ff6105 !important;">Laranja</td>
-                <td style="text-align: center; color: black; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf20sn1">3</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
              </tr>
              <tr style="border: none;height: 35px;">
                 <td  scope="col"  style="background-color:#a5a1a1!important;">Anotação</td>
@@ -538,14 +520,14 @@
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada7sn1">4</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada8sn1">4</td>
                 <td  scope="col"  style="background-color:#08af3a !important;">Verde</td>
-                <td  scope="col"  class="bg-primary">Enfermeiro Preposto</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
              </tr>
              <tr style="border: none;height: 35px;">
                 <td  scope="col"  style="background-color:#a5a1a1!important;">Medicação</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada9sn1">5</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada10sn1">5</td>
                 <td  scope="col"  style="background-color:#e6ff05 !important;">Amarelo</td>
-                <td  scope="col" id="enfprepostosn1" style="background-color:#a5a1a1!important;">1</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
              </tr>
              <tr style="border: none;text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;">
                <td colspan="5"  scope="col" ></td>
@@ -554,6 +536,47 @@
                <td hidden></td>
                <td hidden></td>
              </tr>
+             <tr style="border: none;height: 35px;">
+               <td  scope="col"  class="bg-primary"s colspan="5" style="text-align:center">Escala de Descanço</td>
+              <td hidden></td>
+              <td hidden></td>
+              <td hidden></td>
+            </tr>
+            <tr style="border: none;height: 35px;">
+               <td  scope="col"  style="background-color:#a5a1a1!important;">1º Horario 00:00</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc1">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc3">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc4">2</td>
+            </tr>
+            <tr style="border: none;height: 35px;">
+               <td  scope="col"  style="background-color:#a5a1a1!important;">2º Horario 01:00</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc5">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc6">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc7">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc8">2</td>
+            </tr>
+            <tr style="border: none;height: 35px;">
+               <td  scope="col"  style="background-color:#a5a1a1!important;">3º Horario 02:00</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc9">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc10">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc11">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc12">2</td>
+            </tr>
+            <tr style="border: none;height: 35px;">
+               <td  scope="col"  style="background-color:#a5a1a1!important;">4º Horario 03:00</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc13">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc14">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc15">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc16">2</td>
+            </tr>
+            <tr style="border: none;height: 35px;">
+               <td  scope="col"  style="background-color:#a5a1a1!important;">5º Horario 04:00</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc17">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc18">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc19">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc20">2</td>
+            </tr>
              <tr style="border: none;height: 35px;">
                 <td  scope="col"  style="background-color:#a5a1a1!important;">Folgas Enfermeiros</td>
                 <td  scope="col" id="folga1sn1" style="background-color:#a5a1a1!important;">1</td>
@@ -606,11 +629,11 @@
                <td hidden></td>
              </tr>
              <tr style="border: none; height: 35px;" class="bg-primary">
-               <td scope="col">Sala de Emergência Geral</td>
-               <td scope="col">Enfermaria não Covid</td>
-               <td scope="col">Classificação PS</td>
-               <td scope="col">Sala Amarela Não Covid</td>
-               <td scope="col">Sala de Emergência Covid</td>
+               <td scope="col">Enfermaria</td>
+               <td scope="col">Triagem</td>
+               <td scope="col">Exame Covid</td>
+               <td scope="col">Sala de Emergência Clinica</td>
+               <td scope="col">Sala de Estabilização</td>
              </tr>
              <tr style="border: none; background-color:#a5a1a1!important; height: 35px;">
                <td  scope="col" id="enf1sn2">1</td>
@@ -621,70 +644,63 @@
              </tr>
              <tr style="border: none; height: 35px;">
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf1sn2">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf4sn2">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf6sn2">1</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf7sn2">1</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf8sn2">1</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf10sn2">1</td>
              </tr>
              <tr style="border: none; height: 35px;">
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf2sn2">2</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf5sn2">2</td>
-                <td  scope="col"  class="bg-primary">Transporte</td>
-                <td  scope="col"  class="bg-primary">Medicação</td>
+                <td  scope="col"  class="bg-primary">Pediatria</td>
+                <td  scope="col"  class="bg-primary">CME</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf9sn2">2</td>
+                <td  scope="col"  class="bg-primary">Preposto</td>
              </tr>
              <tr style="border: none; height: 35px;">
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf3sn2">3</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf6sn2">3</td>
                 <td  scope="col" id="enf6sn2" style="background-color:#a5a1a1!important;">1</td>
-                <td  scope="col" id="enf7sn2" style="background-color:#a5a1a1!important;">1</td>
-                <td  scope="col"  class="bg-primary">Teste Covid</td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td  scope="col"  class="bg-primary">Referência Azul</td>
-                <td  scope="col"  class="bg-primary">Referência Bordo</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf10sn2">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf11sn2">1</td>
-                <td  scope="col" id="enf8sn2" style="background-color:#a5a1a1!important;">1</td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td  scope="col" id="enf9sn2" style="background-color:#a5a1a1!important;">1</td>
-                <td  scope="col" id="enf10sn2" style="background-color:#a5a1a1!important;">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf12sn2">2</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf13sn2">1</td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf14sn2">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf15sn2">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-                <td  scope="col"  class="bg-primary">Estabilização Covid</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td  scope="col"  class="bg-primary">Anexo/Pediatria</td>
-                <td  scope="col"  class="bg-primary">CME</td>
-                <td  scope="col"  class="bg-primary">Maqueiros</td>
-                <td  scope="col" id="enf11sn2" style="background-color:#a5a1a1!important;">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-             </tr>
-             <tr style="border: none; height: 35px;">
-                <td  scope="col" id="enf12sn2" style="background-color:#a5a1a1!important;">1</td>
                 <td  scope="col" id="enfcmesn2" style="background-color:#a5a1a1!important;">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq1sn2">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf16sn2">1</td>
+                <td  scope="col"  class="bg-primary">Apoio Clinica</td>
+                <td  scope="col" id="enfprepostosn2" style="background-color:#a5a1a1!important;">1</td>
+             </tr>
+             <tr style="border: none; height: 35px;">
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf4sn2">1</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf11sn2">1</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenfcmesn2">1</td>
+                <td  scope="col" id="enf7sn2" style="background-color:#a5a1a1!important;">1</td>
                 <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
              </tr>
              <tr style="border: none; height: 35px;">
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf18sn2">1</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="teccmesn2">1</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf5sn2">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td  scope="col"  class="bg-primary">Transporte</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf12sn2">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+             </tr>
+             <tr style="border: none; height: 35px;">
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td  scope="col"  class="bg-primary">Maqueiro</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf15sn2">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf13sn2">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+             </tr>
+             <tr style="border: none; height: 35px;">
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq1sn2">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf14sn2">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+             </tr>
+             <tr style="border: none; height: 35px;">
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq2sn2">2</td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf17sn2">2</td>
-                <td  scope="col"  class="bg-primary">Enfermaria Covid</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
              </tr>
              <tr style="border: none;height: 35px;">
                 <td  scope="col"  class="bg-primary"s colspan="4" style="text-align:center">Escala de Parada</td>
-                <td  scope="col" id="enf13sn2" style="background-color:#a5a1a1!important;">1</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
                <td hidden></td>
                <td hidden></td>
                <td hidden></td>
@@ -695,14 +711,14 @@
                 <td  scope="col" >Funcionário</td>
                 <td  scope="col" >Substituição</td>
                 <td  scope="col" >Elemento</td>
-                <td style="text-align: center;color: black; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf19sn2">2</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
              </tr>
              <tr style="border: none;height: 35px;">
                 <td  scope="col"  style="background-color:#a5a1a1!important;">Monitorização</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada1sn2">1</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada2sn2">1</td>
                 <td  scope="col"  style="background-color:#ff6105 !important;">Laranja</td>
-                <td style="text-align: center; color: black; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="tecenf20sn2">3</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
              </tr>
              <tr style="border: none;height: 35px;">
                 <td  scope="col"  style="background-color:#a5a1a1!important;">Anotação</td>
@@ -723,14 +739,14 @@
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada7sn2">4</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada8sn2">4</td>
                 <td  scope="col"  style="background-color:#08af3a !important;">Verde</td>
-                <td  scope="col"  class="bg-primary">Enfermeiro Preposto</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
              </tr>
              <tr style="border: none;height: 35px;">
                 <td  scope="col"  style="background-color:#a5a1a1!important;">Medicação</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada9sn2">5</td>
                 <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="parada10sn2">5</td>
                 <td  scope="col"  style="background-color:#e6ff05 !important;">Amarelo</td>
-                <td  scope="col" id="enfprepostosn2" style="background-color:#a5a1a1!important;">1</td>
+                <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
              </tr>
              <tr style="border: none;text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;">
                <td colspan="5"  scope="col" ></td>
@@ -739,6 +755,41 @@
                <td hidden></td>
                <td hidden></td>
              </tr>
+             <tr style="border: none;height: 35px;">
+               <td  scope="col"  style="background-color:#a5a1a1!important;">1º Horario 00:00</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc1sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc2sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc3sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc4sn2">2</td>
+            </tr>
+            <tr style="border: none;height: 35px;">
+               <td  scope="col"  style="background-color:#a5a1a1!important;">2º Horario 01:00</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc5sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc6sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc7sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc8sn2">2</td>
+            </tr>
+            <tr style="border: none;height: 35px;">
+               <td  scope="col"  style="background-color:#a5a1a1!important;">3º Horario 02:00</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc9sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc10sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc11sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc12sn2">2</td>
+            </tr>
+            <tr style="border: none;height: 35px;">
+               <td  scope="col"  style="background-color:#a5a1a1!important;">4º Horario 03:00</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc13sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc14sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc15sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc16sn2">2</td>
+            </tr>
+            <tr style="border: none;height: 35px;">
+               <td  scope="col"  style="background-color:#a5a1a1!important;">5º Horario 04:00</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc17sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc18sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc19sn2">2</td>
+               <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="desc20sn2">2</td>
+            </tr>
              <tr style="border: none;height: 35px;">
                 <td  scope="col"  style="background-color:#a5a1a1!important;">Folgas Enfermeiros</td>
                 <td  scope="col" id="folga1sn2" style="background-color:#a5a1a1!important;">1</td>
@@ -770,193 +821,270 @@
   </div>
 </div>
 <form id="add-row-form1" action="/adicionarescalamorumbi" method="post">
-  <div class="modal fade" id="DescModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="myModalLabel">Criando nova escala de Atribuição</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                     <div>
-                        <input  type="hidden" name="campo" id="campo">
-                        <input  type="hidden" name="idusuario" id="idusuario">
-                        <div class="form-group">
-                           <label for="susfacil">Data Escala Atribuição</label>
-                           <input type="text" name="date" id="tempo" class="form-control" >
-                        </div>
-                        <div class="form-group">
-                           <label for="susfacil">Turno</label>
-                           <select  class="form-control" id="selectturno" name="selectturno">
-                              <option value="" disabled selected hidden>Selecione o Turno</option>
-                              <option value="Manhã">Manhã</option>
-                              <option value="Tarde">Tarde</option>
-                              <option value="SN1">SN1</option>
-                              <option value="SN2">SN2</option>
-                           </select>
-                          </div>
-                           <input type="hidden" id="turno" name="turno" class="form-control" >
-                        </div>
-                        <div class="form-group">
-                           <label for="susfacil">Enfermeiro Sala de Emergência Geral</label>
-                           <input type="text" name="enf1" class="form-control" >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">TEC Enf Sala de Emergência Geral</label>
-                           <input type="text" name="tecenf1" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">TEC Enf Sala de Emergência Geral</label>
-                           <input type="text" name="tecenf2" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">TEC Enf Sala de Emergência Geral</label>
-                           <input type="text" name="tecenf3" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Enfermeiro Enfermaria não covid</label>
-                           <input type="text" name="enf2" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Enfermaria não covid</label>
-                           <input type="text" name="tecenf4" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Enfermaria não covid</label>
-                           <input type="text" name="tecenf5" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Enfermaria não covid</label>
-                           <input type="text" name="tecenf6" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Enfermeiro Classificação PS</label>
-                           <input type="text" name="enf3" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Enfermeiro Sala Amarela não covid</label>
-                           <input type="text" name="enf4" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Sala Amarela não covid</label>
-                           <input type="text" name="tecenf7" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Enfermeiro Sala de Emergência Covid</label>
-                           <input type="text" name="enf5" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf ala de Emergência Covid</label>
-                           <input type="text" name="tecenf8" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf ala de Emergência Covid</label>
-                           <input type="text" name="tecenf9" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Enfermeiro Transporte</label>
-                           <input type="text" name="enf6" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Transporte</label>
-                           <input type="text" name="tecenf10" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Enfermeiro Medicação</label>
-                           <input type="text" name="enf7" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Medicação</label>
-                           <input type="text" name="tecenf11" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Medicação</label>
-                           <input type="text" name="tecenf12" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Enfermeiro Teste Covid</label>
-                           <input type="text" name="enf8" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Teste Covid</label>
-                           <input type="text" name="tecenf13" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Enfermeiro Referência</label>
-                           <input type="text" name="enf9" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Referência Azul</label>
-                           <input type="text" name="tecenf14" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Referência Bordo</label>
-                           <input type="text" name="tecenf15" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Enfermeiro Estabilização Covid</label>
-                           <input type="text" name="enf10" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Estabilização Covid</label>
-                           <input type="text" name="tecenf16" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Estabilização Covid</label>
-                           <input type="text" name="tecenf17" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Enfermeiro Anexo/Pediatria</label>
-                           <input type="text" name="enf11" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Anexo/Pediatria</label>
-                           <input type="text" name="tecenf18" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Enfermeiro CME</label>
-                           <input type="text" name="enfcme" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf CME</label>
-                           <input type="text" name="teccme" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Maqueiro</label>
-                           <input type="text" name="maq1" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Maqueiro</label>
-                           <input type="text" name="maq2" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Enfermeiro Enfermaria Covid</label>
-                           <input type="text" name="enf12" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Enfermaria Covid</label>
-                           <input type="text" name="tecenf19" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Tec Enf Enfermaria Covid</label>
-                           <input type="text" name="tecenf20" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                           <label for="tecenf">Enfermeiro Preposto</label>
-                           <input type="text" name="enfpreposto" class="form-control"  >
-                        </div>
+   <div class="modal fade" id="DescModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+             <div class="modal-dialog modal-lg">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h5 class="modal-title" id="myModalLabel">Criando nova escala de Atribuição</h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                 aria-hidden="true">&times;</span></button>
                      </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-success">Atualizar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-  </div>
-    </form>
+                     <div class="modal-body">
+                      <div>
+                        <div>
+                           <input  type="hidden" name="campo" id="campo">
+                           <input  type="hidden" name="idusuario" id="idusuario">
+                           <div class="form-group">
+                              <label for="susfacil">Data Escala Atribuição</label>
+                              <input type="text" name="date" id="tempo" class="form-control" >
+                           </div>
+                           <div class="form-group">
+                              <label for="susfacil">Turno</label>
+                              <select  class="form-control" id="selectturno" name="selectturno">
+                                 <option value="" disabled selected hidden>Selecione o Turno</option>
+                                 <option value="Manhã">Manhã</option>
+                                 <option value="Tarde">Tarde</option>
+                                 <option value="SN1">SN1</option>
+                                 <option value="SN2">SN2</option>
+                              </select>
+                             </div>
+                              <input type="hidden" id="turno" name="turno" class="form-control" >
+                           </div>
+                       <div class="form-group">
+                          <label for="susfacil">Enfermeiro Enfermaria</label>
+                          <input type="text" name="enf1" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Enfermaria</label>
+                          <input type="text" name="tecenf1" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Enfermaria</label>
+                          <input type="text" name="tecenf2" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Enfermaria</label>
+                          <input type="text" name="tecenf3" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Enfermaria</label>
+                          <input type="text" name="tecenf4" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Enfermaria</label>
+                          <input type="text" name="tecenf5" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Enfermeiro Triagem</label>
+                          <input type="text" name="enf2" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Triagem</label>
+                          <input type="text" name="tecenf6" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Enfermeiro Exame Covid</label>
+                          <input type="text" name="enf3" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Exame Covid</label>
+                          <input type="text" name="tecenf7" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Enfermeiro Sala de Emergência Clínica</label>
+                          <input type="text" name="enf4" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Sala de Emergência Clínica</label>
+                          <input type="text" name="tecenf8" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Sala de Emergência Clínica</label>
+                          <input type="text" name="tecenf9" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Enfermeiro Sala de Estabilização</label>
+                          <input type="text" name="enf5" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Sala de Estabilização</label>
+                          <input type="text" name="tecenf10" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Enfermeiro Pediatria</label>
+                          <input type="text" name="enf6" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Pediatria</label>
+                          <input type="text" name="tecenf11" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Enfermeiro CME</label>
+                          <input type="text" name="enfcme" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf CME</label>
+                          <input type="text" name="tecenfcme" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Enfermeiro Preposto</label>
+                          <input type="text" name="enfpreposto" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Enfermeiro Apoio Clínica</label>
+                          <input type="text" name="enf7" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Apoio Clínica</label>
+                          <input type="text" name="tecenf12" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Apoio Clínica</label>
+                          <input type="text" name="tecenf13" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Apoio Clínica</label>
+                          <input type="text" name="tecenf14" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Tec Enf Transporte</label>
+                          <input type="text" name="tecenf15" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Maqueiro 1</label>
+                          <input type="text" name="maq1" class="form-control" >
+                       </div>
+                       <div class="form-group">
+                          <label for="susfacil">Maqueiro2</label>
+                          <input type="text" name="maq2" class="form-control" >
+                       </div>
+                      </div>
+                     <div class="modal-footer">
+                         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                         <button type="submit" class="btn btn-success">Atualizar</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+   </div>
+     </form>
+<form id="add-row-form9" action="/updatedescansomorumbi" method="post">
+   <div class="modal fade" id="DescModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+             <div class="modal-dialog modal-lg">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                        <div class="modal-header">
+                           <h5 class="modal-title" id="myModalLabel">Adicionando Horario de Descanso</h5>
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                   aria-hidden="true">&times;</span></button>
+                       </div>
+                       <div class="modal-body">
+                        <div>
+                          <div class="form-group">
+                             <label for="susfacil">Data</label>
+                             <input  type="hidden" name="idusuario" id="idusuariodesc">
+                             <input type="text"  readonly=“true”  id="dataparada" name="dataparada" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Turno</label>
+                             <input type="text"  readonly=“true”  id="turnoparada" name="turnoparada" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <input type="text" id="unidadeparada1" name="unidadeparada1" class="form-control" >
+                          </div>
+                         <div class="form-group">
+                            <label for="susfacil">1º Horario</label>
+                            <input type="text" name="desc1" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">1º Horario</label>
+                            <input type="text" name="desc2" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">1º Horario</label>
+                            <input type="text" name="desc3" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">1º Horario</label>
+                            <input type="text" name="desc4" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">2º Horario</label>
+                            <input type="text" name="desc5" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">2º Horario</label>
+                            <input type="text" name="desc6" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">2º Horario</label>
+                            <input type="text" name="desc7" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">2º Horario</label>
+                            <input type="text" name="desc8" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">3º Horario</label>
+                            <input type="text" name="desc9" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">3º Horario</label>
+                            <input type="text" name="desc10" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">3º Horario</label>
+                            <input type="text" name="desc11" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">3º Horario</label>
+                            <input type="text" name="desc12" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">4º Horario</label>
+                            <input type="text" name="desc13" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">4º Horario</label>
+                            <input type="text" name="desc14" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">4º Horario</label>
+                            <input type="text" name="desc15" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">4º Horario</label>
+                            <input type="text" name="desc16" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">5º Horario</label>
+                            <input type="text" name="desc17" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">5º Horario</label>
+                            <input type="text" name="desc18" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">5º Horario</label>
+                            <input type="text" name="desc19" class="form-control" >
+                         </div>
+                         <div class="form-group">
+                           <label for="susfacil">5º Horario</label>
+                            <input type="text" name="desc20" class="form-control" >
+                         </div>
+                      </div>
+                     <div class="modal-footer">
+                         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                         <button type="submit" class="btn btn-success">Atualizar</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+   </div>
+     </form>
+   
     <form id="add-row-form6" action="/editarescalamorumbi" method="post">
       <div class="modal fade" id="DescModaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                 aria-hidden="true">
@@ -988,152 +1116,112 @@
                                <input type="hidden" id="turnoedit" name="turno" class="form-control" >
                             </div>
                             <div class="form-group">
-                              <label for="susfacil">Enfermeiro Sala de Emergência Geral</label>
+                              <label for="susfacil">Enfermeiro Enfermaria</label>
                               <input type="text" id="enf1edit" name="enf1" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">TEC Enf Sala de Emergência Geral</label>
-                              <input type="text" id="tecenf1edit" name="tecenf1" class="form-control"  >
+                              <label for="susfacil">Tec Enf Enfermaria</label>
+                              <input type="text" id="tecenf1edit" name="tecenf1" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">TEC Enf Sala de Emergência Geral</label>
-                              <input type="text" id="tecenf2edit" name="tecenf2" class="form-control"  >
+                              <label for="susfacil">Tec Enf Enfermaria</label>
+                              <input type="text" id="tecenf2edit" name="tecenf2" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">TEC Enf Sala de Emergência Geral</label>
-                              <input type="text" id="tecenf3edit" name="tecenf3" class="form-control"  >
+                              <label for="susfacil">Tec Enf Enfermaria</label>
+                              <input type="text" id="tecenf3edit" name="tecenf3" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Enfermeiro Enfermaria não covid</label>
-                              <input type="text" id="enf2edit" name="enf2" class="form-control"  >
+                              <label for="susfacil">Tec Enf Enfermaria</label>
+                              <input type="text" id="tecenf4edit" name="tecenf4" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Enfermaria não covid</label>
-                              <input type="text" id="tecenf4edit" name="tecenf4" class="form-control"  >
+                              <label for="susfacil">Tec Enf Enfermaria</label>
+                              <input type="text" id="tecenf5edit" name="tecenf5" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Enfermaria não covid</label>
-                              <input type="text" id="tecenf5edit" name="tecenf5" class="form-control"  >
+                              <label for="susfacil">Enfermeiro Triagem</label>
+                              <input type="text" id="enf2edit" name="enf2" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Enfermaria não covid</label>
-                              <input type="text" id="tecenf6edit" name="tecenf6" class="form-control"  >
+                              <label for="susfacil">Tec Enf Triagem</label>
+                              <input type="text" id="tecenf6edit" name="tecenf6" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Enfermeiro Classificação PS</label>
-                              <input type="text" id="enf3edit" name="enf3" class="form-control"  >
+                              <label for="susfacil">Enfermeiro Exame Covid</label>
+                              <input type="text" id="enf3edit" name="enf3" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Enfermeiro Sala Amarela não covid</label>
-                              <input type="text" id="enf4edit" name="enf4" class="form-control"  >
+                              <label for="susfacil">Tec Enf Exame Covid</label>
+                              <input type="text" id="tecenf7edit" name="tecenf7" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Sala Amarela não covid</label>
-                              <input type="text" id="tecenf7edit" name="tecenf7" class="form-control"  >
+                              <label for="susfacil">Enfermeiro Sala de Emergência Clínica</label>
+                              <input type="text" id="enf4edit" name="enf4" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Enfermeiro Sala de Emergência Covid</label>
-                              <input type="text" id="enf5edit" name="enf5" class="form-control"  >
+                              <label for="susfacil">Tec Enf Sala de Emergência Clínica</label>
+                              <input type="text" id="tecenf8edit" name="tecenf8" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Sala de Emergência Covid</label>
-                              <input type="text" id="tecenf8edit" name="tecenf8" class="form-control"  >
+                              <label for="susfacil">Tec Enf Sala de Emergência Clínica</label>
+                              <input type="text" id="tecenf9edit" name="tecenf9" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Sala de Emergência Covid</label>
-                              <input type="text" id="tecenf9edit" name="tecenf9" class="form-control"  >
+                              <label for="susfacil">Enfermeiro Sala de Estabilização</label>
+                              <input type="text" id="enf5edit" name="enf5" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Enfermeiro Transporte</label>
-                              <input type="text" id="enf6edit" name="enf6" class="form-control"  >
+                              <label for="susfacil">Tec Enf Sala de Estabilização</label>
+                              <input type="text" id="tecenf10edit" name="tecenf10" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Transporte</label>
-                              <input type="text" id="tecenf10edit" name="tecenf10" class="form-control"  >
+                              <label for="susfacil">Enfermeiro Pediatria</label>
+                              <input type="text" id="enf6edit" name="enf6" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Enfermeiro Medicação</label>
-                              <input type="text" id="enf7edit" name="enf7" class="form-control"  >
+                              <label for="susfacil">Tec Enf Pediatria</label>
+                              <input type="text" id="tecenf11edit" name="tecenf11" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Medicação</label>
-                              <input type="text" id="tecenf11edit" name="tecenf11" class="form-control"  >
+                              <label for="susfacil">Enfermeiro CME</label>
+                              <input type="text" id="enfcmeedit" name="enfcme" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Medicação</label>
-                              <input type="text" id="tecenf12edit" name="tecenf12" class="form-control"  >
+                              <label for="susfacil">Tec Enf CME</label>
+                              <input type="text" id="tecenfcmeedit" name="tecenfcme" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Enfermeiro Teste Covid</label>
-                              <input type="text" id="enf8edit" name="enf8" class="form-control"  >
+                              <label for="susfacil">Enfermeiro Preposto</label>
+                              <input type="text" id="enfprepostoedit" name="enfpreposto" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Teste Covid</label>
-                              <input type="text" id="tecenf13edit" name="tecenf13" class="form-control"  >
+                              <label for="susfacil">Enfermeiro Apoio Clínica</label>
+                              <input type="text" id="enf7edit" name="enf7" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Enfermeiro Referência</label>
-                              <input type="text" id="enf9edit" name="enf9" class="form-control"  >
+                              <label for="susfacil">Tec Enf Apoio Clínica</label>
+                              <input type="text" id="tecenf12edit" name="tecenf12" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Referência Azul</label>
-                              <input type="text" id="tecenf14edit" name="tecenf14" class="form-control"  >
+                              <label for="susfacil">Tec Enf Apoio Clínica</label>
+                              <input type="text" id="tecenf13edit" name="tecenf13" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Referência Bordo</label>
-                              <input type="text" id="tecenf15edit" name="tecenf15" class="form-control"  >
+                              <label for="susfacil">Tec Enf Apoio Clínica</label>
+                              <input type="text" id="tecenf14edit" name="tecenf14" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Enfermeiro Estabilização Covid</label>
-                              <input type="text" id="enf10edit" name="enf10" class="form-control"  >
+                              <label for="susfacil">Tec Enf Transporte</label>
+                              <input type="text" id="tecenf15edit" name="tecenf15" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Estabilização Covid</label>
-                              <input type="text" id="tecenf16edit" name="tecenf16" class="form-control"  >
+                              <label for="susfacil">Maqueiro 1</label>
+                              <input type="text" id="maq1edit" name="maq1" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="tecenf">Tec Enf Estabilização Covid</label>
-                              <input type="text" id="tecenf17edit" name="tecenf17" class="form-control"  >
-                           </div>
-                           <div class="form-group">
-                              <label for="tecenf">Enfermeiro Anexo/Pediatria</label>
-                              <input type="text" id="enf11edit" name="enf11" class="form-control"  >
-                           </div>
-                           <div class="form-group">
-                              <label for="tecenf">Tec Enf Anexo/Pediatria</label>
-                              <input type="text" id="tecenf18edit" name="tecenf18" class="form-control"  >
-                           </div>
-                           <div class="form-group">
-                              <label for="tecenf">Enfermeiro CME</label>
-                              <input type="text" id="enfcmeedit" name="enfcme" class="form-control"  >
-                           </div>
-                           <div class="form-group">
-                              <label for="tecenf">Tec Enf CME</label>
-                              <input type="text" id="teccmeedit" name="teccme" class="form-control"  >
-                           </div>
-                           <div class="form-group">
-                              <label for="tecenf">Maqueiro</label>
-                              <input type="text" id="maq1edit" name="maq1" class="form-control"  >
-                           </div>
-                           <div class="form-group">
-                              <label for="tecenf">Maqueiro</label>
-                              <input type="text" id="maq2edit" name="maq2" class="form-control"  >
-                           </div>
-                           <div class="form-group">
-                              <label for="tecenf">Enfermeiro Enfermaria Covid</label>
-                              <input type="text" id="enf12edit" name="enf12" class="form-control"  >
-                           </div>
-                           <div class="form-group">
-                              <label for="tecenf">Tec Enf Enfermaria Covid</label>
-                              <input type="text" id="tecenf19edit" name="tecenf19" class="form-control"  >
-                           </div>
-                           <div class="form-group">
-                              <label for="tecenf">Tec Enf Enfermaria Covid</label>
-                              <input type="text" id="tecenf20edit" name="tecenf20" class="form-control"  >
-                           </div>
-                           <div class="form-group">
-                              <label for="tecenf">Enfermeiro Preposto</label>
-                              <input type="text" id="enfprepostoedit" name="enfpreposto" class="form-control"  >
+                              <label for="susfacil">Maqueiro2</label>
+                              <input type="text" id="maq2edit" name="maq2" class="form-control" >
                            </div>
                          </div>
                         <div class="modal-footer">
@@ -1361,13 +1449,11 @@ $('#datassn2').mask('00/00/0000');
 
 $("#selectturno").on('change', function(e){
      var turno = $(this).val();
-     console.log(turno)
      document.getElementById('turno').value = turno;
 });
 
 $("#selectturnoedit").on('change', function(e){
      var turno = $(this).val();
-     console.log(turno)
      document.getElementById('turnoedit').value = turno;
 });
 
@@ -1378,11 +1464,9 @@ window.onload = function() {
    document.getElementById('tablesn2').style.display = 'none'
 }
 function setaDadosModal(valor) {
-
     document.getElementById('campo').value = valor;
 }
 function setaDadosModal2(valor) {
-
     document.getElementById('idusuario').value = valor;
 }
 
@@ -1390,10 +1474,12 @@ function setaDadosModal3(valor) {
 
 document.getElementById('campoedit').value = valor;
 }
-function setaDadosModal4(valor) {
 
-document.getElementById('idusuarioedit').value = valor;
+function setaDadosModal7(valor) {
+
+document.getElementById('idusuariodesc').value = valor;
 }
+
 
 function setaDadosModal5(valor) {
 
@@ -1413,7 +1499,6 @@ $( "#target1" ).click(function() {
    var datastarde = document.getElementById("datastarde").value;
    var datassn1 = document.getElementById("datassn1").value;
    var datassn2 = document.getElementById("datassn2").value;
-   console.log(datasmanha)
    if(datasmanha != "" || datastarde != "" || datassn1 != "" || datassn2 != ""){
       if(datasmanha != "" ){
          var turno = document.getElementById("turnomanha").value;
@@ -1543,7 +1628,6 @@ $( "#target2" ).click(function() {
    var datastarde = document.getElementById("datastarde").value;
    var datassn1 = document.getElementById("datassn1").value;
    var datassn2 = document.getElementById("datassn2").value;
-   console.log(datasmanha)
    if(datasmanha != "" || datastarde != "" || datassn1 != "" || datassn2 != ""){
       if(datasmanha != "" ){
          var turno = document.getElementById("turnomanha").value;
@@ -1665,7 +1749,6 @@ $( "#editmanha" ).click(function() {
       alert("Selecione uma data para edição")
    } else{
    var datas = document.getElementById("datasmanha").value;
-   console.log(datas)
    var turno = document.getElementById("turnomanha").value;
    var unidade = document.getElementById("unidademanha").value;
    data = [];
@@ -1682,11 +1765,6 @@ $( "#editmanha" ).click(function() {
             document.getElementById("enf5edit").value = data[0].enf5;
             document.getElementById("enf6edit").value = data[0].enf6;
             document.getElementById("enf7edit").value = data[0].enf7;
-            document.getElementById("enf8edit").value = data[0].enf8;
-            document.getElementById("enf9edit").value = data[0].enf9;
-            document.getElementById("enf10edit").value = data[0].enf10;
-            document.getElementById("enf11edit").value = data[0].enf11;
-            document.getElementById("enf12edit").value = data[0].enf12;
             document.getElementById("tempoedit").value = data[0].date;
             document.getElementById("turnoedit").value = data[0].turno;
             document.getElementById("selectturnoedit").value = data[0].turno;
@@ -1705,15 +1783,10 @@ $( "#editmanha" ).click(function() {
             document.getElementById("tecenf13edit").value = data[0].tecenf13;
             document.getElementById("tecenf14edit").value = data[0].tecenf14;
             document.getElementById("tecenf15edit").value = data[0].tecenf15;
-            document.getElementById("tecenf16edit").value = data[0].tecenf16;
-            document.getElementById("tecenf17edit").value = data[0].tecenf17;
-            document.getElementById("tecenf18edit").value = data[0].tecenf18;
-            document.getElementById("tecenf19edit").value = data[0].tecenf19;
-            document.getElementById("tecenf20edit").value = data[0].tecenf20;
             document.getElementById("maq1edit").value = data[0].maq1;
             document.getElementById("maq2edit").value = data[0].maq2;
             document.getElementById("enfcmeedit").value = data[0].enfcme;
-            document.getElementById("teccmeedit").value = data[0].teccme;
+            document.getElementById("tecenfcmeedit").value = data[0].teccme;
             document.getElementById("enfprepostoedit").value = data[0].enfpreposto;
             $('#DescModaledit').modal("show");
       }
@@ -1726,7 +1799,6 @@ $( "#edittarde" ).click(function() {
       alert("Selecione uma data para edição")
    } else{
    var datas = document.getElementById("datastarde").value;
-   console.log(datas)
    var turno = document.getElementById("turnotarde").value;
    var unidade = document.getElementById("unidadetarde").value;
    data = [];
@@ -1743,11 +1815,6 @@ $( "#edittarde" ).click(function() {
             document.getElementById("enf5edit").value = data[0].enf5;
             document.getElementById("enf6edit").value = data[0].enf6;
             document.getElementById("enf7edit").value = data[0].enf7;
-            document.getElementById("enf8edit").value = data[0].enf8;
-            document.getElementById("enf9edit").value = data[0].enf9;
-            document.getElementById("enf10edit").value = data[0].enf10;
-            document.getElementById("enf11edit").value = data[0].enf11;
-            document.getElementById("enf12edit").value = data[0].enf12;
             document.getElementById("tempoedit").value = data[0].date;
             document.getElementById("turnoedit").value = data[0].turno;
             document.getElementById("selectturnoedit").value = data[0].turno;
@@ -1766,15 +1833,10 @@ $( "#edittarde" ).click(function() {
             document.getElementById("tecenf13edit").value = data[0].tecenf13;
             document.getElementById("tecenf14edit").value = data[0].tecenf14;
             document.getElementById("tecenf15edit").value = data[0].tecenf15;
-            document.getElementById("tecenf16edit").value = data[0].tecenf16;
-            document.getElementById("tecenf17edit").value = data[0].tecenf17;
-            document.getElementById("tecenf18edit").value = data[0].tecenf18;
-            document.getElementById("tecenf19edit").value = data[0].tecenf19;
-            document.getElementById("tecenf20edit").value = data[0].tecenf20;
             document.getElementById("maq1edit").value = data[0].maq1;
             document.getElementById("maq2edit").value = data[0].maq2;
             document.getElementById("enfcmeedit").value = data[0].enfcme;
-            document.getElementById("teccmeedit").value = data[0].teccme;
+            document.getElementById("tecenfcmeedit").value = data[0].teccme;
             document.getElementById("enfprepostoedit").value = data[0].enfpreposto;
             $('#DescModaledit').modal("show");
       }
@@ -1787,7 +1849,6 @@ $( "#editsn1" ).click(function() {
       alert("Selecione uma data para edição")
    } else{
    var datas = document.getElementById("datassn1").value;
-   console.log(datas)
    var turno = document.getElementById("turnosn1").value;
    var unidade = document.getElementById("unidadesn1").value;
    data = [];
@@ -1804,11 +1865,6 @@ $( "#editsn1" ).click(function() {
             document.getElementById("enf5edit").value = data[0].enf5;
             document.getElementById("enf6edit").value = data[0].enf6;
             document.getElementById("enf7edit").value = data[0].enf7;
-            document.getElementById("enf8edit").value = data[0].enf8;
-            document.getElementById("enf9edit").value = data[0].enf9;
-            document.getElementById("enf10edit").value = data[0].enf10;
-            document.getElementById("enf11edit").value = data[0].enf11;
-            document.getElementById("enf12edit").value = data[0].enf12;
             document.getElementById("tempoedit").value = data[0].date;
             document.getElementById("turnoedit").value = data[0].turno;
             document.getElementById("selectturnoedit").value = data[0].turno;
@@ -1827,15 +1883,10 @@ $( "#editsn1" ).click(function() {
             document.getElementById("tecenf13edit").value = data[0].tecenf13;
             document.getElementById("tecenf14edit").value = data[0].tecenf14;
             document.getElementById("tecenf15edit").value = data[0].tecenf15;
-            document.getElementById("tecenf16edit").value = data[0].tecenf16;
-            document.getElementById("tecenf17edit").value = data[0].tecenf17;
-            document.getElementById("tecenf18edit").value = data[0].tecenf18;
-            document.getElementById("tecenf19edit").value = data[0].tecenf19;
-            document.getElementById("tecenf20edit").value = data[0].tecenf20;
             document.getElementById("maq1edit").value = data[0].maq1;
             document.getElementById("maq2edit").value = data[0].maq2;
             document.getElementById("enfcmeedit").value = data[0].enfcme;
-            document.getElementById("teccmeedit").value = data[0].teccme;
+            document.getElementById("tecenfcmeedit").value = data[0].teccme;
             document.getElementById("enfprepostoedit").value = data[0].enfpreposto;
             $('#DescModaledit').modal("show");
       }
@@ -1848,7 +1899,6 @@ $( "#editsn2" ).click(function() {
       alert("Selecione uma data para edição")
    } else{
    var datas = document.getElementById("datassn2").value;
-   console.log(datas)
    var turno = document.getElementById("turnosn2").value;
    var unidade = document.getElementById("unidadesn2").value;
    data = [];
@@ -1865,11 +1915,6 @@ $( "#editsn2" ).click(function() {
             document.getElementById("enf5edit").value = data[0].enf5;
             document.getElementById("enf6edit").value = data[0].enf6;
             document.getElementById("enf7edit").value = data[0].enf7;
-            document.getElementById("enf8edit").value = data[0].enf8;
-            document.getElementById("enf9edit").value = data[0].enf9;
-            document.getElementById("enf10edit").value = data[0].enf10;
-            document.getElementById("enf11edit").value = data[0].enf11;
-            document.getElementById("enf12edit").value = data[0].enf12;
             document.getElementById("tempoedit").value = data[0].date;
             document.getElementById("turnoedit").value = data[0].turno;
             document.getElementById("selectturnoedit").value = data[0].turno;
@@ -1888,22 +1933,101 @@ $( "#editsn2" ).click(function() {
             document.getElementById("tecenf13edit").value = data[0].tecenf13;
             document.getElementById("tecenf14edit").value = data[0].tecenf14;
             document.getElementById("tecenf15edit").value = data[0].tecenf15;
-            document.getElementById("tecenf16edit").value = data[0].tecenf16;
-            document.getElementById("tecenf17edit").value = data[0].tecenf17;
-            document.getElementById("tecenf18edit").value = data[0].tecenf18;
-            document.getElementById("tecenf19edit").value = data[0].tecenf19;
-            document.getElementById("tecenf20edit").value = data[0].tecenf20;
             document.getElementById("maq1edit").value = data[0].maq1;
             document.getElementById("maq2edit").value = data[0].maq2;
             document.getElementById("enfcmeedit").value = data[0].enfcme;
-            document.getElementById("teccmeedit").value = data[0].teccme;
+            document.getElementById("tecenfcmeedit").value = data[0].teccme;
             document.getElementById("enfprepostoedit").value = data[0].enfpreposto;
             $('#DescModaledit').modal("show");
       }
    })
    }
 });
-
+$( "#target3" ).click(function() {
+   var datassn1 = document.getElementById("datassn1").value;
+   var datassn2 = document.getElementById("datassn2").value;
+   if(datassn1 != "" || datassn2 != ""){   
+    if(datassn1 != "" ){
+         var turno = document.getElementById("turnosn1").value;
+      var unidade = document.getElementById("unidadesn1").value;
+      document.getElementById("dataparada1").value = datassn2
+      document.getElementById("turnoparad1").value = turno
+      document.getElementById("unidadeparada1").value = unidade
+      data = [];
+   $.ajax({
+   type: "GET",
+   data: { datas: datassn1, turno, unidade },
+   contentType: 'application/json',
+   url: '/buscarescalamorumbi',
+      success: function(data) {  
+            document.getElementById("desc1").value = data[0].desc1;
+            document.getElementById("desc2").value = data[0].desc2;
+            document.getElementById("desc3").value = data[0].desc3;
+            document.getElementById("desc4").value = data[0].desc4;
+            document.getElementById("desc5").value = data[0].desc5;
+            document.getElementById("desc6").value = data[0].desc6;
+            document.getElementById("desc7").value = data[0].desc7;
+            document.getElementById("desc8").value = data[0].desc8;
+            document.getElementById("desc9").value = data[0].desc9;
+            document.getElementById("desc10").value = data[0].desc10;
+            document.getElementById("desc11").value = data[0].desc11;
+            document.getElementById("desc12").value = data[0].desc12;
+            document.getElementById("desc13").value = data[0].desc13;
+            document.getElementById("desc14").value = data[0].desc14;
+            document.getElementById("desc15").value = data[0].desc15;
+            document.getElementById("desc16").value = data[0].desc16;
+            document.getElementById("desc17").value = data[0].desc17;
+            document.getElementById("desc18").value = data[0].desc18;
+            document.getElementById("desc19").value = data[0].desc19;
+            document.getElementById("desc20").value = data[0].desc20;         
+      }
+   })
+      $('#DescModal3').modal("show");
+      }else if(datassn2 != "" ){
+         var turno = document.getElementById("turnosn2").value;
+      var unidade = document.getElementById("unidadesn2").value;
+      document.getElementById("dataparada1").value = datassn2
+      document.getElementById("turnoparad1").value = turno
+      document.getElementById("unidadeparada1").value = unidade
+      data = [];
+   $.ajax({
+   type: "GET",
+   data: { datas: datassn2, turno, unidade },
+   contentType: 'application/json',
+   url: '/buscarescalamorumbi',
+      success: function(data) {  
+         document.getElementById("desc1").value = data[0].desc1;
+            document.getElementById("desc2").value = data[0].desc2;
+            document.getElementById("desc3").value = data[0].desc3;
+            document.getElementById("desc4").value = data[0].desc4;
+            document.getElementById("desc5").value = data[0].desc5;
+            document.getElementById("desc6").value = data[0].desc6;
+            document.getElementById("desc7").value = data[0].desc7;
+            document.getElementById("desc8").value = data[0].desc8;
+            document.getElementById("desc9").value = data[0].desc9;
+            document.getElementById("desc10").value = data[0].desc10;
+            document.getElementById("desc11").value = data[0].desc11;
+            document.getElementById("desc12").value = data[0].desc12;
+            document.getElementById("desc13").value = data[0].desc13;
+            document.getElementById("desc14").value = data[0].desc14;
+            document.getElementById("desc15").value = data[0].desc15;
+            document.getElementById("desc16").value = data[0].desc16;
+            document.getElementById("desc17").value = data[0].desc17;
+            document.getElementById("desc18").value = data[0].desc18;
+            document.getElementById("desc19").value = data[0].desc19;
+            document.getElementById("desc20").value = data[0].desc20;
+                   
+      }
+   })
+      $('#DescModal3').modal("show");
+      }
+      
+      
+   }
+   else{
+      alert("Digite uma data")
+   }
+});
 $("#pesquisarmanha").on('click', function(e){
     var datas = document.getElementById("datasmanha").value;
     if(datas == ""){
@@ -1923,7 +2047,6 @@ $("#pesquisarmanha").on('click', function(e){
             alert("Data sem escala adicionada")
          }
          else{
-            console.log(data)
             document.getElementById("dataturno").innerHTML=data[0].date + "  " + data[0].turno ;
             document.getElementById("enf1").innerHTML = data[0].enf1;
             document.getElementById("enf2").innerHTML = data[0].enf2;
@@ -1932,12 +2055,6 @@ $("#pesquisarmanha").on('click', function(e){
             document.getElementById("enf5").innerHTML = data[0].enf5;
             document.getElementById("enf6").innerHTML = data[0].enf6;
             document.getElementById("enf7").innerHTML = data[0].enf7;
-            document.getElementById("enf8").innerHTML = data[0].enf8;
-            document.getElementById("enf9").innerHTML = data[0].enf9;
-            document.getElementById("enf10").innerHTML = data[0].enf9;
-            document.getElementById("enf11").innerHTML = data[0].enf10;
-            document.getElementById("enf12").innerHTML = data[0].enf11;
-            document.getElementById("enf13").innerHTML = data[0].enf12;
             document.getElementById("tecenf1").innerHTML = data[0].tecenf1;
             document.getElementById("tecenf2").innerHTML = data[0].tecenf2;
             document.getElementById("tecenf3").innerHTML = data[0].tecenf3;
@@ -1953,15 +2070,10 @@ $("#pesquisarmanha").on('click', function(e){
             document.getElementById("tecenf13").innerHTML = data[0].tecenf13;
             document.getElementById("tecenf14").innerHTML = data[0].tecenf14;
             document.getElementById("tecenf15").innerHTML = data[0].tecenf15;
-            document.getElementById("tecenf16").innerHTML = data[0].tecenf16;
-            document.getElementById("tecenf17").innerHTML = data[0].tecenf17;
-            document.getElementById("tecenf18").innerHTML = data[0].tecenf18;
-            document.getElementById("tecenf19").innerHTML = data[0].tecenf19;
-            document.getElementById("tecenf20").innerHTML = data[0].tecenf20;
             document.getElementById("maq1").innerHTML = data[0].maq1;
             document.getElementById("maq2").innerHTML = data[0].maq2;
             document.getElementById("enfcme").innerHTML = data[0].enfcme;
-            document.getElementById("teccme").innerHTML = data[0].teccme;
+            document.getElementById("tecenfcme").innerHTML = data[0].teccme;
             document.getElementById("folga1").innerHTML = data[0].enfermeiro1;
             document.getElementById("folga2").innerHTML = data[0].enfermeiro2;
             document.getElementById("folga3").innerHTML = data[0].enfermeiro3;
@@ -1983,7 +2095,7 @@ $("#pesquisarmanha").on('click', function(e){
             document.getElementById("parada7").innerHTML = data[0].ventilacao1;
             document.getElementById("parada8").innerHTML = data[0].ventilacao2;
             document.getElementById("parada9").innerHTML = data[0].medicacao1;
-            document.getElementById("parada10").innerHTML = data[0].medicacao2;    
+            document.getElementById("parada10").innerHTML = data[0].medicacao2;   
             document.getElementById("enfpreposto").innerHTML = data[0].enfpreposto;
             document.getElementById('tablemanha').style.display = 'table'
            
@@ -2020,7 +2132,6 @@ $("#pesquisartarde").on('click', function(e){
             alert("Data sem escala adicionada")
          }
          else{
-         console.log(data)
             document.getElementById("dataturnotarde").innerHTML=data[0].date + "  " + data[0].turno ;
             document.getElementById("enf1tarde").innerHTML = data[0].enf1;
             document.getElementById("enf2tarde").innerHTML = data[0].enf2;
@@ -2029,12 +2140,6 @@ $("#pesquisartarde").on('click', function(e){
             document.getElementById("enf5tarde").innerHTML = data[0].enf5;
             document.getElementById("enf6tarde").innerHTML = data[0].enf6;
             document.getElementById("enf7tarde").innerHTML = data[0].enf7;
-            document.getElementById("enf8tarde").innerHTML = data[0].enf8;
-            document.getElementById("enf9tarde").innerHTML = data[0].enf9;
-            document.getElementById("enf10tarde").innerHTML = data[0].enf9;
-            document.getElementById("enf11tarde").innerHTML = data[0].enf10;
-            document.getElementById("enf12tarde").innerHTML = data[0].enf11;
-            document.getElementById("enf13tarde").innerHTML = data[0].enf12;
             document.getElementById("tecenf1tarde").innerHTML = data[0].tecenf1;
             document.getElementById("tecenf2tarde").innerHTML = data[0].tecenf2;
             document.getElementById("tecenf3tarde").innerHTML = data[0].tecenf3;
@@ -2050,15 +2155,10 @@ $("#pesquisartarde").on('click', function(e){
             document.getElementById("tecenf13tarde").innerHTML = data[0].tecenf13;
             document.getElementById("tecenf14tarde").innerHTML = data[0].tecenf14;
             document.getElementById("tecenf15tarde").innerHTML = data[0].tecenf15;
-            document.getElementById("tecenf16tarde").innerHTML = data[0].tecenf16;
-            document.getElementById("tecenf17tarde").innerHTML = data[0].tecenf17;
-            document.getElementById("tecenf18tarde").innerHTML = data[0].tecenf18;
-            document.getElementById("tecenf19tarde").innerHTML = data[0].tecenf19;
-            document.getElementById("tecenf20tarde").innerHTML = data[0].tecenf20;
             document.getElementById("maq1tarde").innerHTML = data[0].maq1;
             document.getElementById("maq2tarde").innerHTML = data[0].maq2;
             document.getElementById("enfcmetarde").innerHTML = data[0].enfcme;
-            document.getElementById("teccmetarde").innerHTML = data[0].teccme;
+            document.getElementById("tecenfcmetarde").innerHTML = data[0].teccme;
             document.getElementById("folga1tarde").innerHTML = data[0].enfermeiro1;
             document.getElementById("folga2tarde").innerHTML = data[0].enfermeiro2;
             document.getElementById("folga3tarde").innerHTML = data[0].enfermeiro3;
@@ -2117,8 +2217,6 @@ $("#pesquisarsn1").on('click', function(e){
             alert("Data sem escala adicionada")
          }
          else{
-
-         console.log(data)
             document.getElementById("dataturnosn1").innerHTML=data[0].date + "  " + data[0].turno ;
             document.getElementById("enf1sn1").innerHTML = data[0].enf1;
             document.getElementById("enf2sn1").innerHTML = data[0].enf2;
@@ -2127,12 +2225,6 @@ $("#pesquisarsn1").on('click', function(e){
             document.getElementById("enf5sn1").innerHTML = data[0].enf5;
             document.getElementById("enf6sn1").innerHTML = data[0].enf6;
             document.getElementById("enf7sn1").innerHTML = data[0].enf7;
-            document.getElementById("enf8sn1").innerHTML = data[0].enf8;
-            document.getElementById("enf9sn1").innerHTML = data[0].enf9;
-            document.getElementById("enf10sn1").innerHTML = data[0].enf9;
-            document.getElementById("enf11sn1").innerHTML = data[0].enf10;
-            document.getElementById("enf12sn1").innerHTML = data[0].enf11;
-            document.getElementById("enf13sn1").innerHTML = data[0].enf12;
             document.getElementById("tecenf1sn1").innerHTML = data[0].tecenf1;
             document.getElementById("tecenf2sn1").innerHTML = data[0].tecenf2;
             document.getElementById("tecenf3sn1").innerHTML = data[0].tecenf3;
@@ -2148,15 +2240,10 @@ $("#pesquisarsn1").on('click', function(e){
             document.getElementById("tecenf13sn1").innerHTML = data[0].tecenf13;
             document.getElementById("tecenf14sn1").innerHTML = data[0].tecenf14;
             document.getElementById("tecenf15sn1").innerHTML = data[0].tecenf15;
-            document.getElementById("tecenf16sn1").innerHTML = data[0].tecenf16;
-            document.getElementById("tecenf17sn1").innerHTML = data[0].tecenf17;
-            document.getElementById("tecenf18sn1").innerHTML = data[0].tecenf18;
-            document.getElementById("tecenf19sn1").innerHTML = data[0].tecenf19;
-            document.getElementById("tecenf20sn1").innerHTML = data[0].tecenf20;
             document.getElementById("maq1sn1").innerHTML = data[0].maq1;
             document.getElementById("maq2sn1").innerHTML = data[0].maq2;
             document.getElementById("enfcmesn1").innerHTML = data[0].enfcme;
-            document.getElementById("teccmesn1").innerHTML = data[0].teccme;
+            document.getElementById("tecenfcmesn1").innerHTML = data[0].teccme;
             document.getElementById("folga1sn1").innerHTML = data[0].enfermeiro1;
             document.getElementById("folga2sn1").innerHTML = data[0].enfermeiro2;
             document.getElementById("folga3sn1").innerHTML = data[0].enfermeiro3;
@@ -2178,7 +2265,27 @@ $("#pesquisarsn1").on('click', function(e){
             document.getElementById("parada7sn1").innerHTML = data[0].ventilacao1;
             document.getElementById("parada8sn1").innerHTML = data[0].ventilacao2;
             document.getElementById("parada9sn1").innerHTML = data[0].medicacao1;
-            document.getElementById("parada10sn1").innerHTML = data[0].medicacao2;    
+            document.getElementById("parada10sn1").innerHTML = data[0].medicacao2;   
+            document.getElementById("desc1").innerHTML = data[0].desc1;   
+            document.getElementById("desc2").innerHTML = data[0].desc2;   
+            document.getElementById("desc3").innerHTML = data[0].desc3;   
+            document.getElementById("desc4").innerHTML = data[0].desc4;   
+            document.getElementById("desc5").innerHTML = data[0].desc5;   
+            document.getElementById("desc6").innerHTML = data[0].desc6;   
+            document.getElementById("desc7").innerHTML = data[0].desc7;   
+            document.getElementById("desc8").innerHTML = data[0].desc8;   
+            document.getElementById("desc9").innerHTML = data[0].desc9;   
+            document.getElementById("desc10").innerHTML = data[0].desc10;   
+            document.getElementById("desc11").innerHTML = data[0].desc11;   
+            document.getElementById("desc12").innerHTML = data[0].desc12;   
+            document.getElementById("desc13").innerHTML = data[0].desc13;   
+            document.getElementById("desc14").innerHTML = data[0].desc14;   
+            document.getElementById("desc15").innerHTML = data[0].desc15;   
+            document.getElementById("desc16").innerHTML = data[0].desc16;   
+            document.getElementById("desc17").innerHTML = data[0].desc17;   
+            document.getElementById("desc18").innerHTML = data[0].desc18;   
+            document.getElementById("desc19").innerHTML = data[0].desc19;   
+            document.getElementById("desc20").innerHTML = data[0].desc20;    
             document.getElementById("enfprepostosn1").innerHTML = data[0].enfpreposto;
             document.getElementById('tablesn1').style.display = 'table'
    
@@ -2216,8 +2323,6 @@ $("#pesquisarsn2").on('click', function(e){
             alert("Data sem escala adicionada")
          }
          else{
-
-         console.log(data)
             document.getElementById("dataturnosn2").innerHTML=data[0].date + "  " + data[0].turno ;
             document.getElementById("enf1sn2").innerHTML = data[0].enf1;
             document.getElementById("enf2sn2").innerHTML = data[0].enf2;
@@ -2226,12 +2331,6 @@ $("#pesquisarsn2").on('click', function(e){
             document.getElementById("enf5sn2").innerHTML = data[0].enf5;
             document.getElementById("enf6sn2").innerHTML = data[0].enf6;
             document.getElementById("enf7sn2").innerHTML = data[0].enf7;
-            document.getElementById("enf8sn2").innerHTML = data[0].enf8;
-            document.getElementById("enf9sn2").innerHTML = data[0].enf9;
-            document.getElementById("enf10sn2").innerHTML = data[0].enf9;
-            document.getElementById("enf11sn2").innerHTML = data[0].enf10;
-            document.getElementById("enf12sn2").innerHTML = data[0].enf11;
-            document.getElementById("enf13sn2").innerHTML = data[0].enf12;
             document.getElementById("tecenf1sn2").innerHTML = data[0].tecenf1;
             document.getElementById("tecenf2sn2").innerHTML = data[0].tecenf2;
             document.getElementById("tecenf3sn2").innerHTML = data[0].tecenf3;
@@ -2247,15 +2346,10 @@ $("#pesquisarsn2").on('click', function(e){
             document.getElementById("tecenf13sn2").innerHTML = data[0].tecenf13;
             document.getElementById("tecenf14sn2").innerHTML = data[0].tecenf14;
             document.getElementById("tecenf15sn2").innerHTML = data[0].tecenf15;
-            document.getElementById("tecenf16sn2").innerHTML = data[0].tecenf16;
-            document.getElementById("tecenf17sn2").innerHTML = data[0].tecenf17;
-            document.getElementById("tecenf18sn2").innerHTML = data[0].tecenf18;
-            document.getElementById("tecenf19sn2").innerHTML = data[0].tecenf19;
-            document.getElementById("tecenf20sn2").innerHTML = data[0].tecenf20;
             document.getElementById("maq1sn2").innerHTML = data[0].maq1;
             document.getElementById("maq2sn2").innerHTML = data[0].maq2;
             document.getElementById("enfcmesn2").innerHTML = data[0].enfcme;
-            document.getElementById("teccmesn2").innerHTML = data[0].teccme;
+            document.getElementById("tecenfcmesn2").innerHTML = data[0].teccme;
             document.getElementById("folga1sn2").innerHTML = data[0].enfermeiro1;
             document.getElementById("folga2sn2").innerHTML = data[0].enfermeiro2;
             document.getElementById("folga3sn2").innerHTML = data[0].enfermeiro3;
@@ -2278,6 +2372,26 @@ $("#pesquisarsn2").on('click', function(e){
             document.getElementById("parada8sn2").innerHTML = data[0].ventilacao2;
             document.getElementById("parada9sn2").innerHTML = data[0].medicacao1;
             document.getElementById("parada10sn2").innerHTML = data[0].medicacao2;    
+            document.getElementById("desc1sn2").innerHTML = data[0].desc1;   
+            document.getElementById("desc2sn2").innerHTML = data[0].desc2;   
+            document.getElementById("desc3sn2").innerHTML = data[0].desc3;   
+            document.getElementById("desc4sn2").innerHTML = data[0].desc4;   
+            document.getElementById("desc5sn2").innerHTML = data[0].desc5;   
+            document.getElementById("desc6sn2").innerHTML = data[0].desc6;   
+            document.getElementById("desc7sn2").innerHTML = data[0].desc7;   
+            document.getElementById("desc8sn2").innerHTML = data[0].desc8;   
+            document.getElementById("desc9sn2").innerHTML = data[0].desc9;   
+            document.getElementById("desc10sn2").innerHTML = data[0].desc10;   
+            document.getElementById("desc11sn2").innerHTML = data[0].desc11;   
+            document.getElementById("desc12sn2").innerHTML = data[0].desc12;   
+            document.getElementById("desc13sn2").innerHTML = data[0].desc13;   
+            document.getElementById("desc14sn2").innerHTML = data[0].desc14;   
+            document.getElementById("desc15sn2").innerHTML = data[0].desc15;   
+            document.getElementById("desc16sn2").innerHTML = data[0].desc16;   
+            document.getElementById("desc17sn2").innerHTML = data[0].desc17;   
+            document.getElementById("desc18sn2").innerHTML = data[0].desc18;   
+            document.getElementById("desc19sn2").innerHTML = data[0].desc19;   
+            document.getElementById("desc20sn2").innerHTML = data[0].desc20;    
             document.getElementById("enfprepostosn2").innerHTML = data[0].enfpreposto;
             document.getElementById('tablesn2').style.display = 'table'
          }

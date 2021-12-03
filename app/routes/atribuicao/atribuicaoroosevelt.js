@@ -23,5 +23,9 @@ module.exports = function(application){
 	application.post('/updateescalaparadaroosevelt', function(req, res){
 		application.app.controllers.atribuicao.atribuicaoroosevelt.updateescalaparadaroosevelt(application, req, res);
 		});
+	application.post('/updatedescansoroosevelt', function(req, res){
+		application.app.controllers.atribuicao.atribuicaoroosevelt.updatedescanso(application, req, res);
+		});
 }
+
 

@@ -23,5 +23,9 @@ module.exports = function(application){
 	application.post('/updateescalaparadaluizote', function(req, res){
 		application.app.controllers.atribuicao.atribuicaoluizote.updateescalaparadaluizote(application, req, res);
 		});
+	application.post('/updatedescansoluizote', function(req, res){
+		application.app.controllers.atribuicao.atribuicaoluizote.updatedescanso(application, req, res);
+		});
 }
+
 

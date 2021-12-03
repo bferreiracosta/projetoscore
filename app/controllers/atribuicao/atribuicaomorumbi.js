@@ -9,7 +9,74 @@ module.exports.atribuicaomorumbi = function(application, req, res){
 		res.render("atribuicao/atribuicaomorumbi", {id : result,  msg: ''});
 	});
 }
+module.exports.updatedescanso = function(application, req, res){
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	var modelatrimorumbi = new application.app.model.atribuicao.modelatribuicaomorumbi(application);
 
+	var id = req.body.idusuario;
+	var date = req.body.dataparada1;
+	var turno = req.body.turnoparada1;
+	var campo = req.body.unidadeparada1;
+
+	if(campo==1){
+		var unidade = "Planalto";
+	}else 
+	if(campo==2){
+		var unidade = "Luizote";
+	}else 
+	if(campo==3){
+		var unidade = "Martins";
+	}else 
+	if(campo==4){
+		var unidade = "Roosevelt";
+	}else 
+	if(campo==6){
+		var unidade = "Tibery";
+	}else 
+	if(campo==5){
+		var unidade = "Morumbi";
+	} 
+	var desc1 = req.body.desc1;
+	var desc2 = req.body.desc2;
+	var desc3 = req.body.desc3;
+	var desc4 = req.body.desc4;
+	var desc5 = req.body.desc5;
+	var desc6 = req.body.desc6;
+	var desc7 = req.body.desc7;
+	var desc8 = req.body.desc8;
+	var desc9 = req.body.desc9;
+	var desc10 = req.body.desc10;
+	var desc11 = req.body.desc11;
+	var desc12 = req.body.desc12;
+	var desc13 = req.body.desc13;
+	var desc14 = req.body.desc14;
+	var desc15 = req.body.desc15;
+	var desc16 = req.body.desc16;
+	var desc17 = req.body.desc17;
+	var desc18 = req.body.desc18;
+	var desc19 = req.body.desc19;
+	var desc20 = req.body.desc20;
+
+	modelatrimorumbi.buscarregraescalaunicamorumbi(date, turno, unidade,function(error, resultado){
+		if(resultado != null || resultado==""){
+			modeladmin.buscarusuarioeditavel(id, function(error,result){
+				console.log(date, turno, unidade,campo, desc1,desc2,desc3,desc4,desc5,desc6,desc7,desc8,desc9,desc10,desc11,desc12,desc13,desc14,desc15,desc16,desc17,desc18,desc19,desc20)
+
+				modelatrimorumbi.updatedescanso(unidade, date, turno, desc1,desc2,desc3,desc4,desc5,desc6,desc7,desc8,desc9,desc10,desc11,desc12,desc13,desc14,desc15,desc16,desc17,desc18,desc19,desc20,function(error, resultado){
+						res.redirect("/atribuicaomorumbi?id=" + result[0].id_usuario);	
+				})
+			});
+		}else{
+			modeladmin.buscarusuarioeditavel(id, function(error,result){
+				var mensage = "Escala ja criada, por favor atualize!!";
+				res.render("atribuicao/atribuicaomorumbi", {id : result, msg: mensage});
+			});
+		}
+		
+	})
+	
+}
 module.exports.adicionarescalamorumbi = function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
@@ -42,7 +109,7 @@ module.exports.adicionarescalamorumbi = function(application, req, res){
 	var enf1 = req.body.enf1;
 	var tecenf1 = req.body.tecenf1;
 	var enfcme = req.body.enfcme;
-	var teccme = req.body.teccme;
+	var teccme = req.body.tecenfcme;
 	var maq1 = req.body.maq1;
 	var maq2 = req.body.maq2;
 	var enfpreposto = req.body.enfpreposto;
@@ -60,27 +127,17 @@ module.exports.adicionarescalamorumbi = function(application, req, res){
 	var tecenf13 = req.body.tecenf13;
 	var tecenf14 = req.body.tecenf14;
 	var tecenf15 = req.body.tecenf15;
-	var tecenf16 = req.body.tecenf16;
-	var tecenf17 = req.body.tecenf17;
-	var tecenf18 = req.body.tecenf18;
-	var tecenf19 = req.body.tecenf19;
-	var tecenf20 = req.body.tecenf20;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
 	var enf5 = req.body.enf5;
 	var enf6 = req.body.enf6;
 	var enf7 = req.body.enf7;
-	var enf8 = req.body.enf8;
-	var enf9 = req.body.enf9;
-	var enf10 = req.body.enf10;
-	var enf11 = req.body.enf11;
-	var enf12 = req.body.enf12;
 	modelatrimorumbi.buscarregraescalaunicamorumbi(date, turno, unidade,function(error, resultado){
 		if(resultado == null || resultado==""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelatrimorumbi.adicionarescalamorumbi(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19, tecenf20, enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10 ,enf11 ,enf12 ,enfcme, teccme,function(error, resultado){
+					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, enf2, enf3, enf4, enf5, enf6 , enf7 ,enfcme, teccme,function(error, resultado){
 						res.redirect("/atribuicaomorumbi?id=" + result[0].id_usuario);	
 				})
 			});
@@ -243,7 +300,7 @@ module.exports.editarescalamorumbi = function(application, req, res){
 	var enf1 = req.body.enf1;
 	var tecenf1 = req.body.tecenf1;
 	var enfcme = req.body.enfcme;
-	var teccme = req.body.teccme;
+	var teccme = req.body.tecenfcme;
 	var maq1 = req.body.maq1;
 	var maq2 = req.body.maq2;
 	var enfpreposto = req.body.enfpreposto;
@@ -261,25 +318,15 @@ module.exports.editarescalamorumbi = function(application, req, res){
 	var tecenf13 = req.body.tecenf13;
 	var tecenf14 = req.body.tecenf14;
 	var tecenf15 = req.body.tecenf15;
-	var tecenf16 = req.body.tecenf16;
-	var tecenf17 = req.body.tecenf17;
-	var tecenf18 = req.body.tecenf18;
-	var tecenf19 = req.body.tecenf19;
-	var tecenf20 = req.body.tecenf20;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
 	var enf5 = req.body.enf5;
 	var enf6 = req.body.enf6;
 	var enf7 = req.body.enf7;
-	var enf8 = req.body.enf8;
-	var enf9 = req.body.enf9;
-	var enf10 = req.body.enf10;
-	var enf11 = req.body.enf11;
-	var enf12 = req.body.enf12;
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelatrimorumbi.updateescalamorumbi(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, tecenf16, tecenf17,tecenf18, tecenf19,tecenf20, enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10 ,enf11 ,enf12 ,enfcme, teccme,function(error, resultado){
+			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15, enf2, enf3, enf4, enf5, enf6 , enf7 ,enfcme, teccme,function(error, resultado){
 				res.redirect("/atribuicaomorumbi?id=" + result[0].id_usuario);	
 		})
 	});

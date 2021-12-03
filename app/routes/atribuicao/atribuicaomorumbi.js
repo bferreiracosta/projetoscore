@@ -23,5 +23,9 @@ module.exports = function(application){
 	application.post('/updateescalaparadamorumbi', function(req, res){
 		application.app.controllers.atribuicao.atribuicaomorumbi.updateescalaparadamorumbi(application, req, res);
 		});
+	application.post('/updatedescansomorumbi', function(req, res){
+		application.app.controllers.atribuicao.atribuicaomorumbi.updatedescanso(application, req, res);
+		});
 }
+
 

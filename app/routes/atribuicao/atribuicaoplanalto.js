@@ -23,5 +23,9 @@ module.exports = function(application){
 	application.post('/updateescalaparadaplanalto', function(req, res){
 		application.app.controllers.atribuicao.atribuicaoplanalto.updateescalaparadaplanalto(application, req, res);
 		});
+	application.post('/updatedescansoplanalto', function(req, res){
+		application.app.controllers.atribuicao.atribuicaoplanalto.updatedescanso(application, req, res);
+		});
 }
+
 
