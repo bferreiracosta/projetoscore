@@ -73,7 +73,7 @@ module.exports.validarescala = function(application, req, res){
 
 		if(resultado != null || resultado != ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
-				modelescalamorumbi.validarescala(unidade, turno, dateinicial, datefinal, dateano, rt, supervisao, cida, function(error, resultdoinsert){
+				modelescalamorumbi.validarescala(unidade, turno, dateinicial, datefinal, rt, supervisao, cida, function(error, resultdoinsert){
 					res.redirect("/escalamorumbi?id=" + result[0].id_usuario);	
 				})
 			});

@@ -763,7 +763,7 @@
              </tr>
              <tr style="border: none; height: 35px;">
                 <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
-                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maqsn21">1</td>
+                <td style="text-align: center; font-size: medium; background: rgb(255, 255, 255); color: black;" scope="col" id="maq1sn2">1</td>
                 <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
                 <td style="text-align: center; font-size: medium; background: rgb(243, 148, 148)" scope="col" ></td>
                 <td  scope="col" id="enfcmesn2" style="background-color:#a5a1a1!important;">1</td>
@@ -1215,6 +1215,7 @@
              </div>
          </div>
    </div>
+</div>
      </form>
    
     <form id="add-row-form6" action="/editarescalaplanalto" method="post">
@@ -1395,7 +1396,6 @@
                     </div>
                 </div>
             </div>
-      </div>
         </form>
     <form id="add-row-form3" action="/adicionandoescalafolgaplanalto" method="POST">
       <div class="modal fade" id="DescModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -1643,7 +1643,10 @@ function setaDadosModal7(valor) {
 
 document.getElementById('idusuariodesc').value = valor;
 }
+function setaDadosModal4(valor) {
 
+document.getElementById('idusuarioedit').value = valor;
+}
 
 function setaDadosModal5(valor) {
 
@@ -2183,7 +2186,7 @@ $( "#target3" ).click(function() {
          var turno = document.getElementById("turnosn2").value;
       var unidade = document.getElementById("unidadesn2").value;
       document.getElementById("dataparada1").value = datassn2
-      document.getElementById("turnoparad1").value = turno
+      document.getElementById("turnoparada1").value = turno
       document.getElementById("unidadeparada1").value = unidade
       data = [];
    $.ajax({

@@ -1083,6 +1083,7 @@
              </div>
          </div>
    </div>
+</div>
      </form>
    
     <form id="add-row-form6" action="/editarescalamorumbi" method="post">
@@ -1231,7 +1232,6 @@
                     </div>
                 </div>
             </div>
-      </div>
         </form>
     <form id="add-row-form3" action="/adicionandoescalafolgamorumbi" method="POST">
       <div class="modal fade" id="DescModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -1479,7 +1479,10 @@ function setaDadosModal7(valor) {
 
 document.getElementById('idusuariodesc').value = valor;
 }
+function setaDadosModal4(valor) {
 
+document.getElementById('idusuarioedit').value = valor;
+}
 
 function setaDadosModal5(valor) {
 
@@ -1951,7 +1954,7 @@ $( "#target3" ).click(function() {
          var turno = document.getElementById("turnosn1").value;
       var unidade = document.getElementById("unidadesn1").value;
       document.getElementById("dataparada1").value = datassn2
-      document.getElementById("turnoparad1").value = turno
+      document.getElementById("turnoparada1").value = turno
       document.getElementById("unidadeparada1").value = unidade
       data = [];
    $.ajax({
@@ -1987,7 +1990,7 @@ $( "#target3" ).click(function() {
          var turno = document.getElementById("turnosn2").value;
       var unidade = document.getElementById("unidadesn2").value;
       document.getElementById("dataparada1").value = datassn2
-      document.getElementById("turnoparad1").value = turno
+      document.getElementById("turnoparada1").value = turno
       document.getElementById("unidadeparada1").value = unidade
       data = [];
    $.ajax({

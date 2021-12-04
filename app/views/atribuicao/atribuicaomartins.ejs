@@ -1215,6 +1215,7 @@
              </div>
          </div>
    </div>
+</div>
      </form>
    
     <form id="add-row-form6" action="/editarescalamartins" method="post">
@@ -1325,7 +1326,7 @@
                            </div>
                            <div class="form-group">
                               <label for="susfacil">Tec Enf Ginecologia/Obstetrícia</label>
-                              <input type="text" id="tecenf13dit" name="tecenf13" class="form-control" >
+                              <input type="text" id="tecenf13edit" name="tecenf13" class="form-control" >
                            </div>
                            <div class="form-group">
                               <label for="susfacil">Enfermeiro Apoio Verde</label>
@@ -1411,7 +1412,7 @@
                     </div>
                 </div>
             </div>
-      </div>
+
         </form>
     <form id="add-row-form3" action="/adicionandoescalafolgamartins" method="POST">
       <div class="modal fade" id="DescModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -1654,7 +1655,10 @@ function setaDadosModal3(valor) {
 
 document.getElementById('campoedit').value = valor;
 }
+function setaDadosModal4(valor) {
 
+document.getElementById('idusuarioedit').value = valor;
+}
 function setaDadosModal7(valor) {
 
 document.getElementById('idusuariodesc').value = valor;
@@ -2215,7 +2219,7 @@ $( "#target3" ).click(function() {
          var turno = document.getElementById("turnosn2").value;
       var unidade = document.getElementById("unidadesn2").value;
       document.getElementById("dataparada1").value = datassn2
-      document.getElementById("turnoparad1").value = turno
+      document.getElementById("turnoparada1").value = turno
       document.getElementById("unidadeparada1").value = unidade
       data = [];
    $.ajax({

@@ -69,11 +69,12 @@ module.exports.validarescala = function(application, req, res){
 	var datefinal = req.body.datafinal;
 	var dateano = req.body.dataano;
 	var turno = req.body.turno;
+
 	modelescalamartins.buscarregraescalaunicamartins(unidade, turno, dateinicial, datefinal,function(error, resultado){
 
 		if(resultado != null || resultado != ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
-				modelescalamartins.validarescala(unidade, turno, dateinicial, datefinal, dateano, rt, supervisao, cida, function(error, resultdoinsert){
+				modelescalamartins.validarescala(unidade, turno, dateinicial, datefinal, rt, supervisao, cida, function(error, resultdoinsert){
 					res.redirect("/escalamartins?id=" + result[0].id_usuario);	
 				})
 			});

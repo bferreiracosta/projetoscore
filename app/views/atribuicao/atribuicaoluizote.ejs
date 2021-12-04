@@ -1231,195 +1231,196 @@
              </div>
          </div>
    </div>
+   </div>
      </form>
    
-    <form id="add-row-form6" action="/editarescalaluizote" method="post">
+     <form id="add-row-form6" action="/editarescalaluizote" method="post">
       <div class="modal fade" id="DescModaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="myModalLabel">Editando escala de Atribuição</h5>
+                            <h5 class="modal-title" id="myModalLabel">Criando nova escala de Atribuição</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">&times;</span></button>
                         </div>
                         <div class="modal-body">
-                         <div>
-                            <input  type="hidden" name="campo" id="campoedit">
-                            <input  type="hidden" name="idusuario" id="idusuarioedit">
-                            <div class="form-group">
-                               <label for="susfacil">Data Escala Atribuição</label>
-                               <input type="text" name="date" readonly=“true” id="tempoedit" class="form-control" >
-                            </div>
-                            <div class="form-group">
-                               <label for="susfacil">Turno</label>
-                               <select  class="form-control" disabled id="selectturnoedit" name="selectturno">
-                                  <option value="" disabled selected hidden>Selecione o Turno</option>
-                                  <option value="Manhã">Manhã</option>
-                                  <option value="Tarde">Tarde</option>
-                                  <option value="SN1">SN1</option>
-                                  <option value="SN2">SN2</option>
-                               </select>
-                              </div>
-                               <input type="hidden" id="turnoedit" name="turno" class="form-control" >
-                            </div>
-                            <div class="form-group">
-                              <label for="susfacil">Enfermeiro Enfermaria</label>
-                              <input type="text" id="enf1edit" name="enf1" class="form-control" >
+                           <div>
+                           <input  type="hidden" name="campo" id="campoedit">
+                           <input  type="hidden" name="idusuario" id="idusuarioedit">
+                           <div class="form-group">
+                              <label for="susfacil">Data Escala Atribuição</label>
+                              <input type="text" name="date" readonly=“true” id="tempoedit" class="form-control" >
                            </div>
                            <div class="form-group">
-                              <label for="susfacil">Tec Enf Enfermaria</label>
-                              <input type="text" id="tecenf1edit" name="tecenf1" class="form-control" >
+                              <label for="susfacil">Turno</label>
+                              <select  class="form-control" disabled id="selectturnoedit" name="selectturno">
+                                 <option value="" disabled selected hidden>Selecione o Turno</option>
+                                 <option value="Manhã">Manhã</option>
+                                 <option value="Tarde">Tarde</option>
+                                 <option value="SN1">SN1</option>
+                                 <option value="SN2">SN2</option>
+                              </select>
+                             </div>
+                              <input type="hidden" id="turnoedit" name="turno" class="form-control" >
                            </div>
                            <div class="form-group">
-                            <label for="susfacil">Tec Enf Enfermaria</label>
-                            <input type="text" id="tecenf2edit" name="tecenf2" class="form-control" >
-                         </div>
-                         <div class="form-group">
-                            <label for="susfacil">Tec Enf Enfermaria</label>
-                            <input type="text" id="tecenf3edit" name="tecenf3" class="form-control" >
-                         </div>
-                         <div class="form-group">
-                            <label for="susfacil">Tec Enf Enfermaria</label>
-                            <input type="text" id="tecenf4edit" name="tecenf4" class="form-control" >
-                         </div>
-                         <div class="form-group">
-                            <label for="susfacil">Tec Enf Enfermaria</label>
-                            <input type="text" id="tecenf5edit" name="tecen5" class="form-control" >
-                         </div>
-                         <div class="form-group">
-                            <label for="susfacil">Tec Enf Enfermaria</label>
-                            <input type="text" id="tecenf6edit" name="tecenf6" class="form-control" >
-                         </div>
-                           <div class="form-group">
-                              <label for="susfacil">Enfermeiro Referência Bordô</label>
-                              <input type="text" id="enf2edit" name="enf2" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Tec Enf Referência Bordô</label>
-                              <input type="text" id="tecenf7edit" name="tecenf7" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Enfermeiro Referência Azul</label>
-                              <input type="text" id="enf3edit" name="enf3" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Tec Enf Referência Bordô</label>
-                              <input type="text" id="tecenf8edit" name="tecenf8" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                            <label for="susfacil">Enfermeiro Sala de Emergência Clínica</label>
-                            <input type="text" id="enf4edit" name="enf4" class="form-control" >
-                         </div>
-                           <div class="form-group">
-                              <label for="susfacil">Tec Enf Sala de Emergência Clínica</label>
-                              <input type="text" id="tecenf9edit" name="tecenf9" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                            <label for="susfacil">Tec Enf Sala de Emergência Clínica</label>
-                            <input type="text" id="tecenf10edit" name="tecenf10" class="form-control" >
-                         </div>
-                           <div class="form-group">
-                            <label for="susfacil">Enfermeiro Sala de Estabilização</label>
-                            <input type="text" id="enf5edit" name="enf5" class="form-control" >
-                         </div>
-                           <div class="form-group">
-                              <label for="susfacil">Tec Enf Sala de Estabilização</label>
-                              <input type="text" id="tecenf11edit" name="tecenf11" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                            <label for="susfacil">Enfermeiro Triagem</label>
-                            <input type="text" id="enf6edit" name="enf6" class="form-control" >
-                         </div>
-                         <div class="form-group">
-                            <label for="susfacil">Tec Enf Triagem</label>
-                            <input type="text" id="tecenf12edit" name="tecenf12" class="form-control" >
-                         </div>
-                         <div class="form-group">
-                            <label for="susfacil">Enfermeiro Apoio Clínico</label>
-                            <input type="text" id="enf7edit" name="enf7" class="form-control" >
-                         </div>
-                         <div class="form-group">
-                            <label for="susfacil">Tec Enf poio Clínico</label>
-                            <input type="text" id="tecenf13edit" name="tecenf13" class="form-control" >
-                         </div>
-                         <div class="form-group">
-                            <label for="susfacil">Tec Enf poio Clínico</label>
-                            <input type="text" id="tecenf14edit" name="tecenf14" class="form-control" >
-                         </div>
-                         <div class="form-group">
-                            <label for="susfacil">Enfermeiro Sala Amarela</label>
-                            <input type="text" id="enf8edit" name="enf8" class="form-control" >
-                         </div>
-                           <div class="form-group">
-                              <label for="susfacil">Tec Enf Sala Amarela</label>
-                              <input type="text" id="tecenf15edit" name="tecenf15" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Enfermeiro Centro Ortopédico</label>
-                              <input type="text" id="enf9edit" name="enf9" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Tec Enf Centro Ortopédico</label>
-                              <input type="text" id="tecenf16edit" name="tecenf16" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Tec Enf Centro Ortopédico</label>
-                              <input type="text" id="tecenf17edit" name="tecenf17" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Enfermeiro Psquiatria</label>
-                              <input type="text" id="enf10edit" name="enf10" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Tec Enf Psquiatria</label>
-                              <input type="text" id="tecenf18edit" name="tecenf18" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Tec Enf Psquiatria</label>
-                              <input type="text" id="tecenf19edit" name="tecenf19" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Enfermeiro Pediatria</label>
-                              <input type="text" id="enf11edit" name="enf11" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Tec Enf Pediatria</label>
-                              <input type="text" id="tecenf20edit" name="tecenf20" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                            <label for="susfacil">Tec Enf Transporte</label>
-                            <input type="text" id="tecenf21edit" name="tecenf21" class="form-control" >
-                         </div>
-                         <div class="form-group">
-                            <label for="susfacil">Enfermeiro Exame Covid</label>
-                            <input type="text" id="enf12edit" name="enf12" class="form-control" >
-                         </div>
-                           <div class="form-group">
-                              <label for="susfacil">Tec Enf Exame Covid</label>
-                              <input type="text" id="tecenf22edit" name="tecenf22" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Enfermeiro CCIH/CME</label>
-                              <input type="text" id="enfcmeedit" name="enfcme" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Tec Enf CCIH/CME</label>
-                              <input type="text" id="tecenfcmeedit" name="tecenfcme" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Enf Preposto</label>
-                              <input type="text" id="enfprepostoedit" name="enfpreposto" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Maqueiro 1</label>
-                              <input type="text" id="edit" name="maq1" class="form-control" >
-                           </div>
-                           <div class="form-group">
-                              <label for="susfacil">Maqueiro2</label>
-                              <input type="text" id="edit" name="maq2" class="form-control" >
-                           </div>
-                         </div>
+                             <label for="susfacil">Enfermeiro Enfermaria</label>
+                             <input type="text" id="enf1edit" name="enf1" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Tec Enf Enfermaria</label>
+                             <input type="text" id="tecenf1edit" name="tecenf1" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                           <label for="susfacil">Tec Enf Enfermaria</label>
+                           <input type="text" id="tecenf2edit" name="tecenf2" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                           <label for="susfacil">Tec Enf Enfermaria</label>
+                           <input type="text" id="tecenf3edit" name="tecenf3" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                           <label for="susfacil">Tec Enf Enfermaria</label>
+                           <input type="text" id="tecenf4edit" name="tecenf4" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                           <label for="susfacil">Tec Enf Enfermaria</label>
+                           <input type="text" id="tecenf5edit" name="tecen5" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                           <label for="susfacil">Tec Enf Enfermaria</label>
+                           <input type="text" id="tecenf6edit" name="tecenf6" class="form-control" >
+                        </div>
+                          <div class="form-group">
+                             <label for="susfacil">Enfermeiro Referência Bordô</label>
+                             <input type="text" id="enf2edit" name="enf2" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Tec Enf Referência Bordô</label>
+                             <input type="text" id="tecenf7edit" name="tecenf7" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Enfermeiro Referência Azul</label>
+                             <input type="text" id="enf3edit" name="enf3" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Tec Enf Referência Bordô</label>
+                             <input type="text" id="tecenf8edit" name="tecenf8" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                           <label for="susfacil">Enfermeiro Sala de Emergência Clínica</label>
+                           <input type="text" id="enf4edit" name="enf4" class="form-control" >
+                        </div>
+                          <div class="form-group">
+                             <label for="susfacil">Tec Enf Sala de Emergência Clínica</label>
+                             <input type="text" id="tecenf9edit" name="tecenf9" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                           <label for="susfacil">Tec Enf Sala de Emergência Clínica</label>
+                           <input type="text" id="tecenf10edit" name="tecenf10" class="form-control" >
+                        </div>
+                          <div class="form-group">
+                           <label for="susfacil">Enfermeiro Sala de Estabilização</label>
+                           <input type="text" id="enf5edit" name="enf5" class="form-control" >
+                        </div>
+                          <div class="form-group">
+                             <label for="susfacil">Tec Enf Sala de Estabilização</label>
+                             <input type="text" id="tecenf11edit" name="tecenf11" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                           <label for="susfacil">Enfermeiro Triagem</label>
+                           <input type="text" id="enf6edit" name="enf6" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                           <label for="susfacil">Tec Enf Triagem</label>
+                           <input type="text" id="tecenf12edit" name="tecenf12" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                           <label for="susfacil">Enfermeiro Apoio Clínico</label>
+                           <input type="text" id="enf7edit" name="enf7" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                           <label for="susfacil">Tec Enf poio Clínico</label>
+                           <input type="text" id="tecenf13edit" name="tecenf13" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                           <label for="susfacil">Tec Enf poio Clínico</label>
+                           <input type="text" id="tecenf14edit" name="tecenf14" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                           <label for="susfacil">Enfermeiro Sala Amarela</label>
+                           <input type="text" id="enf8edit" name="enf8" class="form-control" >
+                        </div>
+                          <div class="form-group">
+                             <label for="susfacil">Tec Enf Sala Amarela</label>
+                             <input type="text" id="tecenf15edit" name="tecenf15" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Enfermeiro Centro Ortopédico</label>
+                             <input type="text" id="enf9edit" name="enf9" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Tec Enf Centro Ortopédico</label>
+                             <input type="text" id="tecenf16edit" name="tecenf16" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Tec Enf Centro Ortopédico</label>
+                             <input type="text" id="tecenf17edit" name="tecenf17" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Enfermeiro Psquiatria</label>
+                             <input type="text" id="enf10edit" name="enf10" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Tec Enf Psquiatria</label>
+                             <input type="text" id="tecenf18edit" name="tecenf18" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Tec Enf Psquiatria</label>
+                             <input type="text" id="tecenf19edit" name="tecenf19" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Enfermeiro Pediatria</label>
+                             <input type="text" id="enf11edit" name="enf11" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Tec Enf Pediatria</label>
+                             <input type="text" id="tecenf20edit" name="tecenf20" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                           <label for="susfacil">Tec Enf Transporte</label>
+                           <input type="text" id="tecenf21edit" name="tecenf21" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                           <label for="susfacil">Enfermeiro Exame Covid</label>
+                           <input type="text" id="enf12edit" name="enf12" class="form-control" >
+                        </div>
+                          <div class="form-group">
+                             <label for="susfacil">Tec Enf Exame Covid</label>
+                             <input type="text" id="tecenf22edit" name="tecenf22" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Enfermeiro CCIH/CME</label>
+                             <input type="text" id="enfcmeedit" name="enfcme" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Tec Enf CCIH/CME</label>
+                             <input type="text" id="tecenfcmeedit" name="tecenfcme" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Enf Preposto</label>
+                             <input type="text" id="enfprepostoedit" name="enfpreposto" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Maqueiro 1</label>
+                             <input type="text" id="maq1edit" name="maq1" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                             <label for="susfacil">Maqueiro2</label>
+                             <input type="text" id="maq2edit" name="maq2" class="form-control" >
+                          </div>
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                             <button type="submit" class="btn btn-success">Atualizar</button>
@@ -1427,7 +1428,7 @@
                     </div>
                 </div>
             </div>
-      </div>
+
         </form>
     <form id="add-row-form3" action="/adicionandoescalafolgaluizote" method="POST">
       <div class="modal fade" id="DescModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -1669,6 +1670,11 @@ function setaDadosModal2(valor) {
 function setaDadosModal3(valor) {
 
 document.getElementById('campoedit').value = valor;
+}
+
+function setaDadosModal4(valor) {
+
+document.getElementById('idusuarioedit').value = valor;
 }
 
 function setaDadosModal7(valor) {
@@ -2231,7 +2237,7 @@ $( "#target3" ).click(function() {
          var turno = document.getElementById("turnosn2").value;
       var unidade = document.getElementById("unidadesn2").value;
       document.getElementById("dataparada1").value = datassn2
-      document.getElementById("turnoparad1").value = turno
+      document.getElementById("turnoparada1").value = turno
       document.getElementById("unidadeparada1").value = unidade
       data = [];
    $.ajax({

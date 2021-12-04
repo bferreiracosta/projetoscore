@@ -695,7 +695,16 @@
          <button class="btn btn-info" id="pesquisarsn2"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFsn2();"><i class="fas fa-download"></i></button>  <button type="button" id="editsn2" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')"><i class="fas fa-edit"></i></button></span></h4>
       <div class="html-contentsn2" id="mobilesn2" >
         <table class="table table-bordered table-dark display" style="width: 100%; " id="tablesn2">
-          <thead>
+         <thead>
+            <tr style="border: none; height: 35px;" class="bg-primary">
+              <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logoprefeitura.jpg"></th>
+              <th colspan="3" scope="col" style="text-align: center;" id="dataturnosn2"></th>
+              <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logospdm.jpg"></th>
+              <th hidden></th>
+              <th hidden></th>
+            </tr>
+          </thead>
+          <tbody>
             <tr style="border: none; height: 35px;">
                <td style="text-align: center; font-size: medium; background: darkblue; color: white;" colspan="6"> Escala de Atribuição Roosevelt</td>
                <td hidden ></td>
@@ -1237,6 +1246,7 @@
              </div>
          </div>
    </div>
+</div>
      </form>
    
     <form id="add-row-form6" action="/editarescalaroosevelt" method="post">
@@ -1429,7 +1439,7 @@
                     </div>
                 </div>
             </div>
-      </div>
+ 
         </form>
     <form id="add-row-form3" action="/adicionandoescalafolgaroosevelt" method="POST">
       <div class="modal fade" id="DescModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -1678,7 +1688,10 @@ function setaDadosModal7(valor) {
 document.getElementById('idusuariodesc').value = valor;
 }
 
+function setaDadosModal4(valor) {
 
+document.getElementById('idusuarioedit').value = valor;
+}
 function setaDadosModal5(valor) {
 
 document.getElementById('idusuarioparada').value = valor;
@@ -2229,7 +2242,7 @@ $( "#target3" ).click(function() {
          var turno = document.getElementById("turnosn2").value;
       var unidade = document.getElementById("unidadesn2").value;
       document.getElementById("dataparada1").value = datassn2
-      document.getElementById("turnoparad1").value = turno
+      document.getElementById("turnoparada1").value = turno
       document.getElementById("unidadeparada1").value = unidade
       data = [];
    $.ajax({

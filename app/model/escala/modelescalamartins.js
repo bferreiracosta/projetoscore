@@ -187,7 +187,7 @@ modelescalamartins.prototype.criarescalamartins = function(unidade, turno, datei
 }
 
 modelescalamartins.prototype.validarescala = function(unidade, turno, dateinicial, datefinal, rt, supervisao, cida, callback){
-	
+	console.log(unidade, turno, dateinicial, datefinal, rt, supervisao, cida)
 	this._conection.query('update escalamartins set rt="'+rt+'",supervisao="'+supervisao+'",cida="'+cida+'" where  unidade="Martins" and turno="'+turno+'" and dateinicial="'+dateinicial+'" and datefinal="'+datefinal+'"', callback);
 }
 
