@@ -233,7 +233,15 @@
          <button class="btn btn-info" id="pesquisartarde"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFtarde();"><i class="fas fa-download"></i></button>   <button type="button" id="edittarde" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')"><i class="fas fa-edit"></i></button></span></h4>
       <div class="html-contenttarde" id="mobiletarde">
         <table class="table table-bordered table-dark display" style="width: 100%; " id="tabletarde">
-          <thead>
+         <thead>
+            <tr style="border: none; height: 35px;" class="bg-primary">
+              <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logoprefeitura.jpg"></th>
+              <th colspan="4" scope="col" style="text-align: center;" id="dataturnotarde"></th>
+              <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logospdm.jpg"></th>
+              <th hidden></th>
+              <th hidden></th>
+            </tr>
+          </thead>
             <tr style="border: none; height: 35px;">
                <td style="text-align: center; font-size: medium; background: darkblue; color: white;" colspan="6"> Escala de Atribuição Tibery</td>
                <td hidden ></td>
