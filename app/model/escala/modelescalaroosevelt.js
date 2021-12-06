@@ -10,7 +10,7 @@ modelescalaroosevelt.prototype.buscafuncionario = function(turno, callback){
 
 modelescalaroosevelt.prototype.criarfolga =  function(funcionarios, escala, turno, callback){
 	var sql = "insert into folgaroosevelt (idfuncionarios,idescala) VALUES ?";
-	if(turno == "Manhã"){
+	if(turno == "Manha"){
 		var values = [
 			[funcionarios[0].idfuncionariosroosevelt, escala],
 			[funcionarios[1].idfuncionariosroosevelt, escala],
@@ -141,6 +141,7 @@ modelescalaroosevelt.prototype.criarfolga =  function(funcionarios, escala, turn
 			[funcionarios[24].idfuncionariosroosevelt, escala],
 			[funcionarios[25].idfuncionariosroosevelt, escala],
 			[funcionarios[26].idfuncionariosroosevelt, escala],
+			[funcionarios[27].idfuncionariosroosevelt, escala],
 		];
 	}
 
