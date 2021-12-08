@@ -8,18 +8,18 @@ module.exports.escalaco = function(application, req, res){
 		res.render("escala/escalaco", {id : result,  msg: ''});
 	});
 }
-module.exports.updateescalacotarde = function(application, req, res){
+module.exports.updateescalaco = function(application, req, res){
 	
 
 	var modelescalaco = new application.app.model.escala.modelescalaco(application);
 	var valor =  req.query;
 
-
-
-		modelescalaco.updateescalacotarde(valor, function(error, resultdoinsert){
+	
+	modelescalaco.buscarsituacaoco(valor, function(error, resultado){
+		modelescalaco.updateescalaco(valor,resultado, function(error, resultdoinsert){
 			res.send(resultdoinsert);
 		})
-	
+	})
 }
 
 module.exports.updateferias = function(application, req, res){
@@ -27,14 +27,11 @@ module.exports.updateferias = function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelescalaco = new application.app.model.escala.modelescalaco(application);
 	var idusuario = req.body.idusuario;
-	var idfuncionario = req.body.campo;
-	var inputsituacao = req.body.inputsituacao;
-	var dateinicialsituacao = req.body.dateinicialsituacao;
-	var datefinalsituacao = req.body.datefinalsituacao;
+	var valor =  req.query;
 
 	modeladmin.buscarusuarioeditavel(idusuario, function(error,result){
-		modelescalaco.updateferias(idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, function(error, resultdoinsert){
-			res.redirect("/escalaco?id=" + result[0].id_usuario);	
+		modelescalaco.updateferias(valor, function(error, resultdoinsert){
+			res.send(resultdoinsert);
 		})
 	});
 }
@@ -49,7 +46,9 @@ module.exports.validarescala = function(application, req, res){
 	var supervisao = req.body.supervisao;
 	var cida = req.body.cida;
 	
-	var unidade = "Centro Oftamológico";
+	if(campo==15){
+		var unidade = "CO";
+	}
 	var dateinicial = req.body.datainicial;
 	var datefinal = req.body.datafinal;
 	var dateano = req.body.dataano;
@@ -58,7 +57,7 @@ module.exports.validarescala = function(application, req, res){
 
 		if(resultado != null || resultado != ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
-				modelescalaco.validarescala(unidade, turno, dateinicial, datefinal, dateano, rt, supervisao, cida, function(error, resultdoinsert){
+				modelescalaco.validarescala(unidade, turno, dateinicial, datefinal, rt, supervisao, cida, function(error, resultdoinsert){
 					res.redirect("/escalaco?id=" + result[0].id_usuario);	
 				})
 			});
@@ -79,22 +78,23 @@ module.exports.criarescalaco = function(application, req, res){
 	var turno = req.body.turno;
 	var campo = req.body.campo;
 
-		var unidade = "Centro Oftamológico";
-
+	if(campo==15){
+		var unidade = "CO";
+	}
 	var dateinicial = req.body.dateinicial;
 	var datefinal = req.body.datefinal;
-
+	var ano = req.body.inputcriarano;
 	modelescalaco.buscarregraescalaunicaco(unidade, turno, dateinicial, datefinal,function(error, resultado){
 
 		if(resultado == null || resultado == ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
-				modelescalaco.criarescalaco(unidade, turno, dateinicial, datefinal, function(error, resultdoinsert){
+				modelescalaco.criarescalaco(unidade, turno, dateinicial, datefinal,ano, function(error, resultdoinsert){
 					modelescalaco.buscafuncionario(turno, function(error, resultado2){
-							// for(var i = 0; i< resultado2.length; i++){
-								modelescalaco.criarfolga(resultado2,resultdoinsert.insertId, turno, function(error, resultado3){})
-								// }
-							res.redirect("/escalaco?id=" + result[0].id_usuario);		
-					})
+						// for(var i = 0; i< resultado2.length; i++){
+							modelescalaco.criarfolga(resultado2,resultdoinsert.insertId, turno, function(error, resultado3){})
+						// }
+					res.redirect("/escalaco?id=" + result[0].id_usuario);	
+				})
 				})
 			});
 		}else{
@@ -107,6 +107,7 @@ module.exports.criarescalaco = function(application, req, res){
 	})
 }
 
+
 module.exports.buscarescalamensalco = function(application, req, res){
 	
 
@@ -116,151 +117,6 @@ module.exports.buscarescalamensalco = function(application, req, res){
 
 	
 	modelescalaco.buscarescalamensalco(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-module.exports.buscarescalamensalcomulti = function(application, req, res){
-	
-
-	var modelescalaco = new application.app.model.escala.modelescalaco(application);
-
-	var valor = req.query;
-	
-	modelescalaco.buscarescalamensalcomulti(valor,function(error, resultado){
-	
-			res.send(resultado);
-		})
-		
-	
-}
-
-module.exports.buscarescalamanhasetor1co = function(application, req, res){
-	
-
-	var modelescalaco = new application.app.model.escala.modelescalaco(application);
-
-	var valor = req.query;
-
-	
-	modelescalaco.buscarescalamanhasetor1co(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-
-module.exports.buscarescalamanhasetor2co = function(application, req, res){
-	
-
-	var modelescalaco = new application.app.model.escala.modelescalaco(application);
-
-	var valor = req.query;
-
-	
-	modelescalaco.buscarescalamanhasetor2co(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-
-module.exports.buscarescalamanhasetor3co = function(application, req, res){
-	
-
-	var modelescalaco = new application.app.model.escala.modelescalaco(application);
-
-	var valor = req.query;
-
-	
-	modelescalaco.buscarescalamanhasetor3co(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-
-module.exports.buscarescalamanhasetor4co = function(application, req, res){
-	
-
-	var modelescalaco = new application.app.model.escala.modelescalaco(application);
-
-	var valor = req.query;
-
-	
-	modelescalaco.buscarescalamanhasetor4co(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-
-module.exports.buscarescalamanhasetor5co = function(application, req, res){
-	
-
-	var modelescalaco = new application.app.model.escala.modelescalaco(application);
-
-	var valor = req.query;
-
-	
-	modelescalaco.buscarescalamanhasetor5co(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-
-
-module.exports.buscarescalamanhasetor6co = function(application, req, res){
-	
-
-	var modelescalaco = new application.app.model.escala.modelescalaco(application);
-
-	var valor = req.query;
-
-	
-	modelescalaco.buscarescalamanhasetor6co(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-
-
-module.exports.buscarescalamanhasetor7co = function(application, req, res){
-	
-
-	var modelescalaco = new application.app.model.escala.modelescalaco(application);
-
-	var valor = req.query;
-
-	
-	modelescalaco.buscarescalamanhasetor7co(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-
-
-module.exports.buscarescalamanhasetor8co = function(application, req, res){
-	
-
-	var modelescalaco = new application.app.model.escala.modelescalaco(application);
-
-	var valor = req.query;
-
-	
-	modelescalaco.buscarescalamanhasetor8co(valor,function(error, resultado){
 
 			res.send(resultado);
 		})

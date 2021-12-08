@@ -24,33 +24,11 @@ module.exports = function(application){
 	application.post('/validarescalacc', function(req, res){
 		application.app.controllers.escala.escalacc.validarescala(application, req, res);
 		});
-	application.post('/updateferiascc', function(req, res){
-		application.app.controllers.escala.escalacc.updateferias(application, req, res);
-		});
-	application.get('/updateescalacctarde', function(req, res){
-		application.app.controllers.escala.escalacc.updateescalacctarde(application, req, res);
+	application.get('/updateferiascc', function(req, res){
+		application.app.controllers.escala.escalacc.updateferiascc(application, req, res);
 		});
 	application.get('/buscarescalamensalcc', function(req, res){
 		application.app.controllers.escala.escalacc.buscarescalamensalcc(application, req, res);
-		});
-	application.get('/buscarescalamensalccmulti', function(req, res){
-		application.app.controllers.escala.escalacc.buscarescalamensalccmulti(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor1cc', function(req, res){
-		application.app.controllers.escala.escalacc.buscarescalamanhasetor1cc(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor2cc', function(req, res){
-		application.app.controllers.escala.escalacc.buscarescalamanhasetor2cc(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor3cc', function(req, res){
-		application.app.controllers.escala.escalacc.buscarescalamanhasetor3cc(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor4cc', function(req, res){
-		application.app.controllers.escala.escalacc.buscarescalamanhasetor4cc(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor5cc', function(req, res){
-		application.app.controllers.escala.escalacc.buscarescalamanhasetor5cc(application, req, res);
-		});
-				
+		});	
 }
 

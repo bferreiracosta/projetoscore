@@ -24,24 +24,11 @@ module.exports = function(application){
 	application.post('/validarescalacer', function(req, res){
 		application.app.controllers.escala.escalacer.validarescala(application, req, res);
 		});
-	application.post('/updateferiascer', function(req, res){
-		application.app.controllers.escala.escalacer.updateferias(application, req, res);
-		});
-	application.get('/updateescalacertarde', function(req, res){
-		application.app.controllers.escala.escalacer.updateescalacertarde(application, req, res);
+	application.get('/updateferiascer', function(req, res){
+		application.app.controllers.escala.escalacer.updateferiascer(application, req, res);
 		});
 	application.get('/buscarescalamensalcer', function(req, res){
 		application.app.controllers.escala.escalacer.buscarescalamensalcer(application, req, res);
-		});
-	application.get('/buscarescalamensalcermulti', function(req, res){
-		application.app.controllers.escala.escalacer.buscarescalamensalcermulti(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor1cer', function(req, res){
-		application.app.controllers.escala.escalacer.buscarescalamanhasetor1cer(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor2cer', function(req, res){
-		application.app.controllers.escala.escalacer.buscarescalamanhasetor2cer(application, req, res);
-		});
-		
+		});	
 }
 

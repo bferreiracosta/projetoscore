@@ -24,43 +24,11 @@ module.exports = function(application){
 	application.post('/validarescalaco', function(req, res){
 		application.app.controllers.escala.escalaco.validarescala(application, req, res);
 		});
-	application.post('/updateferiasco', function(req, res){
+	application.get('/updateferiasco', function(req, res){
 		application.app.controllers.escala.escalaco.updateferias(application, req, res);
-		});
-	application.get('/updateescalacotarde', function(req, res){
-		application.app.controllers.escala.escalaco.updateescalacotarde(application, req, res);
 		});
 	application.get('/buscarescalamensalco', function(req, res){
 		application.app.controllers.escala.escalaco.buscarescalamensalco(application, req, res);
-		});
-	application.get('/buscarescalamensalcomulti', function(req, res){
-		application.app.controllers.escala.escalaco.buscarescalamensalcomulti(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor1co', function(req, res){
-		application.app.controllers.escala.escalaco.buscarescalamanhasetor1co(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor2co', function(req, res){
-		application.app.controllers.escala.escalaco.buscarescalamanhasetor2co(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor3co', function(req, res){
-		application.app.controllers.escala.escalaco.buscarescalamanhasetor3co(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor4co', function(req, res){
-		application.app.controllers.escala.escalaco.buscarescalamanhasetor4co(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor5co', function(req, res){
-		application.app.controllers.escala.escalaco.buscarescalamanhasetor5co(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor6co', function(req, res){
-		application.app.controllers.escala.escalaco.buscarescalamanhasetor6co(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor7co', function(req, res){
-		application.app.controllers.escala.escalaco.buscarescalamanhasetor7co(application, req, res);
-		});
-	application.get('/buscarescalamanhasetor8co', function(req, res){
-		application.app.controllers.escala.escalaco.buscarescalamanhasetor8co(application, req, res);
-		});
-			
-				
+		});	
 }
 
