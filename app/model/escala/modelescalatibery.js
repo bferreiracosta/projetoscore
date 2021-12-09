@@ -373,22 +373,22 @@ modelescalatibery.prototype.buscarregraescalaunicatibery = function(campo, turno
 
 modelescalatibery.prototype.buscarescalamensaltibery = function(valor, callback){
 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" order by func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf", func.nome;', callback);
+	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalatibery.prototype.buscarescalamensaltiberytarde = function(valor, callback){
 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" order by func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf", func.nome;', callback);
+	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalatibery.prototype.buscarescalamensaltiberysn1 = function(valor, callback){
 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" order by func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf", func.nome;', callback);
+	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalatibery.prototype.buscarescalamensaltiberysn2 = function(valor, callback){
 
-	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" order by func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf", func.nome;', callback);
+	this._conection.query('select * from folgatibery f inner join funcionariostibery func on f.idfuncionarios=func.idfuncionariostibery inner join escalatibery esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Tibery" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalatibery.prototype.buscarescalamensaltiberymaq = function(valor, callback){

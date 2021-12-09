@@ -392,22 +392,22 @@ modelescalaluizote.prototype.buscarregraescalaunicaluizote = function(campo, tur
 
 modelescalaluizote.prototype.buscarescalamensalluizote = function(valor, callback){
 
-	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Luizote" order by func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf", func.nome;', callback);
+	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Luizote" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalaluizote.prototype.buscarescalamensalluizotetarde = function(valor, callback){
 
-	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Luizote" order by func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf", func.nome;', callback);
+	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Luizote" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalaluizote.prototype.buscarescalamensalluizotesn1 = function(valor, callback){
 
-	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Luizote" order by func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf", func.nome;', callback);
+	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Luizote" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalaluizote.prototype.buscarescalamensalluizotesn2 = function(valor, callback){
 
-	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Luizote" order by func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf", func.nome;', callback);
+	this._conection.query('select * from folgaluizote f inner join funcionariosluizote func on f.idfuncionarios=func.idfuncionariosluizote inner join escalaluizote esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Luizote" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalaluizote.prototype.buscarescalamensalluizotemaq = function(valor, callback){

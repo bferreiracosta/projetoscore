@@ -14,25 +14,12 @@ module.exports.updateescalacapsoeste = function(application, req, res){
 	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
 	var valor =  req.query;
 
-
-
-		modelescalacapsoeste.updateescalacapsoeste(valor, function(error, resultdoinsert){
+	
+	modelescalacapsoeste.buscarsituacaocapsoeste(valor, function(error, resultado){
+		modelescalacapsoeste.updateescalacapsoeste(valor,resultado, function(error, resultdoinsert){
 			res.send(resultdoinsert);
 		})
-	
-}
-
-module.exports.updateescalacapsoestetarde = function(application, req, res){
-	
-
-	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
-	var valor =  req.query;
-
-
-
-		modelescalacapsoeste.updateescalacapsoestetarde(valor, function(error, resultdoinsert){
-			res.send(resultdoinsert);
-		})
+	})
 	
 }
 
@@ -41,14 +28,11 @@ module.exports.updateferias = function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
 	var idusuario = req.body.idusuario;
-	var idfuncionario = req.body.campo;
-	var inputsituacao = req.body.inputsituacao;
-	var dateinicialsituacao = req.body.dateinicialsituacao;
-	var datefinalsituacao = req.body.datefinalsituacao;
+	var valor =  req.query;
 
 	modeladmin.buscarusuarioeditavel(idusuario, function(error,result){
-		modelescalacapsoeste.updateferias(idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, function(error, resultdoinsert){
-			res.redirect("/escalacapsoeste?id=" + result[0].id_usuario);	
+		modelescalacapsoeste.updateferias(valor, function(error, resultdoinsert){
+			res.send(resultdoinsert);
 		})
 	});
 }
@@ -63,7 +47,24 @@ module.exports.validarescala = function(application, req, res){
 	var supervisao = req.body.supervisao;
 	var cida = req.body.cida;
 	
-	var unidade = "Caps Oeste";
+	if(campo==1){
+		var unidade = "Caps Oeste";
+	}else 
+	if(campo==2){
+		var unidade = "Luizote";
+	}else 
+	if(campo==3){
+		var unidade = "Martins";
+	}else 
+	if(campo==4){
+		var unidade = "Roosevelt";
+	}else 
+	if(campo==6){
+		var unidade = "Tibery";
+	}else 
+	if(campo==5){
+		var unidade = "Caps Oeste";
+	} 
 	var dateinicial = req.body.datainicial;
 	var datefinal = req.body.datafinal;
 	var dateano = req.body.dataano;
@@ -72,7 +73,7 @@ module.exports.validarescala = function(application, req, res){
 
 		if(resultado != null || resultado != ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
-				modelescalacapsoeste.validarescala(unidade, turno, dateinicial, datefinal, dateano, rt, supervisao, cida, function(error, resultdoinsert){
+				modelescalacapsoeste.validarescala(unidade, turno, dateinicial, datefinal, rt, supervisao, cida, function(error, resultdoinsert){
 					res.redirect("/escalacapsoeste?id=" + result[0].id_usuario);	
 				})
 			});
@@ -93,22 +94,38 @@ module.exports.criarescalacapsoeste = function(application, req, res){
 	var turno = req.body.turno;
 	var campo = req.body.campo;
 
+	if(campo==1){
 		var unidade = "Caps Oeste";
-
+	}else 
+	if(campo==2){
+		var unidade = "Luizote";
+	}else 
+	if(campo==3){
+		var unidade = "Martins";
+	}else 
+	if(campo==4){
+		var unidade = "Roosevelt";
+	}else 
+	if(campo==6){
+		var unidade = "Tibery";
+	}else 
+	if(campo==5){
+		var unidade = "Caps Oeste";
+	} 
 	var dateinicial = req.body.dateinicial;
 	var datefinal = req.body.datefinal;
-
+	var ano = req.body.inputcriarano;
 	modelescalacapsoeste.buscarregraescalaunicacapsoeste(unidade, turno, dateinicial, datefinal,function(error, resultado){
 
 		if(resultado == null || resultado == ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
-				modelescalacapsoeste.criarescalacapsoeste(unidade, turno, dateinicial, datefinal, function(error, resultdoinsert){
+				modelescalacapsoeste.criarescalacapsoeste(unidade, turno, dateinicial, datefinal,ano, function(error, resultdoinsert){
 					modelescalacapsoeste.buscafuncionario(turno, function(error, resultado2){
-							// for(var i = 0; i< resultado2.length; i++){
-								modelescalacapsoeste.criarfolga(resultado2,resultdoinsert.insertId, turno, function(error, resultado3){})
-								// }
-							res.redirect("/escalacapsoeste?id=" + result[0].id_usuario);		
-					})
+						// for(var i = 0; i< resultado2.length; i++){
+							modelescalacapsoeste.criarfolga(resultado2,resultdoinsert.insertId, turno, function(error, resultado3){})
+						// }
+					res.redirect("/escalacapsoeste?id=" + result[0].id_usuario);	
+				})
 				})
 			});
 		}else{
@@ -120,6 +137,7 @@ module.exports.criarescalacapsoeste = function(application, req, res){
 		
 	})
 }
+
 
 module.exports.buscarescalamensalcapsoeste = function(application, req, res){
 	
@@ -136,7 +154,9 @@ module.exports.buscarescalamensalcapsoeste = function(application, req, res){
 		
 	
 }
-module.exports.buscarescalamensalcapsoestemulti = function(application, req, res){
+
+
+module.exports.buscarescalamensalcapsoestetarde = function(application, req, res){
 	
 
 	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
@@ -144,192 +164,12 @@ module.exports.buscarescalamensalcapsoestemulti = function(application, req, res
 	var valor = req.query;
 
 	
-	modelescalacapsoeste.buscarescalamensalcapsoestemulti(valor,function(error, resultado){
-
+	modelescalacapsoeste.buscarescalamensalcapsoestetarde(valor,function(error, resultado){
+			
 			res.send(resultado);
 		})
 		
 	
 }
 
-module.exports.buscarescalamanhasetor1 = function(application, req, res){
-	
 
-	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
-
-	var valor = req.query;
-
-	
-	modelescalacapsoeste.buscarescalamanhasetor1(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-
-module.exports.buscarescalamanhasetor2 = function(application, req, res){
-	
-
-	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
-
-	var valor = req.query;
-
-	
-	modelescalacapsoeste.buscarescalamanhasetor2(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-module.exports.buscarescalamanhasetor3 = function(application, req, res){
-	
-
-	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
-
-	var valor = req.query;
-
-	
-	modelescalacapsoeste.buscarescalamanhasetor3(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-module.exports.buscarescalamanhasetor4 = function(application, req, res){
-	
-
-	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
-
-	var valor = req.query;
-
-	
-	modelescalacapsoeste.buscarescalamanhasetor4(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-module.exports.buscarescalamanhasetor5 = function(application, req, res){
-	
-
-	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
-
-	var valor = req.query;
-
-	
-	modelescalacapsoeste.buscarescalamanhasetor5(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-module.exports.buscarescalamanhasetor6 = function(application, req, res){
-	
-
-	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
-
-	var valor = req.query;
-
-	
-	modelescalacapsoeste.buscarescalamanhasetor6(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-module.exports.buscarescalamanhasetor7 = function(application, req, res){
-	
-
-	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
-
-	var valor = req.query;
-
-	
-	modelescalacapsoeste.buscarescalamanhasetor7(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-module.exports.buscarescalamanhasetor8 = function(application, req, res){
-	
-
-	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
-
-	var valor = req.query;
-
-	
-	modelescalacapsoeste.buscarescalamanhasetor8(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-module.exports.buscarescalamanhasetor9 = function(application, req, res){
-	
-
-	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
-
-	var valor = req.query;
-
-	
-	modelescalacapsoeste.buscarescalamanhasetor9(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-module.exports.buscarescalamanhasetor10 = function(application, req, res){
-	
-
-	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
-
-	var valor = req.query;
-
-	
-	modelescalacapsoeste.buscarescalamanhasetor10(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-module.exports.buscarescalamanhasetor11 = function(application, req, res){
-	
-
-	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
-
-	var valor = req.query;
-
-	
-	modelescalacapsoeste.buscarescalamanhasetor11(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
-module.exports.buscarescalamanhasetor12 = function(application, req, res){
-	
-
-	var modelescalacapsoeste = new application.app.model.escala.modelescalacapsoeste(application);
-
-	var valor = req.query;
-
-	
-	modelescalacapsoeste.buscarescalamanhasetor12(valor,function(error, resultado){
-
-			res.send(resultado);
-		})
-		
-	
-}
