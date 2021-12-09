@@ -390,22 +390,22 @@ modelescalamartins.prototype.buscarregraescalaunicamartins = function(campo, tur
 
 modelescalamartins.prototype.buscarescalamensalmartins = function(valor, callback){
 
-	this._conection.query('select * from folgamartins f inner join funcionariosmartins func on f.idfuncionarios=func.idfuncionariosmartins inner join escalamartins esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Martins" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgamartins f inner join funcionariosmartins func on f.idfuncionarios=func.idfuncionariosmartins inner join escalamartins esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Martins" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalamartins.prototype.buscarescalamensalmartinstarde = function(valor, callback){
 
-	this._conection.query('select * from folgamartins f inner join funcionariosmartins func on f.idfuncionarios=func.idfuncionariosmartins inner join escalamartins esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Martins" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgamartins f inner join funcionariosmartins func on f.idfuncionarios=func.idfuncionariosmartins inner join escalamartins esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Martins" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalamartins.prototype.buscarescalamensalmartinssn1 = function(valor, callback){
 
-	this._conection.query('select * from folgamartins f inner join funcionariosmartins func on f.idfuncionarios=func.idfuncionariosmartins inner join escalamartins esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Martins" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgamartins f inner join funcionariosmartins func on f.idfuncionarios=func.idfuncionariosmartins inner join escalamartins esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Martins" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalamartins.prototype.buscarescalamensalmartinssn2 = function(valor, callback){
 
-	this._conection.query('select * from folgamartins f inner join funcionariosmartins func on f.idfuncionarios=func.idfuncionariosmartins inner join escalamartins esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Martins" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgamartins f inner join funcionariosmartins func on f.idfuncionarios=func.idfuncionariosmartins inner join escalamartins esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Martins" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalamartins.prototype.buscarescalamensalmartinsmaq = function(valor, callback){

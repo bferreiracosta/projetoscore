@@ -388,22 +388,22 @@ modelescalaroosevelt.prototype.buscarregraescalaunicaroosevelt = function(campo,
 
 modelescalaroosevelt.prototype.buscarescalamensalroosevelt = function(valor, callback){
 
-	this._conection.query('select * from folgaroosevelt f inner join funcionariosroosevelt func on f.idfuncionarios=func.idfuncionariosroosevelt inner join escalaroosevelt esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Roosevelt" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgaroosevelt f inner join funcionariosroosevelt func on f.idfuncionarios=func.idfuncionariosroosevelt inner join escalaroosevelt esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Roosevelt" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalaroosevelt.prototype.buscarescalamensalroosevelttarde = function(valor, callback){
 
-	this._conection.query('select * from folgaroosevelt f inner join funcionariosroosevelt func on f.idfuncionarios=func.idfuncionariosroosevelt inner join escalaroosevelt esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Roosevelt" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgaroosevelt f inner join funcionariosroosevelt func on f.idfuncionarios=func.idfuncionariosroosevelt inner join escalaroosevelt esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Roosevelt" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalaroosevelt.prototype.buscarescalamensalrooseveltsn1 = function(valor, callback){
 
-	this._conection.query('select * from folgaroosevelt f inner join funcionariosroosevelt func on f.idfuncionarios=func.idfuncionariosroosevelt inner join escalaroosevelt esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Roosevelt" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgaroosevelt f inner join funcionariosroosevelt func on f.idfuncionarios=func.idfuncionariosroosevelt inner join escalaroosevelt esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Roosevelt" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalaroosevelt.prototype.buscarescalamensalrooseveltsn2 = function(valor, callback){
 
-	this._conection.query('select * from folgaroosevelt f inner join funcionariosroosevelt func on f.idfuncionarios=func.idfuncionariosroosevelt inner join escalaroosevelt esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Roosevelt" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgaroosevelt f inner join funcionariosroosevelt func on f.idfuncionarios=func.idfuncionariosroosevelt inner join escalaroosevelt esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Roosevelt" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalaroosevelt.prototype.buscarescalamensalrooseveltmaq = function(valor, callback){

@@ -357,22 +357,22 @@ modelescalamorumbi.prototype.buscarregraescalaunicamorumbi = function(campo, tur
 
 modelescalamorumbi.prototype.buscarescalamensalmorumbi = function(valor, callback){
 
-	this._conection.query('select * from folgamorumbi f inner join funcionariosmorumbi func on f.idfuncionarios=func.idfuncionariosmorumbi inner join escalamorumbi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Morumbi" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgamorumbi f inner join funcionariosmorumbi func on f.idfuncionarios=func.idfuncionariosmorumbi inner join escalamorumbi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Morumbi" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalamorumbi.prototype.buscarescalamensalmorumbitarde = function(valor, callback){
 
-	this._conection.query('select * from folgamorumbi f inner join funcionariosmorumbi func on f.idfuncionarios=func.idfuncionariosmorumbi inner join escalamorumbi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Morumbi" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgamorumbi f inner join funcionariosmorumbi func on f.idfuncionarios=func.idfuncionariosmorumbi inner join escalamorumbi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Morumbi" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalamorumbi.prototype.buscarescalamensalmorumbisn1 = function(valor, callback){
 
-	this._conection.query('select * from folgamorumbi f inner join funcionariosmorumbi func on f.idfuncionarios=func.idfuncionariosmorumbi inner join escalamorumbi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Morumbi" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgamorumbi f inner join funcionariosmorumbi func on f.idfuncionarios=func.idfuncionariosmorumbi inner join escalamorumbi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Morumbi" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalamorumbi.prototype.buscarescalamensalmorumbisn2 = function(valor, callback){
 
-	this._conection.query('select * from folgamorumbi f inner join funcionariosmorumbi func on f.idfuncionarios=func.idfuncionariosmorumbi inner join escalamorumbi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Morumbi" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgamorumbi f inner join funcionariosmorumbi func on f.idfuncionarios=func.idfuncionariosmorumbi inner join escalamorumbi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Morumbi" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalamorumbi.prototype.buscarescalamensalmorumbimaq = function(valor, callback){

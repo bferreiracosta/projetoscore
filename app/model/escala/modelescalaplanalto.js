@@ -394,22 +394,22 @@ modelescalaplanalto.prototype.buscarregraescalaunicaplanalto = function(campo, t
 
 modelescalaplanalto.prototype.buscarescalamensalplanalto = function(valor, callback){
 
-	this._conection.query('select * from folgaplanalto f inner join funcionariosplanalto func on f.idfuncionarios=func.idfuncionariosplanalto inner join escalaplanalto esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Planalto" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgaplanalto f inner join funcionariosplanalto func on f.idfuncionarios=func.idfuncionariosplanalto inner join escalaplanalto esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Planalto" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalaplanalto.prototype.buscarescalamensalplanaltotarde = function(valor, callback){
 
-	this._conection.query('select * from folgaplanalto f inner join funcionariosplanalto func on f.idfuncionarios=func.idfuncionariosplanalto inner join escalaplanalto esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Planalto" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgaplanalto f inner join funcionariosplanalto func on f.idfuncionarios=func.idfuncionariosplanalto inner join escalaplanalto esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Planalto" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalaplanalto.prototype.buscarescalamensalplanaltosn1 = function(valor, callback){
 
-	this._conection.query('select * from folgaplanalto f inner join funcionariosplanalto func on f.idfuncionarios=func.idfuncionariosplanalto inner join escalaplanalto esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Planalto" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgaplanalto f inner join funcionariosplanalto func on f.idfuncionarios=func.idfuncionariosplanalto inner join escalaplanalto esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Planalto" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalaplanalto.prototype.buscarescalamensalplanaltosn2 = function(valor, callback){
 
-	this._conection.query('select * from folgaplanalto f inner join funcionariosplanalto func on f.idfuncionarios=func.idfuncionariosplanalto inner join escalaplanalto esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Planalto" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgaplanalto f inner join funcionariosplanalto func on f.idfuncionarios=func.idfuncionariosplanalto inner join escalaplanalto esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Planalto" order by func.categoria = "AUX", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
 }
 
 modelescalaplanalto.prototype.buscarescalamensalplanaltomaq = function(valor, callback){
