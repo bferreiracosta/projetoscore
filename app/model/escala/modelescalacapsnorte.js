@@ -22,7 +22,6 @@ modelescalacapsnorte.prototype.criarfolga =  function(funcionarios, escala, turn
 			[funcionarios[7].idfuncionarioscapsnorte, escala],
 			[funcionarios[8].idfuncionarioscapsnorte, escala],
 			[funcionarios[9].idfuncionarioscapsnorte, escala],
-			[funcionarios[10].idfuncionarioscapsnorte, escala],
 		];
 	}
 	if(turno == "Multi"){
