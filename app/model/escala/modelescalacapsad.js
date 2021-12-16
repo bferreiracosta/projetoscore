@@ -55,12 +55,6 @@ modelescalacapsad.prototype.criarfolga =  function(funcionarios, escala, turno, 
 			[funcionarios[12].idfuncionarioscapsad, escala],
 			[funcionarios[13].idfuncionarioscapsad, escala],
 			[funcionarios[14].idfuncionarioscapsad, escala],
-			[funcionarios[15].idfuncionarioscapsad, escala],
-			[funcionarios[16].idfuncionarioscapsad, escala],
-			[funcionarios[17].idfuncionarioscapsad, escala],
-			[funcionarios[18].idfuncionarioscapsad, escala],
-			[funcionarios[19].idfuncionarioscapsad, escala],
-			[funcionarios[20].idfuncionarioscapsad, escala],
 		];
 	}
 	
