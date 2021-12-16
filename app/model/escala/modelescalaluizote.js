@@ -47,6 +47,7 @@ modelescalaluizote.prototype.criarfolga =  function(funcionarios, escala, turno,
 			[funcionarios[32].idfuncionariosluizote, escala],
 			[funcionarios[33].idfuncionariosluizote, escala],
 			[funcionarios[34].idfuncionariosluizote, escala],
+			[funcionarios[35].idfuncionariosluizote, escala],
 		];
 	}
 	if(turno == "Tarde"){

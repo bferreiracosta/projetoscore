@@ -128,6 +128,26 @@
 							<li class="btn-info"><a class="btn   btn-sm" href="/escalaua?id=<%=id[i].id_usuario %>">Escala Unidade de Acolhimento</a></li>
 							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
+						<% if(id[i].usuario== "coordad" || id[i].usuario== "supervad"){%>
+							<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsad?id=<%=id[i].id_usuario %>">Escala Caps AD</a></li>
+							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% } %>
+						<% if(id[i].usuario== "coordoeste" || id[i].usuario== "supervoeste"){%>
+							<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsoeste?id=<%=id[i].id_usuario %>">Escala Caps Oeste</a></li>
+							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% } %>
+						<% if(id[i].usuario== "coordleste" || id[i].usuario== "supervleste"){%>
+							<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsleste?id=<%=id[i].id_usuario %>">Escala Caps Leste</a></li>
+							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% } %>
+						<% if(id[i].usuario== "coordinfantil" || id[i].usuario== "supervinfantil"){%>
+							<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsi?id=<%=id[i].id_usuario %>">Escala Caps Infantil</a></li>
+							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% } %>
+						<% if(id[i].usuario== "coordnorte" || id[i].usuario== "supervnorte"){%>
+							<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsnorte?id=<%=id[i].id_usuario %>">Escala Caps Norte</a></li>
+							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% } %>
 					<% } %>	
 				<% } %>
 								
