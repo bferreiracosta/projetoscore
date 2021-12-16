@@ -709,7 +709,7 @@
                            <div class='location'>
                               <input  type="hidden" name="campo" id="idfuncionario" class="id">
                               <input  type="hidden" name="idusuario" class="idusuario">
-                              <input  type="hidden" id="updateturno" name="turno" class="turno">
+                              <input  type="text" id="updateturno" name="turno" class="turno">
                               <h4 class="nome"></h4>
                               <label for="susfacil">Folga Colaborador</label>
                               <table class="table tablefolga table-bordered table-dark display" style="width: 100%;font-weight:bold;font-size: 10px; ; " id="tablefolga">
@@ -837,7 +837,7 @@
 <script>
 $("#btncriar").on('click', function(e){
   var updateturno = document.getElementById("updateturno").value;
-  if(updateturno=="Enfermagem"){
+  if(updateturno=="Manhã"){
   data = [];
   var idfuncionario =document.getElementById("idfuncionario").value;
   var inputsituacao =document.getElementById("inputsituacao").value;
@@ -914,7 +914,7 @@ $("#btncriar").on('click', function(e){
           
       })
   }
-  if(updateturno=="Multi"){
+  if(updateturno=="Tarde"){
     data = [];
   var idfuncionario =document.getElementById("idfuncionario").value;
   var inputsituacao =document.getElementById("inputsituacao").value;
