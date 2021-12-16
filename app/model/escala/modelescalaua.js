@@ -5,12 +5,12 @@ function modelescalaua(application){
 
 modelescalaua.prototype.buscafuncionario = function(turno, callback){
 	
-	this._conection.query('select idfuncionariosua from funcionariosua where turno = "'+turno+'"', callback);
+	this._conection.query('select idfuncionariosua from funcionariosua where equipe = "Multi"', callback);
 }
 
 modelescalaua.prototype.criarfolga =  function(funcionarios, escala, turno, callback){
 	var sql = "insert into folgaua (idfuncionarios,idescala) VALUES ?";
-	if(turno == "Diurno"){
+	if(turno == "Multi"){
 		var values = [
 			[funcionarios[0].idfuncionariosua, escala],
 			[funcionarios[1].idfuncionariosua, escala],

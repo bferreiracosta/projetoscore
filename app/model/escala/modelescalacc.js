@@ -5,7 +5,7 @@ function modelescalacc(application){
 
 modelescalacc.prototype.buscafuncionario = function(turno, callback){
 	
-	this._conection.query('select idfuncionarioscc from funcionarioscc where turno = "'+turno+'"', callback);
+	this._conection.query('select idfuncionarioscc from funcionarioscc where turno = "Diurno"', callback);
 }
 
 modelescalacc.prototype.criarfolga =  function(funcionarios, escala, turno, callback){
@@ -24,7 +24,6 @@ modelescalacc.prototype.criarfolga =  function(funcionarios, escala, turno, call
 			[funcionarios[9].idfuncionarioscc, escala],
 			[funcionarios[10].idfuncionarioscc, escala],
 			[funcionarios[11].idfuncionarioscc, escala],
-			[funcionarios[12].idfuncionarioscc, escala],
 		];
 	}
 
