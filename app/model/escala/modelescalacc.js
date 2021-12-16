@@ -19,6 +19,12 @@ modelescalacc.prototype.criarfolga =  function(funcionarios, escala, turno, call
 			[funcionarios[4].idfuncionarioscc, escala],
 			[funcionarios[5].idfuncionarioscc, escala],
 			[funcionarios[6].idfuncionarioscc, escala],
+			[funcionarios[7].idfuncionarioscc, escala],
+			[funcionarios[8].idfuncionarioscc, escala],
+			[funcionarios[9].idfuncionarioscc, escala],
+			[funcionarios[10].idfuncionarioscc, escala],
+			[funcionarios[11].idfuncionarioscc, escala],
+			[funcionarios[12].idfuncionarioscc, escala],
 		];
 	}
 
