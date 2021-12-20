@@ -78,7 +78,7 @@ module.exports.historico= function(application, req, res){
 	
 	modeladmin.buscarusuario(id, function(error, result){
 		modelnorte.historico(unidade, function(error, resultado){
-			res.render("mental/CapsNorte/historicoad", {mental : resultado, id : result});
+			res.render("mental/CapsNorte/historiconorte", {mental : resultado, id : result});
 		});
 	});		
 }

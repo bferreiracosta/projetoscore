@@ -78,7 +78,7 @@ module.exports.historico= function(application, req, res){
 	
 	modeladmin.buscarusuario(id, function(error, result){
 		modelinfantil.historico(unidade, function(error, resultado){
-			res.render("mental/CapsInfantil/historicoad", {mental : resultado, id : result});
+			res.render("mental/CapsInfantil/historicoinfantil", {mental : resultado, id : result});
 		});
 	});		
 }

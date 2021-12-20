@@ -78,7 +78,7 @@ module.exports.historico= function(application, req, res){
 	
 	modeladmin.buscarusuario(id, function(error, result){
 		modelleste.historico(unidade, function(error, resultado){
-			res.render("mental/CapsLeste/historicoad", {mental : resultado, id : result});
+			res.render("mental/CapsLeste/historicoleste", {mental : resultado, id : result});
 		});
 	});		
 }
