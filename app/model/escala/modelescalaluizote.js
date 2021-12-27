@@ -389,7 +389,7 @@ modelescalaluizote.prototype.buscarregraescalaunicaluizote = function(campo, tur
 
 
 
-	this._conection.query('select * from escalaluizote where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Luizote"', callback);
+	this._conection.query('select * from escalaluizote where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Luizote"', callback);
 }
 
 modelescalaluizote.prototype.buscarescalamensalluizote = function(valor, callback){

@@ -284,7 +284,7 @@ modelescalacapsad.prototype.buscarregraescalaunicacapsad = function(campo, turno
 
 
 
-	this._conection.query('select * from escalacapsad where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps AD"', callback);
+	this._conection.query('select * from escalacapsad where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps AD"', callback);
 }
 
 modelescalacapsad.prototype.buscarescalamensalcapsad = function(valor, callback){

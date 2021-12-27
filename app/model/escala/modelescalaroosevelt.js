@@ -383,7 +383,7 @@ modelescalaroosevelt.prototype.buscarregraescalaunicaroosevelt = function(campo,
 
 
 
-	this._conection.query('select * from escalaroosevelt where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Roosevelt"', callback);
+	this._conection.query('select * from escalaroosevelt where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Roosevelt"', callback);
 }
 
 modelescalaroosevelt.prototype.buscarescalamensalroosevelt = function(valor, callback){

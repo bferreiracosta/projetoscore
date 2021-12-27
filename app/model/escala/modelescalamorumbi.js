@@ -352,7 +352,7 @@ modelescalamorumbi.prototype.buscarregraescalaunicamorumbi = function(campo, tur
 
 
 
-	this._conection.query('select * from escalamorumbi where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Morumbi"', callback);
+	this._conection.query('select * from escalamorumbi where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Morumbi"', callback);
 }
 
 modelescalamorumbi.prototype.buscarescalamensalmorumbi = function(valor, callback){

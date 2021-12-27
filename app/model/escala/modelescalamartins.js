@@ -385,7 +385,7 @@ modelescalamartins.prototype.buscarregraescalaunicamartins = function(campo, tur
 
 
 
-	this._conection.query('select * from escalamartins where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Martins"', callback);
+	this._conection.query('select * from escalamartins where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Martins"', callback);
 }
 
 modelescalamartins.prototype.buscarescalamensalmartins = function(valor, callback){

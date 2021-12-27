@@ -130,7 +130,7 @@ modelescalacer.prototype.buscarregraescalaunicacer = function(campo, turno, date
 
 
 
-	this._conection.query('select * from escalacer where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "CER"', callback);
+	this._conection.query('select * from escalacer where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "CER"', callback);
 }
 
 modelescalacer.prototype.buscarescalamensalcer = function(valor, callback){

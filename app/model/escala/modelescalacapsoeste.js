@@ -289,7 +289,7 @@ modelescalacapsoeste.prototype.buscarregraescalaunicacapsoeste = function(campo,
 
 
 
-	this._conection.query('select * from escalacapsoeste where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps Oeste"', callback);
+	this._conection.query('select * from escalacapsoeste where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps Oeste"', callback);
 }
 
 modelescalacapsoeste.prototype.buscarescalamensalcapsoeste = function(valor, callback){

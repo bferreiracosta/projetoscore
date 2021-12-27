@@ -129,7 +129,7 @@ modelescalaua.prototype.buscarregraescalaunicaua = function(campo, turno, datein
 
 
 
-	this._conection.query('select * from escalaua where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "UA"', callback);
+	this._conection.query('select * from escalaua where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "UA"', callback);
 }
 
 modelescalaua.prototype.buscarescalamensalua = function(valor, callback){

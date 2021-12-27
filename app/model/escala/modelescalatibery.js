@@ -368,7 +368,7 @@ modelescalatibery.prototype.buscarregraescalaunicatibery = function(campo, turno
 
 
 
-	this._conection.query('select * from escalatibery where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Tibery"', callback);
+	this._conection.query('select * from escalatibery where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Tibery"', callback);
 }
 
 modelescalatibery.prototype.buscarescalamensaltibery = function(valor, callback){

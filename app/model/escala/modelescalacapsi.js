@@ -273,7 +273,7 @@ modelescalacapsi.prototype.buscarregraescalaunicacapsi = function(campo, turno, 
 
 
 
-	this._conection.query('select * from escalacapsi where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps I"', callback);
+	this._conection.query('select * from escalacapsi where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps I"', callback);
 }
 
 modelescalacapsi.prototype.buscarescalamensalcapsi = function(valor, callback){

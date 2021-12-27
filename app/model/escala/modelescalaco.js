@@ -148,7 +148,7 @@ modelescalaco.prototype.buscarregraescalaunicaco = function(campo, turno, datein
 
 
 
-	this._conection.query('select * from escalaco where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "CO"', callback);
+	this._conection.query('select * from escalaco where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "CO"', callback);
 }
 
 modelescalaco.prototype.buscarescalamensalco = function(valor, callback){

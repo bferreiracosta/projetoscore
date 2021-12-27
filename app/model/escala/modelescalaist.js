@@ -131,7 +131,7 @@ modelescalaist.prototype.buscarregraescalaunicaist = function(campo, turno, date
 
 
 
-	this._conection.query('select * from escalaist where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "IST"', callback);
+	this._conection.query('select * from escalaist where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "IST"', callback);
 }
 
 modelescalaist.prototype.buscarescalamensalist = function(valor, callback){

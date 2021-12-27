@@ -323,7 +323,7 @@ modelescalasad.prototype.buscarregraescalaunicasad = function(campo, turno, date
 
 
 
-	this._conection.query('select * from escalasad where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "SAD"', callback);
+	this._conection.query('select * from escalasad where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "SAD"', callback);
 }
 
 modelescalasad.prototype.buscarescalamensalsad = function(valor, callback){

@@ -268,7 +268,7 @@ modelescalacapsleste.prototype.buscarregraescalaunicacapsleste = function(campo,
 
 
 
-	this._conection.query('select * from escalacapsleste where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps Leste"', callback);
+	this._conection.query('select * from escalacapsleste where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps Leste"', callback);
 }
 
 modelescalacapsleste.prototype.buscarescalamensalcapsleste = function(valor, callback){
