@@ -17,26 +17,7 @@ module.exports.updatedescanso = function(application, req, res){
 	var id = req.body.idusuario;
 	var date = req.body.dataparada1;
 	var turno = req.body.turnoparada1;
-	var campo = req.body.unidadeparada1;
-
-	if(campo==1){
-		var unidade = "Planalto";
-	}else 
-	if(campo==2){
-		var unidade = "Tibery";
-	}else 
-	if(campo==3){
-		var unidade = "Martins";
-	}else 
-	if(campo==4){
-		var unidade = "Tibery";
-	}else 
-	if(campo==6){
-		var unidade = "Tibery";
-	}else 
-	if(campo==5){
-		var unidade = "Tibery";
-	} 
+	var unidade = req.body.unidadeparada1;
 	var desc1 = req.body.desc1;
 	var desc2 = req.body.desc2;
 	var desc3 = req.body.desc3;

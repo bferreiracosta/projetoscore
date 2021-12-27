@@ -17,26 +17,7 @@ module.exports.updatedescanso = function(application, req, res){
 	var id = req.body.idusuario;
 	var date = req.body.dataparada1;
 	var turno = req.body.turnoparada1;
-	var campo = req.body.unidadeparada1;
-
-	if(campo==1){
-		var unidade = "Planalto";
-	}else 
-	if(campo==2){
-		var unidade = "Luizote";
-	}else 
-	if(campo==3){
-		var unidade = "Martins";
-	}else 
-	if(campo==4){
-		var unidade = "Luizote";
-	}else 
-	if(campo==6){
-		var unidade = "Tibery";
-	}else 
-	if(campo==5){
-		var unidade = "Luizote";
-	} 
+	var unidade = req.body.unidadeparada1;
 	var desc1 = req.body.desc1;
 	var desc2 = req.body.desc2;
 	var desc3 = req.body.desc3;
@@ -57,12 +38,12 @@ module.exports.updatedescanso = function(application, req, res){
 	var desc18 = req.body.desc18;
 	var desc19 = req.body.desc19;
 	var desc20 = req.body.desc20;
+	
 
 	modelatriluizote.buscarregraescalaunicaluizote(date, turno, unidade,function(error, resultado){
 		if(resultado != null || resultado==""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
-				console.log(date, turno, unidade,campo, desc1,desc2,desc3,desc4,desc5,desc6,desc7,desc8,desc9,desc10,desc11,desc12,desc13,desc14,desc15,desc16,desc17,desc18,desc19,desc20)
-
+				
 				modelatriluizote.updatedescanso(unidade, date, turno, desc1,desc2,desc3,desc4,desc5,desc6,desc7,desc8,desc9,desc10,desc11,desc12,desc13,desc14,desc15,desc16,desc17,desc18,desc19,desc20,function(error, resultado){
 						res.redirect("/atribuicaoluizote?id=" + result[0].id_usuario);	
 				})

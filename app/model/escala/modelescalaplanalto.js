@@ -389,7 +389,7 @@ modelescalaplanalto.prototype.buscarregraescalaunicaplanalto = function(campo, t
 
 
 
-	this._conection.query('select * from escalaplanalto where dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Planalto"', callback);
+	this._conection.query('select * from escalaplanalto where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Planalto"', callback);
 }
 
 modelescalaplanalto.prototype.buscarescalamensalplanalto = function(valor, callback){

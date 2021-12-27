@@ -430,7 +430,7 @@
     </div>
     <div id="menu2" class="tab-pane fade">
       
-      <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="text" id="datassn1"> <input type="hidden" value="SN1" id="turnosn1"> <input type="hidden" value='<%=id[i].unidade %>' id="unidadesn1">   
+      <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="text" id="datassn1"> <input type="hidden" value="SN1" id="turnosn1"> <input type="hidden" value='Martins' id="unidadesn1">   
          <button class="btn btn-info" id="pesquisarsn1"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFsn1();"><i class="fas fa-download"></i></button>   <button type="button" id="editsn1" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')"><i class="fas fa-edit"></i></button></span></h4>
       <div class="html-contentsn1" id="mobilesn1" >
         <table class="table table-bordered table-dark display" style="width: 100%; " id="tablesn1">
@@ -670,7 +670,7 @@
     </div>
     <div id="menu3" class="tab-pane fade">
       
-      <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="text" id="datassn2"> <input type="hidden" value="SN2" id="turnosn2"> <input type="hidden" value='<%=id[i].unidade %>' id="unidadesn2">   
+      <h4 style="padding-left: 1%;" for="data" > Selecione a data<span>    <input  type="text" id="datassn2"> <input type="hidden" value="SN2" id="turnosn2"> <input type="hidden" value='Martins' id="unidadesn2">   
          <button class="btn btn-info" id="pesquisarsn2"><i class="fas fa-search"></i></button>  <button type="button" class="btn btn-success" onclick="createPDFsn2();"><i class="fas fa-download"></i></button>  <button type="button" id="editsn2" class="btn btn-danger" onclick="setaDadosModal3('<%=id[i].unidade %>'),setaDadosModal4('<%=id[i].id_usuario%>')"><i class="fas fa-edit"></i></button></span></h4>
       <div class="html-contentsn2" id="mobilesn2" >
         <table class="table table-bordered table-dark display" style="width: 100%; " id="tablesn2">
@@ -1114,18 +1114,18 @@
                        </div>
                        <div class="modal-body">
                         <div>
-                          <div class="form-group">
-                             <label for="susfacil">Data</label>
-                             <input  type="hidden" name="idusuario" id="idusuariodesc">
-                             <input type="text"  readonly=“true”  id="dataparada1" name="dataparada1" class="form-control" >
-                          </div>
-                          <div class="form-group">
-                             <label for="susfacil">Turno</label>
-                             <input type="text"  readonly=“true”  id="turnoparada1" name="turnoparada1" class="form-control" >
-                          </div>
-                          <div class="form-group">
-                             <input type="text" id="unidadeparada1" name="unidadeparada1" class="form-control" >
-                          </div>
+                           <div class="form-group">
+                              <label for="susfacil">Data</label>
+                              <input  type="hidden" name="idusuario" id="idusuariodesc">
+                              <input type="text"  readonly=“true”  id="dataparada1" name="dataparada" class="form-control" >
+                           </div>
+                           <div class="form-group">
+                              <label for="susfacil">Turno</label>
+                              <input type="text"  readonly=“true”  id="turnoparada1" name="turnoparada" class="form-control" >
+                           </div>
+                           <div class="form-group">
+                              <input type="text" id="unidadeparada1" name="unidadeparada1" class="form-control" >
+                           </div>
                          <div class="form-group">
                             <label for="susfacil">1º Horario</label>
                             <input type="text" name="desc1" class="form-control" >
