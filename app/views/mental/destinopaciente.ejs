@@ -52,10 +52,11 @@
                             <td><%=mental[j].dependencia %></td>
                             <td><%=mental[j].terapeutico %></td>
                             <td><%=mental[j].social %></td>
-
+                            <% if(id[i].id_usuario == 83) { %>
                             <td>
                                 <a href="" onclick="setaDadosModal('<%=mental[j].id_paciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#Baixa">Saida</a>
                             </td>
+                            <% } %>	
 						</tr>
 						<% } %>	
 						<% } %>
