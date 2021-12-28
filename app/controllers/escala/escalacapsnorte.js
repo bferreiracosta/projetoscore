@@ -165,7 +165,6 @@ module.exports.buscarescalamensalcapsnortetarde = function(application, req, res
 
 	
 	modelescalacapsnorte.buscarescalamensalcapsnortetarde(valor,function(error, resultado){
-			
 			res.send(resultado);
 		})
 		
