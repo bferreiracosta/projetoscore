@@ -141,7 +141,6 @@ modelescalaroosevelt.prototype.criarfolga =  function(funcionarios, escala, turn
 			[funcionarios[24].idfuncionariosroosevelt, escala],
 			[funcionarios[25].idfuncionariosroosevelt, escala],
 			[funcionarios[26].idfuncionariosroosevelt, escala],
-			[funcionarios[27].idfuncionariosroosevelt, escala],
 		];
 	}
 
