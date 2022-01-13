@@ -58,11 +58,11 @@
             <thead>
               <tr style="border: none; height: 18px;" class="bg-primary">
                 <th scope="col" colspan="5"  ><img width="90" height="55px" style="position: relative;top: 50%;left: 30%;" src="/images/logospdm.jpeg"></th>
-                <th scope="col" colspan="20" style="text-align: center; font-size: 14px;" id="dataturno" >Centro de Convivência</th>
+                <th scope="col" colspan="20" style="text-align: center; font-size: 14px;" id="dataturno" >Unidade de Acolhimento</th>
                 <th scope="col" style="border: none;" colspan="15"> <img width="100" height="55px" style="position: relative;top: 50%;left: 30%;" src="/images/logouberlandia.jpeg"></th>
               </tr>
               <tr style="border: none; height: 18px;">
-                <td colspan="40" style="text-align: center; font-size: 12px; background: darkblue; color: white;"> Escala de Folga Centro de Convivência</td>
+                <td colspan="40" style="text-align: center; font-size: 12px; background: darkblue; color: white;"> Escala de Folga Unidade de Acolhimento</td>
               </tr>
 
             </thead>
@@ -113,7 +113,7 @@
             <tfoot>
               <tr style="border: none; height: 18px;" class="bg-primary">
                 <th scope="col" colspan="5"  ><img width="90" height="55px" style="position: relative;top: 50%;left: 30%;" src="/images/logospdm.jpeg"></th>
-                <th scope="col" colspan="20" style="text-align: center; font-size: 14px;" id="dataturno" >Centro de Convivência</th>
+                <th scope="col" colspan="20" style="text-align: center; font-size: 14px;" id="dataturno" >Unidade de Acolhimento</th>
                 <th scope="col" style="border: none;" colspan="15"> <img width="100" height="55px" style="position: relative;top: 50%;left: 30%;" src="/images/logouberlandia.jpeg"></th>
               </tr>
               <tr style="border: none; height: 18px;" class="bg-primary">
@@ -13913,7 +13913,7 @@ function createPDFmanha() {
     var canvas_image_width = 295;
     var canvas_image_height = 381;
     let position = 0;
-    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 6;
+    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 3;
 
     html2canvas($("#tablemanha")[0]).then(function (canvas) {
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
