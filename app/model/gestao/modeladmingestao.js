@@ -154,7 +154,7 @@ modeladmingestao.prototype.updateleitostiberycamamais = function(setor, callback
 
 modeladmingestao.prototype.buscarleitomorumbi = function(callback){
 	
-	this._conection.query('select mor.idmorumbi, mor.setor, mor.capacidade, mor.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Cama" and nome is not null and setor = mor.setor) as qtdcama,mor.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Maca" and nome is not null and setor = mor.setor) as qtdmaca,mor.capacidadecadeiras,(select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Cadeira" and nome is not null and setor = mor.setor) as qtdcadeira, mor.bloqueado, mor.datas, mor.hora from morumbi mor', callback);
+	this._conection.query('select mor.idmorumbi, mor.setor, mor.capacidade,mor.capacidadecamas, (select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Cama" and nome is not null and setor = mor.setor) as qtdcama,mor.capacidademacas,(select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Maca" and nome is not null and setor = mor.setor) as qtdmaca,mor.capacidadecadeiras,(select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Cadeira" and nome is not null and setor = mor.setor) as qtdcadeira, mor.capacidadebercos,(select count(acomodacao) from leitokaban where unidade = "Morumbi" and acomodacao="Berço" and nome is not null and setor = mor.setor) as qtdbercos, mor.bloqueado, mor.datas, mor.hora from morumbi mor', callback);
 }
 
 modeladmingestao.prototype.updateleitosmorumbi = function(cama, maca, macaparada, berco, setor, data, hora,bloqueado, callback){
