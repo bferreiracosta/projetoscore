@@ -255,6 +255,10 @@ $("#login").click(function(){
 				document.getElementById("senha2").value=obj[0].senha; 
                 var option = '<option>Selecione o modulo </option>';
 			
+				if(obj[0].regulacao == 1){
+					var Regulacao = "Regulacao";
+               		option += '<option value="'+Regulacao+'">'+Regulacao+'</option>';
+				}
 				if(obj[0].kamban == 1){
 					var Kamban = "Kamban";
                		option += '<option value="'+Kamban+'">'+Kamban+'</option>';
