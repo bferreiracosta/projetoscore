@@ -741,6 +741,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 
 	var dataexame = req.body.dataexame;
 	var exame = req.body.exame4;
+	var Suspeição = req.body.Suspeição2;
 	var dieta = req.body.dieta2;
 	var medico = req.body.medico;
 	var id = req.body.idusuario;
@@ -758,7 +759,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	if(mental == 'true'){
 		
 		modeladmin.buscarusuarioporid(id, function(error, resultados){
-			modelluizote.cadastrarpaciente(paciente, round, alta, metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+			modelluizote.cadastrarpaciente(Suspeição,paciente, round, alta, metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 				modelmentalluizote.cadastrarpaciente(prt, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 					modelluizote.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 						modelluizote.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -779,7 +780,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	
 		
 		modeladmin.buscarusuarioporid(id, function(error, resultados){
-			modelluizote.cadastrarpaciente(paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+			modelluizote.cadastrarpaciente(Suspeição,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 				modelluizote.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 					modelluizote.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 						modelluizote.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -1036,6 +1037,7 @@ module.exports.update= function(application, req, res){
 	var data = req.body.data;
 	var baixa = "Erro na inserção Kaban";
 	var exame = req.body.exame4;
+	var Suspeição = req.body.Suspeição2;
 	var medico = req.body.medico;
 	var id = req.body.idusuario;
 	var unidade = 'Luizote';
@@ -1053,7 +1055,7 @@ module.exports.update= function(application, req, res){
 		modelmentalluizote.buscarpacientepornome(idpac[0].nome, function(error, idmental){	
 			if(mental == 'true' && idpac[0].mental == "true" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){	
-					modelluizote.update(idpaciente,paciente, round, alta, metas,agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modelluizote.update(Suspeição,idpaciente,paciente, round, alta, metas,agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modelluizote.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentalluizote.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
 								modelluizote.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1076,7 +1078,7 @@ module.exports.update= function(application, req, res){
 			}
 			if(mental == 'false' && idpac[0].mental == "false" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){
-					modelluizote.update(idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modelluizote.update(Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modelluizote.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelluizote.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 								modelluizote.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1097,7 +1099,7 @@ module.exports.update= function(application, req, res){
 			}	
 			if(mental == 'true' && idpac[0].mental == "false" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){
-					modelluizote.update(idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modelluizote.update(Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modelluizote.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentalluizote.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 								modelluizote.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1120,7 +1122,7 @@ module.exports.update= function(application, req, res){
 			}	
 			if(mental == 'false' && idpac[0].mental == "true" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){	
-					modelluizote.update(idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, result){
+					modelluizote.update(Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, result){
 						modelluizote.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentalluizote.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 								modelluizote.updatetissnome(idpaciente,paciente,setor,  function(error, result){

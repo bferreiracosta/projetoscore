@@ -184,6 +184,10 @@
                         <input type="hidden" id="alta" name="alta" class="form-control"  value="<%=paciente[j].planoalta %>" >
                     </div>
 					<div class="form-group">
+						<label id="metas">Meta para o Dia</label>
+						<input type="text" id="metas" name="metas" class="form-control" value="<%=paciente[j].metas %>" >
+                    </div>
+					<div class="form-group">
 						<label for="round">Pendências</label>
 						<select class="form-control" onchange="verificapendencia(this.value)" id="pendencia" name="pendencia" required>
 							<option value="" disabled selected hidden>Pendências</option>
@@ -191,10 +195,6 @@
 							<option value="Não" <%=(paciente[j].pendencias == 'Não')?'selected':''%>>Não</option>
                         </select>
                         <input type="hidden" id="pendencias" name="pendencias" class="form-control"  value="<%=paciente[j].pendencias %>" >
-                    </div>
-					<div class="form-group">
-						<label id="metas">Meta para o Dia</label>
-						<input type="text" id="metas" name="metas" class="form-control" value="<%=paciente[j].metas %>" >
                     </div>
 					<div class="form-group">
 						<label id="labelexames">Aguarda Agendamento de Exame</label>
@@ -327,6 +327,16 @@
 						</select>
                       </div>
                       <input  type="hidden" name="exame4" id="exame4" value="<%=paciente[j].exame %>">
+					  <div class="form-group">
+						<label id="Suspeição" for="exame">Suspeição</label>
+						<select  class="form-control" id="Suspeição1" name="Suspeição1" >
+							<option value="" disabled selected hidden>Suspeição</option>
+							<option value="Alta Suspeição" <%=(paciente[j].suspeicao == 'Alta Suspeição')?'selected':''%>>Alta Suspeição</option>
+														<option value="Baixa Suspeição" <%=(paciente[j].suspeicao == 'Baixa Suspeição')?'selected':''%>>Baixa Suspeição</option>
+							<option value="" <%=(paciente[j].suspeicao == '')?'selected':''%>>Remover Suspeição</option>
+						</select>
+                      </div>
+                      <input  type="hidden" name="Suspeição2" id="Suspeição2" value="<%=paciente[j].suspeicao %>">
 					</div>
 					
 					 <input  type="hidden" id="data" name="data"  class="form-control">
@@ -378,6 +388,11 @@ $("#paliativos").on('change', function(e){
 $("#exame3").on('change', function(e){
 	var exame = $(this).val();
 	document.getElementById('exame4').value = exame;
+});
+
+$("#Suspeição1").on('change', function(e){
+	var Suspeição = $(this).val();
+	document.getElementById('Suspeição2').value = Suspeição;
 });
 
 $("#dieta").on('change', function(e){
@@ -517,21 +532,23 @@ $("#covid").on('change', function(e){
      var covid = $(this).val();
      document.getElementById('covid2').value = covid;
 	 if(covid == 'true'){
-		
 
 		 document.getElementById("dataexames").style.display = 'inline';
 		 document.getElementById("dataexame").style.display = 'inline';
 		 document.getElementById("exame3").style.display = 'inline';
 		 document.getElementById("exames").style.display = 'inline';
+		 document.getElementById("Suspeição").style.display = 'inline';
+		 document.getElementById("Suspeição1").style.display = 'inline';
 		 
 	 }
 	 else{
-
 
 		document.getElementById("dataexames").style.display = 'none';
 		 document.getElementById("dataexame").style.display = 'none';
 		 document.getElementById("exame3").style.display = 'none';
 		 document.getElementById("exames").style.display = 'none';
+		 document.getElementById("Suspeição").style.display = 'none';
+		 document.getElementById("Suspeição1").style.display = 'none';
 	 }
 });
 
@@ -801,6 +818,7 @@ $("#mobilidades").on('change', function(e){
 		 document.getElementById("labelhemo").style.display = 'none';
 		 document.getElementById("hemo").style.display = 'none';
 		 document.getElementById("desctransferencia").style.display = 'none';
+
 		 var pendencia = document.getElementById("pendencias").value;
 		verificapendencia(pendencia);
 		var transferencia = document.getElementById("desctransferencia").value;
@@ -848,20 +866,23 @@ $(function() {
      document.getElementById('covid2').value = covid;
 	 if(covid == 'true'){
 
+document.getElementById("dataexames").style.display = 'inline';
+document.getElementById("dataexame").style.display = 'inline';
+document.getElementById("exame3").style.display = 'inline';
+document.getElementById("exames").style.display = 'inline';
+document.getElementById("Suspeição").style.display = 'inline';
+document.getElementById("Suspeição1").style.display = 'inline';
 
-		 document.getElementById("dataexames").style.display = 'inline';
-		 document.getElementById("dataexame").style.display = 'inline';
-		 document.getElementById("exame3").style.display = 'inline';
-		 document.getElementById("exames").style.display = 'inline';
-		 
-	 }
-	 else{
+}
+else{
 
-		document.getElementById("dataexames").style.display = 'none';
-		 document.getElementById("dataexame").style.display = 'none';
-		 document.getElementById("exame3").style.display = 'none';
-		 document.getElementById("exames").style.display = 'none';
-	 }
+document.getElementById("dataexames").style.display = 'none';
+document.getElementById("dataexame").style.display = 'none';
+document.getElementById("exame3").style.display = 'none';
+document.getElementById("exames").style.display = 'none';
+document.getElementById("Suspeição").style.display = 'none';
+document.getElementById("Suspeição1").style.display = 'none';
+}
 });
 </script>
 <%- include('../../home/footer'); %>

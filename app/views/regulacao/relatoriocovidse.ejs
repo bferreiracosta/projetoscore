@@ -6,8 +6,8 @@
                     <input name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
                     <thead>
                         <tr>
-                            <th hidden>id</th>
-                            <th>Unidade</th>
+                           <th hidden>id</th>
+                            <th>Leito</th>
                             <th>SusFacil</th>
                             <th>Prontuario</th>
                             <th>Nome</th>
@@ -20,6 +20,7 @@
                             <th>Diagnóstico</th>
                             <th>Data Exame</th>
                             <th>Resultado</th>
+                            <th>Suspeição</th>
                             <th>AVP</th>
                             <th>Data AVP</th>
                             <th>SVD</th>
@@ -55,7 +56,7 @@
                                     
                             <tr>                                  
                                 <td hidden><%=paciente[j].idpaciente %></td>
-                                <td><%=paciente[j].unidade %></td>
+                                 <td><%=paciente[j].unidade %></td>
                                 <td><%=paciente[j].susfacil %></td>
                                 <th><%=paciente[j].prt %></th>
                                 <td><%=paciente[j].nome %></td>
@@ -68,6 +69,7 @@
                                 <td><%=paciente[j].diagnostico %></td>
                                 <td><%=paciente[j].dataexame %></td>
                                 <td><%=paciente[j].exame %></td>
+                                <td><%=paciente[j].suspeicao %></td>
                                 <th><%=paciente[j].avp %></th>
                                 <th><%=paciente[j].dataavp %></th>
                                 <th><%=paciente[j].svd %></th>

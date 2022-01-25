@@ -13,6 +13,7 @@ module.exports.cadastrar= function(application, req, res){
 		});
 	});	
 }
+
 module.exports.relatoriopendencias= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
@@ -28,6 +29,7 @@ module.exports.relatoriopendencias= function(application, req, res){
 		});
 	});	
 }
+
 module.exports.relatorioplanoalta= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
@@ -43,6 +45,7 @@ module.exports.relatorioplanoalta= function(application, req, res){
 		});
 	});	
 }
+
 module.exports.relatoriocovidplanalto= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
@@ -58,6 +61,7 @@ module.exports.relatoriocovidplanalto= function(application, req, res){
 		});
 	});	
 }
+
 module.exports.relatoriomentalplanalto= function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
@@ -73,6 +77,7 @@ module.exports.relatoriomentalplanalto= function(application, req, res){
 		});
 	});	
 }
+
 module.exports.saveexameplanalto= function(application, req, res){
 	var title = req.body.title;
 	var start = req.body.dataformatada;
@@ -210,11 +215,9 @@ module.exports.atualizarleitoplanalto= function(application, req, res){
 	var nome = req.body.nome;
 	var idleito = req.body.idleito;
 	var id = req.body.idusuario;
-	console.log(idleito)
 	modeladmin.buscarusuarioporid(id, function(error, result){
 		modelplanalto.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
 			if(nome == "Remover"){
-				console.log(nome)
 				modelplanalto.mudarpacienteleito(idleito, function(error,resultado){
 					modelplanalto.buscarleitospacientes(function(error, resultadosetores){
 						res.redirect("/leitosplanalto?id=" + result[0].id_usuario);
@@ -738,6 +741,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 
 	var dataexame = req.body.dataexame;
 	var exame = req.body.exame4;
+	var Suspeição = req.body.Suspeição2;
 	var dieta = req.body.dieta2;
 	var medico = req.body.medico;
 	var id = req.body.idusuario;
@@ -755,7 +759,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	if(mental == 'true'){
 		
 		modeladmin.buscarusuarioporid(id, function(error, resultados){
-			modelplanalto.cadastrarpaciente(paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+			modelplanalto.cadastrarpaciente(Suspeição,paciente, round, alta, metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 				modelmentalplanalto.cadastrarpaciente(prt, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 					modelplanalto.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 						modelplanalto.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -776,7 +780,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	
 		
 		modeladmin.buscarusuarioporid(id, function(error, resultados){
-			modelplanalto.cadastrarpaciente(paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+			modelplanalto.cadastrarpaciente(Suspeição,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 				modelplanalto.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 					modelplanalto.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 						modelplanalto.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -1033,6 +1037,7 @@ module.exports.update= function(application, req, res){
 	var data = req.body.data;
 	var baixa = "Erro na inserção Kaban";
 	var exame = req.body.exame4;
+	var Suspeição = req.body.Suspeição2;
 	var medico = req.body.medico;
 	var id = req.body.idusuario;
 	var unidade = 'Planalto';
@@ -1050,7 +1055,7 @@ module.exports.update= function(application, req, res){
 		modelmentalplanalto.buscarpacientepornome(idpac[0].nome, function(error, idmental){	
 			if(mental == 'true' && idpac[0].mental == "true" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){	
-					modelplanalto.update(idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modelplanalto.update(Suspeição,idpaciente,paciente, round, alta, metas,agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modelplanalto.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentalplanalto.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
 								modelplanalto.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1073,7 +1078,7 @@ module.exports.update= function(application, req, res){
 			}
 			if(mental == 'false' && idpac[0].mental == "false" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){
-					modelplanalto.update(idpaciente,paciente, round, alta, metas,agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modelplanalto.update(Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modelplanalto.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelplanalto.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 								modelplanalto.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1094,7 +1099,7 @@ module.exports.update= function(application, req, res){
 			}	
 			if(mental == 'true' && idpac[0].mental == "false" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){
-					modelplanalto.update(idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modelplanalto.update(Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modelplanalto.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentalplanalto.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 								modelplanalto.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1117,7 +1122,7 @@ module.exports.update= function(application, req, res){
 			}	
 			if(mental == 'false' && idpac[0].mental == "true" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){	
-					modelplanalto.update(idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, result){
+					modelplanalto.update(Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, result){
 						modelplanalto.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentalplanalto.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 								modelplanalto.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1155,7 +1160,6 @@ module.exports.baixa= function(application, req, res){
 	var modelplanalto = new application.app.model.kaban.Planalto.modelplanalto(application);
 	var modelmentalplanalto = new application.app.model.mentalurgencia.modelmentalplanalto(application);
 	modelplanalto.buscarleitospacientesporid(idpaciente, function(error, setoresrecuperado){
-		console.log(setoresrecuperado);
 		if(setoresrecuperado != ''){
 			modelplanalto.buscarpacienteporid(idpaciente, function(error, idpac){	
 					modelmentalplanalto.buscarpacientepornome(idpac[0].nome, function(error, idmental){

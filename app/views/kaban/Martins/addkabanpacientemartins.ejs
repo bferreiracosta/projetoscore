@@ -322,6 +322,16 @@
 						</select>
                       </div>
                       <input  type="hidden" name="exame4" id="exame4">
+					  <div class="form-group">
+						<label id="Suspeição" for="exame">Suspeição</label>
+						<select  class="form-control" id="Suspeição1" name="exame3">
+							<option value="" disabled selected hidden>Suspeição</option>
+							<option value="Alta Suspeição">Alta Suspeição</option>
+							<option value="Baixa Suspeição">Baixa Suspeição</option>
+							<option value="">Remover Suspeição</option>
+						</select>
+                      </div>
+                      <input  type="hidden" name="Suspeição2" id="Suspeição2">
                 </div>
                 <div>
                     <a href="kabanpacientemartins?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
@@ -360,6 +370,11 @@ $("#paliativos").on('change', function(e){
 $("#exame3").on('change', function(e){
 	var exame = $(this).val();
 	document.getElementById('exame4').value = exame;
+});
+
+$("#Suspeição1").on('change', function(e){
+	var suspeicao = $(this).val();
+	document.getElementById('Suspeição2').value = suspeicao;
 });
 
 $(document).ready(function(){
@@ -509,6 +524,8 @@ $("#covid").on('change', function(e){
 		 document.getElementById("dataexame").style.display = 'inline';
 		 document.getElementById("exame3").style.display = 'inline';
 		 document.getElementById("exames").style.display = 'inline';
+		 document.getElementById("Suspeição").style.display = 'inline';
+		 document.getElementById("Suspeição1").style.display = 'inline';
 		 
 	 }
 	 else{
@@ -517,6 +534,8 @@ $("#covid").on('change', function(e){
 		 document.getElementById("dataexame").style.display = 'none';
 		 document.getElementById("exame3").style.display = 'none';
 		 document.getElementById("exames").style.display = 'none';
+		 document.getElementById("Suspeição").style.display = 'none';
+		 document.getElementById("Suspeição1").style.display = 'none';
 	 }
 });
 
@@ -783,6 +802,7 @@ window.onload = function() {
 		 document.getElementById("labelhemo").style.display = 'none';
 		 document.getElementById("hemo").style.display = 'none';
 		 document.getElementById("desctransferencia").style.display = 'none';
+
 		 
 		
 
@@ -829,6 +849,8 @@ selectcovid = document.getElementById('covid');
 		 document.getElementById("dataexame").style.display = 'inline';
 		 document.getElementById("exame3").style.display = 'inline';
 		 document.getElementById("exames").style.display = 'inline';
+		 document.getElementById("Suspeição").style.display = 'inline';
+		 document.getElementById("Suspeição1").style.display = 'inline';
 		 
 	 }
 	 else{
@@ -837,6 +859,8 @@ selectcovid = document.getElementById('covid');
 		 document.getElementById("dataexame").style.display = 'none';
 		 document.getElementById("exame3").style.display = 'none';
 		 document.getElementById("exames").style.display = 'none';
+		 document.getElementById("Suspeição").style.display = 'none';
+		 document.getElementById("Suspeição1").style.display = 'none';
 	 }
 
 	};
