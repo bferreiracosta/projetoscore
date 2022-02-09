@@ -1035,7 +1035,7 @@ $('#tablemanha').on('dblclick', 'tr', function () {
           ano = 2022;
           
           var Minha_data = 0;
-          Minha_data = moment(valor+"/"+ano, "DD-MM-YYYY").format('dddd');
+          Minha_data = moment(valor+"/"+2022, "DD-MM-YYYY").format('dddd');
           
 
           if(Minha_data == "Saturday" || Minha_data == "Sunday"){
@@ -1046,7 +1046,7 @@ $('#tablemanha').on('dblclick', 'tr', function () {
           var coluna = j; 
 
         var Minha_data = 0;
-        Minha_data = moment(valor+"/"+ano, "DD-MM-YYYY").format('dddd');
+        Minha_data = moment(valor+"/"+2022, "DD-MM-YYYY").format('dddd');
         
         if(Minha_data == "Saturday" || Minha_data == "Sunday"){
     
@@ -1624,7 +1624,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores2 =new Date(year2, month2 - 1, day2).getTime()
       
                             //InicioEscala 
-                            var  valor3 = 16+'/'+mesinicial+'/'+ano; 
+                            var  valor3 = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit3 = valor3.split('/');
                             const day3 = dataSplit3[0]; // 30
                             const month3 = dataSplit3[1]; // 03
@@ -1644,7 +1644,7 @@ $("#pesquisarmanha").on('click', function(e){
                             valor4 = new Date(year4, month4 - 1, day4);
                             var valores4 =new Date(year4, month4 - 1, day4).getTime()
                             }else{
-                            var  valor4 = 15+'/'+mesfinal+'/'+ano;
+                            var  valor4 = 15+'/'+mesfinal+'/'+2022;
                             const dataSplit4 = valor4.split('/');
                             const day4 = dataSplit4[0]; // 30
                             const month4 = dataSplit4[1]; // 03
@@ -1660,7 +1660,7 @@ $("#pesquisarmanha").on('click', function(e){
                             days = days + 1;; // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
 
                             //Quantidade de dias de Ferias na escala anterior
-                            var datfinal = 16+'/'+mesinicial+'/'+ano; 
+                            var datfinal = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit5 = datfinal.split('/');
                             const day5 = dataSplit5[0]; 
                             const month5 = dataSplit5[1];
@@ -1673,7 +1673,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var cols = days - days1;
 
                             //Quantidade de dias de Ferias na escala
-                            var dat = 16+'/'+mesinicial+'/'+ano; 
+                            var dat = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit7 = dat.split('/');
                             const day7 = dataSplit7[0]; 
                             const month7 = dataSplit7[1];
@@ -1694,7 +1694,7 @@ $("#pesquisarmanha").on('click', function(e){
                             const days2 = Math.ceil(diff2 / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
                             var cols1 = days - days2;
                             }else{
-                              var datinicio = 15+'/'+mesfinal+'/'+ano; 
+                              var datinicio = 15+'/'+mesfinal+'/'+2022; 
                             const dataSplit6 = datinicio.split('/');
                             const day6 = dataSplit6[0]; 
                             const month6 = dataSplit6[1];
@@ -2623,7 +2623,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores2 =new Date(year2, month2 - 1, day2).getTime()
       
                             //InicioEscala 
-                            var  valor3 = 16+'/'+mesinicial+'/'+ano; 
+                            var  valor3 = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit3 = valor3.split('/');
                             const day3 = dataSplit3[0]; // 30
                             const month3 = dataSplit3[1]; // 03
@@ -2643,7 +2643,7 @@ $("#pesquisarmanha").on('click', function(e){
                             valor4 = new Date(year4, month4 - 1, day4);
                             var valores4 =new Date(year4, month4 - 1, day4).getTime()
                             }else{
-                            var  valor4 = 15+'/'+mesfinal+'/'+ano;
+                            var  valor4 = 15+'/'+mesfinal+'/'+2022;
                             const dataSplit4 = valor4.split('/');
                             const day4 = dataSplit4[0]; // 30
                             const month4 = dataSplit4[1]; // 03
@@ -2659,7 +2659,7 @@ $("#pesquisarmanha").on('click', function(e){
                             days = days + 1;; // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
 
                             //Quantidade de dias de Ferias na escala anterior
-                            var datfinal = 16+'/'+mesinicial+'/'+ano; 
+                            var datfinal = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit5 = datfinal.split('/');
                             const day5 = dataSplit5[0]; 
                             const month5 = dataSplit5[1];
@@ -2672,7 +2672,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var cols = days - days1;
 
                             //Quantidade de dias de Ferias na escala
-                            var dat = 16+'/'+mesinicial+'/'+ano; 
+                            var dat = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit7 = dat.split('/');
                             const day7 = dataSplit7[0]; 
                             const month7 = dataSplit7[1];
@@ -2693,7 +2693,7 @@ $("#pesquisarmanha").on('click', function(e){
                             const days2 = Math.ceil(diff2 / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
                             var cols1 = days - days2;
                             }else{
-                              var datinicio = 15+'/'+mesfinal+'/'+ano; 
+                              var datinicio = 15+'/'+mesfinal+'/'+2022; 
                             const dataSplit6 = datinicio.split('/');
                             const day6 = dataSplit6[0]; 
                             const month6 = dataSplit6[1];
@@ -3621,7 +3621,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores2 =new Date(year2, month2 - 1, day2).getTime()
       
                             //InicioEscala 
-                            var  valor3 = 16+'/'+mesinicial+'/'+ano; 
+                            var  valor3 = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit3 = valor3.split('/');
                             const day3 = dataSplit3[0]; // 30
                             const month3 = dataSplit3[1]; // 03
@@ -3641,7 +3641,7 @@ $("#pesquisarmanha").on('click', function(e){
                             valor4 = new Date(year4, month4 - 1, day4);
                             var valores4 =new Date(year4, month4 - 1, day4).getTime()
                             }else{
-                            var  valor4 = 15+'/'+mesfinal+'/'+ano;
+                            var  valor4 = 15+'/'+mesfinal+'/'+2022;
                             const dataSplit4 = valor4.split('/');
                             const day4 = dataSplit4[0]; // 30
                             const month4 = dataSplit4[1]; // 03
@@ -3657,7 +3657,7 @@ $("#pesquisarmanha").on('click', function(e){
                             days = days + 1;; // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
 
                             //Quantidade de dias de Ferias na escala anterior
-                            var datfinal = 16+'/'+mesinicial+'/'+ano; 
+                            var datfinal = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit5 = datfinal.split('/');
                             const day5 = dataSplit5[0]; 
                             const month5 = dataSplit5[1];
@@ -3670,7 +3670,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var cols = days - days1;
 
                             //Quantidade de dias de Ferias na escala
-                            var dat = 16+'/'+mesinicial+'/'+ano; 
+                            var dat = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit7 = dat.split('/');
                             const day7 = dataSplit7[0]; 
                             const month7 = dataSplit7[1];
@@ -3691,7 +3691,7 @@ $("#pesquisarmanha").on('click', function(e){
                             const days2 = Math.ceil(diff2 / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
                             var cols1 = days - days2;
                             }else{
-                              var datinicio = 15+'/'+mesfinal+'/'+ano; 
+                              var datinicio = 15+'/'+mesfinal+'/'+2022; 
                             const dataSplit6 = datinicio.split('/');
                             const day6 = dataSplit6[0]; 
                             const month6 = dataSplit6[1];
@@ -4720,7 +4720,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores2 =new Date(year2, month2 - 1, day2).getTime()
       
                             //InicioEscala 
-                            var  valor3 = 16+'/'+mesinicial+'/'+ano; 
+                            var  valor3 = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit3 = valor3.split('/');
                             const day3 = dataSplit3[0]; // 30
                             const month3 = dataSplit3[1]; // 03
@@ -4740,7 +4740,7 @@ $("#pesquisarmanha").on('click', function(e){
                             valor4 = new Date(year4, month4 - 1, day4);
                             var valores4 =new Date(year4, month4 - 1, day4).getTime()
                             }else{
-                            var  valor4 = 15+'/'+mesfinal+'/'+ano;
+                            var  valor4 = 15+'/'+mesfinal+'/'+2022;
                             const dataSplit4 = valor4.split('/');
                             const day4 = dataSplit4[0]; // 30
                             const month4 = dataSplit4[1]; // 03
@@ -4756,7 +4756,7 @@ $("#pesquisarmanha").on('click', function(e){
                             days = days + 1;; // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
 
                             //Quantidade de dias de Ferias na escala anterior
-                            var datfinal = 16+'/'+mesinicial+'/'+ano; 
+                            var datfinal = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit5 = datfinal.split('/');
                             const day5 = dataSplit5[0]; 
                             const month5 = dataSplit5[1];
@@ -4769,7 +4769,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var cols = days - days1;
 
                             //Quantidade de dias de Ferias na escala
-                            var dat = 16+'/'+mesinicial+'/'+ano; 
+                            var dat = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit7 = dat.split('/');
                             const day7 = dataSplit7[0]; 
                             const month7 = dataSplit7[1];
@@ -4790,7 +4790,7 @@ $("#pesquisarmanha").on('click', function(e){
                             const days2 = Math.ceil(diff2 / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
                             var cols1 = days - days2;
                             }else{
-                              var datinicio = 15+'/'+mesfinal+'/'+ano; 
+                              var datinicio = 15+'/'+mesfinal+'/'+2022; 
                             const dataSplit6 = datinicio.split('/');
                             const day6 = dataSplit6[0]; 
                             const month6 = dataSplit6[1];
@@ -5610,7 +5610,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores2 =new Date(year2, month2 - 1, day2).getTime()
       
                             //InicioEscala 
-                            var  valor3 = 16+'/'+mesinicial+'/'+ano; 
+                            var  valor3 = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit3 = valor3.split('/');
                             const day3 = dataSplit3[0]; // 30
                             const month3 = dataSplit3[1]; // 03
@@ -5630,7 +5630,7 @@ $("#pesquisarmanha").on('click', function(e){
                             valor4 = new Date(year4, month4 - 1, day4);
                             var valores4 =new Date(year4, month4 - 1, day4).getTime()
                             }else{
-                            var  valor4 = 15+'/'+mesfinal+'/'+ano;
+                            var  valor4 = 15+'/'+mesfinal+'/'+2022;
                             const dataSplit4 = valor4.split('/');
                             const day4 = dataSplit4[0]; // 30
                             const month4 = dataSplit4[1]; // 03
@@ -5646,7 +5646,7 @@ $("#pesquisarmanha").on('click', function(e){
                             days = days + 1;; // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
 
                             //Quantidade de dias de Ferias na escala anterior
-                            var datfinal = 16+'/'+mesinicial+'/'+ano; 
+                            var datfinal = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit5 = datfinal.split('/');
                             const day5 = dataSplit5[0]; 
                             const month5 = dataSplit5[1];
@@ -5659,7 +5659,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var cols = days - days1;
 
                             //Quantidade de dias de Ferias na escala
-                            var dat = 16+'/'+mesinicial+'/'+ano; 
+                            var dat = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit7 = dat.split('/');
                             const day7 = dataSplit7[0]; 
                             const month7 = dataSplit7[1];
@@ -5680,7 +5680,7 @@ $("#pesquisarmanha").on('click', function(e){
                             const days2 = Math.ceil(diff2 / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
                             var cols1 = days - days2;
                             }else{
-                              var datinicio = 15+'/'+mesfinal+'/'+ano; 
+                              var datinicio = 15+'/'+mesfinal+'/'+2022; 
                             const dataSplit6 = datinicio.split('/');
                             const day6 = dataSplit6[0]; 
                             const month6 = dataSplit6[1];
@@ -6608,7 +6608,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores2 =new Date(year2, month2 - 1, day2).getTime()
       
                             //InicioEscala 
-                            var  valor3 = 16+'/'+mesinicial+'/'+ano; 
+                            var  valor3 = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit3 = valor3.split('/');
                             const day3 = dataSplit3[0]; // 30
                             const month3 = dataSplit3[1]; // 03
@@ -6628,7 +6628,7 @@ $("#pesquisarmanha").on('click', function(e){
                             valor4 = new Date(year4, month4 - 1, day4);
                             var valores4 =new Date(year4, month4 - 1, day4).getTime()
                             }else{
-                            var  valor4 = 15+'/'+mesfinal+'/'+ano;
+                            var  valor4 = 15+'/'+mesfinal+'/'+2022;
                             const dataSplit4 = valor4.split('/');
                             const day4 = dataSplit4[0]; // 30
                             const month4 = dataSplit4[1]; // 03
@@ -6644,7 +6644,7 @@ $("#pesquisarmanha").on('click', function(e){
                             days = days + 1;; // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
 
                             //Quantidade de dias de Ferias na escala anterior
-                            var datfinal = 16+'/'+mesinicial+'/'+ano; 
+                            var datfinal = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit5 = datfinal.split('/');
                             const day5 = dataSplit5[0]; 
                             const month5 = dataSplit5[1];
@@ -6657,7 +6657,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var cols = days - days1;
 
                             //Quantidade de dias de Ferias na escala
-                            var dat = 16+'/'+mesinicial+'/'+ano; 
+                            var dat = 16+'/'+mesinicial+'/'+2022; 
                             const dataSplit7 = dat.split('/');
                             const day7 = dataSplit7[0]; 
                             const month7 = dataSplit7[1];
@@ -6678,7 +6678,7 @@ $("#pesquisarmanha").on('click', function(e){
                             const days2 = Math.ceil(diff2 / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
                             var cols1 = days - days2;
                             }else{
-                              var datinicio = 15+'/'+mesfinal+'/'+ano; 
+                              var datinicio = 15+'/'+mesfinal+'/'+2022; 
                             const dataSplit6 = datinicio.split('/');
                             const day6 = dataSplit6[0]; 
                             const month6 = dataSplit6[1];
@@ -7699,7 +7699,7 @@ $("#pesquisarmanha").on('click', function(e){
           ano = 2022;
           
           var Minha_data = 0;
-          Minha_data = moment(valor+"/"+ano, "DD-MM-YYYY").format('dddd');
+          Minha_data = moment(valor+"/"+2022, "DD-MM-YYYY").format('dddd');
           
           if(Minha_data == "Saturday" || Minha_data == "Sunday"){
                 colorirTable(coluna)
@@ -7708,7 +7708,7 @@ $("#pesquisarmanha").on('click', function(e){
           var coluna = j; 
 
         var Minha_data = 0;
-        Minha_data = moment(valor+"/"+ano, "DD-MM-YYYY").format('dddd');
+        Minha_data = moment(valor+"/"+2022, "DD-MM-YYYY").format('dddd');
         if(Minha_data == "Saturday" || Minha_data == "Sunday"){
               colorirTable(coluna)
         }
