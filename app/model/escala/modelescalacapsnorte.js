@@ -21,7 +21,6 @@ modelescalacapsnorte.prototype.criarfolga =  function(funcionarios, escala, turn
 			[funcionarios[6].idfuncionarioscapsnorte, escala],
 			[funcionarios[7].idfuncionarioscapsnorte, escala],
 			[funcionarios[8].idfuncionarioscapsnorte, escala],
-			[funcionarios[9].idfuncionarioscapsnorte, escala],
 		];
 	}
 	if(turno == "Multi"){
@@ -38,8 +37,6 @@ modelescalacapsnorte.prototype.criarfolga =  function(funcionarios, escala, turn
 			[funcionarios[9].idfuncionarioscapsnorte, escala],
 			[funcionarios[10].idfuncionarioscapsnorte, escala],
 			[funcionarios[11].idfuncionarioscapsnorte, escala],
-			[funcionarios[12].idfuncionarioscapsnorte, escala],
-			[funcionarios[13].idfuncionarioscapsnorte, escala],
 		];
 	}
 	
