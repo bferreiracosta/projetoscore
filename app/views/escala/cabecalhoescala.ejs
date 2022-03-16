@@ -45,6 +45,7 @@
 					<ul class="nav navbar-nav navbar-right">
 			
 						<% if(id[i].admin== 1){%>
+							<li class="btn-info"><a class="btn   btn-sm" href="/escalasiate?id=<%=id[i].id_usuario %>">Escala  Siate</a></li>
 							<li class="btn-info">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Escalas Uais</a>
 								<ul class="dropdown-menu">
@@ -146,6 +147,10 @@
 						<% } %>
 						<% if(id[i].usuario== "coordnorte" || id[i].usuario== "supervnorte"){%>
 							<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsnorte?id=<%=id[i].id_usuario %>">Escala Caps Norte</a></li>
+							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% } %>
+						<% if(id[i].usuario== "coordenfsiate"){%>
+							<li class="btn-info"><a class="btn   btn-sm" href="/escalasiate?id=<%=id[i].id_usuario %>">Escala  Siate</a></li>
 							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
 					<% } %>	
