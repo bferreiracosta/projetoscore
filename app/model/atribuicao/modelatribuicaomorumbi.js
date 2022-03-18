@@ -4,16 +4,16 @@ function modelatribuicaomorumbi(application){
 }
 
 modelatribuicaomorumbi.prototype.adicionarescalamorumbi = function(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-	,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, enf2, enf3, enf4, enf5,enfcme, teccme, callback){
+	,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, enf2, enf3, enf4, enf5 ,enfcme, teccme, callback){
 	
 	this._conection.query('insert into atribuicaomorumbi set unidade="Morumbi", date="'+date+'", turno="'+turno+'", enf1="'+enf1+'", tecenf1="'+tecenf1+'", maq1="'+maq1+'", maq2="'+maq2+'", enfpreposto="'+enfpreposto+'", tecenf2="'+tecenf2+'", tecenf3="'+tecenf3+'", tecenf4="'+tecenf4+'", tecenf5="'+tecenf5+'",tecenf6="'+tecenf6+'", tecenf7="'+tecenf7+'", tecenf8="'+tecenf8+'", tecenf9="'+tecenf9+'", tecenf10="'+tecenf10+'", tecenf11="'+tecenf11+'", tecenf12="'+tecenf12+'", tecenf13="'+tecenf13+'", enf2="'+enf2+'", enf3="'+enf3+'", enf4="'+enf4+'", enf5="'+enf5+'", teccme="'+teccme+'" , enfcme="'+enfcme+'"', callback);
 }
-modelatribuicaomorumbi.prototype.updatedescanso = function(unidade, date, turno, desc1,desc2,desc3,desc5,desc6,desc7,desc9,desc10,desc11,desc13,desc14,desc15,desc16,desc17,desc18,desc19, callback){
+modelatribuicaomorumbi.prototype.updatedescanso = function(unidade, date, turno, desc1,desc2,desc3,desc5,desc6,desc7,desc9,desc10,desc11,desc13,desc14,desc15,desc17,desc18,desc19, callback){
 	this._conection.query('update atribuicaomorumbi set desc1="'+desc1+'",desc2="'+desc2+'",desc3="'+desc3+'",desc5="'+desc5+'",desc6="'+desc6+'",desc7="'+desc7+'",desc9="'+desc9+'",desc10="'+desc10+'",desc11="'+desc11+'",desc13="'+desc13+'",desc14="'+desc14+'",desc15="'+desc15+'",desc17="'+desc17+'",desc18="'+desc18+'",desc19="'+desc19+'" where unidade="'+unidade+'" and date="'+date+'"and turno="'+turno+'"', callback);
 }
 modelatribuicaomorumbi.prototype.updateescalamorumbi = function(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-	,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15,enf2, enf3, enf4, enf5, enf6 , enf7 ,enfcme, teccme, callback){
-	
+	,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, enf2, enf3, enf4, enf5, enfcme, teccme, callback){
+
 	this._conection.query('update atribuicaomorumbi set enf1="'+enf1+'", tecenf1="'+tecenf1+'", maq1="'+maq1+'", maq2="'+maq2+'", enfpreposto="'+enfpreposto+'", tecenf2="'+tecenf2+'", tecenf3="'+tecenf3+'", tecenf4="'+tecenf4+'", tecenf5="'+tecenf5+'",tecenf6="'+tecenf6+'", tecenf7="'+tecenf7+'", tecenf8="'+tecenf8+'", tecenf9="'+tecenf9+'", tecenf10="'+tecenf10+'", tecenf11="'+tecenf11+'", tecenf12="'+tecenf12+'", tecenf13="'+tecenf13+'",enf2="'+enf2+'", enf3="'+enf3+'", enf4="'+enf4+'", enf5="'+enf5+'", teccme="'+teccme+'" , enfcme="'+enfcme+'" where unidade="Morumbi" and date="'+date+'"and turno="'+turno+'"', callback);
 }
 
