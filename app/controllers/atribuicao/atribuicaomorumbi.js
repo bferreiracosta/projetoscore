@@ -167,7 +167,7 @@ module.exports.adicionandoescalafolga = function(application, req, res){
 	modelatrimorumbi.buscarregraescalaunicamorumbi(date, turno, unidade,function(error, resultado){
 		if(resultado != null || resultado==""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
-				modelatrimorumbi.adicionandoescalafolga(unidade, date, turno, enfermeiro1, enfermeiro2, enfermeiro3, enfermeiro4, tecnico1, tecnico2, tecnico3, tecnico4, atestado1,atestado2, atestado3, atestado4,function(error, resultado){
+				modelatrimorumbi.adicionandoescalafolga(unidade, date, turno, enfermeiro1, enfermeiro2, enfermeiro3, tecnico1, tecnico2, tecnico3, atestado1,atestado2, atestado3,function(error, resultado){
 						res.redirect("/atribuicaomorumbi?id=" + result[0].id_usuario);	
 				})
 			});
