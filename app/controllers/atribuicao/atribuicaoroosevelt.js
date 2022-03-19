@@ -21,28 +21,24 @@ module.exports.updatedescanso = function(application, req, res){
 	var desc1 = req.body.desc1;
 	var desc2 = req.body.desc2;
 	var desc3 = req.body.desc3;
-	var desc4 = req.body.desc4;
 	var desc5 = req.body.desc5;
 	var desc6 = req.body.desc6;
 	var desc7 = req.body.desc7;
-	var desc8 = req.body.desc8;
 	var desc9 = req.body.desc9;
 	var desc10 = req.body.desc10;
 	var desc11 = req.body.desc11;
-	var desc12 = req.body.desc12;
 	var desc13 = req.body.desc13;
 	var desc14 = req.body.desc14;
 	var desc15 = req.body.desc15;
-	var desc16 = req.body.desc16;
 	var desc17 = req.body.desc17;
 	var desc18 = req.body.desc18;
 	var desc19 = req.body.desc19;
-	var desc20 = req.body.desc20;
+
 	modelatriroosevelt.buscarregraescalaunicaroosevelt(date, turno, unidade,function(error, resultado){
 		if(resultado != null || resultado==""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 			
-				modelatriroosevelt.updatedescanso(unidade, date, turno, desc1,desc2,desc3,desc4,desc5,desc6,desc7,desc8,desc9,desc10,desc11,desc12,desc13,desc14,desc15,desc16,desc17,desc18,desc19,desc20,function(error, resultado){
+				modelatriroosevelt.updatedescanso(unidade, date, turno, desc1,desc2,desc3,desc5,desc6,desc7,desc9,desc10,desc11,desc13,desc14,desc15,desc17,desc18,desc19,function(error, resultado){
 						res.redirect("/atribuicaoroosevelt?id=" + result[0].id_usuario);	
 				})
 			});
@@ -174,20 +170,18 @@ module.exports.adicionandoescalafolga = function(application, req, res){
 	var enfermeiro1 = req.body.enfermeiro1;
 	var enfermeiro2 = req.body.enfermeiro2;
 	var enfermeiro3 = req.body.enfermeiro3;
-	var enfermeiro4 = req.body.enfermeiro4;
 	var tecnico1 = req.body.tecnico1;
 	var tecnico2 = req.body.tecnico2;
 	var tecnico3 = req.body.tecnico3;
-	var tecnico4 = req.body.tecnico4;
 	var atestado1 = req.body.atestado1;
 	var atestado2 = req.body.atestado2;
 	var atestado3 = req.body.atestado3;
-	var atestado4 = req.body.atestado4;
+
 
 	modelatriroosevelt.buscarregraescalaunicaroosevelt(date, turno, unidade,function(error, resultado){
 		if(resultado != null || resultado==""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
-				modelatriroosevelt.adicionandoescalafolga(unidade, date, turno, enfermeiro1, enfermeiro2, enfermeiro3, enfermeiro4, tecnico1, tecnico2, tecnico3, tecnico4, atestado1,atestado2, atestado3, atestado4,function(error, resultado){
+				modelatriroosevelt.adicionandoescalafolga(unidade, date, turno, enfermeiro1, enfermeiro2, enfermeiro3, tecnico1, tecnico2, tecnico3, atestado1,atestado2, atestado3,function(error, resultado){
 						res.redirect("/atribuicaoroosevelt?id=" + result[0].id_usuario);	
 				})
 			});
