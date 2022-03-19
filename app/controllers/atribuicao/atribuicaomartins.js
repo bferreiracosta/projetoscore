@@ -33,17 +33,13 @@ module.exports.updatedescanso = function(application, req, res){
 	var desc13 = req.body.desc13;
 	var desc14 = req.body.desc14;
 	var desc15 = req.body.desc15;
-	var desc16 = req.body.desc16;
-	var desc17 = req.body.desc17;
-	var desc18 = req.body.desc18;
-	var desc19 = req.body.desc19;
-	var desc20 = req.body.desc20;
 
+	console.log(date)
 	modelatrimartins.buscarregraescalaunicamartins(date, turno, unidade,function(error, resultado){
 		if(resultado != null || resultado==""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
-			
-				modelatrimartins.updatedescanso(unidade, date, turno, desc1,desc2,desc3,desc4,desc5,desc6,desc7,desc8,desc9,desc10,desc11,desc12,desc13,desc14,desc15,desc16,desc17,desc18,desc19,desc20,function(error, resultado){
+		
+				modelatrimartins.updatedescanso(unidade, date, turno, desc1,desc2,desc3,desc4,desc5,desc6,desc7,desc8,desc9,desc10,desc11,desc12,desc13,desc14,desc15,function(error, resultado){
 						res.redirect("/atribuicaomartins?id=" + result[0].id_usuario);	
 				})
 			});
@@ -110,9 +106,6 @@ module.exports.adicionarescalamartins = function(application, req, res){
 	var tecenf16 = req.body.tecenf16;
 	var tecenf17 = req.body.tecenf17;
 	var tecenf18 = req.body.tecenf18;
-	var tecenf19 = req.body.tecenf19;
-	var tecenf20 = req.body.tecenf20;
-	var tecenf21 = req.body.tecenf21;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
@@ -123,14 +116,12 @@ module.exports.adicionarescalamartins = function(application, req, res){
 	var enf9 = req.body.enf9;
 	var enf10 = req.body.enf10;
 	var enf11 = req.body.enf11;
-	var enf12 = req.body.enf12;
-	var enf13 = req.body.enf13;
 	modelatrimartins.buscarregraescalaunicamartins(date, turno, unidade,function(error, resultado){
 		if(resultado == null || resultado==""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelatrimartins.adicionarescalamartins(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15,tecenf16,tecenf17,tecenf18,tecenf19,tecenf20,tecenf21,
-					 enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10 ,enf11 , enf12, enf13,enfcme, teccme,function(error, resultado){
+					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15,tecenf16,tecenf17,tecenf18,
+					 enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10 ,enf11 ,enfcme, teccme,function(error, resultado){
 						res.redirect("/atribuicaomartins?id=" + result[0].id_usuario);	
 				})
 			});
@@ -176,20 +167,17 @@ module.exports.adicionandoescalafolga = function(application, req, res){
 	var enfermeiro1 = req.body.enfermeiro1;
 	var enfermeiro2 = req.body.enfermeiro2;
 	var enfermeiro3 = req.body.enfermeiro3;
-	var enfermeiro4 = req.body.enfermeiro4;
 	var tecnico1 = req.body.tecnico1;
 	var tecnico2 = req.body.tecnico2;
 	var tecnico3 = req.body.tecnico3;
-	var tecnico4 = req.body.tecnico4;
 	var atestado1 = req.body.atestado1;
 	var atestado2 = req.body.atestado2;
 	var atestado3 = req.body.atestado3;
-	var atestado4 = req.body.atestado4;
 
 	modelatrimartins.buscarregraescalaunicamartins(date, turno, unidade,function(error, resultado){
 		if(resultado != null || resultado==""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
-				modelatrimartins.adicionandoescalafolga(unidade, date, turno, enfermeiro1, enfermeiro2, enfermeiro3, enfermeiro4, tecnico1, tecnico2, tecnico3, tecnico4, atestado1,atestado2, atestado3, atestado4,function(error, resultado){
+				modelatrimartins.adicionandoescalafolga(unidade, date, turno, enfermeiro1, enfermeiro2, enfermeiro3, tecnico1, tecnico2, tecnico3, atestado1,atestado2, atestado3, function(error, resultado){
 						res.redirect("/atribuicaomartins?id=" + result[0].id_usuario);	
 				})
 			});
@@ -314,9 +302,6 @@ module.exports.editarescalamartins = function(application, req, res){
 	var tecenf16 = req.body.tecenf16;
 	var tecenf17 = req.body.tecenf17;
 	var tecenf18 = req.body.tecenf18;
-	var tecenf19 = req.body.tecenf19;
-	var tecenf20 = req.body.tecenf20;
-	var tecenf21 = req.body.tecenf21;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
@@ -327,12 +312,10 @@ module.exports.editarescalamartins = function(application, req, res){
 	var enf9 = req.body.enf9;
 	var enf10 = req.body.enf10;
 	var enf11 = req.body.enf11;
-	var enf12 = req.body.enf12;
-	var enf13 = req.body.enf13;
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelatrimartins.updateescalamartins(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15,tecenf16,tecenf17,tecenf18,tecenf19,tecenf20,tecenf21,
-			 enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10 ,enf11 ,enf12, enf13, enfcme, teccme,function(error, resultado){
+			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15,tecenf16,tecenf17,tecenf18,
+			 enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10 ,enf11 , enfcme, teccme,function(error, resultado){
 				res.redirect("/atribuicaomartins?id=" + result[0].id_usuario);	
 		})
 	});
