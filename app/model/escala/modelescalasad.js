@@ -24,6 +24,7 @@ modelescalasad.prototype.criarfolga =  function(funcionarios, escala, turno, cal
 			[funcionarios[9].idfuncionariossad, escala],
 			[funcionarios[10].idfuncionariossad, escala],
 			[funcionarios[11].idfuncionariossad, escala],
+			[funcionarios[12].idfuncionariossad, escala],
 		];
 	}
 	if(turno == "Tarde"){
@@ -94,7 +95,6 @@ modelescalasad.prototype.criarfolga =  function(funcionarios, escala, turno, cal
 				[funcionarios[33].idfuncionariossad, escala],
 				[funcionarios[34].idfuncionariossad, escala],
 				[funcionarios[35].idfuncionariossad, escala],
-				[funcionarios[36].idfuncionariossad, escala],
 			];
 }
 	this._conection.query(sql, [values], callback);	
@@ -328,22 +328,22 @@ modelescalasad.prototype.buscarregraescalaunicasad = function(campo, turno, date
 
 modelescalasad.prototype.buscarescalamensalsad = function(valor, callback){
 
-	this._conection.query('select * from folgasad f inner join funcionariossad func on f.idfuncionarios=func.idfuncionariossad inner join escalasad esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "SAD" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgasad f inner join funcionariossad func on f.idfuncionarios=func.idfuncionariossad inner join escalasad esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "SAD" order by func.categoria = "AE", func.categoria = "TE",  func.categoria = "ENF",-func.nome DESC;', callback);
 }
 
 modelescalasad.prototype.buscarescalamensalsadtarde = function(valor, callback){
 
-	this._conection.query('select * from folgasad f inner join funcionariossad func on f.idfuncionarios=func.idfuncionariossad inner join escalasad esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "SAD" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgasad f inner join funcionariossad func on f.idfuncionarios=func.idfuncionariossad inner join escalasad esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "SAD" order by func.categoria = "AE", func.categoria = "TE", func.categoria = "ENF",-func.nome DESC;', callback);
 }
 
 modelescalasad.prototype.buscarescalamensalsadsn1 = function(valor, callback){
 
-	this._conection.query('select * from folgasad f inner join funcionariossad func on f.idfuncionarios=func.idfuncionariossad inner join escalasad esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "SAD" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgasad f inner join funcionariossad func on f.idfuncionarios=func.idfuncionariossad inner join escalasad esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "SAD" order by func.categoria = "AE", func.categoria = "TE",  func.categoria = "ENF",-func.nome DESC;', callback);
 }
 
 modelescalasad.prototype.buscarescalamensalsadsn2 = function(valor, callback){
 
-	this._conection.query('select * from folgasad f inner join funcionariossad func on f.idfuncionarios=func.idfuncionariossad inner join escalasad esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "SAD" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgasad f inner join funcionariossad func on f.idfuncionarios=func.idfuncionariossad inner join escalasad esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "SAD" order by func.categoria = "AE", func.categoria = "TE",  func.categoria = "ENF",-func.nome DESC;', callback);
 }
 
 modelescalasad.prototype.buscarescalamensalsadmaq = function(valor, callback){
