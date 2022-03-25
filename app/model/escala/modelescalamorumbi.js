@@ -61,6 +61,7 @@ modelescalamorumbi.prototype.criarfolga =  function(funcionarios, escala, turno,
 			[funcionarios[18].idfuncionariosmorumbi, escala],
 			[funcionarios[19].idfuncionariosmorumbi, escala],
 			[funcionarios[20].idfuncionariosmorumbi, escala],
+			[funcionarios[21].idfuncionariosmorumbi, escala],
 		];
 	}
 	if(turno == "SN1"){
@@ -84,8 +85,6 @@ modelescalamorumbi.prototype.criarfolga =  function(funcionarios, escala, turno,
 			[funcionarios[16].idfuncionariosmorumbi, escala],
 			[funcionarios[17].idfuncionariosmorumbi, escala],
 			[funcionarios[18].idfuncionariosmorumbi, escala],
-			[funcionarios[19].idfuncionariosmorumbi, escala],
-			[funcionarios[20].idfuncionariosmorumbi, escala],
 		];
 	}
 	if(turno == "SN2"){
@@ -109,8 +108,7 @@ modelescalamorumbi.prototype.criarfolga =  function(funcionarios, escala, turno,
 			[funcionarios[16].idfuncionariosmorumbi, escala],
 			[funcionarios[17].idfuncionariosmorumbi, escala],
 			[funcionarios[18].idfuncionariosmorumbi, escala],
-			[funcionarios[19].idfuncionariosmorumbi, escala],
-			[funcionarios[20].idfuncionariosmorumbi, escala],
+
 		];
 	}
 

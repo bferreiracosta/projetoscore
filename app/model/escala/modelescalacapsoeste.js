@@ -58,8 +58,6 @@ modelescalacapsoeste.prototype.criarfolga =  function(funcionarios, escala, turn
 			[funcionarios[14].idfuncionarioscapsoeste, escala],
 			[funcionarios[15].idfuncionarioscapsoeste, escala],
 			[funcionarios[16].idfuncionarioscapsoeste, escala],
-			[funcionarios[17].idfuncionarioscapsoeste, escala],
-			[funcionarios[18].idfuncionarioscapsoeste, escala],
 		];
 	}
 	

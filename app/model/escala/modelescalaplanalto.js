@@ -80,6 +80,8 @@ modelescalaplanalto.prototype.criarfolga =  function(funcionarios, escala, turno
 			[funcionarios[27].idfuncionariosplanalto, escala],
 			[funcionarios[28].idfuncionariosplanalto, escala],
 			[funcionarios[29].idfuncionariosplanalto, escala],
+			[funcionarios[30].idfuncionariosplanalto, escala],
+			[funcionarios[31].idfuncionariosplanalto, escala],
 		];
 	}
 	if(turno == "SN1"){
@@ -114,6 +116,8 @@ modelescalaplanalto.prototype.criarfolga =  function(funcionarios, escala, turno
 			[funcionarios[27].idfuncionariosplanalto, escala],
 			[funcionarios[28].idfuncionariosplanalto, escala],
 			[funcionarios[29].idfuncionariosplanalto, escala],
+			[funcionarios[30].idfuncionariosplanalto, escala],
+			[funcionarios[31].idfuncionariosplanalto, escala],
 		];
 	}
 	if(turno == "SN2"){
@@ -148,6 +152,8 @@ modelescalaplanalto.prototype.criarfolga =  function(funcionarios, escala, turno
 			[funcionarios[27].idfuncionariosplanalto, escala],
 			[funcionarios[28].idfuncionariosplanalto, escala],
 			[funcionarios[29].idfuncionariosplanalto, escala],
+			[funcionarios[30].idfuncionariosplanalto, escala],
+			[funcionarios[31].idfuncionariosplanalto, escala],
 		];
 	}
 

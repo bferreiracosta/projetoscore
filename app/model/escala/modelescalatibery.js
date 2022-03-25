@@ -38,7 +38,6 @@ modelescalatibery.prototype.criarfolga =  function(funcionarios, escala, turno, 
 			[funcionarios[23].idfuncionariostibery, escala],
 			[funcionarios[24].idfuncionariostibery, escala],
 			[funcionarios[25].idfuncionariostibery, escala],
-			[funcionarios[26].idfuncionariostibery, escala],
 		];
 	}
 	if(turno == "Tarde"){
@@ -96,7 +95,6 @@ modelescalatibery.prototype.criarfolga =  function(funcionarios, escala, turno, 
 			[funcionarios[21].idfuncionariostibery, escala],
 			[funcionarios[22].idfuncionariostibery, escala],
 			[funcionarios[23].idfuncionariostibery, escala],
-			[funcionarios[24].idfuncionariostibery, escala],
 		];
 	}
 	if(turno == "SN2"){
