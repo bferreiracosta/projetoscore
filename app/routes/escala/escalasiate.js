@@ -24,8 +24,8 @@ module.exports = function(application){
 	application.post('/validarescalasiate', function(req, res){
 		application.app.controllers.escala.escalasiate.validarescala(application, req, res);
 		});
-	application.get('/updateferiassiate', function(req, res){
-		application.app.controllers.escala.escalasiate.updateferias(application, req, res);
+	application.get('/updateferiasSIATE', function(req, res){
+		application.app.controllers.escala.escalasiate.updateferiasSIATE(application, req, res);
 		});
 	application.get('/buscarescalamensalsiate', function(req, res){
 		application.app.controllers.escala.escalasiate.buscarescalamensalsiate(application, req, res);

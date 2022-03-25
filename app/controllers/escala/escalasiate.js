@@ -23,7 +23,7 @@ module.exports.updateescalasiate = function(application, req, res){
 	
 }
 
-module.exports.updateferias = function(application, req, res){
+module.exports.updateferiasSIATE = function(application, req, res){
 	
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelescalasiate = new application.app.model.escala.modelescalasiate(application);
@@ -31,7 +31,7 @@ module.exports.updateferias = function(application, req, res){
 	var valor =  req.query;
 
 	modeladmin.buscarusuarioeditavel(idusuario, function(error,result){
-		modelescalasiate.updateferias(valor, function(error, resultdoinsert){
+		modelescalasiate.updateferiasSIATE(valor, function(error, resultdoinsert){
 			res.send(resultdoinsert);
 		})
 	});
