@@ -1417,7 +1417,7 @@ module.exports.infouaimorumbi= function(application, req, res){
 						modelmorumbi.buscarobservacaomorumbi(unidade, function(error, obser){
 							modelmorumbi.buscaraltamorumbi(unidade, function(error, alta){
 								modelmorumbi.buscarcirurgicomorumbi(unidade, function(error, cirur){
-									modelmorumbi.buscarpsquiatriamorumbi(unidade, function(error, psq){
+									modelmorumbi.buscarPsiquiatriamorumbi(unidade, function(error, psq){
 										modelmorumbi.buscarpediatriamorumbi(unidade, function(error, ped){
 											modelmorumbi.buscartraumatologiamorumbi(unidade, function(error, tto){
 												modelmorumbi.buscarclinicomorumbi(unidade, function(error, clinico){

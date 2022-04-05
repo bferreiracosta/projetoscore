@@ -1417,7 +1417,7 @@ module.exports.infouailuizote= function(application, req, res){
 						modelluizote.buscarobservacaoluizote(unidade, function(error, obser){
 							modelluizote.buscaraltaluizote(unidade, function(error, alta){
 								modelluizote.buscarcirurgicoluizote(unidade, function(error, cirur){
-									modelluizote.buscarpsquiatrialuizote(unidade, function(error, psq){
+									modelluizote.buscarPsiquiatrialuizote(unidade, function(error, psq){
 										modelluizote.buscarpediatrialuizote(unidade, function(error, ped){
 											modelluizote.buscartraumatologialuizote(unidade, function(error, tto){
 												modelluizote.buscarclinicoluizote(unidade, function(error, clinico){

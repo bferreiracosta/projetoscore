@@ -1417,7 +1417,7 @@ module.exports.infouaitibery= function(application, req, res){
 						modeltibery.buscarobservacaotibery(unidade, function(error, obser){
 							modeltibery.buscaraltatibery(unidade, function(error, alta){
 								modeltibery.buscarcirurgicotibery(unidade, function(error, cirur){
-									modeltibery.buscarpsquiatriatibery(unidade, function(error, psq){
+									modeltibery.buscarPsiquiatriatibery(unidade, function(error, psq){
 										modeltibery.buscarpediatriatibery(unidade, function(error, ped){
 											modeltibery.buscartraumatologiatibery(unidade, function(error, tto){
 												modeltibery.buscarclinicotibery(unidade, function(error, clinico){

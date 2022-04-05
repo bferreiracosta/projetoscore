@@ -71,11 +71,11 @@
 							 <li class="btn-info">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Escalas Programas</a>
 								<ul class="dropdown-menu">
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalacer?id=<%=id[i].id_usuario %>">CER</a></li>
+	
 									<li class="btn-info"><a class="btn   btn-sm" href="/escalasad?id=<%=id[i].id_usuario %>">Melhor em Casa</a></li>
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalaco?id=<%=id[i].id_usuario %>">Centro Oftamológico</a></li>
+	
 									<li class="btn-info"><a class="btn   btn-sm" href="/escalacc?id=<%=id[i].id_usuario %>">Centro de Convivência</a></li>
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalaist?id=<%=id[i].id_usuario %>">IST/AIDs</a></li>
+			
 									<li class="btn-info"><a class="btn   btn-sm" href="/escalaua?id=<%=id[i].id_usuario %>">Unidade de Acolhimento</a></li>
 								</ul>
 							 </li>
@@ -105,22 +105,12 @@
 							<li class="btn-info"><a class="btn   btn-sm" href="/escalatibery?id=<%=id[i].id_usuario %>">Escala  Tibery</a></li>
 							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
-						<% if(id[i].unidade== 15){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalaco?id=<%=id[i].id_usuario %>">Escala  Centro Oftamológico</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
-						<% } %>
+
 						<% if(id[i].unidade== 16){%>
 							<li class="btn-info"><a class="btn   btn-sm" href="/escalacc?id=<%=id[i].id_usuario %>">Escala  Centro de Convivência</a></li>
 							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
-						<% if(id[i].unidade== 17){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalacer?id=<%=id[i].id_usuario %>">Escala CER</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
-						<% } %>
-						<% if(id[i].unidade== 18){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalaist?id=<%=id[i].id_usuario %>">Escala IST</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
-						<% } %>
+		
 						<% if(id[i].unidade== 19){%>
 							<li class="btn-info"><a class="btn   btn-sm" href="/escalasad?id=<%=id[i].id_usuario %>">Escala SAD</a></li>
 							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	

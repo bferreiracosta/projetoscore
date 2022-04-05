@@ -1417,7 +1417,7 @@ module.exports.infouaiplanalto= function(application, req, res){
 						modelplanalto.buscarobservacaoplanalto(unidade, function(error, obser){
 							modelplanalto.buscaraltaplanalto(unidade, function(error, alta){
 								modelplanalto.buscarcirurgicoplanalto(unidade, function(error, cirur){
-									modelplanalto.buscarpsquiatriaplanalto(unidade, function(error, psq){
+									modelplanalto.buscarPsiquiatriaplanalto(unidade, function(error, psq){
 										modelplanalto.buscarpediatriaplanalto(unidade, function(error, ped){
 											modelplanalto.buscartraumatologiaplanalto(unidade, function(error, tto){
 												modelplanalto.buscarclinicoplanalto(unidade, function(error, clinico){

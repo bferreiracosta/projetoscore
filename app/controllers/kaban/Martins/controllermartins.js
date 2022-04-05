@@ -1416,7 +1416,7 @@ module.exports.infouaimartins= function(application, req, res){
 						modelmartins.buscarobservacaomartins(unidade, function(error, obser){
 							modelmartins.buscaraltamartins(unidade, function(error, alta){
 								modelmartins.buscarcirurgicomartins(unidade, function(error, cirur){
-									modelmartins.buscarpsquiatriamartins(unidade, function(error, psq){
+									modelmartins.buscarPsiquiatriamartins(unidade, function(error, psq){
 										modelmartins.buscarpediatriamartins(unidade, function(error, ped){
 											modelmartins.buscartraumatologiamartins(unidade, function(error, tto){
 												modelmartins.buscarclinicomartins(unidade, function(error, clinico){

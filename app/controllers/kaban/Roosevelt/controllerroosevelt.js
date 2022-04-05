@@ -1417,7 +1417,7 @@ module.exports.infouairoosevelt= function(application, req, res){
 						modelroosevelt.buscarobservacaoroosevelt(unidade, function(error, obser){
 							modelroosevelt.buscaraltaroosevelt(unidade, function(error, alta){
 								modelroosevelt.buscarcirurgicoroosevelt(unidade, function(error, cirur){
-									modelroosevelt.buscarpsquiatriaroosevelt(unidade, function(error, psq){
+									modelroosevelt.buscarPsiquiatriaroosevelt(unidade, function(error, psq){
 										modelroosevelt.buscarpediatriaroosevelt(unidade, function(error, ped){
 											modelroosevelt.buscartraumatologiaroosevelt(unidade, function(error, tto){
 												modelroosevelt.buscarclinicoroosevelt(unidade, function(error, clinico){
