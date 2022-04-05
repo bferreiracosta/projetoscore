@@ -407,9 +407,9 @@ modelluizote.prototype.buscarpediatrialuizote = function(unidade, callback){
 	this._conection.query('select count(especialidade) as Pediatria  from kaban where especialidade = "Pediatria" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
-modelluizote.prototype.buscarpsquiatrialuizote = function(unidade, callback){
+modelluizote.prototype.buscarPsiquiatrialuizote = function(unidade, callback){
 
-	this._conection.query('select count(especialidade) as Psquiatria  from kaban where especialidade = "Psquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
+	this._conection.query('select count(especialidade) as Psiquiatria  from kaban where especialidade = "Psiquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
 modelluizote.prototype.buscarcirurgicoluizote = function(unidade, callback){

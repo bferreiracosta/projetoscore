@@ -407,9 +407,9 @@ modelmorumbi.prototype.buscarpediatriamorumbi = function(unidade, callback){
 	this._conection.query('select count(especialidade) as Pediatria  from kaban where especialidade = "Pediatria" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
-modelmorumbi.prototype.buscarpsquiatriamorumbi = function(unidade, callback){
+modelmorumbi.prototype.buscarPsiquiatriamorumbi = function(unidade, callback){
 
-	this._conection.query('select count(especialidade) as Psquiatria  from kaban where especialidade = "Psquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
+	this._conection.query('select count(especialidade) as Psiquiatria  from kaban where especialidade = "Psiquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
 modelmorumbi.prototype.buscarcirurgicomorumbi = function(unidade, callback){

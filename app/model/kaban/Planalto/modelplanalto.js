@@ -407,9 +407,9 @@ modelplanalto.prototype.buscarpediatriaplanalto = function(unidade, callback){
 	this._conection.query('select count(especialidade) as Pediatria  from kaban where especialidade = "Pediatria" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
-modelplanalto.prototype.buscarpsquiatriaplanalto = function(unidade, callback){
+modelplanalto.prototype.buscarPsiquiatriaplanalto = function(unidade, callback){
 
-	this._conection.query('select count(especialidade) as Psquiatria  from kaban where especialidade = "Psquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
+	this._conection.query('select count(especialidade) as Psiquiatria  from kaban where especialidade = "Psiquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
 modelplanalto.prototype.buscarcirurgicoplanalto = function(unidade, callback){

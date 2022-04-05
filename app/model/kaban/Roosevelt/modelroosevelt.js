@@ -407,9 +407,9 @@ modelroosevelt.prototype.buscarpediatriaroosevelt = function(unidade, callback){
 	this._conection.query('select count(especialidade) as Pediatria  from kaban where especialidade = "Pediatria" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
-modelroosevelt.prototype.buscarpsquiatriaroosevelt = function(unidade, callback){
+modelroosevelt.prototype.buscarPsiquiatriaroosevelt = function(unidade, callback){
 
-	this._conection.query('select count(especialidade) as Psquiatria  from kaban where especialidade = "Psquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
+	this._conection.query('select count(especialidade) as Psiquiatria  from kaban where especialidade = "Psiquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
 modelroosevelt.prototype.buscarcirurgicoroosevelt = function(unidade, callback){

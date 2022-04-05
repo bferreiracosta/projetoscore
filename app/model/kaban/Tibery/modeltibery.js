@@ -407,9 +407,9 @@ modeltibery.prototype.buscarpediatriatibery = function(unidade, callback){
 	this._conection.query('select count(especialidade) as Pediatria  from kaban where especialidade = "Pediatria" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
-modeltibery.prototype.buscarpsquiatriatibery = function(unidade, callback){
+modeltibery.prototype.buscarPsiquiatriatibery = function(unidade, callback){
 
-	this._conection.query('select count(especialidade) as Psquiatria  from kaban where especialidade = "Psquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
+	this._conection.query('select count(especialidade) as Psiquiatria  from kaban where especialidade = "Psiquiatria" and unidade = "'+unidade+'" and baixa is null;', callback);
 }
 
 modeltibery.prototype.buscarcirurgicotibery = function(unidade, callback){
