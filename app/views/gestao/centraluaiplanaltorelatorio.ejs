@@ -30,11 +30,11 @@
                    
                     <th>Quantidade de Cadeiras Vagas</th>
 
-                    <th>Quantidade de Berços</th>
+                    <!-- <th>Quantidade de Berços</th>
                    
                     <th>Quantidade de Berços Ocupadas</th>
                    
-                    <th>Quantidade de Berços Vagas</th>
+                    <th>Quantidade de Berços Vagas</th> -->
 
                     <th>Leito Bloqueado</th>
 
@@ -72,11 +72,11 @@
                     <td ></td>
 
 
-                    <td ><%=leito[j].capacidadebercos %></td>
+                    <!-- <td ><%=leito[j].capacidadebercos %></td>
                    
                     <td ><%=leito[j].qtdbercos %></td>
                    
-                    <td ></td>
+                    <td ></td> -->
                     
                     <td ><%=leito[j].bloqueado %></td>
 
@@ -110,11 +110,11 @@
                    
                     <td ></td>
                    
-                    <td ></td>
+                    <!-- <td ></td>
                    
                     <td ></td>
 
-                    <td></td>
+                    <td></td> -->
 
                     <td ></td>
                    
@@ -197,7 +197,7 @@ $('#mytable').on('dblclick', 'tr', function () {
         var id = "";
         var cama = "";
         var maca = "";
-        var berco = "";
+        // var berco = "";
         var macaparada = "";
         var idusuario = "";
         var setor = "";
@@ -209,7 +209,7 @@ $('#mytable').on('dblclick', 'tr', function () {
          setor =$.trim(tableData[0]);
          cama =$.trim(tableData[3]);
          maca =$.trim(tableData[6]);
-         berco =$.trim(tableData[9]);
+        //  berco =$.trim(tableData[9]);
          macaparada =$.trim(tableData[12]);
          bloqueado =$.trim(tableData[13]);
          $('select.leito').val(bloqueado);
@@ -217,7 +217,7 @@ $('#mytable').on('dblclick', 'tr', function () {
          $('h1.setor').text(setor);
          $('input.cama').val(cama);
          $('input.maca').val(maca);
-         $('input.berco').val(berco);
+        //  $('input.berco').val(berco);
          $('input.macaparada').val(macaparada);
          $('input.setor2').val(setor);
          $('input.idusuario').val(idusuario);
@@ -503,85 +503,85 @@ function verifica(value){
                   pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
                 );
 
-                total = api
-                    .column( 11 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
+                // total = api
+                //     .column( 11 )
+                //     .data()
+                //     .reduce( function (a, b) {
+                //         return intVal(a) + intVal(b);
+                //     }, 0 );
  
-                // Total over this page
-                pageTotal = api
-                    .column( 11, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
+                // // Total over this page
+                // pageTotal = api
+                //     .column( 11, { page: 'current'} )
+                //     .data()
+                //     .reduce( function (a, b) {
+                //         return intVal(a) + intVal(b);
+                //     }, 0 );
  
-                // Update footer
-                $( api.column( 11 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
+                // // Update footer
+                // $( api.column( 11 ).footer() ).html(
+                //   pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                // );
 
-                total = api
-                    .column( 12 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
+                // total = api
+                //     .column( 12 )
+                //     .data()
+                //     .reduce( function (a, b) {
+                //         return intVal(a) + intVal(b);
+                //     }, 0 );
  
-                // Total over this page
-                pageTotal = api
-                    .column( 12, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
+                // // Total over this page
+                // pageTotal = api
+                //     .column( 12, { page: 'current'} )
+                //     .data()
+                //     .reduce( function (a, b) {
+                //         return intVal(a) + intVal(b);
+                //     }, 0 );
  
-                // Update footer
-                $( api.column( 12 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
+                // // Update footer
+                // $( api.column( 12 ).footer() ).html(
+                //   pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                // );
 
-                total = api
-                    .column( 13 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
+                // total = api
+                //     .column( 13 )
+                //     .data()
+                //     .reduce( function (a, b) {
+                //         return intVal(a) + intVal(b);
+                //     }, 0 );
  
-                // Total over this page
-                pageTotal = api
-                    .column( 13, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
+                // // Total over this page
+                // pageTotal = api
+                //     .column( 13, { page: 'current'} )
+                //     .data()
+                //     .reduce( function (a, b) {
+                //         return intVal(a) + intVal(b);
+                //     }, 0 );
  
-                // Update footer
-                $( api.column( 13 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
+                // // Update footer
+                // $( api.column( 13 ).footer() ).html(
+                //   pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                // );
                 
-                total = api
-                    .column( 14 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
+                // total = api
+                //     .column( 14 )
+                //     .data()
+                //     .reduce( function (a, b) {
+                //         return intVal(a) + intVal(b);
+                //     }, 0 );
  
-                // Total over this page
-                pageTotal = api
-                    .column( 14, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
+                // // Total over this page
+                // pageTotal = api
+                //     .column( 14, { page: 'current'} )
+                //     .data()
+                //     .reduce( function (a, b) {
+                //         return intVal(a) + intVal(b);
+                //     }, 0 );
  
-                // Update footer
-                $( api.column( 14 ).footer() ).html(
-                  pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
-                );
+                // // Update footer
+                // $( api.column( 14 ).footer() ).html(
+                //   pageTotal // +' ( ₱'+ total + ')' ouput the total of all pages //
+                // );
                 total = api
                     .column( 15 )
                     .data()
@@ -652,20 +652,20 @@ $('#mytable tbody tr').each(function(i){
             qtdmacasocupadas = tr.children('td:eq(6)').html();
             qtdcadeira=tr.children('td:eq(8)').html();
             qtdcadeirasocupadas = tr.children('td:eq(9)').html();
-            qtdcbercos=tr.children('td:eq(11)').html();
-            qtdbercosocupadas = tr.children('td:eq(12)').html();
+            // qtdcbercos=tr.children('td:eq(11)').html();
+            // qtdbercosocupadas = tr.children('td:eq(12)').html();
             var valorcamasvazias = 0;
             var valormacasvazias = 0;
             var valorcadeirasvazia = 0;
-            var valorcbercosvazia = 0;
+            // var valorcbercosvazia = 0;
             valorcamasvazias = qtdcamas - qtdcamasocupadas;
             valormacasvazias = qtdmacas - qtdmacasocupadas;
             valorcadeirasvazia = qtdcadeira - qtdcadeirasocupadas;
-            valorcbercosvazia = qtdcbercos - qtdbercosocupadas;
+            // valorcbercosvazia = qtdcbercos - qtdbercosocupadas;
             tr.children('td:eq(4)').html(valorcamasvazias);
             tr.children('td:eq(7)').html(valormacasvazias);
             tr.children('td:eq(10)').html(valorcadeirasvazia);
-            tr.children('td:eq(13)').html(valorcbercosvazia);
+            // tr.children('td:eq(13)').html(valorcbercosvazia);
   
   
 
