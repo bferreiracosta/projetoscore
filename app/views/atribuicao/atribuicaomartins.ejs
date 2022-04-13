@@ -218,7 +218,7 @@
           <thead>
             <tr style="border: none; height: 35px;" class="bg-primary">
               <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logoprefeitura.jpg"></th>
-              <th colspan="3" scope="col" style="text-align: center;" id="dataturnotarde"></th>
+              <th colspan="2" scope="col" style="text-align: center;" id="dataturnotarde"></th>
               <th scope="col"><img width="100" height="65" style="position: relative;top: 50%;left: 30%" src="/images/logospdm.jpg"></th>
               <th hidden></th>
               <th hidden></th>
@@ -1543,18 +1543,15 @@ $( "#target1" ).click(function() {
    contentType: 'application/json',
    url: '/buscarescalamartins',
       success: function(data) {  
-            document.getElementById("enfermeiro1").value = data[0].enfermeiro1;
+         document.getElementById("enfermeiro1").value = data[0].enfermeiro1;
             document.getElementById("enfermeiro2").value = data[0].enfermeiro2;
             document.getElementById("enfermeiro3").value = data[0].enfermeiro3;
-            document.getElementById("enfermeiro4").value = data[0].enfermeiro4;
             document.getElementById("tecnico1").value = data[0].tecnico1;
             document.getElementById("tecnico2").value = data[0].tecnico2;
             document.getElementById("tecnico3").value = data[0].tecnico3;
-            document.getElementById("tecnico4").value = data[0].tecnico4;
             document.getElementById("atestado1").value = data[0].atestado1;
             document.getElementById("atestado2").value = data[0].atestado2;
-            document.getElementById("atestado3").value = data[0].atestado3;
-            document.getElementById("atestado4").value = data[0].atestado4;           
+            document.getElementById("atestado3").value = data[0].atestado3;       
       }
    })
       $('#DescModal1').modal("show");
@@ -1575,15 +1572,13 @@ $( "#target1" ).click(function() {
             document.getElementById("enfermeiro1").value = data[0].enfermeiro1;
             document.getElementById("enfermeiro2").value = data[0].enfermeiro2;
             document.getElementById("enfermeiro3").value = data[0].enfermeiro3;
-            document.getElementById("enfermeiro4").value = data[0].enfermeiro4;
             document.getElementById("tecnico1").value = data[0].tecnico1;
             document.getElementById("tecnico2").value = data[0].tecnico2;
             document.getElementById("tecnico3").value = data[0].tecnico3;
-            document.getElementById("tecnico4").value = data[0].tecnico4;
             document.getElementById("atestado1").value = data[0].atestado1;
             document.getElementById("atestado2").value = data[0].atestado2;
             document.getElementById("atestado3").value = data[0].atestado3;
-            document.getElementById("atestado4").value = data[0].atestado4;    
+ 
            
       }
    })
@@ -1601,18 +1596,15 @@ $( "#target1" ).click(function() {
    contentType: 'application/json',
    url: '/buscarescalamartins',
       success: function(data) {  
-            document.getElementById("enfermeiro1").value = data[0].enfermeiro1;
+         document.getElementById("enfermeiro1").value = data[0].enfermeiro1;
             document.getElementById("enfermeiro2").value = data[0].enfermeiro2;
             document.getElementById("enfermeiro3").value = data[0].enfermeiro3;
-            document.getElementById("enfermeiro4").value = data[0].enfermeiro4;
             document.getElementById("tecnico1").value = data[0].tecnico1;
             document.getElementById("tecnico2").value = data[0].tecnico2;
             document.getElementById("tecnico3").value = data[0].tecnico3;
-            document.getElementById("tecnico4").value = data[0].tecnico4;
             document.getElementById("atestado1").value = data[0].atestado1;
             document.getElementById("atestado2").value = data[0].atestado2;
-            document.getElementById("atestado3").value = data[0].atestado3;
-            document.getElementById("atestado4").value = data[0].atestado4;           
+            document.getElementById("atestado3").value = data[0].atestado3;         
       }
    })
       $('#DescModal1').modal("show");
@@ -1632,15 +1624,12 @@ $( "#target1" ).click(function() {
          document.getElementById("enfermeiro1").value = data[0].enfermeiro1;
             document.getElementById("enfermeiro2").value = data[0].enfermeiro2;
             document.getElementById("enfermeiro3").value = data[0].enfermeiro3;
-            document.getElementById("enfermeiro4").value = data[0].enfermeiro4;
             document.getElementById("tecnico1").value = data[0].tecnico1;
             document.getElementById("tecnico2").value = data[0].tecnico2;
             document.getElementById("tecnico3").value = data[0].tecnico3;
-            document.getElementById("tecnico4").value = data[0].tecnico4;
             document.getElementById("atestado1").value = data[0].atestado1;
             document.getElementById("atestado2").value = data[0].atestado2;
             document.getElementById("atestado3").value = data[0].atestado3;
-            document.getElementById("atestado4").value = data[0].atestado4;    
                    
       }
    })
