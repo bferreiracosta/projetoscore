@@ -3,7 +3,7 @@
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
        
-<form action="/updatead" style="padding-left: 1%; padding-right: 1%;" method="post">
+<form action="/updateleste" style="padding-left: 1%; padding-right: 1%;" method="post">
 	<h2>Editar  paciente</h2> 
 		<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
 		<% if(mental.length > 0) { %>
@@ -403,7 +403,7 @@ function calcular(){
 	if(juizo == "AUSENTE"){
 		numjuizo = 0;
 	}
-	if(juizo == "PERDA DE CONEXÃO COM A REALIDADE (DELÍRIOS) SEM A PRESENÇA DE ALTERAÇÕES DA SENSOPERCEPÇÃO (ALUCINAÇÕES)"){
+	if(juizo == "PERDA DE CONEXÃO COM A REALIDADE (DELÍRIOS) SEM A PRESENÇA DE ALTERAÇÕESDA SENSOPERCEPÇÃO (ALUCINAÇÕES)"){
 		numjuizo = 2;
 	}
 	if(juizo == "ALTERAÇÕES DA SENSOPERCEPÇÃO (ALUCINAÇÕES) SEM PERDA DE CONEXÃO COM A REALIDADE (DELÍRIOS)"){

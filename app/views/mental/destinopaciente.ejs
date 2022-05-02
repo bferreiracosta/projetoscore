@@ -37,7 +37,7 @@
 								
                         <tr>
 							<td hidden><%=mental[j].id_paciente %></td>
-                            <th><%=mental[j].prt %></th>
+                            <td><%=mental[j].prt %></td>
                             <td><%=mental[j].paciente %></td>
                             <td><%=mental[j].idade %></td>
                             <td><%=mental[j].diagnostico %></td>
@@ -56,6 +56,10 @@
                             <td>
                                 <a href="" onclick="setaDadosModal('<%=mental[j].id_paciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#Baixa">Saida</a>
                             </td>
+                            <% } else{%>	
+                                <td>
+                                    <a href="" onclick="setaDadosModal('<%=mental[j].id_paciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#Baixa">Saida</a>
+                                </td>
                             <% } %>	
 						</tr>
 						<% } %>	

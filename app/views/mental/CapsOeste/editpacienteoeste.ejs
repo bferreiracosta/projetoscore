@@ -3,7 +3,7 @@
 <% if(id.length > 0) { %>
     <% for(var i = 0; i < id.length; i++) {%>
        
-<form action="/updatead" style="padding-left: 1%; padding-right: 1%;" method="post">
+<form action="/updateoeste" style="padding-left: 1%; padding-right: 1%;" method="post">
 	<h2>Editar  paciente</h2> 
 		<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">     
 		<% if(mental.length > 0) { %>
@@ -562,6 +562,8 @@ function calcular(){
 		var soma;
 	
 	soma = numtra+numrisc+numcom+numexp+numal+numdep+numter+numsoc+numidade+numjuizo
+	alert(soma)
+	console.log(numtra,numrisc,numcom,numexp,numal,numdep,numter,numsoc,numidade,numjuizo)
 	document.getElementById('soma').value = soma;
 	document.getElementById("classificado").style.display = 'inline';
 	}
