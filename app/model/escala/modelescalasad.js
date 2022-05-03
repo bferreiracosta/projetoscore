@@ -36,8 +36,6 @@ modelescalasad.prototype.criarfolga =  function(funcionarios, escala, turno, cal
 			[funcionarios[4].idfuncionariossad, escala],
 			[funcionarios[5].idfuncionariossad, escala],
 			[funcionarios[6].idfuncionariossad, escala],
-			[funcionarios[7].idfuncionariossad, escala],
-			[funcionarios[8].idfuncionariossad, escala],
 		];
 	}
 	if(turno == "Horario Trabalhador"){
@@ -48,6 +46,8 @@ modelescalasad.prototype.criarfolga =  function(funcionarios, escala, turno, cal
 			[funcionarios[3].idfuncionariossad, escala],
 			[funcionarios[4].idfuncionariossad, escala],
 			[funcionarios[5].idfuncionariossad, escala],
+			[funcionarios[6].idfuncionariossad, escala],
+			[funcionarios[7].idfuncionariossad, escala],
 		];
 	}
 	if(turno == "Noite"){
