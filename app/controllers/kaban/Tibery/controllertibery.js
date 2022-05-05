@@ -712,6 +712,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var ecf = req.body.ecf;
 	var spict = req.body.spcit;
 	var paliativo = req.body.paliativo;
+	var paliatividades = req.body.paliatividades;
 	var diagnostico = req.body.diagnostico;
 	var especialidade = req.body.especialidade;
 	var observacao = req.body.observacao;
@@ -759,7 +760,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	if(mental == 'true'){
 		
 		modeladmin.buscarusuarioporid(id, function(error, resultados){
-			modeltibery.cadastrarpaciente(Suspeição,paciente, round, alta, metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+			modeltibery.cadastrarpaciente(paliatividades,Suspeição,paciente, round, alta, metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 				modelmentaltibery.cadastrarpaciente(prt, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 					modeltibery.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 						modeltibery.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -780,7 +781,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	
 		
 		modeladmin.buscarusuarioporid(id, function(error, resultados){
-			modeltibery.cadastrarpaciente(Suspeição,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+			modeltibery.cadastrarpaciente(paliatividades,Suspeição,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 				modeltibery.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 					modeltibery.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 						modeltibery.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -1006,6 +1007,7 @@ module.exports.update= function(application, req, res){
 	var spict = req.body.spcit;
 	var setor = req.body.setor2;
 	var paliativo = req.body.paliativo;
+	var paliatividades = req.body.paliatividades;
 	var diagnostico = req.body.diagnostico;
 	var especialidade = req.body.especialidade;
 	var observacao = req.body.observacao;
@@ -1055,7 +1057,7 @@ module.exports.update= function(application, req, res){
 		modelmentaltibery.buscarpacientepornome(idpac[0].nome, function(error, idmental){	
 			if(mental == 'true' && idpac[0].mental == "true" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){	
-					modeltibery.update(Suspeição,idpaciente,paciente, round, alta, metas,agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modeltibery.update(paliatividades,Suspeição,idpaciente,paciente, round, alta, metas,agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modeltibery.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentaltibery.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
 								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1078,7 +1080,7 @@ module.exports.update= function(application, req, res){
 			}
 			if(mental == 'false' && idpac[0].mental == "false" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){
-					modeltibery.update(Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modeltibery.update(paliatividades, Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modeltibery.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 								modeltibery.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1099,7 +1101,7 @@ module.exports.update= function(application, req, res){
 			}	
 			if(mental == 'true' && idpac[0].mental == "false" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){
-					modeltibery.update(Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modeltibery.update(paliatividades,Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modeltibery.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentaltibery.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1122,7 +1124,7 @@ module.exports.update= function(application, req, res){
 			}	
 			if(mental == 'false' && idpac[0].mental == "true" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){	
-					modeltibery.update(Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, result){
+					modeltibery.update(paliatividades, Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, result){
 						modeltibery.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentaltibery.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 								modeltibery.updatetissnome(idpaciente,paciente,setor,  function(error, result){

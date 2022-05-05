@@ -48,6 +48,7 @@
             <th>Dieta</th>
             <th>ECF</th>
             <th>Spict</th>
+            <th>Aceitação Paliativo</th>
             <th>Paliativo</th>
             <th>Diagnóstico</th>
             <th>Especialidade</th>
@@ -64,7 +65,7 @@
                     
             <tr>
                 <td>
-                    <a href="editkabanroosevelt/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-info edit"><i class="fas fa-pencil-alt"></i><span><a href="/addexameroosevelt/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-primary edit"><i class="fas fa-diagnoses"></i></a>   <a href="" onclick="setaDadosModal('<%=paciente[j].idpaciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#altamodal"><i class="fas fa-door-open"></i></a></span></a>
+                    <a href="editkabantibery/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-info edit"><i class="fas fa-pencil-alt"></i><span><a href="/addexametibery/<%=id[i].id_usuario %>/?id=<%=paciente[j].idpaciente %>" class="btn btn-sm btn-primary edit"><i class="fas fa-diagnoses"></i></a>   <a href="" onclick="setaDadosModal('<%=paciente[j].idpaciente %>'), setaDadosModal2('<%=id[i].id_usuario %>')" class="btn btn-sm btn-danger delete"  data-toggle="modal" data-target="#altamodal"><i class="fas fa-door-open"></i></a></span></a>
                 </td>
                                    
                 <td hidden><%=paciente[j].idpaciente %></td>
@@ -82,6 +83,12 @@
                 <td><%=paciente[j].dieta %></td>
                 <td><%=paciente[j].ECF %></td>
                 <td><%=paciente[j].spict %></td>
+                <% if(paciente[j].paliativo == "Sim") { %>
+                <td><%=paciente[j].paliatividades %></td>
+
+                <% }else { %>
+                    <td>Não Aplicado</td>
+                <% } %>   
                 <td><%=paciente[j].paliativo %></td>
                 <td><%=paciente[j].diagnostico %></td>
                 <td><%=paciente[j].especialidade %></td>

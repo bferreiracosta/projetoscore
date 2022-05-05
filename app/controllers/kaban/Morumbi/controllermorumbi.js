@@ -712,6 +712,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	var ecf = req.body.ecf;
 	var spict = req.body.spcit;
 	var paliativo = req.body.paliativo;
+	var paliatividades = req.body.paliatividades;
 	var diagnostico = req.body.diagnostico;
 	var especialidade = req.body.especialidade;
 	var observacao = req.body.observacao;
@@ -759,7 +760,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	if(mental == 'true'){
 		
 		modeladmin.buscarusuarioporid(id, function(error, resultados){
-			modelmorumbi.cadastrarpaciente(Suspeição,paciente, round, alta, metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+			modelmorumbi.cadastrarpaciente(paliatividades,Suspeição,paciente, round, alta, metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 				modelmentalmorumbi.cadastrarpaciente(prt, paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 					modelmorumbi.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 						modelmorumbi.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -780,7 +781,7 @@ module.exports.cadastrarpaciente= function(application, req, res){
 	
 		
 		modeladmin.buscarusuarioporid(id, function(error, resultados){
-			modelmorumbi.cadastrarpaciente(Suspeição,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
+			modelmorumbi.cadastrarpaciente(paliatividades,Suspeição,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, resultdoinsert){
 				modelmorumbi.adddispositivoid(resultdoinsert.insertId, paciente, unidade, function(error, results){
 					modelmorumbi.addfugulinid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
 						modelmorumbi.addtissid(resultdoinsert.insertId,setor, paciente,unidade, function(error, results){
@@ -992,7 +993,6 @@ module.exports.cadastrarnews= function(application, req, res){
 		})
 })
 }
-
 module.exports.update= function(application, req, res){
 	var idpaciente = req.body.idpaciente;
 	var paciente = req.body.paciente;
@@ -1006,6 +1006,7 @@ module.exports.update= function(application, req, res){
 	var spict = req.body.spcit;
 	var setor = req.body.setor2;
 	var paliativo = req.body.paliativo;
+	var paliatividades = req.body.paliatividades;
 	var diagnostico = req.body.diagnostico;
 	var especialidade = req.body.especialidade;
 	var observacao = req.body.observacao;
@@ -1055,7 +1056,7 @@ module.exports.update= function(application, req, res){
 		modelmentalmorumbi.buscarpacientepornome(idpac[0].nome, function(error, idmental){	
 			if(mental == 'true' && idpac[0].mental == "true" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){	
-					modelmorumbi.update(Suspeição,idpaciente,paciente, round, alta, metas,agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modelmorumbi.update(paliatividades,Suspeição,idpaciente,paciente, round, alta, metas,agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentalmorumbi.update(idmental[0].id_paciente,prt,paciente, idade,diagnostico,referencia,unidade,  function(error, result){
 								modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1078,7 +1079,7 @@ module.exports.update= function(application, req, res){
 			}
 			if(mental == 'false' && idpac[0].mental == "false" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){
-					modelmorumbi.update(Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modelmorumbi.update(paliatividades, Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
 								modelmorumbi.updatefugulinnome(idpaciente,paciente,setor,  function(error, result){
@@ -1099,7 +1100,7 @@ module.exports.update= function(application, req, res){
 			}	
 			if(mental == 'true' && idpac[0].mental == "false" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){
-					modelmorumbi.update(Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
+					modelmorumbi.update(paliatividades,Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade,  function(error, result){
 						modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentalmorumbi.cadastrarpaciente(prt,paciente, idade,diagnostico,referencia,unidade,da, function(error, result){
 								modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1122,7 +1123,7 @@ module.exports.update= function(application, req, res){
 			}	
 			if(mental == 'false' && idpac[0].mental == "true" ){
 				modeladmin.buscarusuarioporid(id, function(error, resultados){	
-					modelmorumbi.update(Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, result){
+					modelmorumbi.update(paliatividades, Suspeição,idpaciente,paciente, round, alta,metas, agenexames, laudo, descexame, desclaudo, oxigenios,casas, avespecialistas,descespecialista, coletas, resultadolabs, transferencias, desctransferencia, hemos, medico, dieta, exame, dataexame, mental, referencia, covid, setor,susfacil,prt,dn,idade,da,qtdi,ecf,spict,paliativo,diagnostico,especialidade,observacao,banho,pendencias,mobilidade,unidade, function(error, result){
 						modelmorumbi.updateleitosnome(idpaciente, paciente,unidade,  function(error, result){
 							modelmentalmorumbi.baixa(idmental[0].id_paciente,baixa, data, function(error, result){
 								modelmorumbi.updatetissnome(idpaciente,paciente,setor,  function(error, result){
@@ -1147,6 +1148,7 @@ module.exports.update= function(application, req, res){
 		})
 	})
 }
+
 
 module.exports.baixa= function(application, req, res){
 	var idpaciente = req.body.campo;

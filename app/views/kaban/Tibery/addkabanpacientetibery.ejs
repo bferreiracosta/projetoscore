@@ -41,28 +41,6 @@
                         <input type="text" id="medico" name="medico" class="form-control" placeholder="Nome do Médico Responsalvel pelo paciente">
 					</div>
 					<div class="form-group">
-						<label for="ECF" id="ecf3">ECF</label>
-						<select  onchange="verificaecf(this.value)"  class="form-control" id="ecf2" name="ecf2" required>
-							<option value="" disabled selected hidden>ECF</option>
-							<option value="0">Não aplicado</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-						</select>
-						<input type="hidden" id="ecf"  name="ecf" class="form-control" placeholder="ECF">
-					</div>
-					<div class="form-group">
-						<label for="spcit" id="spict2">Spict</label>
-                        <input type="text" id="spict" name="spcit" class="form-control" placeholder="Spict">
-					</div>
-					<div class="form-group">
 						<label for="setor">Setor</label>
                         <select class="form-control" id="setor" name="setor" required>
                             <option value="" disabled selected hidden>Setor</option>
@@ -110,6 +88,37 @@
 							<option value="ZERO">ZERO</option>
 						</select>
 						<input type="hidden" id="dieta2"  name="dieta2" class="form-control" >
+					</div>
+					<div class="form-group">
+						<label for="paliatividade" id="paliatividade2">Familiar e/ou Paciente concordam com paliatidade</label>
+                        <select class="form-control" id="paliatividade" name="paliatividade" >
+                            <option value="" disabled selected hidden>Familiar e/ou Paciente concordam com paliatidade</option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+                        </select>
+                        <input type="hidden" name="paliatividades" id="paliatividades">
+					</div>
+					<div class="form-group">
+						<label for="ECF" id="ecf3">ECF</label>
+						<select  onchange="verificaecf(this.value)"  class="form-control" id="ecf2" name="ecf2" required>
+							<option value="" disabled selected hidden>ECF</option>
+							<option value="0">Não aplicado</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+						<input type="hidden" id="ecf"  name="ecf" class="form-control" placeholder="ECF">
+					</div>
+					<div class="form-group">
+						<label for="spcit" id="spict2">Spict</label>
+                        <input type="text" id="spict" name="spcit" class="form-control" placeholder="Spict">
 					</div>
 					<div class="form-group">
 						<label for="paliativos" id="paliativo2">Paliativos</label>
@@ -366,6 +375,10 @@ $("#paliativos").on('change', function(e){
      document.getElementById('paliativo').value = paliativo;
 });
 
+$("#paliatividade").on('change', function(e){
+     var paliatividade = $(this).val();
+     document.getElementById('paliatividades').value = paliatividade;
+});
 
 $("#exame3").on('change', function(e){
 	var exame = $(this).val();
@@ -573,7 +586,8 @@ $("#covid").on('change', function(e){
 function verificaecf(value){
 	var input = document.getElementById("spict");
 	var label = document.getElementById("spict2");
-	
+	var paliatividade = document.getElementById("paliatividade").value;
+	console.log(paliatividade)
   if(value == 6 || value == 7 || value == 8){
     input.style.display = "inline";
 	label.style.display = "inline";
@@ -586,7 +600,7 @@ function verificaecf(value){
 	  document.getElementById('paliativo2').style.display = 'inline'
 	input.value= "Não aplicado"
   }
-  if(value == 9 || value == 10){
+  if(value == 9 && paliatividade == "Sim" || value == 10 && paliatividade == "Sim"){
 	  var paliativo = 'Sim';
 	  document.getElementById('paliativos').style.display = 'none'
 	  document.getElementById('paliativo2').style.display = 'none'

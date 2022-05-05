@@ -32,7 +32,7 @@
                     </div>
 					<div class="form-group">
 						<label for="dn">Idade</label>
-                        <input  type="text" id="idade" name="idade" class="form-control" value="<%=paciente[j].idade %>" >
+                        <input  type="text" onchange="verificaidade(this.value)" id="idade" name="idade" class="form-control" value="<%=paciente[j].idade %>" >
                     </div>
 					<div class="form-group">
 						<label for="da">Data de Admissão</label>
@@ -44,28 +44,6 @@
 					<div class="form-group">
 						<label for="medico">Medico</label>
                         <input type="text" id="medico" name="medico" class="form-control" value="<%=paciente[j].medico %>">
-					</div>
-					<div class="form-group">
-						<label for="ECF" id="ecf3">ECF</label>
-						<select  onchange="verificaecf(this.value)"  class="form-control" id="ecf2" name="ecf2">
-							<option value="" disabled selected hidden>ECF</option>
-							<option value="0" <%=(paciente[j].ECF == '0')?'selected':''%>>Não aplicado</option>
-							<option value="1" <%=(paciente[j].ECF == '1')?'selected':''%>>1</option>
-							<option value="2" <%=(paciente[j].ECF == '2')?'selected':''%>>2</option>
-							<option value="3" <%=(paciente[j].ECF == '3')?'selected':''%>>3</option>
-							<option value="4" <%=(paciente[j].ECF == '4')?'selected':''%>>4</option>
-							<option value="5" <%=(paciente[j].ECF == '5')?'selected':''%>>5</option>
-							<option value="6" <%=(paciente[j].ECF == '6')?'selected':''%>>6</option>
-							<option value="7" <%=(paciente[j].ECF == '7')?'selected':''%>>7</option>
-							<option value="8" <%=(paciente[j].ECF == '8')?'selected':''%>>8</option>
-							<option value="9" <%=(paciente[j].ECF == '9')?'selected':''%>>9</option>
-							<option value="10"<%=(paciente[j].ECF == '10')?'selected':''%>>10</option>
-						</select>
-						<input type="hidden" id="ecf"  name="ecf" class="form-control"  value="<%=paciente[j].ECF %>">
-					</div>
-					<div class="form-group">
-						<label for="spcit" id="spict2">Spict</label>
-                        <input type="text" id="spict" name="spcit" class="form-control" value="<%=paciente[j].spict %>">
 					</div>
 					<div class="form-group">
 						<label for="setor">Setor</label>
@@ -117,10 +95,41 @@
 						<input type="hidden" id="dieta2"  name="dieta2" class="form-control" value="<%=paciente[j].dieta %>" >
 					</div>
 					<div class="form-group">
+						<label for="paliatividade" id="paliatividade2">Familiar e/ou Paciente concordam com paliatidade</label>
+                        <select class="form-control" id="paliatividade" name="paliatividade">
+                            <option value="" disabled selected hidden>Familiar e/ou Paciente concordam com paliatidade</option>
+							<option value="Sim" <%=(paciente[j].paliatividades == 'Sim')?'selected':''%> >Sim</option>
+							<option value="Não" <%=(paciente[j].paliatividades == 'Não')?'selected':''%>>Não</option>
+                        </select>
+                        <input type="hidden" name="paliatividades" id="paliatividades"  value="<%=paciente[j].paliatividades %>">
+					</div>
+					<div class="form-group">
+						<label for="ECF" id="ecf3">ECF</label>
+						<select  onchange="verificaecf(this.value)"  class="form-control" id="ecf2" name="ecf2">
+							<option value="" disabled selected hidden>ECF</option>
+							<option value="0" <%=(paciente[j].ECF == '0')?'selected':''%>>Não aplicado</option>
+							<option value="1" <%=(paciente[j].ECF == '1')?'selected':''%>>1</option>
+							<option value="2" <%=(paciente[j].ECF == '2')?'selected':''%>>2</option>
+							<option value="3" <%=(paciente[j].ECF == '3')?'selected':''%>>3</option>
+							<option value="4" <%=(paciente[j].ECF == '4')?'selected':''%>>4</option>
+							<option value="5" <%=(paciente[j].ECF == '5')?'selected':''%>>5</option>
+							<option value="6" <%=(paciente[j].ECF == '6')?'selected':''%>>6</option>
+							<option value="7" <%=(paciente[j].ECF == '7')?'selected':''%>>7</option>
+							<option value="8" <%=(paciente[j].ECF == '8')?'selected':''%>>8</option>
+							<option value="9" <%=(paciente[j].ECF == '9')?'selected':''%>>9</option>
+							<option value="10"<%=(paciente[j].ECF == '10')?'selected':''%>>10</option>
+						</select>
+						<input type="hidden" id="ecf"  name="ecf" class="form-control"  value="<%=paciente[j].ECF %>">
+					</div>
+					<div class="form-group">
+						<label for="spcit" id="spict2">Spict</label>
+                        <input type="text" id="spict" name="spcit" class="form-control" value="<%=paciente[j].spict %>">
+					</div>
+					<div class="form-group">
 						<label for="paliativos" id="paliativo2">Paliativos</label>
                         <select class="form-control" id="paliativos" name="paliativos">
                             <option value="" disabled selected hidden>Paliativo</option>
-							<option value="Sim" <%=(paciente[j].paliativo == 'SIM')?'selected':''%> >Sim</option>
+							<option value="Sim" <%=(paciente[j].paliativo == 'Sim')?'selected':''%> >Sim</option>
 							<option value="Não" <%=(paciente[j].paliativo == 'Não')?'selected':''%>>Não</option>
                         </select>
                         <input type="hidden" name="paliativo" id="paliativo"  value="<%=paciente[j].paliativo %>">
@@ -332,7 +341,7 @@
 						<select  class="form-control" id="Suspeição1" name="Suspeição1" >
 							<option value="" disabled selected hidden>Suspeição</option>
 							<option value="Alta Suspeição" <%=(paciente[j].suspeicao == 'Alta Suspeição')?'selected':''%>>Alta Suspeição</option>
-							<option value="Baixa Suspeição" <%=(paciente[j].suspeicao == 'Baixa Suspeição')?'selected':''%>>Baixa Suspeição</option>
+														<option value="Baixa Suspeição" <%=(paciente[j].suspeicao == 'Baixa Suspeição')?'selected':''%>>Baixa Suspeição</option>
 							<option value="" <%=(paciente[j].suspeicao == '')?'selected':''%>>Remover Suspeição</option>
 						</select>
                       </div>
@@ -388,6 +397,11 @@ $("#paliativos").on('change', function(e){
 $("#exame3").on('change', function(e){
 	var exame = $(this).val();
 	document.getElementById('exame4').value = exame;
+});
+
+$("#paliatividade").on('change', function(e){
+     var paliatividade = $(this).val();
+     document.getElementById('paliatividades').value = paliatividade;
 });
 
 $("#Suspeição1").on('change', function(e){
@@ -555,7 +569,8 @@ $("#covid").on('change', function(e){
 function verificaecf(value){
 	var input = document.getElementById("spict");
 	var label = document.getElementById("spict2");
-	
+	var paliatividade = document.getElementById("paliatividade").value;
+
   if(value == 6 || value == 7 || value == 8){
     input.style.display = "inline";
 	label.style.display = "inline";
@@ -568,8 +583,8 @@ function verificaecf(value){
 	  document.getElementById('paliativo2').style.display = 'inline'
 	input.value= "Não aplicado"
   }
-  if(value == 9 || value == 10){
-	   var paliativo = 'Sim';
+  if(value == 9 && paliatividade == "Sim" || value == 10 && paliatividade == "Sim"){
+	  var paliativo = 'Sim';
 	  document.getElementById('paliativos').style.display = 'none'
 	  document.getElementById('paliativo2').style.display = 'none'
 	  input.value= "Não aplicado"
@@ -767,9 +782,15 @@ $("#paliativos").on('change', function(e){
      document.getElementById('paliativo').value = paliativo;
 });
 
+$("#paliatividade").on('change', function(e){
+     var paliatividade = $(this).val();
+     document.getElementById('paliatividades').value = paliatividade;
+});
+
 $("#ecf2").on('change', function(e){
      var ecf = $(this).val();
      document.getElementById('ecf').value = ecf;
+	 
 });
 
 $("#especialidades").on('change', function(e){
@@ -819,12 +840,15 @@ $("#mobilidades").on('change', function(e){
 		 document.getElementById("hemo").style.display = 'none';
 		 document.getElementById("desctransferencia").style.display = 'none';
 
+		
+
 		 var pendencia = document.getElementById("pendencias").value;
 		verificapendencia(pendencia);
+		var ecf = document.getElementById("ecf").value;
+	verificaecf(ecf);
 		var transferencia = document.getElementById("desctransferencia").value;
 		verificatransferencia(transferencia);
 		var agenexame = document.getElementById("agenexames").value;
-		console.log(agenexame)
 		verificaagendamentoexame(agenexame);
 		var laudo = document.getElementById("desclaudo").value;
 		verificalaudoexame(laudo);
