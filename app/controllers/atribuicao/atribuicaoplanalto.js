@@ -107,9 +107,6 @@ module.exports.adicionarescalaplanalto = function(application, req, res){
 	var tecenf15 = req.body.tecenf15;
 	var tecenf16 = req.body.tecenf16;
 	var tecenf17 = req.body.tecenf17;
-	var tecenf18 = req.body.tecenf18;
-	var tecenf19 = req.body.tecenf19;
-	var tecenf20 = req.body.tecenf20;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
@@ -117,14 +114,12 @@ module.exports.adicionarescalaplanalto = function(application, req, res){
 	var enf6 = req.body.enf6;
 	var enf7 = req.body.enf7;
 	var enf8 = req.body.enf8;
-	var enf9 = req.body.enf9;
-	var enf10 = req.body.enf10;
 	modelatriplanalto.buscarregraescalaunicaplanalto(date, turno, unidade,function(error, resultado){
 		if(resultado == null || resultado==""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelatriplanalto.adicionarescalaplanalto(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15,tecenf16,tecenf17,tecenf18,tecenf19,tecenf20,
-					 enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10,enfcme, teccme,function(error, resultado){
+					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15,tecenf16,tecenf17,
+					 enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enfcme, teccme,function(error, resultado){
 						res.redirect("/atribuicaoplanalto?id=" + result[0].id_usuario);	
 				})
 			});
@@ -307,9 +302,6 @@ module.exports.editarescalaplanalto = function(application, req, res){
 	var tecenf15 = req.body.tecenf15;
 	var tecenf16 = req.body.tecenf16;
 	var tecenf17 = req.body.tecenf17;
-	var tecenf18 = req.body.tecenf18;
-	var tecenf19 = req.body.tecenf19;
-	var tecenf20 = req.body.tecenf20;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
@@ -317,12 +309,10 @@ module.exports.editarescalaplanalto = function(application, req, res){
 	var enf6 = req.body.enf6;
 	var enf7 = req.body.enf7;
 	var enf8 = req.body.enf8;
-	var enf9 = req.body.enf9;
-	var enf10 = req.body.enf10;
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelatriplanalto.updateescalaplanalto(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15,tecenf16,tecenf17,tecenf18,tecenf19,tecenf20,
-			 enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10 ,enfcme, teccme,function(error, resultado){
+			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15,tecenf16,tecenf17,
+			 enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enfcme, teccme,function(error, resultado){
 				res.redirect("/atribuicaoplanalto?id=" + result[0].id_usuario);	
 		})
 	});

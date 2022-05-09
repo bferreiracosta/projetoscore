@@ -111,6 +111,8 @@ module.exports.adicionarescalaluizote = function(application, req, res){
 	var tecenf16 = req.body.tecenf16;
 	var tecenf17 = req.body.tecenf17;
 	var tecenf18 = req.body.tecenf18;
+	var tecenf19 = req.body.tecenf19;
+	var tecenf20 = req.body.tecenf20;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
@@ -124,7 +126,7 @@ module.exports.adicionarescalaluizote = function(application, req, res){
 		if(resultado == null || resultado==""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelatriluizote.adicionarescalaluizote(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15,tecenf16,tecenf17,tecenf18,
+					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15,tecenf16,tecenf17,tecenf18,tecenf19, tecenf20,
 					 enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10,enfcme, teccme,function(error, resultado){
 						res.redirect("/atribuicaoluizote?id=" + result[0].id_usuario);	
 				})
@@ -309,6 +311,8 @@ module.exports.editarescalaluizote = function(application, req, res){
 	var tecenf16 = req.body.tecenf16;
 	var tecenf17 = req.body.tecenf17;
 	var tecenf18 = req.body.tecenf18;
+	var tecenf19 = req.body.tecenf19;
+	var tecenf20 = req.body.tecenf20;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
 	var enf4 = req.body.enf4;
@@ -320,7 +324,7 @@ module.exports.editarescalaluizote = function(application, req, res){
 	var enf10 = req.body.enf10;
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelatriluizote.updateescalaluizote(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15,tecenf16,tecenf17,tecenf18,
+			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, tecenf14, tecenf15,tecenf16,tecenf17,tecenf18,tecenf19, tecenf20,
 			 enf2, enf3, enf4, enf5, enf6 , enf7 ,enf8 ,enf9 ,enf10,enfcme, teccme,function(error, resultado){
 				res.redirect("/atribuicaoluizote?id=" + result[0].id_usuario);	
 		})
