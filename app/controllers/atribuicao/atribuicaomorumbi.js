@@ -98,7 +98,7 @@ module.exports.adicionarescalamorumbi = function(application, req, res){
 	var tecenf9 = req.body.tecenf9;
 	var tecenf10 = req.body.tecenf10;
 	var tecenf11 = req.body.tecenf11;
-	var tecenf12 = req.body.tecenf12;
+
 	var tecenf13 = req.body.tecenf13;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
@@ -108,7 +108,7 @@ module.exports.adicionarescalamorumbi = function(application, req, res){
 		if(resultado == null || resultado==""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelatrimorumbi.adicionarescalamorumbi(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, enf2, enf3, enf4, enf5 ,enfcme, teccme,function(error, resultado){
+					,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf13, enf2, enf3, enf4, enf5 ,enfcme, teccme,function(error, resultado){
 						res.redirect("/atribuicaomorumbi?id=" + result[0].id_usuario);	
 				})
 			});
@@ -285,7 +285,6 @@ module.exports.editarescalamorumbi = function(application, req, res){
 	var tecenf9 = req.body.tecenf9;
 	var tecenf10 = req.body.tecenf10;
 	var tecenf11 = req.body.tecenf11;
-	var tecenf12 = req.body.tecenf12;
 	var tecenf13 = req.body.tecenf13;
 	var enf2 = req.body.enf2;
 	var enf3 = req.body.enf3;
@@ -293,7 +292,7 @@ module.exports.editarescalamorumbi = function(application, req, res){
 	var enf5 = req.body.enf5;
 	modeladmin.buscarusuarioeditavel(id, function(error,result){
 		modelatrimorumbi.updateescalamorumbi(unidade, date, turno, enf1, tecenf1, maq1, maq2, enfpreposto, tecenf2, tecenf3, tecenf4, tecenf5
-			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11, tecenf12, tecenf13, enf2, enf3, enf4, enf5, enfcme, teccme,function(error, resultado){
+			,tecenf6, tecenf7, tecenf8, tecenf9, tecenf10, tecenf11,  tecenf13, enf2, enf3, enf4, enf5, enfcme, teccme,function(error, resultado){
 				res.redirect("/atribuicaomorumbi?id=" + result[0].id_usuario);	
 		})
 	});
