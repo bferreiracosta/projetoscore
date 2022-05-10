@@ -77,6 +77,8 @@
 									<li class="btn-info"><a class="btn   btn-sm" href="/escalacc?id=<%=id[i].id_usuario %>">Centro de Convivência</a></li>
 			
 									<li class="btn-info"><a class="btn   btn-sm" href="/escalaua?id=<%=id[i].id_usuario %>">Unidade de Acolhimento</a></li>
+
+									<li class="btn-info"><a class="btn   btn-sm" href="/escalacer?id=<%=id[i].id_usuario %>">CER</a></li>
 								</ul>
 							 </li>
 							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
@@ -112,7 +114,7 @@
 						<% } %>
 		
 						<% if(id[i].unidade== 19){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalasad?id=<%=id[i].id_usuario %>">Escala SAD</a></li>
+							<li class="btn-info"><a class="btn   btn-sm" href="/escalasad?id=<%=id[i].id_usuario %>">Escala Melhor em Casa</a></li>
 							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
 						<% if(id[i].unidade== 20){%>
@@ -141,6 +143,10 @@
 						<% } %>
 						<% if(id[i].usuario== "coordenfsiate"){%>
 							<li class="btn-info"><a class="btn   btn-sm" href="/escalasiate?id=<%=id[i].id_usuario %>">Escala  Siate</a></li>
+							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% } %>
+						<% if(id[i].usuario== "coordcer"){%>
+							<li class="btn-info"><a class="btn   btn-sm" href="/escalacer?id=<%=id[i].id_usuario %>">Escala  CER</a></li>
 							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
 					<% } %>	
