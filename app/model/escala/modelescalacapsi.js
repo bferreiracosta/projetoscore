@@ -21,6 +21,7 @@ modelescalacapsi.prototype.criarfolga =  function(funcionarios, escala, turno, c
 			[funcionarios[6].idfuncionarioscapsi, escala],
 			[funcionarios[7].idfuncionarioscapsi, escala],
 			[funcionarios[8].idfuncionarioscapsi, escala],
+			[funcionarios[9].idfuncionarioscapsi, escala],
 		];
 	}
 	if(turno == "Multi"){
