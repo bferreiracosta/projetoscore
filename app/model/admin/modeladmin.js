@@ -290,7 +290,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 								req.session.loggedin = true;
 								req.session.usuario = results[0].usuario;
 															
-								res.render('escalacolorida/homeescalacolorida', {id : results});
+								res.redirect('/homeescalacolorida');
 							} else {
 								var mensage = "Você nao tem autorização para esse modulo";
 								res.render("home/index", {msg : mensage});
