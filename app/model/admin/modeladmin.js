@@ -286,7 +286,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 					this._conection.query('SELECT * FROM usuarios WHERE usuario = ? AND senha = ?', [usuario, senha], function(error, results, fields) {
 						
 							if (results.length > 0) {
-								if(results[0].atribuicao == 1){
+								if(results[0].escalacol == 1){
 								req.session.loggedin = true;
 								req.session.usuario = results[0].usuario;
 															
