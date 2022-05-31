@@ -258,7 +258,10 @@ $("#login").click(function(){
 				document.getElementById("usuario2").value=obj[0].usuario;
 				document.getElementById("senha2").value=obj[0].senha; 
                 var option = '<option>Selecione o modulo </option>';
-			
+				if(obj[0].escalacol == 1){
+					var escalacol = "escalacol";
+               		option += '<option value="'+escalacol+'">Escala Colorida</option>';
+				}
 				if(obj[0].regulacao == 1){
 					var Regulacao = "Regulacao";
                		option += '<option value="'+Regulacao+'">'+Regulacao+'</option>';

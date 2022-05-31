@@ -3,6 +3,7 @@ var consign = require('consign');
 var bodyParser = require('body-parser');
 var session = require('cookie-session');
 const cors = require('cors');
+var flash = require('connect-flash');
 
 var app = express();
 app.set('view engine', 'ejs');
@@ -25,6 +26,7 @@ app.use(session({
 
 app.use(express.static('./app/public'));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(flash());
 
 consign({
 	verbose: process.env.APP_DEBUG === 'false',
