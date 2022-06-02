@@ -57,6 +57,16 @@
 					</ul>
 	
 					<ul class="nav justify-content-end mb-2">
+						<li class="mr-2 mt-2">
+							<button type="button" class="btn btn-primary" id="btnfuncionarios" data-toggle="modal" data-target="#modalferias">
+								Atualizar Férias/Afastamento
+							</button>
+						</li>
+						<li class="mr-2 mt-2">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalvagas">
+								Atualizar Vagas
+							</button>
+						</li>
 						<li class="nav-item dropdown" style="color:#FFF;">
 							<a class="nav-link dropdown-toggle" href="#" style="color:#FFF;" id="navbarDropdown"
 								role="button" data-toggle="dropdown" aria-expanded="false">
@@ -114,78 +124,555 @@
 	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-			<script>
+	<!-- Modal -->
+	<div class="modal fade" id="modalvagas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Atualizar Vagas</h5>
+			<button type="button"  data-dismiss="modal" >
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+					<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+				  </svg>
+			</button>
+			</div>
+			<div class="modal-body">
+		<form id="add-row-form" action="/savevagasplanalto" method="POST">
+				<table class="table table-striped ">
+					<thead>
+						<tr>
+							<th>
+								<select class="form-select" id="turno" aria-label="Default select example">
+									<option value="" disabled selected>Selecione um Turno</option>
+									<option value="Manhã">Manhã</option>
+									<option value="Tarde">Tarde</option>
+									<option value="SN1">SN1</option>
+									<option value="SN2">SN2</option>
+									<option value="Noite">Noite</option>
+									<option value="Horario do Trabalhador">Horario do Trabalhador</option>
+									<option value="Diurno">Diurno</option>
+								</select>
+							</th>
+							<input type="hidden" id="inputturno" name="inputturno">
+							<th>
+								<select class="form-select" style="width: 171%!important;" id="unidade"  aria-label="Default select example">
+									<option value="" disabled selected>Selecione uma Unidade</option>
+									<option value="Planalto">Planalto</option>
+									<option value="Luizote">Luizote</option>
+									<option value="Martins">Martins</option>
+									<option value="Roosevelt">Roosevelt</option>
+									<option value="Tibery">Tibery</option>
+									<option value="Morumbi">Morumbi</option>
+									<option value="Caps AD">Caps AD</option>
+									<option value="Caps I">Caps I</option>
+									<option value="Caps Leste">Caps Leste</option>
+									<option value="Caps Oeste">Caps Oeste</option>
+									<option value="Caps Norte">Caps Norte</option>
+									<option value="Melhor em Casa">Melhor em Casa</option>
+									<option value="CER">CER</option>
+									<option value="CC">CC</option>
+									<option value="UA">UA</option>
+									<option value="SIATE">SIATE</option>
+								</select>
+							</th>
+							<input type="hidden" id="inputunidade" name="unidade">
+						</tr>
+						<tr>
+							<th>Cargo</th>
+							<th style="width: 15%; text-align: center;">Quadro Previsto</th>
+							<th style="width: 15%;text-align: center;">Férias/ Mês</th>
+							<th style="width: 15%;text-align: center;">Licença Médica</th>
+							<th style="width: 15%;text-align: center;">Vagas</th>
+							<th style="width: 17%;text-align: center;">Vagas Bloqueadas</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="text" readonly name="cargoplanaltodir" class="form-control" aria-describedby="textHelpBlock" value="Diretoria de Enfermagem"></td></td>
+							<td><input type="text"  name="quadroplanaltodir" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="feriasplanaltodir" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="licencaplanaltodir" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="vagasplanaltodir" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="bloqueadaplanaltodir" class="form-control" aria-describedby="textHelpBlock"></td>
+						</tr>
+						<tr>
+							<td><input type="text" readonly name="cargoplanaltoger" class="form-control" aria-describedby="textHelpBlock" value="Gerente de Enfermagem"></td></td>
+							<td><input type="text"  name="quadroplanaltoger" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="feriasplanaltoger" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="licencaplanaltoger" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="vagasplanaltoger" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="bloqueadaplanaltoger" class="form-control" aria-describedby="textHelpBlock"></td>
+						</tr>
+						<tr>
+							<td><input type="text" readonly name="cargoplanaltoedu" class="form-control" aria-describedby="textHelpBlock" value="Educação Continuada"></td></td>
+							<td><input type="text"  name="quadroplanaltoedu" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="feriasplanaltoedu" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="licencaplanaltoedu" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="vagasplanaltoedu" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="bloqueadaplanaltoedu" class="form-control" aria-describedby="textHelpBlock"></td>
+						</tr>
+						<tr>
+							<td><input type="text" readonly name="cargoplanaltosup" class="form-control" aria-describedby="textHelpBlock" value="Supervisão de Enfermagem"></td></td>
+							<td><input type="text"  name="quadroplanaltosup" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="feriasplanaltosup" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="licencaplanaltosup" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="vagasplanaltosup" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="bloqueadaplanaltosup" class="form-control" aria-describedby="textHelpBlock"></td>
+						</tr>
+						<tr>
+							<td><input type="text" readonly name="cargoplanaltort" class="form-control" aria-describedby="textHelpBlock" value="Responsável Técnico"></td></td>
+							<td><input type="text"  name="quadroplanaltort" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="feriasplanaltort" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="licencaplanaltort" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="vagasplanaltort" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="bloqueadaplanaltort" class="form-control" aria-describedby="textHelpBlock"></td>
+						</tr>
+						<tr>
+							<td><input type="text" readonly name="cargoplanaltoqua" class="form-control" aria-describedby="textHelpBlock" value="Qualidade/SCIH"></td></td>
+							<td><input type="text"  name="quadroplanaltoqua" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="feriasplanaltoqua" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="licencaplanaltoqua" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="vagasplanaltoqua" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="bloqueadaplanaltoqua" class="form-control" aria-describedby="textHelpBlock"></td>
+						</tr>
+						<tr>
+							<td><input type="text" readonly name="cargoplanaltoenf" class="form-control" aria-describedby="textHelpBlock" value="Enfermeiros"></td></td>
+							<td><input type="text"  name="quadroplanaltoenf" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="feriasplanaltoenf" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="licencaplanaltoenf" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="vagasplanaltoenf" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="bloqueadaplanaltoenf" class="form-control" aria-describedby="textHelpBlock"></td>
+						</tr>
+						<tr>
+							<td><input type="text" readonly name="cargoplanaltotec" class="form-control" aria-describedby="textHelpBlock" value="Técnicos de Enfermagem"></td></td>
+							<td><input type="text"  name="quadroplanaltotec" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="feriasplanaltotec" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="licencaplanaltotec" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="vagasplanaltotec" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="bloqueadaplanaltotec" class="form-control" aria-describedby="textHelpBlock"></td>
+						</tr>
+						<tr>
+							<td><input type="text" readonly name="cargoplanaltoaux" class="form-control" aria-describedby="textHelpBlock" value="Auxiliar de Enfermagem"></td></td>
+							<td><input type="text"  name="quadroplanaltoaux" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="feriasplanaltoaux" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="licencaplanaltoaux" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="vagasplanaltoaux" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="bloqueadaplanaltoaux" class="form-control" aria-describedby="textHelpBlock"></td>
+						</tr>
+						<tr>
+							<td><input type="text" readonly name="cargoplanaltomul" class="form-control" aria-describedby="textHelpBlock" value="Equipe Multi"></td></td>
+							<td><input type="text"  name="quadroplanaltomul" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="feriasplanaltomul" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="licencaplanaltomul" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="vagasplanaltomul" class="form-control" aria-describedby="textHelpBlock"></td>
+							<td><input type="text"  name="bloqueadaplanaltomul" class="form-control" aria-describedby="textHelpBlock"></td>
+						</tr>
+					</tbody>
+					
+				</table>
+			</div>
+			<div class="modal-footer">
+
+			<button type="submit" class="btn btn-primary">Salvar</button>
+			</div>
+			</form>
 				
-		   function update() {
-		var select = document.getElementById('funcao');
-		var option = select.options[select.selectedIndex];
+		</div>
+		</div>
+	</div>
 
-		var opcao = option.value;
-		document.getElementById('cargo').value = opcao;
-	
-	}
+	<!-- Modal -->
+	<div class="modal fade" id="modalferias" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Atualizar Férias</h5>
+			<button type="button"  data-dismiss="modal" >
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+					<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+				  </svg>
+			</button>
+			</div>
+			<div class="modal-body">
+			<form id="add-row-form" action="/saveferiasplanalto" method="POST">
+				<table class="table table-striped ">
+					<thead>
+						<th>
+							<select class="form-select"  id="unidadeselect"  aria-label="Default select example">
+								<option value="" disabled selected>Selecione uma Unidade</option>
+								<option value="Planalto">Planalto</option>
+								<option value="Luizote">Luizote</option>
+								<option value="Martins">Martins</option>
+								<option value="Roosevelt">Roosevelt</option>
+								<option value="Tibery">Tibery</option>
+								<option value="Morumbi">Morumbi</option>
+								<option value="Caps AD">Caps AD</option>
+								<option value="Caps I">Caps I</option>
+								<option value="Caps Leste">Caps Leste</option>
+								<option value="Caps Oeste">Caps Oeste</option>
+								<option value="Caps Norte">Caps Norte</option>
+								<option value="Melhor em Casa">Melhor em Casa</option>
+								<option value="CER">CER</option>
+								<option value="CC">CC</option>
+								<option value="UA">UA</option>
+								<option value="SIATE">SIATE</option>
+							</select>
+						</th>
 
-	update();
-		   $("#modulo").click(function(){
-	var id = document.getElementById("id").value;
+					</thead>
+					<input type="hidden" id="inputunidadeselect" name="unidade">
+					<tbody>
+						<tr>
+							<td>
+								<select class="form-select"  id="funcionario"  aria-label="Default select example">
+									<option value=""></option>
+								</select>
+								<input type="hidden" id="inputfuncionario" name="funcionario">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<select class="form-select"  id="situação"  aria-label="Default select example">
+									<option value="" disabled selected>Selecione</option>
+									<option value="Férias">Férias</option>
+									<option value="Afastamento Médico">Afastamento Médico</option>
+									<option value="Lincença Maternidade">Lincença Maternidade</option>
+								</select>
+								<input type="hidden" id="inputsituacao" name="situação">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="modal-footer">
 
-	
-	obj = [];
-    $.ajax({
-        type: "GET",
-        data: {id: id},
-        contentType: 'application/json',
-        url: '/modulo',
-           success: function(obj) { 
-			
-            if (obj.length > 0){
-				document.getElementById("usuario2").value=obj[0].usuario;
-				document.getElementById("senha2").value=obj[0].senha; 
-                var option = '<option>Selecione o modulo </option>';
-				if(obj[0].kamban == 1){
-					var Kamban = "Kamban";
-               		option += '<option value="'+Kamban+'">'+Kamban+'</option>';
-				}
-				if(obj[0].atribuicao == 1){
-					var atribuicao = "Escala Atribuição";
-               		option += '<option value="'+atribuicao+'">'+atribuicao+'</option>';
-				}
-				if(obj[0].scih == 1){
-					var SCIH = "SCIH";
-               		option += '<option value="'+SCIH+'">'+SCIH+'</option>';
-				}
-				if(obj[0].smh == 1){
-					var smh = "SM Hospitalidade";
-               		option += '<option value="'+smh+'">'+smh+'</option>';
-				}
-				if(obj[0].smu == 1){
-					var smu = "SM Urgência";
-               		option += '<option value="'+smu+'">'+smu+'</option>';
-				}
-				if(obj[0].gestao == 1){
-					var gestao = "Gestão de Leitos";
-               		option += '<option value="'+gestao+'">'+gestao+'</option>';
-				}
-				if(obj[0].equipamentos == 1){
-					var equipamentos = "Central de Equipamentos";
-               		option += '<option value="'+equipamentos+'">'+equipamentos+'</option>';
-				}
-				if(obj[0].obstetricia == 1){
-					var obstetricia = "Obstetricia";
-               		option += '<option value="'+obstetricia+'">'+obstetricia+'</option>';
-				}
-				if(obj[0].escalacolorida == 1){
-					var escalacolorida = "Escala";
-               		option += '<option value="'+escalacolorida+'">'+escalacolorida+'</option>';
-				}
-               
-            }
-			  $('#funcao').html(option).show();
-            }
-    });
-});
+			<button type="submit" class="btn btn-primary">Salvar</button>
+			</div>
+			</form>
+				
+		</div>
+		</div>
+	</div>
+			<script>
+
+	$("#turno").on('change', function(e){
+     var turno = $(this).val();
+     document.getElementById('inputturno').value = turno;
+	});
+	$("#unidade").on('change', function(e){
+     var unidade = $(this).val();
+     document.getElementById('inputunidade').value = unidade;
+	});
+	$("#unidadeselect").on('change', function(e){
+     var unidade = $(this).val();
+     document.getElementById('inputunidadeselect').value = unidade;
+	});
+	$("#funcionario").on('change', function(e){
+     var funcionario = $(this).val();
+     document.getElementById('inputfuncionario').value = funcionario;
+	});
+	$("#situação").on('change', function(e){
+     var situacao = $(this).val();
+     document.getElementById('inputsituacao').value = situacao;
+	});
+
+		 
 $(document).ready(function() {
 				$(".dropdown-toggle").dropdown();
 			});
+
+$('#unidadeselect').on('change', function () {
+
+        if(document.getElementById('inputunidadeselect').value == "Planalto"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarplanalto',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "Luizote"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarluizote',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "Martins"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarmartins',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "Roosevelt"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarroosevelt',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "Tibery"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscartibery',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "Morumbi"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarmorumbi',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "Melhor em Casa"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarsad',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "CER"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarcer',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "CC"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarcc',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "UA"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarua',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "SIATE"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarsiate',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "Caps AD"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarcapsad',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "Caps I"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarcapsi',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "Caps Leste"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarcapsleste',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "Caps Oeste"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarcapsoeste',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+		if(document.getElementById('inputunidadeselect').value == "Caps Norte"){
+			$.ajax({
+            type: 'GET',
+            url: '/buscarcapsnorte',
+            success: function(obj) { 
+				if (obj.length > 0){
+                var option = '<option>Selecione o funcionario </option>';
+				for(var i = 0 ; i< obj.length;i++){
+					option += '<option value='+obj[i].idfuncionariosplanalto+'>'+obj[i].nome+'</option>';
+				}
+               
+            }
+			  $('#funcionario').html(option).show();            },
+            error: function(output){
+            alert("Falha");
+            }
+        });
+		} 
+
+        
+    });
 			</script>
 			
