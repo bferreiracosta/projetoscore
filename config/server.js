@@ -22,11 +22,11 @@ app.use(session({
 	resave: false,
 	saveUninitialized: false
 }));
-
+app.use(flash());
 
 app.use(express.static('./app/public'));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(flash());
+
 
 consign({
 	verbose: process.env.APP_DEBUG === 'false',

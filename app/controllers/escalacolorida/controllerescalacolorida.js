@@ -1,6 +1,6 @@
 module.exports.escalacolorida = function(application, req, res){
-	
-	var modelescalacolorida = new application.app.model.escalacolorida.modelescalacolorida(application);
+	if(req.session.loggedin){
+		var modelescalacolorida = new application.app.model.escalacolorida.modelescalacolorida(application);
 		modelescalacolorida.buscarescalaplanalto(function(error,resultplanalto){
 			modelescalacolorida.buscarescalaluizote(function(error,resultluizote){
 				modelescalacolorida.buscarescalamartins(function(error,resultmartins){
@@ -19,7 +19,7 @@ module.exports.escalacolorida = function(application, req, res){
 																	modelescalacolorida.buscarescalacapsnorte(function(error,resultcapsnorte){
 																		modelescalacolorida.buscarescalavagas(function(error,resultvagas){
 																		res.render("escalacolorida/homeescalacolorida", 
-																		{planalto:resultplanalto,
+																		{usuario: req.flash('info'),planalto:resultplanalto,
 																			luizote:resultluizote,
 																			martins:resultmartins,
 																			roosevelt:resultroosevelt,
@@ -53,6 +53,12 @@ module.exports.escalacolorida = function(application, req, res){
 				});
 			});
 		});
+	 }else {
+
+	
+		 res.redirect('/');
+	 }
+	
 
 }
 

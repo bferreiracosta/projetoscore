@@ -35,7 +35,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 							if (results.length > 0) {
 	
 								if(results[0].scih == 1){
-								req.session.loggedin = true;
+								 req.session.loggedin = true;
 								req.session.usuario = results[0].usuario;
 								res.render('home/home', {id : results});
 							} else {
@@ -59,7 +59,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 							
 								if (results.length > 0) {
 									if(results[0].smh == 1){
-									req.session.loggedin = true;
+									 req.session.loggedin = true;
 									req.session.usuario = results[0].usuario;
 									res.render('home/homemental', {id : results});
 								} else {
@@ -83,7 +83,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 							
 								if (results.length > 0) {
 									if(results[0].smu == 1){
-									req.session.loggedin = true;
+									 req.session.loggedin = true;
 									req.session.usuario = results[0].usuario;
 									
 									res.render('home/homementalurgencia', {id : results});
@@ -108,7 +108,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 							
 								if (results.length > 0) {
 									if(results[0].gestao == 1){
-									req.session.loggedin = true;
+									 req.session.loggedin = true;
 									req.session.usuario = results[0].usuario;
 									
 									res.render('home/homegestao', {id : results});
@@ -133,7 +133,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 							
 								if (results.length > 0) {
 									if(results[0].equipamentos == 1){
-									req.session.loggedin = true;
+									 req.session.loggedin = true;
 									req.session.usuario = results[0].usuario;
 									
 									res.render('home/homeequipamentos', {id : results});
@@ -158,7 +158,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 							
 								if (results.length > 0) {
 									if(results[0].obstetricia == 1 || results[0].aps == 1){
-									req.session.loggedin = true;
+									 req.session.loggedin = true;
 									req.session.usuario = results[0].usuario;
 									
 									res.render('home/homeobstetricia', {id : results});
@@ -183,7 +183,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 							
 								if (results.length > 0) {
 									if(results[0].kamban == 1){
-									req.session.loggedin = true;
+									 req.session.loggedin = true;
 									req.session.usuario = results[0].usuario;
 																
 									res.render('home/homekaban', {id : results});
@@ -209,7 +209,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 								
 									if (results.length > 0) {
 										if(results[0].escala == 1){
-										req.session.loggedin = true;
+										 req.session.loggedin = true;
 										req.session.usuario = results[0].usuario;
 																	
 										res.render('home/homeescala', {id : results});
@@ -235,7 +235,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 								
 									if (results.length > 0) {
 										if(results[0].atribuicao == 1){
-										req.session.loggedin = true;
+										 req.session.loggedin = true;
 										req.session.usuario = results[0].usuario;
 																	
 										res.render('home/homeatribuicao', {id : results});
@@ -261,7 +261,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 							
 								if (results.length > 0) {
 									if(results[0].atribuicao == 1){
-									req.session.loggedin = true;
+									 req.session.loggedin = true;
 									req.session.usuario = results[0].usuario;
 																
 									res.render('home/homeregulacao', {id : results});
@@ -287,8 +287,12 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 						
 							if (results.length > 0) {
 								if(results[0].escalacol == 1){
-								req.session.loggedin = true;
+								 req.session.loggedin = true;
 								req.session.usuario = results[0].usuario;
+								req.session.nome = results[0].nome;
+								var user = req.session.nome
+								req.flash('info', user)
+								
 															
 								res.redirect('/homeescalacolorida');
 							} else {
@@ -325,7 +329,7 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 					if (results.length > 0) {
 
 						if(results[0].scih == 1){
-						req.session.loggedin = true;
+						 req.session.loggedin = true;
 						req.session.usuario = results[0].usuario;
 						res.render('home/home', {id : results});
 					} else {
@@ -349,7 +353,7 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 					
 						if (results.length > 0) {
 							if(results[0].smh == 1){
-							req.session.loggedin = true;
+							 req.session.loggedin = true;
 							req.session.usuario = results[0].usuario;
 							res.render('home/homemental', {id : results});
 						} else {
@@ -373,7 +377,7 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 					
 						if (results.length > 0) {
 							if(results[0].smu == 1){
-							req.session.loggedin = true;
+							 req.session.loggedin = true;
 							req.session.usuario = results[0].usuario;
 							
 							res.render('home/homementalurgencia', {id : results});
@@ -398,7 +402,7 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 					
 						if (results.length > 0) {
 							if(results[0].gestao == 1){
-							req.session.loggedin = true;
+							 req.session.loggedin = true;
 							req.session.usuario = results[0].usuario;
 							
 							res.render('home/homegestao', {id : results});
@@ -423,7 +427,7 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 					
 						if (results.length > 0) {
 							if(results[0].equipamentos == 1){
-							req.session.loggedin = true;
+							 req.session.loggedin = true;
 							req.session.usuario = results[0].usuario;
 							
 							res.render('home/homeequipamentos', {id : results});
@@ -448,7 +452,7 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 					
 						if (results.length > 0) {
 							if(results[0].obstetricia == 1 || results[0].aps == 1){
-							req.session.loggedin = true;
+							 req.session.loggedin = true;
 							req.session.usuario = results[0].usuario;
 							
 							res.render('home/homeobstetricia', {id : results});
@@ -473,7 +477,7 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 					
 						if (results.length > 0) {
 							if(results[0].kamban == 1){
-							req.session.loggedin = true;
+							 req.session.loggedin = true;
 							req.session.usuario = results[0].usuario;
 														
 							res.render('home/homekaban', {id : results});
@@ -499,7 +503,7 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 						
 							if (results.length > 0) {
 								if(results[0].escala == 1){
-								req.session.loggedin = true;
+								 req.session.loggedin = true;
 								req.session.usuario = results[0].usuario;
 															
 								res.render('home/homeescala', {id : results});
@@ -525,7 +529,7 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 						
 							if (results.length > 0) {
 								if(results[0].atribuicao == 1){
-								req.session.loggedin = true;
+								 req.session.loggedin = true;
 								req.session.usuario = results[0].usuario;
 															
 								res.render('home/homeatribuicao', {id : results});
@@ -550,7 +554,7 @@ modeladmin.prototype.trocarmodulo = function(usuario, senha, funcao, req, res){
 					
 						if (results.length > 0) {
 							if(results[0].obstetricia == 1 || results[0].aps == 1){
-							req.session.loggedin = true;
+							 req.session.loggedin = true;
 							req.session.usuario = results[0].usuario;
 							
 							res.render('home/homeregulacao', {id : results});

@@ -4,6 +4,7 @@ module.exports = function(application){
 			
 	});
 	application.get('/sair', function(req, res){
+		
 		if(req.session.loggedin){
 			req.session = null;
 			var mensage = "Você saiu!!!";
