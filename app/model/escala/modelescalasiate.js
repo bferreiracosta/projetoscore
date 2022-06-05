@@ -64,6 +64,7 @@ modelescalasiate.prototype.criarfolga =  function(funcionarios, escala, turno, c
 			[funcionarios[49].idfuncionariossiate, escala],
 			[funcionarios[50].idfuncionariossiate, escala],
 			[funcionarios[51].idfuncionariossiate, escala],
+			[funcionarios[52].idfuncionariossiate, escala],
 		];
 	}
 	

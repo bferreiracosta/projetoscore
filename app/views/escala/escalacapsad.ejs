@@ -696,7 +696,7 @@
           </div>
     </div>
       </form>
-        <div class="modal fade" id="DescModalsituacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        <div class="modal fade" id="DescModalsituacaoferias" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                   aria-hidden="true">
                   <div class="modal-dialog modalfolga modal-lg">
                       <div class="modal-content">
@@ -785,7 +785,7 @@
                               </table>
                               <div class="form-group">
                                 <label for="susfacil">Situação</label>
-                                <select  class="form-control" id="selecsituacao" name="selecsituacao">
+                                <select  class="form-control" id="selecsituacaoferias" name="selecsituacaoferias">
                                    <option value="" disabled selected hidden>Selecione a Situação do Colaborador</option>
                                    <option value="Ativo">Ativo</option>
                                    <option value="Cobertura de Gestação/Licença Maternidade">Cobertura de Gestação/Licença Maternidade</option>
@@ -793,14 +793,14 @@
                                    <option value="Afastamento Pericia Medica">Afastamento Pericia Medica</option>
                                 </select>
                                </div>
-                                <input type="hidden" readonly=“true” onkeyup="validaCampo()"  id="inputsituacao" name="inputsituacao" class="form-control" >
+                                <input type="hidden" readonly=“true” onkeyup="validaCampo()"  id="inputsituacaoferias" name="inputsituacaoferias" class="form-control" >
                              </div>
                               <div class="form-group">
                                  <label for="susfacil">Dia Inicial</label>
-                                 <input type="text" onkeyup="validaCampo()" id="dateinicialsituacao" name="dateinicialsituacao" class="form-control" >
+                                 <input type="text" onkeyup="validaCampo()" id="dateinicialsituacaoferias" name="dateinicialsituacaoferias" class="form-control" >
                      <div class="form-group">
                                 <label for="susfacil">Dia Final</label>
-                                <input type="text" onkeyup="validaCampo()" id="datefinalsituacao" name="datefinalsituacao" class="form-control" >
+                                <input type="text" onkeyup="validaCampo()" id="datefinalsituacaoferias" name="datefinalsituacaoferias" class="form-control" >
                              </div>
                   <div class="modal-footer">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -840,9 +840,9 @@ $("#btncriar").on('click', function(e){
   if(updateturno=="Manhã"){
   data = [];
   var idfuncionario =document.getElementById("idfuncionario").value;
-  var inputsituacao =document.getElementById("inputsituacao").value;
-  var dateinicialsituacao =document.getElementById("dateinicialsituacao").value;
-  var datefinalsituacao =document.getElementById("datefinalsituacao").value;
+  var inputsituacaoferias =document.getElementById("inputsituacaoferias").value;
+  var dateinicialsituacaoferias =document.getElementById("dateinicialsituacaoferias").value;
+  var datefinalsituacaoferias =document.getElementById("datefinalsituacaoferias").value;
   var datainicial = document.getElementById("inputdateinicial").value;
   var datafinal = document.getElementById("inputdatefinal").value;
   var folga1 = document.getElementById("folga1").value;
@@ -896,11 +896,11 @@ $("#btncriar").on('click', function(e){
         $.ajax({
           type: "Get",
           async: false,
-          data: {idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, folga1,folga2,folga3,folga4,folga5,folga6,folga7,folga8,folga9,folga10,folga11,folga12,folga13,folga14,folga15,folga16,folga17,folga18,folga19,folga20,folga21,folga22,folga23,folga24,folga25,folga26,folga27,folga28,folga29,folga30,folga31},
+          data: {idfuncionario, inputsituacaoferias, dateinicialsituacaoferias, datefinalsituacaoferias, folga1,folga2,folga3,folga4,folga5,folga6,folga7,folga8,folga9,folga10,folga11,folga12,folga13,folga14,folga15,folga16,folga17,folga18,folga19,folga20,folga21,folga22,folga23,folga24,folga25,folga26,folga27,folga28,folga29,folga30,folga31},
           contentType: 'application/json',
           url: '/updateferiascapsad',
           success: function(data) {  
-            $('#DescModalsituacao').modal("hide"); 
+            $('#DescModalsituacaoferias').modal("hide"); 
             var d = document.getElementsByClassName("reservas");
            while (d.length)   d[0].parentElement.removeChild(d[0]);
             document.getElementById("inputdateinicial").value = datainicial;
@@ -917,9 +917,9 @@ $("#btncriar").on('click', function(e){
   if(updateturno=="Tarde"){
     data = [];
   var idfuncionario =document.getElementById("idfuncionario").value;
-  var inputsituacao =document.getElementById("inputsituacao").value;
-  var dateinicialsituacao =document.getElementById("dateinicialsituacao").value;
-  var datefinalsituacao =document.getElementById("datefinalsituacao").value;
+  var inputsituacaoferias =document.getElementById("inputsituacaoferias").value;
+  var dateinicialsituacaoferias =document.getElementById("dateinicialsituacaoferias").value;
+  var datefinalsituacaoferias =document.getElementById("datefinalsituacaoferias").value;
   var datainicial = document.getElementById("inputdateinicialtarde").value;
   var datafinal = document.getElementById("inputdatefinaltarde").value;
   var folga1 = document.getElementById("folga1").value;
@@ -972,11 +972,11 @@ $("#btncriar").on('click', function(e){
       $.ajax({
           type: "Get",
           async: false,
-          data: {idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, folga1,folga2,folga3,folga4,folga5,folga6,folga7,folga8,folga9,folga10,folga11,folga12,folga13,folga14,folga15,folga16,folga17,folga18,folga19,folga20,folga21,folga22,folga23,folga24,folga25,folga26,folga27,folga28,folga29,folga30,folga31},
+          data: {idfuncionario, inputsituacaoferias, dateinicialsituacaoferias, datefinalsituacaoferias, folga1,folga2,folga3,folga4,folga5,folga6,folga7,folga8,folga9,folga10,folga11,folga12,folga13,folga14,folga15,folga16,folga17,folga18,folga19,folga20,folga21,folga22,folga23,folga24,folga25,folga26,folga27,folga28,folga29,folga30,folga31},
           contentType: 'application/json',
           url: '/updateferiascapsad',
           success: function(data) {  
-            $('#DescModalsituacao').modal("hide"); 
+            $('#DescModalsituacaoferias').modal("hide"); 
             var d = document.getElementsByClassName("reservas");
       while (d.length)   d[0].parentElement.removeChild(d[0]);
 
@@ -1418,7 +1418,7 @@ $('#tablemanha').on('dblclick', 'tr', function () {
         
       } 
     });
-        $('#DescModalsituacao').modal("show");
+        $('#DescModalsituacaoferias').modal("show");
     });
 
 
@@ -1817,7 +1817,7 @@ $('#tabletarde').on('dblclick', 'tr', function () {
         
       } 
     });
-        $('#DescModalsituacao').modal("show");
+        $('#DescModalsituacaoferias').modal("show");
     });
   
     function setaDadosModal(valor) {
@@ -1838,17 +1838,17 @@ function setaDadosModal4(valor) {
 document.getElementById('idusuariomodal1').value = valor;
 }
 
-$('#dateinicialsituacao').mask('00/00/0000');
-$('#datefinalsituacao').mask('00/00/0000');
+$('#dateinicialsituacaoferias').mask('00/00/0000');
+$('#datefinalsituacaoferias').mask('00/00/0000');
 
 
-$("#selecsituacao").on('change', function(e){
-     var selecsituacao = $(this).val();
-     document.getElementById('inputsituacao').value = selecsituacao;
-     if(selecsituacao=="Ativo"){
+$("#selecsituacaoferias").on('change', function(e){
+     var selecsituacaoferias = $(this).val();
+     document.getElementById('inputsituacaoferias').value = selecsituacaoferias;
+     if(selecsituacaoferias=="Ativo"){
       var dat = '00/00/0000';
-    $('#dateinicialsituacao').val(dat);
-    $('#datefinalsituacao').val(dat);
+    $('#dateinicialsituacaoferias').val(dat);
+    $('#datefinalsituacaoferias').val(dat);
     validaCampo()
      }
      
@@ -2410,9 +2410,9 @@ let input8 = es2.options[es2.selectedIndex].value;
 
 function validaCampo(){
   let btn   = document.querySelector('#btncriar');   //coloquei um "."  para localizar pela classe "btn"
-  let input1 = document.querySelector('#inputsituacao'); //coloquei um "."  para localizar pela classe "login"
-  let input2 = document.querySelector('#dateinicialsituacao'); //coloquei um "."  para localizar pela classe "senha"
-  let input3 = document.querySelector('#datefinalsituacao');
+  let input1 = document.querySelector('#inputsituacaoferias'); //coloquei um "."  para localizar pela classe "login"
+  let input2 = document.querySelector('#dateinicialsituacaoferias'); //coloquei um "."  para localizar pela classe "senha"
+  let input3 = document.querySelector('#datefinalsituacaoferias');
     if(input1.value.length > 3 && input2.value.length > 9 && input3.value.length > 9){
         
         btn.disabled = false; // Então aqui habilitamos o botão.
@@ -2609,11 +2609,11 @@ $("#pesquisarmanha").on('click', function(e){
               if(data[i].setor == "Enfermeiro RT"){
                 var enfermeirort = $("<tr>");
                   var id = "";
-                  if(data[i].nome!=null){
-                    if(data[i].situacao=="Férias"){
+                  if(data[i].nome!=""){
+                    if(data[i].situacaoferias=="Férias"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -2622,7 +2622,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -3609,10 +3609,10 @@ $("#pesquisarmanha").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Afastamento Pericia Medica"){
+                    }else if(data[i].situacaoferias=="Afastamento Pericia Medica"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -3621,7 +3621,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -4607,10 +4607,10 @@ $("#pesquisarmanha").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Cobertura de Gestação/Licença Maternidade"){
+                    }else if(data[i].situacaoferias=="Cobertura de Gestação/Licença Maternidade"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -4619,7 +4619,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -5705,11 +5705,11 @@ $("#pesquisarmanha").on('click', function(e){
                 var SCIH1 = $("<tr>");
                   var id = "";
                   
-                  if(data[i].nome!=null){
-                    if(data[i].situacao=="Férias"){
+                  if(data[i].nome!=""){
+                    if(data[i].situacaoferias=="Férias"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -5718,7 +5718,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -6596,10 +6596,10 @@ $("#pesquisarmanha").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Afastamento Pericia Medica"){
+                    }else if(data[i].situacaoferias=="Afastamento Pericia Medica"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -6608,7 +6608,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -7594,10 +7594,10 @@ $("#pesquisarmanha").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Cobertura de Gestação/Licença Maternidade"){
+                    }else if(data[i].situacaoferias=="Cobertura de Gestação/Licença Maternidade"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -7606,7 +7606,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -8691,11 +8691,11 @@ $("#pesquisarmanha").on('click', function(e){
               if(data[i].setor == "Enfermagem Tarde"){
                 var Acolhimento1 = $("<tr>");
                   var id = "";
-                  if(data[i].nome!=null){
-                    if(data[i].situacao=="Férias"){
+                  if(data[i].nome!=""){
+                    if(data[i].situacaoferias=="Férias"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -8704,7 +8704,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -9690,10 +9690,10 @@ $("#pesquisarmanha").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Afastamento Pericia Medica"){
+                    }else if(data[i].situacaoferias=="Afastamento Pericia Medica"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -9702,7 +9702,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -10688,10 +10688,10 @@ $("#pesquisarmanha").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Cobertura de Gestação/Licença Maternidade"){
+                    }else if(data[i].situacaoferias=="Cobertura de Gestação/Licença Maternidade"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -10700,7 +10700,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -11785,11 +11785,11 @@ $("#pesquisarmanha").on('click', function(e){
               if(data[i].setor == "Enfermagem SN1"){
                 var Emergência = $("<tr>");
                   var id = "";
-                  if(data[i].nome!=null){
-                    if(data[i].situacao=="Férias"){
+                  if(data[i].nome!=""){
+                    if(data[i].situacaoferias=="Férias"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -11798,7 +11798,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -12784,10 +12784,10 @@ $("#pesquisarmanha").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Afastamento Pericia Medica"){
+                    }else if(data[i].situacaoferias=="Afastamento Pericia Medica"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -12796,7 +12796,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -13782,10 +13782,10 @@ $("#pesquisarmanha").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Cobertura de Gestação/Licença Maternidade"){
+                    }else if(data[i].situacaoferias=="Cobertura de Gestação/Licença Maternidade"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -13794,7 +13794,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -14879,11 +14879,11 @@ $("#pesquisarmanha").on('click', function(e){
               if(data[i].setor == "Enfermagem SN2"){
                 var Azul = $("<tr>");
                   var id = "";
-                  if(data[i].nome!=null){
-                    if(data[i].situacao=="Férias"){
+                  if(data[i].nome!=""){
+                    if(data[i].situacaoferias=="Férias"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -14892,7 +14892,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -15878,10 +15878,10 @@ $("#pesquisarmanha").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Afastamento Pericia Medica"){
+                    }else if(data[i].situacaoferias=="Afastamento Pericia Medica"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -15890,7 +15890,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -16876,10 +16876,10 @@ $("#pesquisarmanha").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Cobertura de Gestação/Licença Maternidade"){
+                    }else if(data[i].situacaoferias=="Cobertura de Gestação/Licença Maternidade"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -16888,7 +16888,7 @@ $("#pesquisarmanha").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -18243,11 +18243,11 @@ $("#pesquisartarde").on('click', function(e){
               if(data[i].setor == "Psicologia Manhã"){
                 var Acolhimento1 = $("<tr>");
                   var id = "";
-                  if(data[i].nome!=null){
-                    if(data[i].situacao=="Férias"){
+                  if(data[i].nome!=""){
+                    if(data[i].situacaoferias=="Férias"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -18256,7 +18256,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -19242,10 +19242,10 @@ $("#pesquisartarde").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Afastamento Pericia Medica"){
+                    }else if(data[i].situacaoferias=="Afastamento Pericia Medica"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -19254,7 +19254,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -20240,10 +20240,10 @@ $("#pesquisartarde").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Cobertura de Gestação/Licença Maternidade"){
+                    }else if(data[i].situacaoferias=="Cobertura de Gestação/Licença Maternidade"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -20252,7 +20252,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -21337,11 +21337,11 @@ $("#pesquisartarde").on('click', function(e){
               if(data[i].setor == "Psicologia Tarde"){
                 var Emergência = $("<tr>");
                   var id = "";
-                  if(data[i].nome!=null){
-                    if(data[i].situacao=="Férias"){
+                  if(data[i].nome!=""){
+                    if(data[i].situacaoferias=="Férias"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -21350,7 +21350,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -22336,10 +22336,10 @@ $("#pesquisartarde").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Afastamento Pericia Medica"){
+                    }else if(data[i].situacaoferias=="Afastamento Pericia Medica"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -22348,7 +22348,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -23334,10 +23334,10 @@ $("#pesquisartarde").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Cobertura de Gestação/Licença Maternidade"){
+                    }else if(data[i].situacaoferias=="Cobertura de Gestação/Licença Maternidade"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -23346,7 +23346,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -24431,11 +24431,11 @@ $("#pesquisartarde").on('click', function(e){
               if(data[i].setor == "Assistente Social Manhã"){
                 var Azul = $("<tr>");
                   var id = "";
-                  if(data[i].nome!=null){
-                    if(data[i].situacao=="Férias"){
+                  if(data[i].nome!=""){
+                    if(data[i].situacaoferias=="Férias"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -24444,7 +24444,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -25430,10 +25430,10 @@ $("#pesquisartarde").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Afastamento Pericia Medica"){
+                    }else if(data[i].situacaoferias=="Afastamento Pericia Medica"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -25442,7 +25442,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -26428,10 +26428,10 @@ $("#pesquisartarde").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Cobertura de Gestação/Licença Maternidade"){
+                    }else if(data[i].situacaoferias=="Cobertura de Gestação/Licença Maternidade"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -26440,7 +26440,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -27525,11 +27525,11 @@ $("#pesquisartarde").on('click', function(e){
               if(data[i].setor == "Assistente Social Tarde"){
                 var Bordô = $("<tr>");
                   var id = "";
-                  if(data[i].nome!=null){
-                    if(data[i].situacao=="Férias"){
+                  if(data[i].nome!=""){
+                    if(data[i].situacaoferias=="Férias"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -27538,7 +27538,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -28524,10 +28524,10 @@ $("#pesquisartarde").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Afastamento Pericia Medica"){
+                    }else if(data[i].situacaoferias=="Afastamento Pericia Medica"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -28536,7 +28536,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -29522,10 +29522,10 @@ $("#pesquisartarde").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Cobertura de Gestação/Licença Maternidade"){
+                    }else if(data[i].situacaoferias=="Cobertura de Gestação/Licença Maternidade"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -29534,7 +29534,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -30619,11 +30619,11 @@ $("#pesquisartarde").on('click', function(e){
               if(data[i].setor ==  "Médico Manhã"){
                 var Apoio = $("<tr>");
                   var id = "";
-                  if(data[i].nome!=null){
-                    if(data[i].situacao=="Férias"){
+                  if(data[i].nome!=""){
+                    if(data[i].situacaoferias=="Férias"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -30632,7 +30632,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -31618,10 +31618,10 @@ $("#pesquisartarde").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Afastamento Pericia Medica"){
+                    }else if(data[i].situacaoferias=="Afastamento Pericia Medica"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -31630,7 +31630,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -32616,10 +32616,10 @@ $("#pesquisartarde").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Cobertura de Gestação/Licença Maternidade"){
+                    }else if(data[i].situacaoferias=="Cobertura de Gestação/Licença Maternidade"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -32628,7 +32628,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -33715,11 +33715,11 @@ $("#pesquisartarde").on('click', function(e){
               if(data[i].setor == "Gerente"){
                 var Enfermaria = $("<tr>");
                   var id = "";
-                  if(data[i].nome!=null){
-                    if(data[i].situacao=="Férias"){
+                  if(data[i].nome!=""){
+                    if(data[i].situacaoferias=="Férias"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -33728,7 +33728,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -34714,10 +34714,10 @@ $("#pesquisartarde").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Afastamento Pericia Medica"){
+                    }else if(data[i].situacaoferias=="Afastamento Pericia Medica"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -34726,7 +34726,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
@@ -35712,10 +35712,10 @@ $("#pesquisartarde").on('click', function(e){
 
                       }
                       
-                    }else if(data[i].situacao=="Cobertura de Gestação/Licença Maternidade"){
+                    }else if(data[i].situacaoferias=="Cobertura de Gestação/Licença Maternidade"){
                       tr=$(this);
                             //Data Inicio
-                            var valor1=data[i].dateiniciosituacao;
+                            var valor1=data[i].dateiniciosituacaoferias;
                             const dataSplit1 = valor1.split('/');
                             const day1 = dataSplit1[0]; // 30
                             const month1 = dataSplit1[1]; // 03
@@ -35724,7 +35724,7 @@ $("#pesquisartarde").on('click', function(e){
                             var valores1 =new Date(year1, month1 - 1, day1).getTime()
 
                             //Data Final
-                            var valor2 = data[i].datefinalsituacao; // Data de hoje
+                            var valor2 = data[i].datefinalsituacaoferias; // Data de hoje
                             const dataSplit2 = valor2.split('/');
                             const day2 = dataSplit2[0]; // 30
                             const month2 = dataSplit2[1]; // 03
