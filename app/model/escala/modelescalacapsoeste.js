@@ -66,21 +66,21 @@ modelescalacapsoeste.prototype.criarfolga =  function(funcionarios, escala, turn
 }
 modelescalacapsoeste.prototype.updateferias = function(valor, callback){
 
-	this._conection.query('update folgacapsoeste set folga1="'+valor.folga1+'",folga2="'+valor.folga2+'",folga3="'+valor.folga3+'",folga4="'+valor.folga4+'",folga5="'+valor.folga5+'",folga6="'+valor.folga6+'",folga7="'+valor.folga7+'",folga8="'+valor.folga8+'",folga9="'+valor.folga9+'",folga10="'+valor.folga10+'",folga11="'+valor.folga11+'",folga12="'+valor.folga12+'",folga13="'+valor.folga13+'",folga14="'+valor.folga14+'",folga15="'+valor.folga15+'",folga16="'+valor.folga16+'",folga17="'+valor.folga17+'",folga18="'+valor.folga18+'",folga19="'+valor.folga19+'",folga20="'+valor.folga20+'",folga21="'+valor.folga21+'",folga22="'+valor.folga22+'",folga23="'+valor.folga23+'",folga24="'+valor.folga24+'",folga25="'+valor.folga25+'",folga26="'+valor.folga26+'",folga27="'+valor.folga27+'",folga28="'+valor.folga28+'",folga29="'+valor.folga29+'",folga30="'+valor.folga30+'",folga31="'+valor.folga31+'", situacao = "'+valor.inputsituacao+'", dateiniciosituacao = "'+valor.dateinicialsituacao+'", datefinalsituacao = "'+valor.datefinalsituacao+'" where idfolgacapsoeste = "'+valor.idfuncionario+'"', callback);
+	this._conection.query('update folgacapsoeste set folga1="'+valor.folga1+'",folga2="'+valor.folga2+'",folga3="'+valor.folga3+'",folga4="'+valor.folga4+'",folga5="'+valor.folga5+'",folga6="'+valor.folga6+'",folga7="'+valor.folga7+'",folga8="'+valor.folga8+'",folga9="'+valor.folga9+'",folga10="'+valor.folga10+'",folga11="'+valor.folga11+'",folga12="'+valor.folga12+'",folga13="'+valor.folga13+'",folga14="'+valor.folga14+'",folga15="'+valor.folga15+'",folga16="'+valor.folga16+'",folga17="'+valor.folga17+'",folga18="'+valor.folga18+'",folga19="'+valor.folga19+'",folga20="'+valor.folga20+'",folga21="'+valor.folga21+'",folga22="'+valor.folga22+'",folga23="'+valor.folga23+'",folga24="'+valor.folga24+'",folga25="'+valor.folga25+'",folga26="'+valor.folga26+'",folga27="'+valor.folga27+'",folga28="'+valor.folga28+'",folga29="'+valor.folga29+'",folga30="'+valor.folga30+'",folga31="'+valor.folga31+'", situacaoferias = "'+valor.inputsituacaoferias+'", dateiniciosituacaoferias = "'+valor.dateinicialsituacaoferias+'", datefinalsituacaoferias = "'+valor.datefinalsituacaoferias+'" where idfolgacapsoeste = "'+valor.idfuncionario+'"', callback);
 }
-modelescalacapsoeste.prototype.updateferiastarde = function(idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, callback){
+modelescalacapsoeste.prototype.updateferiastarde = function(idfuncionario, inputsituacaoferias, dateinicialsituacaoferias, datefinalsituacaoferias, callback){
 
-	this._conection.query('update folgacapsoeste set situacao = "'+inputsituacao+'", dateiniciosituacao = "'+dateinicialsituacao+'", datefinalsituacao = "'+datefinalsituacao+'" where idfolgacapsoeste = "'+idfuncionario+'"', callback);
-}
-
-modelescalacapsoeste.prototype.updateferiasSN1 = function(idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, callback){
-
-	this._conection.query('update folgacapsoeste set situacao = "'+inputsituacao+'", dateiniciosituacao = "'+dateinicialsituacao+'", datefinalsituacao = "'+datefinalsituacao+'" where idfolgacapsoeste = "'+idfuncionario+'"', callback);
+	this._conection.query('update folgacapsoeste set situacaoferias = "'+inputsituacaoferias+'", dateiniciosituacaoferias = "'+dateinicialsituacaoferias+'", datefinalsituacaoferias = "'+datefinalsituacaoferias+'" where idfolgacapsoeste = "'+idfuncionario+'"', callback);
 }
 
-modelescalacapsoeste.prototype.updateferiasSN2 = function(idfuncionario, inputsituacao, dateinicialsituacao, datefinalsituacao, callback){
+modelescalacapsoeste.prototype.updateferiasSN1 = function(idfuncionario, inputsituacaoferias, dateinicialsituacaoferias, datefinalsituacaoferias, callback){
 
-	this._conection.query('update folgacapsoeste set situacao = "'+inputsituacao+'", dateiniciosituacao = "'+dateinicialsituacao+'", datefinalsituacao = "'+datefinalsituacao+'" where idfolgacapsoeste = "'+idfuncionario+'"', callback);
+	this._conection.query('update folgacapsoeste set situacaoferias = "'+inputsituacaoferias+'", dateiniciosituacaoferias = "'+dateinicialsituacaoferias+'", datefinalsituacaoferias = "'+datefinalsituacaoferias+'" where idfolgacapsoeste = "'+idfuncionario+'"', callback);
+}
+
+modelescalacapsoeste.prototype.updateferiasSN2 = function(idfuncionario, inputsituacaoferias, dateinicialsituacaoferias, datefinalsituacaoferias, callback){
+
+	this._conection.query('update folgacapsoeste set situacaoferias = "'+inputsituacaoferias+'", dateiniciosituacaoferias = "'+dateinicialsituacaoferias+'", datefinalsituacaoferias = "'+datefinalsituacaoferias+'" where idfolgacapsoeste = "'+idfuncionario+'"', callback);
 }
 
 modelescalacapsoeste.prototype.criarescalacapsoeste = function(unidade, turno, dateinicial, datefinal, ano, callback){
@@ -95,12 +95,12 @@ modelescalacapsoeste.prototype.validarescala = function(unidade, turno, dateinic
 
 modelescalacapsoeste.prototype.buscarsituacaocapsoeste = function(valor, callback){
 
-	this._conection.query('select situacao,dateiniciosituacao from folgacapsoeste where idfolgacapsoeste = "'+valor.idfinal+'"', callback )
+	this._conection.query('select situacaoferias,dateiniciosituacaoferias from folgacapsoeste where idfolgacapsoeste = "'+valor.idfinal+'"', callback )
 }
 
 modelescalacapsoeste.prototype.updateescalacapsoeste = function(valor,ferias, callback){
-	console.log(ferias, new Date(ferias[0].dateiniciosituacao) > 16/11/2021)
-	if( ferias[0].situacao == null || new Date(ferias[0].dateiniciosituacao) > 16/11/2021){
+	console.log(ferias, new Date(ferias[0].dateiniciosituacaoferias) > 16/11/2021)
+	if( ferias[0].situacaoferias == null || new Date(ferias[0].dateiniciosituacaoferias) > 16/11/2021){
 		if(valor.coluna ==9){var folga1 = valor.novoConteudo;this._conection.query('update folgacapsoeste set folga1 = "'+folga1+'"  where idfolgacapsoeste = "'+valor.idfinal+'"', callback);}
 		if(valor.coluna ==10){var folga2 = valor.novoConteudo;this._conection.query('update folgacapsoeste set folga2 = "'+folga2+'" where idfolgacapsoeste = "'+valor.idfinal+'"', callback);}
 		if(valor.coluna ==11){var folga3 = valor.novoConteudo;this._conection.query('update folgacapsoeste set folga3 = "'+folga3+'" where idfolgacapsoeste = "'+valor.idfinal+'"', callback);}
