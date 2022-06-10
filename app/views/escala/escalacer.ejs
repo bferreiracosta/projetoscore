@@ -32546,6 +32546,74 @@ $("#pesquisarmanha").on('click', function(e){
          }   
           });
         }
+        obj =[];
+    $.ajax({
+        type: "GET",
+        data: obj,
+        async: false,
+        contentType: 'application/json',
+        url: '/burcarferiado',
+        success: function(obj) {  
+          $('#tablemanha tbody tr:eq(0)').each(function(i){
+            tr=$(this);
+            var objeto = JSON.parse(obj);
+              for(var i=0; i< objeto.length; i++ ){
+                 var feriado = 0;
+                 feriado = objeto[i].dias;
+                 var j = 9;
+                 var colunas = document.getElementById('tablemanha').rows[2].cells.length;
+                 var valor = 0;
+                for(j ; j< colunas ; j++){
+                  valor=tr.children('td:eq('+j+')').html();
+                  var coluna = j;
+                  if(feriado == valor){
+                  colorirTable(coluna)
+                  }
+                } 
+                if (ano%400 == 0 || ano%4==0 && ano%100!=0){
+                    var calcular_bissexto="É bissexto";
+                }
+                else{
+                    var calcular_bissexto="Não é bissexto";
+                }
+                var a = 9;
+                for(a ; a< colunas ; a++){
+                  valor=tr.children('td:eq('+a+')').html();
+                  var col = a;
+                  if(valor === '29/02'){
+                    // $('table tbody tr').find('td:eq(21)').style='visibility: hidden';  
+                    $('.tablemanha tbody tr').find('td:eq('+a+')').addClass('sumirtd');      
+                  }
+                  if(valor === '30/02'){
+                    $('.tablemanha tbody tr').find('td:eq('+a+')').addClass('sumirtd');    
+                  }
+                  if(valor === '31/02'){
+                    $('.tablemanha tbody tr').find('td:eq('+a+')').addClass('sumirtd');   
+                  }
+                } 
+                var b =7;
+                for(b ; b< colunas ; b++){
+                  valor=tr.children('td:eq('+b+')').html();
+                  console.log(valor)
+                  var cols = b;
+                  if(datainicial == "Abril" && valor === '31/04'){
+                   
+                    $('.tablemanha tbody tr').find('td:eq('+b+')').addClass('sumirtd');  
+                  }
+                  if(datainicial == "Junho" && valor === '31/06'){
+                    $('.tablemanha tbody tr').find('td:eq('+b+')').addClass('sumirtd'); 
+                  }
+                  if(datainicial == "Setembro" && valor === '31/09'){
+                    $('.tablemanha tbody tr').find('td:eq('+b+')').addClass('sumirtd'); 
+                  }
+                  if(datainicial == "Novembro" && valor === '31/11'){
+                    $('.tablemanha tbody tr').find('td:eq('+b+')').addClass('sumirtd'); 
+                  }
+             } 
+         }   
+          });
+        }
+    });
     $('#tablemanha tbody tr:eq(0)').each(function(i){
       tr=$(this);
       var colunas = document.getElementById('tablemanha').rows[2].cells.length;
@@ -32577,12 +32645,13 @@ $("#pesquisarmanha").on('click', function(e){
         Minha_data = moment(valor+"/"+2022, "DD-MM-YYYY").format('dddd');
         if(Minha_data == "Saturday" || Minha_data == "Sunday"){
               colorirTable(coluna)
-        }
+            }
         }
         
       } 
     });
-  });
+      }
+    )
    //Create PDf from HTML...
 function createPDFmanha() {
   var HTML_Height = $("#tablemanha").height();
