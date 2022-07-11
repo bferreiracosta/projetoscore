@@ -48,6 +48,7 @@ modelescalaroosevelt.prototype.criarfolga =  function(funcionarios, escala, turn
 			[funcionarios[33].idfuncionariosroosevelt, escala],
 			[funcionarios[34].idfuncionariosroosevelt, escala],
 			[funcionarios[35].idfuncionariosroosevelt, escala],
+            [funcionarios[36].idfuncionariosroosevelt, escala],
 		];
 	}
 	if(turno == "Tarde"){
@@ -158,7 +159,6 @@ modelescalaroosevelt.prototype.criarfolga =  function(funcionarios, escala, turn
 			[funcionarios[29].idfuncionariosroosevelt, escala],
 			[funcionarios[30].idfuncionariosroosevelt, escala],
 			[funcionarios[31].idfuncionariosroosevelt, escala],
-			[funcionarios[32].idfuncionariosroosevelt, escala],
 		];
 	}
 

@@ -1,0 +1,457 @@
+<%- include('./cabecalhoregulacao'); %>
+
+<div class="container">
+<% if(id.length > 0) { %>
+    <% for(var i = 0; i < id.length; i++) {%>
+		<form action="/updatenewscim" method="post">
+			<input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>"> 
+		<% if(paciente.length > 0) { %>
+			<% for(var j = 0; j < paciente.length; j++) {%>
+		
+			<div tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+				 aria-hidden="true">
+				<div  role="document">
+					<div >
+						<div >
+							<h5  id="exampleModalLabel">NEWs</h5>
+						</div>
+						<div >
+							<div class="form-group">
+								<input type="hidden" name="id" class="form-control" placeholder="" value="<%=paciente[j].id_paciente %>" required>
+							</div>
+							<div class="form-group">
+								<label for="fr">Frequência Respiratória</label>
+								<input type="number" id="fr" name="fr" class="form-control" placeholder="Frequência Respiratória" required>
+							</div>
+							<div class="form-group">
+								<label for="sat">Saturação de O2</label>
+								<input type="number" name="sat"  id="sat" class="form-control" placeholder="Saturação de O2" required>
+							</div>
+							<div class="form-group">
+								<label for="o2">Uso de O2</label>
+								<select class="form-control" id="opcao2" name="opcao2">
+									<option value="" disabled selected hidden>Uso de O2</option>
+									<option value="sim">Sim</option>
+									<option value="nao">Não</option>
+								</select>
+								<input type="hidden" name="o2"  id="uso02" class="form-control" placeholder="Uso de O2" required>
+							</div>
+							<div class="form-group">
+								<label for="temp">Temperatura</label>
+								<input type="text" name="temp"  id="temp" class="form-control" placeholder="Temperatura" required>
+							</div>
+							<div class="form-group">
+								<label for="sistolica">PA Sistolica</label>
+								<input type="number" name="sistolica" id="pa" class="form-control" placeholder="PA Sistolica" required>
+							</div>
+							<div class="form-group">
+								<label for="fc">Frequencia Cardiaca</label>
+								<input type="number" name="fc"  id="fc" class="form-control" placeholder="Frequencia Cardiaca" required>
+							</div>
+							
+							<div class="form-group">
+								<label for="opcao">Nivel Consciencia</label>
+								<select class="form-control" id="opcao" name="opcao">
+									<option value="" disabled selected hidden>Nivel Consciencia</option>
+									<option value="alerta">Alerta</option>
+									<option value="verbal">Estimulo Verbal</option>
+									<option value="doloroso">Estimulo Doloroso</option>
+									<option value="aresponsivo">Sem Resposta</option>
+								</select>
+								<input  id="ment"  type="hidden" name="covid">
+							</div>
+							
+							<div  class="form-group">
+								<button onclick="calcular()" type="button" class="btn btn-primary">Somar news</button>
+							</div>
+							<div>
+								<label for="news">News</label>
+								<input  type="text" id="news" name="news"  class="form-control">
+							</div>
+							<div id="hora" class="form-group">
+								<input  type="hidden" id="horas" name="horas"  class="form-control">
+							</div>
+							</div>
+						<div >
+							<a href="/newscim?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+							<button type="submit" class="btn btn-primary">Atualizar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<% } %>	
+			<% } %>
+			<% } %>	
+			<% } %>
+			<br>
+					<br>
+					<br>
+</div>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<%- include('./footer'); %>
+</body>
+</html>
+<script type="text/javascript">
+$(document).ready(function(){
+      $('#temp').mask('00.0');
+      });
+
+   $("#opcao").on('change', function(e){
+     var exame = document.getElementById('opcao').value;
+     document.getElementById('ment').value = exame;
+});
+
+$("#opcao2").on('change', function(e){
+     var o2 = document.getElementById('opcao2').value;
+     document.getElementById('uso02').value = o2;
+});
+
+function pad(s){
+		return (s<10) ? '0' + s :s;
+	}
+function novaHora(){
+	
+	var date = new Date();
+	document.getElementById('horas').value= [date.getHours(), date.getMinutes()].map(pad).join(':');
+}
+novaHora();
+
+
+function calcular(){
+	var resultadofr;
+	var fr = document.getElementById('fr').value;
+	
+	if(fr<=8){
+		resultadofr = 3;
+	}
+	if(fr>=9&&fr<=11){
+		resultadofr = 1;
+	}
+	if(fr>=12&&fr<=20){
+		resultadofr	= 0;
+	}
+	if(fr>=21&&fr<=24){
+		resultadofr = 2;
+	}
+	if(fr>=25){
+		resultadofr = 3;
+	}
+	
+	var resultadosat;
+	var sat = document.getElementById('sat').value;
+	
+	if(sat<=91){
+		resultadosat = 3;
+	}
+	if(sat>=92&&sat<=93){
+		resultadosat = 2;
+	}
+	if(sat>=94&&sat<95){
+		resultadosat	= 1;
+	}
+	if(sat>=95){
+		resultadosat = 0;
+	}
+	
+	var resultadoo2;
+	var o2 = document.getElementById('uso02').value;
+	
+	if(o2 == 'sim'){
+		resultadoo2 = 2;
+	}
+	if(o2 == 'nao'){
+		resultadoo2 = 0;
+	}
+	
+	var resultadotemp;
+	var temp = document.getElementById('temp').value;
+	
+	if(temp<=35){
+		resultadotemp = 3;
+	}
+	if(temp>=35.1&&temp<=36){
+		resultadotemp = 1;
+	}
+	if(temp>=36.1&&temp<=38){
+		resultadotemp	= 0;
+	}
+	if(temp>=38.1&&temp<=39){
+		resultadotemp = 1;
+	}
+	if(temp>=39.1){
+		resultadotemp = 2;
+	}
+
+	var resultadopa;
+	var pa = document.getElementById('pa').value;
+	
+	if(pa<=90){
+		resultadopa = 3;
+	}
+	if(pa>=91&&pa<=100){
+		resultadopa = 2;
+	}
+	if(pa>=101&&pa<=110){
+		resultadopa	= 1;
+	}
+	if(pa>=111&&pa<=219){
+		resultadopa = 0;
+	}
+	if(pa>=220){
+		resultadopa = 3;
+	}
+
+	
+	var resultadofc;
+	var fc = document.getElementById('fc').value;
+	
+	if(fc<=40){
+		resultadofc = 3;
+	}
+	if(fc>=41&&fc<=50){
+		resultadofc = 1;
+	}
+	if(fc>=51&&fc<=90){
+		resultadofc	= 0;
+	}
+	if(fc>=91&&fc<=110){
+		resultadofc = 1;
+	}
+	if(fc>=111&&fc<=130){
+		resultadofc = 2;
+	}
+	if(fc>=131){
+		resultadofc = 3;
+	}
+
+	
+	var resultadoment;
+	var ment = document.getElementById('opcao').value;
+	
+	if(ment == "alerta"){
+		resultadoment = 0;
+	}
+	if(ment == "verbal"){
+		resultadoment = 3;
+	}
+	if(ment == "doloroso"){
+		resultadoment = 3;
+	}
+	if(ment == "aresponsivo"){
+		resultadoment = 3;
+	}
+	
+	var score = resultadofr + resultadosat + resultadoo2 + resultadotemp + resultadofc + resultadofc + resultadoment;
+	console.log(resultadoment);
+	document.getElementById('news').value = score;
+	// resultadofc,resultadofc,resultadotemp,resultadoo2,resultadosat,resultadofr
+}
+
+</script>
+<div class="container">
+<% if(id.length > 0) { %>
+    <% for(var i = 0; i < id.length; i++) {%>
+	<% if(paciente.length > 0) { %>
+        <% for(var j = 0; j < paciente.length; j++) {%>
+            <div >
+                <div >
+                    <h2>Sinais Vitais </h2>
+                    <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">  
+                </div>
+                <div >
+                    <div class="form-group">
+						<label for="">Paciente</label>
+                        <input disabled type="text" name="paciente" class="form-control" value="<%=paciente[j].paciente %>" >
+                    </div>
+                    <div class="form-group">
+						<label for="">Frequencia Respiratorio</label>
+						<input disabled type="text" id="fr" name="fr" class="form-control" value="<%=paciente[j].fr %>">
+					</div>
+					<div class="form-group">
+						<label for="">Saturação</label>
+						<input disabled type="text" name="sat"  id="sat" class="form-control" value="<%=paciente[j].sat %>">
+					</div>
+					<div class="form-group">
+						<label for="">Uso de O2</label>
+						<input disabled type="text" name="o2"  id="uso02" class="form-control" value="<%=paciente[j].o2 %>">
+					</div>
+					<div class="form-group">
+						<label for="">Temperatura</label>
+						<input disabled type="text" name="temp"  id="temp" class="form-control" value="<%=paciente[j].temp %>">
+					</div>
+					<div class="form-group">
+						<label for="">Pa sistolica</label>
+						<input disabled type="text" name="pa" id="pa" class="form-control" value="<%=paciente[j].sistolica %>">
+					</div>
+					<div class="form-group">
+						<label for="">Frequencia Cardiaca</label>
+						<input disabled type="text" name="fc"  id="fc" class="form-control" value="<%=paciente[j].fc %>">
+					</div>
+					<div class="form-group">
+						<label for="">Nivel Consciencia</label>
+						<input disabled type="text" name="alerta"  id="alerta" class="form-control" value="<%=paciente[j].alerta %>">
+					</div>
+					<div  class="form-group">
+						<a href="/homeregulacao?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+					</div>
+				</div>
+		</div>
+</div>
+<% } %>
+<% } %>
+<% } %>
+<% } %>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<%- include('./footer'); %>
+</body>
+</html>
+<script type="text/javascript">
+
+$("#leito").on('change', function(e){
+     var leito = document.getElementById('leito').value;
+     document.getElementById('leito2').value = leito;
+});
+
+$("#dispositivo").on('change', function(f){
+     var dispositivo = document.getElementById('dispositivo').value;
+     document.getElementById('dispositivo2').value = dispositivo;
+});
+
+function verifica(value){
+	var input = document.getElementById("fio2");
+	var input2 = document.getElementById("peep");
+	var input3 = document.getElementById("o2");
+
+  if(value != 'Ventilacao Mecanica'){
+    input.style.display = "none";
+	input2.style.display = "none";
+	input3.style.display = "inline";
+  }else if(value == 'Ventilacao Mecanica'){
+    input.style.display = "inline";
+	input2.style.display = "inline";
+	input3.style.display = "none";
+  }
+};
+
+function verificasedacao(value){
+	var input = document.getElementById("Dormonid");
+	var input2 = document.getElementById("Fentanil");
+	var input3 = document.getElementById("Rocuronio");
+	var input4 = document.getElementById("Propofol");
+	var label = document.getElementById("Dormonid2");
+	var label2 = document.getElementById("Fentanil2");
+	var label3 = document.getElementById("Rocuronio2");
+	var label4 = document.getElementById("Propofol2");
+	
+
+  if(value == 'nao'){
+    input.style.display = "none";
+	input2.style.display = "none";
+	input3.style.display = "none";
+	input4.style.display = "none";
+	label.style.display = "none";
+	label2.style.display = "none";
+	label3.style.display = "none";
+	label4.style.display = "none";
+  }else if(value == 'sim'){
+    input.style.display = "inline";
+	input2.style.display = "inline";
+	input3.style.display = "inline";
+	input4.style.display = "inline";
+	label.style.display = "inline";
+	label2.style.display = "inline";
+	label3.style.display = "inline";
+	label4.style.display = "inline";
+  }
+};
+
+
+function verificadroga(value){
+	var input = document.getElementById("Noradrenalina");
+	var input2 = document.getElementById("Adrenalina");
+	var label = document.getElementById("Noradrenalina2");
+	var label2 = document.getElementById("Adrenalina2");
+	
+
+  if(value == 'nao'){
+    input.style.display = "none";
+	input2.style.display = "none";
+	label.style.display = "none";
+	label2.style.display = "none";
+  }else if(value == 'sim'){
+    input.style.display = "inline";
+	input2.style.display = "inline";
+	label.style.display = "inline";
+	label2.style.display = "inline";
+  }
+};
+window.onload = function() {
+  document.getElementById('fio2').style.display = 'none';
+  document.getElementById('peep').style.display = 'none';
+  document.getElementById('o2').style.display = 'none';
+  document.getElementById('Noradrenalina').style.display = 'none';
+  document.getElementById('Adrenalina').style.display = 'none';
+  document.getElementById('Noradrenalina2').style.display = 'none';
+  document.getElementById('Adrenalina2').style.display = 'none';
+  document.getElementById('Dormonid').style.display = 'none';
+  document.getElementById('Dormonid2').style.display = 'none';
+  document.getElementById('Fentanil').style.display = 'none';
+  document.getElementById('Fentanil2').style.display = 'none';
+  document.getElementById('Rocuronio').style.display = 'none';
+  document.getElementById('Rocuronio2').style.display = 'none';
+  document.getElementById('Propofol').style.display = 'none';
+  document.getElementById('Propofol2').style.display = 'none';
+
+
+};
+function check(){
+
+var pacote = document.getElementsByName('DVA');
+  for (var i = 0; i < pacote.length; i++){
+	  if ( pacote[i].checked ) {
+		  if(pacote[i].value == "Noradrenalina"){
+			  var Pacote_i = "NoraAdrenalina";
+			  document.getElementById('nora').value = Pacote_i;
+		  }else if (pacote[i].value == "adrenalina") {
+			  var Pacote_ii = "adrenalina";
+			  document.getElementById('adre').value = Pacote_ii;
+		  }
+		}
+  	}
+}
+
+function check1(){
+
+var pacote = document.getElementsByName('sedacao2');
+  for (var i = 0; i < pacote.length; i++){
+	  if ( pacote[i].checked ) {
+		  if(pacote[i].value == "Dormonid"){
+			  var Pacote_i = "Dormonid";
+			  document.getElementById('Dormonid3').value = Pacote_i;
+		  }else if (pacote[i].value == "Fentanil") {
+			  var Pacote_ii = "Fentanil";
+			  document.getElementById('Fentanil3').value = Pacote_ii;
+		  }else if (pacote[i].value == "Rocuronio") {
+			  var Pacote_iii = "Rocuronio";
+			  document.getElementById('Rocuronio3').value = Pacote_iii;
+		  }else if (pacote[i].value == "Propofol") {
+			  var Pacote_iiii = "Propofol";
+			  document.getElementById('Propofol3').value = Pacote_iiii;
+		  }
+		}
+  	}
+}
+</script>

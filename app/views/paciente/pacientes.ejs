@@ -1,0 +1,70 @@
+<%- include('./cabecalho'); %>
+		<div class="container1">
+			<div id="iframe" class="wrapper">
+
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+	    </div>
+	   
+	
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script type="text/javascript">
+			function myFunction() {
+				var x = document.getElementById("uai").value;
+				var objeto;
+				objeto = document.getElementById("iframe")
+				if (objeto.hasChildNodes())		
+       						while (objeto.hasChildNodes()) {
+            					objeto.removeChild(objeto.lastChild);
+						}
+				if(x=="Planalto"){
+						var y = document.createElement("IFRAME");
+						y.setAttribute("src", "https://docs.google.com/spreadsheets/d/11hGrDH7AjJLvswFiOEPpENcoEr1JamEMgorN-1UUFcs/edit?usp=sharing");
+						objeto.appendChild(y);
+						y.style.width = "1550px";
+						y.style.height = "850px"
+				} 
+				if(x=="Luizote"){
+						var y = document.createElement("IFRAME");
+						y.setAttribute("src", "https://docs.google.com/spreadsheets/d/1YFlr_aZFRjZU-jQDjy7c_YC-GLvxxRla-Dg1NADFOs8/edit?usp=sharing");
+						objeto.appendChild(y);
+						y.style.width = "1550px";
+						y.style.height = "850px";
+				}
+				if(x=="Martins"){
+						var y = document.createElement("IFRAME");
+						y.setAttribute("src", "https://docs.google.com/spreadsheets/d/1QJMgw-t23UKlnMyYG10nLhKSugXphGQM2Nr7SWNKqHw/edit?usp=sharing");
+						objeto.appendChild(y);
+						y.style.width = "1550px";
+						y.style.height = "850px";
+				} 
+				if(x=="Roosevelt"){
+						var y = document.createElement("IFRAME");
+						y.setAttribute("src", "https://docs.google.com/spreadsheets/d/1hb-048mjRY0lZR0sRBbIjrsM17clCSwrpekrdCbunpE/edit?usp=sharing");
+						objeto.appendChild(y);
+						y.style.width = "1550px";
+						y.style.height = "850px";
+				} 
+				if(x=="Morumbi"){
+						var y = document.createElement("IFRAME");
+						y.setAttribute("src", "https://docs.google.com/spreadsheets/d/1MJvstzCxQKWjzao7u0ZCz0dJqrn_xi1Cki_AdIrqsRg/edit?usp=sharing");
+						objeto.appendChild(y);
+						y.style.width = "1550px";
+						y.style.height = "850px";
+				} 
+				if(x=="Tibery"){
+						var y = document.createElement("IFRAME");
+						y.setAttribute("src", "https://docs.google.com/spreadsheets/d/1VYEJSpNzRov4A1guoY5jdtlWuUQgBFnJ0-irNmVfOpg/edit?usp=sharing");
+						objeto.appendChild(y);
+						y.style.width = "1550px";
+						y.style.height = "850px";
+				}  				
+			}
+		</script>
+	<%- include('./footer'); %>
+</body>
+</html>
