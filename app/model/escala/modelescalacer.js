@@ -53,7 +53,7 @@ modelescalacer.prototype.criarfolga =  function(funcionarios, escala, turno, cal
 			[funcionarios[38].idfuncionarioscer, escala],
 			[funcionarios[39].idfuncionarioscer, escala],
 			[funcionarios[40].idfuncionarioscer, escala],
-			[funcionarios[41].idfuncionarioscer, escala],
+
 		];
 	}
 
