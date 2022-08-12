@@ -313,7 +313,7 @@
 
                           <div id="divrt" class="form-group">
                             <div class="form-group">
-                              <label for="rt">Validação RT Unidade  </label>
+                              <label for="rt">Validação Gerente/RT  </label>
                                 <label class="switch">
                                 <input id="rt" class="rt" type="checkbox">
                                 <span class="slider round"></span>
@@ -1282,7 +1282,7 @@ $( "#target1" ).click(function() {
 
 var nome = document.getElementById("idnome").value;
 
-if(nome  == "rt"){
+if(nome  == "Gerente"){
   document.getElementById("divrt").style.display = 'block';
 }
 else{
@@ -17074,14 +17074,14 @@ $("#pesquisarmanha").on('click', function(e){
     var PDF_Width = 295 ;
     var PDF_Height = 380;
     var canvas_image_width = 295;
-    var canvas_image_height = 352;
+    var canvas_image_height = 365;
     let position = 0;
     var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 3;
 
     html2canvas($("#tablemanha")[0]).then(function (canvas) {
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
         var pdf = new jsPDF('l', 'mm', 'a4');
-        pdf.addImage(imgData, 'JPG', 1, 1, 295, 399);
+        pdf.addImage(imgData, 'JPG', 1, 1, 295, 410);
         for (var i = 1; i <= totalPDFPages; i++) { 
               pdf.addPage('l', 'mm', 'a4');
             pdf.addImage(imgData, 'JPG', 1, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);

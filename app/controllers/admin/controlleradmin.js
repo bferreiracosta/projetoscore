@@ -13,16 +13,6 @@ module.exports.autenticacao = function(application, req, res){
 	
 }
 
-module.exports.modulo = function(application, req, res){
-	
-	var id = req.query.id;
-	
-	
-	var modeladmin = new application.app.model.admin.modeladmin(application);
-	modeladmin.modulo(id,  req, res);
-	
-}
-
 module.exports.login = function(application, req, res){
 
 	var usuario = req.body.usuario2;
@@ -34,20 +24,6 @@ module.exports.login = function(application, req, res){
 	
 }
 
-module.exports.trocarmodulo = function(application, req, res){
-
-	var usuario = req.body.usuario2;
-	var senha = req.body.senha2;
-	var funcao = req.body.cargo;
-	
-	var modeladmin = new application.app.model.admin.modeladmin(application);
-	modeladmin.trocarmodulo(usuario, senha ,funcao,  req, res);
-	
-}
-
-module.exports.updatepassword = function(application, req, res){
-	res.render("home/updatepassword");
-}
 
 module.exports.mudarsenha = function(application, req, res){
 	
@@ -78,40 +54,5 @@ module.exports.home = function(application, req, res){
 	modeladmin.buscarusuario(id, function(error,result){
 	
 		res.render("home/home", {id : result});
-	});
-}
-module.exports.homeregulacao = function(application, req, res){
-	
-	var modeladmin = new application.app.model.admin.modeladmin(application);
-
-	var id = req.query;
-	
-	modeladmin.buscarusuario(id, function(error,result){
-	
-		res.render("home/homeregulacao", {id : result});
-	});
-}
-
-module.exports.homemental = function(application, req, res){
-	
-	var modeladmin = new application.app.model.admin.modeladmin(application);
-
-	var id = req.query;
-	
-	modeladmin.buscarusuario(id, function(error,result){
-	
-		res.render("home/homemental", {id : result});
-	});
-}
-
-module.exports.homemadministrativo = function(application, req, res){
-	
-	var modeladmin = new application.app.model.admin.modeladmin(application);
-
-	var id = req.query;
-	
-	modeladmin.buscarusuario(id, function(error,result){
-	
-		res.render("home/homemadministrativo", {id : result});
 	});
 }

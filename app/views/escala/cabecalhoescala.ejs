@@ -34,120 +34,78 @@
 				 </button>
 				 <% if(id.length > 0) { %>
 					<% for(var i = 0; i < id.length; i++) {%>
-						<a href="#" data-toggle="modal" data-target="#BaixaModal" id="modulo" ><img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
-						<input type="hidden" name="id" id="id" value="<%=id[i].id_usuario %>">
-						
-			  </a>
 			</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			
 					<ul class="nav navbar-nav navbar-right">
 			
-						<% if(id[i].admin== 1){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalasiate?id=<%=id[i].id_usuario %>">Escala  Siate</a></li>
-							<!-- <li class="btn-info">
-								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Escalas Uais</a>
-								<ul class="dropdown-menu">
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalaplanalto?id=<%=id[i].id_usuario %>">Escala  Planalto</a></li>
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalaluizote?id=<%=id[i].id_usuario %>">Escala  Luizote</a></li>
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalamartins?id=<%=id[i].id_usuario %>">Escala  Martins</a></li>
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalaroosevelt?id=<%=id[i].id_usuario %>">Escala  Roosevelt</a></li>
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalatibery?id=<%=id[i].id_usuario %>">Escala  Tibery</a></li>
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalamorumbi?id=<%=id[i].id_usuario %>">Escala  Morumbi</a></li>
-
-								</ul>
-							 </li> -->
-							 <li class="btn-info">
+						<% if(id[i].unidade == null){%>
+							<li class="btn-primary"><a class="btn   btn-md" href="/escalasiate?id=<%=id[i].id_usuario %>">Escala  Siate</a></li>
+							 <li class="btn-primary">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Escalas Caps</a>
 								<ul class="dropdown-menu">
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsad?id=<%=id[i].id_usuario %>">Caps AD</a></li>
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsi?id=<%=id[i].id_usuario %>">Caps I</a></li>
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsnorte?id=<%=id[i].id_usuario %>">Caps Norte</a></li>
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsleste?id=<%=id[i].id_usuario %>">Caps Leste</a></li>
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsoeste?id=<%=id[i].id_usuario %>">Caps Oeste</a></li>
+									<li class="btn-primary"><a class="btn   btn-sm" href="/escalacapsad?id=<%=id[i].id_usuario %>">Caps AD</a></li>
+									<li class="btn-primary"><a class="btn   btn-sm" href="/escalacapsi?id=<%=id[i].id_usuario %>">Caps I</a></li>
+									<li class="btn-primary"><a class="btn   btn-sm" href="/escalacapsnorte?id=<%=id[i].id_usuario %>">Caps Norte</a></li>
+									<li class="btn-primary"><a class="btn   btn-sm" href="/escalacapsleste?id=<%=id[i].id_usuario %>">Caps Leste</a></li>
+									<li class="btn-primary"><a class="btn   btn-sm" href="/escalacapsoeste?id=<%=id[i].id_usuario %>">Caps Oeste</a></li>
 								</ul>
 							 </li>
-							 <li class="btn-info">
+							 <li class="btn-primary">
 								<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Escalas Programas</a>
 								<ul class="dropdown-menu">
 	
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalasad?id=<%=id[i].id_usuario %>">Melhor em Casa</a></li>
+									<li class="btn-primary"><a class="btn   btn-sm" href="/escalasad?id=<%=id[i].id_usuario %>">Melhor em Casa</a></li>
 	
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalacc?id=<%=id[i].id_usuario %>">Centro de Convivência</a></li>
+									<li class="btn-primary"><a class="btn   btn-sm" href="/escalacc?id=<%=id[i].id_usuario %>">Centro de Convivência</a></li>
 			
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalaua?id=<%=id[i].id_usuario %>">Unidade de Acolhimento</a></li>
+									<li class="btn-primary"><a class="btn   btn-sm" href="/escalaua?id=<%=id[i].id_usuario %>">Unidade de Acolhimento</a></li>
 
-									<li class="btn-info"><a class="btn   btn-sm" href="/escalacer?id=<%=id[i].id_usuario %>">CER</a></li>
+									<li class="btn-primary"><a class="btn   btn-sm" href="/escalacer?id=<%=id[i].id_usuario %>">CER</a></li>
 								</ul>
 							 </li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+							<li class="btn-primary"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
-						<!-- <% if(id[i].unidade== 2){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalaluizote?id=<%=id[i].id_usuario %>">Escala  Luizote</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% if(id[i].unidade== 7){%>
+							<li class="btn-primary"><a class="btn   btn-sm" href="/escalacc?id=<%=id[i].id_usuario %>">Escala  Centro de Convivência</a></li>
+							<li class="btn-primary"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
-						<% if(id[i].unidade== 3){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalamartins?id=<%=id[i].id_usuario %>">Escala  Martins</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% if(id[i].unidade== 8){%>
+							<li class="btn-primary"><a class="btn   btn-sm" href="/escalasad?id=<%=id[i].id_usuario %>">Escala Melhor em Casa</a></li>
+							<li class="btn-primary"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
-						<% if(id[i].unidade== 4){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalaroosevelt?id=<%=id[i].id_usuario %>">Escala  Roosevelt</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% if(id[i].unidade== 9){%>
+							<li class="btn-primary"><a class="btn   btn-sm" href="/escalaua?id=<%=id[i].id_usuario %>">Escala Unidade de Acolhimento</a></li>
+							<li class="btn-primary"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
 						<% if(id[i].unidade== 1){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalaplanalto?id=<%=id[i].id_usuario %>">Escala  Planalto</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+							<li class="btn-primary"><a class="btn   btn-sm" href="/escalacapsad?id=<%=id[i].id_usuario %>">Escala Caps AD</a></li>
+							<li class="btn-primary"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% } %>
+						<% if(id[i].unidade== 2){%>
+							<li class="btn-primary"><a class="btn   btn-sm" href="/escalacapsoeste?id=<%=id[i].id_usuario %>">Escala Caps Oeste</a></li>
+							<li class="btn-primary"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% } %>
+						<% if(id[i].unidade== 3){%>
+							<li class="btn-primary"><a class="btn   btn-sm" href="/escalacapsleste?id=<%=id[i].id_usuario %>">Escala Caps Leste</a></li>
+							<li class="btn-primary"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
 						<% if(id[i].unidade== 5){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalamorumbi?id=<%=id[i].id_usuario %>">Escala  Morumbi</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+							<li class="btn-primary"><a class="btn   btn-sm" href="/escalacapsi?id=<%=id[i].id_usuario %>">Escala Caps Infantil</a></li>
+							<li class="btn-primary"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% } %>
+						<% if(id[i].unidade== 4){%>
+							<li class="btn-primary"><a class="btn   btn-sm" href="/escalacapsnorte?id=<%=id[i].id_usuario %>">Escala Caps Norte</a></li>
+							<li class="btn-primary"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
 						<% if(id[i].unidade== 6){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalatibery?id=<%=id[i].id_usuario %>">Escala  Tibery</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
-						<% } %> -->
-
-						<% if(id[i].unidade== 16){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalacc?id=<%=id[i].id_usuario %>">Escala  Centro de Convivência</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+							<li class="btn-primary"><a class="btn   btn-sm" href="/escalasiate?id=<%=id[i].id_usuario %>">Escala  Siate</a></li>
+							<li class="btn-primary"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
-		
-						<% if(id[i].unidade== 19){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalasad?id=<%=id[i].id_usuario %>">Escala Melhor em Casa</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
-						<% } %>
-						<% if(id[i].unidade== 20){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalaua?id=<%=id[i].id_usuario %>">Escala Unidade de Acolhimento</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
-						<% } %>
-						<% if(id[i].usuario== "coordad" || id[i].usuario== "supervad"){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsad?id=<%=id[i].id_usuario %>">Escala Caps AD</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
-						<% } %>
-						<% if(id[i].usuario== "coordoeste" || id[i].usuario== "supervoeste"){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsoeste?id=<%=id[i].id_usuario %>">Escala Caps Oeste</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
-						<% } %>
-						<% if(id[i].usuario== "coordleste" || id[i].usuario== "supervleste"){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsleste?id=<%=id[i].id_usuario %>">Escala Caps Leste</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
-						<% } %>
-						<% if(id[i].usuario== "coordinfantil" || id[i].usuario== "supervinfantil"){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsi?id=<%=id[i].id_usuario %>">Escala Caps Infantil</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
-						<% } %>
-						<% if(id[i].usuario== "coordnorte" || id[i].usuario== "supervnorte"){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalacapsnorte?id=<%=id[i].id_usuario %>">Escala Caps Norte</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
-						<% } %>
-						<% if(id[i].usuario== "coordenfsiate"){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalasiate?id=<%=id[i].id_usuario %>">Escala  Siate</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
-						<% } %>
-						<% if(id[i].usuario== "coordcer"){%>
-							<li class="btn-info"><a class="btn   btn-sm" href="/escalacer?id=<%=id[i].id_usuario %>">Escala  CER</a></li>
-							<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
+						<% if(id[i].unidade== 10){%>
+							<li class="btn-primary"><a class="btn   btn-sm" href="/escalacer?id=<%=id[i].id_usuario %>">Escala  CER</a></li>
+							<li class="btn-primary"><a class="btn  btn-sm" href="/sair">Sair</a></li>	
 						<% } %>
 					<% } %>	
 				<% } %>
@@ -161,109 +119,14 @@
 				   </div>
 				   <!-- /.container-fluid -->
 				   </nav>
-							<!-- Delete Product Modal-->
-							<form id="add-row-form" action="/trocarmodulo" method="POST">
-								<div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-									aria-hidden="true">
-									<div class="modal-dialog">
-										<div style="background-color: rgba(13, 124, 228, 0.5) !important; color: white;" class="modal-content">
-											<div class="modal-header">
-												<h5 class="modal-title" id="myModalLabel">Selecione o modulo</h5>
-												<button type="button" style="color: white;" class="close" data-dismiss="modal" aria-label="Close"><span
-														aria-hidden="true">&times;</span></button>
-											</div>
-											<div class="modal-body">
-												<input type="hidden" name="usuario2" id="usuario2" placeholder="Usuário" class="form-control" autocomplete="off" required />
-												<input type="hidden" name="senha2" id="senha2" placeholder="Senha" class="form-control" required />
-												<div class="input-group">
-													<span style="background-color: #FFC312;color: black;border:0 !important;" class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-													<select style="background-color: rgba(114, 155, 231, 0.4) !important; color: black;" onChange="update()" id="funcao"  class="form-control form-control-lg" required>
-														<option></option>
-													</select>
-													<input  type="hidden" name="cargo" id="cargo">
-												  </div>
-										
-											<div  class="modal-footer">
-												<button type="submit"  class="btn btn-info btn-lg btn-block">Entrar</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</form>
+						
 	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 			<script>
 				
-		   function update() {
-		var select = document.getElementById('funcao');
-		var option = select.options[select.selectedIndex];
+		  
 
-		var opcao = option.value;
-		document.getElementById('cargo').value = opcao;
-	
-	}
-
-	update();
-		   $("#modulo").click(function(){
-	var id = document.getElementById("id").value;
-
-	
-	obj = [];
-    $.ajax({
-        type: "GET",
-        data: {id: id},
-        contentType: 'application/json',
-        url: '/modulo',
-           success: function(obj) { 
-			
-            if (obj.length > 0){
-				document.getElementById("usuario2").value=obj[0].usuario;
-				document.getElementById("senha2").value=obj[0].senha; 
-                var option = '<option>Selecione o modulo </option>';
-				if(obj[0].kamban == 1){
-					var Kamban = "Kamban";
-               		option += '<option value="'+Kamban+'">'+Kamban+'</option>';
-				}
-				if(obj[0].atribuicao == 1){
-					var atribuicao = "Escala Atribuição";
-               		option += '<option value="'+atribuicao+'">'+atribuicao+'</option>';
-				}
-				if(obj[0].scih == 1){
-					var SCIH = "SCIH";
-               		option += '<option value="'+SCIH+'">'+SCIH+'</option>';
-				}
-				if(obj[0].smh == 1){
-					var smh = "SM Hospitalidade";
-               		option += '<option value="'+smh+'">'+smh+'</option>';
-				}
-				if(obj[0].smu == 1){
-					var smu = "SM Urgência";
-               		option += '<option value="'+smu+'">'+smu+'</option>';
-				}
-				if(obj[0].gestao == 1){
-					var gestao = "Gestão de Leitos";
-               		option += '<option value="'+gestao+'">'+gestao+'</option>';
-				}
-				if(obj[0].equipamentos == 1){
-					var equipamentos = "Central de Equipamentos";
-               		option += '<option value="'+equipamentos+'">'+equipamentos+'</option>';
-				}
-				if(obj[0].obstetricia == 1){
-					var obstetricia = "Obstetricia";
-               		option += '<option value="'+obstetricia+'">'+obstetricia+'</option>';
-				}
-				if(obj[0].escala == 1){
-					var escala = "Escala";
-               		option += '<option value="'+escala+'">'+escala+'</option>';
-				}
-               
-            }
-			  $('#funcao').html(option).show();
-            }
-    });
-});
 $(document).ready(function() {
 				$(".dropdown-toggle").dropdown();
 			});
