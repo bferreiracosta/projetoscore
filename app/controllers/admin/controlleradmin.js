@@ -45,14 +45,3 @@ module.exports.mudarsenha = function(application, req, res){
 	
 }
 
-module.exports.home = function(application, req, res){
-	
-	var modeladmin = new application.app.model.admin.modeladmin(application);
-
-	var id = req.query;
-	
-	modeladmin.buscarusuario(id, function(error,result){
-	
-		res.render("home/home", {id : result});
-	});
-}
