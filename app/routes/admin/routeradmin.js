@@ -20,6 +20,14 @@ module.exports = function(application){
 		application.app.controllers.admin.controlleradmin.autenticacao(application, req, res);
 	});
 
+	application.post('/trocarmodulo', function(req, res) {
+
+		application.app.controllers.admin.controlleradmin.trocarmodulo(application, req, res);
+	});
+
+	application.get('/modulo', function(req, res) {
+		application.app.controllers.admin.controlleradmin.modulo(application, req, res);
+	});
 	
 	application.post('/login', function(req, res) {
 		application.app.controllers.admin.controlleradmin.login(application, req, res);

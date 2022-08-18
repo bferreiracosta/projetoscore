@@ -3,6 +3,27 @@ module.exports.index = function(application, req, res){
 	
 }
 
+module.exports.trocarmodulo = function(application, req, res){
+
+	var usuario = req.body.usuario2;
+	var senha = req.body.senha2;
+	var funcao = req.body.cargo;
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	modeladmin.trocarmodulo(usuario, senha ,funcao,  req, res);
+	
+}
+
+module.exports.modulo = function(application, req, res){
+	
+	var id = req.query.id;
+	
+	
+	var modeladmin = new application.app.model.admin.modeladmin(application);
+	modeladmin.modulo(id,  req, res);
+	
+}
+
 module.exports.autenticacao = function(application, req, res){
 	
 	var usuario = req.query.usuario;

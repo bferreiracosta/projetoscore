@@ -1,0 +1,62 @@
+<%- include('../cabecalhomental'); %>
+<div id="mobile" class="container">
+
+<form action="/editarleitoad" style="padding-left: 1%; padding-right: 1%;" method="post">
+                <h2>Quantidades de leitos AD</h2> 
+                <% if(id.length > 0) { %>
+                    <% for(var i = 0; i < id.length; i++) {%>
+                    <input type="hidden" name="idusuario" value="<%=id[i].id_usuario %>">
+                    <p hidden id="idunidade">  <%=id[i].unidade %>  
+                        <% if(leito.length > 0) { %>
+                            <% for(var j = 0; j < leito.length; j++) {%>
+                        <div>
+                            <div class="form-group">
+                                <label for="posto">Quantidade leitos</label>
+                                <input type="number" disabled name="leitos" class="form-control" value="<%=leito[j].leitosad %>">
+                            </div>                   
+                        </div>
+                <div>
+                    <div class="form-group">
+                        <label for="posto">Quantidade Leitos Feminino Disponível</label>
+                        <input type="number" name="leitofem" class="form-control" value="<%=leito[j].leitofemad %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="posto">Quantidade Leitos Masculino Disponível</label>
+                        <input type="number" name="leitomasc" class="form-control" value="<%=leito[j].leitomascad %>" >
+                    </div>                    
+                </div>
+                <div>
+                    <a href="/cadastrarpacientead?id=<%=id[i].id_usuario %>" class="btn btn-md btn-info edit">Voltar</a>
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+                <% } %>	
+                <% } %> 
+                <% } %>	
+                
+                <% } %> 
+                <br>
+					<br>
+					<br>
+</form>
+</div>
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<%- include('../../home/footer'); %>
+</body>
+</html>
+<script>
+    $(function(){
+	$(window).on('resize load', function() {
+  if ($(window).width() <= 768) { 
+    $("#mobile").removeClass("container");
+  }
+  else {
+    $("#mobile").addClass("container");
+  }
+});
+});
+</script>
