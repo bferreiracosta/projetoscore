@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		
+			<title>Score System</title>
+		
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- incluindo css -->
+		<link href="/css/style.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.buttons.css"/>
+
+		<!-- favicon -->
+		<link rel="shortcut icon" href="/images/favicon.ico" />
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default">
+			<div id="nav">
+			  <!-- Brand and toggle get grouped for better mobile display -->
+			  <div class="navbar-header">
+				 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				 <span class="sr-only">Toggle navigation</span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 <span class="icon-bar"></span>
+				 </button>
+				 <% if(id.length > 0) { %>
+					<% for(var i = 0; i < id.length; i++) {%>
+						<a href="#" data-toggle="modal" data-target="#BaixaModal" id="modulo" ><img src="/images/favicon.ico" width="60" height="60" class="d-inline-block align-top" alt=""></a>
+						<input type="hidden" name="id" id="id" value="<%=id[i].id_usuario %>">
+						<a style=" color: white; background: transparent; border: none">Seja Bem Vindo <%=id[i].nome %></a>
+						
+			  </a>
+			  </div>
+				 <!-- Collect the nav links, forms, and other content for toggling -->
+				 <div class="collapse navbar-collapse" style="width: 100%;" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+
+							<%  if(id[i].operadorsmh == 2){%>
+								<% if(id[i].unidade== null){%>
+									<li class="btn-info">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps AD </a>
+										<ul class="dropdown-menu">
+											<li class="btn-info"><a class="btn   btn-sm" href="/cadastrarpacientead?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-info"><a class="btn  btn-sm" href="/centralad?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										</ul>
+									 </li>
+									 <li class="btn-info">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caps Oeste </a>
+										<ul class="dropdown-menu">
+											<li class="btn-info"><a class="btn  btn-sm" href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+											<li class="btn-info"><a class="btn  btn-sm" href="/centraloeste?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+										</ul>
+									 </li>
+									 <li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/cadastrarpacienteLeste?id=<%=id[i].id_usuario %>">Caps Leste</a></li>
+									 <li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/cadastrarpacienteNorte?id=<%=id[i].id_usuario %>">Caps Norte</a></li>
+									 <li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>">Caps Infantil</a></li>
+									 <li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/historico?id=<%=id[i].id_usuario %>">Historico</a></li>
+									 <li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/addpaciente?id=<%=id[i].id_usuario %>">Cadastrar</a></li>
+									 <li class="btn-info">
+										<a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrativo </a>
+										<ul class="dropdown-menu">
+											<li class="btn-info"><a class="btn  btn-sm" href="/destinopaciente?id=<%=id[i].id_usuario %>">Regulação</a></li>
+											<li class="btn-info"><a class="btn  btn-sm" href="/pacientesurgencia?id=<%=id[i].id_usuario %>">Excludentes</a></li>
+										</ul>
+									 </li>
+									 <li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/sair">Sair</a></li>
+							<% } %>
+						<% if(id[i].usuario== 'coordad'){%>
+							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/cadastrarpacientead?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/centralad?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/historico?id=<%=id[i].id_usuario %>">Historico</a></li>
+							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/addpaciente?id=<%=id[i].id_usuario %>">Cadastrar</a></li>
+							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/sair">Sair</a></li>
+						<% } %>
+						<% if(id[i].usuario== 'coordinfantil'){%>
+							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/historico?id=<%=id[i].id_usuario %>">Historico</a></li>
+							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/addpaciente?id=<%=id[i].id_usuario %>">Cadastrar</a></li>
+							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/sair">Sair</a></li>
+						<% } %>
+						<% if(id[i].usuario== 'coordnorte'){%>
+							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/cadastrarpacientenorte?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/historico?id=<%=id[i].id_usuario %>">Historico</a></li>
+								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/addpaciente?id=<%=id[i].id_usuario %>">Cadastrar</a></li>
+								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/sair">Sair</a></li>
+						<% } %>
+						<% if(id[i].usuario== 'coordleste'){%>
+							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/cadastrarpacienteleste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/historico?id=<%=id[i].id_usuario %>">Historico</a></li>
+								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/addpaciente?id=<%=id[i].id_usuario %>">Cadastrar</a></li>
+								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/sair">Sair</a></li>
+						<% } %>
+						<% if(id[i].usuario== 'coordoeste'){%>
+							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
+								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/centraloeste?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
+								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/historico?id=<%=id[i].id_usuario %>">Historico</a></li>
+								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/addpaciente?id=<%=id[i].id_usuario %>">Cadastrar</a></li>
+								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/sair">Sair</a></li>
+						<% } %>
+					<% } %>
+						<%  if(id[i].operadorsmh == 1){%>
+								<li class="btn-info"><a class="btn  btn-sm" href="/destinopaciente?id=<%=id[i].id_usuario %>">Destino</a></li>
+								<li class="btn-info"><a class="btn  btn-sm" href="/centralad?id=<%=id[i].id_usuario %>">Central de Leitos AD</a></li>
+								<li class="btn-info"><a class="btn  btn-sm" href="/centraloeste?id=<%=id[i].id_usuario %>">Central de Leitos Oeste</a></li>
+								<li class="btn-info"><a class="btn  btn-sm" href="/sair">Sair</a></li>
+						<% } %>
+					<% } %>
+				<% } %>
+				</ul>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			</ul>
+		 </div>
+		 <!-- /.navbar-collapse -->
+	   </div>
+	   <!-- /.container-fluid -->
+	   </nav>
+
+				<!-- Delete Product Modal-->
+				<form id="add-row-form" action="/trocarmodulo" method="POST">
+					<div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog">
+							<div style="background-color: rgba(13, 124, 228, 0.5) !important; color: white;" class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="myModalLabel">Selecione o modulo</h5>
+									<button type="button" style="color: white;" class="close" data-dismiss="modal" aria-label="Close"><span
+											aria-hidden="true">&times;</span></button>
+								</div>
+								<div class="modal-body">
+									<input type="hidden" name="usuario2" id="usuario2" placeholder="Usuário" class="form-control" autocomplete="off" required />
+									<input type="hidden" name="senha2" id="senha2" placeholder="Senha" class="form-control" required />
+									<div class="input-group">
+										<span style="background-color: #FFC312;color: black;border:0 !important;" class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+										<select style="background-color: rgba(114, 155, 231, 0.4) !important; color: black;" onChange="update()" id="funcao"  class="form-control form-control-lg" required>
+											<option></option>
+										</select>
+										<input  type="hidden" name="cargo" id="cargo">
+									  </div>
+							
+								<div  class="modal-footer">
+									<button type="submit"  class="btn btn-info btn-lg btn-block">Entrar</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+	</body>
+			
+				
+<script>
+						
+				   function update() {
+				var select = document.getElementById('funcao');
+				var option = select.options[select.selectedIndex];
+		
+				var opcao = option.value;
+				document.getElementById('cargo').value = opcao;
+			
+			}
+		
+			update();
+			$("#modulo").click(function(){
+			var id = document.getElementById("id").value;
+	
+			
+			obj = [];
+			$.ajax({
+				type: "GET",
+				data: {id: id},
+				contentType: 'application/json',
+				url: '/modulo',
+				   success: function(obj) { 
+					
+					if (obj.length > 0){
+						document.getElementById("usuario2").value=obj[0].usuario;
+						document.getElementById("senha2").value=obj[0].senha; 
+						var option = '<option>Selecione o modulo </option>';
+						if(obj[0].mental == 1){
+							var smh = "SM Hospitalidade";
+							option += '<option value="'+smh+'">'+smh+'</option>';
+						}
+						if(obj[0].escala == 1){
+							var escala = "Escala";
+							option += '<option value="'+escala+'">'+escala+'</option>';
+						}
+					}
+					  $('#funcao').html(option).show();
+					}
+			});
+		});
+		$(document).ready(function() {
+						$(".dropdown-toggle").dropdown();
+					});
+					</script>
+					
