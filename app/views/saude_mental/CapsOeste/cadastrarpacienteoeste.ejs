@@ -209,18 +209,19 @@ setInterval(function(){
 
             if(hoje > date){
                 tr.children("td:eq(15)").addClass('fundoIdade2');
-                notificação(); 
+                notificação(tr.children('td:eq(1)').html()); 
+
 
             }
             
         })       
     };
     
-    function notificação(){
+    function notificação(nome){
         new PNotify({
             title: "Alerta",
             type: "info",
-            text: "Reclassificar Paciente",
+            text: "Reclassificar Paciente " + " " + nome,
             maxonscreen: Infinity,
             closer: true,
             closer_hover: true,
