@@ -43,7 +43,7 @@
 			  </a>
 			  </div>
 				 <!-- Collect the nav links, forms, and other content for toggling -->
-				 <div class="collapse navbar-collapse" style="width: 100%;" id="bs-example-navbar-collapse-1">
+				 <div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 
 							<%  if(id[i].operadorsmh == 2){%>
@@ -76,32 +76,32 @@
 									 </li>
 									 <li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/sair">Sair</a></li>
 							<% } %>
-						<% if(id[i].usuario== 'coordad'){%>
+						<% if(id[i].usuario== 'coordad' || id[i].usuario== 'jonathasrtad' || id[i].usuario== 'smad'){%>
 							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/cadastrarpacientead?id=<%=id[i].id_usuario %>">Pacientes</a></li>
 							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/centralad?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/historico?id=<%=id[i].id_usuario %>">Historico</a></li>
 							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/addpaciente?id=<%=id[i].id_usuario %>">Cadastrar</a></li>
 							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/sair">Sair</a></li>
 						<% } %>
-						<% if(id[i].usuario== 'coordinfantil'){%>
+						<% if(id[i].usuario== 'coordinfantil' || id[i].usuario== 'sminfantil'){%>
 							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/cadastrarpacienteinfantil?id=<%=id[i].id_usuario %>">Pacientes</a></li>
 							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/historico?id=<%=id[i].id_usuario %>">Historico</a></li>
 							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/addpaciente?id=<%=id[i].id_usuario %>">Cadastrar</a></li>
 							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/sair">Sair</a></li>
 						<% } %>
-						<% if(id[i].usuario== 'coordnorte'){%>
+						<% if(id[i].usuario== 'coordnorte' || id[i].usuario== 'rtnorte' || id[i].usuario== 'smnorte'){%>
 							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/cadastrarpacientenorte?id=<%=id[i].id_usuario %>">Pacientes</a></li>
 								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/historico?id=<%=id[i].id_usuario %>">Historico</a></li>
 								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/addpaciente?id=<%=id[i].id_usuario %>">Cadastrar</a></li>
 								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/sair">Sair</a></li>
 						<% } %>
-						<% if(id[i].usuario== 'coordleste'){%>
+						<% if(id[i].usuario== 'coordleste' || id[i].usuario== 'smleste' || id[i].usuario== 'rtleste'){%>
 							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/cadastrarpacienteleste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
 								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/historico?id=<%=id[i].id_usuario %>">Historico</a></li>
 								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/addpaciente?id=<%=id[i].id_usuario %>">Cadastrar</a></li>
 								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/sair">Sair</a></li>
 						<% } %>
-						<% if(id[i].usuario== 'coordoeste'){%>
+						<% if(id[i].usuario== 'coordoeste'  || id[i].usuario== 'smoeste' || id[i].usuario== 'rtoeste'){%>
 							<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/cadastrarpacienteoeste?id=<%=id[i].id_usuario %>">Pacientes</a></li>
 								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/centraloeste?id=<%=id[i].id_usuario %>">Central de Leitos</a></li>
 								<li class="btn-info"><a style="font-size: 14px;" class="btn  btn-sm" href="/historico?id=<%=id[i].id_usuario %>">Historico</a></li>
