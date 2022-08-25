@@ -244,11 +244,13 @@
 }
 
 .fundoIdade1{
-	background-color:#f5ff6e;
+
+	background-color:#ff6ee0;
 }
 
 .fundoIdade2{
 	background-color:#a31818;
+    color: white;
 }
 
 .pnotify-center {

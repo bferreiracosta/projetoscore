@@ -7,7 +7,7 @@
        
                 <h2>Pacientes</h2>
 				<input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
-                <table class="table table-striped" style="width: 100%;" id="mytable">
+                <table class="table" style="width: 100%;" id="mytable">
 					<input id="usuario" name="usuario" type="hidden" value="<%=id[i].id_usuario %>">
 					
                     <thead>
@@ -204,23 +204,22 @@ setInterval(function(){
         var hoje = data.getDate() + "/" + (data.getMonth()+1) + "/" + data.getFullYear();
         $('#mytable tbody tr').each(function(i){
             tr=$(this);
-            tr.children('td').removeClass('fundoIdade');
             date = tr.children('td:eq(15)').html(); 
 
             if(hoje > date){
-                $("mytable tr:eq(6)").addClass("fundoIdade1");
+                tr.children("td:eq(15)").addClass('fundoIdade2');
                 notificação(); 
 
             }
             
-        })            
+        })       
     };
     
     function notificação(){
         new PNotify({
             title: "Alerta",
             type: "info",
-            text: "Há paciente sem atualizar",
+            text: "Reclassificar Paciente",
             maxonscreen: Infinity,
             closer: true,
             closer_hover: true,
