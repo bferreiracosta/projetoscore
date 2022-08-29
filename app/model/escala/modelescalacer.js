@@ -168,7 +168,7 @@ modelescalacer.prototype.buscarregraescalaunicacer = function(campo, turno, date
 
 modelescalacer.prototype.buscarescalamensalcer = function(valor, callback){
 
-	this._conection.query('select * from folgacer f inner join funcionarioscer func on f.idfuncionarios=func.idfuncionarioscer inner join escalacer esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "CER"', callback);
+	this._conection.query('select * from folgacer f inner join funcionarioscer func on f.idfuncionarios=func.idfuncionarioscer inner join escalacer esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "CER" order by func.nome DESC', callback);
 }
 
 module.exports = function(){

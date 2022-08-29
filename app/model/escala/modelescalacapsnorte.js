@@ -271,7 +271,7 @@ modelescalacapsnorte.prototype.buscarregraescalaunicacapsnorte = function(campo,
 
 modelescalacapsnorte.prototype.buscarescalamensalcapsnorte = function(valor, callback){
 
-	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps Norte" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps Norte" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",func.nome DESC;', callback);
 }
 
 modelescalacapsnorte.prototype.buscarescalamensalcapsnortetarde = function(valor, callback){
@@ -281,12 +281,12 @@ modelescalacapsnorte.prototype.buscarescalamensalcapsnortetarde = function(valor
 
 modelescalacapsnorte.prototype.buscarescalamensalcapsnortesn1 = function(valor, callback){
 
-	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps Norte" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps Norte" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",func.nome DESC;', callback);
 }
 
 modelescalacapsnorte.prototype.buscarescalamensalcapsnortesn2 = function(valor, callback){
 
-	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps Norte" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgacapsnorte f inner join funcionarioscapsnorte func on f.idfuncionarios=func.idfuncionarioscapsnorte inner join escalacapsnorte esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps Norte" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",func.nome DESC;', callback);
 }
 
 modelescalacapsnorte.prototype.buscarescalamensalcapsnortemaq = function(valor, callback){

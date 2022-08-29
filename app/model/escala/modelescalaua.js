@@ -134,7 +134,7 @@ modelescalaua.prototype.buscarregraescalaunicaua = function(campo, turno, datein
 
 modelescalaua.prototype.buscarescalamensalua = function(valor, callback){
 
-	this._conection.query('select * from folgaua f inner join funcionariosua func on f.idfuncionarios=func.idfuncionariosua inner join escalaua esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "UA"', callback);
+	this._conection.query('select * from folgaua f inner join funcionariosua func on f.idfuncionarios=func.idfuncionariosua inner join escalaua esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "UA" order by func.nome DESC', callback);
 }
 
 module.exports = function(){

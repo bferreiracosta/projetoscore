@@ -279,22 +279,22 @@ modelescalacapsi.prototype.buscarregraescalaunicacapsi = function(campo, turno, 
 
 modelescalacapsi.prototype.buscarescalamensalcapsi = function(valor, callback){
 
-	this._conection.query('select * from folgacapsi f inner join funcionarioscapsi func on f.idfuncionarios=func.idfuncionarioscapsi inner join escalacapsi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps I" order by  func.categoria = "TE",  func.categoria = "ENF",-func.nome DESC;', callback);
+	this._conection.query('select * from folgacapsi f inner join funcionarioscapsi func on f.idfuncionarios=func.idfuncionarioscapsi inner join escalacapsi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps I" order by  func.categoria = "TE",  func.categoria = "ENF",func.nome DESC;', callback);
 }
 
 modelescalacapsi.prototype.buscarescalamensalcapsitarde = function(valor, callback){
 
-	this._conection.query('select * from folgacapsi f inner join funcionarioscapsi func on f.idfuncionarios=func.idfuncionarioscapsi inner join escalacapsi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps I" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgacapsi f inner join funcionarioscapsi func on f.idfuncionarios=func.idfuncionarioscapsi inner join escalacapsi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps I" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",func.nome DESC;', callback);
 }
 
 modelescalacapsi.prototype.buscarescalamensalcapsisn1 = function(valor, callback){
 
-	this._conection.query('select * from folgacapsi f inner join funcionarioscapsi func on f.idfuncionarios=func.idfuncionarioscapsi inner join escalacapsi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps I" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgacapsi f inner join funcionarioscapsi func on f.idfuncionarios=func.idfuncionarioscapsi inner join escalacapsi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps I" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",func.nome DESC;', callback);
 }
 
 modelescalacapsi.prototype.buscarescalamensalcapsisn2 = function(valor, callback){
 
-	this._conection.query('select * from folgacapsi f inner join funcionarioscapsi func on f.idfuncionarios=func.idfuncionarioscapsi inner join escalacapsi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps I" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",-func.nome DESC;', callback);
+	this._conection.query('select * from folgacapsi f inner join funcionarioscapsi func on f.idfuncionarios=func.idfuncionarioscapsi inner join escalacapsi esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps I" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",func.nome DESC;', callback);
 }
 
 modelescalacapsi.prototype.buscarescalamensalcapsimaq = function(valor, callback){

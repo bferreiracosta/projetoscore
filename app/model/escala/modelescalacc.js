@@ -138,7 +138,7 @@ modelescalacc.prototype.buscarregraescalaunicacc = function(campo, turno, datein
 
 modelescalacc.prototype.buscarescalamensalcc = function(valor, callback){
 
-	this._conection.query('select * from folgacc f inner join funcionarioscc func on f.idfuncionarios=func.idfuncionarioscc inner join escalacc esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "CC"', callback);
+	this._conection.query('select * from folgacc f inner join funcionarioscc func on f.idfuncionarios=func.idfuncionarioscc inner join escalacc esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "CC" order by func.nome DESC', callback);
 }
 
 module.exports = function(){
