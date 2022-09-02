@@ -5,6 +5,7 @@
         Adicionar Escala
       </button>
       <input type="hidden" name="nomeid" value='<%=id[i].nome %>' id="idnome">   
+      <input type="hidden" name="funcaoid" value='<%=id[i].funcao %>' id="idfuncao"> 
   <h2>Escala SIATE</h2>
   <ul class="nav nav-tabs">
     <li class="active"><a style="color: inherit;" onclick="IsEmpty();"  data-toggle="tab" href="#home">Escala</a></li>
@@ -1283,6 +1284,7 @@ $( "#target" ).click(function() {
 $( "#target1" ).click(function() {
 
 var nome = document.getElementById("idnome").value;
+var funcao = document.getElementById("idfuncao").value;
 
 if(funcao == "Gerente"){
   document.getElementById("divrt").style.display = 'block';

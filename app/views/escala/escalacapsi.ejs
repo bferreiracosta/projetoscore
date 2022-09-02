@@ -5,6 +5,7 @@
         Adicionar Escala
       </button>
       <input type="hidden" name="nomeid" value='<%=id[i].nome %>' id="idnome">   
+      <input type="hidden" name="funcaoid" value='<%=id[i].funcao %>' id="idfuncao"> 
   <h2>Escala Caps I</h2>
   <ul class="nav nav-tabs">
     <li class="active"><a style="color: inherit;" onclick="IsEmpty();"  data-toggle="tab" href="#home">Enfermagem</a></li>
@@ -2207,6 +2208,7 @@ $( "#target" ).click(function() {
 $( "#target1" ).click(function() {
 
 var nome = document.getElementById("idnome").value;
+var funcao = document.getElementById("idfuncao").value;
 
 if(funcao == "Gerente"){
   document.getElementById("divrt").style.display = 'block';
@@ -2260,6 +2262,7 @@ if (datatarde != "" ) {
 $( "#target2" ).click(function() {
 
 var nome = document.getElementById("idnome").value;
+var funcao = document.getElementById("idfuncao").value;
 
 if(funcao == "Gerente"){
   document.getElementById("divrt").style.display = 'block';
@@ -11827,7 +11830,7 @@ $("#pesquisarmanha").on('click', function(e){
                 var b =7;
                 for(b ; b< colunas ; b++){
                   valor=tr.children('td:eq('+b+')').html();
-                  console.log(valor)
+        
                   var cols = b;
                   if(datainicial == "Abril" && valor === '31/04'){
                    
