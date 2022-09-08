@@ -70,6 +70,20 @@ modelescalasiate.prototype.criarfolga =  function(funcionarios, escala, turno, c
 	if(turno == "Medico SIATE"){
 		var values = [
 			[funcionarios[0].idfuncionariossiate, escala],
+			[funcionarios[1].idfuncionariossiate, escala],
+			[funcionarios[2].idfuncionariossiate, escala],
+			[funcionarios[3].idfuncionariossiate, escala],
+			[funcionarios[4].idfuncionariossiate, escala],
+			[funcionarios[5].idfuncionariossiate, escala],
+			[funcionarios[6].idfuncionariossiate, escala],
+			[funcionarios[7].idfuncionariossiate, escala],
+			[funcionarios[8].idfuncionariossiate, escala],
+			[funcionarios[9].idfuncionariossiate, escala],
+			[funcionarios[10].idfuncionariossiate, escala],
+			[funcionarios[11].idfuncionariossiate, escala],
+			[funcionarios[12].idfuncionariossiate, escala],
+			[funcionarios[13].idfuncionariossiate, escala],
+			[funcionarios[14].idfuncionariossiate, escala],
 			
 		];
 	}
