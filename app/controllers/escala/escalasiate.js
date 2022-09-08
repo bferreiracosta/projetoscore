@@ -155,4 +155,18 @@ module.exports.buscarescalamensalsiate = function(application, req, res){
 	
 }
 
+module.exports.buscarescalamensalmedicosiate = function(application, req, res){
+	
 
+	var modelescalasiate = new application.app.model.escala.modelescalasiate(application);
+
+	var valor = req.query;
+
+	
+	modelescalasiate.buscarescalamensalmedicosiate(valor,function(error, resultado){
+
+			res.send(resultado);
+		})
+		
+	
+}

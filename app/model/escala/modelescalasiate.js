@@ -67,7 +67,12 @@ modelescalasiate.prototype.criarfolga =  function(funcionarios, escala, turno, c
 			[funcionarios[52].idfuncionariossiate, escala],
 		];
 	}
-	
+	if(turno == "Medico SIATE"){
+		var values = [
+			[funcionarios[0].idfuncionariossiate, escala],
+			
+		];
+	}
 	this._conection.query(sql, [values], callback);	
 
 }
@@ -178,6 +183,11 @@ modelescalasiate.prototype.buscarregraescalaunicasiate = function(campo, turno, 
 }
 
 modelescalasiate.prototype.buscarescalamensalsiate = function(valor, callback){
+
+	this._conection.query('select * from folgasiate f inner join funcionariossiate func on f.idfuncionarios=func.idfuncionariossiate inner join escalasiate esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "siate" order by func.setor = "LM", func.setor = "SUPERVISÃO", func.setor, func.nome DESC', callback);
+}
+
+modelescalasiate.prototype.buscarescalamensalmedicosiate = function(valor, callback){
 	console.log(valor)
 	this._conection.query('select * from folgasiate f inner join funcionariossiate func on f.idfuncionarios=func.idfuncionariossiate inner join escalasiate esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "siate" order by func.setor = "LM", func.setor = "SUPERVISÃO", func.setor, func.nome DESC', callback);
 }
