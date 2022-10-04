@@ -5188,10 +5188,84 @@ $("#pesquisarmanha").on('click', function(e){
                               id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + folga + '</td>' 
                             }
                             var j =0;
-                            for(var j; j< days; j++){
-                              id+= '<td class="reservas" style="text-align: center; background: #7b7b7c; color: white; border: none" " class="editavel">FE</td>'
+                            if(month3 == "02"){
+                              if(days>=15){
+                                if(days3 != 0){
+                                  for(var j; j< days+3; j++){
+                                  id+= '<td  class="reservas" style="text-align: center; background: #7b7b7c; color: white; border: none" " class="editavel">LM</td>'
+                                  }
+                                  var y = 9+j+days3;
+                                }else if(valor2>valor10){
+                                  for(var j; j< days+3; j++){
+                                  id+= '<td  class="reservas" style="text-align: center; background: #7b7b7c; color: white; border: none" " class="editavel">LM</td>'
+                                  }
+                                  var y = 9+j+days3;
+                                }
+                              }else{
+                                if(days3 != 0 && valor2<=valor10){
+                                  for(var j; j< days; j++){
+                                  id+= '<td  class="reservas" style="text-align: center; background: #7b7b7c; color: white; border: none" " class="editavel">LM</td>'
+                                  }
+                                  var y = 9+j+days3;
+                                }else if(valor2>valor10){
+                                  for(var j=0; j< days+3; j++){
+                                   id+= '<td  class="reservas" style="text-align: center; background: #7b7b7c; color: white; border: none" " class="editavel">LM</td>'
+                                   }
+                                  var y = 9+j+days3;
+                                }else{
+                                  for(var j; j< days; j++){
+                                  id+= '<td  class="reservas" style="text-align: center; background: #7b7b7c; color: white; border: none" " class="editavel">LM</td>'
+                                  }
+                                  var y = 9+j;
+                                }
+                              }
+                            }else if(month3 == "04" || month3 == "06" || month3 == "09" || month3 == "11"){
+                              if(days>=15){
+                                if(days3 != 0){
+                                  for(var j; j< days+1; j++){
+                                  id+= '<td  class="reservas" style="text-align: center; background: #7b7b7c; color: white; border: none" " class="editavel">LM</td>'
+                                  }
+                                  var y = 9+j+days3;
+                                }else if(valor2>valor10){
+                                  for(var j; j< days+1; j++){
+                                  id+= '<td  class="reservas" style="text-align: center; background: #7b7b7c; color: white; border: none" " class="editavel">LM</td>'
+                                  }
+                                  var y = 9+j+days3;
+                                }
+                              }else{
+                                if(days3 != 0 && valor2<=valor10){
+                                  for(var j; j< days; j++){
+                                  id+= '<td  class="reservas" style="text-align: center; background: #7b7b7c; color: white; border: none" " class="editavel">LM</td>'
+                                  }
+                                  var y = 9+j+days3;
+                                }else if(valor2>valor10){
+                                  for(var j=0; j< days+1; j++){
+                                   id+= '<td  class="reservas" style="text-align: center; background: #7b7b7c; color: white; border: none" " class="editavel">LM</td>'
+                                   }
+                                  var y = 9+j+days3;
+                                }else{
+                                  for(var j; j< days; j++){
+                                  id+= '<td  class="reservas" style="text-align: center; background: #7b7b7c; color: white; border: none" " class="editavel">LM</td>'
+                                  }
+                                  var y = 9+j;
+                                }
+                              }
+                            }else{
+                              if(days3 != 0){
+                                for(var j; j< days; j++){
+                              id+= '<td  class="reservas" style="text-align: center; background: #7b7b7c; color: white; border: none" " class="editavel">FE</td>'
+                             
+                                }
+                                var y = 9+j+days3;
+                              }else{
+                                  for(var j; j< days; j++){
+                              id+= '<td  class="reservas" style="text-align: center; background: #7b7b7c; color: white; border: none" " class="editavel">FE</td>'
+                           
+                              }
+                              var y = 9+j;
                             }
-                            var y = 9+j;
+                           
+                            }
                             var colunas = 40;
                             for(y ; y< colunas; y++){
                               if(y == 9){
