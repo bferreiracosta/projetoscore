@@ -33,6 +33,9 @@ module.exports = function(application){
 	application.get('/buscarescalamensalmedicosiate', function(req, res){
 		application.app.controllers.escala.escalasiate.buscarescalamensalmedicosiate(application, req, res);
 		});
+	application.get('/buscarescalamensaltecnicosiate', function(req, res){
+		application.app.controllers.escala.escalasiate.buscarescalamensaltecnicosiate(application, req, res);
+		});
 		
 }
 

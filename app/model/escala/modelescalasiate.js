@@ -53,18 +53,22 @@ modelescalasiate.prototype.criarfolga =  function(funcionarios, escala, turno, c
 			[funcionarios[38].idfuncionariossiate, escala],
 			[funcionarios[39].idfuncionariossiate, escala],
 			[funcionarios[40].idfuncionariossiate, escala],
-			[funcionarios[41].idfuncionariossiate, escala],
-			[funcionarios[42].idfuncionariossiate, escala],
-			[funcionarios[43].idfuncionariossiate, escala],
-			[funcionarios[44].idfuncionariossiate, escala],
-			[funcionarios[45].idfuncionariossiate, escala],
-			[funcionarios[46].idfuncionariossiate, escala],
-			[funcionarios[47].idfuncionariossiate, escala],
-			[funcionarios[48].idfuncionariossiate, escala],
-			[funcionarios[49].idfuncionariossiate, escala],
-			[funcionarios[50].idfuncionariossiate, escala],
-			[funcionarios[51].idfuncionariossiate, escala],
-			[funcionarios[52].idfuncionariossiate, escala],
+		];
+	}
+	if(turno == "Tecnico SIATE"){
+		var values = [
+			[funcionarios[0].idfuncionariossiate, escala],
+			[funcionarios[1].idfuncionariossiate, escala],
+			[funcionarios[2].idfuncionariossiate, escala],
+			[funcionarios[3].idfuncionariossiate, escala],
+			[funcionarios[4].idfuncionariossiate, escala],
+			[funcionarios[5].idfuncionariossiate, escala],
+			[funcionarios[6].idfuncionariossiate, escala],
+			[funcionarios[7].idfuncionariossiate, escala],
+			[funcionarios[8].idfuncionariossiate, escala],
+			[funcionarios[9].idfuncionariossiate, escala],
+			[funcionarios[10].idfuncionariossiate, escala],
+			[funcionarios[11].idfuncionariossiate, escala],
 		];
 	}
 	if(turno == "Medico SIATE"){
@@ -203,10 +207,14 @@ modelescalasiate.prototype.buscarescalamensalsiate = function(valor, callback){
 }
 
 modelescalasiate.prototype.buscarescalamensalmedicosiate = function(valor, callback){
-	console.log(valor)
-	this._conection.query('select * from folgasiate f inner join funcionariossiate func on f.idfuncionarios=func.idfuncionariossiate inner join escalasiate esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "siate" order by func.nome ASC', callback);
+
+	this._conection.query('select * from folgasiate f inner join funcionariossiate func on f.idfuncionarios=func.idfuncionariossiate inner join escalasiate esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "siate" order by func.nome DESC', callback);
 }
 
+modelescalasiate.prototype.buscarescalamensaltecnicosiate = function(valor, callback){
+	console.log(valor)
+	this._conection.query('select * from folgasiate f inner join funcionariossiate func on f.idfuncionarios=func.idfuncionariossiate inner join escalasiate esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "siate" order by func.nome DESC', callback);
+}
 module.exports = function(){
 	return modelescalasiate;
 }
