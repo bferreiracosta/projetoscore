@@ -17076,14 +17076,14 @@ $("#pesquisarmanha").on('click', function(e){
     var PDF_Width = 295 ;
     var PDF_Height = 380;
     var canvas_image_width = 295;
-    var canvas_image_height = 365;
+    var canvas_image_height = 372;
     let position = 0;
     var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 3;
 
     html2canvas($("#tablemanha")[0]).then(function (canvas) {
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
         var pdf = new jsPDF('l', 'mm', 'a4');
-        pdf.addImage(imgData, 'JPG', 1, 1, 295, 410);
+        pdf.addImage(imgData, 'JPG', 1, 1, 295, 425);
         for (var i = 1; i <= totalPDFPages; i++) { 
               pdf.addPage('l', 'mm', 'a4');
             pdf.addImage(imgData, 'JPG', 1, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
