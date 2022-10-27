@@ -121,9 +121,9 @@ module.exports.criarescalasiate = function(application, req, res){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){
 				modelescalasiate.criarescalasiate(unidade, turno, dateinicial, datefinal,ano, function(error, resultdoinsert){
 					modelescalasiate.buscafuncionario(turno, function(error, resultado2){
-						// for(var i = 0; i< resultado2.length; i++){
+						
 							modelescalasiate.criarfolga(resultado2,resultdoinsert.insertId, turno, function(error, resultado3){})
-						// }
+						
 					res.redirect("/escalasiate?id=" + result[0].id_usuario);	
 				})
 				})
