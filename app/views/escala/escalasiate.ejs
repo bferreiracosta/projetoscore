@@ -71,7 +71,7 @@
             <tbody >
               <tr style="border: none; height: 18px;position: sticky;top: 0;">
                 <td  style="background: rgb(255, 255, 255);  font-size: small; width: 20px;"> id</td>
-                <td style="background: rgb(255, 255, 255);  font-size: small; width: 20px;"> Setor</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small; width: 120px;"> Setor</td>
                 <td style="background: rgb(255, 255, 255);  font-size: small; width: 20px;"> Vinculo</td>
                 <td style="background: rgb(255, 255, 255);  font-size: small; width: 20px;"> Matricula</td>
                 <td style="background: rgb(255, 255, 255);  font-size: small"> Nome Completo</td>
@@ -335,7 +335,7 @@
             <tbody >
               <tr style="border: none; height: 18px;position: sticky;top: 0;">
                 <td  style="background: rgb(255, 255, 255);  font-size: small; width: 20px;"> id</td>
-                <td style="background: rgb(255, 255, 255);  font-size: small; width: 20px;"> Setor</td>
+                <td style="background: rgb(255, 255, 255);  font-size: small; width: 100px;"> Setor</td>
                 <td style="background: rgb(255, 255, 255);  font-size: small; width: 20px;"> Vinculo</td>
                 <td style="background: rgb(255, 255, 255);  font-size: small; width: 20px;"> Matricula</td>
                 <td style="background: rgb(255, 255, 255);  font-size: small"> Nome Completo</td>
@@ -22630,7 +22630,7 @@ function createPDFmanha() {
     var canvas_image_width = 295;
     var canvas_image_height = 477;
     let position = 0;
-    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 6;
+    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 7;
 
     html2canvas($("#tablemanha")[0]).then(function (canvas) {
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
@@ -22658,7 +22658,7 @@ function createPDFmanha() {
     html2canvas($("#tabletecnico")[0]).then(function (canvas) {
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
         var pdf = new jsPDF('l', 'mm', 'a4');
-        pdf.addImage(imgData, 'JPG', 1, 1, 295, 415);
+        pdf.addImage(imgData, 'JPG', 1, 1, 295, 280);
         for (var i = 1; i <= totalPDFPages; i++) { 
               pdf.addPage('l', 'mm', 'a4');
             pdf.addImage(imgData, 'JPG', 1, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);

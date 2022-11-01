@@ -43138,14 +43138,14 @@ function createPDFtarde() {
     var PDF_Width = 295 ;
     var PDF_Height = 397;
     var canvas_image_width = 295;
-    var canvas_image_height = 423;
+    var canvas_image_height = 416;
     let position = 0;
     var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 4;
 
     html2canvas($("#tabletarde")[0]).then(function (canvas) {
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
         var pdf = new jsPDF('l', 'mm');
-        pdf.addImage(imgData, 'JPG', 1, 1, 295, 441);
+        pdf.addImage(imgData, 'JPG', 1, 1, 295, 431);
         for (var i = 1; i <= totalPDFPages; i++) { 
               pdf.addPage('l', 'mm');
             pdf.addImage(imgData, 'JPG', 1, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
