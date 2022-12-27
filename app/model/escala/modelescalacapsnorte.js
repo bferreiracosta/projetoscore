@@ -262,11 +262,11 @@ modelescalacapsnorte.prototype.buscarescalacapsnorte = function(valor, callback)
 	this._conection.query('select * from escalacapsnorte where datainicial = "'+datainicial+'" and  datafinal = "'+datafinal+'" and turno = "'+turno+'" and unidade = "Caps Norte"', callback);
 }
 
-modelescalacapsnorte.prototype.buscarregraescalaunicacapsnorte = function(campo, turno, dateinicial, datefinal, callback){
+modelescalacapsnorte.prototype.buscarregraescalaunicacapsnorte = function(campo, turno, dateinicial, datefinal,ano, callback){
 
 
 
-	this._conection.query('select * from escalacapsnorte where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps Norte"', callback);
+	this._conection.query('select * from escalacapsnorte where dateano="'+ano+'" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps Norte"', callback);
 }
 
 modelescalacapsnorte.prototype.buscarescalamensalcapsnorte = function(valor, callback){

@@ -83,7 +83,7 @@ module.exports.criarescalaua = function(application, req, res){
 	var dateinicial = req.body.dateinicial;
 	var datefinal = req.body.datefinal;
 	var ano = req.body.inputcriarano;
-	modelescalaua.buscarregraescalaunicaua(unidade, turno, dateinicial, datefinal,function(error, resultado){
+	modelescalaua.buscarregraescalaunicaua(unidade, turno, dateinicial, datefinal,ano,function(error, resultado){
 
 		if(resultado == null || resultado == ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){

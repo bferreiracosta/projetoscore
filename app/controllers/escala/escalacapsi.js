@@ -115,7 +115,7 @@ module.exports.criarescalacapsi = function(application, req, res){
 	var dateinicial = req.body.dateinicial;
 	var datefinal = req.body.datefinal;
 	var ano = req.body.inputcriarano;
-	modelescalacapsi.buscarregraescalaunicacapsi(unidade, turno, dateinicial, datefinal,function(error, resultado){
+	modelescalacapsi.buscarregraescalaunicacapsi(unidade, turno, dateinicial, datefinal,ano,function(error, resultado){
 
 		if(resultado == null || resultado == ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){

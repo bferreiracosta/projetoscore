@@ -264,11 +264,11 @@ modelescalacapsleste.prototype.buscarescalacapsleste = function(valor, callback)
 	this._conection.query('select * from escalacapsleste where datainicial = "'+datainicial+'" and  datafinal = "'+datafinal+'" and turno = "'+turno+'" and unidade = "Caps Leste"', callback);
 }
 
-modelescalacapsleste.prototype.buscarregraescalaunicacapsleste = function(campo, turno, dateinicial, datefinal, callback){
+modelescalacapsleste.prototype.buscarregraescalaunicacapsleste = function(campo, turno, dateinicial, datefinal,ano, callback){
 
 
 
-	this._conection.query('select * from escalacapsleste where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps Leste"', callback);
+	this._conection.query('select * from escalacapsleste where dateano="'+ano+'" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps Leste"', callback);
 }
 
 modelescalacapsleste.prototype.buscarescalamensalcapsleste = function(valor, callback){

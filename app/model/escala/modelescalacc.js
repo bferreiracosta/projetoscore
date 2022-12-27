@@ -129,11 +129,11 @@ modelescalacc.prototype.buscarescalacc = function(valor, callback){
 	this._conection.query('select * from escalacc where datainicial = "'+datainicial+'" and  datafinal = "'+datafinal+'" and turno = "'+turno+'" and unidade = "CC"', callback);
 }
 
-modelescalacc.prototype.buscarregraescalaunicacc = function(campo, turno, dateinicial, datefinal, callback){
+modelescalacc.prototype.buscarregraescalaunicacc = function(campo, turno, dateinicial, datefinal,ano, callback){
 
 
 
-	this._conection.query('select * from escalacc where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "CC"', callback);
+	this._conection.query('select * from escalacc where dateano="'+ano+'" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "CC"', callback);
 }
 
 modelescalacc.prototype.buscarescalamensalcc = function(valor, callback){

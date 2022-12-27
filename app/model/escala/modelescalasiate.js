@@ -194,11 +194,11 @@ modelescalasiate.prototype.buscarescalasiate = function(valor, callback){
 	this._conection.query('select * from escalasiate where datainicial = "'+datainicial+'" and  datafinal = "'+datafinal+'" and turno = "'+turno+'" and unidade = "siate"', callback);
 }
 
-modelescalasiate.prototype.buscarregraescalaunicasiate = function(campo, turno, dateinicial, datefinal, callback){
+modelescalasiate.prototype.buscarregraescalaunicasiate = function(campo, turno, dateinicial, datefinal,ano, callback){
 
 
 
-	this._conection.query('select * from escalasiate  where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "siate"', callback);
+	this._conection.query('select * from escalasiate  where dateano="'+ano+'" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "siate"', callback);
 }
 
 modelescalasiate.prototype.buscarescalamensalsiate = function(valor, callback){

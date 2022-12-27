@@ -270,11 +270,11 @@ modelescalacapsi.prototype.buscarescalacapsi = function(valor, callback){
 	this._conection.query('select * from escalacapsi where datainicial = "'+datainicial+'" and  datafinal = "'+datafinal+'" and turno = "'+turno+'" and unidade = "Caps I"', callback);
 }
 
-modelescalacapsi.prototype.buscarregraescalaunicacapsi = function(campo, turno, dateinicial, datefinal, callback){
+modelescalacapsi.prototype.buscarregraescalaunicacapsi = function(campo, turno, dateinicial, datefinal,ano, callback){
 
 
 
-	this._conection.query('select * from escalacapsi where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps I"', callback);
+	this._conection.query('select * from escalacapsi where dateano="'+ano+'" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps I"', callback);
 }
 
 modelescalacapsi.prototype.buscarescalamensalcapsi = function(valor, callback){

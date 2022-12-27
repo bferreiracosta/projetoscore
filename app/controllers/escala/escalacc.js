@@ -83,7 +83,7 @@ module.exports.criarescalacc = function(application, req, res){
 	var dateinicial = req.body.dateinicial;
 	var datefinal = req.body.datefinal;
 	var ano = req.body.inputcriarano;
-	modelescalacc.buscarregraescalaunicacc(unidade, turno, dateinicial, datefinal,function(error, resultado){
+	modelescalacc.buscarregraescalaunicacc(unidade, turno, dateinicial, datefinal,ano,function(error, resultado){
 
 		if(resultado == null || resultado == ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){

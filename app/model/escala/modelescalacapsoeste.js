@@ -283,11 +283,11 @@ modelescalacapsoeste.prototype.buscarescalacapsoeste = function(valor, callback)
 	this._conection.query('select * from escalacapsoeste where datainicial = "'+datainicial+'" and  datafinal = "'+datafinal+'" and turno = "'+turno+'" and unidade = "Caps Oeste"', callback);
 }
 
-modelescalacapsoeste.prototype.buscarregraescalaunicacapsoeste = function(campo, turno, dateinicial, datefinal, callback){
+modelescalacapsoeste.prototype.buscarregraescalaunicacapsoeste = function(campo, turno, dateinicial, datefinal,ano, callback){
 
 
 
-	this._conection.query('select * from escalacapsoeste where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps Oeste"', callback);
+	this._conection.query('select * from escalacapsoeste where dateano="'+ano+'" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps Oeste"', callback);
 }
 
 modelescalacapsoeste.prototype.buscarescalamensalcapsoeste = function(valor, callback){

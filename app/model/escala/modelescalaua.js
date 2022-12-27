@@ -125,11 +125,11 @@ modelescalaua.prototype.buscarescalaua = function(valor, callback){
 	this._conection.query('select * from escalaua where datainicial = "'+datainicial+'" and  datafinal = "'+datafinal+'" and turno = "'+turno+'" and unidade = "UA"', callback);
 }
 
-modelescalaua.prototype.buscarregraescalaunicaua = function(campo, turno, dateinicial, datefinal, callback){
+modelescalaua.prototype.buscarregraescalaunicaua = function(campo, turno, dateinicial, datefinal,ano, callback){
 
 
 
-	this._conection.query('select * from escalaua where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "UA"', callback);
+	this._conection.query('select * from escalaua where dateano="'+ano+'" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "UA"', callback);
 }
 
 modelescalaua.prototype.buscarescalamensalua = function(valor, callback){

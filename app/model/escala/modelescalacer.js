@@ -160,11 +160,11 @@ modelescalacer.prototype.buscarescalacer = function(valor, callback){
 	this._conection.query('select * from escalacer where datainicial = "'+datainicial+'" and  datafinal = "'+datafinal+'" and turno = "'+turno+'" and unidade = "CER"', callback);
 }
 
-modelescalacer.prototype.buscarregraescalaunicacer = function(campo, turno, dateinicial, datefinal, callback){
+modelescalacer.prototype.buscarregraescalaunicacer = function(campo, turno, dateinicial, datefinal,ano, callback){
 
 
 
-	this._conection.query('select * from escalacer where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "CER"', callback);
+	this._conection.query('select * from escalacer where dateano="'+ano+'" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "CER"', callback);
 }
 
 modelescalacer.prototype.buscarescalamensalcer = function(valor, callback){

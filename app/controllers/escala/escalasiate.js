@@ -69,7 +69,7 @@ module.exports.validarescala = function(application, req, res){
 	var datefinal = req.body.datafinal;
 	var dateano = req.body.dataano;
 	var turno = req.body.turno;
-	modelescalasiate.buscarregraescalaunicasiate(unidade, turno, dateinicial, datefinal,function(error, resultado){
+	modelescalasiate.buscarregraescalaunicasiate(unidade, turno, dateinicial, datefinal,ano,function(error, resultado){
 
 		if(resultado != null || resultado != ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){

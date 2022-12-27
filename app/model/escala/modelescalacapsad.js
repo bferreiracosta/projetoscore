@@ -282,11 +282,11 @@ modelescalacapsad.prototype.buscarescalacapsad = function(valor, callback){
 	this._conection.query('select * from escalacapsad where datainicial = "'+datainicial+'" and  datafinal = "'+datafinal+'" and turno = "'+turno+'" and unidade = "Caps AD"', callback);
 }
 
-modelescalacapsad.prototype.buscarregraescalaunicacapsad = function(campo, turno, dateinicial, datefinal, callback){
+modelescalacapsad.prototype.buscarregraescalaunicacapsad = function(campo, turno, dateinicial, datefinal, ano, callback){
 
 
 
-	this._conection.query('select * from escalacapsad where dateano="2022" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps AD" ', callback);
+	this._conection.query('select * from escalacapsad where dateano="'+ano+'" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps AD" ', callback);
 }
 
 modelescalacapsad.prototype.buscarescalamensalcapsad = function(valor, callback){
