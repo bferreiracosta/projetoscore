@@ -2219,13 +2219,13 @@ if(funcao == "supervisao"){
 else{
   document.getElementById("divsupervisao").style.display = 'none';
 }
-if(nome  == "cida"){
+if(funcao  == "cida"){
   document.getElementById("divcida").style.display = 'block';
 }
 else{
   document.getElementById("divcida").style.display = 'none';
 }
-if(nome  == "Administrador"){
+if(funcao  == "Administrador"){
   document.getElementById("divcida").style.display = 'block';
   document.getElementById("divrt").style.display = 'block';
   document.getElementById("divsupervisao").style.display = 'block';
@@ -2273,13 +2273,13 @@ if(funcao == "supervisao"){
 else{
   document.getElementById("divsupervisao").style.display = 'none';
 }
-if(nome  == "cida"){
+if(funcao  == "cida"){
   document.getElementById("divcida").style.display = 'block';
 }
 else{
   document.getElementById("divcida").style.display = 'none';
 }
-if(nome  == "Administrador"){
+if(funcao  == "Administrador"){
   document.getElementById("divcida").style.display = 'block';
   document.getElementById("divrt").style.display = 'block';
   document.getElementById("divsupervisao").style.display = 'block';
@@ -2463,6 +2463,7 @@ $("#pesquisarmanha").on('click', function(e){
           contentType: 'application/json',
           url: '/buscarescalamensalcapsad',
           success: function(data) {  
+  
             if(data == ""){
               alert("Data sem escala adicionada")
             }

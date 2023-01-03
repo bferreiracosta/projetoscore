@@ -88,8 +88,8 @@ modelescalacapsad.prototype.criarescalacapsad = function(unidade, turno, dateini
 }
 
 modelescalacapsad.prototype.validarescala = function(unidade, turno, dateinicial, datefinal, rt, supervisao, cida, callback){
-	
-	this._conection.query('update escalacapsad set rt="'+rt+'",supervisao="'+supervisao+'",cida="'+cida+'" where  unidade="Caps AD" and turno="'+turno+'" and dateinicial="'+dateinicial+'" and datefinal="'+datefinal+'"', callback);
+
+	this._conection.query('update escalacapsad set rt="'+rt+'",supervisao="'+supervisao+'",cida="'+cida+'" where  unidade="'+unidade+'" and turno="'+turno+'" and dateinicial="'+dateinicial+'" and datefinal="'+datefinal+'"', callback);
 }
 
 modelescalacapsad.prototype.buscarsituacaocapsad = function(valor, callback){
@@ -98,7 +98,7 @@ modelescalacapsad.prototype.buscarsituacaocapsad = function(valor, callback){
 }
 
 modelescalacapsad.prototype.updateescalacapsad = function(valor,ferias, callback){
-	console.log(ferias, new Date(ferias[0].dateiniciosituacaoferias) > 16/11/2021)
+
 	if( ferias[0].situacaoferias == null || new Date(ferias[0].dateiniciosituacaoferias) > 16/11/2021){
 		if(valor.coluna ==9){var folga1 = valor.novoConteudo;this._conection.query('update folgacapsad set folga1 = "'+folga1+'"  where idfolgacapsad = "'+valor.idfinal+'"', callback);}
 		if(valor.coluna ==10){var folga2 = valor.novoConteudo;this._conection.query('update folgacapsad set folga2 = "'+folga2+'" where idfolgacapsad = "'+valor.idfinal+'"', callback);}
@@ -283,8 +283,6 @@ modelescalacapsad.prototype.buscarescalacapsad = function(valor, callback){
 }
 
 modelescalacapsad.prototype.buscarregraescalaunicacapsad = function(campo, turno, dateinicial, datefinal, ano, callback){
-
-
 
 	this._conection.query('select * from escalacapsad where dateano="'+ano+'" and dateinicial = "'+dateinicial+'" and  datefinal = "'+datefinal+'" and turno = "'+turno+'" and unidade = "Caps AD" ', callback);
 }

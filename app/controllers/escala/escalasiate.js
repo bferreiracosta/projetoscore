@@ -67,7 +67,7 @@ module.exports.validarescala = function(application, req, res){
 	} 
 	var dateinicial = req.body.datainicial;
 	var datefinal = req.body.datafinal;
-	var dateano = req.body.dataano;
+	var ano = req.body.dataano;
 	var turno = req.body.turno;
 	modelescalasiate.buscarregraescalaunicasiate(unidade, turno, dateinicial, datefinal,ano,function(error, resultado){
 

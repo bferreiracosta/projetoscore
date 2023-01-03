@@ -67,9 +67,9 @@ module.exports.validarescala = function(application, req, res){
 	} 
 	var dateinicial = req.body.datainicial;
 	var datefinal = req.body.datafinal;
-	var dateano = req.body.dataano;
+	var ano = req.body.dataano;
 	var turno = req.body.turno;
-	modelescalacapsleste.buscarregraescalaunicacapsleste(unidade, turno, dateinicial, datefinal,function(error, resultado){
+	modelescalacapsleste.buscarregraescalaunicacapsleste(unidade, turno, dateinicial, datefinal,ano,function(error, resultado){
 
 		if(resultado != null || resultado != ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){

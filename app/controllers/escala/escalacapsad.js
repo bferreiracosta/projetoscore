@@ -42,34 +42,17 @@ module.exports.validarescala = function(application, req, res){
 	var modeladmin = new application.app.model.admin.modeladmin(application);
 	var modelescalacapsad = new application.app.model.escala.modelescalacapsad(application);
 	var id = req.body.idusuario1;
-	var campo = req.body.uni;
+	var unidade = "Caps AD";
 	var rt = req.body.rt;
 	var supervisao = req.body.supervisao;
 	var cida = req.body.cida;
 	
-	if(campo==1){
-		var unidade = "Caps AD";
-	}else 
-	if(campo==2){
-		var unidade = "Luizote";
-	}else 
-	if(campo==3){
-		var unidade = "Martins";
-	}else 
-	if(campo==4){
-		var unidade = "Roosevelt";
-	}else 
-	if(campo==6){
-		var unidade = "Tibery";
-	}else 
-	if(campo==5){
-		var unidade = "Caps AD";
-	} 
 	var dateinicial = req.body.datainicial;
 	var datefinal = req.body.datafinal;
-	var dateano = req.body.dataano;
+	var ano = req.body.dataano;
 	var turno = req.body.turno;
-	modelescalacapsad.buscarregraescalaunicacapsad(unidade, turno, dateinicial, datefinal,function(error, resultado){
+
+	modelescalacapsad.buscarregraescalaunicacapsad(unidade, turno, dateinicial, datefinal,ano,function(error, resultado){
 
 		if(resultado != null || resultado != ""){
 			modeladmin.buscarusuarioeditavel(id, function(error,result){

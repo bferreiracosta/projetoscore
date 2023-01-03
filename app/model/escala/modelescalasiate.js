@@ -212,7 +212,7 @@ modelescalasiate.prototype.buscarescalamensalmedicosiate = function(valor, callb
 }
 
 modelescalasiate.prototype.buscarescalamensaltecnicosiate = function(valor, callback){
-	console.log(valor)
+
 	this._conection.query('select * from folgasiate f inner join funcionariossiate func on f.idfuncionarios=func.idfuncionariossiate inner join escalasiate esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "siate" order by func.nome DESC', callback);
 }
 module.exports = function(){

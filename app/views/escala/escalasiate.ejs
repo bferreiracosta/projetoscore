@@ -3125,7 +3125,7 @@ if(funcao == "supervisao"){
 else{
   document.getElementById("divsupervisao").style.display = 'none';
 }
-if(nome  == "cida"){
+if(funcao  == "cida"){
   document.getElementById("divcida").style.display = 'block';
 }
 else{
@@ -3203,7 +3203,7 @@ if(funcao == "supervisao"){
 else{
   document.getElementById("divsupervisao").style.display = 'none';
 }
-if(nome  == "cida"){
+if(funcao  == "cida"){
   document.getElementById("divcida").style.display = 'block';
 }
 else{
@@ -3280,7 +3280,7 @@ if(funcao == "supervisao"){
 else{
   document.getElementById("divsupervisao").style.display = 'none';
 }
-if(nome  == "cida"){
+if(funcao  == "cida"){
   document.getElementById("divcida").style.display = 'block';
 }
 else{
@@ -13062,7 +13062,6 @@ $("#pesquisarmanha").on('click', function(e){
         var Minha_data = 0;
         Minha_data = moment(valor+"/"+2023, "DD-MM-YYYY").format('dddd');
         if(Minha_data == "Saturday" || Minha_data == "Sunday"){
-          console.log(coluna)
               colorirTable(coluna)
         }
         }
@@ -22957,7 +22956,6 @@ $('#tablemedico tbody tr:eq(0)').each(function(i){
     const month1 = dataSplit1[1]; // 03
     // valor1 = new Date(year1, month1 - 1, day1);
     // var valores1 =new Date(year1, month1 - 1, day1).getTime()
-    console.log(valor)
     if(month1 == "01" && datafinal == "Janeiro"){
       var coluna = j; 
       ano = 2023;

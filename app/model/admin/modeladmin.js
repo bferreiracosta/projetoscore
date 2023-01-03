@@ -20,7 +20,7 @@ modeladmin.prototype.login = function(usuario, senha, funcao, req, res){
 	var usuario = usuario;
 	var senha = senha;
 	var funcao = funcao;
-	console.log(funcao);
+	
 	if (usuario && senha) {
 		this._conection.query('SELECT * FROM usuarios WHERE usuario = ? AND senha = ?', [usuario, senha], function(error, results, fields) {
 			if (results.length > 0) {

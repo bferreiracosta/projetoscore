@@ -99,7 +99,7 @@ modelescalacapsoeste.prototype.buscarsituacaocapsoeste = function(valor, callbac
 }
 
 modelescalacapsoeste.prototype.updateescalacapsoeste = function(valor,ferias, callback){
-	console.log(ferias, new Date(ferias[0].dateiniciosituacaoferias) > 16/11/2021)
+
 	if( ferias[0].situacaoferias == null || new Date(ferias[0].dateiniciosituacaoferias) > 16/11/2021){
 		if(valor.coluna ==9){var folga1 = valor.novoConteudo;this._conection.query('update folgacapsoeste set folga1 = "'+folga1+'"  where idfolgacapsoeste = "'+valor.idfinal+'"', callback);}
 		if(valor.coluna ==10){var folga2 = valor.novoConteudo;this._conection.query('update folgacapsoeste set folga2 = "'+folga2+'" where idfolgacapsoeste = "'+valor.idfinal+'"', callback);}
