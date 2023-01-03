@@ -12147,10 +12147,10 @@ $("#pesquisartarde").on('click', function(e){
             var contigencia = '';
             var folguista = '';
 
-            var newRow4 = $("<tr>");
+            var newRow41 = $("<tr>");
                   azul1+= '<td class="reservas" colspan="40" style="text-align: center; font-size:12px; background: rgb(139, 139, 139); color: white;" >Gerente</td>' 
-              newRow4.append(azul1);
-                $('#tablemanha').append(newRow4);
+              newRow41.append(azul1);
+                $('#tabletarde').append(newRow41);
                 for(var i = 0; i< data.length; i++){
               if(data[i].setor == "Gerente"){
                 var Azul = $("<tr>");
@@ -12280,7 +12280,7 @@ $("#pesquisartarde").on('click', function(e){
                             id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;">' + data[i].horariofinal + '</td>'
                             id+= '<td class="reservas" colspan="31" style="text-align: center; background: rgb(139, 139, 139); color: white;" " class="editavel">Férias</td>'
                             Azul.append(id);
-                            $('#tablemanha').append(Azul); 
+                            $('#tabletarde').append(Azul); 
                         
                             var vaga1 = $("<tr>");
                               var id1 = "";
@@ -12325,7 +12325,7 @@ $("#pesquisartarde").on('click', function(e){
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>' 
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>'
                               vaga1.append(id1);
-                            $('#tablemanha').append(vaga1); 
+                            $('#tabletarde').append(vaga1); 
 
                       }else  if(valores1 < valores3 && valores2<valores4){
                             var m =9+cols;
@@ -12496,7 +12496,7 @@ $("#pesquisartarde").on('click', function(e){
                               id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + folga + '</td>' 
                             }
                             Azul.append(id);
-                            $('#tablemanha').append(Azul); 
+                            $('#tabletarde').append(Azul); 
                             
                             var vaga2 = $("<tr>");
                               var id1 ='';
@@ -12541,7 +12541,7 @@ $("#pesquisartarde").on('click', function(e){
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>' 
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>'
                               vaga2.append(id1);
-                            $('#tablemanha').append(vaga2);
+                            $('#tabletarde').append(vaga2);
                       }else if(valor1 >= valor3 && valor2<valor4){
 
                              let partes = '2021-02-28'.split('-');
@@ -12892,7 +12892,7 @@ $("#pesquisartarde").on('click', function(e){
                               id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + folga + '</td>' 
                             }
                             Azul.append(id);
-                            $('#tablemanha').append(Azul); 
+                            $('#tabletarde').append(Azul); 
                             var vaga3 = $("<tr>");
                               var id1 ='';
                                id1+= '<td class="reservas" style="background: green;;font-size: 12px!important;">' + data[i].idfolgacapsi + '</td>' 
@@ -12936,7 +12936,7 @@ $("#pesquisartarde").on('click', function(e){
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>' 
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>'
                               vaga3.append(id1);
-                            $('#tablemanha').append(vaga3);
+                            $('#tabletarde').append(vaga3);
                       }else if(valor1 >= valor3 && valor2>=valor4){
 
                             id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;">' + data[i].idfolgacapsi + '</td>' 
@@ -13117,7 +13117,7 @@ $("#pesquisartarde").on('click', function(e){
                                 }     
                             }
                             Azul.append(id);
-                            $('#tablemanha').append(Azul); 
+                            $('#tabletarde').append(Azul); 
                             var vaga4 = $("<tr>");
                               var id1 ='';
                                id1+= '<td class="reservas" style="background: green;;font-size: 12px!important;">' + data[i].idfolgacapsi + '</td>' 
@@ -13161,7 +13161,7 @@ $("#pesquisartarde").on('click', function(e){
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>' 
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>'
                               vaga4.append(id1);
-                            $('#tablemanha').append(vaga4);
+                            $('#tabletarde').append(vaga4);
 
                       }
                       
@@ -13289,7 +13289,7 @@ $("#pesquisartarde").on('click', function(e){
                             id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;">' + data[i].horariofinal + '</td>'
                             id+= '<td class="reservas" colspan="31" style="text-align: center; background: rgb(139, 139, 139); color: white;" " class="editavel">Afastamento Pericia Medica</td>'
                             Azul.append(id);
-                            $('#tablemanha').append(Azul); 
+                            $('#tabletarde').append(Azul); 
                         
                             var vaga1 = $("<tr>");
                               var id1 = "";
@@ -13334,7 +13334,7 @@ $("#pesquisartarde").on('click', function(e){
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>' 
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>'
                               vaga1.append(id1);
-                            $('#tablemanha').append(vaga1); 
+                            $('#tabletarde').append(vaga1); 
 
                       }else  if(valores1 < valores3 && valores2<valores4){
                             var m =9+cols;
@@ -13505,7 +13505,7 @@ $("#pesquisartarde").on('click', function(e){
                               id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + folga + '</td>' 
                             }
                             Azul.append(id);
-                            $('#tablemanha').append(Azul); 
+                            $('#tabletarde').append(Azul); 
                             
                             var vaga2 = $("<tr>");
                               var id1 ='';
@@ -13550,7 +13550,7 @@ $("#pesquisartarde").on('click', function(e){
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>' 
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>'
                               vaga2.append(id1);
-                            $('#tablemanha').append(vaga2);
+                            $('#tabletarde').append(vaga2);
                       }else if(valor1 >= valor3 && valor2<valor4){
 
                              let partes = '2021-02-28'.split('-');
@@ -13901,7 +13901,7 @@ $("#pesquisartarde").on('click', function(e){
                               id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + folga + '</td>' 
                             }
                             Azul.append(id);
-                            $('#tablemanha').append(Azul); 
+                            $('#tabletarde').append(Azul); 
                             var vaga3 = $("<tr>");
                               var id1 ='';
                                id1+= '<td class="reservas" style="background: #2980b9;;font-size: 12px!important;">' + data[i].idfolgacapsi + '</td>' 
@@ -13945,7 +13945,7 @@ $("#pesquisartarde").on('click', function(e){
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>' 
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>'
                               vaga3.append(id1);
-                            $('#tablemanha').append(vaga3);
+                            $('#tabletarde').append(vaga3);
                       }else if(valor1 >= valor3 && valor2>=valor4){
 
                             id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;">' + data[i].idfolgacapsi + '</td>' 
@@ -14126,7 +14126,7 @@ $("#pesquisartarde").on('click', function(e){
                                 }     
                             }
                             Azul.append(id);
-                            $('#tablemanha').append(Azul); 
+                            $('#tabletarde').append(Azul); 
                             var vaga4 = $("<tr>");
                               var id1 ='';
                                id1+= '<td class="reservas" style="background: #2980b9;;font-size: 12px!important;">' + data[i].idfolgacapsi + '</td>' 
@@ -14170,7 +14170,7 @@ $("#pesquisartarde").on('click', function(e){
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>' 
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>'
                               vaga4.append(id1);
-                            $('#tablemanha').append(vaga4);
+                            $('#tabletarde').append(vaga4);
 
                       }
                       
@@ -14298,7 +14298,7 @@ $("#pesquisartarde").on('click', function(e){
                             id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;">' + data[i].horariofinal + '</td>'
                             id+= '<td class="reservas" colspan="31" style="text-align: center; background: rgb(139, 139, 139); color: white;" " class="editavel">Cobertura de Gestação/Licença Maternidade</td>'
                             Azul.append(id);
-                            $('#tablemanha').append(Azul); 
+                            $('#tabletarde').append(Azul); 
                         
                             var vaga1 = $("<tr>");
                               var id1 = "";
@@ -14343,7 +14343,7 @@ $("#pesquisartarde").on('click', function(e){
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>' 
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>'
                               vaga1.append(id1);
-                            $('#tablemanha').append(vaga1); 
+                            $('#tabletarde').append(vaga1); 
 
                       }else  if(valores1 < valores3 && valores2<valores4){
                             var m =9+cols;
@@ -14514,7 +14514,7 @@ $("#pesquisartarde").on('click', function(e){
                               id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + folga + '</td>' 
                             }
                             Azul.append(id);
-                            $('#tablemanha').append(Azul); 
+                            $('#tabletarde').append(Azul); 
                             
                             var vaga2 = $("<tr>");
                               var id1 ='';
@@ -14559,7 +14559,7 @@ $("#pesquisartarde").on('click', function(e){
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>' 
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>'
                               vaga2.append(id1);
-                            $('#tablemanha').append(vaga2);
+                            $('#tabletarde').append(vaga2);
                       }else if(valor1 >= valor3 && valor2<valor4){
 
                              let partes = '2021-02-28'.split('-');
@@ -14910,7 +14910,7 @@ $("#pesquisartarde").on('click', function(e){
                               id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + folga + '</td>' 
                             }
                             Azul.append(id);
-                            $('#tablemanha').append(Azul); 
+                            $('#tabletarde').append(Azul); 
                             var vaga3 = $("<tr>");
                               var id1 ='';
                                id1+= '<td class="reservas" style="background: #fd79a8;;font-size: 12px!important;">' + data[i].idfolgacapsi + '</td>' 
@@ -14954,7 +14954,7 @@ $("#pesquisartarde").on('click', function(e){
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>' 
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>'
                               vaga3.append(id1);
-                            $('#tablemanha').append(vaga3);
+                            $('#tabletarde').append(vaga3);
                       }else if(valor1 >= valor3 && valor2>=valor4){
 
                             id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;">' + data[i].idfolgacapsi + '</td>' 
@@ -15135,7 +15135,7 @@ $("#pesquisartarde").on('click', function(e){
                                 }     
                             }
                             Azul.append(id);
-                            $('#tablemanha').append(Azul); 
+                            $('#tabletarde').append(Azul); 
                             var vaga4 = $("<tr>");
                               var id1 ='';
                                id1+= '<td class="reservas" style="background: #fd79a8;;font-size: 12px!important;">' + data[i].idfolgacapsi + '</td>' 
@@ -15179,7 +15179,7 @@ $("#pesquisartarde").on('click', function(e){
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>' 
                                id1+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + "" + '</td>'
                               vaga4.append(id1);
-                            $('#tablemanha').append(vaga4);
+                            $('#tabletarde').append(vaga4);
 
                       }
                       
@@ -15225,7 +15225,7 @@ $("#pesquisartarde").on('click', function(e){
                       id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + data[i].folga30 + '</td>' 
                       id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + data[i].folga31 + '</td>'
                       Azul.append(id);
-                      $('#tablemanha').append(Azul); 
+                      $('#tabletarde').append(Azul); 
                     }
                  
                 }else{
@@ -15270,7 +15270,7 @@ $("#pesquisartarde").on('click', function(e){
                 id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + data[i].folga30 + '</td>' 
                 id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + data[i].folga31 + '</td>' 
                 Azul.append(id);
-                $('#tablemanha').append(Azul); 
+                $('#tabletarde').append(Azul); 
                 }
               }
             }
