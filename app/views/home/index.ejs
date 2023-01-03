@@ -18,7 +18,7 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-background-image: url("images/saude2.jpg") ;
+background-image: url("images/saude.jpg") ;
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
@@ -37,7 +37,7 @@ height: 300px;
 margin-top: auto;
 margin-bottom: auto;
 width: 430px;
-background-color: rgba(4, 115, 179, 0.5) !important;
+background-color: rgba(110, 115, 118, 0.5) !important;
 }
 
 .social_icon span{
@@ -64,7 +64,7 @@ top: -45px;
 
 .input-group-prepend span{
 width: 50px;
-background-color: #FFC312;
+background-color: #0307e4;
 color: black;
 border:0 !important;
 }
@@ -156,35 +156,35 @@ background-color: #202020; }
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>Login</h3>
+				<h3 style="color: black;" >Login</h3>
 			</div>
 			<div class="card-body">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
+							<span class="input-group-text"><i class="fas fa-user" style="color: white;" ></i></span>
 						</div>
 						<input type="text" name="usuario" id="usuario" placeholder="Usuário" class="form-control" autocomplete="off" required />
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
+							<span class="input-group-text"><i class="fas fa-key" style="color: white;" ></i></span>
 						</div>
 						<input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" required />
 					</div>
 					
+					<div class="form-group">
+						<button  id="login" class="btn btn-dark btn-lg btn-block"  data-toggle="modal" data-target="#BaixaModal">Login</button>
+					</div>
+					<div class="form-group">
+						<a style="color: black;"  href="/updatepassword">Alterar Senha</a>
+					</div>
 					<div class="row align-items-center remember">
 						<div>
 							<% if ( msg.length > 0 ) { %>
 								<p style="color: red;"><%= msg %> </p>
 							  <% } %>
 						</div>
-					</div>
-					<div class="form-group">
-						<button  id="login" class="btn btn-info btn-lg btn-block"  data-toggle="modal" data-target="#BaixaModal">Login</button>
-					</div>
-					<div class="form-group">
-						<a href="/updatepassword">Alterar Senha</a>
 					</div>
 			</div>
 		</div>
@@ -196,9 +196,9 @@ background-color: #202020; }
         <div class="modal fade" id="BaixaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
             <div class="modal-dialog ">
-                <div style="background-color: rgba(13, 124, 228, 0.5) !important; color: white;" class="modal-content">
+                <div style="background-color: rgba(110, 115, 118, 0.5) !important; color: black;" class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="myModalLabel">Selecione o modulo</h5>
+                        <h5 style="color: white;" class="modal-title" id="myModalLabel">Selecione o modulo</h5>
                         <button type="button" style="color: white;" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
@@ -207,15 +207,15 @@ background-color: #202020; }
 						<input type="hidden" name="senha2" id="senha2" placeholder="Senha" class="form-control" required />
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
+								<span class="input-group-text"><i class="fas fa-key" style="color: white;"></i></span>
 							</div>
-							<select style="background-color: rgba(114, 155, 231, 0.4) !important; color: black;" onChange="update()" id="funcao"  class="form-control form-control-lg" required>
-								<option></option>
+							<select style="background-color:rgb(207, 206, 205); color: black;" onChange="update()" id="funcao"  class="form-control form-control-lg" required>
+								<option style="color: black;"></option>
 							</select>
 							<input  type="hidden" name="cargo" id="cargo">
 						</div>
 						<div  class="modal-footer">
-							<button type="submit"  class="btn btn-info btn-lg btn-block">Entrar</button>
+							<button style="color: white;" type="submit"  class="btn btn-dark btn-lg btn-block">Entrar</button>
 						</div>
 						
                     </div>
