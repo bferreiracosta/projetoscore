@@ -273,7 +273,7 @@ modelescalacapsleste.prototype.buscarregraescalaunicacapsleste = function(campo,
 
 modelescalacapsleste.prototype.buscarescalamensalcapsleste = function(valor, callback){
 
-	this._conection.query('select * from folgacapsleste f inner join funcionarioscapsleste func on f.idfuncionarios=func.idfuncionarioscapsleste inner join escalacapsleste esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps Leste" order by func.categoria = "AE", func.categoria = "Tec", func.categoria = "Enf Jr", func.categoria = "Enf",func.nome DESC;', callback);
+	this._conection.query('select * from folgacapsleste f inner join funcionarioscapsleste func on f.idfuncionarios=func.idfuncionarioscapsleste inner join escalacapsleste esc on f.idescala = esc.idescala where esc.dateinicial = "'+valor.datainicial+'" and  esc.datefinal = "'+valor.datafinal+'" and  esc.dateano = "'+valor.ano+'" and esc.turno = "'+valor.turno+'" and esc.unidade = "Caps Leste" order by func.categoria = "AE", func.categoria = "TE", func.categoria = "Enf Jr", func.categoria = "ENF",func.nome DESC;', callback);
 }
 
 modelescalacapsleste.prototype.buscarescalamensalcapslestetarde = function(valor, callback){

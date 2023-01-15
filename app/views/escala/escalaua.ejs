@@ -14118,7 +14118,7 @@ $("#pesquisarmanha").on('click', function(e){
     var canvas_image_width = 295;
     var canvas_image_height = 338;
     let position = 0;
-    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 3;
+    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 4;
 
     html2canvas($("#tablemanha")[0]).then(function (canvas) {
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
@@ -14128,7 +14128,7 @@ $("#pesquisarmanha").on('click', function(e){
               pdf.addPage('l', 'mm', 'a4');
             pdf.addImage(imgData, 'JPG', 1, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
         }
-        pdf.save("ScoreSystem Escala Folga Manhã");
+        pdf.save("Escala Unidade de Acolhimento");
         
     });
 }
