@@ -10555,7 +10555,7 @@ $("#pesquisarmanha").on('click', function(e){
                               }
                               id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + folga + '</td>' 
                             }
-                            rts1.append(id);Moreira
+                            rts1.append(id);
                             var vaga3 = $("<tr>");
                               var id1 ='';
                                id1+= '<td class="reservas" style="background: green;;font-size: 12px!important;">' + data[i].idfolgasiate + '</td>' 
@@ -13898,7 +13898,7 @@ data = [];
                           }
                           id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + folga + '</td>' 
                         }
-                        SCIH8.append(id);Moreira
+                        SCIH8.append(id);
                         var vaga3 = $("<tr>");
                           var id1 ='';
                            id1+= '<td class="reservas" style="background: green;;font-size: 12px!important;">' + data[i].idfolgasiate + '</td>' 
@@ -17042,7 +17042,7 @@ data = [];
                           }
                           id+= '<td class="reservas" style="background: rgb(255, 255, 255);font-size: 12px!important;" class="editavel">' + folga + '</td>' 
                         }
-                        tecs9.append(id);Moreira
+                        tecs9.append(id);
                         var vaga3 = $("<tr>");
                           var id1 ='';
                            id1+= '<td class="reservas" style="background: green;;font-size: 12px!important;">' + data[i].idfolgasiate + '</td>' 
@@ -22986,14 +22986,14 @@ function createPDFmanha() {
     var PDF_Width = 295 ;
     var PDF_Height = 397;
     var canvas_image_width = 295;
-    var canvas_image_height = 474;
+    var canvas_image_height = 478;
     let position = 0;
-    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 7;
+    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 6;
 
     html2canvas($("#tablemanha")[0]).then(function (canvas) {
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
         var pdf = new jsPDF('l', 'mm', 'a4');
-        pdf.addImage(imgData, 'JPG', 1, 1, 295, 492);
+        pdf.addImage(imgData, 'JPG', 1, 1, 295, 496);
         for (var i = 1; i <= totalPDFPages; i++) { 
               pdf.addPage('l', 'mm', 'a4');
             pdf.addImage(imgData, 'JPG', 1, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
