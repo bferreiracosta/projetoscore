@@ -51,8 +51,7 @@ modelescalasiate.prototype.criarfolga =  function(funcionarios, escala, turno, c
 			[funcionarios[36].idfuncionariossiate, escala],
 			[funcionarios[37].idfuncionariossiate, escala],
 			[funcionarios[38].idfuncionariossiate, escala],
-			[funcionarios[39].idfuncionariossiate, escala],
-			[funcionarios[40].idfuncionariossiate, escala],
+
 		];
 	}
 	if(turno == "tecnico SIATE"){
